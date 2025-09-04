@@ -2,6 +2,9 @@ name: Sync Markdown
 
 on:
   workflow_dispatch:
+  schedule:
+    # 20:20 MSK (UTC+3) -> 17:20 UTC
+    - cron: '20 17 * * *'
 
 permissions:
   contents: write
