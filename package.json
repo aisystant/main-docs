@@ -1,17 +1,20 @@
 {
-  "name": "main-docs-workflow",
-  "version": "0.1.0",
+  "name": "main-docs",
   "private": true,
   "type": "module",
+  "version": "0.1.0",
   "scripts": {
-    "sync:docs": "tsx scripts/sync-markdown.ts",
-    "test": "tsx --test"
+    "sync:docs": "bun run scripts/sync-gdocs.ts",
+    "test": "bun test",
+    "lint": "oxlint --tsconfig=tsconfig.json --deny=correctness scripts",
+    "lint:fix": "oxlint --fix --tsconfig=tsconfig.json scripts"
   },
   "devDependencies": {
-    "tsx": "^4.19.0"
+    "bun-types": "^1.0.10",
+    "oxlint": "^1.14.0"
   },
   "dependencies": {
-    "effect": "^3.17.13",
-    "ky": "^1.4.0"
+    "effect": "^3.6.5",
+    "ky": "^1.9.1"
   }
 }

@@ -7,3 +7,4 @@ pnpm-lock.yaml
 WARP.md
 pull_request_template.md
 .venv*
+mcp.config.json
