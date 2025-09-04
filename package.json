@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "sync:docs": "bun run scripts/sync-gdocs.ts",
+    "sync:yadisk": "bun run scripts/sync-yadisk.ts",
     "test": "bun test",
     "lint": "oxlint --tsconfig=tsconfig.json --deny=correctness scripts",
     "lint:fix": "oxlint --fix --tsconfig=tsconfig.json scripts"
