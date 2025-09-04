@@ -1,0 +1,17 @@
+{
+  "name": "main-docs-workflow",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:docs": "tsx scripts/sync-markdown.ts",
+    "test": "tsx --test"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
+  },
+  "dependencies": {
+    "effect": "^3.17.13",
+    "ky": "^1.4.0"
+  }
+}
