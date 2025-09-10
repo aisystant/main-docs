@@ -110,16 +110,16 @@
 | C.3.4 | **RoleMask — Contextual Adaptation of Kinds** | \[A] | full text | Provides a mechanism for context-local adaptation of kinds without creating new types. |
 | C.3.5 | **KindAT — Intentional Abstraction Facet for Kinds** | \[I/A] | full text | Defines an informative facet (K0–K3) to classify the intentional abstraction stance of a kind. |
 | C.3.A | **Typed Guard Macros for Kinds + USM (Annex)** | \[A/I] | full text | Provides normative guard macros combining USM Scope and Kind-CAL for typed reasoning. |
-| C.4 | **Method‑CAL** | CAL | stub | Formal U.Method / U.MethodDescription; Γ_method ops. |
+| C.4 | **Method‑CAL** | CAL | stub | MethodDescription, MethodSpec, OperatorCard (typed), AcceptanceClause, FlowSpec, EvidenceProfile; Γ_method composition; links to B.1.5/B.4.3. |
 | C.5 | **Resrc‑CAL** | CAL | stub | Energy / material / information resources; Γ_work ops. |
-| C.6 | **LOG‑CAL – Core Logic Calculus** | LOG | stub | Minimal proof calculus; modal & trust operators (imports Type‑CAL). |
+| C.6 | **LOG‑CAL – Core Logic Calculus** | LOG | stub | Minimal proof calculus; modal & trust operators (imports Kind-CAL). |
 | C.7 | **CHR‑CAL – Characterisation Kit** | CHR | stub | Meta‑template for measurable properties (imports Sys/KD/Resrc‑CAL). |
 | **Cluster C.II – Domain‑Specific Architheories (CAL / LOG / CHR)** | | | | |
 | C.9 | **Agency‑CHR** | CHR | stub | Gradual agency measurement; `AgentialRole`; active-inference hooks. |
 | C.10 | **Norm‑CAL** | CAL | stub | Behavioural constraints; ethics; trust anchors. |
 | C.11 | **Decsn‑CAL** | CAL | stub | Decision holons; preference orders; utility proofs. |
 | **Cluster C.III – Meta‑Infrastructure CALs** | | | | |
-| C.12 | **ADR‑Type‑CAL** | CAL | stub | DRR schema; Signature / Realization versioning. |
+| C.12 | **ADR‑Kind-CAL** | CAL | stub | DRR schema; Signature / Realization versioning. |
 | C.13 | **Compose‑CAL — Constructional Mereology** | CAL | full text | Exports `Γ_m.sum | Γ_m.set | Γ_m.slice`; extensional identity; order/time remain outside mereology. |
 | **Cluster C.IV – Composite & Macro‑Scale** | | | | |
 | C.14 | **M‑Sys‑CAL** | CAL | stub | Large‑scale infrastructures; multi‑Transformer orchestration. |
@@ -559,7 +559,7 @@ Conceptually, the Intellect Stack is formalized as a non-normative **Characteriz
 
 | Layer                          | Core question                          | Key patterns & exemplary domains                                                                                                                            |
 | ------------------------------ | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **1 · Structure & Reality**    | *What exists and how is it bounded?*   | **Type‑CAL** for universal categories; **Sys‑CAL** for system boundaries. <br>Physics (control volumes), Software (static types), Ecology (trophic levels). |
+| **1 · Structure & Reality**    | *What exists and how is it bounded?*   | **Kind-CAL** for universal categories; **Sys‑CAL** for system boundaries. <br>Physics (control volumes), Software (static types), Ecology (trophic levels). |
 | **2 · Knowledge & Reasoning**  | *Why should we trust this claim?*      | **KD‑CAL** (F‑G‑R characteristics), **Arg‑LOG** for formal argument. <br>AI (model validation), Evidence‑based policy.                                                 |
 | **3 · Action & Execution**     | *How do we turn intent into change?*   | **Agent‑CHR**, **Method‑CAL**, **Resrc‑CAL**. <br>Robotics (action plans), DevOps (pipelines), Urban planning (resource flows).                             |
 | **4 · Strategy & Rationality** | *Which option wins under uncertainty?* | **Decsn‑CAL**—`U.Decision`, causal models. <br>Finance (risk fronts), Military wargaming.                                                                   |
@@ -5532,7 +5532,7 @@ A Signature is **timeless**. It declares only **what** an architheory contribute
 | Field      | Purpose                                           | Examples                                 |
 | ---------- | ------------------------------------------------- | ---------------------------------------- |
 | `id`       | Canonical name, globally unique.                  | `Sys‑CAL`  ·  `Logic‑CAL`                |
-| `imports`  | Set of **other Signatures** required.             | `[Kernel, Type‑CAL]`                     |
+| `imports`  | Set of **other Signatures** required.             | `[Kernel, Kind-CAL]`                     |
 | `provides` | Set of new `U.Type`s **and** universal operators. | `U.Port`, `Γ\_sys`, `implies`, `entails` |
 
 *Invariant:* the **import graph must be acyclic** (no hidden recursion).
@@ -5565,7 +5565,7 @@ Every Architheory **SHALL** publish a compact **Signature Block** with four item
 * **LOG** and **CHR** architheories **SHALL NOT** export `Γ`.
 * Import layering **SHALL** respect the holonic stack: LOG/CHR **may** import CAL; CAL **may** import CAL; import graphs are **acyclic**.
 
-This reflects the Part C catalogue where, e.g., LOG‑CAL may import Type‑CAL, while builders remain confined to the calculus layer.
+This reflects the Part C catalogue where, e.g., LOG‑CAL may import Kind-CAL, while builders remain confined to the calculus layer.
 
 #### 2.3 · Signature header (metadata)
 
@@ -8292,6 +8292,8 @@ A.19 established a substrate‑neutral picture:
 * **operators** (subspace, product, pullback/pushforward) and **comparability** (coordinatewise vs **gauge‑based**);
 * **RSG touch‑points**: role readiness (**RSG** states) are **certified** against CS via **checklists** over observable characteristics;
 * **entity/relational mixtures** across CG‑frames via minimal schemas and bridges.
+
+**Terminology guard.** *CG‑frame* is the **lens** (I); *CG‑Spec* is the **governance card** (S) that fixes admissible charts/gauges/comparability/Γ‑fold for that lens **in one `U.BoundedContext`**; *CG‑Description* is the didactic surface (D) with worked examples and anti‑patterns.
 
 A.19.D1 makes this *operational and auditable*.
 
@@ -11429,7 +11431,7 @@ Any Γ‑flavour that claims an **Assurance** result **must** adopt the followin
 
 4. **SCR and Notes:**
    * The aggregate SHALL produce a SCR listing all contributing nodes and edges, with their F, G, R, CL, scopes, and evidence links (A.10).  
-   * The SCR SHALL additionally surface the **aboutness** (`about(Object→TopicHolon)`) and the **ObjectMode** for the claim, and present a **separable TA/VA/LA table** of evidence contributions with **valid_until/decay** marks and the **Epistemic‑Debt** per § B.3.4.  
+   * The SCR SHALL additionally surface the **aboutness** (`about(Object→TopicHolon)`) and the **ReferencePlane** for the claim, and present a **separable TA/VA/LA table** of evidence contributions with **valid_until/decay** marks and the **Epistemic‑Debt** per § B.3.4.  
    * If order/time mattered for the claim, attach the OrderSpec or TimeWindow identifiers (B.1.4).
 
 This skeleton is **mandatory**. Domain‑specific architheories may add **refinements** (e.g., separate epistemic “replicability” vs. “calibration”) as long as they **do not violate** WLNK or MONO and preserve scale kinds.
@@ -11609,7 +11611,7 @@ These obligations refine the generic Proof Kit from **B.1.1 §6** for **assuranc
 | **CC‑B3.3** | The **Congruence Level** `CL` **SHALL** live on **edges**; the penalty `Φ(CL)` **SHALL** be **monotone decreasing** and **bounded** (`R_eff ≥ 0`).                            | Make integration quality first‑class.        |                                   |
 | **CC‑B3.4** | `R_eff` **SHALL** be computed as `R_eff = max(0, min_i R_i − Φ(CL_min))` for the relevant integration path(s), unless a stricter domain‑specific rule is justified.           | Enforce WLNK and penalize weak integrations. |                                   |
 | **CC‑B3.5** | `F_eff = min_i F_i`; `G_eff = SpanUnion({G_i})` **constrained by support**.                                                                                                   | Prevent over‑generalization.                 |                                   |
-| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, evidence anchors, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **aboutness binding** `about(Object→TopicHolon)` for the claim and the declared **ObjectMode ∈ {coincident, external}** (cf. C.2.3 **CC‑UE‑06**); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
+| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, evidence anchors, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **aboutness binding** `about(Object→TopicHolon)` for the claim and the declared **ReferencePlane ∈ {coincident, external}** (cf. C.2.3 **CC‑UE‑06**); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
 | **CC‑B3.7** | **Agency‑CHR** values (A.13) **SHALL NOT** override WLNK or `Φ(CL)` penalties; if agency grade change alters capabilities, model it as a **Meta‑Holon Transition**.           | Preserve safety; keep agency separate.       |                                   |
 | **CC‑B3.8** | Design‑time and run‑time assurance **SHALL NOT** be mixed in one tuple; compare them side‑by‑side if needed.                                                                  | Avoid design/run mixing.                     |                                   |
 
@@ -11994,7 +11996,7 @@ When you add or import a relation edge:
 
   * **Constructive** grounding: a *generative* narrative that reconstructs the relation via the three mereological aggregators (`Γ_m.sum | Γ_m.set | Γ_m.slice`) from **Compose‑CAL**. (No formal notation is required in this pattern—only a reconstructible *story of construction*.)
   * **Logical** grounding: a *reasoned* chain (think KD‑CAL style arguments) that shows why the relation follows from stated premises.
-  * **Mapping** grounding: a *type/lexical alignment* that shows the domain label truly denotes the intended U‑type relation (Type‑CAL / Lang‑CHR stance).
+  * **Mapping** grounding: a *type/lexical alignment* that shows the domain label truly denotes the intended U‑type relation (Kind-CAL / Lang‑CHR stance).
     These three kinds of support are *complementary*, not exclusive.
 
 * **Empirical Validation.** How a published relation meets reality (observations, calibration scenarios). It lives beside, not inside, the relation. (See B.3 family.)
@@ -12061,7 +12063,7 @@ Core prose **MUST NOT** introduce CI/CD terms, file formats, APIs, or machine‑
   Any machinery that *executes* checks; any binding to specific notations; any process/workflow mechanics; any discussion of file formats. (Those belong to Tooling/Pedagogy artefacts and SHALL NOT be imported by the Conceptual Core.)
   
 * **Edge placements.**
-  When a claim is chiefly about *naming fit* across Contexts, prefer **Mapping** grounding (Type‑CAL/Lang‑CHR stance). When it is chiefly about *why* it follows, prefer **Logical** grounding. When it is about *what the whole is, from its parts*, prefer **Constructive** grounding. (Authors MAY combine them.)
+  When a claim is chiefly about *naming fit* across Contexts, prefer **Mapping** grounding (Kind-CAL/Lang‑CHR stance). When it is chiefly about *why* it follows, prefer **Logical** grounding. When it is about *what the whole is, from its parts*, prefer **Constructive** grounding. (Authors MAY combine them.)
 
 ---
 
@@ -12164,7 +12166,7 @@ Part E requires that patterns govern **thinking** and **authoring**; enforceme
 **Coordinates with**
 • **Compose-CAL (Γ_m)** — provides the **constructive** shoulder of the Assurance layer for **structural** relations; CT2R-LOG’s `tv:groundedBy` points *conceptually* to traces narratable as **sum/set/slice**.
 • **KD‑CAL** — provides the **logical** shoulder (inferential justification) when authors pick `validationMode = inferential`.
-• **Type‑CAL / Lang‑CHR** — provide the **mapping** shoulder (type alignment and language hygiene) supporting alias policies without altering Working-Model relations.
+• **Kind-CAL / Lang‑CHR** — provide the **mapping** shoulder (type alignment and language hygiene) supporting alias policies without altering Working-Model relations.
 
 **Constrained by**
 • **Notational Independence (E.5.2)** — CT2R‑LOG refuses to prescribe formats, keeping all obligations conceptual.
@@ -12244,7 +12246,7 @@ The Canonical Evolution Loop is universal. It applies identically to the evoluti
         1.  **Operate:** The theory exists and is applied by researchers.
         2.  **Observe:** A research lab (`Transformer`) discovers a new class of proteins whose structure the theory fails to predict (an anomaly). They publish this finding.
         3.  **Refine:** Another research team (`Transformer`) revises the original theory, adding a new term to its equations (`design-time` model) that accounts for the new protein class.
-        4.  **Deploy:** The team (`Transformer`) publishes the revised theory in a journal. The scientific community begins to use the new version.
+        4.  **Deploy:** The team (`Transformer`) publishes the revised theory in a journal. The scientific community begins to use the new version. **Note.** The *chart* and any CG‑frame readings derived from this episteme MUST cite the updated `MethodDescription` (per A.19.D1 CC‑A19.D1‑3) to keep comparability auditable.
 
 *   **B.4.3 Method Instantiation (Adaptive Workflow Loop):**
     *   **Context:** A software development team uses a specific agile workflow (`U.Method`).
@@ -12252,7 +12254,7 @@ The Canonical Evolution Loop is universal. It applies identically to the evoluti
         1.  **Operate:** The team follows the defined workflow for its sprints.
         2.  **Observe:** The scrum master (`Transformer`) notes that the time from code commit to production deployment is consistently exceeding the target SLA (an anomaly).
         3.  **Refine:** The team (`Transformer`) redesigns its CI/CD pipeline (`design-time` model of the method), introducing a new automated testing stage to catch errors earlier.
-        4.  **Deploy:** The team (`Transformer`) implements the new pipeline configuration. The next sprint operates under the refined method.
+        4.  **Deploy:** The team (`Transformer`) implements the new pipeline configuration. The next sprint operates under the refined method. **Note.** Method evolution MUST be recorded as `Γ_method` composition over `U.Method` (design‑time) and separated from `U.Work` (run‑time), with DRR ids attached (per A.4/B.1.5).
 
 **Conformance Checklist**
 
@@ -13026,6 +13028,9 @@ The following governance graphs are **not** triangle vertices but **attached str
 **Pointing relations (outside the episteme holon)**
 1. `about` → `U.TopicHolon` (from **Object/Reference Map** to its targets).  
 2. `isCarriedBy` → `U.Carrier` (**from the episteme as a whole** to its carriers).  
+3. `aboutEpisteme` → **U.Episteme|Claim** (episteme‑level reference; ReferencePlane=episteme).
+
+**Reflexivity (normative).** When a claim refers to an episteme that includes the referring claim (self‑reference), the publisher SHALL (i) declare ReferencePlane=episteme, and (ii) ensure **acyclicity per evaluation chain** (no justification cycle in JustificationGraph). Reflexive references MAY exist as literature anchors but MUST NOT form a minimal support cycle for acceptance.
 
 *Carrier rule (normative):* **No carriers in `U.ClaimGraph` or `U.JustificationGraph`.** Symbols denote **notation/representation**; carriers are **structural artefacts** referenced via `isCarriedBy`. One **Symbol** component MAY point to a `U.Collection` of notation descriptors; each descriptor may in turn be *carried by* many artefacts. 
 
@@ -13051,19 +13056,19 @@ Where a context endorses Curry–Howard:
 * **Proofs** in `JustificationGraph` are **program‑like derivations**;
 * **Proof checking** is **Work** done by a **system**; the resulting checked artefact is a **carrier** for a **proof episteme**; nothing “executes itself”.
 
-* **`ObjectMode ∈ {coincident, external, meta}`** MUST be declared for each episteme:
-* `coincident` (axiomatic/math): **Object ≡ Concept**; **verification** reduces to derivability inside the declared ProofKernel; **validation** is N/A in the empirical sense.
-* `external` (postulative/empirical): **Object ≠ Concept**; **validation** requires measurement/evaluation templates; **verification** checks internal derivations only.
-* `meta`: episteme is **about another episteme/claim** (meta‑level). Use **metaAbout** for such links; do **not** treat them as domain‑aboutness. 
+* **ReferencePlane ∈ {world, concept, episteme}** MUST be declared for each episteme:
+* `world` (empirical/object‑level): claims are about systems/phenomena; **validation** uses measurement/evaluation templates; **verification** checks internal derivations only.
+* `concept` (concept‑level): claims are about concepts/models not tied to a specific observed system; verification dominates; validation is contextual if concepts are later applied.
+* `episteme` (episteme‑level): claims are **about other epistemes/claims**. Use **aboutEpisteme** for such links; do **not** treat them as domain‑aboutness.
 
-**Normative guards.** (i) When `ObjectMode=meta`, `about`‑edges **MUST** target epistemes/claims (not domain systems) and cross‑level penalties apply in assurance (CL_meta in B.3). (ii) KD‑CAL patterns that consume `U.Episteme` **MUST** surface `ObjectMode`; consumers **MUST NOT** silently assume domain‑aboutness.
+**Normative guards.** (i) When `ReferencePlane=Episteme`, `about`‑edges **MUST** target epistemes/claims (not domain systems) and cross‑level penalties apply in assurance (CL^plane in B.3). (ii) KD‑CAL patterns that consume `U.Episteme` **MUST** surface `ReferencePlane`; consumers **MUST NOT** silently assume domain‑aboutness.
 
 ### 4.2 Operators & algebra (normative, notation‑neutral)
 
  **Typed relations on claims (in‑Context):**
  `supports(e, c)`, `refutes(e, c)`, `constrains(e, c)`, `neutral(e, c)`, where `e` is an `U.EvidenceRole` binding and `c` resolves in the context’s claim graph.
  
-**Reliability with congruence penalty.** Let a support path `P` from `e` to `c` have per‑edge reliability `R_i` and minimal **congruence** `CL_min(P)` (including any **NotationBridge** or **metaAbout** traversals). Define: 
+**Reliability with congruence penalty.** Let a support path `P` from `e` to `c` have per‑edge reliability `R_i` and minimal **congruence** `CL_min(P)` (including any **NotationBridge** or **aboutEpisteme** traversals). Define: 
  
  \t**R_eff(P) := max(0, min_i R_i − Φ(CL_min(P)))**
  
@@ -13182,7 +13187,7 @@ Preview kernel-level:
 * **CC‑EPI‑2 (Triangle present).** Every U.Episteme MUST expose the three components `{Object, Concept, Symbol}` and the two external links `about(Object→TopicHolon)` and `isCarriedBy(Episteme→Carrier)`. `ClaimGraph`, `JustificationGraph`, and `EditionSeries` are attached/internal structures, not triangle vertices.
 * **CC‑EPI‑3 (Strict Distinction).** It is **non‑conformant** to treat carriers or notations as the episteme, or to place Work/execution facts inside `ClaimGraph`.
 * **CC‑EPI‑4 (No self‑evidence).** Edges in `JustificationGraph` that rely on evidence **MUST** point to **external Work** and **evidence roles**; self‑support is forbidden.
-* **CC‑EPI‑5 (Aboutness explicit).** `about` **MUST** name **topic holons** (systems or epistemes). **Note (assurance gating).** Epistemes lacking `about(Object→TopicHolon)` **or** a declared **ObjectMode** (C.2.3 **CC‑UE‑06**) may be published as didactic/template, but **do not satisfy Effective guards** in assurance (see B.3 SCR duties).
+* **CC‑EPI‑5 (Aboutness explicit).** `about` **MUST** name **topic holons** (systems or epistemes). **Note (assurance gating).** Epistemes lacking `about(Object→TopicHolon)` **or** a declared **ReferencePlane** (C.2.3 **CC‑UE‑06**) may be published as didactic/template, but **do not satisfy Effective guards** in assurance (see B.3 SCR duties).
 * **CC‑EPI‑6 (Phase discipline).** Content change implies a **new phase** in `EditionSeries`; carrier changes without content change are not new phases.
 
 Normative:
@@ -13276,7 +13281,7 @@ This pattern sits as the **front door** of **KD‑CAL (C.2)**: it turns epistemi
 
 * Export‑E0 (Aboutness minimum).** Every U.Episteme that is consumed by KD‑CAL / Assurance MUST surface:
 (a) an explicit `about` edge to its TopicHolon (Object component),
-(b) `ObjectMode ∈ {coincident | external | meta}`, and
+(b) `ReferencePlane ∈ {coincident | external | meta}`, and
 (c) declared evidence lanes (TA/LA/VA) intended to support R.
 These fields MUST be readable to SCR/RSCR consumers.
 
@@ -13326,16 +13331,16 @@ The episteme passes the soundness checks below:
 * **CC‑UE‑03 (Aboutness explicit).** `about` names topic holons; scope is context‑local.
 * **CC‑UE‑04 (Identity invariants).** Identity = (i) persistent root `U.Episteme` id **within its `U.BoundedContext`**, plus (ii) **role‑complete** occupancy of `{Object, Concept, Symbol}`. Slot‑cardinality changes or slot‑value swaps that alter `ClaimGraph` or `Designation & Reference Map` **MUST** mint a new `PhaseOf` edition; `Symbol` Notation‑Set/NotationBridge tweaks alone **do not**.
 * **CC‑UE‑05 (Notation‑Bridge).** If multiple notations are present, register `NotationBridge(n₁,n₂)` with **CL** and loss notes; apply CL in KD‑CAL folds when traversed. 
-* **CC‑UE‑06 (ObjectMode).** Declare `ObjectMode ∈ {coincident, external}`; verification/validation obligations follow accordingly.
+* **CC‑UE‑06 (ReferencePlane).** Declare `ReferencePlane ∈ {coincident, external}`; verification/validation obligations follow accordingly.
 * **CC‑UE‑07 (Formal proof no‑decay; TA line).** Formal proof bindings do **not** decay; attach **Tool Assurance** metadata and manage its decay separately under B.3.4. 
-* **CC‑UE‑08 (Meta‑about CL).** Any `metaAbout` traversal **MUST** carry `CL_meta`; apply CL penalties in assurance composition.
+* **CC‑UE‑08 (Meta‑about CL).** Any `aboutEpisteme` traversal **MUST** carry `CL^plane`; apply CL penalties in assurance composition.
 * **CC‑UE‑09 (Informal rationale auto‑debt).** `InformalRationale` MAY support *Candidate* at **low-F (≤F3)** but accrues **Epistemic Debt** and cannot alone satisfy *Effective* guards.
 * **CC‑UE‑10 (Change classes).** Apply **S/M/O** classification: **S‑change** (Symbol‑only notation/bridge) ⇒ no edition; **M‑change** (ClaimGraph) ⇒ new edition; **O‑change** (Envelope/Evaluation templates/designation rules) ⇒ new edition; and **any** change that affects computed ⟨F,G,R⟩ ⇒ new edition (see §19.3 and §19.2 C2‑E6).
 * **CC‑UE‑11 (Formality declaration).** Every U.Episteme MUST declare U.Formality = Fk per C.2.3; ESG guards and acceptance policies SHALL reference F thresholds instead of legacy “modes/tiers”. Formal proof bindings do not decay; Tool Assurance is managed separately under B.3.4. 
 * **CC‑UE‑12 (Plug‑in layering, P‑5).** Normative semantics **MUST** be interpretable without Tooling or Pedagogy assets; mentions of notations, file types, or toolchains are **informative only**. Cross‑layer dependencies **MUST** obey **E.5.3 Unidirectional Dependency**.
 
 **Assurance‑gated Norms**
-**CC‑UE‑A0 (Aboutness surfaced).** KD‑CAL consumers MUST be able to read `about` and `ObjectMode` directly on the episteme edition; absence of either makes the episteme non‑conformant for assurance consumption.
+**CC‑UE‑A0 (Aboutness surfaced).** KD‑CAL consumers MUST be able to read `about` and `ReferencePlane` directly on the episteme edition; absence of either makes the episteme non‑conformant for assurance consumption.
 * **CC‑UE‑A1 (L1+).** Export **Envelope handle** and **Evaluation templates**; expose evidence slots with polarity.
 * **CC‑UE‑A2 (F‑mode/L2).** Export **ClaimGraphRoot**, **JustificationGraph**, **EditionSeries**; provide decay policies for empirical bindings; compute ⟨F,G,R⟩ per B.3 skeleton. 
 * **CC‑UE‑A3 (Cross‑context).** Any export used outside the Context must name **Bridge** and **CL**; KD‑CAL applies **R** penalties accordingly.
@@ -13478,7 +13483,7 @@ A **StateAssertion(E, s, W)** holds when the **checklist** for **state `s`** is 
 * **Low-F minimal guard:** For *Candidate*, **low-F (≤F3)** MAY accept a qualitative rationale plus at least one `EvidenceBinding` stub; for **high-F (≥F7)**, quantitative thresholds and binding windows are REQUIRED.
 
 * **Formal‑proof guard (F‑mode).** States satisfied via formal proof MUST declare `ProofKernel`, checker `{tool,version}`, and proof‑object hash; **no decay** on the binding; **TA** tracked separately. 
-* **ObjectMode guard.** For `external`, at least one empirical `EvidenceBinding` within its relevance window is required for *Validated/Effective*; for `coincident`, verification suffices.
+* **ReferencePlane guard.** For `external`, at least one empirical `EvidenceBinding` within its relevance window is required for *Validated/Effective*; for `coincident`, verification suffices.
  
 **20.5 Invariants.**
 
@@ -13496,7 +13501,7 @@ A **StateAssertion(E, s, W)** holds when the **checklist** for **state `s`** is 
 * **Policy branch** (*different acceptance thresholds*): safety case for *SC2* vs *SC3*.
 
 **21.2 Merge policy.**
-Merging **never edits parents**; it **creates** a new edition with explicit `mergedFrom` and an **Evaluation** that states how conflicts were resolved (e.g., *prefer higher AssuranceLevel; tie‑break by recency*). For any merged claim, compute provisional **R_eff** under **WLNK** with **congruence penalty** `Φ(CL_min(path))` including **NotationBridge**/**metaAbout** CLs where traversed. 
+Merging **never edits parents**; it **creates** a new edition with explicit `mergedFrom` and an **Evaluation** that states how conflicts were resolved (e.g., *prefer higher AssuranceLevel; tie‑break by recency*). For any merged claim, compute provisional **R_eff** under **WLNK** with **congruence penalty** `Φ(CL_min(path))` including **NotationBridge**/**aboutEpisteme** CLs where traversed. 
 
 **21.3 Safety rule.**
 * **C2‑BM1 (No silent merge).** Any merge **MUST** cite the **policy episteme** (how to reconcile) and record **loss notes** including **effective CL** over used Bridges (min over edges). 
@@ -13724,19 +13729,19 @@ Post‑2015 practice converges on **explicit provenance**, **externalized action
 
 **UTS Δ (F‑17 style)**
 
-| Thread                        | Key (tech)                             | Plain label                 | Kind                             | Home (§)                           | One‑liner (normative intent)                                                                                                                                               | Constraints / CL policy (capsule)                                                                                                                                                                                   | Cross‑refs                                                                                         |
-| ----------------------------- | -------------------------------------- | --------------------------- | -------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Cross‑Context & Bridges**   | **U.NotationBridge**                   | Notation Bridge             | `U.Alignment` subtype (relation) | F.9                                | Directional **mapping between notations** for the *same* concept/role/state **across Bounded Contexts**, with explicit **mapping rule**, **CL level**, and **loss notes**. | **Must not override in‑Context rules** (RSG, `≤/⊥/⊗`). **CL ∈ {3,2,1,0}**: CL≥2 permitted; **CL=1 requires Waiver SpeechAct**; **CL=0 forbidden**. Mapping is **loss‑annotated**; declare preserved/dropped semantics. | E.5.2 (Notational Independence); A.2.5 (RSG refinement); B.3 (CL calculus); F.10 (status families) |
-| **Meta / Didactic**           | **CHR\:ObjectMode**                    | Object Mode                 | CHR characteristic        | A.7; E.10.D2                       | Declares the **referent mode** of a claim/evidence: **`external`** (material system), **`conceptual`** (intension/definition), **`meta`** (about another claim/episteme).  | Use to **prevent category errors** and drive **meta‑distance penalties**. Mode **mismatch across Contexts** requires Bridge + **CL\_meta** adjustment.                                                                 | A.1/A.7 (Clarity Lattice); B.3 (assurance)                                                         |
-| **Meta / Didactic**           | **metaAbout(x,y)**                     | meta‑about                  | relation (binary)                | A.10; B.3                          | Says episteme/claim **x is about y as an artefact/claim**, **not** about y’s domain referent. Turns **x** into a **meta‑level** statement.                                 | **Not a substitute for `about`** (domain aboutness). **Cycles** allowed only if **acyclic within one evaluation chain**. **ObjectMode(x)=meta** by derivation.                                                      | A.10 (EPV‑DAG); CHR\:ObjectMode; B.3                                                               |
-| **Meta / Didactic**           | **CL\_meta**                           | Meta‑level CL               | CL policy parameter              | B.3                                | **Congruence‑level adjustment** for **meta‑level crossings** computed from **ObjectMode** mismatch.                                                                        | Default **Φ\_meta**: **0** for intra‑level; **−1 CL** for one‑step meta jump (requires extra checklist/evidence); **block (CL→0)** for ≥2 steps unless **Waiver SpeechAct** cites rationale.                        | U.NotationBridge; metaAbout; B.3.4 (decay/debt)                                                    |
-| **Meta / Didactic**           | **U.InformalRationale**                | Informal Rationale          | `U.Episteme` subtype (status)    | E.12; E.9                          | Plain‑language rationale **attached to a pattern/claim/DRR**; **non‑normative**, tracked with **auto‑debt** until formalised.                                              | **Not admissible as VA evidence**; may count at **LA** with low weight. **Auto‑debt** opens a refresh task until upgraded to a formal episteme/evidence role.                                                       | E.9 (DRR); B.3 (assurance); A.10 (anchors)                                                         |
-| **Dynamics / Trajectory** | **traj concepts**                        | Trajectory concepts           | **Export** (Dynamics)        | A.3.3 `U.Dynamics`; B.1.4 `Γ_time` | Declares the **trajectory descriptor**: ⟨**StateSpace**, **Input/ControlSpace**, **ParamSpace**, **TimeBase**, **InvariantSet**⟩ for a dynamics model.                     | **TimeBase is explicit** (discrete/continuous). **Invariants** name conserved/forbidden regions. **Schema** is a **design‑time** episteme; no actuals.                                                              | A.4 (Temporal Duality); A.15 (alignment); C.13 (Compose‑CAL)                                       |
-| **Dynamics / Trajectory** | **traj.evolve**                        | Trajectory evolve           | **Export** (Dynamics)        | A.3.3; B.1.4                       | Computes **Trajectory** = `evolve(model, x₀, u(t), θ, T)`; deterministic or stochastic per model.                                                                          | **Inputs and TimeBase** must match `traj.schema`. **Stochastic runs** declare seed/distribution. **Performed as Work** by a system; results anchored to carriers.                                                   | A.15.1 (Work), A.10 (evidence); Γ\_time (ordering)                                                 |
-| **Dynamics / Trajectory** | **traj.sample**                        | Trajectory sample           | **Export** (Dynamics)        | A.3.3; B.1.4                       | Projects a **Trajectory** to **Observations** under a **SamplingPlan**; binds outputs to `U.Observation`.                                                                  | **SamplingPlan** declared (rate/grid/events). **No silent unit changes**; NotationBridge if representation changes.                                                                                                 | A.2 (ObserverRole); CHR‑CAL (metrics)                                                              |
-| **Dynamics / Trajectory** | **traj.envelope** *(aka `traj.reach`)* | Trajectory envelope / reach | **Export** (Dynamics)        | A.3.3; B.1.4                       | Computes **reachable set / bounds / safety envelope** over horizon `T`; returns ⟨**Reach**, **SafetySet**, **Witnesses**⟩.                                                 | **Must respect InvariantSet** from `traj.schema`. **Envelope** semantics (over‑/under‑approx.) declared. Used by **assurance** as constraints.                                                                      | B.3 (assurance), A.3 (Transformer quartet)                                                         |
+| Thread                      | Key (tech)                             | Plain label                 | Kind                             | Home (§)                           | One‑liner (normative intent)                                                                                                                                                   | Constraints / CL policy (capsule)                                                                                                                                                                                      | Cross‑refs                                                                                         |
+| --------------------------- | -------------------------------------- | --------------------------- | -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Cross‑Context & Bridges** | **U.NotationBridge**                   | Notation Bridge             | `U.Alignment` subtype (relation) | F.9                                | Directional **mapping between notations** for the *same* concept/role/state **across Bounded Contexts**, with explicit **mapping rule**, **CL level**, and **loss notes**.     | **Must not override in‑Context rules** (RSG, `≤/⊥/⊗`). **CL ∈ {3,2,1,0}**: CL≥2 permitted; **CL=1 requires Waiver SpeechAct**; **CL=0 forbidden**. Mapping is **loss‑annotated**; declare preserved/dropped semantics. | E.5.2 (Notational Independence); A.2.5 (RSG refinement); B.3 (CL calculus); F.10 (status families) |
+| **Didactic & Higher‑Order** | **CHR\:ReferencePlane**                | Object Mode                 | CHR characteristic               | A.7; E.10.D2                       | Declares the **referent mode** of a claim/evidence: **`external`** (material system), **`conceptual`** (intension/definition), **`reflexive`** (about another claim/episteme). | Use to **prevent category errors** and drive **plane‑distance penalties**. Mode **mismatch across Contexts** requires Bridge + **CL^plane** adjustment.                                                                | A.1/A.7 (Clarity Lattice); B.3 (assurance)                                                         |
+| **Didactic & Higher‑Order** | **aboutEpisteme(x,y)**                 | about‑episteme              | relation (binary)                | A.10; B.3                          | States that episteme/claim **x concerns y as an artefact/claim**, **not** y’s domain referent. Marks **x** as a **ReferencePlane Episteme** statement.                         | **Not a substitute for `about`** (domain aboutness). **Cycles** allowed only if **acyclic within one evaluation chain**. **ReferencePlane(x)=Episteme** by derivation.                                                 | A.10 (EPV‑DAG); CHR\:ReferencePlane; B.3                                                           |
+| **Didactic & Higher‑Order** | **CL^plane**                           | Cross‑level CL              | CL policy parameter              | B.3                                | **Congruence‑level adjustment** for **cross‑level crossings** computed from **ReferencePlane** mismatch.                                                                       | Default **Φ\_plane**: **0** for same‑level; **−1 CL** for a one‑step cross‑level jump (requires extra checklist/evidence); **block (CL→0)** for ≥2 steps unless **Waiver SpeechAct** cites rationale.                  | U.NotationBridge; aboutEpisteme; B.3.4 (decay/debt)                                                |
+| **Didactic & Higher‑Order** | **U.InformalRationale**                | Informal Rationale          | `U.Episteme` subtype (status)    | E.12; E.9                          | Plain‑language rationale **attached to a pattern/claim/DRR**; **non‑normative**, tracked with **auto‑debt** until formalised.                                                  | **Not admissible as VA evidence**; may count at **LA** with low weight. **Auto‑debt** opens a refresh task until upgraded to a formal episteme/evidence role.                                                          | E.9 (DRR); B.3 (assurance); A.10 (anchors)                                                         |
+| **Dynamics / Trajectory**   | **traj concepts**                      | Trajectory concepts         | **Export** (Dynamics)            | A.3.3 `U.Dynamics`; B.1.4 `Γ_time` | Declares the **trajectory descriptor**: ⟨**StateSpace**, **Input/ControlSpace**, **ParamSpace**, **TimeBase**, **InvariantSet**⟩ for a dynamics model.                         | **TimeBase is explicit** (discrete/continuous). **Invariants** name conserved/forbidden regions. **Schema** is a **design‑time** episteme; no actuals.                                                                 | A.4 (Temporal Duality); A.15 (alignment); C.13 (Compose‑CAL)                                       |
+| **Dynamics / Trajectory**   | **traj.evolve**                        | Trajectory evolve           | **Export** (Dynamics)            | A.3.3; B.1.4                       | Computes **Trajectory** = `evolve(model, x₀, u(t), θ, T)`; deterministic or stochastic per model.                                                                              | **Inputs and TimeBase** must match `traj.schema`. **Stochastic runs** declare seed/distribution. **Performed as Work** by a system; results anchored to carriers.                                                      | A.15.1 (Work), A.10 (evidence); Γ\_time (ordering)                                                 |
+| **Dynamics / Trajectory**   | **traj.sample**                        | Trajectory sample           | **Export** (Dynamics)            | A.3.3; B.1.4                       | Projects a **Trajectory** to **Observations** under a **SamplingPlan**; binds outputs to `U.Observation`.                                                                      | **SamplingPlan** declared (rate/grid/events). **No silent unit changes**; use NotationBridge if representation changes.                                                                                                | A.2 (ObserverRole); CHR‑CAL (metrics)                                                              |
+| **Dynamics / Trajectory**   | **traj.envelope** *(aka `traj.reach`)* | Trajectory envelope / reach | **Export** (Dynamics)            | A.3.3; B.1.4                       | Computes **reachable set / bounds / safety envelope** over horizon `T`; returns ⟨**Reach**, **SafetySet**, **Witnesses**⟩.                                                     | **Must respect InvariantSet** from `traj.schema`. **Envelope** semantics (over‑/under‑approx.) declared. Used by **assurance** as constraints.                                                                         | B.3 (assurance), A.3 (Transformer quartet)                                                         |
 
-* **CL\_meta** uses the penalty function described in the row above; wire it into the existing CL pipeline (no change to CL levels, only an adjustment term).
+* **CL^plane** uses the penalty function described in the row above; wire it into the existing CL pipeline (no change to CL levels, only an adjustment term).
 * **NotationBridge** adopts the existing **CL=3..0** lattice and the *Waiver SpeechAct* path for CL=1 substitutions.
 * **Naming discipline:** keep **tech/plain twin labels** as shown; “aka `traj.reach`” is an allowed alias in the *tech* register within the same context.
 * **Didactic flags:** `U.InformalRationale` instances must open a **refresh task** in your DRR index until replaced or supported by a formal episteme carrying an EvidenceRole.
@@ -14154,7 +14159,7 @@ This section defines what it means to **use F correctly** in KD‑CAL. All “**
 ### 8.1 · Inside one episteme (normative)
 
 * **Essential paths.** Identify essential parts/claims that are required for the episteme’s truth. Apply **min‑F** along each support path; the **episteme‑level F** is the min over essential paths (CC‑F‑7, CC‑F‑8).
-* **Meta‑about.** Meta‑descriptions (descriptions of a claim) carry their **own** F. They **do not** raise the target’s F; their impact on trust flows through **CL→R**.
+* **Episteme‑about (ReferencePlane=episteme).** Descriptions about other claims/epistemes carry their **own** F and do **not** raise the target’s F; any cross‑plane penalty flows via **CL^plane → R**.
 
 > **Note (informative).** A long formal appendix (F8) attached to a largely narrative body (F3) does **not** make the whole F8; the episteme remains **F3** unless the core claims move into the formal appendix.
 
@@ -17337,7 +17342,7 @@ Correctness‑by‑sequence and temporal coverage are orthogonal to **parthood**
 **Coordinates with**
 * **B.3.5 CT2R‑LOG.** `tv:groundedBy` refers (conceptually) to Compose‑CAL traces when `validationMode = axiomatic`; **Working‑Model** relations remain the publication interface.
 * **B.1 flavours.** Keeps order (`Γ_method`) and time (`Γ_time`) outside structure; may co‑appear in narratives when relevant but never as constructors.
-* **Type‑CAL / Lang‑CHR.** Provide the Mapping shoulder of assurance (labels, type alignment) that complements constructive narratives in this pattern.
+* **Kind-CAL / Lang‑CHR.** Provide the Mapping shoulder of assurance (labels, type alignment) that complements constructive narratives in this pattern.
 * **KD‑CAL.** Provides the Logical shoulder when authors justify relations inferentially instead of constructively.
 * **C.16 (Measurement substrate).** Supplies quantitative hooks when a constructive narrative benefits from explicit counts/ratios (e.g., cardinalities, coverage), while keeping metrics distinct from mereology.
 
@@ -19906,7 +19911,7 @@ domains can innovate (`R‑domain`) without destabilising the Core.
 
 **Intent.** Eliminate ambiguity around “context” by (a) fixing **one** formal meaning—`U.BoundedContext`; (b) removing “anchor” from the vocabulary; (c) reserving **Problem Frame** for prose about situations; and (d) clarifying **Domain** as an **informative family** (workflow, provenance, services, …) that groups several `U.BoundedContext`s.
 
-**Applicability.** Mandatory across **all architheories** (Role Assignment & Enactment, Sys-CAL, KD-CAL, Type-CAL, planned LCA-CAL). Apply at the start of any unification effort and whenever documentation introduces or refactors “context”, “domain”, “anchor”.
+**Applicability.** Mandatory across **all architheories** (Role Assignment & Enactment, Sys-CAL, KD-CAL, Kind-CAL, planned LCA-CAL). Apply at the start of any unification effort and whenever documentation introduces or refactors “context”, “domain”, “anchor”.
 
 **Non‑goals.** No governance, workflow, or tool mandates; no storage formats; no team roles.
 
@@ -20474,7 +20479,7 @@ No “workflow” required in the Description.
 
 **Is used by.**
 
-* **Part C architheories.** Sys‑CAL, KD‑CAL, Type‑CAL, Method‑CAL cite `…Description/…Spec` KUs explicitly and consume **state attestations** from `U.Evaluation`.
+* **Part C architheories.** Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL cite `…Description/…Spec` KUs explicitly and consume **state attestations** from `U.Evaluation`.
 * **Part B trust calculus.** Uses the presence/absence of harnessed Specs and the windowed nature of attestations in confidence roll‑ups.
 
 ---
@@ -22296,7 +22301,7 @@ An artefact is **ready** with respect to F.0.1 when:
 
 **Intent.** Establish a **finite set of U.BoundedContext** (“**context of meaning**”), each tied to an authoritative source or canon within a **domain family**, so that all later moves (term harvesting, clustering, role naming, cross‑context bridges) operate on **local meanings** rather than on drifting, globalised words.
 
-**Applicability.** Use **at the start** of any unification effort for **any architheory** (Enactment (`U.RoleAssignment` + `U.RoleEnactment`), Sys-CAL, KD-CAL, Type-CAL, LCA-CAL…) and **whenever** a discipline canon materially changes (new edition, re-framing, seminal result).
+**Applicability.** Use **at the start** of any unification effort for **any architheory** (Enactment (`U.RoleAssignment` + `U.RoleEnactment`), Sys-CAL, KD-CAL, Kind-CAL, LCA-CAL…) and **whenever** a discipline canon materially changes (new edition, re-framing, seminal result).
 
 **Non‑goals.** No tooling, workflow, or editorial roles. No global ontology. No cross‑context equations. This pattern describes **how to think**, not how to store.
 
@@ -22482,7 +22487,7 @@ Everything you need to *think correctly later* fits on an eight‑line card. No 
 
 ### 12.2 Method quartet with types & measurement (model state graph)
 
-**Unification line.** Method‑CAL + Type‑CAL + KD‑CAL.
+**Unification line.** Method‑CAL + Kind-CAL + KD‑CAL.
 
 **Contexts (five Cards).**
 
@@ -22574,7 +22579,7 @@ A.11 **Ontological Parsimony** — motivates the small cut.
 **F.9** (Alignment & Bridge): only F.9 may relate Contexts; never F.1–F.4.
 
 **Used by.**
-Architheories in Part C (Sys‑CAL, KD‑CAL, Type‑CAL, Method‑CAL, LCA‑CAL) as the *lexical starting grid* for their examples and definitions.
+Architheories in Part C (Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL, LCA‑CAL) as the *lexical starting grid* for their examples and definitions.
 
 ---
 
@@ -22828,7 +22833,7 @@ For every Context (a **U.BoundedContext** from F.1), you gather **attested phras
 
 ---
 
-### 11.3 Type‑CAL + Method‑CAL + KD‑CAL
+### 11.3 Kind-CAL + Method‑CAL + KD‑CAL
 
 * **Context:** *OWL 2 (profiles)* — **LNF:** `subclass‑of`
   **Tech:** `subclass‑of` · **Plain:** `is‑a (type hierarchy)`
@@ -24253,7 +24258,7 @@ F.1 **Domain Landscape Survey** (Contexts fixed); F.2 **Term Harvesting** (local
 **F.10 Epistemic Status Mapping.** Consumes **M6** confidences γ and Σ‑adequacy to roll up assurance.
 
 **Used by.**
-Architheories (Part C) to anchor their examples: Sys‑CAL (execution/actuation roles), KD‑CAL (measurement statuses), Method‑CAL (execution claims for Methods/MethodDescription), Type‑CAL (typing claims remain outside Role Assignment & Enactment, but may inform eligibility predicates).
+Architheories (Part C) to anchor their examples: Sys‑CAL (execution/actuation roles), KD‑CAL (measurement statuses), Method‑CAL (execution claims for Methods/MethodDescription), Kind-CAL (typing claims remain outside Role Assignment & Enactment, but may inform eligibility predicates).
 
 ## 12 · Migration notes (conceptual)
 
@@ -24418,7 +24423,7 @@ large table; the name signals epistemic humility and traceable reliance on those
 
 **(a) Subtyping across type‑formalisms (Type‑structure row)**
 
-| FPF Label                                  | Row Scope      | Row CL(min) | OWL 2             | Type‑CAL            | Rationale                                                        | Counter‑examples                                                         |
+| FPF Label                                  | Row Scope      | Row CL(min) | OWL 2             | Kind-CAL            | Rationale                                                        | Counter‑examples                                                         |
 | ------------------------------------------ | -------------- | ----------- | ----------------- | ------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------ |
 | **is‑a (Tech)** / *type hierarchy* (Plain) | Type‑structure | CL = 3      | `rdfs:subClassOf` | `U.SubtypeRelation` | Both are partial‑order *class* subsumption used for inheritance. | FCA *concept* order is not a class subsumption; keep it out or CL drops. |
 
@@ -24488,7 +24493,7 @@ large table; the name signals epistemic humility and traceable reliance on those
 
 ### 11.4 Subtype relation (type‑structure)
 
-| FPF Label                   | Row Scope      | Row CL(min) | OWL 2             | Type‑CAL            | Rationale                                     | Counter‑examples                                                                 |
+| FPF Label                   | Row Scope      | Row CL(min) | OWL 2             | Kind-CAL            | Rationale                                     | Counter‑examples                                                                 |
 | --------------------------- | -------------- | ----------- | ----------------- | ------------------- | --------------------------------------------- | -------------------------------------------------------------------------------- |
 | **is‑a** / *type hierarchy* | Type‑structure | CL = 3      | `rdfs:subClassOf` | `U.SubtypeRelation` | Both are partial orders used for inheritance. | FCA **concept order** is not a class subsumption—exclude or publish another row. |
 
@@ -24630,7 +24635,7 @@ Part C architheories for didactic alignment pages; Part B trust calculus (B.
 
 The lattice enforces **locality of meaning** (Contexts), **plane separation** (A.7), and **parsimony** (A.11) while remaining didactically simple.
 
-**Applicability.** Use whenever a new name seems “needed” in any architheory thread (**Role Assignment & Enactment**, Sys-CAL, KD-CAL, Type-CAL, Method-CAL, LCA-CAL…).
+**Applicability.** Use whenever a new name seems “needed” in any architheory thread (**Role Assignment & Enactment**, Sys-CAL, KD-CAL, Kind-CAL, Method-CAL, LCA-CAL…).
 
 **Non‑goals.** No workflows, no roles, no storage. This is **thinking discipline**, not process guidance.
 
@@ -24727,7 +24732,7 @@ Modellers tend to **mint names** when they actually need **reuse**, **aliasing**
 | **Naming‑only**     | Shared label in prose, diagrams, and primers; **no inference**.                               |                  **1** | Pedagogy, glossary, didactic figures.     |
 | **Assignment-eligibility** | Safe to reference the row’s target as the **thing a `U.RoleAssignment` may point to** (e.g., a run, a value). | **2** | F.4 Role Description, acceptance narratives. |
 | **KD‑metric**       | Treat cells as the **same measured outcome** (unit‑compatible, procedure‑compatible).         |                  **2** | Measurement summaries, SLO tables.        |
-| **Type‑structure**  | Treat cells as the **same structural relation** (e.g., subtyping) with inheritance semantics. |                  **3** | Type‑CAL pages, structural proofs.        |
+| **Type‑structure**  | Treat cells as the **same structural relation** (e.g., subtyping) with inheritance semantics. |                  **3** | Kind-CAL pages, structural proofs.        |
 
 > **Guard.** You may **tighten** scope (e.g., from Naming-only → Assignment-eligibility) **only** if the **Row CL(min)** meets the **higher τ**.
 
@@ -25736,7 +25741,7 @@ Service Acceptance (F.12), Assurance roll‑ups (B.3), any cross‑domain confor
 * **`U.Work`** (informal: *Execution*) — the **run‑time occurrence** of doing (recorded event).
 * **`U.Actuation`** — the **control output** applied to a plant (domain‑specific Work in Sys‑CAL).
 
-The pattern makes the split **usable across architheories** (Role Assignment & Enactment, Sys-CAL, KD-CAL, Type-CAL, planned LCA-CAL) and **legible across Contexts** (SPEM/BPMN for design; PROV-O/SOSA for run; IEC 61131-3/state-space for control).
+The pattern makes the split **usable across architheories** (Role Assignment & Enactment, Sys-CAL, KD-CAL, Kind-CAL, planned LCA-CAL) and **legible across Contexts** (SPEM/BPMN for design; PROV-O/SOSA for run; IEC 61131-3/state-space for control).
 
 **Applicability.** Any time a discussion risks **mixing designs with executions**, **recipes with runs**, or **workflow with control signals**; whenever you need to **name** or **reason** about “how we do X”, “the SOP/script/model”, “the actual run”, or “the actuator push”.
 
@@ -25833,7 +25838,7 @@ Each box/arrow is **context‑local** (SPEM, PROV‑O, IEC…). **Cross‑contex
 
 * *SPEM/ISO 24744 Context*: `SenseCell{Method}` = *Activity Definition / Task Definition*; `SenseCell{MethodDescription}` = *Process Description / WorkProduct* (as recipe).
 * *BPMN 2.0 Context*: `SenseCell{MethodDescription}` = *Process (diagram)* as **design‑time** recipe (do not confuse with run).
-* *OWL/Type‑CAL Context*: labels for Method kinds (type taxonomies) when needed (naming, not behaviour).
+* *OWL/Kind-CAL Context*: labels for Method kinds (type taxonomies) when needed (naming, not behaviour).
 
 **Run (occurrences & outputs).**
 
@@ -25890,7 +25895,7 @@ Each box/arrow is **context‑local** (SPEM, PROV‑O, IEC…). **Cross‑contex
 | **A8**  | **Recipe-as-Role**             | “The Spec assigns responsibility” (mixes MethodDescription with Role constructs — `U.RoleDescription`/`U.RoleAssignment`).  | Conflates epistemic artefact with behavioural masks.                        | Use **F.4 Role Description; let **MethodDescription** only **describe** a Method.                                                                              |
 | **A9**  | **One‑Context Scope**        | A single Context (e.g., BPMN) used as if it covered control/measurement. | Scope mirage; silent cross‑domain generalisation.                           | Re‑cut Contexts (F.1) to include control and sensing. Re‑express statements with the quartet across those Contexts.                                                                                                        |
 | **A10** | **Lossless Bridge Assumption** | Claiming “equivalent” across Contexts without Loss.                      | Hides mismatches; unsafe transfer of inferences.                            | In **F.7/F.9** declare Bridge **kind**, **CL**, and explicit **Loss** notes.                                                                                                                                         |
-| **A11** | **Recipe‑as‑Type**             | Treating a MethodDescription vocabulary as a type taxonomy.                  | Category error; misuses Type‑CAL.                                           | If a stable hierarchy of **kinds** of Methods is needed, mint **U.Type** nodes in Type‑CAL; keep MethodDescription as *description* only.                                                                                   |
+| **A11** | **Recipe‑as‑Type**             | Treating a MethodDescription vocabulary as a type taxonomy.                  | Category error; misuses Kind-CAL.                                           | If a stable hierarchy of **kinds** of Methods is needed, mint **U.Type** nodes in Kind-CAL; keep MethodDescription as *description* only.                                                                                   |
 | **A12** | **Actuation Outside Work**     | Commands modeled without enclosing Work.                              | Severs signal from enactment context; breaks traceability.                  | Embed **Actuation** **within** **Work** intervals; relate to the enacting Role and Method/MethodDescription references.                                                                                                     |
 
 ---
@@ -26029,7 +26034,7 @@ E.10.1 **D.CTX** (Context ≡ `U.BoundedContext`); A.3/**A.3.1**/**A.3.2**/**A.1
 * **F.7/F.9 Bridges:** All Cross‑context assertions among quartet terms **must** go through explicit Bridges with **kind/CL/Loss**.
 
 **Used by.**
-Part C architheories (Sys‑CAL, KD‑CAL, Method‑CAL, Type‑CAL, LCA‑CAL) when describing examples, proofs, and cross‑disciplinary mappings.
+Part C architheories (Sys‑CAL, KD‑CAL, Method‑CAL, Kind-CAL, LCA‑CAL) when describing examples, proofs, and cross‑disciplinary mappings.
 
 ---
 
@@ -26377,7 +26382,7 @@ Every verdict is **time‑bounded**. Changing the Window can change the result; 
 * **Uses (Part C architheories).**
   **KD‑CAL** (Observation/Characteristic/Scale/Unit).
   **Sys‑CAL** (Work/Actuation Contexts).
-  **Type‑CAL** (type labels for populations or cohort selection).
+  **Kind-CAL** (type labels for populations or cohort selection).
 
 * **Constrains.**
   Later reporting and assurance rules (B.3) must **not** collapse CL/Loss; they report them alongside status.
@@ -26564,7 +26569,7 @@ Legacy label **“process”** was used to mean both **“collaboration”** and
 **Relation:** `splits("process" ⇒ {"collaboration","executable‑process"})`.
 **Effect:** The single Concept‑Set row becomes two; old label is deprecated with a disambiguation note.
 
-### 9.4 Merge after clustering raised confidence (Type‑CAL row)
+### 9.4 Merge after clustering raised confidence (Kind-CAL row)
 
 Two Concept‑Set rows **{“DBaaS”, “Database‑Service”}** converge after F.3 within the same context profile and F.9 raised CL.
 **Relation:** `merges({"DBaaS","Database‑Service"} ⇒ "Database‑Service")`.
@@ -26614,7 +26619,7 @@ Temptation: “Let’s rename *process* to *activity*.”
 * **Move:** **No rename.** Keep labels; later add **Bridge** “`execution (IEC)` *produces* signals that realise `actuation (control)`” with CL stating partial coverage.
 * **Pay‑off:** Plant narratives stop calling programs “actuators”; runtime vs control semantics stay crisp.
 
-### 11.3 Type‑CAL × Method‑CAL — false merge avoided
+### 11.3 Kind-CAL × Method‑CAL — false merge avoided
 
 * **Contexts:** *OWL 2 (types, design)*; *SPEM 2.0 (methods, design)*.
 * **Issue:** A row labeled **“Class”** tried to absorb **“WorkProductKind”** by a `renames`.
@@ -26993,7 +26998,7 @@ Let **`rowOf(τ)`** be the Concept‑Set row of template **τ**, **`senseOf(τ)`
 * **Moves.** **Role** = **Operator**; add **facets/windows**: `timeOfDay`, `presenceMode`, `dutyCycle`. If coordination is distinct, mint **Coordinator** Role; when both occur together, **Bundle** `{Operator, Coordinator}`; keep **SoD** where needed (e.g., `Operator ⟂ Approver` for production change).
 * **Outcome.** One Role + small facet set + Bundle; clean hooks to execution and actuation semantics.
 
-### 11.4 KD‑CAL + Type‑CAL — “Evidence ladder without new labels”
+### 11.4 KD‑CAL + Kind-CAL — “Evidence ladder without new labels”
 
 **Contexts.** KD‑CAL (evidence), OWL 2/FCA (types).
 **Intent.** Express proof maturity without inflating Status names.
@@ -27451,7 +27456,7 @@ A unification slice is **publish‑ready** when:
 **“Show the thought, not the tooling.”**
 **Status.** Architectural pattern \[A], architheory‑agnostic.
 **Builds on.** E.10.1 **Lexical Discipline for “Context” (D.CTX)**; F.1–F.15.
-**Coordinates with.** B.3 **Trust & Assurance Calculus** (CL on Bridges); Part C architheories (Sys‑CAL, KD‑CAL, Type‑CAL, Method‑CAL).
+**Coordinates with.** B.3 **Trust & Assurance Calculus** (CL on Bridges); Part C architheories (Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL).
 
 ---
 
@@ -27625,7 +27630,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 ### 12.1 Type alignment: OWL class vs FCA concept (design‑time only)
 
 **Title & claim.** *“Two Lenses on *Pump*: OWL class and FCA concept align for catalogue reasoning.”*
-**Unification line.** Type‑CAL (design) + FCA (design).
+**Unification line.** Kind-CAL (design) + FCA (design).
 **Contexts.** **OWL 2 (profiles)** — classes, `subClassOf` (design). **FCA corpus** — formal concepts, lattice order (design).
 **SenseCells.** ⟨OWL\:class ‘Pump’⟩, ⟨FCA\:formal‑concept ‘Pump’⟩.
 **Row ρ.** { ⟨OWL\:Pump⟩ ↔ ⟨FCA\:Pump⟩ } — *same practical extension in this product catalogue*.
