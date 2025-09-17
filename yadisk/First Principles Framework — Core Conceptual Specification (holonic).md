@@ -18997,9 +18997,9 @@ Emit a **ProblemProfile** (…Description) that carries the bound TaskSignature,
 0. **Minimal S2.** S2 contains only fields necessary for Eligibility/Acceptance/selection; any extra derived traits remain provenance.
 1. **TaskSignature present (S2).** All TaskKinds **publish** a TaskSignature with all fields declared and **CHR‑typed**; `unknown` supported for each. 
 2. **CHR legality proven.** Any numeric comparison/aggregation **cites CG‑Spec** by **Characteristic id** and proves **CSLC legality**; **no mean on ordinals; no unit mixing**.
-3. **Unknowns propagate.** Unknowns **must** map to {degrade|abstain|sandbox} in **Acceptance**/**Eligibility**; no implicit coercions; behavior recorded in **SCR**.
+3. **Unknowns propagate.** Unknowns **must** map to {pass|degrade|abstain} in **Acceptance**/**Eligibility**; no implicit coercions; behavior recorded in **SCR**.
 4. **Evidence lanes.** **A.10 anchors** + **KD‑CAL lanes** (TA/VA/LA) + **freshness windows** recorded; **Γ‑fold** default=weakest‑link unless proved otherwise. 
-5. **ReferencePlane guarded.**  ReferencePlane noted per value; on crossings apply **CL** (and **CL^plane** if planes differ); **Φ(CL)/Φ_plane** are **monotone, bounded, table‑backed**; penalties → **R_eff only** (F/G invariant).
+5. **ReferencePlane guarded.**  ReferencePlane noted per value; on crossings apply **CL** (and **CL^plane** if planes differ); **Φ(CL)/Φ_plane** are **monotone, bounded, table‑backed and documented in the `CG‑Spec`**; penalties → **R_eff only** (F/G invariant).
 6. **Acceptance thresholds live in CAL.** No thresholds in CHR or code paths; only in **G.4 AcceptanceClauses**. 
 7. **Selector legality.** Selection uses **admissible (possibly partial) orders**; **weighted sums across mixed scale types are forbidden**; return a **Pareto set** when appropriate. 
 8. **ATS crossings published.** Any AT0↔AT1↔AT2 reuse emits **BridgeDescription + UTS row** with CL notes and planes. 
@@ -29490,7 +29490,7 @@ Acceptance depends on (a) presence of SoTAPaletteDescription (G.2) with attached
 3. **CHR‑bound.** All compared quantities reference **CHR.Characteristic ids** with declared **Scale/Unit/Polarity**; guard macros attached.
 4. **Minimal evidence published.** Per characteristic: **KD‑CAL lanes**, carriers, freshness, Bridge/CL allowances, and **failure behavior** are declared.
 5. **Γ‑fold stated.** Default **weakest‑link**, or an alternative with proof obligations (monotonicity, boundary).
-6. **CL penalties** routed to R_eff only; F is invariant; publish **Φ(CL)** and, if used, **Φ_plane** policy ids in SCR.
+6. **CL penalties** routed to R_eff only; F is invariant; **publish Φ(CL)/Φ_plane policy‑ids in SCR** for any penalised claim.
 7. **No illegal ops.** Ordinal **SHALL NOT** be averaged/subtracted; unit mismatches **SHALL** fail fast (MM‑CHR).
 8. **Design/run split.** **AcceptanceStubs** provide templates in **G.0**; all **context‑local thresholds live only in CAL.Acceptance (G.4)**; nothing is hidden in CHR or code paths; manifests are externally inspectable.
 9. **UTS‑ready.** Name Cards minted/reused with twin labels; Bridges carry **CL** and loss notes.
@@ -29503,7 +29503,7 @@ Acceptance depends on (a) presence of SoTAPaletteDescription (G.2) with attached
 * **CC‑G0‑Φ.** **Φ(CL)** (and **Φ\_plane**, if used) **MUST** be **monotone, bounded, table‑backed**; publish policy ids; **R\_eff ≥ 0** by construction.
 * **CC‑G0‑Unknowns.** **Unknowns propagate tri‑state** {pass|degrade|abstain} to **Acceptance**; **no silent coercions**.
 * **CC‑G0‑CSLC.** **Scale/Unit/Polarity legality** MUST be proven (MM‑CHR/CSLC) **before** any aggregation; **no mean on ordinals; no unit mixing**.
-* **Registry hooks.** Every CG‑Spec entry **declares Lifecycle/DRR** and **RSCR triggers** for φ/tables/gauge edits.
+**Registry hooks.** Every CG‑Spec entry declares Lifecycle/DRR and **RSCR triggers for Φ‑table, Gauge, Γ‑fold, Bridge edits** (parity re‑runs required).
 
 ## 8) Consequences (informative)
 
@@ -29578,13 +29578,15 @@ RSCR:
 
 ## G.1 — **CG-Frame‑Ready Generator** \[A]
 
-**Tag:** \[A] (uses CHR/CAL/LOG)
-**Stage:** *design‑time* (produces design‑time architheories & assets; enables run‑time use by target architheories)
-**Primary hooks:** *Creativity‑CHR* (C.17), *NQD‑CAL* (C.18), *E/E‑LOG* (C.19), *Trust & Assurance* (B.3: CC‑B3.2–B3.6; Γ‑fold)*, *USM / Scope (G)* (A.2.6),  Lifecycle/Deprecations (F.13–F.14), UTS & Naming (F.17–F.18), *RoleAssignment* (F.4), *Bridges/CL* (F.9), *Design–Run duality* (A.4). *Assurance arithmetic per B.3: F is ordinal, G is coverage, R is ratio; CL penalties hit R only*.
+ **Stage:** *design‑time* (produces design‑time architheories & assets; enables run‑time use by target architheories)
+ **Working‑Model first:** prefer working models and didactic micro‑examples; escalate to formal harnesses only where risk warrants (per E.8).
+ **Pre‑flight (G.0/G.3/G.4):** lawful CHR typing + CG‑Spec for any comparison/aggregation; publish ReferencePlane; Φ(CL)/Φ_plane monotone, bounded, table‑backed (policy‑ids recorded) **and documented in the CG‑Spec**; unknowns are tri‑state **{pass|degrade|abstain}**; CL penalties → R only (F/G invariant).
+**Primary hooks:** see **§10 Relations** for wiring. **Pre‑flight (via G.0/G.3/G.4):** lawful CHR typing + CG‑Spec for any comparison/aggregation; publish **ReferencePlane** on claims; **Φ(CL)** (and **Φ_plane**, if used) are **monotone, bounded, table‑backed** (policy‑ids recorded); **unknowns tri‑state** propagate as {pass|degrade|abstain} (no `unknown→0`); **CL penalties → R only** (F/G invariants). See Conformance §§7/17–19.
 
 ### 1) Intent
 
 Provide a **repeatable generator scaffold** that **targets goldilocks slots (feasible‑but‑hard)** and records **abductive provenance** for candidate variants for a declared **CG-Frame**, (a) assembles a **local SoTA set**, (b) **emits** well‑typed **variant candidates** for private cases, and (c) **selects & packages** the winners into the **F‑suite** (RoleDescription templates, Concept‑Sets, UTS rows, names) with explicit trust and scope.
+**Outputs (design‑time):** `AT1 TaskPack` + `VariantPool` + provenance (**A.10** anchors, **EmitterPolicyRef**) **+ per‑candidate SCR‑preview** (fields: **Φ(CL)/Φ_plane policy‑ids**, CL notes, ReferencePlane, UnknownHandling branch), ready for G.2/G.5.
 
 ### 2) Problem frame (Design‑time vs Run‑time roles)
 
@@ -29593,13 +29595,19 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Run‑time target architheories:** the deployed theories/methods that users run to generate ideas or make decisions (gated by B.3; separated by A.4).
 * **Local glossary:** *DRR* = Decision Rationale Record; *SCR* = Selection Confidence Report (fields: chosen family, eligibility verdicts, Γ‑fold contributors, CL penalties, R_eff); **MDS** = UTS metadata stub (Name Card + twin labels).
 
+**Terminology hook (ATS stance & governance).**
+— **AT0 (Applied‑run).** Execution outside FPF’s transdiscipline scope; AT0 imports into AT1 only via **BridgeDescription + UTS** with **CL** loss notes. AT0 tokens do not assert norms upstream (E.11 AH‑2).  
+— **AT1 (Transdiscipline‑design).** Translation of applied problems into **TaskPack** and **methods‑about‑methods**; **comparability lives in a `U.Discipline` CG‑Spec** (not on Domain labels). Domain is catalog‑only, stitched to **D.CTX + UTS** (C.20; E.11 §6).  
+— **AT2 (Architheory authoring).** Publishes CHR/CAL/LOG packs; **CL penalties route to `R_eff` only**; F/G invariants unchanged (KD‑CAL; E.11 AH‑3).  
+— **AT3 (Meta‑authoring).** Organises AT2; **cannot override AT2 F/G** (E.11 table).  
+— **Strategy/policy.** Do **not** mint a new kernel head “Strategy”: strategy is a **composition inside G.5** under **E/E‑LOG**; keep “strategy” only in the Plain register where pedagogically useful (C.22 bias‑annotation).
+
 ### 3) Problem (recurring pains the pattern solves)
 
 * SoTA is scattered; no **local, scoped** set for a CG-Frame.
 * Variant generation is ad‑hoc; **private cases** lack a principled emitter.
 * Selection is taste‑driven; **trust & comparability** are opaque.
 * Output doesn’t land in **F‑artifacts** (RoleAssignments/UTS/names), so it can’t be reused.
-* Design/run boundaries get blurred; provenance & scope go missing.
 
 ### 4) Forces (tensions to balance)
 
@@ -29608,7 +29616,7 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Local meaning vs portability** (Context‑local semantics vs Bridges/CL).
 * **Expressiveness vs parsimony** (new types vs reuse per F.8).
 
-## 5) Solution — **Six‑module generator chassis**
+### 5) Solution — **Six‑module generator chassis**
 
 *(Each module is a slot with explicit inputs/outputs and guard‑rails; minimal, substrate‑neutral.)*
 
@@ -29629,14 +29637,14 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Inputs:** SoTA_Set; private constraints; resource envelopes
 * **Ops:** open‑ended emitters (NQD‑CAL); policy governor (E/E‑LOG); **abductive trace** (B.5.2) with A.10 anchors per lane and **ReferencePlane** on claims.
 * **Scoring:** Creativity‑CHR characteristics (Novelty, Surprise, ConstraintFit, **Diversity**); 
-* **Outputs:** `VariantPool` with **EmitterTrace** (who/why/where)
-* **Guards:** explore↔exploit policy (C.19); SoD (A.2 `⊥`); no category leaks (A.7); **metric legality/typing per MM‑CHR (A.17–A.19/C.16)**;  If a score/aggregation implies cross‑candidate comparison, cite a registered **CG‑Spec characteristic**; otherwise degrade to order‑only or **abstain**.
+* **Outputs:** `VariantPool` with **EmitterTrace** (who/why/where) **+ SCR‑per‑candidate preview** (constraints/gates consulted; CL notes; **Φ policy‑ids**; ReferencePlane; **UnknownHandling={degrade|abstain|sandbox}** branch recorded).
+* **Guards:** explore↔exploit policy (C.19); SoD (A.2 `⊥`); no category leaks (A.7); **metric legality/typing per MM‑CHR (A.17–A.19/C.16)**; **unknowns are tri‑state with explicit failure policy {degrade|abstain|sandbox} recorded in the EmitterTrace/SCR‑preview**; if a score/aggregation implies cross‑candidate comparison, cite a registered **CG‑Spec.characteristic**; otherwise degrade to lawful orders (median/medoid/lexi) or **abstain**.
 
 **M4 · Selector & Assurer (fit‑for‑purpose)**
 
 * **Inputs:** VariantPool; acceptance clauses; risk constraints
-* **Ops:** evaluation & evidence (CAL hooks); **apply ConstraintFit=pass as an eligibility filter before any front computation**; **Γ‑fold** aggregation (B.1); F–G–R roll‑up (B.3) **with CL penalties routed to R_eff**; enforce **CG‑Spec.minimal_evidence** for any characteristic used in evaluation; gate Γ‑fold contributors accordingly; **when only ordinal semantics are lawful, avoid weighted sums and use lexicographic/median/medoid comparators**.  
-* **Outputs:** `Shortlist` with **Assurance tuples** ⟨F,G,**R_eff**⟩ + decision rationale (E.9 **DRR + SCR**)
+* **Ops:** evaluation & evidence (CAL hooks); **apply ConstraintFit=pass as an eligibility filter before any front computation**; **Γ‑fold** aggregation (B.1); F–G–R roll‑up (B.3) with **CL→R only**; enforce **CG‑Spec.minimal_evidence** for any characteristic used in evaluation; gate Γ‑fold contributors accordingly; when only ordinal semantics are lawful, avoid weighted sums and use lexicographic/median/medoid comparators; **surface Φ(CL)**/**Φ_plane** policy‑ids in SCR (per Pre‑flight).
+* **Outputs:** `Shortlist` with **Assurance tuples** ⟨F,G,**R_eff**⟩ + decision rationale (E.9 **DRR + SCR**, including **Φ(CL)/Φ_plane policy‑ids** and ReferencePlane on any penalised claim)
 * **Guards:** CL penalties for cross‑Context imports; ageing/decay (B.3.4); **SoD for approval; minimum‑R gates**.
 
 **M5 · F‑Binding (publication surface)**
@@ -29656,9 +29664,7 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 
 > **Julia‑inspired specialisation note (design‑time only):** within M3–M4, **parametric specialisation** and **trait‑like dispatch** are allowed as a *notation‑free* idea: variants are emitted/selectable by **type‑parameters** (capability envelopes, scale, constraint traits) rather than ad‑hoc flags. No tool lock‑in; semantics live in CAL/CHR.
 
----
-
-## 6) Interfaces — minimal I/O contract
+### 6) Interfaces — minimal I/O contract
 
 | Module | Consumes                       | Produces                                              |
 | ------ | ------------------------------ | ----------------------------------------------------- |
@@ -29669,11 +29675,17 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 | M5     | Shortlist                      | RoleDesc templates, Concept‑Set rows, UTS rows, Name Cards |
 | M6     | DRR deltas, telemetry          | Versioned `CG‑Kit@CG‑Frame`, refresh plan               |
 
-## 7) Conformance Checklist (normative, terse)
+
+### 7) Archetypal Grounding (Tell–Show–Show)
+**Tell.** The generator targets **goldilocks** problems (feasible‑but‑hard), assembling a local SoTA set, a `VariantPool`, and (when needed) an `AT1 TaskPack`, under **E/E‑LOG** policy with lawful CHR typing and CG‑Spec bindings.
+**Show A (Software R&D).** Context: R&D multi‑criteria decisions. M2 harvests outranking/value/portfolio fronts; M3 emits variants under budget/risk; M4 selects with acceptance clauses; M5 publishes RoleDesc/Concept‑Sets/UTS; M6 versions the `CG‑Kit` with quarterly refresh.
+**Show B (Clinical ops).** Context: dose‑adjustment design. M2 harvests SoTA dosage models and safety invariants; M3 emits policy‑constrained variants; M4 gates by safety acceptance; M5 publishes `Safety‑Invariants` and Name Cards; M6 maintains refresh & deprecations.
+
+### 8) Conformance Checklist (normative, terse)
 
 1. **Context declared.** Every artifact is spoken **in** `CG-FrameContext` (U.BoundedContext); no global claims.
 2. **Aboutness present.** Every …Description published in G.1 carries `about: TopicHolon`, `ReferencePlane`, and a minimal `referenceMap`.
-3. **CG‑Spec required for comparisons.** Any numeric comparison/aggregation cites a **CG‑Spec** (characteristics, gauge, Γ‑fold); +     cross‑Context use via **Bridge + CL** with penalties to **R_eff** only (never to F).   
+3. **CG‑Spec required for comparisons.** Any numeric comparison/aggregation cites a **CG‑Spec** (characteristics, gauge, Γ‑fold); cross‑Context/Tradition use via **Bridge + CL** with penalties to **R_eff** only (never to F).
 4. **Evidence anchored.** All SoTA imports and evaluations link to carriers (A.10); no self‑evidence.
 5. **Design/run split.** Generators & selections are **design‑time**; operational runs are **Work** (A.4/A.15).
 6. **Emitter governed.** NQD emitters operate under an explicit **E/E‑LOG** policy; portfolio coverage is recorded (C.18–C.19).
@@ -29685,18 +29697,19 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 12. **Refresh set.** A cadence for evidence/variants is declared; stale items accrue **Epistemic Debt** (B.3.4).
 13. **DRR/SCR emitted.** Every selection emits **DRR + SCR**; **R_eff** computed via **Γ‑fold** with CL penalties.
 14. **UTS twin labels.** Published winners include **twin labels** and **loss notes** for any bridge.
-15. **No tool lock‑in.** Core artifacts are notation‑independent; implementations live under **E.5.\***.
+15. **No tool lock‑in.** Core artifacts are notation‑independent; **no vendor/tool keywords in Core**; implementations live under **E.5.\***.
 16. **RSCR wired.** Regression tests are registered for each published artifact (F.15).
+17. **Φ‑policies surfaced.** Wherever CL/CL^plane penalties are used, **Φ** policies are **monotone, bounded, table‑backed**, with **policy‑ids** in SCR; **R_eff ≥ 0** by construction (per Pre‑flight/G.0).
+18. **Unknowns are tri‑state.** Unknowns **propagate as {pass|degrade|abstain}** to Acceptance/Eligibility; **no `unknown→0/false` coercion**; behavior recorded in SCR.
+19. **ATS harness pass.** Published crossings pass **E.11 AH‑1..AH‑4** (TierClassifier, GateCheck, LaneCheck incl. **CL→R only** and **CL^plane** if planes differ, LexicalCheck).
 
-## 8) Consequences (informative)
+### 9) Consequences (informative)
 
 * **Generativity with guard‑rails:** wide variant search **and** computable trust.
 * **Local first, portable later:** clear Context‑local semantics with **explicit Bridges** (CL) for crossing.
 * **Direct line to F:** outputs are *immediately usable* in F.17 UTS & F.18 naming; no translation pass.
 
----
-
-## 9) Worked micro‑sketch (to be expanded in the full G.1)
+### 10) Worked micro‑sketch 
 
 **CG-Frame:** Multi‑criteria Decisions in R\&D
 
@@ -29707,35 +29720,27 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **M5:** Publish RoleDesc templates (`DecisionRole`, `EvaluatorRole`), Concept‑Set rows for “Alternative/Option”, and UTS rows with **local names**.
 * **M6:** Version `VEK‑Pkg@R&D` with refresh every quarter; decay old evidence after 12 months.
 
----
-
-## 10) Relations (wiring map)
+### 11) Relations (wiring map)
 
 * **Builds on:* A.4 (time split), A.10 (evidence), B.3 (assurance), B.5.2.1 (creative abduction), F.1–F.3 (Contexts/lexicon), F.7/F.8 (Concept‑Sets; mint/reuse).
 * **Imports:** C.17 (Creativity‑CHR), C.18 (NQD‑CAL), C.19 (E/E‑LOG), C.16 (MM‑CHR).
 * **Publishes to:* F.4 (RoleAssignment), **F.15 (RSCR)**, F.17 (UTS), F.18 (naming), optional Bridges (F.9).
 
----
-
-## 11) Author’s checklist (how to use the skeleton)
+### 12) Author’s checklist (how to use the skeleton)
 
 * Fill **M1–M6 slots** with the minimal cards (one page each).
 * Keep **names local**; propose cross‑Context Bridges only after the local UTS is stable.
-* Treat **Julia‑style specialisation** as a *design idiom* (parametric variant families), not as tooling.
+* Treat **Julia‑style specialisation** as a *design idiom* (parametric variant families), not as tooling; keep lenses/policies recorded (EmitterPolicyRef; lens id).
 * Commit every major decision into a **DRR** entry; wire outputs to **F‑artifacts** immediately.
-
----
 
 ## G.2 — **SoTA Harvester & Synthesis**   \[A]
 
 > **Purpose.** Provide a rigorous, repeatable way to **discover**, **triage**, and **synthesize** state‑of‑the‑art (SoTA) across competing Traditions before we mint any CHR/CAL/LOG for a CG-Frame. The output is a **SoTA Synthesis Pack** that feeds naming (UTS), formalisation (CHR/CAL), and the algorithmic dispatcher (G.5).
 > **Form.** Architectural pattern with a conformance checklist, aligned to FPF’s pattern grammar and publication contract.
 
----
-
 ### 1) Problem frame
 
-+Teams are extending FPF into a new **CG-Frame** (e.g., creativity, decision theory, evolutionary/hyper‑holonic architecture). The literature is **plural and contested** (ordinal vs cardinal utility; evidential vs causal decision theories; active inference vs classical control; quantum‑like cognition, etc.). We need a **discipline** that captures this plurality without collapsing meaning across Contexts, and that yields artifacts other G‑patterns can consume. **In all normative text below, “Tradition” refers to the Tech token `Tradition` (Plain “Tradition” allowed only as a 1:1 synonym).**
+Teams are extending FPF into a new **CG-Frame** (e.g., creativity, decision theory, evolutionary/hyper‑holonic architecture). The literature is **plural and contested** (ordinal vs cardinal utility; evidential vs causal decision theories; active inference vs classical control; quantum‑like cognition, etc.). We need a **discipline** that captures this plurality without collapsing meaning across Contexts, and that yields artifacts other G‑patterns can consume. **In all normative text below, “Tradition” refers to the Tech token `Tradition` (Plain “Tradition” allowed only as a 1:1 synonym).**
 
 ### 2) Problem
 
@@ -29746,8 +29751,6 @@ How to **systematically** assemble a *complete‑enough* SoTA view that:
 * identifies **incompatible commitments** and **points of translation loss**;
 * produces **actionable payloads** (names, claims, operators, exemplars) ready for CHR/CAL/LOG authoring and later **multi‑method dispatch** (G.5).
 
----
-
 ### 3) Forces (tensions you must balance)
 
 * **Pluralism vs. comparability.** Rival Traditions speak different dialects; we must compare **without** flattening their semantics (use Bridges with CL and loss notes).
@@ -29756,66 +29759,70 @@ How to **systematically** assemble a *complete‑enough* SoTA view that:
 * **Formalism vs. pedagogy.** Early outputs must be teachable and auditable (UTS + Name Cards).
 * **Design‑time vs. run‑time.** Keep modeling commitments separate from operational policies and proofs; record the stance explicitly.
 
----
-
 ### 4) Solution (the harvesting & synthesis loop)
 
-**4.1 Discovery funnel (iterate until saturation)**
+#### 4.1 Discovery funnel (iterate until saturation)
 
 * **Seed → Expand → Prune.** Start with canonical surveys & top venues (post‑2015); expand via forward/backward citation and method keywords; prune with *CG-Frame‑fit* and *load‑bearing* tests (does this claim change how we would model/decide?).
 * **Contexting.** Assign each artifact to a **home Context** (Bounded Context + edition). If cross‑Context reuse is needed, draft a **Bridge** and a **CL** with a human‑legible *loss/fit* note.
 
-**4.2 Claim distillation (per lineage/`Tradition`)**
+#### 4.2 Claim distillation (per lineage/`Tradition`)
 For each Tradition, extract a **Claim Sheet** (minimal, typed statements) with **F‑ratings**, **G‑scope cues**, and **R‑evidence anchors** **tagged with KD‑CAL lanes (TA/LA/VA)**, plus **Aboutness** (`TopicHolon`) and **ReferencePlane ∈ {world, concept, episteme}**; **Domain mentions stitched to D.CTX + UTS** (catalog‑only); include a stub **referenceMap** (observable cues → prospective CHR).
 
-**4.3 Operator & object inventory**
+#### 4.3 Operator & object inventory
 
 * Enumerate **characterisation candidates** (Characteristics, Scales, Levels, Coordinates) and **operators** the Tradition needs. Park all measurement terms under **MM‑CHR** discipline (no ordinal arithmetic; declare polarity; unit coherence).
 * Identify **decision objects** (options, lotteries, policies), **evidence objects** (observations, proofs), and **search objects** (frontiers, VOI heuristics) to be handed to CHR/CAL/LOG later.
 
-**4.4 Alignment & divergence map**
+#### 4.4 Alignment & divergence map
 
 * Build a **Bridge Matrix**: `Tradition`×`Tradition` with where alignment is possible, **CL** and explicit **loss**; **note that CL penalties route to R_eff only (F and G invariant)**.
 
-**4.5 Didactic micro‑grounding & aboutness anchoring**
+#### 4.5 Didactic micro‑grounding & aboutness anchoring
 
 *For every load‑bearing claim, attach two micro‑examples …* **and link each micro‑example to carriers (A.10)** to serve as minimal anchors for future **CG‑Frame** characteristics and CHR cards.
 
-**4.6 Publication surface (SoTA Synthesis Pack)**
+#### 4.6 Publication surface (SoTA Synthesis Pack)
 
-* **UTS delta.** Proposed **Name Cards** (Unified Tech / Plain), Context, MDS, sense anchor, alignment/bridges, lifecycle = *Draft*. 
+* **UTS delta.** Proposed **Name Cards** (Unified Tech / Plain) **with twin labels** (per F.17–F.18), Context, MDS, sense anchor, alignment/Bridges, lifecycle = *Draft*; **no new conceptual prefix without E.10 (LEX) and a DRR citation**; **use registered Γ\_ family** (do not re‑use Γ for gauges).
+* **ReferencePlane** is published per row; on any crossing compute and record **CL^plane**; penalties **route to R_eff only** (never F/G).
 * **SoTA Tables.** Side‑by‑side claim sheets, operator lists, and exemplar pointers per Tradition/Context.
 * **Risk & trust notes.** Where translation exists, log **CL penalties** and evidence fragility for later **R** aggregation.
 
 Required artifact for top‑level disciplines: SoTAPaletteDescription (D), accompanied by CHR evidence (G.3) and CAL traces (G.4). The SoTA Synthesis Pack MUST include: (i) claim sheets, (ii) operator & object inventory, (iii) bridge matrix (CL with loss notes), (iv) worked micro‑examples, (v) UTS drafts. This Description precedes any CG‑Spec normalization.
 
-**G.2‑F (Γ\_epist Synthesis Step)** → _publish UTS plane and Bridge ids_; **pairwise Bridges** must carry **CL**/**loss notes**; **no “semantic flattening”**.
+ **G.2‑F (Γ_epist Synthesis Step).** For any cross‑source consolidation, produce a **`Γ_epist^synth`** with:
+ (i) **Provenance union** (no source loss),
+ (ii) **Object alignment** (LCA or **`CompositeEntity`** with explicit mappings),
+ (iii) **Assurance tuple = WLNK(…; Φ(CL), Φ_plane)** with **monotone, bounded, table‑backed** Φ‑policies; **publish policy‑ids in SCR** and document them in **CG‑Spec**,
+ (iv) **Conflict handling**: **no averaging** across rival planes/scales; preserve disjoint claims with Bridges + **loss notes**,
+ (v) **ReferencePlane per row**; **compute CL^plane** on crossings; **penalties → R_eff only**; **emit SCR** for each synthesis result.
 
-**Guards (LEX/ATS).** Require **≥2 Traditions** and **≥3 `U.BoundedContext`**; **Domain labels are catalog‑only**; **Bridge + CL** on any cross‑Context/Tradition mapping; **RSCR hooks** for drift/refresh.
+ **G.2‑G (DHC hooks, C.21).** For each Tradition×Context, emit **DHC‑SenseCells** (UTS ids) and declare units for
+ **AlignmentDensity = `bridges_per_100_DHC_SenseCells`**; count only Bridges with **CL ≥ 2**; interpret **CL=3** as *free substitution*, **CL=2** as *guarded* (loss notes attached). Publish freshness windows for DHC series.
+
+ Head‑anchoring + I/D/S; Plain twins present; tier crossings recorded (**Bridge + UTS** with **CL/CL^plane**); Domain mentions stitched to **D.CTX + UTS**.
+**See §7 Conformance for the normative guard set (pluralism floor; Bridge+CL with loss notes; lane tags; RSCR hooks; ReferencePlane & CL^plane; penalties → R only).** This avoids duplication and drift.
 
 ### 5) Payload (what this pattern *exports*)
 
 1. **SoTA Synthesis Pack** for the CG-Frame (folder):
-
-   * **G.2a** *Corpus Ledger*: bib entries + Context/edition + quick verdict (keep/park/retire).
-   * **G.2b** *Claim Sheets* (per Tradition) with F/G/R annotations.
-   * **G.2c** *Operator & Object Inventory* (candidate CHR terms; CAL hooks).
-   * **G.2d** *Bridge Matrix* with CL & loss notes.
-   * **G.2e** *Micro‑examples* (1‑pagers).
-   * **G.2f** *UTS Proposals* (Name Cards + proposed rows/aliases).
-   * **G.2g** *Aboutness Map*: per Tradition, a table `{term → TopicHolon, ReferencePlane, referenceMap stubs}`.
+* **G.2a** *Corpus Ledger*: bib entries + Context/edition + quick verdict (keep/park/retire).
+* **G.2b** *Claim Sheets* (per Tradition) with F/G/R annotations.
+* **G.2c** *Operator & Object Inventory* (candidate CHR terms; CAL hooks).
+* **G.2d** *Bridge Matrix* with CL & loss notes.
+* **G.2e** *Micro‑examples* (1‑pagers).
+* **G.2f** *UTS Proposals* (Name Cards + proposed rows/aliases).
+* **G.2g** *Aboutness Map*: per Tradition, a table `{term → TopicHolon, ReferencePlane, referenceMap stubs}`.
 
 2. **Hand‑off manifests** to:
-
-   * **G.3/G.4** (CHR authoring and CAL scoping) with the operator/object inventory;
-  * **G.5** (Dispatcher) with a **Method Family Index** per Tradition (candidate LOG bundles) **aligned to the Registry fields (Eligibility predicates, Assurance profile, CL notes)**.
+* **G.3/G.4** (CHR authoring and CAL scoping) with the operator/object inventory;
+* **G.5** (Dispatcher) with a **Method Family Index** per Tradition (candidate LOG bundles) **aligned to the Registry fields (Eligibility predicates, Assurance profile, CL notes)**.
 
 ### 6) Interfaces & dependencies
 
 * **Consumes:** CG-Frame Charter (G.1), naming rules & UTS protocol (F.17), measurement discipline (A.17–A.19), **Bridges & CL (F.9) with Trust (B.3)** + CAL evidence hooks.
 * **Produces:** Draft **\[D]** terms for **G.2 → G.3**; operator stubs for **CAL** in **G.4**; initial **LOG** families for **G.5**.
-
----
 
 ### 7) Conformance Checklist (author must be able to tick “yes”)
 
@@ -29823,12 +29830,11 @@ Required artifact for top‑level disciplines: SoTAPaletteDescription (D), accom
 * **Contexts declared.** Every artifact has a **home Context**; cross‑Context reuse uses a **Bridge** with **CL** and a **loss note**.  **ReferencePlane on crossings; CL→R only** with loss notes.
 * **Rival Traditions kept disjoint.** No fused claims without an explicit alignment proof or Bridge. 
 * **Measurement lawful.** All proposed characteristics/scales honour MM‑CHR guards (no illegal ordinal arithmetic; unit coherence; declared polarity). 
-* **Didactic grounding.** Each load‑bearing claim has **two micro‑examples** (heterogeneous substrates). 
-* **UTS‑ready.** Each candidate term has a **Name Card** draft with Context, MDS, twin labels, concept‑set linkage (or rationale for “not applicable”). 
 * **Hand‑offs produced.** CHR/CAL/LOG manifests exist and reference the SoTA pack components. 
 * **Aboutness declared.** Each Claim Sheet states `TopicHolon` and `ReferencePlane`; micro‑examples cite carriers (A.10).
-
----
+* **Didactic grounding.** Each load‑bearing claim has **two worked micro‑examples** (heterogeneous substrates) and **A.10 anchors** with lane tags (KD‑CAL).
+* **UTS‑ready.** Each candidate term has a **Name Card** draft **with twin labels** (F.17–F.18), Context, MDS, concept‑set linkage (or rationale for “not applicable”).
+* **DHC hooks present.** DHC‑SenseCells are emitted; **AlignmentDensity** units declared; freshness windows stated (C.21).
 
 ### 8) Anti‑patterns & rewrites (what to avoid, what to do instead)
 
@@ -29836,46 +29842,36 @@ Required artifact for top‑level disciplines: SoTAPaletteDescription (D), accom
 * **Ordinal arithmetic creep.** *Don’t:* average Likert‑style scores across studies. *Do:* treat as ordinal; use order‑safe summaries, or justify interval mapping via MM‑CHR evidence.
 * **Design/run blur.** *Don’t:* treat policy heuristics as proven laws. *Do:* tag stance, and route proofs/policies to the proper lanes.
 
----
-
 ### 9) Consequences
 
 * **Comparable plurality.** Teams can hold multiple Traditions in view, compare them **safely**, and trace translation risk via CL.
 * **Frictionless downstream work.** CHR/CAL/LOG authors receive **well‑shaped inputs**; UTS publication stays disciplined.
 * **Pedagogical leverage.** Micro‑examples and Name Cards make the synthesis teachable and auditable.
 
----
-
 ### 10) Worked micro‑example (1 paragraph, indicative only)
 
 *CG-Frame:* Decision theory. *Traditions:* (i) **Classical expected‑utility** (ordinal vs cardinal utility variants); (ii) **Causal decision theory**; (iii) **Quantum‑like cognitive models**; (iv) **Active‑inference thermodynamic stance**.
 *Moves:* Each Tradition gets a **Claim Sheet** (e.g., form of choice rule, independence/separability, belief update), **Operator Inventory** (e.g., utility/likelihood/variational free energy), **Bridge Matrix** entries (*e.g.*, CDT ↔ EDT misalign on counterfactual conditioning; CL=2; *loss:* evidential dependence), two **micro‑examples** (manufacturing escalation vs human‑choice vignette), and **UTS proposals** for contested terms (`U.DecisionPolicy`, `U.PreferenceOrder`, `U.FreeEnergyBound`). (Downstream: G.3 authors CHR for *Decision Object/Profile/Policy*; G.4 authors CAL variants; G.5 registers algorithm families.)
 
----
-
 ### 11) Editorial template (1‑page “SoTA Sheet” per Tradition)
 
 * **Context & edition** · **Core claims** (typed; intended **F**) · **Objects & operators** · **Measurement stance** (MM‑CHR notes) · **Evidence stance** (what counts; typical *R* anchors) · **Micro‑examples** · **Known bridges** (targets; CL; loss notes) · **Citations (≥2015)** · **UTS candidates** (Name Card ids). 
-  
-  ## G.3 — **CHR Authoring: Characteristics · Scales · Levels · Coordinates** \[A]
+
+## G.3 — **CHR Authoring: Characteristics · Scales · Levels · Coordinates** \[A]
 
 **Tag:** \[A] (publishes CHR; constrains CAL/LOG)
 **Stage:** *design‑time* (authoring & publication; enables lawful run‑time use by G.4/G.5)
 **Primary hooks:** G.1 CG-Frame Card; G.2 SoTA Pack; **MM‑CHR discipline** (A.17–A.19/C.16); **Trust & Assurance** (B.3, Γ‑fold B.1); **Contexts & Bridges with CL** (F.1–F.3, F.9); **UTS & Naming** (F.17–F.18); **RoleAssignment** (F.4); **RSCR** (F.15); **No tool lock‑in** (E.5.1–E.5.3); **Lexical rules** (E.10); **Design–Run split** (A.4).
-
----
+**Pre‑flight (applies to G.0–G.5).** Any numeric comparison/aggregation **MUST** (i) cite a **CG‑Spec.characteristic id**, and (ii) prove **CSLC legality** (A.18/C.16: **Scale/Unit/Polarity**) **before numbers move**; minimal evidence recorded via CG‑Spec. Cross‑Context reuse requires **Bridge + CL** with penalties routed to **R_eff only** (never **F**/G). **Φ(CL)**/**Φ_plane** **MUST** be monotone and table‑backed (policy‑ids recorded). Unknowns propagate as a tri‑state {**pass**|**degrade**|**abstain**} into **Acceptance**.
 
 ### 1) Intent
 
 Provide a **notation‑independent authoring discipline** to turn SoTA plurality into a **lawful characterization layer (CHR)**: precisely typed **Characteristics**, **Scales**, **Levels**, and **Coordinates** with **guard‑rails** on what operations and aggregations are **legal**. The output is a **CHR Pack** consumable by CAL authoring (G.4) and dispatch (G.5), and publishable to **UTS**.
 
----
 
 ### 2) Problem frame
 
-You have a **CG-FrameContext** (G.1) and a **SoTA Synthesis Pack** (G.2) with competing Traditions, object/operator inventories, and Bridge/CL notes. Before any calculus (G.4) or run‑time dispatch (G.5), you must **stabilize measurement semantics**: name things, type them, and make illegal operations **impossible by construction**.
-
----
+You have a **CG-FrameContext** (G.1) and a **SoTA Synthesis Pack** (G.2) with competing Traditions, object/operator inventories, twin‑labeled UTS drafts and Bridge/CL(+CL^plane) notes. Before any calculus (G.4) or run‑time dispatch (G.5), you must **stabilize measurement semantics**: name things, type them, and make illegal operations **impossible by construction**.
 
 ### 3) Problem
 
@@ -29887,8 +29883,6 @@ Teams repeatedly stumble on:
 * **Unverifiable aggregation** (no proof obligations, no Γ‑fold hooks).
 * **Unreusable outputs** (no UTS rows, no test surface, no scope).
 
----
-
 ### 4) Forces
 
 * **Pluralism vs. uniformity.** Preserve Tradition‑specific semantics yet deliver a common **typing** substrate.
@@ -29896,15 +29890,13 @@ Teams repeatedly stumble on:
 * **Pedagogy vs. formalism.** Make authoring teachable (Name Cards, micro‑examples) without weakening the legality guards.
 * **Local context vs. portability.** Keep CHR **Context‑local** while preparing **Bridges** with **CL** and explicit **loss notes**.
 
----
-
 ### 5) Solution — *CHR Authoring chassis* (S1–S8)
 
 **S1 · Measurement Charter (scope anchor)**
-**Inputs:** CG-FrameContext (G.1), SoTA Pack (G.2).  CAL traces supporting SoTAPaletteDescription MUST identify KD‑CAL lanes used (TA / LA / VA) and expose any lane‑dependent tolerances. Cross‑lane comparisons are forbidden unless explicitly bridged with declared CL penalties.
+**Inputs:** CG-FrameContext (G.1), SoTA Pack (G.2). CAL traces supporting SoTAPaletteDescription MUST identify KD‑CAL lanes used (TA / LA / VA) and expose any lane‑dependent tolerances. **Cross‑lane comparisons are forbidden**; lane purity is enforced in **CAL.EvidenceProfiles**. If a claim crosses **ReferencePlanes**, declare **Φ_plane** and route penalties to **R_eff only**; there is **no “Bridge” across lanes**.
 **Ops:** declare **ObjectKinds** and **TaskKinds** in the home **Context**; state **USM ScopeSlice(G)**, invariants, and **freshness** needs; list contested terms that require Bridges.
 **Outputs:** `KindMap@Context`, `MeasurementCharter` (design‑time stance).
-**Guards:** A.4 split; F.1–F.3 Contexting; E.10 lexical hygiene.
+**Guards:** A.4 split; F.1–F.3 Contexting; E.10 lexical hygiene; **E.11 ATS GateCrossing** recorded for any tier crossing (AT0..AT3) with **Bridge id** and **CL** captured (penalties → **R_eff** only).
 
 **S2 · Term Minting & Reuse (UTS‑first)**
 **Ops:** for each candidate term, attempt **reuse** (F.8) via UTS; if minting, draft **Name Card** (Unified + Plain), Context, MDS, twin labels, and **loss notes** for any Bridge.
@@ -29940,13 +29932,16 @@ When a numeric **Coordinate** is required (e.g., for ranking), publish `Coordina
 
 **S6 · Operation Legality & Guard Macros** (explicitly forbid mean/subtract on ordinal; fail unit mismatches)
 Publish a **Legality Matrix** per Scale type and a set of **Guard Macros** for CAL/LOG:
-`ORD_COMPARE_ONLY`, `INTERVAL_MEAN_ALLOWED`, `RATIO_PRODUCT_ALLOWED`, `UNIT_CHECK`, `CROSS_Context_CL_PENALTY`, `POLARITY_CHECK`, `CYCLIC_DIFF`.
+`ORD_COMPARE_ONLY`, `INTERVAL_MEAN_ALLOWED`, `RATIO_PRODUCT_ALLOWED`, `UNIT_CHECK`, `CROSS_Context_CL_PENALTY`, `POLARITY_CHECK`, `CYCLIC_DIFF`, `FRESHNESS_CHECK`,
+`CSLC_PROOF_REQUIRED(x)` — aggregation/comparison proceeds **only** after **CSLC legality** is proven for the participating Scales/Units (per A.18/C.16),
+`UNKNOWN_TRI_STATE(x)` — on missingness/unknowns, emit **{pass\|degrade\|abstain}** branch for **Acceptance** (no silent coercions),
+`PHI_CL_MONOTONE(policy_id)` — assert that **Φ(CL)**/**Φ_plane** used for penalties is **monotone**; record **policy_id** (visible to G.4/G.5 **SCR**).
 **Outputs:** `CHR.Guards`, `CHR.LegalityMatrix`.
 **Guards:** Enforce at authoring time + RSCR; route cross‑Context penalties to **R_eff** (never to **F**).
-**Freshness windows** MUST be published per Characteristic (Context‑local).
+**Freshness windows** MUST be published per Characteristic (Context‑local; stale ⇒ {degrade|abstain} at Acceptance) and enforced via `FRESHNESS_CHECK(x)` in **CAL.Acceptance**.
 
 **S7 · Aggregation & Comparison Patterns (safe by construction)**
-Provide **typed aggregation templates** (e.g., lexicographic min, Pareto dominance with explicit **non‑dominated set** outputs for partial orders, **t‑norms only on ratio‑scale quantities in \[0,1]**, medoid/median for ordinal, affine sums only on interval/ratio with unit alignment). Any comparator/aggregator used **across candidates** MUST cite a **CG‑Spec** characteristic id (A.19.D1); otherwise degrade to order‑only or abstain.
+Provide **typed aggregation templates** (e.g., lexicographic min, Pareto dominance — **return the explicit non‑dominated set** for partial orders; medoid/median for ordinal; **t‑norms only on ratio‑scale quantities in [0,1]**; for ordinal, affine sums only on interval/ratio with unit alignment). Any comparator/aggregator used **across candidates** MUST cite a **CG‑Spec** characteristic id (A.19.D1); otherwise degrade to order‑only or abstain. **Record the chosen Γ‑fold contributor policy (default = weakest‑link) with an edition id; silent changes are forbidden.**
 **Outputs:** `CHR.AggregationSpecs` with legality proofs/links.
 
 **S8 · Publication, Tests, and Evolution**
@@ -29954,9 +29949,19 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
 **Outputs:** versioned `CHR Pack@CG-Frame` + RSCR ids + deprecation notices (F.13).
 **Guards:** E.5.\* no tool lock‑in; lexical continuity (F.13–F.14).
 
----
+### 6) Archetypal Grounding (informative; two CHR examples from distinct fields)
 
-### 6) Interfaces — minimal I/O contract
+**AG‑1 (ML fairness, post‑2015 practice).**  
+Characteristic: `DemographicParityGap` — **interval** (symmetric bounds around 0), Unit: percentage points, Polarity: **target‑band** with center at 0.  
+Legality: **no cross‑ordinal scalarisation**; comparisons use intervals; **UNIT_CHECK** and **ORD_COMPARE_ONLY** guarding when gap is disclosed alongside ordinal labels; *CSLC_PROOF_REQUIRED** before any aggregation across cohorts; stale evidence ⇒ **UNKNOWN_TRI_STATE → {degrade|abstain}**.  
+Bridge: when imported from an external auditing Tradition, require **Bridge + CL**; penalties via **PHI_CL_MONOTONE** → **R_eff** only.
+
+**AG‑2 (Clinical diagnostics).**  
+Characteristic: `Sensitivity` — **ratio** (dimensionless in \[0,1]), Unit: none; Polarity: **↑**.  
+Legality: means allowed on ratio; **t‑norms only on \[0,1]**; no mixing with **ordinal** labelling of test difficulty; **CSLC_PROOF_REQUIRED** on any rate→rate transformations (e.g., pooled sensitivity under varying prevalence).  
+Evidence lanes: VA for protocol correctness; TA for published trials; freshness window declared.
+
+### 7) Interfaces — minimal I/O contract
 
 | Interface                | Consumes                            | Produces                                                              |
 | ------------------------ | ----------------------------------- | --------------------------------------------------------------------- |
@@ -29968,9 +29973,7 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
 | **G.3‑6 AggregateSpecs** | CHR set, acceptance clauses         | `AggregationSpecs` (typed, with proofs/obligations)                   |
 | **G.3‑7 Publish**        | All above                           | Versioned `CHR Pack@CG-Frame`, RSCR tests, Worked‑Examples, deprecations |
 
----
-
-### 7) Payload (what G.3 exports)
+### 8) Payload (what G.3 exports)
 
 1. **CHR Pack\@CG-Frame** (folder):
 
@@ -29978,14 +29981,13 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
    * `CHR.Scale[]`, `CHR.Level[]`
    * `CHR.Coordinate[]` (with legality notes)
    * `CHR.Guards`, `CHR.LegalityMatrix`
-   * `CHR.AggregationSpecs`
+   * `CHR.AggregationSpecs` (**Γ‑fold contributor policy + edition id**, visible to G.4/G.5 **SCR**)
    * **UTS Entries** (Name Cards + twin labels + Bridge CL & loss notes)
-   * **RSCR** tests + **Worked‑Examples**
-2. **Hand‑off manifests** to G.4 (admissible CAL operators; unit/scale constraints) and to G.5 (TaskSignature trait inferences; eligibility predicates).
+   * **RSCR** tests + **Worked‑Examples** (**Archetypal Grounding included**)
 
----
+1. **Hand‑off manifests** to G.4 (admissible CAL operators; unit/scale constraints) and to G.5 (TaskSignature trait inferences; eligibility predicates).
 
-### 8) Conformance Checklist (normative)
+### 9) Conformance Checklist (normative)
 
 1. **Context declared.** Every CHR artifact has a **home Context**; cross‑Context reuse uses a **Bridge** with **CL** and **loss note**.
 2. **Scale typed.** Each Characteristic declares **Scale type**, **Polarity**, **UnitSet**, **Bounds**, **Zero semantics**, **Freshness**.
@@ -30001,10 +30003,14 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
 12. **Design/run split.** Authoring is **design‑time**; run‑time policies live in CAL/LOG (A.4).
 13. **No tool lock‑in.** Core cards avoid vendor keywords; implementations live under **E.5.\***.
 14. **Lifecycle set.** Refresh/decay declared; deprecations follow **F.13–F.14** with **Lexical Continuity** notes.
+15. **Φ/planes surfaced in provenance.** Where a CHR card depends on cross‑Context/plane import, provenance **MUST** cite Bridge id and record **CL/CL^plane** policy‑ids visible to **G.4/G.5 SCR**.
+16. **No thresholds in CHR.** All thresholds/guard‑bands live **only** in **AcceptanceClauses** (G.4); CHR **MUST NOT** embed policy cut‑offs (cf. C.21 practice).
+17. **CSLC legality before numbers.** Any numeric comparison/aggregation **MUST** prove **CSLC** legality (Scale/Unit/Polarity) and cite the **CG‑Spec.characteristic id**; otherwise **degrade/abstain**.
+18. **Unknowns are tri‑state.** Missingness/unknowns propagate as **{pass\|degrade\|abstain}** into **Acceptance**; silent coercions forbidden.
+19. **Φ(CL) monotone & recorded.** If CL penalties apply, **Φ(CL)**/**Φ_plane** **MUST** be monotone, table‑backed, and recorded with **policy id**; penalties route to **R_eff** only (never **F**).
+20. **Archetypal Grounding present.** Two cross‑domain CHR examples are included (per E.8) to teach lawful CHR authoring without weakening legality guards.
 
----
-
-### 9) Anti‑patterns & rewrites
+### 10) Anti‑patterns & rewrites
 
 * **Hidden cardinalization.** *Don’t:* treat ordinal encodings as interval; *Do:* publish an **isotonic** coordinate with clear limits.
 * **Unit laundering.** *Don’t:* add cost (USD) to time (hours); *Do:* transform to lawful quantities or keep vector comparisons.
@@ -30012,17 +30018,13 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
 * **Aggregation by convenience.** *Don’t:* “weighted averages” on ordinals; *Do:* medians, majority order, or lexicographic rules with proofs.
 * **Design/run blur.** *Don’t:* bake policy thresholds into Scale definitions; *Do:* keep thresholds in CAL acceptance clauses.
 
----
-
-### 10) Consequences
+### 11) Consequences
 
 * **Safety by construction.** Illegal operations are blocked at the **type/guard** level.
 * **Comparable plurality.** Rival Traditions can co‑exist because CHR preserves **local meaning** and exposes **lawful** comparison.
 * **Frictionless downstream.** CAL (G.4) and Dispatcher (G.5) receive **typed, UTS‑published** primitives with RSCR tests.
 
----
-
-### 11) Worked micro‑example (indicative)
+### 12) Worked micro‑example (indicative)
 
 *CG-Frame:* R\&D portfolio decisions.
 **Objects:** `Project`. **Characteristics:**
@@ -30034,20 +30036,16 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
    **UTS:** Name Cards minted; twin label “Safety rating” with loss note for marketing Context Bridge.
    **RSCR:** tests refuse `mean(SafetyClass)`; accept `median(SafetyClass)`; fail `CostUSD + Readiness`.
 
----
-
-### 12) Relations
+### 13) Relations
 
 **Builds on:** G.1, G.2; **MM‑CHR** (A.17–A.19/C.16); **F–G–R**; **Contexts/Bridges + CL**; **UTS**; **RoleAssignment**.
 **Publishes to:** G.4 (CAL admissible operators, legality macros), G.5 (TaskSignature traits), **UTS**, RSCR, Worked‑Examples.
 **Constrains:** any CAL/LOG implementation that consumes CHR.
 
----
-
-### 13) Author’s quick checklist
+### 14) Author’s quick checklist
 
 1. Write the **Measurement Charter** and **KindMap** for the CG-Frame.
-2. For each candidate Characteristic, **reuse** or **mint** in UTS with Name Card + twin labels.
+2. For each candidate Characteristic, **reuse** or **mint** in UTS with Name Card **+ twin labels**; cite **Bridge ids** where a CHR term is imported across Contexts, and surface **ReferencePlane** for any definitional claim.
 3. Declare **Scale**, **Levels**, **Polarity**, **UnitSet**, **Bounds**, **Freshness**, **Evidence lanes**.
 4. Publish any **Coordinate** with invariants preserved and explicit **non‑entitlements**.
 5. Generate **Legality Matrix** + **Guard Macros**; wire **AggregationSpecs** with proofs.
@@ -30059,8 +30057,6 @@ Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR
 **Stage:** *design‑time* (authoring & publication; enables lawful run‑time evaluation)
 **Primary hooks:** G.1 CG-Frame Card; G.2 SoTA Synthesis Pack; **G.3 CHR Pack**; **G.5 Dispatcher**; **KD‑CAL F–G–R** (B.3, B.1 Γ‑fold); **MM‑CHR discipline** (A.17–A.19/C.16); **Contexts & Bridges + CL** (F.1–F.3, F.9); **UTS & naming** (F.17–F.18); **RoleAssignment** (F.4); **RSCR** (F.15); **E/E‑LOG** (C.19); **No tool lock‑in** (E.5.1–E.5.3); **Lexical rules** (E.10); **Design–Run split** (A.4).
 
----
-
 ### 1) Intent
 
 Provide a **notation‑independent authoring discipline** to turn CHR‑typed measurement (from **G.3**) and SoTA plurality (from **G.2**) into a **lawful calculus layer (CAL)**:
@@ -30069,15 +30065,11 @@ Provide a **notation‑independent authoring discipline** to turn CHR‑typed me
 * **Acceptance Clauses** (typed predicates for *fit‑for‑purpose*), and
 * **Evidence wiring** (F–G–R lanes, Γ‑fold integration, CL routing),
 
-so that run‑time **LOG** bundles and the **G.5** selector can execute choices **safely, audibly, and with scope/trust visible**.
-
----
+so that run‑time **LOG** bundles and the **G.5** selector can execute choices **safely, auditably, and with scope/trust visible**.
 
 ### 2) Problem frame
 
 You have a **CG-FrameContext** (G.1), a **SoTA Synthesis Pack** (G.2), and a **CHR Pack** (G.3) with Characteristics/Scales/Levels/Coordinates and **Guard Macros**. Before any method is dispatched (G.5), the **CAL layer** must specify *what operators exist*, *what they legally do over the CHR types*, and *what counts as acceptable outcomes under declared scope (G) and assurance (F–R)*.
-
----
 
 ### 3) Problem
 
@@ -30089,8 +30081,6 @@ Teams repeatedly face:
 * **Evidence ambiguity** (what lane? how to aggregate? where do CL penalties land?).
 * **Tool entanglement** (vendor flags baked into core logic).
 
----
-
 ### 4) Forces
 
 * **Power vs. safety.** Expressive operators vs. strict legality under **MM‑CHR**.
@@ -30098,8 +30088,6 @@ Teams repeatedly face:
 * **Pedagogy vs. proof burden.** Make acceptance teachable while binding **proof obligations**.
 * **Locality vs. portability.** Keep Context‑local semantics yet prepare **Bridges** (with **CL** and loss notes).
 * **Exploration vs. exploitation.** Enable **NQD/E‑E** probing without leaking un‑assured results.
-
----
 
 ### 5) Solution — *CAL Authoring chassis* (C1–C9)
 
@@ -30110,8 +30098,6 @@ Teams repeatedly face:
 **Guards:** A.4 split; F.1–F.3 Contexting; E.10 lexical hygiene.
 
 Any cross‑Tradition or cross‑lane reduction MUST declare a CL bridge with explicit loss notes. Such reductions contribute a penalty term to Γ‑fold and are ineligible for “universal” aggregation.
-
-All thresholds live **only** in **AcceptanceClauses**; EvidenceProfiles carry TA/VA/LA tags + freshness windows; unknowns ⇒ {degrade|abstain|sandbox}; **Φ(CL)**/**Φ_plane** recorded with policy id; **No self‑evidence** (A.10).
 
 **C2 · Operator Cards (typed & lawful)**
 Define **OperatorCard** as the core unit:
@@ -30133,17 +30119,19 @@ OperatorCard :=
 **Guards:** `UNIT_CHECK`, `ORD_COMPARE_ONLY`, `POLARITY_CHECK`, `CYCLIC_DIFF`, etc. from **G.3**.
 **Outputs:** `CAL.Operator[]` (versioned; UTS‑published with twin labels).
 
----
-
 **C3 · Acceptance Clauses (typed predicates)**
 Craft **AcceptanceClause** as a minimal, typed grammar:
 
 ```
 AcceptanceClause :=
 ⟨ ClauseId (UTS), applies_to: {TaskKind|OperatorId},
-  Pred := boolean formula over CHR-typed observables
+  CharacteristicRefs: CHR.Characteristic[],      // explicit binding to CHR ids
+  CGSpecRefs?: CG‑Spec.characteristic[],         // REQUIRED iff Pred induces any numeric comparison/aggregation
+  EvidenceProfileRefs?: CAL.EvidenceProfile[],   // provenance hooks for SCR/LOG (C5)
+  Pred := boolean formula over CHR‑typed observables
           + CAL outcomes + Scope(G) + Resource envelope,
-  Thresholds declared (Context-local),
+  Thresholds declared (Context‑local),
+  UnknownHandling: {pass|degrade|abstain|sandbox}, // tri‑state made explicit (C3)
   Dependence on evidence lanes (KD‑CAL),
   Failure policy (degrade/abstain/escalate) ⟩
 ```
@@ -30170,8 +30158,6 @@ Provide **typed templates** (lexicographic, Pareto with explicit **non‑dominat
 **Outputs:** `CAL.Flow[]` + legality proofs/links.
 **Guards:** Ordinal **MUST NOT** be averaged/subtracted; unit mismatches **fail fast**.
 
----
-
 **C5 · Evidence Wiring & Γ‑fold (R aggregation)** (declare **TA/LA/VA lanes + Aboutness‑E0 fields readable to SCR; Γ = weakest‑link unless proven otherwise)
 For each Operator/Flow, define **EvidenceProfile**:
 
@@ -30180,14 +30166,14 @@ EvidenceProfile :=
 ⟨ lanes ∈ KD‑CAL[], anchors (A.10 carriers),
   contribution to R via Γ-fold,
   CL penalties routing (to R_eff; never to F),
-  ageing/decay policy (B.3.4) ⟩
+  ageing/decay policy (B.3.4),
+  freshness_window (Γ_time selector) ⟩
 ```
 
 Ship a **default Γ‑fold = weakest‑link**, overridable with proof of monotonicity & boundary behavior.
 **Outputs:** `CAL.EvidenceProfiles` + **SCR** fields to be emitted at run‑time.
 
-Record **Φ(CL)**/**Φ_plane** with policy‑id on each predicate branch; **No self‑evidence** (A.10); unknowns escalate to {degrade|abstain|sandbox} with explicit LOG branch.
-Record **ReferencePlane** on each EvidenceProfile row and publish **Φ(CL)**/**Φ_plane** policy‑ids (table‑backed); penalties route to **R_eff only** (never F/G).
+Record **ReferencePlane** on each EvidenceProfile row and publish **Φ(CL)**/**Φ_plane** **policy‑ids** (table‑backed) for every predicate branch; **No self‑evidence** (A.10); unknowns escalate to {degrade|abstain|sandbox} with an explicit LOG branch; penalties route to **R_eff only** (never F/G).
 
 **Publication hook for LOG.** EvidenceProfiles **SHALL** expose `profileId` and record **ReferencePlane**; these ids are **citable** from SoS‑LOG rules (C.23).
 
@@ -30201,21 +30187,20 @@ Where the CG-Frame needs search/generation, define **NQD‑class** operators wit
 **Outputs:** `CAL.NQD[]` + policy knobs the **G.5 selector** can read.
 **Guards:** Probes **MUST** respect AcceptanceClauses; unsafe probes **MUST** abstain or sandbox.
 
----
-
 **C7 · Proof Obligations & Soundness Ledger**
 For each Operator/Flow/Acceptance, attach **obligations**:
-
 * **Measurement legality** (scale/unit/polarity),
 * **Monotonicity / idempotence / stability** of aggregators,
 * **Assumption checks** (e.g., independence, convexity),
+* **Φ‑policy monotonicity/boundedness** (Φ(CL), **Φ_plane**) per published policy id,
+
 * **Degradation conditions** (when to drop to ordinal or abstain) and **tie‑handling rules** for partial orders (why a set is returned).
 
-Log proofs or references; if empirical, bind to **KD‑CAL lanes** and **A.10 carriers**.
+* Log proofs or references; if empirical, bind to KD‑CAL lanes and A.10 carriers.
+* AcceptanceClause.Sketch: if CGSpecRefs ≠ ∅ then attach ProofRef: CAL.ProofLedger.Id (**A.18 CSLC** check)
+
 **Outputs:** `CAL.ProofLedger` (linked from UTS).
 **Guards:** Missing proofs **MUST** be visible in **SCR** (severity affects **R**, not **F**).
-
----
 
 **C8 · Publication, RSCR, and Bridges**
 Publish all CAL artifacts to **UTS** (with twin labels; Context noted; Bridges + CL + loss notes). Register **RSCR** tests:
@@ -30228,14 +30213,10 @@ Publish all CAL artifacts to **UTS** (with twin labels; Context noted; Bridges +
 **Outputs:** `CAL Pack@CG-Frame` + RSCR ids + Worked‑Examples + deprecation notices (F.13).
 **Guards:** E.5.\* (no tool lock‑in); lexical continuity (F.12/F.14).
 
----
-
 **C9 · Packaging & Refresh**
 Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, SoTA deltas). Track change‑impact to AcceptanceClauses and Flows; emit **deprecation** and **lexical continuity** notes.
 **Outputs:** Versioned `CAL‑Pkg@CG-Frame` + refresh hooks.
 **Guards:** A.4 temporal duality; B.4 change rationale logged in **DRR**/**SCR**.
-
----
 
 ### 6) Interfaces — minimal I/O contract
 
@@ -30247,8 +30228,6 @@ Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, 
 | **G.4‑4 Flows**       | Operators, CHR AggregationSpecs          | `CAL.Flow[]` (typed pipelines; Γ‑fold hints; legality proofs)                     |
 | **G.4‑5 NQD Surface** | CHR types, E/E‑LOG policy                | `CAL.NQD[]` (emitters; risk budgets; telemetry schema)                            |
 | **G.4‑6 Publish**     | All above                                | Versioned `CAL Pack@CG-Frame`, RSCR tests, Worked‑Examples, Bridges/CL, deprecations |
-
----
 
 ### 7) Payload (what G.4 exports)
 
@@ -30264,24 +30243,24 @@ Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, 
    * **RSCR** tests + **Worked‑Examples**
 2. **Hand‑off manifests** to **G.5** (Eligibility contracts derive from Operator/Flow preconditions; Acceptance as selector gates; Evidence to **SCR**).
 
----
-
 ### 8) Conformance Checklist (normative)
 
 1. **Context declared.** Every CAL artifact has a **home Context**; cross‑Context reuse requires **Bridge + CL + loss note**.
 2. **Typed throughout.** Signatures, predicates, and flows **MUST** use **CHR** types (Characteristics/Scales/Units/Coordinates).
 3. **Legality enforced.** **Guard Macros** from **G.3** are attached and **RSCR‑tested**; ordinal arithmetic **MUST NOT** be performed.
-4. **CG‑Spec cited.** Any operator/flow/acceptance that induces comparison/aggregation cites the **CG‑Spec** characteristic id; otherwise degrade/abstain; **partial orders MAY produce a Pareto set**. 
-5. **C.21 guard‑bands live only in Acceptance** (no thresholds embedded in CHR); cross‑plane penalties recorded (**Φ_plane**).
-6. **Acceptance explicit.** All thresholds/policies live in **AcceptanceClauses**, not in CHR or Operator definitions.
-7. **Evidence wired.** Each Operator/Flow declares lanes and anchors; **CL penalties** route to **R_eff** only (not **F**).
-8. **Γ‑fold recorded.** R aggregation rule (default **weakest‑link**) is stated; contributors appear in **SCR**.
-9. **Degradation safe.** When assumptions fail, flows **MUST** degrade (e.g., cardinal→ordinal) or **abstain**, never perform illegal ops.
-10. **No tool lock‑in.** No vendor keywords in core fields; implementations live under **E.5.\***.
-11. **Lifecycle set.** Refresh/decay declared; deprecations follow **F.13–F.14** with **Lexical Continuity** notes.
-12. **UTS‑ready.** Names minted/reused; twin labels present; **Worked‑Examples** attached.
-
----
+4. **CG‑Spec & CSLC.** Any operator/flow/acceptance that induces **numeric** comparison/aggregation **MUST** cite the **CG‑Spec.characteristic id** and **prove CSLC legality**. In Acceptance, supply `CGSpecRefs` and a `ProofRef` to the **CAL.ProofLedger**; otherwise **degrade/abstain**. Where only a partial order is lawful, the Flow returns a set (Pareto front).
+5. **CHR binding in Acceptance**. `AcceptanceClause.CharacteristicRefs` SHALL enumerate CHR characteristics used by each threshold/comparison (machine‑checkable).
+6. **Evidence link in Acceptance**. `AcceptanceClause.EvidenceProfileRefs` SHALL list EvidenceProfile ids consulted by the clause so SCR can surface Φ(CL)/Φ_plane policy‑ids per branch.
+7. **C.21 guard‑bands live only in Acceptance** (no thresholds embedded in CHR); cross‑plane penalties recorded (**Φ_plane**) **with policy‑ids**; **no distance language**.
+8. **Acceptance explicit.** All thresholds/policies live in **AcceptanceClauses**, not in CHR or Operator definitions.
+9. **Evidence wired.** Each Operator/Flow declares lanes and anchors; **CL penalties** route to **R_eff** only (not **F**).
+10. **Γ‑fold & freshness recorded.** R aggregation rule (default **weakest‑link**) is stated; **freshness windows** are declared; contributors appear in **SCR**.
+11. **Degradation safe.** When assumptions fail, flows **MUST** degrade (e.g., cardinal→ordinal) or **abstain**, never perform illegal ops.
+12. **No tool lock‑in.** No vendor keywords in core fields; implementations live under **E.5.\***.
+13. **Lifecycle set.** Refresh/decay declared; deprecations follow **F.13–F.14** with **Lexical Continuity** notes.
+14. **UTS‑ready.** Names minted/reused; twin labels present; **Worked‑Examples** attached.
+15. **Φ‑policies monotone.** **Φ(CL)** and **Φ_plane** **MUST** be **monotone** and published by **policy id**; penalties route to **R_eff only** (never **F/G**).
+16. **No self‑evidence (A.10).** EvidenceProfiles and Acceptance proofs **MUST NOT** rely on carriers produced by the same holon without an external **TransformerRole**; cyclic provenance fails acceptance.
 
 ### 9) Anti‑patterns & rewrites
 
@@ -30291,16 +30270,12 @@ Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, 
 * **Evidence blur.** *Don’t:* cite “validated” without lane; *Do:* mark **KD‑CAL** lane(s) + anchors and Γ‑fold effect.
 * **Design/run blur.** *Don’t:* trigger side effects inside selection; *Do:* keep selection pure (G.5), evaluation emits **DRR/SCR**.
 
----
-
 ### 10) Consequences
 
 * **Safety by construction.** Illegal operations are blocked; acceptance becomes auditable.
 * **Comparable plurality.** Rival calculi co‑exist as separate **Operator/Flow** families with explicit Bridges and **CL**.
 * **Frictionless dispatch.** **G.5** reads typed **Eligibility** from CAL preconditions and gates by **AcceptanceClauses** with **SCR** ready.
 * **Pedagogical clarity.** Operator/Acceptance cards + Worked‑Examples make the calculus teachable and inspectable.
-
----
 
 ### 11) Worked micro‑example (indicative)
 
@@ -30329,15 +30304,11 @@ Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, 
 
 Run‑time: **G.5** reads CAL preconditions/acceptance to form eligibility and gates; emits **DRR+SCR** citing Γ‑fold contributors.
 
----
-
 ### 12) Relations
 
 **Builds on:** G.1, G.2, **G.3**; **MM‑CHR**; **F–G–R / KD‑CAL**; **Contexts/Bridges + CL**; **UTS**; **Role Assignment**.
 **Publishes to:** **G.5** (eligibility, acceptance, evidence), **UTS**, **RSCR**, Worked‑Examples.
 **Constrains:** any **LOG** implementation that executes these operators/flows.
-
----
 
 ### 13) Author’s quick checklist
 
@@ -30349,29 +30320,20 @@ Run‑time: **G.5** reads CAL preconditions/acceptance to form eligibility and g
 6. Publish to **UTS** with twin labels and Bridges; register **RSCR** tests; ship **Worked‑Examples**.
 7. Set **refresh/decay**; version the **CAL‑Pkg**; log change impact to **DRR/SCR**.
 
-> **Placement:** G.4 lives between **G.3** (measurement semantics) and **G.5** (multi‑method selection). It is the **calculus contract** that makes run‑time choice **lawful, explainable, and scoped**.
-
-
 ## G.5 — **Multi‑Method Dispatcher & MethodFamily Registry** \[A]
 
 **Tag:** \[A] (uses CHR/CAL/LOG)
 **Stage:** *design‑time* (authoring & registration) with a *run‑time* selector facade (policy‑governed)
-**Primary hooks:** G.1 CG-Frame Card, G.2 SoTA Synthesis Pack, G.3 CHR authoring, G.4 CAL variants, **KD‑CAL F–G–R** (B.3), **Formality F** (C.2.3), **USM / Scope (G)** (A.2.6), **Bounded Contexts & Bridges with CL** (Part F + B‑patterns), **SCR/RSCR** (F.15), **NQD‑CAL** (C.18), **E/E‑LOG** (C.19), **UTS & Naming** (F.17–F.18), **Guard‑Rails E.5.1–E.5.3** (no tool lock‑in, unidirectional dependency).
-
----
+**Primary hooks:** G.1 CG-Frame Card, G.2 SoTA Synthesis Pack, G.3 CHR authoring, G.4 CAL variants, **KD‑CAL F–G–R** (B.3), **Formality F** (C.2.3), **USM / Scope (G)** (A.2.6), **Bounded Contexts & Bridges with CL** (Part F + B‑patterns), **SCR/RSCR** (F.15), **NQD‑CAL** (C.18), **E/E‑LOG** (C.19), **UTS & Naming** (F.17–F.18), **Guard‑Rails E.5.1–E.5.3** (no tool lock‑in, unidirectional dependency), **CSLC** (A.18).
 
 ### 1) Intent
 
-Provide a **notation‑independent** architecture to register **families of methods** (LOG bundles) and to **select, combine, or fall back** among them for a concrete problem instance—*given typed characteristics (CHR), admissible calculi (CAL), and trust constraints (F–G–R).* The pattern embraces **No‑Free‑Lunch** realities: *there is no universal best method*, so selection is **trait‑ and evidence‑aware**, under explicit **explore↔exploit** policy. 
-
----
+Provide a **notation‑independent** architecture to register **families of methods** (LOG bundles) and to **select, combine, or fall back** among them for a concrete problem instance—*given typed characteristics (CHR), admissible calculi (CAL), and trust constraints (F–G–R).* The pattern embraces **No‑Free‑Lunch** realities: *there is no universal best method*, so selection is **trait‑ and evidence‑aware**, under explicit **explore↔exploit** policy. The selector returns a **Pareto set** and explicit **abstain/degrade** outcomes under **No‑Free‑Lunch**, governed by the **E/E‑LOG** policy lens.
 
 ### 2) Problem frame
 
 You have executed **G.1** (CG-Frame Card) and **G.2** (SoTA Synthesis Pack), which surfaced **rival Traditions and operator palettes**. **G.3/G.4** produced *candidate* CHR/CAL content. You now need a **registry and dispatcher** that:
 (a) keeps Traditions **disjoint** yet comparable; (b) chooses a **method family** at run time from typed evidence **without collapsing semantics** across Contexts; (c) publishes names and obligations to **UTS**. 
-
----
 
 ### 3) Problem
 
@@ -30382,8 +30344,6 @@ How to design a **general, auditable selector** that:
 * explains *why* a choice was made and **how much trust** it buys (F–G–R) with a **SCR**;
 * remains free of **tooling jargon** and **implementation bias** at the Core level.   
 
----
-
 ### 4) Forces
 
 * **Pluralism vs. dispatchability.** Competing Traditions expose different invariants; the selector must compare **without semantic flattening**.
@@ -30391,13 +30351,12 @@ How to design a **general, auditable selector** that:
 * **Local semantics vs. reuse.** Cross‑Context reuse requires **Bridges** with **CL** and **loss notes**; penalties hit **R_eff**, not F. 
 * **Exploration vs. exploitation.** Run‑time must sometimes **probe alternatives** (NQD/E‑E), but within declared **risk envelopes**.
 
----
-
 ### 5) Solution — *Dispatcher & Registry chassis*
 
-**Selection kernel.** Apply **lawful orders only**; for partial orders **return a set (Pareto)**, no forced scalarisation. Eligibility/Acceptance are **tri‑state**; unknowns behave per MethodFamily policy (admit/degrade/abstain) and are logged in SCR. **SoS‑LOG rule sets (C.23) are the executable shells consumed here**; any **maturity floors** are enforced via **CAL.AcceptanceClause** (not by LOG).
-**Telemetry & parity.** Open hooks for **G.11** (refresh) and **G.9** (parity/baselines). Route **CL penalties → R_eff only**; declare **ReferencePlane** for any claim.
-**Strategy vs policy.** “Strategy” is a **composition** inside G.5 under **E/E‑LOG** governance; **no new U.Type ‘Strategy’** is minted.
+**Selection kernel.** Apply **lawful orders only**; for partial orders **return a set (Pareto)**, no forced scalarisation; **unit/scale mismatches fail fast**. Eligibility/Acceptance are **tri‑state**; unknowns behave per MethodFamily policy (admit/degrade/abstain) and are logged in **SCR** **together with MinimalEvidence verdicts for each referenced characteristic**; **gate additionally by CG‑Spec.minimal_evidence** (by Characteristic id) before applying orders. **SoS‑LOG rule sets (C.23) are the executable shells consumed here**; any **maturity floors** are enforced via **CAL.AcceptanceClause** (not by LOG).
+**Telemetry & parity.** Open hooks for **G.11** (refresh) and **G.9** (parity/baselines). Route **CL penalties → R_eff only**; declare **ReferencePlane** for any claim; **record Φ(CL)/Φ_plane policy‑ids in SCR (Φ MUST be monotone)**; on plane/context crossings **cite Bridge ids**.
+
+“Strategy” is a **composition** inside G.5 under **E/E‑LOG** governance; **no new U.Type ‘Strategy’** is minted (**Plain‑register only** per E.10).
 
 **S1 · MethodFamily Registry (design‑time, per CG-Frame)**
 Define a **registry row** per *MethodFamily* (e.g., *Outranking*, *CDT*, *Active‑Inference*, *Pareto‑front MOMAs*, *Gradient‑based optimizer*, *RL policy search*), each row comprising:
@@ -30425,23 +30384,24 @@ The selector MUST:
 (2) filter Traditions by CHR preconditions and KD‑CAL lane fit,
 (3) pick operators consistent with declared scales and taboos,
 (4) emit a rationale with links to palette entries and Worked Examples.
-CG‑Spec MUST NOT override this with one‑size‑fits‑all formulas.
+
+No‑Free‑Lunch (there is no general method that appliable to all ploblems effectively, therefore need for particular method for every particular problem) is enforced by the Selector: choose Tradition/Operator sets from the SoTAPaletteDescription conditioned on task/object/CHR preconditions, rather than by “universal” cross‑Tradition formulas in CG‑Spec. Selector decisions MUST cite palette entries and CHR/CAL constraints used. **CG‑Spec MUST NOT override this with one‑size‑fits‑all formulas.**
 
 A **pure selector** computes a **CandidateSet** with an **admissible (possibly partial) order** (no illegal cross‑scale scoring) and constrained by an *AssuranceGate*:
 
 1. **Eligibility filter:** `MethodFamily` passes iff all **Eligibility contract** predicates hold **and** all **CG‑Spec.MinimalEvidence** gates for referenced characteristics are met; **if CG‑Frame uses NQD, enforce `ConstraintFit=pass` before front selection**; otherwise **abstain/sandbox**.
 2. **CG‑Spec gate:** require all **CHR characteristics** referenced by Acceptance/Flows to meet the **CG‑Spec.minimal_evidence** in the current Context; otherwise **abstain** or sandbox under E/E‑LOG.
-3. **Admissible preference:** apply **lexicographic** precedence over lawful traits (e.g., *assumption fit* ≻ *evidence alignment* ≻ *resource/cost*). **Weighted sums across mixed scale types (ordinal vs interval/ratio) are forbidden**; prefer lexicographic/medoid/median where lawful.
+3. **Admissible preference:** apply **lexicographic** precedence over lawful traits (e.g., *assumption fit* ≻ *evidence alignment* ≻ *resource/cost*). **Weighted sums across mixed scale types (ordinal vs interval/ratio) are forbidden**; prefer lexicographic/medoid/median where lawful; **any unit/scale conversions MUST be proven legal via CSLC (A.18) before aggregation**.
 4. **F–G–R aware gating:** compute **R_eff** with **Γ‑fold** (default = weakest‑link; **override only if CAL/EvidenceProfile supplies an alternative with proofs of monotonicity & boundary behavior**) and apply **CL** penalties (R_eff only; F and G invariant); block candidates failing *minimum R*; **record Γ‑fold contributors explicitly in SCR**. **F** is read from method formalisation level; **G** from **USM** slice; penalties **never alter F**. 
 5. **Partial‑order handling:** if after gating the order is not total, **return a Pareto (non‑dominated) set** and explain tie‑criteria in DRR/SCR; do not force a total order via illegal scalarization.
 6. **Explore↔Exploit policy:** under **E/E‑LOG**, admit a quota of **NQD‑emitted** alternatives (guarded by risk budgets) to avoid local optima; log probes and outcomes for **refresh**.
 
 **S4 · Composition & Fallbacks (design‑time templates)**
-Provide templates for **composed strategies**: (i) *pre‑conditioners* (e.g., rescale/denoise), (ii) *meta‑selectors* (e.g., *small‑n* vs *large‑n* switch), (iii) *cascade fallbacks* on **Assurance failure** (e.g., degrade objective from cardinal to ordinal when CHR forbids interval arithmetic). Guard with **unit/scale legality** rules from CHR; **disallow illegal ordinal arithmetic**.
+Provide templates for **composed strategies**: (i) *pre‑conditioners* (e.g., rescale/denoise), (ii) *meta‑selectors* (e.g., *small‑n* vs *large‑n* switch), (iii) *cascade fallbacks* on **Assurance failure** (e.g., degrade objective from cardinal to ordinal when CHR forbids interval arithmetic). Guard with **CSLC (A.18)** for **unit/scale legality**; **disallow illegal ordinal arithmetic**.
 Add a **Verifier stage**: on run‑time preconditions failing or **evidence freshness** expiring, trigger the next lawful fallback; emit DRR/SCR deltas.
 
 **S5 · Publication & Telemetry**
-Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing chosen family, **why**, **CG‑Spec characteristics consulted and MinimalEvidence verdicts (per characteristic & lane)**, **Γ‑fold contributors**, **CL penalties**, expected **R_eff**, and any **explore** probes. Register the family and selection policy to **UTS** **with twin labels and loss notes where bridged**; wire **RSCR** tests for regression. **Log on‑policy outcomes and off‑policy regret estimates** to support registry refresh.
+Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing chosen family, **why**, **CG‑Spec ids and characteristics consulted with MinimalEvidence verdicts (per characteristic & lane)**, **Γ‑fold contributors**, **ReferencePlane & CL^plane usage**, **CL penalties**, expected **R_eff**, and any **explore** probes. Register the family and selection policy to **UTS** **with twin labels and loss notes where bridged**; provide **RSCR** parity/regression tests as conformance artefacts. **Record on‑policy outcomes and off‑policy regret signals via telemetry (G.11)** to support registry refresh. **Exports also include:** a **Dispatcher Report** (candidates and reasons in/out), a **Portfolio Pack** (*Pareto set* + tie‑break notes), and a **Run‑safe Plan** (flows + legality proofs).
 
 **S6 · Governance & Evolution**
 
@@ -30455,11 +30415,9 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 | Interface                | Consumes                                                | Produces                                                                      |
 | ------------------------ | ------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | **G.5‑1 RegisterFamily** | SoTA row(s) from **G.2**, CHR/CAL stubs (G.3/G.4), Context | `MethodFamily` record (eligibility contract, assurance profile, UTS entry id) |
-| **G.5‑2 Select**         | `TaskSignature`, policy (E/E‑LOG), **SoS‑LOG rules (C.23)**, acceptance clauses   | `CandidateSet` with admissible (possibly partial) order; **return a Pareto (non‑dominated) set** when the order is non‑total; chosen `MethodFamily`; **DRR + SCR** (F–G–R/CL) |
+| **G.5‑2 Select**         | `TaskSignature`, policy (E/E‑LOG), **SoS‑LOG rules (C.23)**, acceptance clauses   | `CandidateSet` with admissible (possibly partial) order; **return a Pareto (non‑dominated) set** when the order is non‑total; chosen `MethodFamily`; **DRR + SCR** (F–G–R/CL); **Portfolio Pack** (Pareto set + tie‑break notes); **Run‑safe Plan** (flows + legality proofs) |
 | **G.5‑3 Compose**        | `CandidateSet`, composition template                    | Composite strategy spec (with legality checks)                                |
 | **G.5‑4 Telemetry**      | Outcomes, probes                                        | Registry refresh cues; RSCR deltas                                            |
-
----
 
 ### 7) Conformance Checklist (normative)
 
@@ -30474,17 +30432,20 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 **CC‑G5.8** **CG‑Frame gate enforced.** Selection rejects candidates that do not meet **CG‑Spec.minimal_evidence** for the characteristics they use; **Maturity floors** (if present) are enforced via **AcceptanceClauses**.
 **CC‑G5.9** **Admissible ordering.** Candidate ordering **MUST** be lexicographic or otherwise lawful over CHR‑typed traits; **weighted sums across ordinal/interval/ratio mixes are forbidden**. If only a partial order is available, **return a Pareto set**.
 **CC‑G5.10** **SCR completeness.** SCR **MUST** enumerate Γ‑fold contributors, **CG‑Spec characteristics** used, and **MinimalEvidence gating verdicts** (by lane & carrier).
-**CC‑G5.11** **Tri‑state eligibility.** Eligibility predicates **MUST** define behavior for `unknown` (degrade/abstain/sandbox); silent coercion to `false` is forbidden.
+**CC‑G5.11** **Tri‑state eligibility.** Eligibility predicates **MUST** define behavior for `unknown` (degrade/abstain/sandbox); **unknowns propagate into Acceptance decisions**; silent coercion to `false` is forbidden.
 **CC‑G5.12** **No “universal” cross‑Tradition scoring.** Cross‑Tradition selection **MUST NOT** rely on a single numeric formula not justified by CHR/CAL and CG‑Spec.
 **CC‑G5.13** The selector **MUST NOT** recompute Acceptance thresholds or Maturity floors; it **consumes** `AdmissibilityLedger@Context` rows (C.23) and **cites** the referenced clause/rung ids in SCR.
+**CC‑G5.14** **Φ(CL) and (where applicable) Φ_plane MUST be monotone and published in CG‑Spec;** SCR **MUST** record the policy‑id in use.
+**CC‑G5.15** **Units/scale legality MUST be proven via CSLC (A.18) before any aggregation or Γ‑fold;** unit/scale mismatches fail fast. *(Complements CC‑G5.5 on ordinal arithmetic.)*
+**CC‑G5.16** **Hidden thresholds are forbidden.** All thresholds live in **AcceptanceClauses** (not in CHR, LOG, or code).
+**CC‑G5.17** **ReferencePlane MUST be declared for any claim and noted in SCR,** including **CL^plane** usage for plane crossings.
+**CC‑G5.18** **Numeric comparisons/aggregations MUST cite a lawful CG‑Spec gauge with declared Γ‑fold;** cross‑Context reuse **requires Bridge + CL**, with penalties routed to **R_eff** only (never **F**).
 
 ### 8) Consequences
 
 * **Auditable plurality.** Rivals co‑exist, selected with **explainable** trust and scope handling.
 * **Safety by construction.** Illegal measurements and cross‑Context leaks are blocked by contract and CL penalties. 
 * **Evolvability.** Families can be **added/retired** without rewriting the selector; UTS provides a stable publication surface.
-
----
 
 ### 9) Worked micro‑examples (indicative)
 
@@ -30499,15 +30460,11 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 
 * Registry offers **Pareto‑front NQD** and **IPO‑style recombiners**; **E/E‑LOG** sets an explore‑heavy policy initially, then shifts to exploit on observed Use‑Value. **SCR** reports that Use‑Value evidence is **LA** lane while novelty scoring rests on **VA** heuristics. 
 
----
-
 ### 10) Relations
 
 **Builds on:** G.1–G.4; **F–G–R / KD‑CAL**; **Formality F**; **USM**; **Bridges & CL**; **Guard‑Rails E.5.\***.    
 **Publishes to:** **UTS**, Worked‑Examples, RSCR.
 **Constrains:** any run‑time *selector implementations* (Tooling) via the Core contracts.
-
----
 
 ### 11) Editorial notes (authoring guidance)
 
@@ -30515,17 +30472,13 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 * Treat **composition patterns** as first‑class (preconditioner → solver → verifier); publish each as a **UTS row** with clear Contexts.
 * When a selection *raises F* (e.g., recasting acceptance as predicates), record **ΔF** separately from **ΔG/ΔR**.
 
----
-
 ### 12) Quick author checklist
 
 1. Register ≥ 3 **MethodFamilies** per competing Tradition with typed **Eligibility** and **Assurance**.
 2. Define the **TaskSignature** schema for the CG-Frame; prove it is **minimal** but **sufficient** for dispatch.
 3. Implement **Selection Kernel** as a pure Core algorithm; ensure **CL penalties** and **weakest‑link R** are computed and logged in **SCR**.
 4. Publish families and selection policy to **UTS**; add one **Worked‑Example** per policy branch.
-5. Wire **RSCR** tests to freeze contracts and prevent silent regressions.
-
-> **Placement:** G.5 lives in **Part G – CG-Frame Extension Kit**, after G.1–G.4. It is the **orchestration hub** that turns SoTA plurality into **auditable run‑time choice** while preserving **local meaning, scope, and trust**.
+5. Provide **RSCR** parity/regression tests as conformance obligations; ensure telemetry hooks (G.11) are connected.
 
 ### **Part H – Glossary & Definitional Pattern Index**
 
