@@ -7719,11 +7719,11 @@ Use this as a human‑readable checklist (not a rigid schema):
 
 ## A.17 (A.CHR‑NORM) — Canonical “Characteristic” `[A]`
 
-### 1\. Context
+### 1. Context
 
-Every FPF architheory needs to **measure** various aspects of systems or knowledge artifacts. A dedicated measurement backbone (see **C.MM‑CHR**, Measurement & Metrics Characterization) already exists, prescribing the **CSLC discipline** – i.e. define a **Characteristic**, choose a **Scale** (with a **Unit** if applicable), record a **Level/Value**, and thus obtain a **Coordinate** on that scale, optionally mapping to a **Score** via a **Gauge**. However, historically multiple near-synonyms (“axis”, “dimension”, “property”, “feature”) have been used interchangeably for “what is being measured,” and often the _aspect itself_ gets conflated with _how it is expressed_ (units, ranges, labels). This pattern enters the FPF **Kernel lexicon** to **canonize a single term** for the measured aspect and enforce a clear separation between **what** is measured and **how** it is measured.
+Every FPF architheory needs to **measure** various aspects of systems or knowledge artifacts. A dedicated measurement backbone (see **C.MM‑CHR**, Measurement & Metrics Characterization) already exists, prescribing the **CSLC discipline** – i.e. define a **Characteristic**, choose a **Scale** (with a **Unit** if applicable), record a **Level/Value**, and thus obtain a **Coordinate** on that scale, optionally mapping to a **Score** via a **Gauge**. However, historically multiple near-synonyms (“axis”, “dimension”, “property”, “feature”, "metric") have been used interchangeably for “what is being measured,” and often the _aspect itself_ gets conflated with _how it is expressed_ (units, ranges, labels). This pattern enters the FPF **Kernel lexicon** to **canonize a single term** for the measured aspect and enforce a clear separation between **what** is measured and **how** it is measured.
 
-### 2\. Problem
+### 2. Problem
 
 When measurement concepts are not kept rigorously distinct, several issues arise:
 
@@ -7736,7 +7736,7 @@ When measurement concepts are not kept rigorously distinct, several issues arise
 
 In summary, projects lacking a canonical terminology for metrics risk miscommunication and pseudo-quantitative operations. Measurements of physical quantities, architectural attributes, or performance scores end up on **incommensurate rails** due to inconsistent naming and handling.
 
-### 3\. Forces
+### 3. Forces
 
 -   **F1 – Single anchor of meaning.** Any numeric value is meaningless unless one can ask “value of _what_?”. The measurement’s meaning must be anchored in a single clearly named aspect.
     
@@ -7750,8 +7750,7 @@ In summary, projects lacking a canonical terminology for metrics risk miscommuni
     
 -   **F6 – Open-endedness.** As systems evolve, their performance or quality metrics also evolve. Rigid life-cycle stage labels (“Phase 1, Phase 2…”) don’t capture iterative improvement. The pattern should favor an **open-ended state-space** view (revisiting states via checklists, as in an RSG – **RoleStateGraph** with re-entry) over any fixed lifecycle with “terminal” stages.
     
-
-### 4\. Solution
+### 4. Solution
 
 **Establish “Characteristic” as the one canonical construct for “what is measured.”** In every FPF context, the _aspect or trait_ being measured MUST be referred to as a **Characteristic**. This term replaces “axis” or “dimension” in normative usage (those may appear _only_ as explanatory aliases in Plain register). By fixing a single name and schema, we cleanly separate a **Characteristic** from its **Scale** (and **Unit**), and from any observed **Value/Level** on that scale. The solution also differentiates single-entity vs multi-entity cases and binds all measurements to the standard CSLC sequence.
 
@@ -7777,7 +7776,7 @@ To enforce this solution, the following rules apply:
 
 - **A17-R10 (Intension vs Description).** The **Characteristic** remains the **intensional object**; any rubric, catalogue of levels, or examples are **descriptions**. Keep the intensional Characteristic distinct from its descriptive episteme (cf. `U.Episteme` roles: Object–Concept–Symbol).
 
-## 4.9 CharacteristicSpace & Change Reasoning *(Normative/Clarifying)*
+#### 4.1 CharacteristicSpace & Change Reasoning *(Normative/Clarifying)*
 
 **R17 — CharacteristicSpace declaration.** When an architheory reasons about **change**, it **SHALL** name the **CharacteristicSpace** (the set of Characteristics, with Scales, units, and topology assumptions) in which motion is considered.
 
@@ -7785,18 +7784,17 @@ To enforce this solution, the following rules apply:
 
 **I7 — Vector interpretation.** A **U.Coordinate** vector may collect multiple coordinates for multi‑Characteristic reasoning; composition into a single Score, if desired, is an **explicit new 𝒢** on that vector.
 
-
-### 5\. Archetypal Grounding (System & Episteme Examples)
+### 5. Archetypal Grounding (System & Episteme Examples)
 
 **In a physical system (`U.System`):** Consider a **Distance** Characteristic defined for a pair of physical objects. For example, two machines in a factory have a Distance of 3.5 meters between them. Here _Distance_ is a Relation-Characteristic (applies to the pair), with an associated Scale (e.g. a ratio scale in meters), and the measured 3.5 m is a **Coordinate** on that scale. If we instead look at an **Engine Temperature** Characteristic (unary), a particular engine might have a Temperature of 350 K at some moment – _Temperature_ (the Characteristic) is clearly separated from how it’s measured (Scale in Kelvin) and the reading (350, a Coordinate on that scale).
 
 **In an epistemic context (`U.Episteme`):** Consider a **Formality** Characteristic to rate a documentation artifact’s rigor. We might define an ordinal Scale with named Levels such as _Informal_, _Semi-formal_, _Formal_. A given specification document can then be said to have _High Formality_ – meaning it occupies the “Formal” **Level** on the Formality Scale. Here _Formality_ (Characteristic) captures _what_ we measure about the document, while the tiered Scale (with qualitative levels) expresses _how_ we categorize it. Because we use an ordinal scale, we can rank documents by Formality, but we would not average “Semi-formal” and “Formal” (avoiding meaningless arithmetic on an ordinal metric). In another knowledge context example, one could define a Characteristic **Reliability** for a knowledge source with a percentage Scale from 0 to 100%. An article’s reliability might be 85% – which is only interpretable by knowing it refers to “Reliability” on a 0–100% Scale (i.e. a specific Coordinate on that Characteristic’s scale).
 
-### 6\. Bias-Annotation
+### 6. Bias-Annotation
 
 This pattern is deliberately **domain-neutral** and introduces no bias toward any particular discipline or measurement type. By enforcing a uniform lexicon, A.17 actually mitigates bias: it prevents **disciplinary jargon** from creeping into core definitions (ensuring, for instance, that a software metric isn’t given a vague custom term when it’s fundamentally a Characteristic). The **Didactic lens** is strongly served: using one precise name per concept improves clarity for all audiences. There is a slight initial cost in re-labeling legacy terms (e.g. renaming “dimensions” to Characteristics), but this is offset by the long-term **Cognitive Elegance (P‑1)** – the framework becomes easier to learn and less prone to misinterpretation. No single domain’s terminology dominates, and the pattern explicitly supports both quantitative (physics-like) and qualitative (judgment-based) measurements, reflecting **Pragmatic neutrality**. The requirement of open-ended state-space thinking aligns with **P‑10 (Open-Ended Evolution)**, ensuring we don’t bake in lifecycle biases that assume development must terminate at a final stage. In summary, A.17 imposes a disciplined vocabulary that is broad enough for all fields and free of hidden assumptions, thereby avoiding subtle ontological or cultural biases in the measurement model.
 
-### 7\. Conformance Checklist
+### 7. Conformance Checklist
 
 When authoring or reviewing FPF-compliant metrics, use the following checklist to ensure **Characteristic normalization** is applied:
 
@@ -7816,7 +7814,7 @@ When authoring or reviewing FPF-compliant metrics, use the following checklist t
     
 _(Failure to satisfy the above indicates a violation of this pattern’s intent. The **LEX-BUNDLE** rules in E.10 provide automated checks for term usage, and MM-CHR templates enforce explicit Characteristic/Scale definitions.)_
 
-### 8\. Consequences
+### 8. Consequences
 
 By instituting **Characteristic** as the single term and enforcing the CSLC structure, this pattern yields several positive outcomes:
 
@@ -7833,7 +7831,7 @@ By instituting **Characteristic** as the single term and enforcing the CSLC stru
 
 There are few downsides. One consequence is that modelers must learn the canonical terms and possibly refactor existing documentation (a short-term effort). Also, enforcing scale integrity means quick-and-dirty aggregate scores are not allowed unless justified via a Gauge – this introduces a healthy “pause” to ensure composite metrics are well-founded. Overall, the benefits in clarity and correctness far outweigh the overhead. Teams gain a _lingua franca_ for metrics, and the risk of metric abuse (mixing apples and oranges) is significantly reduced.
 
-### 9\. Rationale
+### 9. Rationale
 
 The Canonical Characteristic pattern is a direct response to recurring measurement pitfalls. By insisting on “one precise name per concept”, it upholds **Strict Distinction (A.7)**, ensuring that the framework never treats two different ideas as one. For instance, earlier practice might label both a requirement category and its score as “dimension,” causing confusion; with A.17, the _aspect_ is a Characteristic and its _score_ is separate, so each idea has its place. This clarity is pedagogically vital (**P‑2 Didactic Primacy**): readers and contributors immediately know what a term means and how to interpret any value associated with it.
 
@@ -7845,7 +7843,7 @@ Finally, retiring the “lifecycle” vocabulary in favor of state-space traject
 
 In summary, A.17 is the linchpin that turns a loose collection of measurement practices into a **coherent, principle-driven system**. It rationalizes the language, thereby rationalizing thought: by speaking in one clear voice about measurements, FPF ensures that every number in the system can be trusted to answer “value of what, on what scale, relative to what context.” This rationale is reflected in improved model integrity and cross-domain trust in the meaning of metrics.
 
-### 10\. Relations
+### 10. Relations
 
 -   **Builds on / Elaborates:** _FPF Core Measurement Schema_ (as outlined in C.16). A.17 lifts the metric template concepts from C.16 into a kernel-level rule. It also reinforces **A.7 Strict Distinction**, by giving each measurement concept a unique name and forbidding overloaded terms.
     
@@ -11658,7 +11656,7 @@ These obligations refine the generic Proof Kit from **B.1.1 §6** for **assuranc
 | **CC‑B3.3** | The **Congruence Level** `CL` **SHALL** live on **edges**; the penalty `Φ(CL)` **SHALL** be **monotone decreasing** and **bounded** (`R_eff ≥ 0`).                            | Make integration quality first‑class.        |                                   |
 | **CC‑B3.4** | `R_eff` **SHALL** be computed as `R_eff = max(0, min_i R_i − Φ(CL_min))` for the relevant integration path(s), unless a stricter domain‑specific rule is justified.           | Enforce WLNK and penalize weak integrations. |                                   |
 | **CC‑B3.5** | `F_eff = min_i F_i`; `G_eff = SpanUnion({G_i})` **constrained by support**.                                                                                                   | Prevent over‑generalization.                 |                                   |
-| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, evidence anchors, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **aboutness binding** `about(Object→TopicHolon)` for the claim and the declared **ReferencePlane ∈ {coincident, external}** (cf. C.2.3 **CC‑UE‑06**); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
+| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, evidence anchors, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **aboutness binding** `about(Object→TopicHolon)` for the claim and the declared **CHR:ReferencePlane ∈ {world|concept|episteme}** (cf. C.2.3); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
 | **CC‑B3.7** | **Agency‑CHR** values (A.13) **SHALL NOT** override WLNK or `Φ(CL)` penalties; if agency grade change alters capabilities, model it as a **Meta‑Holon Transition**.           | Preserve safety; keep agency separate.       |                                   |
 | **CC‑B3.8** | Design‑time and run‑time assurance **SHALL NOT** be mixed in one tuple; compare them side‑by‑side if needed.                                                                  | Avoid design/run mixing.                     |                                   |
 
@@ -19181,7 +19179,7 @@ Publish a **`MethodFamily.MaturityCardDescription@Context`** (UTS enum ids; **Sc
 | ID           | Requirement                                                                                                                                                                                | Purpose                                       |                                                                    |                        |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------ | ---------------------- |
 | **CC‑C23.1** | Each `MethodFamily` **SHALL** publish a `MaturityCard` with rung justification via **A.10** anchors (lanes, freshness windows) and (if bridged) **Bridge ids** with **CL** and loss notes. | Makes maturity **auditable** and lane‑typed.  |                                                                    |                        |
-| **CC‑C23.2** | `SoS‑LOG` rules **MUST** be **executable** (no prose‑only) and cite: Eligibility test result; CG‑Spec gate verdict; EvidenceProfile minima; Acceptance verdict; Γ‑fold contributors; **EvidenceGraph path id(s) (when G.6 is present)**; CL/Φ policy‑ids.
+| **CC‑C23.2** | `SoS‑LOG` rules **MUST** be **executable** (no prose‑only) and cite: Eligibility test result; CG‑Spec gate verdict; EvidenceProfile minima; Acceptance verdict; Γ‑fold contributors; **EvidenceGraph PathId/PathSliceId)**; CL/Φ policy‑ids.
 | **CC‑C23.3** | Enumerations used by the rules (**Degrade(mode)**; Maturity rungs) **SHALL** be **closed** and **UTS‑registered** (twin labels). |
 | **CC‑C23.4** | **Unknowns** in S2 **SHALL** map to `{degrade | abstain | sandbox}` with explicit **branch‑ids**; no `unknown→0/false` coercions.                                                          | Tri‑state discipline.                          |                                                                    |                        |
 | **CC‑C23.5** | Cross‑Context/plane use **MUST** cite a **Bridge**; **Φ(CL)**/**Φ\_plane** **MUST** be monotone, bounded, table‑backed; penalties **→ `R_eff` only**.                                      | Keeps F/G invariant; legal CL routing.        |                                                                    |                        |
@@ -28737,6 +28735,8 @@ These failures erode trust, block reuse, and make Part F machinery (Concept-Sets
 
 F.18 defines **seven rules** (R‑rules) and **four practices** (P‑practices). Together they produce **Name Cards** that any reader can interpret without guessing, and that slot cleanly into the rest of Part F.
 
+**Path Card (subset of Name Card).** A **Name Card** whose **object‑of‑talk** is an **EvidenceGraph Path**: it cites a **PathId** (or **PathSliceId**), **Context**, **ReferencePlane**, **Γ_time**, and any **Bridge id(s) + CL/CL^plane** (with loss notes). Used by **G.6** and **G.10** to make justifications portable on UTS.
+
 #### 4.1 The Seven R‑rules (normative)
 
 **R1 — Speak every name *with its Context*.**
@@ -30479,6 +30479,357 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 3. Implement **Selection Kernel** as a pure Core algorithm; ensure **CL penalties** and **weakest‑link R** are computed and logged in **SCR**.
 4. Publish families and selection policy to **UTS**; add one **Worked‑Example** per policy branch.
 5. Provide **RSCR** parity/regression tests as conformance obligations; ensure telemetry hooks (G.11) are connected.
+
+## G.6 — Evidence Graph & Provenance Ledger \[A]
+
+**Tag:** \[A] **Stage:** design‑time (assembly) + run‑time (telemetry ingestion)
+**Builds on:** A.10 (Evidence Anchoring), B.3 (Assurance), G.4 (CAL.ProofLedger & EvidenceProfiles), F.9 (Bridges/CL), E.8 (template), E.10 (LEX), C.23 (**Science‑of‑Science LOG**, SoS‑LOG hooks)
+**Publishes to:** **Unified Term Sheet (UTS)** (twin‑label **Name Card**s), RSCR, G.5 selector (by PathId citation)
+**Guards respected:** Notational independence (E.5.2), lexical discipline (E.10), lane separation (TA/VA/LA), CL→R routing only, Γ‑fold = WLNK unless proven otherwise
+
+### 1) Problem frame
+
+SoTA claims and operators are admitted (or rejected) by **assurance** signals derived from diverse artefacts. FPF already mandates **evidence anchoring** (A.10) and lane discipline (TA/VA/LA) and defines how **F–G–R** is computed (B.3). What is missing as a **first‑class object** is the **typed, citable path** from a claim to its anchors, with declared scope/plane and penalties, so selectors, audits, and **maturity transitions** can cite *exactly what* justified a decision, *when*, and *under which plane/bridge penalties*. This pattern introduces that missing object and its surface.
+**Why here (not in G.4)?** G.4 defines **CAL artefacts** (EvidenceProfiles, ProofLedger) and legality/aggregation rules; **G.6** packages the **cross‑artefact provenance** as a graph and **mints path identities** that downstream LOG and UTS can cite without copying evidence tables.
+
+### 2) Problem
+
+1. Readers cannot **audit CL penalties and decay** on SoTA claims without chasing many tables. 2) Cross‑Context reuse must prove penalties hit **R only** (not F/G) and expose the **lowest‑link** path; today this is implicit. 3) **Maturity** decisions (C.23) need a stable **PathId** to re‑check later or in other Contexts.
+
+### 3) Forces
+
+| Force                        | Tension                                                                                                                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Provenance vs agility**    | Fine‑grained audit trails ↔ friction for authors.                                                                                                                                           |
+| **Lane purity vs synthesis** | Keep TA/VA/LA separable ↔ Publish a single *why* for admission.                                                                                                                             |
+| **Notation independence**    | Define semantics in prose/math ↔ teams want diagrams/tables (kept informative only).                                                                                                        |
+| **Design vs run**            | Evidence at design‑time vs telemetry at run‑time must not be conflated.                         |
+| **Plane mixing**             | World↔Concept↔Episteme crossings must be penalised only in **R** and be table‑backed Φ‑policies. |
+
+### 4) Solution — **EvidenceGraph** (notation‑independent; lane‑aware; path‑addressable)
+
+**4.1 Definition (object).**
+An **EvidenceGraph** is a **typed DAG** whose nodes are the **A.10 anchors/carriers and evidencing roles** and whose edges are minimal, normative provenance relations. Each node/edge carries attributes sufficient for the B.3 trust calculus and E.10 lexical discipline; edges never build mereology (A.10 firewall).
+
+* **Nodes (informative types)**: `U.EvidenceRole` (holder = `U.Episteme`), `SymbolCarrier`, `TransformerRole` (external), `MethodDescription` (design), `Observation` (dated result); all resolvable to **SCR/RSCR** rows.
+* **Edges (normative vocabulary, minimal):** `verifiedBy` (formal line), `validatedBy` (empirical line), `fromWorkSet` (run‑time provenance), `happenedBefore` (temporal), `derivedFrom`.  
+* **Informative only:** `usedCarrier`, `interpretedBy` MAY appear in SCR narratives but are not part of the normative edge set. **No mereology** here; structural relations publish via CT2R‑LOG.
+* **Lane tags:** every binding is typed with **assuranceUse ∈ {TA, VA, LA}** and kept separable through to the assurance tuple and SCR display.
+* **Context & Plane:** nodes and claims declare `U.BoundedContext` and **ReferencePlane**; any crossing uses a **Bridge** with **CL / CL^k / CL^plane** and **loss notes**, and **penalises only R** via published, table‑backed **Φ/Ψ** policies.
+* **Freshness/decay:** empirical bindings declare **time windows**; on expiry they incur **Epistemic Debt** that must be resolved via refresh/deprecate/waive; proofs may fence to a **TheoryVersion** (no decay).
+* **No self‑evidence:** evidencing `TransformerRole` is **external** to the evaluated holon.
+
+**4.2 PathId (address for justifications)**.
+A **PathId** is a **stable identifier** minted for a **claim‑local, lane‑typed path** in an EvidenceGraph under a declared **TargetSlice** (Scope G with Γ\_time selector) and **ReferencePlane**. PathIds are **editioned**; they denote a **proof spine** from the claim to carriers and include: the **lane split**, the **lowest CL on the path**, the **Γ‑fold in effect** (default = WLNK), and **valid‑until** (freshness) for empirical legs. PathIds are **citable from SoS‑LOG** and **UTS**; missing or stale PathIds **forbid maturity rung advance**.
+
+**4.3 PathSliceId (time‑ & plane‑lifted slice).**
+A **PathSliceId := PathId × Γ_time window × ReferencePlane**. It keys **release‑quality snapshots** and enables **path‑granular refresh** (G.11) when freshness or bridges change. A PathSliceId MUST declare its Γ_time selector and plane; crossings require Bridge + CL^plane and route penalties to R only.
+
+**4.4 Computation hooks (reusing B.3 & G.4, not redefining).**
+
+* **Γ‑fold & penalties.** Unless justified otherwise in **CAL.ProofLedger**, **R** aggregates by **weakest‑link**, then applies **Φ(CL_min)** and **Φ_plane** (bounded, monotone), and is **clipped**: `R_eff := max(0, …)`. **F = min**. **G** composes as **intersection along a path**; **SpanUnion** across **independent** lines only (see CC‑G6‑10/12). Penalties **never** modify F/G.
+* **Lane separation.** Evidence lanes remain **separable** through to the assurance surface and SCR; no averaging across lanes.
+* **Exposure to SCR.** Every path resolves to **SCR/RSCR** entries; the **Assurance SCR** displays node/edge values, aboutness and plane, **TA/VA/LA table**, **valid‑until/decay**, and **Epistemic‑Debt**.
+* **Reuse across Contexts.** Any cross‑Context/plane reuse must cite **Bridge ids + loss notes**; penalties route to **R\_eff only**; **policy‑ids** for Φ/Ψ are published in the SCR and CG‑Spec.
+
+**4.5 Conceptual API (notation‑independent surface).**
+
+* `Explain(pathId)` → returns lane‑split, **min R\_i**, **CL\_min**, applied **Φ/Ψ** policy‑ids, **valid‑until**, and the **contributing EvidenceProfile ids**.
+* `PathsFor(claim, TargetSlice, plane)` → enumerates admissible paths, ordered by WLNK cutset; returns **PathId\[]**.
+* `Snapshot(pathId | pathSliceId)` → emits an **RSCR‑grade** snapshot (for release, UTS) with **twin labels**; when a **PathSliceId** is provided, the snapshot is **time‑local** (no reweave).
+  (These are **conceptual shapes**, not APIs; per E.5 they stay tool‑neutral.)
+
+**4.6 RSCR triggers (conceptual).**
+Edits that change **gauges/acceptance**, **Φ/Ψ policies**, **Bridge CL**, or **Γ‑fold** for a path **trigger RSCR**; selectors in G.5 must **re‑cite** PathIds on re‑run, or degrade/abstain per LOG duties.
+
+> **Aphorism.** *“If you can’t point to a path, you don’t have provenance—only a story.”*
+
+### 5) Archetypal Grounding (System / Episteme)
+
+**System (Γ\_sys):** *Autonomous brake envelope claim*.
+Claim: “Stop within 50 m from 100 km/h.” EvidenceGraph nodes: `verifiedBy` static‑analysis proof; `validatedBy` instrumented track tests; calibration carriers; external test lab as `TransformerRole`. **PathId** combines VA+LA legs; **R\_eff** = min(R\_i) − Φ(CL\_min); **G** is the **operational envelope** covered by tests; **F** limited by least‑formal leg. Freshness windows and decay are shown in SCR; any cross‑plant reuse applies **Scope Bridge** penalties to **R only**.
+
+**Episteme (Γ\_epist):** *Vision benchmark SoTA (2015→) replication path*.
+Claim: “Method family M attains parity on ImageNet‑style tasks.” EvidenceGraph nodes: replicated studies (LA), proof obligations for metric legality (VA), tool‑qualification declarations (TA). RSCR adapts vocabularies/units per Context; **Bridge** entries across sub‑traditions carry **loss notes** and **CL**. The **PathId** cited by SoS‑LOG at admission includes **ReferencePlane**, **Φ(CL)** policy ids, and **valid‑until** on rolling 24 mo windows.
+
+### 6) Bias‑Annotation
+
+Lenses tested: **Gov**, **Arch**, **Onto/Epist**, **Prag**, **Did**.
+Scope: **Universal** within the Conceptual Core; numerical policies (Φ/Ψ tables) remain **Context‑local** and are **cited by id**, not embedded, preserving independence and avoiding tool lock‑in.
+
+### 7) Conformance Checklist (CC‑G6)
+
+| ID                                     | Requirement                                                                                                                                              | Purpose                                                                                                                                                                                                                                 |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CC‑G6‑1 (Anchor & lanes)**           | Every path **MUST** resolve to A.10 anchors (SCR/RSCR) and declare **lane tags TA/VA/LA** on bindings.                                                   | Enforces evidential reality and lane separation. |
+| **CC‑G6‑2 (No self‑evidence)**         | The evidencing `TransformerRole` is **external**; reflexive cases model a meta‑holon.                                                                    | Prevents circular proof.                                                                                                                     |
+| **CC‑G6‑3 (Plane & Context declared)** | Each path **SHALL** declare `U.BoundedContext`, **ReferencePlane**, and (if crossing) the **Bridge id + loss notes**.                                    | Makes penalties auditable.                                                                                                                   |
+| **CC‑G6‑4 (CL routing)**               | **Φ(CL)** and, if applicable, **Φ\_plane** penalties **reduce R\_eff only**; **F/G invariant**.                                                          | Preserves scale/plane safety.                                                                                                                |
+| **CC‑G6‑5 (Γ‑fold discipline)**        | **Declare Γ‑fold**; default is **weakest‑link**. Overrides **MUST** cite CAL.ProofLedger ids for monotonicity/boundary behaviour.                        | Legal aggregation without redefining B.3.                                                                                                   |
+| **CC‑G6‑6 (Time & decay)**             | Empirical legs **MUST** expose **freshness windows** and **valid‑until**; expiry incurs **Epistemic Debt** with managed resolution.                      | Stops “latest” drift.                                                                                                                        |
+| **CC‑G6‑7 (Design/run split)**         | EvidenceGraph **SHALL NOT** mix design‑time MethodDescription with run‑time Work traces in one node; use explicit instantiation bridges.                 | Avoids stance chimeras.                                                                                                                     |
+| **CC‑G6‑8 (SCR surface)**              | For any **PathId**, the **Assurance SCR** **SHALL** list node/edge F,G,R, CL, aboutness, plane, TA/VA/LA table, decay, and Epistemic‑Debt.               | Complete audit surface.                                                                                                                     |
+| **CC‑G6‑9 (Citable PathIds)**          | **SoS‑LOG** decisions (admit/degrade/abstain) and **Maturity rung transitions** **MUST** cite **EvidenceGraph PathId(s)**. Absence forbids rung advance. | Stable justifications per C.23.                                                                                                              |
+| **CC‑G6‑10 (Independence note)**       | If a **SpanUnion** of evidence lines is claimed, publish the **independence justification**.                                                             | Lawful enlargement of G.                                                                                                                     |
+| **CC‑G6‑11 (UTS hooks)**               | Evidence artefacts and PathIds **MUST** be **UTS‑citable** with twin labels (Tech/Plain).                                                                | Publication discipline.                                                                                                                     |
+| **CC‑G6‑12 (IndependenceCertificate)** | Independence for any **SpanUnion** MUST be carried by an **A.10 `IndependenceCertificate`** (partition of essential components; reference id in SCR).   | Makes SpanUnion auditable and machine‑checkable. |
+
+### 7) Interfaces & Hooks (normative)
+
+Each hook below defines: **Trigger → Obligation → Publishes/Consumes → Invariants**.
+
+#### **H1 — UTS Name Card for Evidence Artefacts**
+
+* **Trigger.** A new **EvidenceGraph node** is minted (an **A.10 anchor/carrier** classifying evidence for a claim).
+* **Obligation.** Mint a **UTS Name Card** with **twin labels** for the artefact (Tech/Plain), citing the **home `U.BoundedContext`** (per D.CTX) and edition; do **not** borrow a Context‑local Tech label as a “global” name. 
+* **Publishes/Consumes.** **Publishes:** UTS row; **Consumes:** A.10 anchor metadata.
+* **Invariants.** Cross‑Context sameness is **Bridge‑only**; the UTS row lists Bridges with **CL** and a short **loss note**.
+
+#### **H2 — UTS PathCard (PathId/PathSliceId)**
+
+**Trigger.** A new **PathId** (or **PathSliceId**) is minted for a claim.  
+**Obligation.** Publish a **UTS Name Card** with twin labels for the Path (or PathSlice), listing **Context, ReferencePlane, Γ_time**, and cited **Bridge ids + CL/CL^plane** (with loss notes).  
+**Invariants.** Path/Slice cards are **publication handles** for Worked‑Examples, MaturityCards, and selector reports.
+
+#### **H3 — RSCR Trigger on Evidence‑Impacting Edit (with Bridge Sentinels)**
+
+* **Trigger.** Any edit in G.6 that can change **gauges, acceptance verdicts, Γ‑fold contributors, or `R_eff`**; examples: freshness/decay change; Bridge **CL/CL^k** or loss update; **Φ/Ψ** policy change; lane tag correction; ReferencePlane correction.
+* **Obligation.** Emit a **typed RSCR trigger**; the corresponding regression test must verify: (i) legality of CHR ops in affected flows, (ii) unit/scale checks, (iii) **CL→`R_eff` routing only**, (iv) presence of Φ policy‑ids in the SCR. 
+* **Publishes/Consumes.** **Publishes:** RSCR test id(s); **Consumes:** CAL.EvidenceProfiles, CAL.Acceptance, Φ‑policies.
+* **Invariants.** **F/G invariants never mutate** due to CL penalties; penalties reduce **R only**.
+
+#### **H4 — SoS‑LOG Path Citation (Selector Explainability)**
+
+* **Trigger.** A **C.23 SoS‑LOG** rule returns {**Admit | Degrade(mode) | Abstain**} for a `(TaskSignature, MethodFamily)` pair.
+* **Bridge Sentinels.** All **Bridge ids** referenced by live **PathIds/PathSliceIds** are **watch‑listed**; any change to **CL/CL^plane** or **Φ policy id** triggers **path‑local RSCR** on the affected set of Paths/Slices only.
+* **Obligation.** The LOG branch **MUST** cite **EvidenceGraph `PathId`(s)** that justify the decision, together with **lane tags (TA/VA/LA)**, freshness windows, **Bridge ids + loss notes** (if any), and Φ policy‑ids.
+* **Publishes/Consumes.** **Publishes:** SCR‑visible branch record with `PathId`; **Consumes:** EvidenceGraph API path query.
+* **Invariants.** **No self‑evidence**; cross‑plane penalties **MUST** be monotone, bounded, and table‑backed.
+
+#### **H5 — Maturity Rung Transition Justification**
+
+* **Trigger.** A `MethodFamily.MaturityCard@Context` rung change is proposed.
+* **Obligation.** The transition **MUST** be justified by one or more **EvidenceGraph paths** and then **published on UTS**; **missing anchors ⇒ no advance**.
+* **Publishes/Consumes.** **Publishes:** updated UTS entry for the MaturityCard; **Consumes:** EvidenceGraph paths and A.10 anchors.
+* **Invariants.** Maturity is an **ordinal poset**, not a global scalar; any gating thresholds live **only** in **AcceptanceClauses** and are cited by id from LOG (no thresholds inside LOG). 
+
+#### **H6 — Bridge/CL Edge Annotation (Gate‑Crossings)**
+
+* **Trigger.** An EvidenceGraph edge **crosses tiers or Contexts/planes** (ATS GateCrossing).
+* **Obligation.** Record a **`BridgeCard`** and publish a **UTS row** with: SourceTier→TargetTier, Context ids (D.CTX), **Bridge id**, **bridgeChannel**, **CL** (and **CL^k** if KindBridge), **ReferencePlane**(s), and **CL^plane** (if planes differ). **No implicit crossings**.
+* **Publishes/Consumes.** **Publishes:** UTS crossing row; **Consumes:** GateCrossing metadata.
+* **Invariants.** CL/CL^plane penalties **route to R only**; lanes are **explicit**.
+
+#### **H7 — ReferencePlane Penalty Publication**
+
+* **Trigger.** A claim/evidence path spans different **ReferencePlanes** `{world|concept|episteme}`.
+* **Obligation.** Compute and publish **Φ\_plane** (policy id + loss note) alongside **Φ(CL)**; both policies are **monotone, bounded, table‑backed**; report in SCR for any affected verdict. 
+* **Publishes/Consumes.** **Publishes:** SCR fields with Φ policy‑ids; **Consumes:** CAL.EvidenceProfiles row(s).
+* **Invariants.** Penalties affect **`R_eff`** only; **F/G** remain invariant.
+
+#### **H8 — ATS Harness Exposure (AH‑1..AH‑4)**
+
+* **Trigger.** G.6 exports are bundled for release or consumed by selectors.
+* **Obligation.** Provide inputs so that **AH‑1..AH‑4** (TierClassifier, GateCheck, LaneCheck, LexicalCheck) can run against **EvidenceGraph paths and crossings**; FAIL if any cross‑tier/Context reference lacks **UTS+Bridge** or if lane purity is violated.
+* **Publishes/Consumes.** **Publishes:** harness‑readable identifiers (no formats mandated); **Consumes:** GateCrossing + lane tags.
+* **Invariants.** LEX hygiene (head‑anchoring, I/D/S) holds for all exported tokens.
+
+#### **H9 — SCR Surface for Assurance**
+
+* **Trigger.** Selector reports or acceptance checks reference evidence.
+* **Obligation.** Expose **lane‑split**, freshness windows, **Γ‑fold** contributors, **Φ(CL/plane)** policy‑ids, **IndependenceCertificate ids** (if SpanUnion), and (where present) **ProofLedger** references **as SCR‑visible fields**. 
+* **Publishes/Consumes.** **Publishes:** SCR views; **Consumes:** CAL.Acceptance, CAL.ProofLedger, EvidenceGraph paths.
+* **Invariants.** **WLNK default = weakest‑link** unless proved otherwise; any override cites monotonicity/boundary proofs.
+
+#### **H10 — ProofLedger Linkage (CAL ↔ G.6)**
+
+* **Trigger.** A formal proof obligation or evidence role is attached to a claim.
+* **Obligation.** Link the EvidenceGraph node/edge to **CAL.ProofLedger** entries and **A.10 carriers** via `verifiedBy/validatedBy` relations; **SCR/RSCR anchors are mandatory** for all carriers. **No self‑evidence**. 
+* **Publishes/Consumes.** **Publishes:** ProofRef ids in the path; **Consumes:** CAL.ProofLedger entries.
+* **Invariants.** **TA/VA/LA** distinctions remain explicit; tool qualification belongs to **TA**.
+
+#### **H11 — Telemetry Ingest (Selector & Probe Outcomes)**
+
+* **Trigger.** Run‑time **selector** or **probe** outcomes (E/E‑LOG) return observations that bear on previously asserted claims.
+* **Obligation.** Ingest as **external evidence lines** into the EvidenceGraph with proper **lane typing** (LA/VA/TA), **Context slice** and **Γ\_time**; opening/closing of refresh windows produces **DRR/RSCR hooks** outside the Core text. *This hook wires G.6 to the planned G.11 Telemetry/Refresh while keeping Core prose tool‑agnostic as required by E.5.*
+* **Publishes/Consumes.** **Publishes:** new EvidenceGraph nodes/edges + UTS rows; **Consumes:** selector/probe attestation (as conceptual carriers).
+* **Invariants.** Separate **ΔR / ΔF** from **ΔG** in rationale (Assurance calculus discipline).
+
+#### Minimal conformance (hooks)
+
+1. **UTS publication (H1)** for every minted evidence artefact; Bridges carry **CL + loss note**.
+2. **RSCR triggers (H3)** on any edit impacting gauges/acceptance/Γ‑fold or Φ penalties.
+3. **LOG path citation (H4)** is mandatory for **all** Admit/Degrade/Abstain decisions; **no self‑evidence**. 
+4. **Maturity rung transitions (H5)** **forbid** advancement without EvidenceGraph paths and UTS publication.
+5. **Gate‑crossings (H6/H6)** publish **Bridge + CL/CL^plane** and route penalties to **R only**; **no implicit crossings**.
+6. **ATS harness (H8)** passes **AH‑1..AH‑4** on crossings and lane purity.
+7. **SCR surface (H9)** exposes lane split, Γ‑fold, Φ‑policies, ProofRefs; default **WLNK** unless proved otherwise.
+8. **ProofLedger linkage (H10)** ties formal/empirical roles to **A.10 carriers**; **SCR/RSCR anchors** present.
+
+
+### 8) Consequences
+
+**Benefits.** Path‑addressable provenance; transparent **CL** and decay; clean **design/run stance**; selectors and auditors share the *same* object; **R** penalties become explainable deltas rather than folklore.
+**Trade‑offs.** Authors must declare freshness and planes; mitigated by reusing G.4 **EvidenceProfiles** instead of duplicating fields.
+
+### 9) Rationale
+
+G.6 concretises the “**because‑graph**” already implicit in A.10 as a **typed, lane‑aware DAG** with **stable path addresses**. It relies on B.3’s **assurance skeleton**—WLNK for R, penalties by **Φ(CL\_min)**, **SpanUnion constrained by support** for G, and **F = min**—rather than inventing a new calculus. The **SCR/RSCR** obligations keep the graph grounded in carriers and external Transformers, matching post‑2015 provenance practice for reproducible knowledge and auditability.
+
+### 10) Relations
+
+**Builds on:** A.10 (anchors, SCR/RSCR, externality), B.3 (assurance lanes & Γ‑fold skeleton), G.4 (EvidenceProfiles & ProofLedger), F.9 (Bridges/CL), E.8/E.10 (template & lexical rules).
+**Publishes to:** **UTS** (Name Cards for evidence artefacts and PathIds) and **RSCR**; **G.5** selectors cite **PathId** in their **SoS‑LOG** branches (admit/degrade/abstain).
+**Constrains:** **G.5** (eligibility/selector must point to PathIds), **G.9** (parity checks cite concrete paths), **G.11** (telemetry drives Path refresh & deprecation via evidence windows).
+
+## G.7 — **Cross‑Tradition Bridge Matrix & CL Calibration** \[A]
+
+**Tag:** \[A] **Stage:** design‑time
+**Hooks:** **G.2** (SoTA Bridge Matrix), **F.9** (Bridges/CL & CL^k/Ψ), **G.5** (eligibility & selection across bridges), **E.11/G.6 hooks H3–H7** (sentinels, gate‑crossings, Φ/Φ_plane publication)
+**Publishes to:** **UTS**; registers **Bridge Sentinels** for **G.11** refresh
+
+### 1 · Intent
+
+Turn the **SoTA Bridge Matrix** produced in **G.2** into **formal Bridges** with **Congruence Levels (CL)**, **loss notes**, and **ReferencePlane** penalties where applicable;  so calibrate CL/CL^k and (where relevant) CL^plane using a small, auditable procedure; register sentinels that any change to CL or Φ‑policies triggers **path‑local** RSCR re‑checks rather than whole‑pack reruns. Cross‑Tradition reuse **without** a Bridge is **forbidden**.  
+
+### 2 · Problem Frame
+
+**G.2** exports a **Bridge Matrix** (Tradition×Tradition) alongside Claim Sheets and Operator/Object inventories. Those rows already carry preliminary CL and loss notes; **G.7** hardens them into **F.9 Bridges** that can be consumed by **G.3/G.4/G.5** and surfaced on **UTS**. +**AlignmentDensity** (C.21 DHC) counts only **CL ≥ 2** bridges; interpret **CL = 3** as *free substitution* and **CL = 2** as *guarded* (loss attached), with declared units for the series.  (counts & units per C.21/DHC)
+
+### 3 · Problem
+
+1. **Rival Traditions** must be compared **without** semantic flattening; 2) cross‑plane talk (world|concept|episteme) introduces **CL^plane** penalties; 3) penalty routing must stay **assurance‑only (R)**, leaving **F/G** invariant; 4) changes to Bridges need **targeted** refresh, not a full re‑weave of evidence.   
+
+### 4 · Forces
+
+| Force                                | Tension                                                                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| **Comparability vs Local Authority** | Compare Traditions but never override Context‑local meaning; reuse is **Bridge‑only**.               |
+| **Didactic Simplicity vs Fidelity**  | Managers need compact tables, yet **Row CL(min)** and explicit losses bound where sameness is safe.  |
+| **Auditability vs Throughput**       | Calibration must be light‑weight but **UTS‑visible** and **AH‑1..AH‑4** runnable.                    |
+| **Refresh Cost vs Safety**           | Move from pack‑wide reruns to **path‑local** triggers on **Bridge** edits.                           |
+
+### 5 · Solution — **From Matrix to Bridges, with CL/CL^k Calibration & Sentinels**
+
+**S1 · Forge Bridges from Matrix rows.**
+For each comparable construct in the G.2 Bridge Matrix, mint an F.9 BridgeCard **anchored at SenseCell granularity** (F.3/F.7); **never whole Contexts**. If tokens other than SenseCells are used, **declare their SenseCell anchors**. State `bridgeChannel ∈ {Scope, Kind}`, `kind` (≡/⊑/⋈/≈/… as supported), `CL ∈ {3,2,1,0}` with loss notes (Scope) and, where a KindBridge is used, `CL^k ∈ {3,2,1,0}` with loss notes. Record direction if non‑symmetric and the validity region. **CL ≥ 2** (and **CL^k ≥ 2**) is permitted; **= 1** requires a **Waiver**; **= 0** is forbidden. Publish a **UTS row** for every GateCrossing. **No implicit crossings.**
+
+**S2 · Calibrate CL with a minimal, auditable procedure.**
+Per Bridge:
+
+1. Plane check. Record `ReferencePlane`(source,target). If planes differ, compute **CL^plane** and attach **Φ_plane** (policy‑id + loss note). **Plane penalties SHALL NOT mutate `CL`**; they **only reduce `R_eff` via Φ_plane**. Crossing **≥ 2 planes MAY be policy‑blocked** (Φ_plane = block) unless a documented Waiver is cited. **F/G remain invariant.**
+2. **Counter‑example duty.** Assign **CL/CL^k** only if you can state at least one **counter‑example** for ≤ 2, or explain its absence for 3 (**honesty rule**).
+3. Penalty policies. Reference **Φ(CL)** (Scope) and, where applicable, **Ψ(CL^k)** (Kind), and **Φ_plane** — all **monotone, bounded, table‑backed** — used by your CG‑Frame. **Route penalties to `R_eff` only; F/G invariant.**
+4. Row scope (by reference). For Concept‑Set rows supported by Bridges, apply **F.7** row rules: **Row CL(min) = bottleneck** (no averages) and include a counter‑example when any cell carries a loss note. (Do not restate them here.)
+
+**S3 · Publish crossings to UTS & Evidence surfaces.**
+Every GateCrossing emits a UTS row listing `SourceTier→TargetTier`, `Context ids`, `Bridge id`, `bridgeChannel`, `CL` (and `CL^k` if KindBridge), `ReferencePlane(s)`, and `CL^plane` (if planes differ). **SCR shows the policy‑ids for Φ(CL), Ψ(CL^k) (if used), and Φ_plane.** (No implicit crossings.)
+
+**S4 · Register Bridge Sentinels (watch‑list).**
+All **Bridge ids** referenced by live **EvidenceGraph `PathId`/`PathSliceId`** are **watch‑listed**. On any change in **CL/CL^k/CL^plane** or **Φ/Ψ policy‑id**, emit **path‑local RSCR** triggers (per **H3/H4**) and schedule refresh **per PathSlice** (Γ_time × plane), not per pack.
+
+**S5 · Dispatcher & DHC hooks.**
+G.5 may only compare across Traditions when a Bridge exists; selection uses admissible orders, **bans cross‑ordinal scalarisation**, and applies **CL/CL^k/CL^plane penalties to R only**. G.12 reports AlignmentDensity using Bridges with **CL ≥ 2** (units declared).
+
+### 6 · Structure (conceptual surfaces)
+
+**BridgeCard (core fields).**
+ `⟨BridgeId, Source⟨Context, SenseCell⟩, Target⟨Context, SenseCell⟩, bridgeChannel∈{Scope, Kind}, kind, CL, CL^k?, lossNotes, validityRegion, ReferencePlane(src,tgt), CL^plane?, Φ(CL) policy‑id, Ψ(CL^k) policy‑id?, Φ_plane policy‑id?, Evidence lanes, UTS.rowId, SenseCellAnchorRefs?⟩`
+(“SenseCell‑only; never Contexts.”)
+
+**Calibration Ledger (per Tradition pair).**
+`⟨TradPairId, ComparableConstruct, Bridges[], RowScope, RowCL(min), CounterExample link, Freshness window, Steward⟩`
+(Attach to **SoTA Synthesis Pack** and cite from **G.5**.)
+
+This is pure conceptual, notation-independent.
+
+### 7 · Interfaces & Dependencies
+
+* **Consumes:** G.2 Bridge Matrix; E.10 LEX/I‑D‑S; E.11 ATS crossings; B.3 Φ‑policies; C.21 metrics schema.    
+* **Produces:** F.9‑conformant **BridgeCards**; **UTS** crossing rows; **PathSlice** sentinel registrations; CL policy ids for **SCR**; DHC‑visible bridge counts. 
+
+### 8 · Conformance Checklist (normative)
+
+1. **Bridge‑only reuse.** Any Cross‑Tradition or Cross‑Context reuse **MUST** cite a **Bridge** with **CL** (and **CL^k** if KindBridge) and **loss notes**; **mentions without Bridge+UTS row are non‑conformant**.
+2. **CL regimes.** **CL, CL^k ∈ {3,2,1,0}**; **≥ 2** permitted; **= 1** only with **Waiver**; **= 0** forbidden. **Honesty rule** holds (counter‑example for ≤ 2 or stated absence for 3).
+3. Plane guard. On plane mismatch, compute **CL^plane** and publish **Φ_plane** policy‑id. **Plane penalties SHALL NOT change `CL`; penalties reduce `R_eff` only.** Blocking is a **Φ_plane** policy outcome (not a CL edit).
+4. R‑only routing. **Φ(CL)**/**Ψ(CL^k)**/**Φ_plane** are **monotone, bounded, table‑backed**; **penalties reduce `R_eff` only**; **F/G invariant**.
+5. Row bottleneck (by reference). Apply **F.7** row rules: **Row CL(min)=bottleneck** (no averages) and include a counter‑example when any cell has a loss note.
+6. **UTS publication.** Each GateCrossing publishes a **UTS row** with **ReferencePlane**(s) and **CL^plane** (if any); **no implicit crossings**.
+7. **ATS harness.** **AH‑1..AH‑4** pass on published crossings and lanes; **fail** on missing Bridge/UTS or lane impurity.
+8. **Sentinel wiring.** Bridges cited by live **PathId/PathSliceId** are **watch‑listed**; edits to **CL/CL^k/CL^plane** or **Φ/Ψ** trigger **path‑local RSCR** per **H3/H4**.
+9. **DHC accounts.** **AlignmentDensity** counts only **CL ≥ 2**; **CL=3** is free substitution, **CL=2** guarded (loss published).
+10. SenseCell anchoring. BridgeCards **MUST** anchor to **SenseCells**; if other tokens are used, **declare SenseCell anchors**.
+
+### 9 · Micro‑examples (post‑2015 contexts; *indicative only*)
+
+> **Scope note.** Examples illustrate **row scopes** and **loss notes**. They are not endorsements of equivalence beyond the stated scope. Penalties route to **R** only; **F/G** invariant.
+
+1. “Preference‑learning objective” *(senseFamily=Method; **Row Scope: Naming‑only**)* ...
+   *Cells:* `RLHF@Context‑A:policy‑gradient‑on‑reward‑model` ↔ `DPO@Context‑B:direct‑preference‑optimization` • *Row CL(min):* 2 • *Loss:* KL‑regularisation vs. implicit logistic form; sensitivity to label‑noise mix • *Use:* didactic (naming/expository); **no** substitution of acceptance thresholds. *(2017→2023 literature evolution; rival training programs with overlapping intent.)*
+
+2. “Causal effect (ATE) reading” *(senseFamily=Method; **Row Scope: Naming‑only**)* …
+   *Cells:* `SCM@Context‑C:do(x)` ↔ `Potential‑Outcomes@Context‑D:ATE` • *Row CL(min):* 2 • *Loss:* identifiability conditions differ (ignorability/positivity vs. graph‑based rules); estimator families diverge • *Use:* expository mapping in Claim Sheets; **no** estimator substitution across pipelines.
+
+3. “Stiffness indicator for ODE suites” *(senseFamily=Measurement; **Row Scope: KD‑CAL metric (measurement comparandum)**)* …
+   *Cells:* `Rosenbrock:stability‑region test` ↔ `IMEX:stiff‑ratio heuristic` • *Row CL(min):* 2 • *Loss:* test regimes differ; grid dependence; asymptotic constants • *Use:* **G.5** eligibility hints; acceptance thresholds live in **G.4**, not here.
+
+*(All three rows presume extant F.9 Bridges; row bottlenecks and losses are printed as per F.7.)*
+
+### 10 · Anti‑patterns & Remedies
+
+* **Semantic flattening.** Treating rival definitions as synonyms without Bridges. → **Bridge first;** print **loss**; keep **Row Scope** tight.
+* **CL averaging.** Computing Row CL as an average. → **Bottleneck min**; never averages.
+* **SenseFamily jump.** Using an interpretation bridge to license substitution. → **Substitution requires senseFamily‑preserving bridges**.
+* **Plane blindness.** Ignoring **CL^plane** when crossing world↔concept↔episteme. → Compute **CL^plane** and publish **Φ\_plane id**.
+* **Pack‑wide reruns.** Reweaving all evidence on a minor Bridge edit. → **Sentinels + PathSlice** for targeted RSCR. 
+
+### 11 · Consequences
+
+* **Auditable plurality.** Teams can hold multiple Traditions in view and compare them **safely**; losses are visible; penalties touch **R** only.
+* **Selective refresh.** Bridge edits trigger **path‑local** refresh (lower cost, higher reactivity).
+* **Downstream cleanliness.** **G.5** selectors have lawful crossings and **Φ** ids; **G.12** can compute DHC signals with declared units and windows. 
+
+### 12 · Relations
+
+**Builds on:** **G.2** (Matrix), **F.9** (Bridges/CL), **B.3** (Φ penalties), **E.10** (LEX), **E.11** (ATS). **Prerequisite for:** **G.5** eligibility across bridges; **G.11** responds to **Bridge Sentinels**.   
+
+## Author’s QA — Conformance to the plan & guards
+
+**(a) Matches the Part‑G plan for G.7.**
+
+* Introduces a **Cross‑Tradition Bridge Matrix** → **formal Bridges** with **CL** and **loss notes**; calibrates **CL** including **CL^plane**; and forbids by‑name reuse without a Bridge. **Hooks** G.2/F.9; **prereq** for G.5. ✔︎
+* **Bridge Sentinels** (watch‑list of Bridge ids cited by **PathId/PathSliceId**) that emit **path‑local RSCR** triggers on **CL/Φ** changes. ✔︎ 
+
+**(b) Integrates targeted improvements without duplication.**
+
+* Uses **PathSliceId** (plane‑ & time‑lifted) for **selective refresh** (G.6→G.11). ✔︎
+* Sentinel mechanism is wired here (G.6→**G.7**→G.11). ✔︎
+
+**(c) Respects Parts A/B/C/E/F guards.**
+
+* **LEX/I‑D‑S & Context discipline:** Bridge‑only travel, SenseCell‑level alignment, no implicit crossings, UTS publication. ✔︎ 
+* **KD‑CAL/B.3 routing:** **Φ(CL)**/**Φ\_plane** **monotone, bounded, table‑backed**; penalties to **R** only; **F/G invariant**. ✔︎ 
+* **F.9 invariants:** locality to SenseCells, CL honesty, senseFamily discipline, explicit direction, loss visibility. ✔︎
+* **ATS harness exposure (E.11):** crossings & lanes checkable by **AH‑1..AH‑4**. ✔︎
+
+**(d) Fits the G‑sequence and “SoTA pack” lifecycle.**
+
+* Consumes **G.2** outputs; produces Bridge/UTS surfaces (readable by **G.3/G.4/G.5**); emits **sentinel** hooks for **G.11**; supports **G.12** DHC computations. ✔︎ 
+
+**(e) Adds new content rather than repeating other patterns.**
+
+* The **calibration micro‑procedure**, **sentinel wiring**, and **audit fields** are **new** in G.7; references to LEX/Evidence/Bridges are pointers, not restatements. ✔︎
+
+**(f) Engineer‑manager readability.**
+
+* Row scopes, bottleneck rule, loss‑first discipline, and the post‑2015 micro‑examples are explained in managerial terms; thresholds remain in **G.4 Acceptance**, not here. ✔︎
+
+### Editor’s notes (non‑normative)
+
+* Keep Bridge rows **short and scoped**; teach **contrast** where needed. If your **BridgeCard** doesn’t fit on a screen, you’re describing Contexts, not a Bridge.
+* For DHC: declare units and freshness windows (e.g., **bridges\_per\_100\_DHC\_SenseCells**).
+
 
 ### **Part H – Glossary & Definitional Pattern Index**
 
