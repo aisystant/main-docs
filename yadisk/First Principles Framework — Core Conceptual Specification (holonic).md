@@ -5977,6 +5977,13 @@ FPF aspires to be an **operating system for thought** that engineers, biologists
 
 > **Normative Rule (C‑1)** A `U.Type` **enters the kernel only if** it is shown to play the **same Role** in **at least three foundationally distinct domains**.
 
+ **Heterogeneity & QD‑triad guarantee (C‑1.QD).**
+ In addition to distinct **domain‑families** (choose from: *Exact Sciences · Natural Sciences · Engineering & Technology · Formal Sciences · Social & Behavioural Sciences*), the **triad** SHALL demonstrate **quality diversity**:
+(a) **Hetero‑test.** Each projection adds at least one non‑trivial **DescriptorMap** signal or Bridge path not subsumed by the other two (no aliasing by mere renaming).
+(b) **QD evidence.** Publish **Creativity‑CHR / NQD‑CAL** evidence for the triad: `Diversity_P` (set‑level) and its **IlluminationSummary** gauge with ≥3 non‑empty cells and `occupancyEntropy > 0` under the declared grid.
+(c) **Policy disclosure.** Declare the Context‑local `QD_policy` (binning/grid, kernel, time‑window) used to compute the gauges.
+(References: **C.17** `Diversity_P` & illumination gauge; **C.18** `U.DescriptorMap`, `U.IlluminationSummary`.)
+
 **Implementation steps**
 
 1. **Domain Families** Choose any three from:
@@ -6018,8 +6025,8 @@ These juxtapositions give engineer‑managers an immediate sense of *why* each p
 | **CC‑UC 3** | No single artefact may serve as exemplar for more than one domain projection.                                                          | Prevents contrived “triple duty” examples.              |
 | **CC‑UC 4** | A **specialised** `U.SubType` inherits its parent’s projections **and** adds ≥ 1 new domain projection, never fewer.                   | Keeps refinements as universal as their parents.        |
 | **CC‑UC 5** | While the U‑Index > 0.05, authors **SHALL** prioritise supplying missing projections over adding new core concepts.                    | Maintains kernel health without procedural bureaucracy. |
+|  **CC‑UC-2-QD‑triad** | The three Role‑Projections come from different domain‑families **and** the triad publishes `Diversity_P` + `IlluminationSummary` meeting C‑1.QD (bins, grid, edition declared). Failing (a)–(c) downgrades the claim from “kernel U.Type” to a plug‑in. | quality diversity of domains |
 
----
 
 #### 7 · Consequences
 
@@ -20021,6 +20028,7 @@ Cross‑Scale Consistency**.
 | **CC‑BA.1** | Each Core pattern **SHALL** include a *Bias‑Annotation* listing the five lenses and any declared scope limitation. | Ensures explicit reflection on bias. |
 | **CC‑BA.2** | A pattern labelled “universal” **MUST NOT** privilege a single lens without justification or scoping note. | Preserves trans‑disciplinary integrity. |
 | **CC‑BA.3** | If scope is declared, the pattern **SHALL** reference the mapping or rationale that enables cross‑domain translation. | Keeps pathways open for other calculi. |
+| **CC‑BA.4 (QD‑triad evidence for “universal”).** | Any pattern that labels itself **“universal”** SHALL cite **A.8 CC‑UC 1 + CC‑UC 2** and attach the **QD evidence** (Diversity_P + IlluminationSummary, with edition and binning) or else **scope** the claim to its home Context. | preserves domain quality diversity |
 
 ##### Consequences  
 
@@ -22882,7 +22890,7 @@ A terse descriptor used in the **Context Map** (F.1):
 * **RSCR‑F01 (Edition split).** When a source edition changes materially, SenseCells tied to the old edition remain; new cells bind to the new Context; Bridges are re‑assessed.
 * **RSCR‑F02 (Bridge stability).** If any Bridge endpoint changes gloss/stance, downgrade or retire the Bridge, documenting the **loss/fit** change.
 * **RSCR‑F03 (Composition guard).** When composing Bridges in a chain, the resulting `CL` never exceeds the minimal link; relation weakens monotonically.
-* **RSCR‑F04 (Heterogeneity guard).** The Context Map used by the manuscript remains finite and heterogeneous (≥ 3 families along each unification line).
+* **RSCR‑F04 (Heterogeneity+QD guard).** The Context Map remains finite and **heterogeneous** (≥ 3 **domain‑families** along each unification line) **and** the triad **passes the QD‑triad guarantee** (A.8 C‑1.QD): publish `Diversity_P` + `IlluminationSummary` for the triad (declared grid/kernel/time‑window); near‑alias projections fail. This preserves quality diversity of domains.
 
 ### 11.3 Publish‑ready summary
 
@@ -29716,6 +29724,11 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 17. **Φ‑policies surfaced.** Wherever CL/CL^plane penalties are used, **Φ** policies are **monotone, bounded, table‑backed**, with **policy‑ids** in SCR; **R_eff ≥ 0** by construction (per Pre‑flight/G.0).
 18. **Unknowns are tri‑state.** Unknowns **propagate as {pass|degrade|abstain}** to Acceptance/Eligibility; **no `unknown→0/false` coercion**; behavior recorded in SCR.
 19. **ATS harness pass.** Published crossings pass **E.11 AH‑1..AH‑4** (TierClassifier, GateCheck, LaneCheck incl. **CL→R only** and **CL^plane** if planes differ, LexicalCheck).
+20. **Three‑family breadth (domains).** `SoTA_Set@CG‑Frame` spans **≥3 domain‑families** per A.8 (Exact/Natural/Eng&Tech/Formal/Social&Behavioural), with Bridge hygiene for any crossings.
+21. **QD‑triad evidence.** The generator **records** `Diversity_P` and **IlluminationSummary** for the triad used to motivate any “universal” UTS row or Core candidate; provenance includes `DescriptorMapRef`, `metricsEdition`, and grid/binning.
+22. **Emitter trace includes coverage.** `EmitterTrace` (M3) **MUST** log triad coverage (IlluminationSummary) alongside ⟨F,G,R_eff⟩ and CL notes; promotion of illumination to dominance remains **forbidden by default** (policy‑opt‑in per C.19).
+
+(Why here?) G.1 is where breadth is collected and NQD evidence is already produced; these lines make the 
 
 ### 9) Consequences (informative)
 
