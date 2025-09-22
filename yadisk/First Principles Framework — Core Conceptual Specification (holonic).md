@@ -105,6 +105,12 @@
 | C.2.1 | **U.Episteme — Semantic Triangle via Components** | Stable | *Keywords:* semantic triangle, object, concept, symbol, carrier, meaning, representation. *Queries:* "What is a knowledge artifact in FPF?", "How does FPF separate meaning from its physical form?". | **Builds on:** C.2. **Refines:** A.1, A.7. |
 | C.2.3 | **Unified Formality Characteristic F** | Stable | *Keywords:* Formality, F-scale, F0-F9, rigor, proof, specification, formal methods. *Queries:* "What are the FPF formality levels?", "How to measure the rigor of a specification?". | **Builds on:** C.2. **Constrains:** All patterns referencing F-G-R. |
 | C.3 | **Kind‑CAL — Kinds, Intent/Extent, and Typed Reasoning** | Stable | *Keywords:* kind, type, intension, extension, subkind, typed reasoning, classification, vocabulary. *Queries:* "How does FPF handle types?", "What is a 'Kind'?", "Difference between 'scope' and 'type'?". | **Builds on:** A.1, A.2.6 (USM). **Prerequisite for:** LOG-CAL, ADR-Kind-CAL, and any pattern needing typed guards. |
+| C.3.1 | **`U.Kind` & `U.SubkindOf` (Core)** | Stable | *Keywords:* kind, subkind, partial order, type hierarchy. *Queries:* "What is U.Kind in FPF?", "How to model 'is-a' relationships?". | **Builds on:** A.1, A.2.6 (USM). **Prerequisite for:** C.3.2, C.3.3. |
+| C.3.2 | **`KindSignature` (+F) & `Extension`/`MemberOf`** | Stable | *Keywords:* KindSignature, intension, extension, MemberOf, Formality F, determinism. *Queries:* "How to define the meaning of a Kind?", "What is the difference between intent and extent in FPF?". | **Builds on:** C.3.1. **Prerequisite for:** C.3.3, C.3.4. |
+| C.3.3 | **`KindBridge` & `CL^k` — Cross‑context Mapping of Kinds** | Stable | *Keywords:* KindBridge, type-congruence, CL^k, cross-context mapping, R penalty. *Queries:* "How to map types between domains?", "What is a KindBridge?". | **Builds on:** C.3.1, C.3.2, A.2.6, C.2.2. |
+| C.3.4 | **`RoleMask` — Contextual Adaptation of Kinds (without cloning)** | Stable | *Keywords:* RoleMask, context-local adaptation, constraints, subkind promotion. *Queries:* "How to adapt a Kind for a local context?", "What is a RoleMask in FPF?". | **Builds on:** C.3.1, C.3.2. |
+| C.3.5 | **`KindAT` — Intentional Abstraction Facet for Kinds (K0…K3)** | Stable | *Keywords:* KindAT, abstraction tier, K0-K3, informative facet, planning. *Queries:* "What are the abstraction tiers for Kinds?", "How to plan formalization effort?". | **Builds on:** C.3.1. |
+| C.3.A | **Typed Guard Macros for Kinds + USM (Annex)** | Stable | *Keywords:* Typed guard, ESG, Method-Work, USM, Kind-CAL, regulatory profile. *Queries:* "How to write a typed guard?", "How do Kinds and USM interact in gates?". | **Builds on:** All C.3.x, A.2.6. |
 | C.4 | **Method‑CAL** | Draft | *Keywords:* method, recipe, procedure, workflow, SOP, MethodDescription, operator. *Queries:* "How to model a process or workflow?", "What is a MethodDescription in FPF?". | **Builds on:** A.3, A.15. **Coordinates with:** Γ_method (B.1.5). |
 | C.5 | **Resrc‑CAL** | Draft | *Keywords:* resource, energy, material, information, cost, budget, consumption, Γ_work. *Queries:* "How does FPF model resource usage?", "How to track costs of a process?". | **Builds on:** A.15.1 (Work). **Coordinates with:** Sys-CAL. |
 | C.6 | **LOG‑CAL – Core Logic Calculus** | Draft | *Keywords:* logic, inference, proof, modal logic, trust operators, reasoning. *Queries:* "What is the base logic of FPF?", "How does FPF handle formal proofs?". | **Builds on:** Kind-CAL. **Is used by:** B.7. |
@@ -124,6 +130,9 @@
 | C.18 | **NQD‑CAL — Open‑Ended Search Calculus** | Stable | *Keywords:* search, exploration, hypothesis generation, novelty, quality, diversity (NQD). *Queries:* "How does FPF support structured brainstorming?", "What is NQD search?". | **Builds on:** KD-CAL. **Coordinates with:** B.5.2.1, Creativity-CHR, E/E-LOG. |
 | C.19 | **E/E‑LOG — Explore–Exploit Governor** | Stable | *Keywords:* explore-exploit, policy, strategy, decision lens, portfolio management. *Queries:* "How to balance exploration and exploitation?", "What is an EmitterPolicy?". | **Builds on:** Decsn-CAL. **Coordinates with:** NQD-CAL. |
 | C.20 | **Discipline‑CAL — Composition of `U.Discipline`** | Full text | *Keywords:* discipline, **U.AppliedDiscipline**, **U.Transdiscipline**, episteme corpus, standards, institutions, **Γ_disc**. *Queries:* "How to compose and assess a discipline in FPF?" | **Builds on:** C.2 KD‑CAL, G.0, Part F (Bridges/UTS). **Coordinates with:** C.21, C.23. |
+| C.21 | **Discipline‑CHR · Field Health & Structure** | Stable | *Keywords:* discipline, field health, reproducibility, standardisation, alignment, disruption. *Queries:* "How to measure the health of a scientific field?", "What is reproducibility rate?". | **Builds on:** C.16, C.2, A.2.6, B.3. **Coordinates with:** C.20, G.2. |
+| C.22 | **Problem‑CHR · Problem Typing & TaskSignature Binding** | Stable | *Keywords:* problem typing, TaskSignature, selector, eligibility, acceptance, CHR-typed traits. *Queries:* "How does FPF type problems for selection?", "What is a TaskSignature?". | **Builds on:** C.16, G.5, G.0. **Coordinates with:** G.4, C.23. |
+| C.23 | **Method‑SoS‑LOG — MethodFamily Evidence & Maturity** | Stable | *Keywords:* MethodFamily, evidence, maturity, SoS-LOG, admit, degrade, abstain, selector. *Queries:* "How is method family maturity assessed?", "What is the SoS-LOG for selection?". | **Builds on:** G.5, G.4, C.22, B.3. |
 
 **Part D – Multi-scale Ethics & Conflict-Optimisation**
 
@@ -145,7 +154,7 @@
 | D.5.1 | Taxonomy-Guided Audit Templates | Stub | *Keywords:* bias taxonomy, audit checklist, template. *Queries:* "Templates for conducting a bias audit." | **Builds on:** D.5. |
 | D.5.2 | Assurance Metrics Roll-up | Stub | *Keywords:* ethical risk index, metrics, evidence, roll-up. *Queries:* "How to calculate an overall ethical risk score in FPF?" | **Builds on:** D.5, B.3. |
 
-**Part E — The FPF Constitution and Authoring Guides**
+**Part E – The FPF Constitution and Authoring Guides**
 
 | § | ID & Title | Status | Keywords & Search Queries | Dependencies |
 | :--- | :--- | :--- | :--- | :--- |
@@ -168,9 +177,11 @@
 | E.10.P | **Conceptual Prefixes (policy & registry)** | Stable | *Keywords:* prefixes, U., Γ_, ut:, tv:, namespace, registry. *Queries:* "What do the prefixes like 'U.' mean in FPF?". | **Depends on:** E.9. **Constrains:** E.5.1, E.5.2. |
 | E.10.D1 | **Lexical Discipline for “Context” (D.CTX)** | Stable | *Keywords:* context, U.BoundedContext, anchor, domain, frame. *Queries:* "What is the formal meaning of 'Context' in FPF?". | **Builds on:** A.7, A.4. **Coordinates with:** F.1, F.2, F.3, F.7, F.9. |
 | E.10.D2 | **Intension–Description–Specification Discipline (I/D/S)** | Stable | *Keywords:* intension, description, specification, I/D/S, testable, verifiable. *Queries:* "Difference between a description and a specification in FPF?". | **Builds on:** A.7, E.10.D1, C.2.3. **Constrains:** F.4, F.5, F.8, F.9, F.15. |
+| E.11 | **Authoring-Tier Scheme (ATS)** | stub | *Keywords:* authoring tiers, AT0, AT1, AT2, AT3, gate-crossings. *Queries:* "What are the FPF authoring tiers?", "How does FPF separate applied work from architheory authoring?". | **Builds on:** E.10, G.0. |
 | E.12 | **Didactic Primacy & Cognitive Ergonomics** | Stable | *Keywords:* didactic, cognitive load, ergonomics, usability, Rationale Mandate, HF-Loop. *Queries:* "How does FPF ensure it's understandable?", "What is the 'So What?' test in FPF?". | **Builds on:** E.2 (P-2). **Complements:** E.13. |
 | E.13 | **Pragmatic Utility & Value Alignment** | Stable | *Keywords:* pragmatic, utility, value, Goodhart's Law, Proxy-Audit Loop, MVE. *Queries:* "How does FPF ensure solutions are useful, not just correct?", "What is a Minimally Viable Example (MVE)?". | **Builds on:** E.2 (P-7). **Complements:** E.12. |
 | E.14 | **Human-Centric Working-Model** | Stable | *Keywords:* working model, human-centric, publication surface, grounding, assurance layers. *Queries:* "What is the main interface for FPF users?", "How does FPF separate human-readable models from formal assurance?". | **Builds on:** E.7, E.8, C.2.3. **Coordinates with:** B.3.5, C.13, E.10. |
+| E.15 | **Lexical Authoring & Evolution Protocol (LEX-AUTH)** | stable | *Keywords:* lexical authoring, evolution protocol, LAT, delta-classes. *Queries:* "How are FPF patterns authored and evolved?", "What is a Lexical Authoring Trace (LAT)?". | **Builds on:** E.9, E.10, B.4, C.18, C.19, A.10, B.3, F.15. |
 
 **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
@@ -210,6 +221,8 @@
 | G.3 | **CHR Authoring: Characteristics · Scales · Levels · Coordinates**| Draft | *Keywords:* CHR, authoring, characteristics, scales, levels, coordinates, CSLC, measurement, metrics, typing. *Queries:* "How do I define a new metric in FPF?", "What are the rules for creating characteristics?", "What is the CHR layer?". | **Builds on:** G.2, A.17-A.19 (MM-CHR), C.16. **Prerequisite for:** G.4. |
 | G.4 | **CAL Authoring: Calculi · Acceptance · Evidence**| Draft | *Keywords:* CAL, calculus, operators, acceptance clauses, evidence, logic, rules, predicates. *Queries:* "How to define new rules or logic in FPF?", "What is a CAL architheory?", "How to specify acceptance criteria for a method?". | **Builds on:** G.3, B.3 (Trust). **Prerequisite for:** G.5. |
 | G.5 | **Multi-Method Dispatcher & MethodFamily Registry**| Draft | *Keywords:* dispatcher, selector, method family, registry, No-Free-Lunch, policy, selection, multi-method. *Queries:* "How does FPF choose the right algorithm for a problem?", "What is the multi-method dispatcher?", "How to handle competing methods in FPF?". | **Builds on:** G.2, G.3, G.4, C.19 (E/E-LOG). |
+| G.6 | **Evidence Graph & Provenance Ledger** | Draft | *Keywords:* EvidenceGraph, provenance, path, anchor, lane, SCR, RSCR, PathId, PathSliceId. *Queries:* "How does FPF trace claims to evidence?", "What is an EvidenceGraph?", "How are evidence paths identified?". | **Builds on:** A.10, B.3, G.4, F.9, C.23. **Prerequisite for:** G.5. |
+| G.7 | **Cross-Tradition Bridge Matrix & CL Calibration** | Draft | *Keywords:* Bridge Matrix, Tradition, Congruence Level (CL), CL^k, calibration, sentinel, loss notes, ReferencePlane. *Queries:* "How to compare competing scientific theories in FPF?", "What is a Bridge Matrix?", "How is Congruence Level calibrated?". | **Builds on:** G.2, F.9, B.3, E.10, E.11. **Prerequisite for:** G.5. |
 
 **Part H – Glossary & Definitional Pattern Index**
 
@@ -5984,10 +5997,9 @@ FPF aspires to be an **operating system for thought** that engineers, biologists
 (c) **Policy disclosure.** Declare the Context‑local `QD_policy` (binning/grid, kernel, time‑window) used to compute the gauges.
 (References: **C.17** `Diversity_P` & illumination gauge; **C.18** `U.DescriptorMap`, `U.IlluminationSummary`.)
 
-**Implementation steps**
+Implementation steps (Domain Families): 
 
-1. **Domain Families** Choose any three from:
-   *Exact Sciences* · *Natural Sciences* · *Engineering & Technology* · *Formal Sciences* · *Social & Behavioural Sciences*.
+1. source domain‑families from the active F1‑Card (taxonomyRef/embeddingRef edition). The five coarse families {Exact, Natural & Life, Engineering & Tech, Formal, Social & Behavioural} are informative only; if used for pedagogy, publish an explicit mapping to the F1‑Card taxonomy. The triad gate is measured by MinInterFamilyDistance ≥ δ_family (per F1‑Card), not by labels alone.
 
 2. **Role‑Projection Records** For each domain, author a short **`Role‑Projection`** tuple: `{domain, indigenous term, Role, exemplar}`.
    *Example:* `{physics, "Free Energy", extremum driver, closed gas system}`.
@@ -6025,8 +6037,7 @@ These juxtapositions give engineer‑managers an immediate sense of *why* each p
 | **CC‑UC 3** | No single artefact may serve as exemplar for more than one domain projection.                                                          | Prevents contrived “triple duty” examples.              |
 | **CC‑UC 4** | A **specialised** `U.SubType` inherits its parent’s projections **and** adds ≥ 1 new domain projection, never fewer.                   | Keeps refinements as universal as their parents.        |
 | **CC‑UC 5** | While the U‑Index > 0.05, authors **SHALL** prioritise supplying missing projections over adding new core concepts.                    | Maintains kernel health without procedural bureaucracy. |
-|  **CC‑UC-2-QD‑triad** | The three Role‑Projections come from different domain‑families **and** the triad publishes `Diversity_P` + `IlluminationSummary` meeting C‑1.QD (bins, grid, edition declared). Failing (a)–(c) downgrades the claim from “kernel U.Type” to a plug‑in. | quality diversity of domains |
-
+| **CC‑UC‑2‑QD‑triad.** | The three Role‑Projections come from **different domain‑families** AND the triad PUBLISHES: `{FamilyCoverage, MinInterFamilyDistance, Diversity_P, IlluminationSummary}` with `MinInterFamilyDistance ≥ δ_family` (per **F1‑Card** DistanceDef & edition). + Provenance MUST cite `DescriptorMapRef` (incl. `DistanceDef`/edition), `F1‑Card id+edition`, and the grid/binning policy used for `IlluminationSummary`.  | quality diversity of domains
 
 #### 7 · Consequences
 
@@ -12912,7 +12923,7 @@ Teams routinely entangle **programs, specifications, proofs, and datasets**; a �
 * **Reliability R.** From untested idea to **continuously validated claim**. Litmus: *where is the last successful severe test?* **R‑claims MUST bind to evidence and declare relevance windows; stale bindings degrade R or require waiver per ESG policy.**
 
  **Congruence Level (CL), pairwise ladder.**
- `CL‑0` **Opposed/Disjoint** (contrastive; no substitution); `CL‑1` **Comparable / Naming‑only** (label similarity; no substitution); `CL‑2` **Translatable / RoleAssignment‑eligible** (structure‑preserving mapping in a declared fragment with **stated loss**; theorems may transport); `CL‑3` **Near‑identity / Type‑structure‑safe** (invariants match; type‑structure substitution allowed). *CL is a characteristic of a relation between two epistemes; it is not a fourth axis of epistemic characteristic space.* **Norm:** *substitution is permitted only if plane‑preserving and **CL ≥ 2**; substituting **type‑structure** requires **CL = 3***.
+ `CL‑0` **Opposed/Disjoint** (contrastive; no substitution); `CL‑1` **Comparable / Naming‑only** (label similarity; no substitution); `CL‑2` **Translatable / RoleAssignment‑eligible** (structure‑preserving mapping in a declared fragment with **stated loss**; theorems may transport); `CL‑3` **Near‑identity / Type‑structure‑safe** (invariants match; type‑structure substitution allowed). *CL is a characteristic of a relation between two epistemes; it is not a fourth charachteristic of epistemic characteristic space.* **Norm:** *substitution is permitted only if plane‑preserving and **CL ≥ 2**; substituting **type‑structure** requires **CL = 3***.
 
 **Triangle link.** The characteristics live on the **Concept↔Object** side: *F* by the internal claim‑graph structure; *G* by the **ClaimScope** (scope & assumptions); *R* by evaluation templates and evidence bindings. The **Symbol** vertex hosts notation; **carriers are outside** the episteme and link via `isCarriedBy`. Multiple notations are allowed under a **single Symbol component**; authors SHOULD register `NotationBridge(n₁,n₂)` with an associated **CL** to make conversion loss explicit.
 
@@ -17560,7 +17571,6 @@ R‑ME‑6 (MAY):** “`UncertaintyStub` — optional conceptual pointer to the 
 
 **R‑G𝒢‑2 (Ordinal respect).** For ordinal inputs, **𝒢** must be **order‑preserving**; interval assumptions **MUST NOT** be smuggled in.
 
----
 
 ## 5.5 · Entity vs Relation bindings (normative clarifications)
 
@@ -17763,6 +17773,11 @@ This architheory exports **Characteristics** and measurement templates **only**.
 4. **`ConstraintFit`** — degree of **must‑constraint** satisfaction (Norm‑CAL / Service acceptance); ∈ \[0, 1].
 5. **Diversity_P (portfolio-level)** — coverage/dispersion (set-level). **Illumination** is a **gauge over Diversity_P** (coverage/QD-score summaries). It is **report-only** and **never** part of the primary dominance test.
 6. **`AttributionIntegrity`** — provenance/licensing discipline for lawful, transparent recombination; ∈ \[0, 1].
+7. **`FamilyCoverage`** — (count, polarity ↑, scope=portfolio, unit=families, provenance: F1‑Card)
+8. **`MinInterFamilyDistance`** — (ratio [0,1] or metric units, polarity ↑, scope=portfolio, DistanceDef@F1‑Card)
+9. **`AliasRisk`** —  (ratio [0,1], polarity ↓, diagnostic; drop if dSig ≥3/5 characteristics collide)
+10. **`U.DomainDiversitySignature (dSig)`** — 5‑tuple over discrete characteristics **[Sector, Function, Archetype, Regime, MetricFamily]**  attached to each `U.BoundedContext`. Used for **Near‑Duplicate** diagnostics and `AliasRisk`. Policy: flag as Near‑Duplicate when ≥3 characteristics match; see F.1 invariants and SCR‑F1‑S08..S09. 
+11. **Note (AliasRisk binding).** `AliasRisk` MAY be computed using `dSig` collision diagnostics; a Context MUST declare the collision rule and policy id in DescriptorMap provenance when AliasRisk is reported.
 
 * **Supporting types (linking points):**
 
@@ -17931,6 +17946,11 @@ Each characteristic is specified per **MM‑CHR (C.16)** with: **name**, **inten
 * **Evidence.** Distance matrix/cover plots; sensitivity to kernel.
 * **Didactic cue.** Use **Diversity\_P** to **shape portfolios**, not to pick single winners.
 * **Marginal gain (for generators)** — normative. For a candidate h and current set S, ΔDiversity_P(h | S) := Diversity_P(S ∪ {h}) − Diversity_P(S). Contexts using NQD SHALL compute D as this marginal and publish the Diversity_P definition alongside the DescriptorSpace/kernel and TimeWindow.
+
+**Heterogeneity Characterisation**
+* FamilyCoverage  (polarity ↑) — count of distinct domain‑families covered by a portfolio/triad; unit: families; window: declared.
+* MinInterFamilyDistance (polarity ↑) — min distance between selected families in DescriptorMap; unit: per DistanceDef; window: declared.
+* AliasRisk (polarity ↓) — collinearity/near‑duplicate risk indicator for contextual signatures; unit: score (0–1) with policy id.
 
 #### 5.6 · `AttributionIntegrity` — “Did we credit sources and licences correctly?”
 
@@ -18499,12 +18519,14 @@ These cards are **thinking scaffolds**; they do not prescribe org process.
   **Pipeline:** apply **Eligibility (ConstraintFit=pass)** → **Dominance (default set)** → **Tie‑breakers (Surprise, Illumination gauge)**.
 - **Pure academic QD-mode:** Contexts MAY elect a _pure‑QD_ mode (dominance on `Q` only; `N/ΔD` used via archive occupancy and tie‑breakers). Deviation SHALL be declared by policy id and recorded in provenance.
 
-**Reproducibility & editions.** Each call SHALL emit provenance sufficient for replay: `{metricsEdition, DescriptorMapRef (encoder+corpus edition), EmitterPolicyRef (params), ε, K, Seeds, TimeWindow}`. Changing encoder/corpus/policy parameters creates a **new edition**.
+**Reproducibility & editions.** Each call SHALL emit provenance sufficient for replay: `{metricsEdition, DescriptorMapRef (encoder+corpus edition), EmitterPolicyRef (params), ε, K, Seeds, TimeWindow}`. Changing encoder/corpus/policy parameters creates a **new edition**. MUST record encoder/corpus edition AND DistanceDef (metric, normalization, corpus/window) AND taxonomyRef/embeddingRef (edition).
 
-**Measurement alignment.** `Novelty@context`, `Use‑Value (ValueGain)`, `Surprise`, `Diversity_P` SHALL be measured per **C.17** (MM‑CHR templates). **IlluminationSummary** is a gauge over `Diversity_P` (coverage/QD‑score).
+**Measurement alignment.** `Novelty@context`, `Use‑Value (ValueGain)`, `Surprise`, `Diversity_P` SHALL be measured per **C.17** (MM‑CHR templates). **IlluminationSummary** is a gauge over `Diversity_P` (coverage/QD‑score), when DescriptorSpace includes domain‑family cells, publish grid id and FamilyCoverage.
 
 **Conformance (C.18/Γ).**
 - **C18‑1** Declare `DescriptorMap` (encoder, invariances, corpus edition) before generation.
+- **C18‑1b** When used in F/G triads, DescriptorMap SHALL declare a domain‑family coordinate (grid/cells) and reference an F1‑Card::DistanceDef & δ_family.
+- **C18‑1c**  When a domain‑family coordinate is declared, the Context SHALL compute and publish **AliasRisk** for each front/portfolio emission, together with the dSig collision rule and the policy id. AliasRisk is computed against `U.DomainDiversitySignature (dSig)`; **the DescriptorMap SHALL publish**: (i) `collisionRuleId` (near‑duplicate threshold, e.g. “≥3 characteristics equal”),  (ii) **`AliasRisk(d_i,d_j) := 1 − (#characteristicsDifferent / 5)`** (scalar ∈ [0,1]) **alongside the boolean near‑duplicate flag**,  (iii) `dSigSource` pointers used for coding the five characteristics. The collision rule and formula **MUST** be part of `DescriptorMap` provenance (see Creativity‑CHR §5.5).
 - **C18‑2** Record `EmitterPolicyRef` (policy id from C.19) and parameter set.
 - **C18‑3** Compute `D = ΔDiversity_P(h | Pool)` under the same DescriptorMap & TimeWindow as the Pool (see C.17).
 - **C18‑4** Exclude Illumination from dominance unless policy explicitly promotes it.
@@ -18517,7 +18539,7 @@ These cards are **thinking scaffolds**; they do not prescribe org process.
 >  **Dominance:** `{Q components, Novelty@context, ΔDiversity_P}`, with `ConstraintFit=pass` as **eligibility gate**.  
 > **Tie‑breakers:** `Surprise`, `Illumination (gauge over Diversity_P)`.   > **Archive:** `K=1`, `ε=0`, deduplication in `DescriptorSpace`.  
 > **Policy:** UCB‑class with moderate temperature; `explore_share ≈ 0.3–0.5`.  
-> **Provenance (minimum):** record `DescriptorMapRef`, `metricsEdition`, `EmitterPolicyRef`, `TimeWindow`, `Seeds`.
+> **Provenance (minimum):** record `DescriptorMapRef` (with `DistanceDef id`), `metricsEdition`, `EmitterPolicyRef`, `TimeWindow`, `Seeds`. Record FamilyCoverage/MinInterFamilyDistance on each front/portfolio emission.
 
 **Didactic quickstart (Context).**
 1) Pick 2–4 Quality coordinates and a simple DescriptorMap (2–4 dims).  
@@ -18545,7 +18567,6 @@ Policies are referenced as `U.EmitterPolicyRef` by NQD generator call (C.18) and
 **Scalarization lenses (policy‑level).** A lens `J_ℓ` declares: (a) hard eligibility conditions (e.g., ConstraintFit=pass), (b) soft aggregation (weights/curves), (c) trust policy (how assurance/CL discounts enter).  
 **Conformance.** A Context MUST name the lens used to pick from a frontier; scalarized rankings MUST NOT be presented as “the frontier”; the **`lens id MUST be recorded in provenance of each selection`**.
 
-
 **Promotion rules (policy).**  
 - **Tie‑breaks.**  `Surprise` and `Illumination` MAY act as tie‑breakers; **promotion into the dominance set MUST be declared by lens or policy id** and captured in provenance.
 - **Graduation.** Profiles graduate from Explore→Exploit when **backstop_confidence** (B.3 level) and eligibility conditions are met.  
@@ -18557,6 +18578,7 @@ Policies are referenced as `U.EmitterPolicyRef` by NQD generator call (C.18) and
 3) Update generator `temperature τ` / emitter mix.  
 4) Apply `backstop_confidence` to graduate; sunset stale probes.  
 5) Satisfy `wild_bet_quota` by seeding fresh high‑Novelty candidates.
+6) HET‑FIRST — apply group‑fairness quotas by domain‑family and/or DPP/Max‑min repulsion before exploit lenses; log quotas and sampler policy id.
 
 **Named lenses (heuristics; policy‑level, not norms)**
 The following **lens profiles** are **illustrative heuristics**. Contexts MAY reuse/modify them; they are **not** normative.
@@ -18566,6 +18588,7 @@ The following **lens profiles** are **illustrative heuristics**. Contexts MAY re
 • **Safety‑first** — minimize **SafetyRisk** subject to `Use‑Value ≥ θ` and `ConstraintFit=pass`.  
 • **Platform‑option** — maximize **Option‑Value** under probe cost bounds.  
 • **Pilot‑then‑scale** — optimize **Use‑Value** on pilot scope with `BackstopConfidence ≥ L1`; widen `G` once **R** holds.  
+• **Heterogeneity‑first (policy id).** Eligibility → Dominance → Tie‑breakers; Hard gate: FamilyCoverage ≥ k, MinInterFamilyDistance ≥ δ_family; Fairness quotas: ≤1 candidate per sub‑family at pre‑front sampling; DPP/Max‑min sampler allowed.
 **Conformance (lens recording).** A decision that uses any lens **MUST** record its **lens id** alongside `EmitterPolicyRef`. (This restates and localizes C19‑3.)
 
 **Conformance (C.19/LOG).**
@@ -18575,6 +18598,8 @@ The following **lens profiles** are **illustrative heuristics**. Contexts MAY re
 - **C19‑4** Promotion of Surprise/Illumination into dominance MUST be explicit in policy.  
 - **C19‑5** USM/RSG gate applies: policy actions SHALL operate within the Context’s scope and enactable RSG states.
 - **C19‑6** Each selection lens **MUST** implement and document the pipeline` Eligibility (ConstraintFit=pass) → Dominance (declared set) → Tie‑breakers (declared)`. Any **promotion** of Surprise/Illumination into the dominance set **MUST** be named by lens/policy id and recorded in provenance.
+- **C19‑7 (LEX‑AUTH trigger).** Any change to `EmitterPolicy` defaults that affects domain‑family quotas/samplers (HET‑FIRST), or any change to `DescriptorMap` family coordinates, `DistanceDef`, or the `δ_family` threshold MUST be authored via **E.15 LEX‑AUTH** with a published **LAT**; the DRR SHALL carry the LAT pointer (see **CC‑DRR.6**). Record policy/card ids in SCR.
+- **C19‑8**  When the Heterogeneity‑first lens is used, provenance MUST include: (i) the family‑quota vector (including the default triad quota k), (ii) the subFamilyDef id (from F1‑Card) if sub‑family quotas apply, (iii) the sampler class, seed, and policy id.
 
 **Illumination & Diversity_P.** Illumination is a **gauge over Diversity_P** (coverage/QD‑score). It informs exploration health and tie‑breaks; it is **not** a dominance characteristic by default.
 
@@ -18784,7 +18809,7 @@ Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (
 **CC-C.21-1 (CHR typing).** Every DHC slot **MUST** declare **Characteristic + Scale/Unit/Polarity**, with CSLC legality proved before any aggregation.
 **CC-C.21-2 (Freshness).** Published values MUST carry Γ_time selector and freshness window; stale rows escalate to {degrade|abstain} in **G.4 Acceptance**.
 **CC-C.21-3 (Plane).** ReferencePlane declared; cross‑plane re‑use publishes **CL^plane** (policy id) alongside CL; both penalties route to **R_eff**.
-**CC‑C.21‑4 (Design/Run stance).** Every DHC row SHALL declare **Stance ∈ {design, run}**; design‑ и run‑characteristics **not mixign** in one value/aggregate.
+**CC‑C.21‑4 (Design/Run stance).** Every DHC row SHALL declare **Stance ∈ {design, run}**; design‑ и run‑characteristics **not mixing** in one value/aggregate.
 **CC-C.21-5 (Lane tags).** Each value **MUST** tag **TA/VA/LA** lanes of contributing evidence.
 **CC-C.21-6 (Ordinal discipline).** **StandardisationLevel** is ordinal; **no means**, **no z-scores**.
 **CC-C.21-7 (Scope).** All computations declare **TargetSlice**; **USM** membership is decidable and deterministic.
@@ -20415,6 +20440,7 @@ storing provenance.
 | **CC‑DRR.3** | The DRR **SHALL** list every pattern it supersedes, amends, or risks impacting. | Maintains explicit impact graph. |
 | **CC‑DRR.4** | Once approved, only the *Decision* text is inserted into the Core; other DRR sections **SHALL NOT** migrate into normative prose. | Preserves Core brevity; provenance remains external. |
 | **CC‑DRR.5** | Minor, non‑substantive edits (e.g., typos) **MAY** follow a lightweight DRR variant containing Context + Decision only, provided they do not alter semantics. | Allows efficiency without eroding rigour. |
+| ^^CC‑DRR.6 (LAT pointer)** | For Δ‑2/Δ‑3 changes to part F or part G patterns, the DRR SHALL include a non‑normative pointer (id/URI) to a published LEX‑AUTH Trace (LAT) archived as U.Work; the LAT is evidence, not normative prose.
 
 #### Consequences
 
@@ -20439,7 +20465,7 @@ constitution and Guard‑Rails, without prescribing tooling workflows.
 * **Interacts with:** `pat:guard/bias‑audit` (E 5.4) via lens check  
 * **Complemented by:** `pat:authoring/code‑of‑conduct` (E 12) – etiquette for DRR debate  
 
-# E.10 — *LEX‑BUNDLE*: Unified Lexical Rules for FPF (Registers, Naming, and Forbidden Forms)**
+# E.10 — LEX‑BUNDLE*: Unified Lexical Rules for FPF (Registers, Naming, and Forbidden Forms) \[A]
 *Definitional pattern \[D]; normative for all Core/Architheory text and for any Context that claims FPF conformance.*
 
 **Status & placement.** Part E.10 (“Lexical Discipline & Stratification”); complements **E.10.D1 (D.CTX)**, **E.10.D2 (I/D/S)**, and **E.11 (Authoring‑Tier Scheme)**, and is referenced by F‑cluster naming practices (F.4–F.8). This bundle consolidates all lexical constraints in one place so authors can cite **“LEX‑BUNDLE”** instead of listing rules scattered across documents.
@@ -21859,7 +21885,7 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 6. **Bridges are explicit.** Cross‑context sameness is never assumed; you declare a **Bridge** with CL/loss.
    Follow these six lines and SD (*Strict Distinction*) stops being an abstraction—you feel it in every sentence you write.
    
-# E.11 — **Authoring‑Tier Scheme** *(ATS)*
+# E.11 — Authoring‑Tier Scheme (ATS) \[A]
 
 *Tech token:* `AuthoringTierScheme` (**ATS**).
 
@@ -22559,10 +22585,191 @@ The **Working‑Model layer remains the canonical publication surface** for auth
 
 * Part F unification practices (context of meaning, bridges, fit levels) by reinforcing the preference for human‑readable labels with explicit alignment notes rather than silent formal substitutions.
 
+# E.15 — Lexical Authoring & Evolution Protocol  (LEX‑AUTH) \[A]
+
+> *Author patterns as evidence‑bearing epistemes, evolve them via governed open‑ended search, and publish an auditable trace that improves quality—not just compliance.*
+
+## 1) Context
+
+FPF patterns are the **canon**: they define the generative rules that other artifacts depend on. Teams need to **change** patterns as the SoTA moves, but ad‑hoc edits lead to drift, weak comparability, and brittle downstream updates. We need a **method** that (a) *generates* better alternatives, (b) *selects* them against explicit quality/assurance targets, and (c) *publishes* a machine‑ and human‑checkable **trace** that can be replayed, audited, and re‑run. (Built to cohere with **DRR (E.9)**, **LEX‑BUNDLE (E.10)**, **Canonical Evolution Loop (B.4)**, **NQD/E‑E (C.18/C.19)**, **Evidence Anchoring (A.10)**, **Trust (B.3)**, **F‑Suite validation (F.15)**.)
+
+## 2) Problem
+
+Without a disciplined authoring protocol:
+
+* **One‑shot generation** dominates; there is no *evolutionary* path from vN → vN+1.
+* “Trace” degenerates into a proof‑of‑work: *a method ran*, not *quality improved*.
+* Pattern edits blur **lexicon vs. norms vs. examples**, breaking didactics and tool‑independence.
+* SoTA content is cited but not **integrated** via Bridges & CL; claims get over‑ported.
+
+## 3) Forces
+
+| Force                                       | Tension we must resolve                                                           |
+| ------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Generativity vs Assurance**               | Open‑ended idea generation must not erode safety/traceability.                    |
+| **SoTA speed vs Canon stability**           | Frequent small updates must preserve conceptual integrity and roll‑up invariants. |
+| **Local meaning vs Global reuse**           | Context‑local meaning must cross contexts only via **Bridges** with CL penalties. |
+| **Notational independence vs Checkability** | Text must stay notation‑free yet be verifiable by Tooling harnesses.              |
+
+## 4) Solution — A *governed evolutionary* authoring method with a publishable **LEX‑AUTH Trace (LAT)**
+
+LEX‑AUTH defines **how** a pattern is **proposed, varied, selected, validated, and merged**, with artifacts and evidence fit to the FPF kernel.
+
+### 4.1 Method (design‑time choreography)
+
+**Stage A — Frame & Scope (Context, Objectives, Invariants)**
+
+1. **Anchor** the work in a **`U.BoundedContext`** for the spec (e.g., `FPF/Core`), cite governing guard‑rails (**E.5.\***), and state **objectives** for the change (e.g., clarity ↑, universality ↑, assurance cost ↓).
+2. **Declare the Delta‑Class** (see §4.3) and **impact radius** (dependent patterns, bridges, tests).
+3. **Fix acceptance targets** (see §4.4 Quality & SoTA metrics).
+
+**Stage B — Generate candidates (SoTA + NQD)**
+4. **Harvest SoTA** inputs (standards, rival patterns, lived domain idioms) and **bind** them as *evidence* via `U.EvidenceRole` with **claim/claim‑scope/timespan** (empirical vs deductive lines).
+5. **Generate candidate variants** using **NQD‑CAL** engines (Novelty/Quality/Diversity) with an **E/E policy** (explore↔exploit governor) to populate a **Pareto front** of pattern phrasings/structures. *(No single shot; multiple candidate clauses compete.)*
+
+**Stage C — Shape & Align (Structure, Bridges, USM)**
+6. **Shape** top candidates into the standard **\[A] template** (Context → Problem → Forces → Solution → CC → Consequences → Rationale), obeying **LEX‑BUNDLE** (no tooling jargon; twin registers allowed).
+7. **Bridge across Contexts** explicitly (F.9): any imported definitions/claims declare **CL** and *loss notes*; propose scoped **narrowing** where needed.
+8. **Type scopes** with **USM (A.2.6)**: keep **ClaimScope (G)** distinct from **WorkScope**; no “applicability/envelope” smuggling.
+
+**Stage D — Validate & Decide (Assurance, Tests, DRR)**
+9. **Run the harness**: update **SCR/RSCR** (F.15), lint lexical rules (E.10), run **Γ‑consistency** and **RSG/SoD** checks where relevant.
+10. **Score** candidates on **Quality & SoTA metrics** (§4.4) and **assurance deltas** (Δ⟨F,G,R⟩).
+11. Record a **DRR** (E.9) with *options considered*, *trade‑offs*, chosen candidate, *blast‑radius*.
+12. **Merge** the winner; version pattern **SemVer** by Delta‑Class.
+
+**Stage E — Publish & Monitor**
+13. Publish the **LEX‑AUTH Trace (LAT)** (§4.2) with the pattern.
+14. Schedule **evidence refresh** windows and an **evolution watchpoint** (B.4 loop): when metrics or SoTA inputs decay, reopen Stage B.
+
+### 4.2 The **LEX‑AUTH Trace (LAT)** — what it is and why it matters
+
+A LAT is **not** “we ran a script.” It is a **structured episteme** that lets others **reproduce quality gains** and **re‑run** the search when SoTA shifts.
+
+**LAT minimal contents (publish with the pattern):**
+
+1. **Context & version** (pattern id, context, SemVer, Delta‑Class).
+2. **Objective vector** (what we tried to improve: clarity, universality, assurance cost, etc.).
+3. **SoTA pack** (sources bound as `U.EvidenceRole` with claim/scope/time and polarity).
+4. **NQD settings** (emitters/lenses, diversity characteristics) + **E/E policy** used.
+5. **Candidate set** (top K variants with NQD scores + short deltas from baseline).
+6. **Bridge ledger** (all cross‑context imports with **CL** and loss notes).
+7. **Assurance delta** (Δ⟨F,G,R⟩ from baseline; penalties from CL applied).
+8. **Harness results** (checks passed/failed, test diffs).
+9. **DRR link** (decision rationale id).
+10. **Refresh policy** (evidence decay windows and triggers).
+
+**Uses of the LAT:**
+*Reproducibility* (re‑run B‑stages as SoTA changes), *assurance* (explicit impact on F/G/R), *portfolio health* (diversity/coverage), *teaching* (didactic before/after), and *cross‑context safety* (no silent imports).
+Publish the pattern with a DRR that carries a LAT pointer (id/URI). The LAT itself is a U.Work evidence pack (non‑normative), archived with edition and Γ_time.
+
+**Example of a LAT‑stub**
+```
+LAT:
+  context: FPF/Core, pattern: F.15, semver: x.y+1, delta-class: Δ‑2
+  objectives: {clarity↑, universality↑, assurance-cost↓}
+  SoTA-pack: {OpenAlex 2025‑Q3, SPECTER2‑23, DPP‑2019, MAP‑Elites‑2015+}
+  NQD-settings: {DescriptorSpace: domain‑family × …, grid: CVT@k=16}
+  candidates: K=4 (wording of RSCR‑F04 & gates)
+  bridge-ledger: none (intra‑canon refs only)
+  assurance‑delta: ΔF=+, ΔG=+, ΔR=+ (after CL‑penalties=0)
+  harness: LEX‑BUNDLE lint pass; F‑suite pass; Γ‑consistency ok
+  DRR-id: DRR‑2025‑09‑DFCM‑roll‑in
+  refresh: F1‑Card edition refresh window = 6 mo
+```
+
+### 4.3 What counts as “changed the pattern as a whole” — **Delta‑Classes & versioning**
+
+Classify the intended change **before** work starts (declared in DRR & LAT):
+
+* **Δ‑0 Lexical polish** — wording/ordering only; **no** change to CC or semantics. → *Patch* (x.y.**z**+1).
+* **Δ‑1 Didactic restructure** — narrative/layout; **unchanged** Conformance Checklist (CC). → *Minor* (**x.y**+1.0).
+* **Δ‑2 Normative refinement** — CC tightened/clarified; *semantics preserved* by test equivalence. → *Minor* (**x.y**+1.0) + **RSCR** required.
+* **Δ‑3 Semantic change** — CC **adds/removes** requirements; downstream contracts shift. → *Major* (**x**+1.0.0) + **impact review** + **bridges refresh**.
+
+> **Definition of “pattern changed as a whole”:** any **Δ‑2/Δ‑3** change (i.e., the **normative surface** or **semantics** changed) counts as a pattern change in the canonical corpus and triggers harness & bridge reviews.
+
+### 4.4 Quality & SoTA metrics (selection lenses)
+
+**Mandatory lenses** (declare in LAT; higher is better unless noted):
+
+* **Clarity** (readability; plain‑register score from didactic rubric).
+* **Universality** (C‑1): *≥3 heterogeneous domains* anchored in the Archetypal section.
+* **Lexical discipline** (E.10): 0 violations (DevOps lexicon, process/function conflations).
+* **Assurance delta**: ΔF (formality), ΔG (scope clarity), ΔR (reliability after CL penalties).
+* **Bridge integrity**:  Bridge integrity (policy lens): declare minimum CL thresholds per Context policy; penalties route to R only (B.3/F.9); record policy‑id in LAT.
+* **Test conformance**: F‑suite pass; RSCR clean.
+* **Exploration health** (NQD): diversity coverage > threshold; no premature convergence.
+* **Didactic economy**: length vs density ratio within band; “Tell‑Show‑Show” present.
+
+**Optional lenses** (context‑specific): *Ethical/SoD guard strength; cross‑scale roll‑up integrity; aggregation proofs present;* etc.
+## 5) Conformance Checklist (normative)
+
+**CC‑LA‑1 (Context anchoring).**
+Every authoring run **MUST** declare a `U.BoundedContext`, Delta‑Class, objectives, and acceptance lenses **before** generating candidates.
+
+**CC‑LA‑2 (SoTA as evidence).**
+External inputs **MUST** be bound as `U.EvidenceRole` epistemes with **claim, claim‑scope, polarity, timespan** (formal/empirical lines). No raw links.
+
+**CC‑LA‑3 (Open‑ended generation).**
+At least **K≥3** candidate variants **MUST** be generated via **NQD‑CAL** with a declared **E/E policy**; single‑shot edits violate LEX‑AUTH.
+
+**CC‑LA‑4 (Bridges & CL).**
+Any cross‑context reuse **MUST** appear in a **Bridge** with **CL** and *loss notes*. CL penalties apply to **R‑lane** when scoring.
+
+**CC‑LA‑5 (Harness).**
+The candidate winner **MUST** pass **LEX‑BUNDLE** lint, **SCR/RSCR** tests, Γ‑consistency, and SoD/RSG gates where applicable.
+
+**CC‑LA‑6 (Assurance deltas).**
+The LAT **MUST** publish Δ⟨F,G,R⟩ relative to baseline, explicitly accounting for CL penalties and any narrowed scopes.
+
+**CC‑LA‑7 (DRR).**
+A **DRR** entry is mandatory for Δ‑2/Δ‑3 changes; it records options considered, rationale, and impact radius.
+
+**CC‑LA‑8 (Refresh plan).**
+Empirical evidence in the LAT **MUST** carry a **decay/refresh** window; a watchpoint **MUST** be scheduled in the Canonical Evolution Loop.
+
+**CC‑LA‑9 (Publication).**
+Publish the **pattern + LAT** together; past LATs are immutable. New runs produce new LATs.
+
+## 6) Consequences
+
+**Benefits.**
+*Evolutive quality*: patterns improve through **search + selection**, not edits by fiat. *Auditability*: a re‑runnable **LAT** shows *why* the chosen variant won. *Safety*: cross‑context reuse is explicit and penalized appropriately. *Comparability*: Δ‑classes & SemVer let downstream readers predict blast‑radius.
+
+**Trade‑offs.**
+Some ceremony (LAT/DRR, NQD lenses) and maintenance (evidence refresh, bridge upkeep). These costs buy reproducibility and SoTA tracking.
+
+## 7) Rationale & Links (informative)
+
+LEX‑AUTH extends the FPF constitution by **operationalising pattern evolution**: it plugs **B.4 Canonical Evolution Loop** into **E.9 DRR**, binds **SoTA** via `U.EvidenceRole` and **KD‑CAL**, drives **candidate generation** with **C.18 NQD‑CAL** under **C.19 E/E‑LOG**, enforces **lexical discipline** via **E.10 LEX‑BUNDLE**, and validates with **F.15** regression harnesses. Cross‑context safety is carried by **F.9 Bridges** with **CL penalties** in **B.3 Trust**. The whole remains **notation‑independent** (E.5.2) and stays within the **Core → Tooling → Pedagogy** dependency rule (E.5.3).
+
+## 8) Operators (authoring deltas you are allowed to apply)
+
+* **Refine** (tighten CC without changing acceptance meaning).
+* **Split/Merge** (factor patterns; preserve links; update Bridges).
+* **Generalise/Constrain** (expand/restrict ClaimScope (G) with proofs or loss notes).
+* **Rephrase** (clarify language; leave CC untouched).
+
+Each operator carries a default **Delta‑Class** and test obligations.
+
+## 9) Self‑application Work Log (how this very pattern was authored)
+
+> *This is **not** chain‑of‑thought; it is the required **`U.Work` evidence** for LEX‑AUTH.*
+
+**Context.** `FPF/Core` (Canon); **Delta‑Class:** Δ‑2 (normative refinement by addition of method & CCs).
+**Objectives.** Add an *evolutionary* authoring method; make trace *useful* (quality‑bearing); align with SoTA machinery already in spec.
+**SoTA pack (evidence bound).** Prior FPF kernel commitments to **DRR (E.9)**, **E.10 LEX‑BUNDLE**, **B.4 Evolution**, **C.18/C.19** NQD/E‑E, **F.15** harness, **F.9** Bridges, **B.3** Trust; these are treated as the authoritative internal SoTA for the Canon here.
+**NQD/E‑E.** Generated ≥3 alternative Solution sections; finalist chosen for clearer Δ‑classes and actionable LAT contents.
+**Bridges.** No cross‑external mapping; intra‑canon references only (CL=3).
+**Harness.** LEX‑BUNDLE lint (no tooling jargon), CCs unique/atomic, didactic “Tell‑Show‑Show” via Self‑application log, Universality criterion met by cross‑kernel applicability.
+**Assurance Δ.** F: + (explicit method & CCs); G: + (scope separation & Δ‑classes); R: + (LAT obligations + bridge penalties).
+**DRR.** Recorded: alternatives considered (lighter trace vs full LAT), chosen design (full LAT).
+**Refresh.** Reopen when SoTA (e.g., G‑suite authoring kit or CHR templates) evolves or when LAT misuse is seen in reviews.
 
 ### **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
-#### Cluster F.I — context of meaning & Raw Material
+# Cluster F.I — context of meaning & Raw Material
 
 # **F.0.1 — Contextual Lexicon Principles** \[A]
 
@@ -22890,7 +23097,7 @@ A terse descriptor used in the **Context Map** (F.1):
 * **RSCR‑F01 (Edition split).** When a source edition changes materially, SenseCells tied to the old edition remain; new cells bind to the new Context; Bridges are re‑assessed.
 * **RSCR‑F02 (Bridge stability).** If any Bridge endpoint changes gloss/stance, downgrade or retire the Bridge, documenting the **loss/fit** change.
 * **RSCR‑F03 (Composition guard).** When composing Bridges in a chain, the resulting `CL` never exceeds the minimal link; relation weakens monotonically.
-* **RSCR‑F04 (Heterogeneity+QD guard).** The Context Map remains finite and **heterogeneous** (≥ 3 **domain‑families** along each unification line) **and** the triad **passes the QD‑triad guarantee** (A.8 C‑1.QD): publish `Diversity_P` + `IlluminationSummary` for the triad (declared grid/kernel/time‑window); near‑alias projections fail. This preserves quality diversity of domains.
+* **RSCR‑F04 (Heterogeneity + QD guard):** requires ≥3 domain‑families AND MinInterFamilyDistance ≥ δ_family (per the active F1‑Card edition), with QD‑triad evidence (publish Diversity_P and IlluminationSummary on the declared grid/kernel). Near‑alias pairs (per dSig rule) SHALL be flagged and excluded or merged before the guard is evaluated. Record the F1‑Card edition id.
 
 ### 11.3 Publish‑ready summary
 
@@ -22999,8 +23206,6 @@ Small enough to hold in working memory. As a rule of thumb:
 **Step 6 — Postpone bridges.**
 If two Contexts seem “close”, **resist** collapsing. Note the tension and defer to **F.9 Alignment & Bridge**.
 
----
-
 ## 7 · What to record (conceptual, not clerical)
 
 **7.1 The two‑minute memory.**
@@ -23017,10 +23222,12 @@ Everything you need to *think correctly later* fits on an eight‑line card. No 
 * **Neighbour Contexts** *(informative)*. Close cousins that people often conflate (*BPMN ↔ PROV‑O*, *ITIL ↔ ODRL*).
 * **Recency note.** *Current* / *superseded* / *candidate* (only as a reminder to yourself which text you mean).
 * **Why this Context matters here.** One sentence linking to your unification line (“we will name Executions later; PROV‑O keeps them run‑time”).
+* **Diversity signature (dSig).** A 5‑characteristics discrete signature for `U.BoundedContext`: **[Sector, Function, Archetype, Regime, MetricFamily]**. Authors SHOULD pick from local discipline taxonomies. **Publish a `dSigSource` list (five refs/URIs, one per axis) on every Card**, falling back to free‑text only where no canonical term exists. Two Contexts are flagged as **Near‑Duplicate** when ≥3 characteristics match. Publish `dSig` and `dSigSource` on every Card.
 
 > *If your Card spills beyond a screen, you are collecting facts, not fixing meaning.*
 
----
+F1‑Card (normative artefact): { taxonomyRef, embeddingRef, DistanceDef, δ_family, confidenceBand, calibrationSet, edition, subFamilyDef? }. subFamilyDef (optional): declares the stable partitioning below a domain‑family (e.g., taxonomic sub‑fields or CVT clusters with parent family anchors).  When HET‑FIRST quotas refer to “sub‑family”, they MUST use this declared subFamilyDef.
+Declare **DomainDistance** policy (cosine or transport) and δ_family threshold; version as part of DescriptorMapRef. Publish `confidenceBand` (e.g., CI90%) for the calibrated `δ_family`; treat numbers in examples as illustrative, not normative.
 
 ## 8 · Invariants (normative, lightweight)
 
@@ -23033,6 +23240,8 @@ Everything you need to *think correctly later* fits on an eight‑line card. No 
 7. **Didactic primacy.** Each Context Card must be readable by a thoughtful engineer in **under two minutes**.
 8. **Domain‑family neutrality.** Domain families **carry no semantics**; they SHALL NOT be used for inheritance, inference, or bridge implication.
 9. **Scope naming separation.** `Scope gist` on Cards is **didactic only**; formal *Scope/Aboutness* (=`USM.ScopeSlice(G)` ⊕ `Aboutness(TopicHolon, ReferencePlane)`) is declared **in G.0–G.1**, not in F.1.
+10. **Diversity signature present.** Each Context Card PUBLISHES a `dSig` in the 5‑characteristics form.
+11. **Collision rule.** If any pair of Cards has `dSig` matching on ≥3 characteristics, mark **Near‑Duplicate** and either merge  into one slot or replace one by a Context from a different domain‑family. Record action in SCR.
 
 ## 9 · Self‑checks (mental, not procedural)
 
@@ -23187,8 +23396,16 @@ Everything you need to *think correctly later* fits on an eight‑line card. No 
    `|Contexts(L)| too large ⊢ reduce until a careful mind can recite them unaided`
    *Reading:* The survey should live in memory, not in a registry.
 
----
-
+## F1‑Card example (informative)
+```
+F1-Card v2025‑Q3:
+  taxonomyRef: OpenAlex topics/fields (snapshot 2025‑08)
+  embeddingRef: SPECTER2(2023) fine‑tuned@OA‑2025‑08
+  DistanceDef: cosine on centroid embeddings (window 36 mo)
+  δ_family: 0.35 (calibrated on control set; CI90% [0.33,0.37])
+  calibrationSet: 120 labeled pairs (same vs different families)
+  edition: 2025‑Q3
+```
 ## 14 · Relations (with other patterns)
 
 **Builds on:**
@@ -23229,6 +23446,8 @@ Architheories in Part C (Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL, LCA‑CA
 * **SCR‑F1‑S05 (Context discipline).** “Context” is used only as a synonym of **U.BoundedContext**; “domain” appears only as an informative family label.
 * **SCR‑F1‑S06 (Temporal honesty).** If a canon fixes design/run stance, the Card states it.
 * **SCR‑F1‑S07 (Family neutrality).** No claim, classification, or relation in F.1 relies on Domain‑family membership; families appear only as shelf labels on cards.
+* **SCR‑F1‑S08 (dSig present).** Every Context Card has a 5‑characteristics `dSig`.
+* **SCR‑F1‑S09 (Collision policy).** Any pair with `dSig` match on ≥3 characteristics is either merged or replaced; SCR records the action.
 
 ### 16.2 Regression checks (RSCR)
 
@@ -24401,7 +24620,7 @@ Let **T** be a Role Description in Context **C** with SenseCell `sense(T)=⟨C,�
 
 ## 6 · Normative rules — U.Types (Cross‑context labels)
 
-Let **U** be a U.Type minted from a **Concept‑Set row** (F.7) satisfying A.8 (≥3 domain families).
+Let **U** be a U.Type minted from a **Concept‑Set row** (F.7) satisfying A.8 (≥3 domain families) AND MinInterFamilyDistance ≥ δ_family (from F1‑Card).
 
 +**R‑UT‑1 (Witnessed neutrality).** The Tech label **must not** be a term owned by one context when alternatives exist. Prefer **discipline‑neutral head nouns** (*Result, Reading, Execution, Evidence, Requirement, State, Type Node*). **Use** *Characteristic/Scale/Value/Level/Coordinate/Score/Gauge* **only** when the U.Type denotes a **measurement‑sense** kind anchored in a declared **CharacteristicSpace**; otherwise avoid these measurement‑canon terms to prevent semantics bleed.
 
@@ -24994,7 +25213,7 @@ that FPF **treats as one** *for a declared scope* because there exist **F.9 Brid
 * **senseFamily** — **referenced from F.0.1**; not redefined here; used to **type** rows and to require **uniformity** within a row.
 * **SenseCell** — a **(Context × Local‑Sense)** address from F.3.
 * **Bridge (F.9)** — an explicit, declarative Cross‑context mapping with a **congruence level** **CL** and **loss note**.
-* **Characteristic (MM‑CHR)** — measurable comparandum defined in **MM‑CHR**; may be referenced in **Measurement/KD‑metric** rows; **do not** use “axis” as a euphemism.
+* **Characteristic (MM‑CHR)** — measurable comparandum defined in **MM‑CHR**; may be referenced in **Measurement/KD‑metric** rows; **do not** use “axis” only as a euphemism.
 * **Concept‑Set (row)** — a *licensed sameness* across Contexts, bounded by **Row Scope** and **Row CL(min)**.
 * **Contrast row** — a *non‑sameness* row: same surface across Contexts with **no** sufficient Bridges; teaches **difference**, not unity.
 
@@ -27930,9 +28149,6 @@ Row: **Service‑Availability** with cells ⟨ITIL\:SLO availability⟩, ⟨SOSA
 *Fire:* S9 (row spans ≥2 Contexts), S12 (Bridge kind: *measure-for-target*, CL=3, loss: *sampling bias*), S16 (binding coherence), **S-RoleDesc-SingleCell**.
 
 
-
----
-
 ## 12 · Relations (with other patterns)
 
 **Builds on:** E.10.D1 (Context semantics), F.1–F.14.
@@ -29662,6 +29878,9 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Outputs:** `VariantPool` with **EmitterTrace** (who/why/where) **+ SCR‑per‑candidate preview** (constraints/gates consulted; CL notes; **Φ policy‑ids**; ReferencePlane; **UnknownHandling={degrade|abstain|sandbox}** branch recorded).
 * **Guards:** explore↔exploit policy (C.19); SoD (A.2 `⊥`); no category leaks (A.7); **metric legality/typing per MM‑CHR (A.17–A.19/C.16)**; **unknowns are tri‑state with explicit failure policy {degrade|abstain|sandbox} recorded in the EmitterTrace/SCR‑preview**; if a score/aggregation implies cross‑candidate comparison, cite a registered **CG‑Spec.characteristic**; otherwise degrade to lawful orders (median/medoid/lexi) or **abstain**.
 
+DescriptorSpace includes a domain‑family slot (grid or **CVT (Centroidal Voronoi Tessellation)** centroids) per F1‑Card.
+Pre‑front thinning MAY use DPP or submodular Max‑min under the Heterogeneity‑first lens.  Record in provenance: sampler class & seed, the family‑quota vector (incl. k), the subFamilyDef id (if used), and the δ_family/DistanceDef edition (via DescriptorMapRef).
+
 **M4 · Selector & Assurer (fit‑for‑purpose)**
 
 * **Inputs:** VariantPool; acceptance clauses; risk constraints
@@ -29724,11 +29943,10 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 17. **Φ‑policies surfaced.** Wherever CL/CL^plane penalties are used, **Φ** policies are **monotone, bounded, table‑backed**, with **policy‑ids** in SCR; **R_eff ≥ 0** by construction (per Pre‑flight/G.0).
 18. **Unknowns are tri‑state.** Unknowns **propagate as {pass|degrade|abstain}** to Acceptance/Eligibility; **no `unknown→0/false` coercion**; behavior recorded in SCR.
 19. **ATS harness pass.** Published crossings pass **E.11 AH‑1..AH‑4** (TierClassifier, GateCheck, LaneCheck incl. **CL→R only** and **CL^plane** if planes differ, LexicalCheck).
-20. **Three‑family breadth (domains).** `SoTA_Set@CG‑Frame` spans **≥3 domain‑families** per A.8 (Exact/Natural/Eng&Tech/Formal/Social&Behavioural), with Bridge hygiene for any crossings.
+20. **Three‑family breadth (domains).** `SoTA_Set@CG‑Frame` spans **≥3 domain‑families** per A.8 (Exact/Natural/Eng&Tech/Formal/Social&Behavioural), with Bridge hygiene for any crossings. AND MinInterFamilyDistance ≥ δ_family (from F1‑Card); publish {FamilyCoverage, MinInterFamilyDistance, Diversity_P, IlluminationSummary} with explicit F1‑Card reference.
 21. **QD‑triad evidence.** The generator **records** `Diversity_P` and **IlluminationSummary** for the triad used to motivate any “universal” UTS row or Core candidate; provenance includes `DescriptorMapRef`, `metricsEdition`, and grid/binning.
 22. **Emitter trace includes coverage.** `EmitterTrace` (M3) **MUST** log triad coverage (IlluminationSummary) alongside ⟨F,G,R_eff⟩ and CL notes; promotion of illumination to dominance remains **forbidden by default** (policy‑opt‑in per C.19).
-
-(Why here?) G.1 is where breadth is collected and NQD evidence is already produced; these lines make the 
+23. **Variant Emitter.** DescriptorSpace MUST include a domain‑family coordinate when available from F1‑Card; use HET‑FIRST lens (C.19) before exploit lenses.
 
 ### 9) Consequences (informative)
 
@@ -29792,6 +30010,8 @@ How to **systematically** assemble a *complete‑enough* SoTA view that:
 
 * **Seed → Expand → Prune.** Start with canonical surveys & top venues (post‑2015); expand via forward/backward citation and method keywords; prune with *CG-Frame‑fit* and *load‑bearing* tests (does this claim change how we would model/decide?).
 * **Contexting.** Assign each artifact to a **home Context** (Bounded Context + edition). If cross‑Context reuse is needed, draft a **Bridge** and a **CL** with a human‑legible *loss/fit* note.
+
+Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” claims; otherwise per lens policy and recorded in provenance) or MinInterFamilyDistance < δ_family (per F1‑Card edition) → expand search window/policies and rerun harvesting. **MUST record** `k`, the **F1‑Card id+edition**, and the `DistanceDef` edition in `SoTA_Set` provenance.
 
 #### 4.2 Claim distillation (per lineage/`Tradition`)
 For each Tradition, extract a **Claim Sheet** (minimal, typed statements) with **F‑ratings**, **G‑scope cues**, and **R‑evidence anchors** **tagged with KD‑CAL lanes (TA/LA/VA)**, plus **Aboutness** (`TopicHolon`) and **ReferencePlane ∈ {world, concept, episteme}**; **Domain mentions stitched to D.CTX + UTS** (catalog‑only); include a stub **referenceMap** (observable cues → prospective CHR).
@@ -29862,6 +30082,7 @@ Required artifact for top‑level disciplines: SoTAPaletteDescription (D), accom
 * **Didactic grounding.** Each load‑bearing claim has **two worked micro‑examples** (heterogeneous substrates) and **A.10 anchors** with lane tags (KD‑CAL).
 * **UTS‑ready.** Each candidate term has a **Name Card** draft **with twin labels** (F.17–F.18), Context, MDS, concept‑set linkage (or rationale for “not applicable”).
 * **DHC hooks present.** DHC‑SenseCells are emitted; **AlignmentDensity** units declared; freshness windows stated (C.21).
+* **DomainDiversity Guarantee.** If FamilyCoverage < k OR MinInterFamilyDistance < δ_family (F1‑Card), expand search radius under E/E‑LOG and re‑harvest; log policy id in SCR.
 
 ### 8) Anti‑patterns & rewrites (what to avoid, what to do instead)
 
@@ -30460,7 +30681,7 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 **CC‑G5.9** **Admissible ordering.** Candidate ordering **MUST** be lexicographic or otherwise lawful over CHR‑typed traits; **weighted sums across ordinal/interval/ratio mixes are forbidden**. If only a partial order is available, **return a Pareto set**.
 **CC‑G5.10** **SCR completeness.** SCR **MUST** enumerate Γ‑fold contributors, **CG‑Spec characteristics** used, and **MinimalEvidence gating verdicts** (by lane & carrier).
 **CC‑G5.11** **Tri‑state eligibility.** Eligibility predicates **MUST** define behavior for `unknown` (degrade/abstain/sandbox); **unknowns propagate into Acceptance decisions**; silent coercion to `false` is forbidden.
-**CC‑G5.12** **No “universal” cross‑Tradition scoring.** Cross‑Tradition selection **MUST NOT** rely on a single numeric formula not justified by CHR/CAL and CG‑Spec.
+**CC‑G5.12** **No “universal” cross‑Tradition scoring.** Cross‑Tradition selection **MUST NOT** rely on a single numeric formula not justified by CHR/CAL and CG‑Spec.  Enforce heterogeneity gate: FamilyCoverage ≥ 3 and MinInterFamilyDistance ≥ δ_family for triads/portfolios that claim universality; cite F1‑Card id in DRR/SCR.
 **CC‑G5.13** The selector **MUST NOT** recompute Acceptance thresholds or Maturity floors; it **consumes** `AdmissibilityLedger@Context` rows (C.23) and **cites** the referenced clause/rung ids in SCR.
 **CC‑G5.14** **Φ(CL) and (where applicable) Φ_plane MUST be monotone and published in CG‑Spec;** SCR **MUST** record the policy‑id in use.
 **CC‑G5.15** **Units/scale legality MUST be proven via CSLC (A.18) before any aggregation or Γ‑fold;** unit/scale mismatches fail fast. *(Complements CC‑G5.5 on ordinal arithmetic.)*
@@ -30688,7 +30909,7 @@ Each hook below defines: **Trigger → Obligation → Publishes/Consumes → Inv
 2. **RSCR triggers (H3)** on any edit impacting gauges/acceptance/Γ‑fold or Φ penalties.
 3. **LOG path citation (H4)** is mandatory for **all** Admit/Degrade/Abstain decisions; **no self‑evidence**. 
 4. **Maturity rung transitions (H5)** **forbid** advancement without EvidenceGraph paths and UTS publication.
-5. **Gate‑crossings (H6/H6)** publish **Bridge + CL/CL^plane** and route penalties to **R only**; **no implicit crossings**.
+5. **Gate‑crossings (H6/H7)** publish **Bridge + CL/CL^plane** and route penalties to **R only**; **no implicit crossings**.
 6. **ATS harness (H8)** passes **AH‑1..AH‑4** on crossings and lane purity.
 7. **SCR surface (H9)** exposes lane split, Γ‑fold, Φ‑policies, ProofRefs; default **WLNK** unless proved otherwise.
 8. **ProofLedger linkage (H10)** ties formal/empirical roles to **A.10 carriers**; **SCR/RSCR anchors** present.
