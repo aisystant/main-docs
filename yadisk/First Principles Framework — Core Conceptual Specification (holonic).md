@@ -125,7 +125,7 @@
 | **Cluster C.IV – Composite & Macro‑Scale** | | | | |
 | C.14 | **M‑Sys‑CAL** | Draft | *Keywords:* system-of-systems, infrastructure, large-scale systems, orchestration. *Queries:* "How to model a complex infrastructure like a power grid?". | **Builds on:** Sys-CAL, B.2.2. |
 | C.15 | **M‑KD‑CAL** | Draft | *Keywords:* paradigm, scientific discipline, meta-analysis, knowledge ecosystem. *Queries:* "How to model an entire field of science?". | **Builds on:** KD-CAL, B.2.3. |
-| C.16 | **MM‑CHR — Measurement & Metrics Characterization** | Stable | *Keywords:* measurement, metric, unit, scale, CSLC, U.MetricTemplate, U.Measure. *Queries:* "How are metrics defined in FPF?", "What is the CSLC discipline?". | **Builds on:** A.17, A.18. **Is a prerequisite for:** All CHR architheories. |
+| C.16 | **MM‑CHR — Measurement & Metrics Characterization** | Stable | *Keywords:* measurement, metric, unit, scale, CSLC, U.DHCMethodRef, U.Measure. *Queries:* "How are metrics defined in FPF?", "What is the CSLC discipline?". | **Builds on:** A.17, A.18. **Is a prerequisite for:** All CHR architheories. |
 | C.17 | **Creativity‑CHR — Characterising Generative Novelty & Value** | Stable | *Keywords:* creativity, novelty, value, surprise, innovation, ideation. *Queries:* "How does FPF measure creativity?", "What defines a novel idea?". | **Builds on:** CHR-CAL, MM-CHR. **Coordinates with:** NQD-CAL, E/E-LOG. |
 | C.18 | **NQD‑CAL — Open‑Ended Search Calculus** | Stable | *Keywords:* search, exploration, hypothesis generation, novelty, quality, diversity (NQD). *Queries:* "How does FPF support structured brainstorming?", "What is NQD search?". | **Builds on:** KD-CAL. **Coordinates with:** B.5.2.1, Creativity-CHR, E/E-LOG. |
 | C.19 | **E/E‑LOG — Explore–Exploit Governor** | Stable | *Keywords:* explore-exploit, policy, strategy, decision lens, portfolio management. *Queries:* "How to balance exploration and exploitation?", "What is an EmitterPolicy?". | **Builds on:** Decsn-CAL. **Coordinates with:** NQD-CAL. |
@@ -8007,7 +8007,7 @@ In essence, A.18 is the _infrastructure of meaning_ for metrics. It may appear a
 
 -   **Extends/Uses:** **A.17 (CHR-NORM)** – A.18 explicitly builds on the canonical terminology established in A.17. It uses the term **Characteristic** as defined there (and no other synonyms) and carries forward the edict that “axis/dimension” be treated as mere narrative aliases. It also leverages the Entity-vs-Relation Characteristic distinction from A.17: Section 7.4 of this pattern references tests for disambiguating relational metrics. Essentially, A.17 provides the **lexical and conceptual groundwork** (what a Characteristic is, and the basic vocabulary), while A.18 provides the **structural and normative rules** for linking Characteristics to measurements.
     
--   **Core foundation for metrics:** This pattern underpins the **Measurement & Metrics Characterization spec (C.MM‑CHR)** – the architheory that implements metric storage and computation. In MM-CHR, every `U.MetricTemplate` and `U.Measure` follows the CSLC format defined by A.18. By lifting CSLC rules to the kernel, we ensure all architheories (like **KD-CAL** for knowledge dynamics, **Sys-CAL** for systems, or any custom CAL/CHR) share a common approach to metrics. A.18 also informs the design of **CHR-CAL (Characterisation Calculus)**, which generalizes measurable property templates: CHR-CAL relies on the one-Characteristic-per-metric assumption and the comparability rules set here to compose higher-level characterizations.
+-   **Core foundation for metrics:** This pattern underpins the **Measurement & Metrics Characterization spec (C.MM‑CHR)** – the architheory that implements metric storage and computation. In MM-CHR, every `U.DHCMethodRef` and `U.Measure` follows the CSLC format defined by A.18. By lifting CSLC rules to the kernel, we ensure all architheories (like **KD-CAL** for knowledge dynamics, **Sys-CAL** for systems, or any custom CAL/CHR) share a common approach to metrics. A.18 also informs the design of **CHR-CAL (Characterisation Calculus)**, which generalizes measurable property templates: CHR-CAL relies on the one-Characteristic-per-metric assumption and the comparability rules set here to compose higher-level characterizations.
     
 -   **Enables dynamic reasoning:** A.18’s insistence on well-defined Scales allows patterns like **A.3.3 `U.Dynamics`** (system dynamics models) to incorporate measurement dimensions as state variables without ambiguity. For example, a `stateSpace` in a dynamics model can be explicitly defined as a set of Characteristics (each with units and ranges), making simulations and traces dimensionally consistent. If A.18 were not in place, one model might treat “performance” as a 1–5 score and another as a probability – combining them would be incoherent. With A.18, such differences must be reconciled via a Gauge or kept separate, preserving coherence in multi-model analyses.
     
@@ -8043,7 +8043,7 @@ A.19 **does not** introduce any new measurement aspects, composite metrics, or g
 
 ### 2 · Context (Informative)
 
-FPF’s kernel already standardizes **what** is measured (a **Characteristic**, per A.17) and **how** it is measured (a **Scale** with units, via the **CSLC** Standard in A.18). We also have a measurement substrate (`U.MetricTemplate`, `U.Measure`) to handle individual observations. What has been missing for modeling **dynamics** is a canonical “Context” in which **multiple Characteristics** can co-exist so that complex **states** (with many aspects) and their **trajectories** are well-typed and comparable. Without a formal CharacteristicSpace, teams either hard-code ad-hoc vectors (often with inconsistent assumptions) or fall back to informal lifecycle stories (“phases” or stages) that contradict the kernel’s open-ended, non-linear evolution paradigm. The Architectural patterns (A-cluster) expect that `U.Dynamics.stateSpace` will be a set of **declared Characteristics each with a declared Scale**. Pattern A.19 delivers exactly this capability, leveraging the CSLC measurement discipline without reinventing any arithmetic or unit-handling logic.
+FPF’s kernel already standardizes **what** is measured (a **Characteristic**, per A.17) and **how** it is measured (a **Scale** with units, via the **CSLC** Standard in A.18). We also have a measurement substrate (`U.DHCMethodRef`, `U.Measure`) to handle individual observations. What has been missing for modeling **dynamics** is a canonical “Context” in which **multiple Characteristics** can co-exist so that complex **states** (with many aspects) and their **trajectories** are well-typed and comparable. Without a formal CharacteristicSpace, teams either hard-code ad-hoc vectors (often with inconsistent assumptions) or fall back to informal lifecycle stories (“phases” or stages) that contradict the kernel’s open-ended, non-linear evolution paradigm. The Architectural patterns (A-cluster) expect that `U.Dynamics.stateSpace` will be a set of **declared Characteristics each with a declared Scale**. Pattern A.19 delivers exactly this capability, leveraging the CSLC measurement discipline without reinventing any arithmetic or unit-handling logic.
 
 ---
 
@@ -8128,7 +8128,7 @@ By default, a CharacteristicSpace has no assumed ordering or metric structure �
     
 -   **Metric.** A **distance function** `d` on the space, if some architheory defines one. For example, an architheory might introduce a specific metric like a weighted Euclidean distance or Manhattan distance on normalized coordinates. If a metric is provided, its formula and any weighting or normalization factors **MUST** be explicitly published as part of the space’s definition (no implicit “obvious” distances – everything must be stated).
     
-    _Lexical note:_ Here **“metric”** strictly means a mathematical distance function (or a generalized distance like a pre-order or semi-metric) on the state space. This is **not** to be confused with the term “metric” in the sense of a performance metric or measure in MM‑CHR. In this document, _Metric_ (capitalized) usually refers to `U.MetricTemplate` (the template for a measured value), whereas a _metric function_ (lowercase) refers to a distance formula. Any distance overlay on a CharacteristicSpace must not conflict with the semantic measurements of scales; it’s an additional structure for analysis, not a redefinition of the underlying measurement.
+    _Lexical note:_ Here **“metric”** strictly means a mathematical distance function (or a generalized distance like a pre-order or semi-metric) on the state space. This is **not** to be confused with the term “metric” in the sense of a performance metric or measure in MM‑CHR. In this document, _Metric_ (capitalized) usually refers to `U.DHCMethodRef` (the template for a measured value), whereas a _metric function_ (lowercase) refers to a distance formula. Any distance overlay on a CharacteristicSpace must not conflict with the semantic measurements of scales; it’s an additional structure for analysis, not a redefinition of the underlying measurement.
     
 
 These overlays are entirely **optional** and have no effect on the core meaning of the space – they exist only to support particular needs (like making **dominance**, **continuity**, or **distance** reasoning possible) in models that require them. If needed, they should be added deliberately by an architectural theory rather than assumed. This way, any ordering or metric properties of states are made **explicit** instead of relying on hidden or default arithmetic. _(Rationale:_ The CSLC and MM‑CHR rules already govern what operations are allowed on each scale; A.19’s approach is to let higher-level theories layer on an order, topology, or metric when appropriate, so nothing is taken for granted tacitly in multi-dimensional arithmetic._)_
@@ -12643,20 +12643,20 @@ All listed **Characteristics** are **context‑local** with explicit units/range
 
 ## 3 · Solution — **Binding to Γ_nqd.generate (C.18)**
 
-**Method name (Plain/Unified Tech).** *NQD‑Generate* — a **U.Method** that, given (i) a **HypothesisSpace** and (ii) a **DescriptorSpace** with a **CoverageGrid**, returns a *finite*, **non‑dominated** set of candidate hypotheses that maximize **Quality** (per‑component) while maintaining **Diversity** and encouraging **Novelty**.
+**Method name (Plain/Unified Tech).** *NQD‑Generate* — a **U.Method** that, given (i) a **HypothesisSpace** and (ii) a **CharacteristicSpace** with a **CoverageGrid**, returns a *finite*, **non‑dominated** set of candidate hypotheses that maximize **Quality** (per‑component) while maintaining **Diversity** and encouraging **Novelty**.
 
 **Minimal signature.**
 
 * **Inputs (declared in MethodDescription):**
- `HypothesisSpace`, `DescriptorSpace`, `Seeds?`, `Budget (time/compute)`, `EmitterPolicy` (**E/E-LOG policy id**), `QualityMeasures (Q components)`, `NoveltyMetric`, `CoverageGrid/Granularity`, `CellCapacity K? (default=1)`, `EpsilonDominance ε? (default=0)`, `TieBreakPolicy? (S/I)`, `DedupThreshold?`, `Policy(TimeWindow)`, `DeterminismSeed?`
+ `HypothesisSpace`, `CharacteristicSpace`, `Seeds?`, `Budget (time/compute)`, `EmitterPolicy` (**E/E-LOG policy id**), `QualityMeasures (Q components)`, `NoveltyMetric`, `CoverageGrid/Granularity`, `CellCapacity K? (default=1)`, `EpsilonDominance ε? (default=0)`, `TieBreakPolicy? (S/I)`, `DedupThreshold?`, `Policy(TimeWindow)`, `DeterminismSeed?`
  
 * **Outputs:**
-  CandidateSet = {h_i: (desc_i, Q_i, N_i, D_i:=ΔDiversity_P(h_i | Pool), S_i, I_i, UseValue_i?), genealogy_i?, provenance_i (including **metricsEdition** and **policyId** from E/E-LOG)} where `Q_i` is a vector and `provenance_i` captures generator settings and evaluation sources. If Use‑Value is present, include the objective id / acceptanceSpec, counterfactual method (if predicted), and model edition per C.17. Note: S and I are tie-breakers only unless promoted by explicit Context policy; Use-Value is informative for decision lenses and SHALL NOT enter the dominance set.
+  CandidateSet = {h_i: (desc_i, Q_i, N_i, D_i:=ΔDiversity_P(h_i | Pool), S_i, I_i, UseValue_i?), genealogy_i?, provenance_i (including **DHCMethodRef.edition** and **policyId** from E/E-LOG)} where `Q_i` is a vector and `provenance_i` captures generator settings and evaluation sources. If Use‑Value is present, include the objective id / acceptanceSpec, counterfactual method (if predicted), and model edition per C.17. Note: S and I are tie-breakers only unless promoted by explicit Context policy; Use-Value is informative for decision lenses and SHALL NOT enter the dominance set.
 
 **Strategy (notation‑neutral).**
 
 1. **Seeding.** Initialize with seeds (known solutions, random draws, or prior L0 artifacts).
-2. **Iterated illumination.** Propose variations, evaluate **Q** (per‑component); maintain up to **K** elites per cell (or descriptor bucket); compute **N/D/S/I** on the fly; deduplicate by `DedupThreshold` in **DescriptorSpace**.
+2. **Iterated illumination.** Propose variations, evaluate **Q** (per‑component); maintain up to **K** elites per cell (or descriptor bucket); compute **N/D/S/I** on the fly; deduplicate by `DedupThreshold` in **CharacteristicSpace**.
 3. **Budget‑bounded loop.** Iterate until budget or coverage‑convergence; return the **(ε‑)Pareto front** over `{Q₁…Q_k, D, N, ΔDiversity_P}` (do **not** collapse to a single scalar). Illumination is excluded from the dominance set by default; Surprise and Illumination act only as tie-breakers unless a Context policy explicitly promotes them. **Use-Value** may appear as a **side note** for decision discussions **but MUST NOT be mixed into NQD dominance set**.   
 4. **Traceability.** Emit a **Design Rationale Record (DRR)**: grids/metrics versions, seed(s), policy and `TimeWindow`, which cells were filled, why items were dominated (list **Characteristics**), and how the final set was produced (including `ε`, `K`, and dedup). (Lightweight DRR is permitted per B.4 guidance.)
 5. **Algorithmic freedom (informative).** Implementations MAY use MAP‑Elites/illumination, novelty search with local competition, Bayesian/surrogate‑assisted search, or deterministic enumerations; ε‑dominance or knee‑point thinning MAY be used *after* recording the full front in provenance.
@@ -12682,9 +12682,9 @@ Primary dominance test: compute the (ε-)Pareto front over {Q components, N, ΔD
 **Defaults (if policy is unspecified)**  
 > **Dominance:** `{Q components, Novelty@context, ΔDiversity_P}`, with `ConstraintFit=pass` as **eligibility gate**.  
 > **Tie‑breakers:** `Surprise`, `Illumination (gauge over Diversity_P)` only.  
-> **Archive:** `K=1`, `ε=0`, deduplication in `DescriptorSpace`.  
+> **Archive:** `K=1`, `ε=0`, deduplication in `CharacteristicSpace`.  
 > **Policy:** UCB‑class with moderate temperature; `explore_share ≈ 0.3–0.5`.  
-> **Provenance (minimum):** record `DescriptorMapRef`, `metricsEdition`, `EmitterPolicyRef`, `TimeWindow`, `Seeds`.
+> **Provenance (minimum):** record `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `EmitterPolicyRef`, `TimeWindow`, `Seeds`.
 
 “**Scope‑of‑claim annotation (descriptive).** Record the **BoundedContext** and **TimeWindow** that delimit where each **N/Q/D** measurement is intended to hold; this is for reasoning traceability only (no operational gates).”
 
@@ -12695,7 +12695,7 @@ By default in B.5.2.1, `Surprise` functions solely as a secondary tie‑break am
 
 **CC‑B.5.2.1‑1 (CHR discipline).** If a Context uses this plug‑in, it **SHALL** declare the Creativity‑CHR **Characteristics** with **A.18**‑style templates (type, unit/range, polarity). No new kernel terms are introduced.
 **CC‑B.5.2.1‑2 (Instrumented generation).** Step 2 of **B.5.2** **SHALL** either (a) invoke *NQD‑Generate* or (b) justify a Context‑specific generator of equivalent effect (diversity + quality + novelty with measurable **Characteristics**).
-**CC‑B.5.2.1‑3 (Diversity coupling).** When this plug‑in is used, **D MUST be ΔDiversity_P** computed against the current candidate Pool using the **C.17** definition of **Diversity_P** under the same Context, DescriptorSpace, kernel, and TimeWindow.
+**CC‑B.5.2.1‑3 (Diversity coupling).** When this plug‑in is used, **D MUST be ΔDiversity_P** computed against the current candidate Pool using the **C.17** definition of **Diversity_P** under the same Context, CharacteristicSpace, kernel, and TimeWindow.
 **CC‑B.5.2.1‑Eligibility**: Eligibility requires **(i)** `ConstraintFit = pass` for the candidate (Norm‑CAL must‑set), **then (ii)** **USM** coverage for the TargetSlice and **(iii)** an enactable **RSG** state for the performer; only then may calls to `Γ_nqd.*` occur.
 **CC‑B.5.2.1‑4 (Non‑dominated shortlist).** The *CandidateSet* **MUST** include the **Pareto front** over `{Q₁…Q_k, N, D}`; any pruned candidate **MUST** carry a DRR note (“dominated by … on {Characteristics}”).
 **CC‑B5.2.1‑5 (Abductive primacy preserved).** The plug‑in **MUST NOT** bypass the ADI ordering mandated by **B.5**: induction may not start before deduction; abductive L0 creation remains the start.
@@ -12712,7 +12712,7 @@ By default in B.5.2.1, `Surprise` functions solely as a secondary tie‑break am
 
 * *Added steps:* selecting descriptor **Characteristics** & granularity; reading a Pareto table (**non‑statisticians tip:** scan the “front” row; ignore dominated rows).
 * *Mitigations:* provide a one‑screen “NQD Cards” template analogous to RSG cards; default grids and metrics per Context. (Keep ≤ 7 visible **Characteristics**—mirrors RSG human‑scale guidance.)
-* *Reader quickstart (engineer‑manager):* (1) Pick 2–3 **Q** characteristics aligned to the anomaly + a simple **DescriptorSpace** (2–4 dimensions). (2) Accept defaults for `NoveltyMetric`, grid granularity, and `K=1`. (3) Run **NQD‑Generate** to a fixed budget; read the *front row* first. (4) Apply Step 3 filters; log decisions in the DRR.
+* *Reader quickstart (engineer‑manager):* (1) Pick 2–3 **Q** characteristics aligned to the anomaly + a simple **CharacteristicSpace** (2–4 dimensions). (2) Accept defaults for `NoveltyMetric`, grid granularity, and `K=1`. (3) Run **NQD‑Generate** to a fixed budget; read the *front row* first. (4) Apply Step 3 filters; log decisions in the DRR.
 
 **For the framework (kernel growth).**
 
@@ -12741,7 +12741,7 @@ Contexts *may* monitor these—*not* as gates, but to improve practice:
 
 **Step 2 (NQD‑Generate).**
 
-* **DescriptorSpace:** {*creative‑characteristic count*, *explicit novelty metric present?*, *QD operator present?*, *didactic cards present?*}. *(Illustrative; Contexts SHALL define their own descriptors per §2.)*
+* **CharacteristicSpace:** {*creative‑characteristic count*, *explicit novelty metric present?*, *QD operator present?*, *didactic cards present?*}. *(Illustrative; Contexts SHALL define their own descriptors per §2.)*
 * **Q‑measures:** {*editor effort↓*, *time‑to‑L1↓*, *reader clarity↑*}.
 * **Output Pareto set (sketch):**
 
@@ -13180,8 +13180,14 @@ where `Φ` is the context’s monotone penalty (lower CL ⇒ larger penalty). Mu
 
 #### 4.5.3 `U.EditionSeries` (Phases)
 
-**Purpose.** Bind editions/versions by **PhaseOf**, preserving history without confusing time with parts.
-**Rules (preview).** Past editions are immutable; bridges across contexts treat editions explicitly; provenance of edits is recorded as external Work on carriers (editing, review, ratification) but **does not** turn Work into content.
+**Purpose.** Govern **content phases** (*editions*) of an episteme via **PhaseOf**, without confusing **publication Work** or **carriers** with content identity.
+**Edition vs release vs version (normative).**  
+• **Edition** = a new **content phase** when **Concept** (ClaimGraph) or **Object** (Reference Map) changes, or when Symbol changes affect content interpretation.  
+• **Release** = an external **Work** that publishes/repackages **Carriers**; releases do not create a new edition.  
+• **Version** = a **carrier/tool** id; outside Core names.  
+**Immutability.** Past editions are immutable; use `…Ref.edition` to bind calculations and dashboards to a specific phase.  
+**Bridging across Contexts.** Bridges treat **editions explicitly**; CL penalties route to **R_eff only** (never F/G).  
+**Provenance.** Edits are evidenced by external Work (editing, review, ratification) and A.10 anchors; Work never becomes content.
 
 #### 4.5.4 `about` → `U.TopicHolon`
 
@@ -17420,15 +17426,15 @@ Correctness‑by‑sequence and temporal coverage are orthogonal to **parthood**
 
 ## 1 · Intent (Normative)
 
-**Name.** *Measurement & Metrics Characterization (MM‑CHR).* This is user-oriented name: in user‑facing narrative we say ‘metrics’; in Tech register we speak `U.MetricTemplate`/`U.Measure`.
-**Intent.** Provide a **transdisciplinary substrate for measurement** that any architheory can rely on: a small, stable set of intensional constructs and relations—**`U.MetricTemplate`**, **`U.Measure`**, **`U.Unit`**, **`U.EvidenceStub`**—disciplined by **CSLC** (*Characteristic / Scale / Level / Coordinate*) so that every recorded value is **interpretable** and **comparable** across CG‑frames (physics lab time‑of‑flight, figure‑skating judging, architectural modularity, etc.). **C.16** does **not** re‑define **Characteristic** (A.17) nor the CSLC kernel Standard (A.18); instead, it **exports** the measurement substrate that *binds* an architheory’s metric notions to **one Characteristic and one Scale** and frames a **conceptual link to evidence**. This characterization is **notation‑neutral**, **tool‑agnostic**, and **open‑ended** (no “lifecycle” narrative; evolution proceeds via **RSG** moves with checklists). 
+**Name.** *Measurement & Metrics Characterization (MM‑CHR).* This is user-oriented name: in user‑facing narrative we say ‘metrics’; in Tech register we speak `U.DHCMethodRef`/`U.Measure`.
+**Intent.** Provide a **transdisciplinary substrate for measurement** that any architheory can rely on: a small, stable set of intensional constructs and relations—**`U.DHCMethodRef`**, **`U.Measure`**, **`U.Unit`**, **`U.EvidenceStub`**—disciplined by **CSLC** (*Characteristic / Scale / Level / Coordinate*) so that every recorded value is **interpretable** and **comparable** across CG‑frames (physics lab time‑of‑flight, figure‑skating judging, architectural modularity, etc.). **C.16** does **not** re‑define **Characteristic** (A.17) nor the CSLC kernel Standard (A.18); instead, it **exports** the measurement substrate that *binds* an architheory’s metric notions to **one Characteristic and one Scale** and frames a **conceptual link to evidence**. This characterization is **notation‑neutral**, **tool‑agnostic**, and **open‑ended** (no “lifecycle” narrative; evolution proceeds via **RSG** moves with checklists). 
 
 **Outcomes.**
 (1) A uniform way for architheories to *declare* what is measured and *read* what has been measured; (2) explicit **Characteristic anchoring** and **Scale typing** per CSLC; (3) principled **comparability** and **polarity** (declared at the template level); (4) **traceability** via conceptual evidence stubs; (5) seamless alignment with cross‑domain quantity notions (ISO 80000, ISO/IEC 25024, QUDT, SOSA/SSN, Verspoor) through Unification rows (Part F). 
 
 ## 2 · Scope & Status (Normative)
 
-**Scope.** **C.16** specifies the **measurement substrate** for FPF architheories: the roles of `U.MetricTemplate`, `U.Measure`, `U.Unit`, `U.EvidenceStub`; their **CSLC discipline**; the notions of **Scale type**, **polarity**, **comparability**, and **evidence sufficiency** at the level of *conceptual conditions*. It **exports** these constructs for all architheories (KD‑CAL, Arch‑CAL, etc.) without prescribing domain formulae or procedures. 
+**Scope.** **C.16** specifies the **measurement substrate** for FPF architheories: the roles of `U.DHCMethodRef`, `U.Measure`, `U.Unit`, `U.EvidenceStub`; their **CSLC discipline**; the notions of **Scale type**, **polarity**, **comparability**, and **evidence sufficiency** at the level of *conceptual conditions*. It **exports** these constructs for all architheories (KD‑CAL, Arch‑CAL, etc.) without prescribing domain formulae or procedures. 
 
 **Status.** **Normative architheory.** C.16 **depends on** A.17 (canonical **Characteristic**) and A.18 (minimal **CSLC** in Kernel). Where C.16 cites external CG‑frames, the stance is through **Part F** rows and **Bridges** (with CL and loss notes), not by vocabulary import. 
 
@@ -17465,7 +17471,7 @@ Across architheories, people say “score”, “metric”, “rating”, “pro
 
 **S1 — Exported objects.** C.16 **exports** four intensional constructs to be used by any architheory:
 
-1. **`U.MetricTemplate`** — the *binding* of **one `U.Characteristic`** to **one Scale form**, with declared **polarity** and a conceptual **compatibility claim** (what counts as “same‑scale” for comparison). It is an *intensional specification*, not a record layout.
+1. **`U.DHCMethodRef`** — the *binding* of **one `U.Characteristic`** to **one Scale form**, with declared **polarity** and a conceptual **compatibility claim** (what counts as “same‑scale” for comparison). It is an *intensional specification*, not a record layout.
 2. **`U.Measure`** — an *assertion* that a **subject** occupies a **Coordinate** (or **Level**, if discrete) on that Scale; the measure **references** its template and carries a **conceptual pointer to evidence** (`U.EvidenceStub`).
 3. **`U.Unit`** — the *unit kind* associated with the Scale where applicable (physical quantities, normalized “points”, “stars”, “%”); unit coherence is part of comparability conditions.
 4. **`U.EvidenceStub`** — a *conceptual locator* of grounds for the asserted value (type, identifier, brief summary, optional integrity notion); sufficiency criteria are **conceptual** (see §9, later).
@@ -17481,11 +17487,11 @@ Across architheories, people say “score”, “metric”, “rating”, “pro
 ### 5.1 · Lexical Discipline & Registers (Normative)
 
 **L1 — Canon.** Use **Characteristic / Scale / Level / Coordinate / Score / Unit / Gauge** in **Tech** register; their `U.*` counterparts in **Formal**; narrative labels (e.g., *axis*, *points*, *stars*) are **didactic only** at first‑mention mapped to canon (E.10). 
-**L1‑bis — “metric”.** The noun *metric* is **not** a Tech‑register canonical token for measurables; use **Characteristic / Scale / Coordinate / Score / Gauge**. It **may** appear in the architheory title and in the Formal names `U.MetricTemplate` / `U.Measure`. Do not use *metric* as a synonym for **Characteristic** or **Score** in normative prose.
-**L2 — Intension vs Description.** Keep **intensional objects** (`U.MetricTemplate`, `U.Characteristic`) distinct from **descriptions** (rubrics, exemplars) and from **claims** (`U.Measure`). No collapsing of names across these layers.
+**L1‑bis — “metric”.** The noun *metric* is **not** a Tech‑register canonical token for measurables; use **Characteristic / Scale / Coordinate / Score / Gauge**. It **may** appear in the architheory title and in the Formal names `U.DHCMethodRef` / `U.Measure`. Do not use *metric* as a synonym for **Characteristic** or **Score** in normative prose.
+**L2 — Intension vs Description.** Keep **intensional objects** (`U.DHCMethodRef`, `U.Characteristic`) distinct from **descriptions** (rubrics, exemplars) and from **claims** (`U.Measure`). No collapsing of names across these layers.
 **L3 — No synonym sprawl.** In normative clauses do **not** substitute *dimension/axis/property/feature* for **Characteristic**; A.17 governs canonicalization. (C.16 inherits A.17’s rename policy.)
 **L4 — Bridge‑only unification.** Cross‑vocabulary sameness appears only via **F.9 Bridges** with **CL** and **loss notes**; C.16’s lexicon is the *source* side for measurement rows.
-**L5 — “Metric” in registers.** In **Tech/Formal** avoid the noun *metric* as a primitive; use `U.MetricTemplate` / `U.Measure` / **Score**. In **Plain** register *metric* MAY denote “a Template+Measure family” on first mention, with an explicit pointer to canonical terms.
+**L5 — “Metric” in registers.** In **Tech/Formal** avoid the noun *metric* as a primitive; use `U.DHCMethodRef` / `U.Measure` / **Score**. In **Plain** register *metric* MAY denote “a Template+Measure family” on first mention, with an explicit pointer to canonical terms.
 
 ## 5.2 · Relations (pointers; details later)
 
@@ -17499,11 +17505,11 @@ Across architheories, people say “score”, “metric”, “rating”, “pro
 > 
 > **Source of Truth** A.17/A.18 are the sole sources of truth for Canon and CSLC; C.16 **adopts by reference** and **forbids restatements** of their definitions. C.16 only **exports** `U.*` constructs, comparability stance, evidence semantics, and RSG touch‑points.
 
-### 5.3.1 `U.MetricTemplate` — the metric definition (normative)
+### 5.3.1 `U.DHCMethod` — the metric definition (normative)
 
-**Role.** An intensional **Standard** that fixes *what is measured* and *how values must be read*—without producing any values itself. It is a *Definition*, not a Measure.
+**Role.** An intensional **Standard** that fixes *what is measured* and *how values must be read*—without producing any values itself. It is a *Definition*, not a Measure. **References to this template in data use `U.DHCMethodRef`.**
 
-**R‑MT‑1 (CSLC anchor).** A MetricTemplate **SHALL** bind to **exactly one** `U.Characteristic` and **exactly one** **Scale‑form** admissible for that Characteristic (cf. A.18). Level is **optional** (used when the scale is enumerated); otherwise values are given directly as Coordinates.
+**R‑MT‑1 (CSLC anchor).** A DHCMethod **SHALL** bind to **exactly one** `U.Characteristic` and **exactly one** **Scale‑form** admissible for that Characteristic (cf. A.18). Level is **optional** (used when the scale is enumerated); otherwise values are given directly as Coordinates.
 
 **R‑MT‑2 (Unit).** If the scale carries units (interval/ratio), the template **SHALL** designate a **Unit** of presentation. For ordinal/nominal scales, unit may be absent or a nominal label (e.g., “stars”). (Old MM‑CHR Annex A already listed these structural elements; here we fix the conceptual obligation. )
 
@@ -17523,7 +17529,7 @@ Where declared, claims outside that semantics are **inadmissible conceptually** 
 
 **Role.** A **claim** that a subject occupies a **Coordinate** (or named **Level**) on the template’s scale, backed by a minimal pointer to its grounds.
 
-**R‑ME‑1 (Template binding).** Every Measure **SHALL** reference exactly one MetricTemplate; its **Value/Coordinate** must be **valid** for that template’s scale (type, range, category).
+**R‑ME‑1 (Template binding).** Every Measure **SHALL** reference exactly one DHCMethodRef; its **Value/Coordinate** must be **valid** for that template’s scale (type, range, category).
 
 **R‑ME‑2 (Subject).** A Measure **SHALL** identify its **subject‑of‑measurement** (the bearer) unambiguously in the same Context of meaning as the template’s applicability frame.
 
@@ -17650,7 +17656,7 @@ MM‑CHR **supplies recognisers** used in **State Checklists**. A checklist crit
 
 > *Thought‑level acceptance conditions for authors and reviewers; they constrain meaning, not tooling.*
 
-**CC‑MCHR‑1 · CSLC anchoring.** Each `U.MetricTemplate` binds **exactly one** `U.Characteristic` and **exactly one** scale; each `U.Measure` carries a value valid for that scale (cf. A.18).
+**CC‑MCHR‑1 · CSLC anchoring.** Each `U.DHCMethodRef` binds **exactly one** `U.Characteristic` and **exactly one** scale; each `U.Measure` carries a value valid for that scale (cf. A.18).
 **CC‑MCHR‑2 · Polarity declared.** Every **ordered** scale in a template declares **polarity**; any **Score** via 𝒢 is monotone w\.r.t. that polarity.
 **CC‑MCHR‑3 · Unit coherence.** Claims that compare or combine values are **grounded in unit coherence** (or declared conversions for interval/ratio).
 **CC‑MCHR‑4 · Comparability honesty.** Ordered comparisons are asserted **only** when §7.2 holds; otherwise authors use qualitative/set‑level language.
@@ -17664,7 +17670,7 @@ MM‑CHR **supplies recognisers** used in **State Checklists**. A checklist crit
 #### 10.1 Invariants (N‑rules)
 
 **N‑1 — One Characteristic + one Scale per template.**
-Every `U.MetricTemplate` binds *exactly one* **Characteristic** and *exactly one* **Scale** (its type + admissible range or level‑set). This is the CSLC sufficiency condition for interpretability.
+Every `U.DHCMethodRef` binds *exactly one* **Characteristic** and *exactly one* **Scale** (its type + admissible range or level‑set). This is the CSLC sufficiency condition for interpretability.
 
 **N‑2 — Value validity.**
 A `U.Measure` holds a **Value** that is *admissible* for the template’s Scale (numeric range, categorical level); when a **Level** is used, it is among the named rungs declared for that Scale.
@@ -17945,7 +17951,7 @@ Each characteristic is specified per **MM‑CHR (C.16)** with: **name**, **inten
 * **Alignment note.** The **illumination/coverage** view corresponds to *IlluminationScore* used by **B.5.2.1 NQD‑Generate**; no separate characteristic is introduced here—measure it as part of `Diversity_P`.
 * **Evidence.** Distance matrix/cover plots; sensitivity to kernel.
 * **Didactic cue.** Use **Diversity\_P** to **shape portfolios**, not to pick single winners.
-* **Marginal gain (for generators)** — normative. For a candidate h and current set S, ΔDiversity_P(h | S) := Diversity_P(S ∪ {h}) − Diversity_P(S). Contexts using NQD SHALL compute D as this marginal and publish the Diversity_P definition alongside the DescriptorSpace/kernel and TimeWindow.
+* **Marginal gain (for generators)** — normative. For a candidate h and current set S, ΔDiversity_P(h | S) := Diversity_P(S ∪ {h}) − Diversity_P(S). Contexts using NQD SHALL compute D as this marginal and publish the Diversity_P definition alongside the CharacteristicSpace/kernel and TimeWindow.
 
 **Heterogeneity Characterisation**
 * FamilyCoverage  (polarity ↑) — count of distinct domain‑families covered by a portfolio/triad; unit: families; window: declared.
@@ -18069,7 +18075,7 @@ Each characteristic is specified per **MM‑CHR (C.16)** with: **name**, **inten
 
 ## 12 · CSLC recap and the Creativity CharacteristicSpace
 
-**Purpose.** Ground “creativity” as a **measurable family of characteristics** (CHR) rather than a role, capability, or virtue. Each characteristic is scoped to a **`U.BoundedContext`**, evaluated on **`U.Work`** (episodes), **artifacts** (epistemes, e.g., design sketches, models), or **holders** (systems/teams) via **MM‑CHR** exports (`U.MetricTemplate`, `U.Measure`, `U.Unit`, `U.EvidenceStub`), using the **CSLC** discipline (*Characteristic / Scale / Level / Coordinate*).
+**Purpose.** Ground “creativity” as a **measurable family of characteristics** (CHR) rather than a role, capability, or virtue. Each characteristic is scoped to a **`U.BoundedContext`**, evaluated on **`U.Work`** (episodes), **artifacts** (epistemes, e.g., design sketches, models), or **holders** (systems/teams) via **MM‑CHR** exports (`U.DHCMethodRef`, `U.Measure`, `U.Unit`, `U.EvidenceStub`), using the **CSLC** discipline (*Characteristic / Scale / Level / Coordinate*).
 
 > **Strict Distinction (A.7) reminders.**
 > *Creativity is not a Role* (no one “plays CreativityRole”). It’s a **characterisation** of outcomes/process.
@@ -18118,8 +18124,9 @@ For each characteristic, **declare the scale** explicitly (nominal / ordinal / i
 
 ## 12.4 · Metric templates (normative kernels + manager‑ready variants)
 
-> **Template syntax (MM‑CHR):**
-> `U.MetricTemplate { name, context, carrierKind, definition, unit?, scale, evidenceHook, acceptanceHook? }`
+ **Template syntax (MM‑CHR):**
+`U.DHCMethod { name, context, carrierKind, definition, unit?, scale, evidenceHook, acceptanceHook? }`
+*Note:* Data instances carry `DHCMethodRef` pointing to this template.
 
 ### 12.4.1 · Templates (kernel definitions)
 
@@ -18499,7 +18506,7 @@ These cards are **thinking scaffolds**; they do not prescribe org process.
 Open‑ended search (NQD) equips FPF with illumination‑style generation and Pareto/portfolio selection in multi‑criteria, partially ordered spaces; it feeds G.5 without scalarising ordinal or mixed‑scale characteristics.
 
 ### Problem
-Without a disciplined NQD calculus, contexts (a) conflate illumination gauges with dominance, (b) lose reproducibility due to undeclared DescriptorMap/DistanceDef editions, and (c) perform illegal aggregations across scales.
+Without a disciplined NQD calculus, contexts (a) conflate illumination gauges with dominance, (b) lose reproducibility due to undeclared DescriptorMap/DistanceDefRef.editions, and (c) perform illegal aggregations across scales.
 
 ### Forces
 • Posets vs. scalarisation — selectors must return sets (Pareto/archive) rather than illegal weighted sums across mixed scales.
@@ -18517,10 +18524,10 @@ Provide Γ_nqd.* operators and U.Types for DescriptorMap, Archive/Niche, policie
   - `Γ_nqd.selectFront(Archive|CandidateSet, characteristics={Q components, Novelty@context, ΔDiversity_P, …}) → ParetoFront`
 
 **Type notes.**
-- `U.DescriptorMap (Tech; twin‑labelled Plain) : Hypothesis → ℝ^d` (declares encoder, invariances, version, **CharacteristicSpaceRef**). Publish Tech/Plain per **E.10**; declare **DistanceDef** and `metricsEdition`.
+- `U.DescriptorMap (Tech; twin‑labelled Plain) : Hypothesis → ℝ^d` (declares encoder, invariances, version, **CharacteristicSpaceRef**). Publish Tech/Plain per **E.10**; declare `DescriptorMapRef.edition` and `DistanceDefRef.edition`.
 - `NQD.CandidateSet` ≡ `Set<U.Hypothesis>` with attached per‑item vectors `{Q_i, N_i, D_i:=ΔDiversity_P, S_i?, provenance_i}`.
 - `U.NQDArchive` holds per‑cell elites and genealogy refs; context‑local.
-- `U.Niche` is a region in DescriptorSpace (grid bucket / CVT centroid / cluster).
+- `U.Niche` is a region in CharacteristicSpace (grid bucket / CVT centroid / cluster).
 - `U.EmitterPolicyRef` points to a named policy in **C.19 E/E‑LOG**.
 - `U.InsertionPolicyRef` — named archive‑update policy (e.g., `replace_if_better | replace_worst | bounded_age | bounded_regret`); versioned.
 - `U.IlluminationSummary` is a **gauge** over `Diversity_P` (see C.17), not a dominance characteristic.
@@ -18528,9 +18535,9 @@ Provide Γ_nqd.* operators and U.Types for DescriptorMap, Archive/Niche, policie
 **Operator specs (normative).**
 - `Γ_nqd.generate(...)` SHALL:
   (a) respect **Budget**,  
-  (b) compute `{Q_i}` (vector), `N_i` (Novelty@context), `D_i := ΔDiversity_P(h_i | Pool)` under the same DescriptorSpace & TimeWindow as the Pool, and optional `S_i` (Surprise),
-  (c) deduplicate by `DedupThreshold` in DescriptorSpace,  
-  (d) record `metricsEdition`, `DescriptorMapRef`, `EmitterPolicyRef`, `ε`, `K`, `Seeds`, and genealogy references (parent/seed ids) to enable replay and selection auditing.
+  (b) compute `{Q_i}` (vector), `N_i` (Novelty@context), `D_i := ΔDiversity_P(h_i | Pool)` under the same CharacteristicSpace & TimeWindow as the Pool, and optional `S_i` (Surprise),
+  (c) deduplicate by `DedupThreshold` in CharacteristicSpace,  
+  (d) record `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `EmitterPolicyRef`, `ε`, `K`, `Seeds`, and genealogy references (parent/seed ids) to enable replay and selection auditing.
 - `Γ_nqd.updateArchive` SHALL apply local competition per cell (keep up to K elites), preserve genealogy, and **enact the declared `InsertionPolicyRef`**; default is `replace_if_better` with deterministic tie‑breakers.
 - `Γ_nqd.illuminate` SHALL return coverage and QD‑score computed against the declared grid and archive edition.
 - `Γ_nqd.selectFront` SHALL compute the (ε‑)Pareto front over the declared characteristics; **Illumination** is excluded by default (report‑only).  
@@ -18538,14 +18545,15 @@ Provide Γ_nqd.* operators and U.Types for DescriptorMap, Archive/Niche, policie
 **Pipeline:** apply **Eligibility (ConstraintFit=pass)** → **Dominance (default set from C.19; by default `{Q components}` only)** → **Tie‑breakers (`Novelty@context`, `ΔDiversity_P`, `Surprise`; `Illumination` gauge)**.
 **Pure academic QD-mode:** Contexts MAY elect a _pure‑QD_ mode (dominance on `Q` only; `N/ΔD` used via archive occupancy and tie‑breakers). Any deviation SHALL be declared by policy id and recorded in provenance.
 
-**Reproducibility & editions.** Each call SHALL emit provenance sufficient for replay: `{metricsEdition, DescriptorMapRef (encoder+corpus edition + DistanceDef id), EmitterPolicyRef (params), **InsertionPolicyRef**, DedupThreshold?, ε, K, Seeds, TimeWindow}`.
-Telemetry hook: whenever IlluminationSummary increases (Δcoverage>0 or ΔQD‑score>0), the Context SHALL emit a Telemetry(PathSlice) record that cites {EmitterPolicyRef, DescriptorMapRef.edition, DistanceDef, InsertionPolicyRef?, TimeWindow}. (Aligns with G.6/G.7/G.11 portfolio/edition constraints.)
+**Reproducibility & editions.** Each call SHALL emit provenance sufficient for replay: `{DHCMethodRef.edition, DescriptorMapRef.edition, EmitterPolicyRef (params), **InsertionPolicyRef**, DedupThreshold?, ε, K, Seeds, TimeWindow}`.
+Telemetry hook: whenever IlluminationSummary increases (Δcoverage>0 or ΔQD‑score>0), the Context SHALL emit a Telemetry(PathSlice) record that cites {EmitterPolicyRef, DescriptorMapRef.edition, DistanceDefRef.edition, InsertionPolicyRef?, TimeWindow}. (Aligns with G.6/G.7/G.11 portfolio/edition constraints.)
 
-**Measurement alignment.** `Novelty@context`, `Use‑Value (ValueGain)`, `Surprise`, `Diversity_P` SHALL be measured per **C.17** (MM‑CHR templates). **IlluminationSummary** is a gauge over `Diversity_P` (coverage/QD‑score); when DescriptorSpace includes domain‑family cells, publish grid id and FamilyCoverage, plus **metricsEdition/DistanceDefRef**.
+**Measurement alignment.** `Novelty@context`, `Use‑Value (ValueGain)`, `Surprise`, `Diversity_P` SHALL be measured per **C.17** (MM‑CHR templates). **IlluminationSummary** is a gauge over `Diversity_P` (coverage/QD‑score); when CharacteristicSpace includes domain‑family cells, publish grid id and FamilyCoverage, plus **DescriptorMapRef.edition/DistanceDefRef.edition**.
+.
 
 ### Conformance Checklist
 - **C18‑1** Declare `DescriptorMap` (encoder, invariances, corpus edition) before generation.
-- **C18‑1b** When used in F/G triads, DescriptorMap SHALL declare a domain‑family coordinate (grid/cells) and reference an F1‑Card::DistanceDef & δ_family.
+- **C18‑1b** When used in F/G triads, DescriptorMap SHALL declare a domain‑family coordinate (grid/cells) and reference an F1‑Card::DistanceDefRef & δ_family.
 - **C18‑1c**  When a domain‑family coordinate is declared, the Context SHALL compute and publish **AliasRisk** for each front/portfolio emission, together with the dSig collision rule and the policy id. AliasRisk is computed against `U.DomainDiversitySignature (dSig)`; **the DescriptorMap SHALL publish**: (i) `collisionRuleId` (near‑duplicate threshold, e.g. “≥3 characteristics equal”),  (ii) `dSigSource` pointers used for coding the five characteristics. The collision rule and formula **MUST** be part of `DescriptorMap` provenance (see **Creativity‑CHR**, Heterogeneity Characterisation).
 - **C18‑2** Record `EmitterPolicyRef` (policy id from C.19) and parameter set.
 - **C18‑3** Compute `D = ΔDiversity_P(h | Pool)` under the same DescriptorMap & TimeWindow as the Pool (see C.17).
@@ -18554,7 +18562,7 @@ Telemetry hook: whenever IlluminationSummary increases (Δcoverage>0 or ΔQD‑s
 - **C18‑6** Emit full provenance; thinning after front computation MUST be recorded.
 - **C18‑7** Before computing any front, apply **ConstraintFit = pass** as a hard eligibility filter.
 
-**Defaults.** Normative defaults **live in C.19 (EmitterPolicy)** and are **not restated** here. Minimum provenance remains: `DescriptorMapRef` (with **`DistanceDefRef`**), `metricsEdition`, `EmitterPolicyRef`, `InsertionPolicyRef`, `TimeWindow`, `Seeds`, `DedupThreshold?`; also record `FamilyCoverage/MinInterFamilyDistance`.
+**Defaults.** Normative defaults **live in C.19 (EmitterPolicy)** and are **not restated** here. Minimum provenance remains: `DescriptorMapRef.edition` and `DistanceDefRef.edition`, `DHCMethodRef.edition`, `EmitterPolicyRef`, `InsertionPolicyRef`, `TimeWindow`, `Seeds`, `DedupThreshold?`; also record `FamilyCoverage/MinInterFamilyDistance`.
 
 **Didactic quickstart (Context).**
 1) Pick 2–4 Quality coordinates and a simple DescriptorMap (2–4 dims).  
@@ -18564,7 +18572,7 @@ Telemetry hook: whenever IlluminationSummary increases (Δcoverage>0 or ΔQD‑s
 
 ### Archetypal Grounding
 **System.** Legged‑robot gait exploration: Q = forward speed & energy efficiency (ratio), D = morphology/coordination descriptors (ℝ^d); Archive = CVT grid; Illumination gauges coverage without entering dominance.
-"**Episteme.** SoTA palette synthesis: Q = Use‑Value proxies per C.17 (ratio/interval as legal), D = method‑family niches; publish DescriptorMap edition and DistanceDef for reproducible fronts.
+"**Episteme.** SoTA palette synthesis: Q = Use‑Value proxies per C.17 (ratio/interval as legal), D = method‑family niches; publish DescriptorMapRef.edition and DistanceDefRef.edition for reproducible fronts.
 
 ### Bias‑Annotation
 Lexical firewall and notation independence apply; no vendor/tool tokens; ordinal characteristics never averaged; illumination treated as gauge unless a policy promotes it. (E.5.1, E.5.2, C.16)
@@ -18606,9 +18614,9 @@ Policies are referenced as `U.EmitterPolicyRef` by NQD generator call (C.18) and
 **Defaults (if policy is unspecified):**  
 • **Dominance:** `{Q components}` with `ConstraintFit=pass` as **eligibility gate**.  
 • **Tie‑breakers:** `Novelty@context`, `ΔDiversity_P`, `Surprise`; `Illumination` (gauge over Diversity_P) MAY be used as a tie‑breaker but is **not** in the dominance set.  
-• **Archive:** `K=1`, `ε=0`, deduplication in `DescriptorSpace`.  
+• **Archive:** `K=1`, `ε=0`, deduplication in `CharacteristicSpace`.  
 • **Policy:** UCB‑class with moderate temperature; `explore_share ≈ 0.3–0.5`.  
-• **Provenance (minimum):** record `DescriptorMapRef`, `metricsEdition`, `EmitterPolicyRef`, `InsertionPolicyRef`, `dedup_threshold?`, `TimeWindow`, `Seeds`.
+• **Provenance (minimum):** record `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `DHCMethodRef.edition`, `EmitterPolicyRef`, `InsertionPolicyRef`, `dedup_threshold?`, `TimeWindow`, `Seeds`.
 
 **Scalarization lenses (policy‑level).** A lens `J_ℓ` declares: (a) hard eligibility conditions (e.g., ConstraintFit=pass), (b) soft aggregation (weights/curves), (c) trust policy (how assurance/CL discounts enter).  
 **Conformance.** A Context MUST name the lens used to pick from a frontier; scalarized rankings MUST NOT be presented as “the frontier”; the **`lens id MUST be recorded in provenance of each selection`**.
@@ -18811,7 +18819,22 @@ Narrative health claims cause three recurrent failure modes:
 
 ### 4 · Solution — **Discipline Health Characterisation (DHC)**
 
-Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (Characteristic, Scale/Unit/Polarity per **A.17–A.18**), **Context-local**, and guarded by **USM** (Claim scope **G**), **freshness windows**, and **evidence lanes** (TA/VA/LA). Contexts **MAY** extend the set; **MUST NOT** alter scale types illegally.
+#### 4.0 · Ontology quick sheet (normative, clarifying)
+**What “DHC” is.** DHC is a **CHR vocabulary pack** (intensional) that defines **Characteristics** + **Scales/Units/Polarity** for discipline health; it is not a document or a run.
+**Artifacts.**
+• **`U.DHCPack`** (I‑layer name; published as an episteme): the **slot set** (Characteristic/Scale declarations) for a Context.  
+• **`U.DHCMethodSpec`** (S‑layer): the **computational specification(s)** for deriving each DHC slot (e.g., replication‑window definition, CD‑index class), table‑backed; multiple per slot allowed, editioned separately.  
+• **`U.DHCSeries`** (episteme w/ `EditionSeries`): a **time‑indexed publication** of computed DHC readings for a Discipline×Context, each value bound to `…Ref.edition` for every referenced method/metric/distance.
+**Edition subjects.**  
+(i) **DHCPack.edition** — when the **slot semantics** (Characteristic/Scale) change.  
+(ii) **DHCMethodSpecRef.edition** — when a **computation method** (formula/class/policy) changes.  
+(iii) **DHCSeries.edition** — when the **published series** changes its content (not carriers).  
+**Publication.** Releases are **Work** on Carriers; **no** edition change unless content changes per `U.EditionSeries`.  
+**Ref discipline.** All bindings to packs/methods/distances **SHALL** use `…Ref.edition` (dot on the Ref).
+
+Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (Characteristic, Scale/Unit/Polarity per **A.17–A.18**), **Context-local**, and guarded by **USM** (Claim scope **G**), **freshness windows**, and **evidence lanes** (TA/VA/LA).  Contexts MAY extend the set; MUST NOT alter scale types illegally. 
+
+**“Health” is a vector** of CHR‑typed coordinates; **no single scalar** is implied. Lawful scalarization lives in **Acceptance** (G.4) with an explicit gauge/Γ‑fold and is never embedded in CHR.
 
 #### 4.1 Core Characteristics (kernel-portable names)
 
@@ -18904,7 +18927,7 @@ Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (
 2. **Collect evidence.** Bind sources via **G.6 EvidenceGraph**; tag lanes and freshness.
 3. **Compute DHC slots.** Enforce **Legality Matrix** and Guard Macros.
 4. **Bridge (if needed).** Map via **F.9**; attach **CL** and **loss notes**; apply **R** penalties.
-5. **Publish to UTS.** Name Cards (Tech/Plain), twin labels; **edition id of each computation method**; register **RSCR** triggers (method change, gauge edits).
+5. **Publish to UTS.** Name Cards (Tech/Plain), twin labels; **bind `DHCMethodSpecRef.edition`**, `DistanceDefRef.edition`, and, where templates are used, `DHCMethodRef.edition`; register RSCR triggers (method change, gauge edits).
 6. **Dashboard.** Feed G.12 with time-series and guard-bands (disruption, diversity).
 
 ### 8 · Bias-Annotation (E-cluster lenses)
@@ -18925,12 +18948,13 @@ Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (
 **CC-C.21-7 (Scope).** All computations declare **TargetSlice**; **USM** membership is decidable and deterministic.
 **CC-C.21-8 (Bridges).** Cross-Context comparisons/publishers **MUST** cite **Bridge id + CL**; penalties route to **R\_eff**, never to F/G.
 **CC-C.21-9 (UTS).** Publish DHC rows as **UTS Name Cards** with **twin labels** (Tech/Plain).
-**CC-C.21-10 (Registry).** DHC methods (editions) are table-backed; silent method changes are forbidden (edition bump + RSCR trigger).
+**CC‑C.21‑10 (Registry).** DHC methods are table-backed; silent method changes are forbidden (**bump `DHCMethodSpecRef.edition` + RSCR trigger**). 
 **CC-C.21-11 (Unknowns).** Unknown inputs propagate tri-state {pass|degrade|abstain} to Acceptance; **no `unknown→0` coercion**.
 **CC-C.21-12 (No tool/vendor tokens).** Core narrative follows **E.5.1** (Lexical Firewall).
 **CC-C.21-13 (CG‑Spec citation).** Any numeric operation (comparison/aggregation) in DHC **MUST** refer to **CG‑Spec** (characteristics, gauge/Γ‑fold, MinimalEvidence).
 **CC-C.21-14 (Φ‑policies).** **Φ(CL)** и **Φ_plane** — **monotone** and **table‑backed**; published by policy id.
-
+**CC‑C.21‑15 (Ref discipline).** Any edition pinning **SHALL** appear as `…Ref.edition` on the relevant reference field (DHCPack/MethodSpec/DistanceDef/DHCMethodRef); bare `…Edition` fields are non‑conformant.
+**CC‑C.21‑16 (Role kit, informative).** Use standard roles from F.4: `DisciplineStewardRole` (governs DHCPack), `DHCMethodAuthorRole`, `DHCSeriesPublisherRole`. Roles are **design‑time**; values are **run‑ or design‑stance** per slot and must declare **ReferencePlane**.
 
 ### 10 · Consequences
 
@@ -19022,8 +19046,8 @@ Each field is **CHR‑typed** (Characteristic/Scale/Unit/Polarity; MM‑CHR disc
 * `KindSet` — **`U.Kind[]`** of objects‑of‑talk addressed by the TaskKind; separates **aboutness (Kind)** from **Scope (USM)**.
 
 **QD / Illumination extensions (normative; ties to C.18/C.19).**
-* **`BehaviorSpaceRef`** — reference to **`U.DescriptorMapRef.Tech`** (Plain twin: **CharacteristicSpaceRef**), with declared **dimension d≥2**, axes CHR‑typed, **ReferencePlane** per axis, and an **edition id**.
-* **`ArchiveConfig`** — archive **topology** (grid/CVT/graph), **resolution** (bins/centroids), **K‑capacity**, **`InsertionPolicyRef`** (elite replacement/dedup/novelty), and **`DistanceDef`** (**editioned**; declare **metric/pseudometric** status and invariances; any normalisation **MUST** cite lawful scale transforms in **CG‑Spec**); legality follows CG‑Spec.
+* **`CharacteristicSpaceRef`** — reference to **`U.CharacteristicSpace`**, with declared **d≥2**; **characteristics are CHR‑typed**; **ReferencePlane** per characteristic; pin edition via **`CharacteristicSpaceRef.edition`**.
+* **`ArchiveConfig`** — archive **topology** (grid/CVT/graph), **resolution** (bins/centroids), **K‑capacity**, **`InsertionPolicyRef`** (elite replacement/dedup/novelty), and **`DistanceDefRef.edition`** (declare **metric/pseudometric** status and invariances; any normalisation **MUST** cite lawful scale transforms in **CG‑Spec**); legality follows CG‑Spec.
 * **`EmitterPolicyRef`** — pointer to emitter/governor policy (C.19) applicable to this TaskSignature; **edition id** recorded.
 * **`DominancePolicy`** — a closed enum registered at UTS: `{ParetoOnly | ParetoPlusIllumination}`. **Default = `ParetoOnly`**; illumination **does not** enter dominance unless **CAL** enables `ParetoPlusIllumination` explicitly (policy id cited).
 * **`IlluminationSummary`** — a **gauge over `Diversity_P`**; **reported** in telemetry by default and **excluded from dominance** unless **CAL** authorises `ParetoPlusIllumination` (policy id cited).
@@ -19062,7 +19086,7 @@ Every field supports `unknown`; downstream **degrade/abstain/sandbox** behavior 
 Emit a **ProblemProfile** (…Description) that carries the bound TaskSignature, **UTS** Name Cards for any minted values (twin labels), and SCR‑visible provenance (A.10 anchors, lane tags, freshness, **ReferencePlane**). **Mark any vendor/tool examples as Plain‑register only (LEX V‑4); they are non‑normative.**
 
 #### 5.7 Open‑Ended tasks (GeneratorFamily) *(normative)*.
-If the problem requires **open‑ended generation** of tasks/environments, S2 **SHALL** include `GeneratorIntent` with pointers to **`EnvironmentValidityRegion`** (lawful support of generated environments), **`TransferRulesRef`** (cross‑environment transfer constraints), and **coverage/regret** telemetry expectations. Selector outputs are then portfolios over **{environment, method}**; **coverage** and **IlluminationSummary** are **gauges** (reported) unless **CAL** authorises their participation in dominance (see `DominancePolicy`). Edition increments of **BehaviorSpaceRef**/**DistanceDef** and the **policy‑id** that caused illumination increases **SHALL** be recorded in SCR.
+If the problem requires **open‑ended generation** of tasks/environments, S2 **SHALL** include `GeneratorIntent` with pointers to **`EnvironmentValidityRegion`** (lawful support of generated environments), **`TransferRulesRef`** (cross‑environment transfer constraints), and **coverage/regret** telemetry expectations. Selector outputs are then portfolios over **{environment, method}**; **coverage** and **IlluminationSummary** are **gauges** (reported) unless **CAL** authorises their participation in dominance (see `DominancePolicy`). Edition increments of **CharacteristicSpaceRef.edition**/**DistanceDefRef.edition** and the **policy‑id** that caused illumination increases **SHALL** be recorded in SCR.
 
 
 ### 6) Archetypal Grounding (Tell–Show–Show)
@@ -19080,8 +19104,8 @@ If the problem requires **open‑ended generation** of tasks/environments, S2 **
 > *Contemporary anchors (informative):* modern **Julia** ecosystems illustrate the “**general call outside, specialised implementations inside**” ethos (e.g., DifferentialEquations.jl, JuMP), aligning with C.22→G.5 multi‑method dispatch under NFL.
 
 **C. Quality‑Diversity portfolio (illumination).**
-*ProblemProfile.* `DataShape=policy‑search; ObjectiveProfile={↑reward@ratio, ↑coverage@ratio (report‑only)}, DominancePolicy=ParetoOnly, PortfolioMode=Archive, BehaviorSpaceRef(d=3, axes=CHR‑typed), ArchiveConfig(grid, res=32×32×16, K=1, InsertionPolicy=elite‑replace, DistanceDef=v1), EmitterPolicyRef=v2, Budgeting{eval=1e6}, TelemetryHooks{PathSliceId=…}`.
-*Binding.* Selector may return an **archive**; **coverage/illumination** are **reported** but **excluded** from dominance (default). Any change of `DistanceDef`/Emitter policy is **editioned** and logged in SCR.
+*ProblemProfile.* `DataShape=policy‑search; ObjectiveProfile={↑reward@ratio, ↑coverage@ratio (report‑only)}, DominancePolicy=ParetoOnly, PortfolioMode=Archive, CharacteristicSpaceRef(d=3, characteristics=CHR‑typed), ArchiveConfig(grid, res=32×32×16, K=1, InsertionPolicyRef=elite‑replace, DistanceDefRef.edition=v1), EmitterPolicyRef=v2, Budgeting{eval=1e6}, TelemetryHooks{PathSliceId=…}`.
+*Binding.* Selector may return an **archive**; **coverage/illumination** are **reported** but **excluded** from dominance (default). Any change of `DistanceDefRef.edition`/Emitter policy is **editioned** and logged in SCR.
 
 **D. Open‑ended environment generation (POET‑class).**
 *ProblemProfile.* `GeneratorIntent{GeneratorFamilyRef=…, EnvironmentValidityRegion=… (CHR‑typed), TransferRulesRef=…, CoverageMetric=…}`, `PortfolioMode=Archive`.
@@ -19118,20 +19142,20 @@ If the problem requires **open‑ended generation** of tasks/environments, S2 **
 8. **ATS crossings published.** Any AT0↔AT1↔AT2 reuse emits **BridgeDescription + UTS row** with CL notes and planes. 
 9. **UTS twin labels.** All exported cards publish **Name Cards** with twin labels; Bridges carry loss notes. 
 10. **ATS harness.** **AH‑1..AH‑4** (E.11) checks pass for: TierClassifier, GateCheck, LaneCheck, LexicalCheck on the published TaskSignature and crossings.
-11. **QD fields (when QD is in scope).** If `PortfolioMode=Archive` or QD heads are present, **BehaviorSpaceRef** (d≥2), **ArchiveConfig** (topology, resolution, K, `InsertionPolicyRef`, `DistanceDef` with **edition id**), and **EmitterPolicyRef** **SHALL** be present and CHR‑typed; axes declare **ReferencePlane**.
+11. **QD fields (when QD is in scope).** If `PortfolioMode=Archive` or QD heads are present, **CharacteristicSpaceRef** (d≥2), **ArchiveConfig** (topology, resolution, K, `InsertionPolicyRef`, `DistanceDefRef.edition`), and **EmitterPolicyRef** **SHALL** be present and CHR‑typed; characteristics declare **ReferencePlane**.
 12. **DominancePolicy default.** `DominancePolicy` **defaults to `ParetoOnly`**; inclusion of illumination in dominance **MUST** be enabled by a **CAL.Acceptance policy**; the policy id **SHALL** be published in SCR.
-13. **Telemetry.** **PathSliceId**, **refresh/decay policies**, and **edition counters** for **BehaviorSpaceRef**/**DistanceDef**/**EmitterPolicyRef** **SHALL** be recorded; any illumination increase **SHALL** log the **policy‑id** that triggered it.
+13. **Telemetry.** **PathSliceId**, **refresh/decay policies**, and **edition counters** for **CharacteristicSpaceRef**/**DistanceDefRef**/**EmitterPolicyRef** **SHALL** be recorded; any illumination increase **SHALL** log the **policy‑id** that triggered it.
 14. **GeneratorIntent (when OEE is in scope).** `GeneratorIntent` **SHALL** cite **`EnvironmentValidityRegion`** and **`TransferRulesRef`** (ids resolvable in G.5/C.23); absence ⇒ `Abstain` for OEE dispatch.
 15. **Budgets.** `Budgeting` (eval/time/batch) **SHALL** declare units and E/E‑LOG exploration budget id when used.
-16. **Archive legality.** `DistanceDef` and any novelty measures **SHALL** be CSLC‑lawful and **editioned**; illegal ops ⇒ **Abstain**.
+16. **Archive legality.** `DistanceDefRef.edition` and any novelty measures **SHALL** be CSLC‑lawful and **editioned**; illegal ops ⇒ **Abstain**.
 17. **Planes.** **ReferencePlane** **SHALL** be declared for all QD heads/axes; plane crossings apply **Φ\_plane** (penalty to **R** only).
 18. **Unknowns.** Unknown QD fields **map** to `{degrade|abstain|sandbox}`; no coercions.
 
 ### 10) Interfaces & Data Paths
 
-*Inputs.* `ProblemProfile` (…Description), CG‑Spec ids, Evidence anchors (A.10), D.CTX; (if QD) BehaviorSpace/Archive/Emitter configs; (if OEE) GeneratorIntent.
-*Produces.* `TaskSignature@Context` (S2) with provenance; **SCR‑visible** fields; UTS Name Cards for any minted traits; (if QD/OEE) archive/portfolio semantics and telemetry hooks declared.
-*Consumed by.* **G.5** (Eligibility/Selection kernel), **G.4** (Acceptance/Evidence), **C.23** (admit/degrade/abstain rules; maturity ladder).
++*Inputs.* `ProblemProfile` (…Description), CG‑Spec ids, Evidence anchors (A.10), D.CTX; (if QD) CharacteristicSpaceRef/ArchiveConfig/EmitterPolicyRef configs; (if OEE) GeneratorIntent.
+ *Produces.* `TaskSignature@Context` (S2) with provenance; **SCR‑visible** fields; UTS Name Cards for any minted traits; (if QD/OEE) archive/portfolio semantics and telemetry hooks declared.
+ *Consumed by.* **G.5** (Eligibility/Selection kernel), **G.4** (Acceptance/Evidence), **C.23** (admit/degrade/abstain rules; maturity ladder).
 
 ### 11) Consequences (informative)
 
@@ -19212,7 +19236,7 @@ with the following **branch obligations**:
 *Rationale:* selector legality requires the CG‑Spec gate to be explicit, not implicit in prose. Publish associated **ReferencePlane** notes alongside the consulted ids.
 
 **R0.QD — QD/OEE pre‑gates (if applicable).** If S2 declares **BehaviorSpaceRef/ArchiveConfig/EmitterPolicyRef** or `PortfolioMode=Archive`, verify:
-(i) **BehaviorSpaceRef** characteristics are CHR‑typed, d≥2, **ReferencePlane** per characteristic declared;
+(i) **CharacteristicSpaceRef** characteristics are CHR‑typed, d≥2, **ReferencePlane** per characteristic declared;
 (ii) **ArchiveConfig** is lawful (topology, resolution, **K**>0, `InsertionPolicyRef`, `DistanceDef` with **edition id** and declared metric/pseudometric status);
 (iii) **EmitterPolicyRef** present (with **edition id**);
  (iv) **DominancePolicy** present; if absent, **default= ParetoOnly**.
@@ -19242,7 +19266,7 @@ with the following **branch obligations**:
  (ii) verify **`TransferRulesRef`** exists; if `unknown` ⇒ `Degrade(scope‑narrow)` or `Abstain` per family policy;
  (iii) treat the selection surface as **pairs `{environment, method}`**; publish **coverage/regret** and **IlluminationSummary** as gauges (dominance participation per **R6**).
 
-**R8 — Telemetry & Refresh hooks.** On any illumination increase or archive change, publish **edition increments** for **BehaviorSpaceRef**/**DistanceDef** and the **policy‑id** (Emitter/Acceptance) that caused the change; expose **PathSliceId** for refresh/decay in SCR.
+**R8 — Telemetry & Refresh hooks.** On any illumination increase or archive change, publish **edition increments** for **CharacteristicSpaceRef**/**DistanceDefRef** and the **policy‑id** (Emitter/Acceptance) that caused the change; expose **PathSliceId** for refresh/decay in SCR.
 
 > *Aphorism.* **“Admit on lawfulness and sufficiency; degrade on uncertainty; abstain on illegality.”**
 
@@ -19310,7 +19334,7 @@ Publish a **`MethodFamily.MaturityCardDescription@Context`** (UTS enum ids; **Sc
 — *Science of Science* review (2018) supports the emphasis on replication/benchmarks in maturity assessment. ([Science][3])
 
 **Show‑3 · QD archive (policy search).**
-*S2 excerpt.* `PortfolioMode=Archive; BehaviorSpaceRef(d=2); ArchiveConfig(CVT, res=1k cells, K=1, DistanceDef=v2, InsertionPolicy=dyn‑elite); EmitterPolicyRef=v3; DominancePolicy=ParetoOnly`.
+*S2 excerpt.* `PortfolioMode=Archive; CharacteristicSpaceRef(d=2); ArchiveConfig(CVT, res=1k cells, K=1, DistanceDefRef.edition=v2, InsertionPolicyRef=dyn‑elite); EmitterPolicyRef=v3; DominancePolicy=ParetoOnly`.
 *Rules.* `Admit` returns an **archive**; illumination **reported**; changes to `DistanceDef`/Emitter **editioned** in SCR; dominance remains **ParetoOnly**.
 
 **Show‑4 · Open‑ended GeneratorFamily (POET‑class).**
@@ -19339,7 +19363,7 @@ Publish a **`MethodFamily.MaturityCardDescription@Context`** (UTS enum ids; **Sc
 | **CC‑C23.8** | Publish to **UTS** with twin labels; run **ATS AH‑1..AH‑4** on crossings (TierClassifier, GateCheck, LaneCheck, LexicalCheck).                                                             | Publication & ATS hygiene.                    |                                                                    |                        |
 | **CC‑C23.9** | All enumerations (e.g., `Degrade(mode)`, Maturity rungs) **SHALL** declare a **closed value set** and **Scale kind**, and be registered at UTS (LEX enum clarity).                          | Avoids lexical drift; lawful typing.          |                                                                    |                        |
 | **CC‑C23.10** | **RSCR tests** cover negative/refusal paths (illegal CHR ops; CG‑Spec gate fail; Bridge missing; **Φ table/policy‑id missing**; **AH‑4 lexical violations**); ensure **branch coverage** (Admit/Degrade/Abstain, unknown). |
-| **CC‑C23.11** | If QD fields are in scope, **R0.QD** **MUST** pass: lawful **BehaviorSpaceRef** (d≥2, axes typed, planes declared), **ArchiveConfig** (topology/resolution/K, `InsertionPolicyRef`, **editioned** `DistanceDef`), **EmitterPolicyRef** present. | QD legality gate. | |
+| **CC‑C23.11** | If QD fields are in scope, **R0.QD** **MUST** pass: lawful **CharacteristicSpaceRef** (d≥2, characteristics typed, planes declared per characteristic), **ArchiveConfig** (topology/resolution/K, `InsertionPolicyRef`, **editioned** `DistanceDef`), **EmitterPolicyRef** present. | QD legality gate. | |
 | **CC‑C23.12** | **DominancePolicy** **SHALL** default to `ParetoOnly`; switching to `ParetoPlusIllumination` **MUST** be authorised by **CAL** and cited by id in SCR.                                    | Prevents implicit scalarisation.              |                                                                    |                        |
 | **CC‑C23.13** | If `PortfolioMode=Archive`, LOG **MUST** allow archive outputs (R6) and publish **IlluminationSummary** as a gauge unless CAL opts‑in to dominance participation.                         | Lawful archive semantics.                     |                                                                    |                        |
 | **CC‑C23.14** | If `GeneratorIntent` present, **R7** **MUST** verify **EnvironmentValidityRegion** and **TransferRulesRef**; outputs are **{environment, method}** portfolios; coverage/regret telemetry published. | OEE legality & telemetry. | |
@@ -20904,7 +20928,7 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 
 ### 8.1 Reserved suffixes (gated by LEX.TokenClass and I/D/S)
 
-> **Use table as a whitelist.** Rows indicate **when** a suffix is permitted and **what it means**. “Layer gate” prevents I/D/S confusion; “Examples” are illustrative.
+> **Use tables as a whitelist.** Rows indicate **when** a suffix is permitted and **what it means**. “Layer gate” prevents I/D/S confusion; “Examples” are illustrative.
 
 | **Suffix**              | **Kind named** (object‑of‑talk)            | **Layer gate**                       | **LEX.TokenClass gate**         | **Examples**                                      | **Forbidden misuses (typical)**                                       |
 | ----------------------- | ------------------------------------------ | ------------------------------------ | ------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------- |
@@ -20927,12 +20951,24 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 | **`Requirement`**       | **Obligation at acceptance**               | D/S‑layer                            | KernelToken/ContextToken        | `LatencyRequirement`                              | Using as a role or capability.                                        |
 | **`BoundedContext`**    | **Context card**                           | (meta‑structural; not I/D/S)         | ContextToken                    | `ITIL_2020_BoundedContext`                        | Treating Context as domain; minting `U.*` inside a Context.           |
 
+| **Suffix** | **Lexical class** | **Meaning / Ontology** | **Where it lives** | **Examples / Notes** |
+|--- |--- |--- |--- |--- |
+| **Space** | Intensional kind | A typed **state space** (finite product of Characteristic×Scale slots); no procedures | Kernel A.19; CHR/space consumers | `CharacteristicSpace`, `CreativitySpace`. Edition of a Space is a **phase** of the episteme that defines it. |
+| **SpaceRef** | Pointer | Registry reference to a Space | Data fields / UTS | `CharacteristicSpaceRef`. Use **`.edition`** on the **Ref** when pinning a historical phase. |
+| **Map** | Intensional kind (method) | A **mapping method** from subjects to coordinates in a declared Space (encoder/featurizer) | Kernel/Method family (I‑layer), described/spec’d via I/D/S | `DescriptorMap` (declares invariances, corpus typing). Not a record or file. |
+| **MapRef** | Pointer | Registry reference to a **Map** | Data fields / UTS | `DescriptorMapRef`. Pin the method phase via **`DescriptorMapRef.edition`**. |
+| **Def** | S‑layer alias (CG‑Spec family) | A **definition/specification artifact** that fixes a **formula** or **distance** over a space; *synonym of …Spec* **within CG‑Spec registries only** | Part G (CG‑Spec family) | `DistanceDef` ≍ `DistanceSpec`. Prefer **…Spec** in new normative prose; **…Def** retained where already published. |
+| **DefRef** | Pointer | Registry reference to a **…Spec/…Def** | Data fields / UTS | `DistanceDefRef`. Use **`DistanceDefRef.edition`** to pin the exact formula edition. |
+| **Spec** | S‑layer | Testable invariants bound to acceptance harness (per E.10.D2) | S‑layer, Spec‑gated | Use for normative calculi and gauges. |
+| **Ref** | Pointer | **Reference** to a registry item (not the thing itself) | Data fields / UTS | `…Ref` **never** carries content; it only points. |
+| **Series** | Governance object | A **PhaseOf chain** (“editions”) for an episteme | Edition governance | `U.EditionSeries`. Holds immutability and provenance rules. |
+| **.edition** | Attribute (on **Ref**) | The **phase id** of the **referenced artifact**; attaches to `…Ref`, not to the artifact’s name | Data fields / UTS | Use `XRef.edition`, **not** bare `XEdition` fields. Lower camelCase for keys. |
+
 **Notes.**
 • **Kernel‑only ban list** remains in § 8.3.
 • **CHR guard:** the only token that may use the word *plane* is **CHR:ReferencePlane**.
 • **Axis/dimension metaphors** are deprecated; use **Characteristic / CharacteristicSpace** where an enumeration is intended (see § 7).
 
----
 
 ### 8.2 Forbidden suffixes & the DevOps Lexical Firewall
 
@@ -20944,7 +20980,13 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 
 **M‑P1 (Reserved prefixes).** `U.` reserved for **Kernel types**; `Γ_` for algebraic operators; `CAL/LOG/CHR` for **architheory packages**. Never mint `U.*` inside a Context.
 
-**M‑P2 (Edition markers).** Apply explicit edition/version markers to **Contexts** and to `MethodDescription` / `Service`—**not** to `Method` (e.g., `BPMN_2.0_BoundedContext`, `JS_Schedule_v4_MethodDescription`, `PassportIssuanceService_v2025`).
+**M‑P2 (Edition markers).** Apply explicit edition/version markers to **Contexts** and to `MethodDescription` / `Service`—**not** to `Method` (e.g., `BPMN_2.0_BoundedContext`, `JS_Schedule_v4_MethodDescription`, `PassportIssuanceService_v2025`).  Authors MAY annotate Context or Service names for didactics.
+**Norms (edition vs release vs version).**
+1) **edition** — the **content phase** of an episteme (Concept/Object/Symbol where Symbol‑only notation swaps do not force a phase). Lives in `U.EditionSeries`. Never embedded in labels (see R‑RD‑7); bind via data: `…Ref.edition`. 
+2) **release** — a **Work** of making a **Carrier** public; may carry tags/dates; does **not** change episteme identity or phase.
+3) **version** — a **tooling/carrier** identifier (file/package/code). Use only in Tooling/Pedagogy families; not in Core names.
+
+**Property discipline.** When a field pins a referenced artifact’s phase, write it as **`<Thing>Ref.edition`** (dot notation), never as a standalone `…Edition` key. E.g., replace `DHCMethodEdition` with `DHCMethodRef.edition`.
 
 ### 8.4 Morphology tests (apply with § 7 MG·DA)
 
@@ -22004,7 +22046,7 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 6. **Bridges are explicit.** Cross‑context sameness is never assumed; you declare a **Bridge** with CL/loss.
    Follow these six lines and SD (*Strict Distinction*) stops being an abstraction—you feel it in every sentence you write.
    
-# E.11 — Authoring‑Tier Scheme (ATS) \[A]
+## E.11 — Authoring‑Tier Scheme (ATS) \[A]
 
 *Tech token:* `AuthoringTierScheme` (**ATS**).
 
@@ -22012,13 +22054,13 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 
 **Register & scope.** Kernel pattern in Part E, applicable across FPF and reusable by Part G (architheory authoring) and Part C (discipline patterns), with guards per **E.10 (LEX‑BUNDLE)** and **C.20 §D.DISC**.
 
-## 1) Intent
+### 1) Intent
 
-Provide a **uniform, testable classification Scheme** for acts of authoring in this project, preventing **normative token leakage** between layers of work, and requiring **explicit publication carriers** (`UTS` rows, `BridgeDescription`) for any crossing. The scheme aligns with **USM** by treating each tier as a distinct **Work** class and with **E.10** by enforcing head‑anchored naming and I/D/S morphology.
+Provide a **uniform, testable classification Scheme** for acts of authoring in this project, preventing **normative token leakage** between layers of work, and requiring **explicit publication carriers** (`UTS` rows, `BridgeCard`) for any crossing. The scheme aligns with **USM** by treating each tier as a distinct **Work** class and with **E.10** by enforcing head‑anchored naming and I/D/S morphology.
 
-**Wiring.** ATS is explicitly wired to **A.4 (Temporal Duality & Open‑Ended Evolution Principle)** and **B.4 (Observe→Refine→Deploy)**; the cognitive engine for authoring acts is **B.5/B.5.1 (Explore→Shape→Evidence→Operate)**. Keep **Working‑Model first (Tell–Show–Show)** to avoid gratuitous formalism (per **E.8**).
+**Wiring.** ATS is explicitly wired to **A.4 (Temporal Duality & Open‑Ended Evolution Principle)** and **B.4 (Observe→Refine→Deploy)**; the cognitive engine for authoring acts is **B.5/B.5.1 (Explore→Shape→Evidence→Operate)**. Keep **Working‑Model first (Tell–Show–Show)** to avoid gratuitous formalism (per **E.8**). **Telemetry/refresh is consumed by G.11 (PathSlice, decay, edition) via H2–H4/H7/H11 hooks.**
 
-## 2) Problem
+### 2) Problem
 
 Without a disciplined tiering of authoring work:
 
@@ -22027,7 +22069,7 @@ Without a disciplined tiering of authoring work:
 * **Evidence lanes** become non‑comparable; **CL (cross‑context loss)** is unmanaged.
 * **“Domain” labels** are mistaken for governance, and job‑title language creeps into kernel tokens.
 
-## 3) Forces
+### 3) Forces
 
 * **Separation of concerns.** Translation from applied problems to transdiscipline tasks must be distinct from architheory authoring and from meta‑authoring.
 * **Evidence comparability.** Evidence must run in **lanes** with **CL penalties** recorded and routed.
@@ -22035,15 +22077,15 @@ Without a disciplined tiering of authoring work:
 * **Lexical hygiene.** Head‑anchoring, I/D/S morphology, and Role/Holder/Carrier separation must hold across all tiers.
 * **Discipline vs Domain.** `U.Discipline` governs comparability **via CG‑Spec**, while **Domain** is catalog‑only and stitched to **D.CTX + UTS**.
 
-## 4) Solution — the Scheme
+### 4) Solution — the Scheme
 
-### 4.1 The four **AuthoringTier** levels (Tech heads; Plain twins in italics)
+#### 4.1 The four **AuthoringTier** levels (Tech heads; Plain twins in italics)
 
 **AT0 — `AppliedWork`** *(Plain twin: “Applied‑run”)*
 
 * **Work kind.** Execution of applied methods on situated problems, **outside** FPF’s transdiscipline scope.
 * **Typical outputs.** `RunObservation` *(run artefact; cf. `Observation`)*, `WorkLogCarrier`, optional `RunbookMethodDescription`.
-* **Normative status inside FPF.** **Non‑normative** to higher tiers; may **inform** AT1 through a **`BridgeDescription`** with CL notes.
+**Normative status inside FPF.** **Non‑normative** to higher tiers; may **inform** AT1 through a **`BridgeCard`** with CL notes.
 
 * **Roles.** `ExecutorRole`, `OperatorRole`; **Holders** are concrete holons (teams/systems).
 * **Conformance note.** AT0 tokens **MUST NOT** assert norms for AT1–AT3; **`Work` stays execution‑only**, plans/logs/recipes are modeled as `WorkPlan`/Carriers/`MethodDescription`.
@@ -22052,18 +22094,19 @@ Without a disciplined tiering of authoring work:
 
 * **Work kind.** Translation of applied problems into **Tasks** and **SoTA‑about‑methods**: methods **about** applied methods.
 * **Typical outputs.** `TaskPack`, `TranslationMethodDescription`, `DesignRationaleDescription`.
-* **Normative status.** Normative **within AT1**; AT1 tokens **MAY** cite AT0 only through **BridgeDescription** with CL captured.
+* **Normative status.** Normative **within AT1**; AT1 tokens **MAY** cite AT0 only through **BridgeCard** with CL captured.
 * **Roles.** `DesignerRole`, `TranslatorRole`; **Holders** typed to a `U.BoundedContext`.
 * **Scope relation to C.20.** When AT1 uses a discipline, name it as `U.Discipline` (Holon) and place comparison rules in its **CG‑Spec**; **no norms on Domain labels** (stitch Domain mentions to **D.CTX + UTS**).
 
 **AT2 — `ArchitheoryAuthoringWork`** *(Plain twin: “Architheory‑authoring”)*
 
 * **Work kind.** Production of the **SoTA Architheory Pack** used in Part G authoring.
-* **Typical outputs.** `ArchitheoryPack`, `GaugeSpec`, `InvariantSetDescription`, `BridgeDescription` (AT1↔AT2).
+* **Typical outputs.** `ArchitheoryPack`, `GaugeSpec`, `InvariantSetDescription`, `BridgeCard` (AT1↔AT2).
 * **Normative status.** AT2 defines the **architheory norm set** (CAL/CHR/LOG) that **feeds** F/G reasoning; it **does not mutate Kernel types** and respects **unidirectional meaning** (Kernel → Architheory → Context → Instance).
+* **Portfolio‑aware constraint.** AT2 **MUST** treat **“one signature → many specialisations”** as the norm: do **not** embed **global thresholds** or **forced scalarisations** inside architheory text; selection remains **set‑valued** (Pareto/Archive) under **G.5**, with dominance governed by **CAL** policies. Any maturity floors **SHALL** be expressed via **`CAL.AcceptanceClause`** (clause id cited), not inside LOG.
 * **Roles.** `AuthorRole`, `AssessorRole` (review within AT2), `StewardRole` (pack upkeep).
-* **Cross‑tier references.** Cite AT1 only through `BridgeDescription` with CL captured.
-* **Evidence.** Uses **KD‑CAL** with **CL→R only**: any loss from cross‑context reuse **reduces Assurance (R)** without mutating F/G invariants.
+* **Cross‑tier references.** Cite AT1 only through `BridgeCard` with CL captured.
+* **Evidence.** Publishes **UTS rows** for visibility and **BridgeCard** for any cross‑tier references.
 
 **AT3 — `MetaAuthoringWork`** *(Plain twin: “Meta‑authoring”)*
 
@@ -22075,44 +22118,51 @@ Without a disciplined tiering of authoring work:
 
 > **USM alignment.** Each AT\* is a **Work** class (USM *act*). Tokens produced at a tier are **typed** to that tier’s Work class and **obey E.10** lexical governance.
 
-## 5) Gate‑crossings & Evidence lanes
+### 5) Gate‑crossings & Evidence lanes
 
-### 5.1 Gate‑crossing requirement
+#### 5.1 Gate‑crossing requirement
 
 A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST** be recorded as:
 
 1. a **`BridgeCard`** linking source tokens to target tokens (with **Bridge id** and **CL** loss notes), and
-2. a **UTS row** listing: SourceTier, TargetTier, `ContextId` (from **D.CTX**), Bridge id, CL notes, **ReferencePlane** (source/target), **CL^plane note (if applied)**, steward Holder, and twin labels.
+2. a **UTS row** listing: SourceTier, TargetTier, `ContextId` (from **D.CTX**), **Bridge id**, **bridgeChannel ∈ {Scope, Kind}**, **CL** (and **CL^k** if a **KindBridge** is used) with loss notes, **ReferencePlane**(source/target), **CL^plane** (if planes differ), steward Holder, and twin labels.
 
 **ReferencePlane guard.** When a GateCrossing touches differing planes `{world|concept|episteme}`, compute and publish **CL^plane** (policy‑id + loss note) alongside CL.
-**No implicit crossings.** Mentions without a **`BridgeDescription` + UTS row** are **non‑conformant**.
+* **Evidence.** Publishes **UTS rows** for visibility and **BridgeCard** for any cross‑tier references.
 
-### 5.2 Evidence lanes & CL routing
+#### 5.2 Evidence lanes & CL routing
 
 * **Lane separation.** Keep **Form (F)**, **Grounding (G)**, **Assurance (R)** evidence **disentangled** across all tiers (publish lanes explicitly).
-* **CL routing.** Under **KD‑CAL**, **CL penalties route to R only** and **MUST NOT** mutate F/G invariants. When planes differ, apply **CL^plane** in the assurance penalty; both **Φ(CL)** and (if present) **Φ_plane** MUST be **monotone** and **table‑backed**; report them in SCR.
+* **CL routing.** Under **KD‑CAL**, **CL/CL^k/CL^plane penalties route to R only** and **MUST NOT** mutate F/G invariants. When planes differ, apply **CL^plane** in the assurance penalty; **Φ(CL)**/**Ψ(CL^k)**/**Φ_plane** MUST be **monotone** and **table‑backed**; publish **policy‑ids** in SCR.
 * **Lane provenance.** Each evidence item carries: `LaneId`, `SourceTier`, `ContextId`, `BridgeId` (if imported), **ReferencePlane**, and (if applicable) **CL^plane**.
 
-## 6) Interfaces to **C.20 §D.DISC** and **D.CTX / UTS**
+#### 5.3 Telemetry & Refresh hooks (normative)
+
+* **Sentinel registration.** Every GateCrossing **MUST** register the **Bridge id** on a **PathSlice watch‑list**; edits to **CL/CL^k/CL^plane** or relevant **Φ/Ψ policy‑ids** **MUST** trigger **path‑local RSCR** and schedule **PathSlice** refresh (Γ_time × plane), not pack‑wide reruns.
+* **Edition awareness.** Where Bridges reference **`U.DescriptorMapRef`**, **`DistanceDefRef`**, or **`InsertionPolicyRef`** (for archives), any **edition change** **MUST** be published to Telemetry and **MUST** trigger the same path‑local refresh.
+* **Dominance policy.** **Illumination/QD signals do not alter dominance by default**; `DominancePolicy` **defaults to `ParetoOnly`**. Participation of illumination in dominance **MUST** be authorised by a **CAL policy** and **MUST** be cited by policy‑id in SCR.
+* **Open‑Ended (GeneratorFamily) crossings.** Where a GateCrossing imports evidence from **`GeneratorFamily`** flows (POET‑class) — e.g., **`EnvironmentValidityRegion`** or **`TransferRulesRef`** — **register the Bridge id on the PathSlice watch‑list**; any **`…Ref.edition`** change **MUST** be published to Telemetry and **MUST** trigger a **path‑local RSCR/refresh**. Report **`IlluminationSummary`** as a **gauge**; dominance remains unaffected unless a **CAL** policy promotes it (policy‑id cited).
+
+### 6) Interfaces to **C.20 §D.DISC** and **D.CTX / UTS**
 
 * **Discipline usage.** When referencing a field (e.g., “Transdiscipline”), name it as **`U.Discipline` (Holon)**. Put comparability/aggregation in its **CG‑Spec**; do **not** attach norms to a **Domain** label.
 * **Domain as catalog mark.** If “Domain” appears, **stitch** it to an **enumerated set of `U.BoundedContext` ids** (per **D.CTX**) and publish **UTS twins**. **Domain carries zero governance.** **Do not attach TaskSignature governance to Domain**; attach comparability/aggregation norms to the **CG‑Spec of U.Discipline**. C.22 **KindSet** supplies aboutness; **USM** supplies Scope.
 * **Traditions vs “Traditions.”** Sub‑disciplinary “Traditions” appear as **`Tradition`** tokens (Tech). Keep “Tradition” only as a **Plain twin** with a twin‑label.
 
-## 7) Roles, Holders, and Carriers (holonic separation)
+### 7) Roles, Holders, and Carriers (holonic separation)
 
 * **Role tokens.** `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`.
 * **Holders.** Use **`Holder#…Role:ContextId`** to type a role assumption, e.g., `Team‑Alpha is Holder#AuthorRole:Architheory‑Lab‑G`.
 * **Carriers.** Use **Carrier** for systems that **bear epistemes**: `ArchitheoryPackCarrier`, `UTSRegisterCarrier`, `BridgeRegisterCarrier`.
 * **Canonical rewrites.** Legacy `…CarrierRole` → **`Holder#…Role:Context`** (SCR‑LEX).
 
-## 8) I/D/S morphology (applied here)
+### 8) I/D/S morphology (applied here)
 
 * **Intension.** `AuthoringTierScheme` (the Scheme itself).
 * **Description.** `AuthoringTierSchemeDescription` (this pattern text).
 * **Spec (optional, testable).** `AuthoringTierSchemeSpec` — when acceptance criteria and harnesses per **E.10.D2** are published. See §9.
 
-## 9) Conformance (normative)
+### 9) Conformance (normative)
 
 **C1 — Head‑anchoring.** All tokens minted under this Scheme **MUST** use explicit heads (`Work`, `MethodDescription`, `Pack`, `Spec`, `FlowDescription`, `BridgeCard`, `…Role`, `…Carrier`) and declare **`LEX.TokenClass`**. Figurative heads (e.g., “Ladder”) are **Plain only** with a 1:1 twin to the Tech token.
 
@@ -22122,7 +22172,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 
 **C4 — Tier containment.**
 
-* **C4.1.** Tokens minted at AT0–AT3 are **scoped** to their tier; **normative content MUST NOT leak** to another tier **without** a `BridgeDescription` and **UTS row**.
+* **C4.1.** Tokens minted at AT0–AT3 are **scoped** to their tier; **normative content MUST NOT leak** to another tier **without** a `BridgeCard` and **UTS row**.
 * **C4.2.** AT3 (MetaAuthoring) **MUST NOT** override AT2 invariants; it may only constrain execution/coordination.
 
 **C5 — Evidence lanes.** Publish F/G/R lanes; **route CL→R only**, record **Φ(CL)** and (if applicable) **Φ_plane**; **no F/G mutation**. Provenance includes **ReferencePlane** on crossings.
@@ -22132,33 +22182,35 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **C6.1.** `U.Discipline` is a **Holon**; comparability rules live in **CG‑Spec**.
 * **C6.2.** Any **Domain** mention must include the D.CTX projection and **UTS twins**; **no norms on Domain**.
 
-**C7 — Gate‑crossings.** Every cross‑tier reuse **MUST** provide: `BridgeCard` + `UTS` row (with **ReferencePlane** + optional **CL^plane**). No implied crossings.
+**C7 — Gate‑crossings.** Every cross‑tier reuse **MUST** provide: `BridgeCard` + `UTS` row (with **ReferencePlane**, **bridgeChannel**, **CL**/**CL^k?**, and **CL^plane** where applicable). No implied crossings.
 
 **C8 — Minimal publication set.**
 
-* AT0↔AT1: `BridgeDescription`, `TaskPack` (AT1), CL notes, UTS row.
-* AT1↔AT2: `BridgeDescription`, `ArchitheoryPack` (AT2), lane mapping, UTS row.
-* AT2↔AT3: `BridgeDescription`, `CoordinationFlowDescription` (AT3), `AuthoringPolicySpec` (if present), UTS row.
+* AT0↔AT1: `BridgeCard`, `TaskPack` (AT1), CL notes, UTS row.
+* AT1↔AT2: `BridgeCard`, `ArchitheoryPack` (AT2), lane mapping, UTS row.
+* AT2↔AT3: `BridgeCard`, `CoordinationFlowDescription` (AT3), `AuthoringPolicySpec` (if present), UTS row.
+
+**C9 — ATS harness is blocking.** Failures of **AH‑1..AH‑4** *(Classifier, Gate, Lane, Lexical)* **SHALL** block publication under this Scheme; a non‑conformant crossing **MUST NOT** be consumable by **G.4/G.5**. Record the failure as an **SCR** defect with a remediation note.
 
 **Acceptance harness skeleton (for `AuthoringTierSchemeSpec`).**
 
 * **AH‑1 (Classifier).** A deterministic classifier that maps a candidate **Work** record to {AT0|AT1|AT2|AT3} based on its **object‑of‑talk**, outputs, lane types, and declared Roles.
-* **AH‑2 (Gate check).** Given a citation across tiers, verifier **MUST** find a `BridgeDescription` and matching **UTS row**.
-* **AH‑3 (Lane check).** Verifier **MUST** observe **CL→R only**, **F/G invariants unchanged**, and — where planes differ — **CL^plane** presence with **Φ_plane** monotone/bounded and table‑backed; SCR shows **R_eff** as a function of Φ terms.
+* **AH‑2 (Gate check).** Given a citation across tiers, verifier **MUST** find a `BridgeCard` and matching **UTS row**; **if `bridgeChannel=Kind`, `CL^k` MUST be present** and **Ψ‑policy id** is visible in SCR.
+* **AH‑3 (Lane check).** Verifier **MUST** observe **CL/CL^k/CL^plane → R only**, **F/G invariants unchanged**, and — where planes differ — **CL^plane** presence with **Φ_plane** monotone/bounded and table‑backed; SCR shows **R_eff** as a function of Φ/Ψ terms.
 * **AH‑4 (Lexical check).** Head‑anchoring + I/D/S + Role/Holon separation checks (SCR‑LEX).
 
-## 10) Structure (informative)
+### 10) Structure (informative)
 
 ### 10.1 Typing table
 
 | Tier    | Work head (Tech)            | Typical outputs (Tech heads)                                                       | Evidence lane policy                        | Crossing rule                               |
 | ------- | --------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
 | **AT0** | `AppliedWork`               | `RunObservation`, `WorkLogCarrier`, `RunbookMethodDescription`                     | Non‑normative to higher tiers               | `BridgeCard` + UTS for import to AT1        |
-| **AT1** | `TransdisciplineDesignWork` | `TaskPack`, `TranslationMethodDescription`, `DesignRationaleDescription`           | CL from AT0 import → **R**                  | `BridgeDescription` + UTS for import to AT2 |
+| **AT1** | `TransdisciplineDesignWork` | `TaskPack`, `TranslationMethodDescription`, `DesignRationaleDescription`           | CL from AT0 import → **R**                  | `BridgeCard` + UTS for import to AT2        |
 | **AT2** | `ArchitheoryAuthoringWork`  | `ArchitheoryPack`, `GaugeSpec`, `InvariantSetDescription`                          | CL from AT1 import → **R**                  | `BridgeCard` + UTS for AT3 use              |
 | **AT3** | `MetaAuthoringWork`         | `CoordinationFlowDescription`, `AuthoringPolicySpec`, `PublicationPlanDescription` | Publishes lanes; **does not** alter AT2 F/G | Records UTS; cannot change AT2 invariants   |
 
-### 10.2 Role map (examples)
+#### 10.2 Role map (examples)
 
 * `Holder#DesignerRole:Context‑X` (AT1), `Holder#AuthorRole:Architheory‑Lab` (AT2), `Holder#CoordinatorRole:Program‑G` (AT3).
 * `Holder` is always typed to a `U.BoundedContext`.
@@ -22166,7 +22218,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 
 ---
 
-## 11) Examples (cross‑arena, MG·DA compliant)
+### 11) Examples (cross‑arena, MG·DA compliant)
 
 1. **Software engineering.** AT0: `RunObservation: CI‑Run‑4711`. AT1: `TaskPack: Refactoring‑Targets`. AT2: `ArchitheoryPack: Modularity‑Gauges` + `GaugeSpec: Coupling/Coherence`. AT3: `AuthoringPolicySpec: Pack‑Update‑Cadence`. Crossings logged with `BridgeCard` and UTS; CL from AT1→AT2 routed to **R**.
 
@@ -22174,9 +22226,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 
 3. **Operations research.** AT0: `RunResultDescription: Route‑Plan‑Day‑7`. AT1: `TaskPack: Routing‑Abstractions`. AT2: `GaugeSpec: Cost‑Elasticity`. AT3: `AuthoringPolicySpec: Evidence‑Lane‑Publishing`. All imports bridged; CL→R only.
 
----
-
-## 12) Anti‑patterns & canonical rewrites
+### 12) Anti‑patterns & canonical rewrites
 
 * **“Process ladder”** → Use **Work** heads: `AppliedWork`, `TransdisciplineDesignWork`, etc.
 * **“Domain governance”** → Move rules into a **`Discipline CG‑Spec`**; keep Domain as catalog mark with D.CTX + UTS stitching.
@@ -22184,17 +22234,13 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **`…CarrierRole` (legacy)** → `Holder#…Role:Context`.
 * **“Tradition”** → `Tradition` (Tech); keep “Tradition” only as Plain twin with twin‑label to the `Tradition`.
 
----
-
-## 13) Quality hooks & metrics (informative)
+### 13) Quality hooks & metrics (informative)
 
 * **Q1. Tier purity.** Share of tokens whose **SourceTier == TargetTier** (no crossing).
-* **Q2. Crossing completeness.** % of cross‑tier citations with `BridgeDescription` + UTS.
+* **Q2. Crossing completeness.** % of cross‑tier citations with `BridgeCard` + UTS.
 * **Q3. CL hygiene.** % of imported evidence with CL routed to **R** and explicit loss notes.
 * **Q4. Lexical conformance.** % tokens passing **SCR‑LEX** (head‑anchoring, I/D/S, Role/Holon separation).
 * **Q5. Publication latency.** Median time between citation and UTS row publication.
-
----
 
 ## 14) Implementation notes
 
@@ -22209,7 +22255,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 **Publication discipline.** Keep a **`BridgeRegisterCarrier`** and a **`UTSRegisterCarrier`** controlled by `Holder#StewardRole:Program‑X`.
  Record twin labels on UTS rows.
 
-## 15) Related patterns
+### 15) Related patterns
 
 * **A.4** — Temporal Duality & Open‑Ended Evolution Principle (time‑split of design/run).
 * **B.4** — Canonical Evolution Loop (Observe→Refine→Deploy) governs ATS change/refresh cadence.
@@ -22222,32 +22268,33 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **C.20 §D.DISC** — Discipline CAL lexical guard (Holon, CG‑Spec, Domain stitching).
 * **D.CTX** — Context enumeration and stitching.
 
-## 16) Glossary (tokens minted or stabilised here)
+### 16) Glossary (tokens minted or stabilised here)
 
 * `AuthoringTierScheme` · `AuthoringTierSchemeDescription` · `AuthoringTierSchemeSpec`
-* `AppliedWork` (AT0) · `TransdisciplineDesignWork` (AT1) · `ArchitheoryGenerationWork` (AT2) · `MetaAuthoringWork` (AT3)
+* `AppliedWork` (AT0) · `TransdisciplineDesignWork` (AT1) · `ArchitheoryAuthoringWork` (AT2) · `MetaAuthoringWork` (AT3)
 * `TaskPack` · `ArchitheoryPack` · `GaugeSpec` · `InvariantSetDescription`
-* `BridgeDescription` · `UTS row` (PublicationCarrier entry) · `BridgeRegisterCarrier` · `UTSRegisterCarrier`
+* `BridgeCard` · `UTS row` (PublicationCarrier entry) · `BridgeRegisterCarrier` · `UTSRegisterCarrier`
 * Roles: `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`
 * Lane markers: `F‑lane`, `G‑lane`, `R‑lane` · `CL` (conformance loss) with **CL→R only**
 
-## 17) Lexical/Conformance checklist (quick use)
+### 17) Lexical/Conformance checklist (quick use)
 
 * **Head‑anchoring:** All heads signal kind (System/Holon/Work/Method/Pack/Spec/Description/Role/Carrier).
 * **I/D/S morphology:** `…Description` vs `…Spec` used correctly; acceptance harness only for `…Spec`.
 * **Role vs Holder vs Carrier:** `Holder#…Role:ContextId`; Carriers bear epistemes; no `…CarrierRole`.
 * **Object‑of‑talk stated** in first line for every new token.
 * **Domain = catalog mark only;** stitched to D.CTX + UTS; comparability in **CG‑Spec** of a `U.Discipline`.
-* **Gate‑crossings published:** `BridgeDescription` + **UTS row** always present.
+* **Gate‑crossings published:** `BridgeCard` + **UTS row** always present.
 * **Evidence lanes:** F/G/R separated; **CL→R only**; provenance recorded.
 * **Plain twins:** Figurative heads (e.g., “Ladder”, job titles, “Tradition”) also corrected by a twin plane lexical discipline.
+* **No minted `U.Type` “Strategy”.** Treat **strategy/policy** as compositions/lenses in **G.5** under **E/E‑LOG**; keep “strategy” in the **Plain** register only.
 
 ### 18) Minimal worked “publish set” (ready‑to‑use)
 
 1. **Mint** `AuthoringTierSchemeDescription` (this pattern).
 2. **Optionally mint** `AuthoringTierSchemeSpec` with AH‑1…AH‑4 harnesses (per E.10.D2).
 3. **Set up carriers:** `BridgeRegisterCarrier`, `UTSRegisterCarrier`.
-4. **Start registering crossings:** whenever AT0 informs AT1, AT1 informs AT2, or AT3 organises AT2, publish a **`BridgeDescription`** with CL notes and a **UTS row**.
+4. **Start registering crossings:** whenever AT0 informs AT1, AT1 informs AT2, or AT3 organises AT2, publish a **`BridgeCard`** with CL notes and a **UTS row**; register the Bridge on the **PathSlice sentinel watch‑list**.
 
 ### **Pattern E.12 — Didactic Primacy & Cognitive Ergonomics \[A] 
 
@@ -22788,7 +22835,7 @@ LAT:
   context: FPF/Core, pattern: F.15, semver: x.y+1, delta-class: Δ‑2
   objectives: {clarity↑, universality↑, assurance-cost↓}
   SoTA-pack: {OpenAlex 2025‑Q3, SPECTER2‑23, DPP‑2019, MAP‑Elites‑2015+}
-  NQD-settings: {DescriptorSpace: domain‑family × …, grid: CVT@k=16}
+  NQD-settings: {CharacteristicSpace: domain‑family × …, grid: CVT@k=16}
   candidates: K=4 (wording of RSCR‑F04 & gates)
   bridge-ledger: none (intra‑canon refs only)
   assurance‑delta: ΔF=+, ΔG=+, ΔR=+ (after CL‑penalties=0)
@@ -29729,7 +29776,7 @@ CG‑Spec :=
   Illumination := ⟨
     Q_refs ⊆ Characteristics, D_refs ⊆ Characteristics,
     QD_score := definition (typed), ArchiveRef := U.DescriptorMapRef (Tech; d≥2),
-    InsertionPolicy, Edition := ⟨metricsEdition, DistanceDefRef⟩,
+    InsertionPolicy, Edition := ⟨DHCMethodRef.edition, DistanceDefRef.edition⟩,
     DominanceDefault := exclude, PromotionPolicy? := lens/policy‑id
   ⟩, // Illumination gauges Diversity_P and informs exploration; not part of dominance unless PromotionPolicy is named
 
@@ -29963,7 +30010,7 @@ RSCR:
 ### 1) Intent
 
 Provide a **repeatable generator scaffold** that **targets goldilocks slots (feasible‑but‑hard)** and records **abductive provenance** for candidate variants for a declared **CG‑Frame**, (a) assembles a **local SoTA set**, (b) **emits** well‑typed **variant candidates** for private cases, and (c) **selects & packages** the winners into the **F‑suite** (RoleDescription templates, Concept‑Sets, UTS rows, names) with explicit trust and scope.
-**Outputs (design‑time):** `AT1 TaskPack` + `VariantPool` + provenance (**A.10** anchors, **EmitterPolicyRef**) **+ per‑candidate SCR‑preview** (fields: **Φ(CL)/Φ_plane policy‑ids**, CL notes, ReferencePlane, UnknownHandling branch) **+ an ε‑Pareto front and an IlluminationSummary (pre‑thinning)** with **DescriptorMapRef**, **metricsEdition/DistanceDef**, and archive **InsertionPolicy (incl. K‑capacity/dedup)** recorded, ready for G.2/G.5.
+**Outputs (design‑time):** `AT1 TaskPack` + `VariantPool` + provenance (**A.10** anchors, **EmitterPolicyRef**) **+ per‑candidate SCR‑preview** (fields: **Φ(CL)/Φ_plane policy‑ids**, CL notes, ReferencePlane, UnknownHandling branch) **+ an ε‑Pareto front and an IlluminationSummary (pre‑thinning)** with **DescriptorMapRef**, **DHCMethodRef.edition/DistanceDef**, and archive **InsertionPolicy (incl. K‑capacity/dedup)** recorded, ready for G.2/G.5.
 
 ### 2) Problem frame (Design‑time vs Run‑time roles)
 
@@ -29973,9 +30020,9 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Local glossary:** *DRR* = Decision Rationale Record; *SCR* = Selection Confidence Report (fields: chosen family, eligibility verdicts, Γ‑fold contributors, CL penalties, R_eff); **MDS** = UTS metadata stub (Name Card + twin labels).
 
 **Terminology hook (ATS stance & governance).**
-— **AT0 (Applied‑run).** Execution outside FPF’s transdiscipline scope; AT0 imports into AT1 only via **BridgeDescription + UTS** with **CL** loss notes. AT0 tokens do not assert norms upstream (E.11 AH‑2).  
+— **AT0 (Applied‑run).** Execution outside FPF’s transdiscipline scope; AT0 imports into AT1 only via **BridgeCard + UTS** with **CL** loss notes. AT0 tokens do not assert norms upstream (E.11 AH‑2).  
 — **AT1 (Transdiscipline‑design).** Translation of applied problems into **TaskPack** and **methods‑about‑methods**; **comparability lives in a `U.Discipline` CG‑Spec** (not on Domain labels). Domain is catalog‑only, stitched to **D.CTX + UTS** (C.20; E.11 §6).  
-— **AT2 (Architheory authoring).** Publishes CHR/CAL/LOG packs; **CL penalties route to `R_eff` only**; F/G invariants unchanged (KD‑CAL; E.11 AH‑3).  
+— **AT2 (Architheory authoring).** Publishes CHR/CAL/LOG packs; **CL/CL^k/CL^plane penalties route to `R_eff` only**; F/G invariants unchanged (KD‑CAL; E.11 AH‑3).  
 — **AT3 (Meta‑authoring).** Organises AT2; **cannot override AT2 F/G** (E.11 table).  
 — **Strategy/policy.** Do **not** mint a new kernel head “Strategy”: strategy is a **composition inside G.5** under **E/E‑LOG**; keep “strategy” only in the Plain register where pedagogically useful (C.22 bias‑annotation).
 
@@ -30014,15 +30061,15 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 * **Inputs:** SoTA_Set; private constraints; resource envelopes
 * **Ops:** open‑ended emitters (**NQD‑CAL**, **d≥2 DescriptorMap**); policy governor (E/E‑LOG); **abductive trace** (B.5.2) with A.10 anchors per lane and **ReferencePlane** on claims. **Optional OEE branch:** register a **Task/Environment GeneratorFamily (POET‑class)** with `EnvironmentValidityRegion` and `TransferRules`; bind SoS‑LOG/Acceptance branches for environment evolution; **telemetry must record edition‑aware Illumination increases with policy‑id**.
 * **Scoring:** Creativity‑CHR characteristics (Novelty, Surprise, ConstraintFit, **Diversity**), **QD‑triad {Q, D, QD‑score}** per C.18; 
-* **Outputs:** `VariantPool` with **EmitterTrace** (who/why/where) **+ SCR‑per‑candidate preview** (constraints/gates consulted; CL notes; **Φ policy‑ids**; ReferencePlane; **UnknownHandling={pass|degrade|abstain}** recorded) **+ IlluminationSummary (DescriptorMapRef, metricsEdition, grid/binning)**.
+* **Outputs:** `VariantPool` with **EmitterTrace** (who/why/where) **+ SCR‑per‑candidate preview** (constraints/gates consulted; CL notes; **Φ policy‑ids**; ReferencePlane; **UnknownHandling={pass|degrade|abstain}** recorded) **+ IlluminationSummary (DescriptorMapRef, DHCMethodRef.edition, grid/binning)**.
 * **Guards:** explore↔exploit policy (C.19); SoD (A.2 `⊥`); no category leaks (A.7); **metric legality/typing per MM‑CHR (A.17–A.19/C.16)**; **unknowns are tri‑state with explicit failure policy {degrade|abstain|sandbox} recorded in the EmitterTrace/SCR‑preview**; if a score/aggregation implies cross‑candidate comparison, cite a registered **CG‑Spec.characteristic**; otherwise degrade to lawful orders (median/medoid/lexi) or **abstain**.
 
-DescriptorSpace includes a **domain‑family coordinate** (grid or CVT / Centroidal Voronoi Tessellation centroids) per F1‑Card. **Archive InsertionPolicy** and **DistanceDef** editions MUST be recorded. Pre‑front thinning MAY use DPP or submodular Max‑min under the **Heterogeneity‑first** lens. Record in provenance: sampler class & seed, family‑quota vector (incl. k), subFamilyDef id (if used), and **δ_family/DistanceDef** edition (via DescriptorMapRef).
+CharacteristicSpace includes a **domain‑family coordinate** (grid or CVT / Centroidal Voronoi Tessellation centroids) per F1‑Card. **Archive InsertionPolicy** and **DistanceDefRef** editions MUST be recorded. Pre‑front thinning MAY use DPP or submodular Max‑min under the **Heterogeneity‑first** lens. Record in provenance: sampler class & seed, family‑quota vector (incl. k), subFamilyDef id (if used), and **δ_family/DistanceDefRef.edition** (via DescriptorMapRef).
 
 **M4 · Selector & Assurer (fit‑for‑purpose)**
 
 * **Inputs:** VariantPool; acceptance clauses; risk constraints
-* **Ops:** evaluation & evidence (CAL hooks); **apply ConstraintFit=pass as an eligibility filter before any front computation**; compute an **ε‑Pareto front** (and/or archive under lawful partial orders) with **no forced scalarisation**; **Γ‑fold** aggregation (B.1); F–G–R roll‑up (B.3) with **CL→R only**; enforce **CG‑Spec.MinimalEvidence** for any characteristic used in evaluation; **keep thresholds in `G.4 CAL.Acceptance` (no thresholds in CHR/LOG)**; gate Γ‑fold contributors accordingly; when only ordinal semantics are lawful, avoid weighted sums and use lexicographic/median/medoid comparators; **surface Φ(CL)**/**Φ_plane** policy‑ids in SCR (per Pre‑flight); record **ε** and **metricsEdition** used for any front computation.
+* **Ops:** evaluation & evidence (CAL hooks); **apply ConstraintFit=pass as an eligibility filter before any front computation**; compute an **ε‑Pareto front** (and/or archive under lawful partial orders) with **no forced scalarisation**; **Γ‑fold** aggregation (B.1); F–G–R roll‑up (B.3) with **CL→R only**; enforce **CG‑Spec.MinimalEvidence** for any characteristic used in evaluation; **keep thresholds in `G.4 CAL.Acceptance` (no thresholds in CHR/LOG)**; gate Γ‑fold contributors accordingly; when only ordinal semantics are lawful, avoid weighted sums and use lexicographic/median/medoid comparators; **surface Φ(CL)**/**Φ_plane** policy‑ids in SCR (per Pre‑flight); record **ε** and **DHCMethodRef.edition** used for any front computation.
 * **Outputs:** `Shortlist` (**ε‑Pareto/Archive set**, not a singleton) with **Assurance tuples** ⟨F,G,**R_eff**⟩ + decision rationale (E.9 **DRR + SCR**, including **Φ(CL)/Φ_plane policy‑ids** and ReferencePlane on any penalised claim)
 * **Guards:** CL penalties for cross‑Context imports; ageing/decay (B.3.4); **SoD for approval; minimum‑R gates**.
 
@@ -30049,8 +30096,8 @@ DescriptorSpace includes a **domain‑family coordinate** (grid or CVT / Centroi
 | ------ | ------------------------------ | ----------------------------------------------------- |
 | M1     | CG-Frame brief                    | `CG-FrameContext` (+ CL policy, Γ‑fold)                  |
 | M2     | sources, criteria              | `SoTA_Set@CG-Frame`, UTS stubs                           |
-| M3     | SoTA_Set, private constraints | `VariantPool` (+ Creativity‑CHR scores, QD‑triad, IlluminationSummary, EmitterTrace, DescriptorMapRef/metricsEdition/DistanceDefRef) |
-| M4     | VariantPool, acceptance        | `Shortlist` (**ε‑Pareto/Archive set**; + ⟨F,G,R_eff⟩, DRR + SCR, **ε**, **metricsEdition/DistanceDefRef**) |
+| M3     | SoTA_Set, private constraints | `VariantPool` (+ Creativity‑CHR scores, QD‑triad, IlluminationSummary, EmitterTrace, DescriptorMapRef/DHCMethodRef.edition/DistanceDefRef) |
+| M4     | VariantPool, acceptance        | `Shortlist` (**ε‑Pareto/Archive set**; + ⟨F,G,R_eff⟩, DRR + SCR, **ε**, **DHCMethodRef.edition/DistanceDefRef**) |
 | M5     | Shortlist                      | RoleDesc templates, Concept‑Set rows, UTS rows, Name Cards |
 | M6     | DRR deltas, **telemetry (PathSlice, coverage/regret, policy‑ids Φ)** | Versioned `CG‑Kit@CG‑Frame`, refresh plan + **telemetry hooks** |
 
@@ -30080,11 +30127,11 @@ DescriptorSpace includes a **domain‑family coordinate** (grid or CVT / Centroi
 17. **Φ‑policies surfaced.** Wherever CL/CL^plane penalties are used, **Φ** policies are **monotone, bounded, table‑backed**, with **policy‑ids** in SCR; **R_eff ≥ 0** by construction (per Pre‑flight/G.0).
 18. **Unknowns are tri‑state.** Unknowns **propagate as {pass|degrade|abstain}** to Acceptance/Eligibility; **no `unknown→0/false` coercion**; behavior recorded in SCR.
 19. **ATS harness pass.** Published crossings pass **E.11 AH‑1..AH‑4** (TierClassifier, GateCheck, LaneCheck incl. **CL→R only** and **CL^plane** if planes differ, LexicalCheck).
-20. **Three‑family breadth (domains).** `SoTA_Set@CG‑Frame` spans **≥3 domain‑families** per A.8 (Exact/Natural/Eng&Tech/Formal/Social&Behavioural), with Bridge hygiene for any crossings. AND MinInterFamilyDistance ≥ δ_family (from F1‑Card); publish {FamilyCoverage, MinInterFamilyDistance, Diversity_P, IlluminationSummary} with explicit F1‑Card reference and **DistanceDef edition**.
-21. **QD‑triad evidence.** The generator **records** `Diversity_P` and **IlluminationSummary** for the triad used to motivate any “universal” UTS row or Core candidate; provenance includes `DescriptorMapRef`, **metricsEdition**, and grid/binning; **archive InsertionPolicy (K‑capacity/dedup)** is visible.
+20. **Three‑family breadth (domains).** `SoTA_Set@CG‑Frame` spans **≥3 domain‑families** per A.8 (Exact/Natural/Eng&Tech/Formal/Social&Behavioural), with Bridge hygiene for any crossings. AND MinInterFamilyDistance ≥ δ_family (from F1‑Card); publish {FamilyCoverage, MinInterFamilyDistance, Diversity_P, IlluminationSummary} with explicit F1‑Card reference and **DistanceDefRef.edition**.
+21. **QD‑triad evidence.** The generator **records** `Diversity_P` and **IlluminationSummary** for the triad used to motivate any “universal” UTS row or Core candidate; provenance includes `DescriptorMapRef`, **DHCMethodRef.edition**, and grid/binning; **archive InsertionPolicy (K‑capacity/dedup)** is visible.
 22. **Emitter trace includes coverage.** `EmitterTrace` (M3) **MUST** log triad coverage (IlluminationSummary) alongside ⟨F,G,R_eff⟩ and CL notes; promotion of illumination to dominance remains **forbidden by default** (policy‑opt‑in per C.19).
-23. **Variant Emitter.** DescriptorSpace MUST include a domain‑family coordinate when available from F1‑Card; use HET‑FIRST lens (C.19) before exploit lenses.
-24. **ε‑front recorded.** Any front computation **records ε and metricsEdition**, and **returns sets** (Pareto/Archive) under lawful partial orders; **no forced scalarisation**.
+23. **Variant Emitter.** CharacteristicSpace MUST include a domain‑family coordinate when available from F1‑Card; use HET‑FIRST lens (C.19) before exploit lenses.
+24. **ε‑front recorded.** Any front computation **records ε and DHCMethodRef.edition**, and **returns sets** (Pareto/Archive) under lawful partial orders; **no forced scalarisation**.
 25. **OEE branch legality.** When a **Task/Environment GeneratorFamily (POET‑class)** is used, publish `EnvironmentValidityRegion`, `TransferRules`, and the dedicated **SoS‑LOG/Acceptance** branches; **telemetry logs edition‑aware Illumination increases with Φ policy‑id**.
 
 
@@ -30100,8 +30147,8 @@ DescriptorSpace includes a **domain‑family coordinate** (grid or CVT / Centroi
 
 * **M1:** `CG-FrameContext=R&D_Decisions_2026` (Γ‑fold default = weakest‑link for safety; mean for cost where interval/ratio scales allow; CL≥2 for cross‑Context reuse).
 * **M2:** Harvest outranking, value models, portfolio fronts → SoTA_Set + UTS stubs.
-* **M3:** Emit variants under constraints (budget, risk, hiring cap) via **NQD (d≥2)**; record **IlluminationSummary** and **DescriptorMapRef/metricsEdition**; score by Creativity‑CHR and QD‑triad.
-* **M4:** Select with acceptance clauses (must meet safety reqs; cost within envelope) using an **ε‑Pareto/Archive** set (no scalarisation) + ⟨F,G,**R_eff**⟩; **emit DRR + SCR** with **ε/metricsEdition**.
+* **M3:** Emit variants under constraints (budget, risk, hiring cap) via **NQD (d≥2)**; record **IlluminationSummary** and **DescriptorMapRef/DHCMethodRef.edition**; score by Creativity‑CHR and QD‑triad.
+* **M4:** Select with acceptance clauses (must meet safety reqs; cost within envelope) using an **ε‑Pareto/Archive** set (no scalarisation) + ⟨F,G,**R_eff**⟩; **emit DRR + SCR** with **ε/DHCMethodRef.edition**.
 * **M5:** Publish RoleDesc templates (`DecisionRole`, `EvaluatorRole`), Concept‑Set rows for “Alternative/Option”, and UTS rows with **local names**.
 * **M6:** Version `VEK‑Pkg@R&D` with refresh every quarter; decay old evidence after 12 months.
 
@@ -30154,7 +30201,7 @@ How to **systematically** assemble a *complete‑enough* SoTA view that:
 * **Seed → Expand → Prune.** Start with canonical surveys & top venues (post‑2015); expand via forward/backward citation and method keywords; prune with *CG-Frame‑fit* and *load‑bearing* tests (does this claim change how we would model/decide?). Maintain a **PRISMA‑style flow** (identification→screening→eligibility→included) in the pack’s provenance.
 * **Contexting.** Assign each artifact to a **home Context** (Bounded Context + edition). If cross‑Context reuse is needed, draft a **Bridge** and a **CL** with a human‑legible *loss/fit* note.
 
-Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” claims; otherwise per lens policy and recorded in provenance) or MinInterFamilyDistance < δ_family (per F1‑Card edition) → expand search window/policies and rerun harvesting. **MUST record** `k`, the **F1‑Card id+edition**, and the `DistanceDef` edition in `SoTA_Set` provenance.
+Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” claims; otherwise per lens policy and recorded in provenance) or MinInterFamilyDistance < δ_family (per F1‑Card edition) → expand search window/policies and rerun harvesting. **MUST record** `k`, the **F1‑Card id+edition**, and the `DistanceDefRef.edition` in `SoTA_Set` provenance.
 
 **SoS‑indicators.** Where the literature offers Science-of-Science disciplinary indicators (replication, standardisation, disruptive balance, alignment) treat each as a **MethodFamily** with variants (calculation windows/constraints), not as a single scalar; record Acceptance branches for each variant.
 
@@ -30170,7 +30217,7 @@ Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” cla
 
 #### 4.4 Alignment & divergence map
 
-* Build a **Bridge Matrix**: `Tradition`×`Tradition` with where alignment is possible, **CL** and explicit **loss**; **note that CL penalties route to R_eff only (F and G invariant)**. Publish the **`DistanceDef` edition** used to compute inter‑family distances.
+* Build a **Bridge Matrix**: `Tradition`×`Tradition` with where alignment is possible, **CL** and explicit **loss**; **note that CL penalties route to R_eff only (F and G invariant)**. Publish the **`DistanceDefRef.edition`** used to compute inter‑family distances.
 
 #### 4.5 Didactic micro‑grounding & aboutness anchoring
 
@@ -30181,7 +30228,7 @@ Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” cla
 * **UTS delta.** Proposed **Name Cards** (Unified Tech / Plain) **with twin labels** (per F.17–F.18), Context, MDS, sense anchor, alignment/Bridges, lifecycle = *Draft*; **no new conceptual prefix without E.10 (LEX) and a DRR citation**; **use registered Γ‑fold family** (do not re‑use Γ for gauges).
 * **ReferencePlane** is published per row; on any crossing compute and record **CL^plane**; penalties **route to R_eff only** (never F/G).
 * **SoTA Tables.** Side‑by‑side claim sheets, operator lists, exemplar pointers, and **SoS‑indicator families** per Tradition/Context.
-**NQD/Illumination annex (if applicable).** For any QD‑style family, publish **Q/D/QD‑score** definitions, the **IlluminationSummary** (as a gauge over Diversity_P), its **edition id**, and the **policies** used: `DescriptorMapRef`, **`metricsEdition/DistanceDefRef`**, `EmitterPolicyRef`, and **`InsertionPolicyRef`** (archive dedup/elite replacement/`K`‑capacity). By default, **Illumination** does **not** enter dominance unless enabled by an explicit **CAL.Acceptance** policy.
+**NQD/Illumination annex (if applicable).** For any QD‑style family, publish **Q/D/QD‑score** definitions, the **IlluminationSummary** (as a gauge over Diversity_P), its **edition id**, and the **policies** used: `DescriptorMapRef.edition`, **`DHCMethodRef.edition`**, **`DistanceDefRef.edition`**, `EmitterPolicyRef`, and **`InsertionPolicyRef`** (archive dedup/elite replacement/`K`‑capacity). By default, **Illumination** does **not** enter dominance unless enabled by an explicit **CAL.Acceptance** policy.
 
 * **Risk & trust notes.** Where translation exists, log **CL penalties** and evidence fragility for later **R** aggregation; on any plane crossing publish the **Φ_plane policy‑id** alongside `CL^plane`.
 
@@ -30194,7 +30241,7 @@ Required artifact for top‑level disciplines: **SoTAPaletteDescription (D)**, a
 (v) **ReferencePlane per row**; **compute CL^plane** on crossings; **penalties → R_eff only**; **emit SCR** for each synthesis result.
 
  **G.2‑G (DHC hooks, C.21).** For each Tradition×Context, emit **DHC‑SenseCells** (UTS ids) and declare units for
-**AlignmentDensity = `bridges_per_100_DHC_SenseCells`**; count only Bridges with **CL ≥ 2**; interpret **CL=3** as *free substitution*, **CL=2** as *guarded* (loss notes attached). Publish **freshness windows** and the **edition** of all DHC series, including the **DistanceDef edition** wherever distances are used.
+**AlignmentDensity = `bridges_per_100_DHC_SenseCells`**; count only Bridges with **CL ≥ 2**; interpret **CL=3** as *free substitution*, **CL=2** as *guarded* (loss notes attached). Publish **freshness windows** and the **edition** of all DHC series, including the **DistanceDefRef.edition** wherever distances are used.
 
  Head‑anchoring + I/D/S; Plain twins present; tier crossings recorded (**Bridge + UTS** with **CL/CL^plane**); Domain mentions stitched to **D.CTX + UTS**.
 **See §7 Conformance for the normative guard set (pluralism floor; Bridge+CL with loss notes; lane tags; RSCR hooks; ReferencePlane & CL^plane; penalties → R only).** This avoids duplication and drift.
@@ -30213,7 +30260,7 @@ Required artifact for top‑level disciplines: **SoTAPaletteDescription (D)**, a
 * **G.2i** *SoS‑Indicator Families* (variants, constraints, Acceptance branches).
 * **G.2j** *MethodFamily Cards* (signature, ValidityRegion, CostModel, Guarantees, KnownFailures, EvidenceRefs).
 * **G.2k** *GeneratorFamily Cards* (OEE/QD class; EnvironmentValidityRegion; TransferRules; SoS‑LOG/Acceptance hooks).
-* **G.2l** *(If applicable) NQD Annex*: Q/D/QD‑score definitions; **IlluminationSummary** (+ **edition id**); `EmitterPolicyRef`; `InsertionPolicyRef`; `DistanceDef` edition.
+* **G.2l** *(If applicable) NQD Annex*: Q/D/QD‑score definitions; **IlluminationSummary** (+ **edition id**); `EmitterPolicyRef`; `InsertionPolicyRef`; `DistanceDefRef.edition`.
 
 1. **Hand‑off manifests** to:
 * **G.3/G.4** (CHR authoring and CAL scoping) with the operator/object inventory;
@@ -30311,9 +30358,9 @@ Teams repeatedly stumble on:
 
 **S3 · Characteristic Cards (the core unit)**
 **Template (normative fields):**
-`CharacteristicCard := ⟨UTS.id, Context, ReferencePlane, ObjectKind, Intent, Definition (typed), **ObservableOf ⟨instrument/protocol, uncertainty model, validity window⟩**, EvidenceLanes (KD‑CAL), ScaleRef, Polarity ∈ {↑, ↓, ⊥}, Domain/Range, UnitSet, Freshness/Half‑life, Missingness semantics, Reliability/Stability notes, **QD.Role ∈ {Q, D, QD‑score, none}, DescriptorMapRef (Tech; d≥2, optional), DistanceDefRef (if QD.Role=D), metricsEdition (if Q/QD‑score)**, Micro‑examples⟩`
+`CharacteristicCard := ⟨UTS.id, Context, ReferencePlane, ObjectKind, Intent, Definition (typed), **ObservableOf ⟨instrument/protocol, uncertainty model, validity window⟩**, EvidenceLanes (KD‑CAL), ScaleRef, Polarity ∈ {↑, ↓, ⊥}, Domain/Range, UnitSet, Freshness/Half‑life, Missingness semantics, Reliability/Stability notes, **QD.Role ∈ {Q, D, QD‑score, none}, DescriptorMapRef (Tech; d≥2, optional), DistanceDefRef (if QD.Role=D), DHCMethodRef.edition (if Q/QD‑score)**, Micro‑examples⟩`
 **Rules:** Definition references **MM‑CHR**; **Polarity** explicit; **UnitSet** coherent; **Missingness** classified (MCAR / MAR / MNAR, or local equivalents with mapping).
-**Outputs:** `CHR.Characteristic[]` (if used in any **CG‑Spec**, the **CG‑Spec.characteristics\[] id** MUST be referenced here).  If a Characteristic plays a role in **Illumination/QD**, publish **QD.Role** and the corresponding **metricsEdition/DistanceDefRef** for reproducibility of fronts (visible to G.5/C.18).
+**Outputs:** `CHR.Characteristic[]` (if used in any **CG‑Spec**, the **CG‑Spec.characteristics\[] id** MUST be referenced here).  If a Characteristic plays a role in **Illumination/QD**, publish **QD.Role** and the corresponding **DHCMethodRef.edition/DistanceDefRef** for reproducibility of fronts (visible to G.5/C.18).
 
 **S4 · Scales & Levels (lawful measurement)**
 **ScaleCard:** `⟨type ∈ {nominal, ordinal, interval, ratio, count, cyclic,…}, admissibleTransforms (group), unit(s), resolution, bounds, zero semantics⟩`.
@@ -30343,18 +30390,18 @@ Publish a **Legality Matrix** per Scale type and a set of **Guard Macros** for C
 `UNKNOWN_TRI_STATE(x)` — on missingness/unknowns, emit **{admit\|degrade\|abstain}** branch for **Acceptance** (no silent coercions),
 `PHI_CL_MONOTONE(policy_id)` — assert that **Φ(CL)**/**Φ_plane** used for penalties is **monotone**; record **policy_id** (visible to G.4/G.5 **SCR**).
 `RETURN_NONDOMINATED_SET()` — for partial orders (e.g., Pareto), the comparator **must** return the explicit non‑dominated set; scalarization is forbidden unless CAL justifies a lawful order.
-`METRIC_EDITION_REF(id)` — surface the **MetricEdition/DistanceDef** used for any Q/D/QD‑score‑based comparison (ties to G.5/C.18).
+`METRIC_EDITION_REF(id)` — surface the **DHCMethodRef.edition/DistanceDefRef.edition** used for any Q/D/QD‑score‑based comparison (ties to G.5/C.18).
 
 **Outputs:** `CHR.Guards`, `CHR.LegalityMatrix`.
 **Guards:** Enforce at authoring time + RSCR; route cross‑Context penalties to **R_eff** (never to **F/G**).
 **Freshness windows** MUST be published per Characteristic (Context‑local; stale ⇒ {degrade|abstain} at Acceptance) and enforced via `FRESHNESS_CHECK(x)` in **CAL.Acceptance**.
 
 **S7 · Aggregation & Comparison Patterns (safe by construction)**
-Provide **typed aggregation templates** (e.g., lexicographic min, Pareto dominance — **return the explicit non‑dominated set** for partial orders; medoid/median for ordinal; **t‑norms only on ratio‑scale quantities in [0,1]**; **for interval: means allowed; for ratio: sums/products allowed after unit alignment**). Any comparator/aggregator used **across candidates** MUST cite a **CG‑Spec** characteristic id (A.19.D1) and, if based on **Q/D/QD‑score**, its **metricsEdition/DistanceDefRef**; otherwise degrade to order‑only or abstain. **Record the chosen Γ‑fold contributor policy (default = weakest‑link) with an edition id; silent changes are forbidden.** Scalarization of partial orders is **forbidden**; selection is delegated to **G.5** which returns **sets/archives** under lawful orders.
+Provide **typed aggregation templates** (e.g., lexicographic min, Pareto dominance — **return the explicit non‑dominated set** for partial orders; medoid/median for ordinal; **t‑norms only on ratio‑scale quantities in [0,1]**; **for interval: means allowed; for ratio: sums/products allowed after unit alignment**). Any comparator/aggregator used **across candidates** MUST cite a **CG‑Spec** characteristic id (A.19.D1) and, if based on **Q/D/QD‑score**, its **DHCMethodRef.edition/DistanceDefRef**; otherwise degrade to order‑only or abstain. **Record the chosen Γ‑fold contributor policy (default = weakest‑link) with an edition id; silent changes are forbidden.** Scalarization of partial orders is **forbidden**; selection is delegated to **G.5** which returns **sets/archives** under lawful orders.
 **Outputs:** `CHR.AggregationSpecs` with legality proofs/links.
 
 **S8 · Publication, Tests, and Evolution**
-Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR** tests: unit coherence, guard coverage, polarity invariants, illegal‑op refusal. Provide **Worked‑Examples** and a **Refresh Plan** (ageing/decay → B.3.4). Surface **policy‑ids Φ(CL), Φ_plane**, and, where applicable, **metricsEdition/DistanceDefRef** for Q/D/QD‑score. Record **PathId/PathSliceId** for refresh/decay telemetry.
+Publish all artifacts to **UTS** (with twin labels and Bridges); register **RSCR** tests: unit coherence, guard coverage, polarity invariants, illegal‑op refusal. Provide **Worked‑Examples** and a **Refresh Plan** (ageing/decay → B.3.4). Surface **policy‑ids Φ(CL), Φ_plane**, and, where applicable, **DHCMethodRef.edition/DistanceDefRef** for Q/D/QD‑score. Record **PathId/PathSliceId** for refresh/decay telemetry.
 **Outputs:** versioned `CHR Pack@CG-Frame` + RSCR ids + deprecation notices (F.13) + provenance fields (Φ‑policies, PathSlice).
 **Guards:** E.5.\* no tool lock‑in; lexical continuity (F.13–F.14).
 
@@ -30371,7 +30418,7 @@ Legality: means allowed on ratio; **t‑norms only on \[0,1]**; no mixing with *
 Evidence lanes: declare **TA/VA/LA** per protocol and trials; freshness window declared.
 
 **AG‑note (Illumination/QD, post‑2015 practice).**  
-When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination (e.g., MAP‑Elites‑class methods), set `QD.Role` and publish **metricsEdition/DistanceDefRef**; comparisons **return sets** under partial orders and do **not** introduce scalarisation in CHR.
+When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination (e.g., MAP‑Elites‑class methods), set `QD.Role` and publish **DHCMethodRef.edition/DistanceDefRef**; comparisons **return sets** under partial orders and do **not** introduce scalarisation in CHR.
 
 ### 7) Interfaces — minimal I/O Standard
 
@@ -30382,7 +30429,7 @@ When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination 
 | **G.3‑3 DefineScale**    | CharacteristicCard                  | `ScaleCard`, `LevelCard`                                              |
 | **G.3‑4 Coordinate**     | ScaleCard, use‑cases                | `CoordinatePolicy` + legality annotations                             |
 | **G.3‑5 Guards**         | Scale/Level/Coordinate specs        | `LegalityMatrix`, `GuardMacros` (for CAL/LOG)                         |
-| **G.3‑6 AggregateSpecs** | CHR set, acceptance clauses         | `AggregationSpecs` (typed, with proofs/obligations; **MetricEdition/DistanceDef** if Q/D/QD‑score) |
+| **G.3‑6 AggregateSpecs** | CHR set, acceptance clauses         | `AggregationSpecs` (typed, with proofs/obligations; **DHCMethodRef.edition/DistanceDefRef.edition** if Q/D/QD‑score) |
 | **G.3‑7 Publish**        | All above                           | Versioned `CHR Pack@CG-Frame`, RSCR tests, Worked‑Examples, deprecations, Φ‑policies, PathSlice |
 
 ### 8) Payload (what G.3 exports)
@@ -30393,7 +30440,7 @@ When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination 
    * `CHR.Scale[]`, `CHR.Level[]`
   * `CHR.Coordinate[]` (with legality notes)
    * `CHR.Guards`, `CHR.LegalityMatrix`
-   * `CHR.AggregationSpecs` (**Γ‑fold contributor policy + edition id**, **MetricEdition/DistanceDef** if applicable; visible to G.4/G.5 **SCR**)
+   * `CHR.AggregationSpecs` (**Γ‑fold contributor policy + edition id**, **DHCMethodRef.edition/DistanceDefRef.edition** if applicable; visible to G.4/G.5 **SCR**)
    * **UTS Entries** (Name Cards + twin labels + Bridge CL & loss notes)
    * **RSCR** tests + **Worked‑Examples** (**Archetypal Grounding included**)
    * **Provenance fields**: **ReferencePlane**, **Φ(CL)**/**Φ_plane** policy‑ids, **PathId/PathSliceId**
@@ -30420,7 +30467,7 @@ When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination 
 16. **Lifecycle set.** Refresh/decay declared; deprecations follow **F.13–F.14** with **Lexical Continuity** notes.
 17. **No thresholds in CHR.** All thresholds/guard‑bands live **only** in **AcceptanceClauses** (G.4); CHR **MUST NOT** embed policy cut‑offs (cf. C.21 practice).
 18. **Φ(CL) monotone & recorded.** If CL penalties apply, **Φ(CL)**/**Φ_plane** **MUST** be monotone, table‑backed, and recorded with **policy id**; penalties route to **R_eff** only (never **F/G**).
-19. **QD roles reproducible.** If a Characteristic participates in QD/Illumination, **QD.Role** and **MetricEdition/DistanceDef** are published (fronts reproducible across runs).
+19. **QD roles reproducible.** If a Characteristic participates in QD/Illumination, **QD.Role** and **DHCMethodRef.edition/DistanceDefRef.edition** are published (fronts reproducible across runs).
 20. **Unknowns are tri‑state.** Missingness/unknowns propagate as **{admit\|degrade\|abstain}** into **Acceptance**; silent coercions forbidden.
 21. **Archetypal Grounding present.** Two cross‑domain CHR examples are included (per E.8) to teach lawful CHR authoring without weakening legality guards; add a QD note if any Characteristic is used for Illumination.
 
@@ -30450,7 +30497,7 @@ When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination 
    **Guards:** `ORD_COMPARE_ONLY(SafetyClass)`, `UNIT_CHECK(CostUSD_2025)`, `RETURN_NONDOMINATED_SET()`.
    **UTS:** Name Cards minted; twin label “Safety rating” with loss note for marketing Context Bridge.
    **RSCR:** tests refuse `mean(SafetyClass)`; accept `median(SafetyClass)`; fail `CostUSD + Readiness`.
-   **QD note:** if `SafetyClass` is used as a **D**‑axis in Illumination, publish `QD.Role=D` and `DistanceDef` (edition recorded).
+   **QD note:** if `SafetyClass` is used as a **D**‑characteristic (axis) in Illumination, publish `QD.Role=D` and `DistanceDef` (edition recorded).
 
 ### 13) Relations
 
@@ -30465,11 +30512,12 @@ When a Characteristic serves as **Diversity** or **Quality** in QD/Illumination 
 3. Declare **Scale**, **Levels**, **Polarity**, **UnitSet**, **Bounds**, **Freshness**, **Evidence lanes**.
 4. Publish any **Coordinate** with invariants preserved and explicit **non‑entitlements**.
 5. Generate **Legality Matrix** + **Guard Macros** (`RETURN_NONDOMINATED_SET`, `METRIC_EDITION_REF` where applicable); wire **AggregationSpecs** with proofs.
-6. Emit **RSCR** tests and **Worked‑Examples**; version the **CHR Pack**; set refresh/decay; surface **Φ‑policy ids** and, if QD is used, **MetricEdition/DistanceDef**.
+6. Emit **RSCR** tests and **Worked‑Examples**; version the **CHR Pack**; set refresh/decay; surface **Φ‑policy ids** and, if QD is used, DHCMethodRef.edition/DistanceDefRef.edition.
 
 ## G.4 — **CAL Authoring: Calculi · Acceptance · Evidence** \[A]
 
 **Tag:** [A] (publishes CAL; consumes CHR; constrains LOG & G.5; binds **ATS/E.11**; exposes **ReferencePlane** and **Φ‑policy ids** to **SCR**)
+**ATS conformance note.** Any **cross‑tier import** (AT0↔AT1↔AT2↔AT3) **MUST** pass **E.11 AH‑2/3/4** (Gate/Lane/Lexical); failure is **blocking** for CAL publication (register as **RSCR** defect).
 **Stage:** *design‑time* (authoring & publication; enables lawful run‑time evaluation)
 **Primary hooks:** G.1 CG-Frame Card; G.2 SoTA Synthesis Pack; **G.3 CHR Pack**; **G.5 Dispatcher** (MethodFamily & **GeneratorFamily** registry); **KD‑CAL F–G–R** (B.3, B.1 Γ‑fold); **MM‑CHR discipline** (A.17–A.19/C.16); **Contexts & Bridges + CL** (F.1–F.3, F.9); **UTS & naming** (F.17–F.18); **RoleAssignment** (F.4); **RSCR** (F.15); **E/E‑LOG** (C.19); **SoS‑LOG** (C.23); **ATS** harness **AH‑1..AH‑4** (E.11); **Lexical rules** (E.10); **Design–Run split** (A.4); **Telemetry/Refresh** (G.11).
 
@@ -30511,7 +30559,7 @@ Teams repeatedly face:
 **Inputs:** CG-FrameContext (G.1), SoTA Pack (G.2), CHR Pack (G.3). CAL traces supporting SoTAPaletteDescription MUST identify KD‑CAL lanes used (TA / LA / VA) and expose any lane‑dependent tolerances. Cross‑lane comparisons are forbidden unless an explicit **Bridge** with declared **CL** and loss notes is provided; penalties route to **R_eff** only.
 **Ops:** declare **TaskKinds** and **ObjectKinds** *in the home Context*; state **assumption envelopes** (data shape, noise, independence, stationarity), **USM ScopeSlice(G)**, and **evidence lanes** intended per KD‑CAL (e.g., TA/LA/VA);  enumerate intended **CG‑Spec.characteristic ids** **iff** any numeric comparison/aggregation will be performed in this CAL pack; declare **ReferencePlane** for any cross‑plane readings and the **freshness_window**/**Γ_time** policy to be used by EvidenceProfiles.
 **Outputs:** `CAL.Charter@Context` (design‑time stance) + `TaskMap`.
-**Guards:** A.4 split; F.1–F.3 Contexting; E.10 lexical hygiene.
+**Guards:** A.4 split; F.1–F.3 Contexting; E.10 lexical hygiene; **E.11 ATS** (GateCrossing recorded with **Bridge id**, **PathSliceId**, **CL**; non‑conformance blocks publication).
 
 Any cross‑Tradition or cross‑lane reduction MUST declare a CL bridge with explicit loss notes. Such reductions contribute a penalty term to Γ‑fold and are ineligible for “universal” aggregation.
 
@@ -30601,11 +30649,12 @@ Where the CG-Frame needs search/generation, define **NQD‑class** operators wit
 
 * **Portfolio coverage** obligations (C.18) and **QD‑metric triad**: *Quality (Q)*, *Diversity (D)*, *QD‑score*.
 * **Risk budgets** and **probe accounting** under **E/E‑LOG**.
-* **Illumination mode:** declare **Descriptor space** as `U.DescriptorMap (Tech; d≥2)` with its **CharacteristicSpace (Plain)** twin (E.10); provide `ArchiveRef`, **InsertionPolicyRef** (from G.5), and **IlluminationSummary := gauge over Diversity_P**; record **Edition := {metricsEdition, DistanceDef}** on `DescriptorMapRef/ArchiveRef`. By default **Illumination does not enter dominance** unless an explicit policy id (Φ) says otherwise.
+* **Illumination mode:** declare **Descriptor space** as `U.DescriptorMap (Tech; d≥2)` with its **CharacteristicSpace (Plain)** twin (E.10); provide `ArchiveRef`, **InsertionPolicyRef** (from G.5), and **IlluminationSummary := gauge over Diversity_P**; record **Edition := {DHCMethodRef.edition, DistanceDefRef.edition}** on `DescriptorMapRef/ArchiveRef`. By default **Illumination does not enter dominance** unless an explicit policy id (Φ) says otherwise.
 * **OEE/GeneratorFamily support:** where tasks/environments are co‑evolved, register **GeneratorFamily (POET‑class)** with `EnvironmentValidityRegion` and `TransferRules`; author **Acceptance/SoS‑LOG branches** for {environment, method} pairs.
 * **Emission trace** schema (who/why/where → VariantPool metadata for G.1/M3), including **edition** bumps for archives/descriptors and the active **policy‑id**.
 
-**Outputs:** `CAL.NQD[]` + policy knobs the **G.5 selector** can read (**EmitterPolicyRef**, **ArchiveRef**, **DescriptorMapRef** with **Edition{metricsEdition,DistanceDef}**, **IlluminationSummary**, **Q/D/QD‑score**).
++**Outputs:** `CAL.NQD[]` + policy knobs the **G.5 selector** can read (**EmitterPolicyRef**, **ArchiveRef**, **DescriptorMapRef** with **Edition{DHCMethodRef.edition, DistanceDefRef.edition}**, **IlluminationSummary**, **Q/D/QD‑score**).
+
 **Guards:** Probes **MUST** respect AcceptanceClauses; unsafe probes **MUST** abstain or sandbox.
 
 **C7 · Proof Obligations & Soundness Ledger**
@@ -30797,7 +30846,7 @@ Define a **registry row** per *MethodFamily* (e.g., *Outranking*, *CDT*, *Active
 * **CostModel** and **KnownFailures** (adversarial/degenerate cases);
 * **PolicyHooks:** E/E‑LOG knobs (exploration quota, risk budget); optional **EmitterPolicyRef** (C.19) when Illumination is used;
 * **BridgeUsage:** declared Bridges and **CL** allowances with loss notes for any cross‑Context transfer;
-* `U.DescriptorMapRef** (Tech; d≥2) or **CharacteristicSpace (Plain)** when Illumination is used, with **DistanceDefRef** (diversity metric) and **metricsEdition** recorded for reproducible fronts;
+* `U.DescriptorMapRef** (Tech; d≥2) or **CharacteristicSpace (Plain)** when Illumination is used, with **DistanceDefRef** (diversity metric) and **DHCMethodRef.edition** recorded for reproducible fronts;
 * **InsertionPolicy** for archives (elitist replacement, **K‑capacity**, dedup/tie rules);
 * **Proof obligations** (what must be established before/after selection).
 * **Artefacts:** list **MethodDescription** ids (UTS); where harnessed, also **MethodSpec** ids; cross‑Context reuse requires Bridges + CL.
@@ -30812,7 +30861,7 @@ Register **GeneratorFamily** (POET/Enhanced‑POET‑class) entries that (co‑)
 
 **S2 · TaskSignature & Trait Inference (design‑time + run‑time)**
 A **TaskSignature** is a *minimal typed record* the dispatcher consumes:
-`⟨Context, TaskKind, KindSet:U.Kind[], DataShape, NoiseModel, ObjectiveProfile, Constraints{incl. ResourceEnvelope}, ScopeSlice(G), EvidenceAnchors, Size/Scale, Freshness, Missingness⟩`. Values are **CHR‑typed** (Characteristics/Scales/Levels/Coordinates per MM‑CHR discipline) with provenance. Traits may be **inferred** from CHR/CAL bindings (e.g., *convexity known? differentiable? ordinal vs interval scales?*) and from **USM** scope metadata. **When Illumination is active**, extend with `QualityDiversity: {DescriptorMapRef (Tech; d≥2) | CharacteristicSpace (Plain)}, ArchiveConfig (grid/CVT cells), EmitterPolicyRef, InsertionPolicy, DistanceDef, Q‑budget/D‑budget`.
++`⟨Context, TaskKind, KindSet:U.Kind[], DataShape, NoiseModel, ObjectiveProfile, Constraints{incl. ResourceEnvelope}, ScopeSlice(G), EvidenceAnchors, Size/Scale, Freshness, Missingness⟩`. Values are **CHR‑typed** (Characteristics/Scales/Levels/Coordinates per MM‑CHR discipline) with provenance. Traits may be **inferred** from CHR/CAL bindings (e.g., *convexity known? differentiable? ordinal vs interval scales?*) and from **USM** scope metadata. **When Illumination is active**, extend with `QualityDiversity: {DescriptorMapRef (Tech; d≥2) | CharacteristicSpaceRef}, ArchiveConfig (grid/CVT cells), EmitterPolicyRef, InsertionPolicyRef, DistanceDefRef.edition, Q‑budget/D‑budget`.
 **Design/Run hygiene.** No mixed‑stance signatures; Tier crossings publish Bridge+UTS and record **Φ(CL)/Φ_plane** ids.
 **UnknownHandling:** all fields admit `unknown` (tri‑state {true|false|unknown}); **Missingness semantics MUST align with CHR.Missingness** (MCAR/MAR/MNAR or mapped equivalents) and be honored by Acceptance/Flows.
 
@@ -30840,7 +30889,7 @@ Provide templates for **composed strategies**: (i) *pre‑conditioners* (e.g., r
 Add a **Verifier stage**: on run‑time preconditions failing or **evidence freshness** expiring, trigger the next lawful fallback; emit DRR/SCR deltas.
 
 **S5 · Publication & Telemetry**
-Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing chosen family, **why**, **CG‑Spec ids and characteristics consulted with MinimalEvidence verdicts (per characteristic & lane)**, **Γ‑fold contributors**, **ReferencePlane & CL^plane usage**, **CL penalties**, expected **R_eff**, and any **explore** probes. Register the family and selection policy to **UTS** **with twin labels and loss notes where bridged**; provide **RSCR** parity/regression tests as conformance artefacts. **Record on‑policy outcomes and off‑policy regret signals via telemetry (G.11)** to support registry refresh.  **If Illumination is active,** also publish **IlluminationSummary** (Q/D/QD‑score, Archive snapshot, coverage/regret) and **DescriptorMap edition id** with **DistanceDef/MetricEdition**; in **Open‑Ended** mode publish `{Environment, MethodFamily}` portfolios with their coverage. **Exports also include:** a **Dispatcher Report** (candidates and reasons in/out), a **Portfolio Pack** (*Pareto set* + tie‑break notes), and a **Run‑safe Plan** (flows + legality proofs).
+Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing chosen family, **why**, **CG‑Spec ids and characteristics consulted with MinimalEvidence verdicts (per characteristic & lane)**, **Γ‑fold contributors**, **ReferencePlane & CL^plane usage**, **CL penalties**, expected **R_eff**, and any **explore** probes. Register the family and selection policy to **UTS** **with twin labels and loss notes where bridged**; provide **RSCR** parity/regression tests as conformance artefacts. **Record on‑policy outcomes and off‑policy regret signals via telemetry (G.11)** to support registry refresh.  **If Illumination is active,** also publish **IlluminationSummary** (Q/D/QD‑score, Archive snapshot, coverage/regret) and DescriptorMapRef.edition with DistanceDefRef.edition/DHCMethodRef.edition; in **Open‑Ended** mode publish `{Environment, MethodFamily}` portfolios with their coverage. **Exports also include:** a **Dispatcher Report** (candidates and reasons in/out), a **Portfolio Pack** (*Pareto set* + tie‑break notes), and a **Run‑safe Plan** (flows + legality proofs).
 
 **S6 · Governance & Evolution**
 
@@ -30857,7 +30906,7 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 | **G.5‑2 RegisterGeneratorFamily** | SoTA row(s) from **G.2**, Context | `GeneratorFamily` record (GeneratorSignature, EnvironmentValidityRegion, TransferRules, CoEvoCouplers, Acceptance hooks) |
 | **G.5‑3 Select**         | `TaskSignature`, policy (E/E‑LOG), **SoS‑LOG rules (C.23)**, acceptance clauses   | `CandidateSet` with admissible (possibly partial) order; **return a Pareto (non‑dominated) set** when the order is non‑total; chosen `MethodFamily`; **DRR + SCR** (F–G–R/CL); **Portfolio Pack** (Pareto set + tie‑break notes); **Run‑safe Plan** (flows + legality proofs) |
 | **G.5‑4 Compose**        | `CandidateSet`, composition template                    | Composite strategy spec (with legality checks)                                |
-| **G.5‑5 Telemetry**      | Outcomes, probes                                        | Registry refresh cues; RSCR deltas; (if Illumination) Q/D/QD‑score + Archive deltas + DescriptorMap edition; (if Open‑Ended) coverage/regret per `{Environment, MethodFamily}` |
+| **G.5‑5 Telemetry**      | Outcomes, probes                                        | Registry refresh cues; RSCR deltas; (if Illumination) Q/D/QD‑score + Archive deltas +  DescriptorMapRef.edition (if Open‑Ended) coverage/regret per `{Environment, MethodFamily}` |
 
 ### 7) Conformance Checklist (normative)
 
@@ -30881,7 +30930,7 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 **CC‑G5.17** **ReferencePlane MUST be declared for any claim and noted in SCR,** including **CL^plane** usage for plane crossings.
 **CC‑G5.18** **Numeric comparisons/aggregations MUST cite a lawful CG‑Spec gauge with declared Γ‑fold;** cross‑Context reuse **requires Bridge + CL**, with penalties routed to **R_eff** only (never **F**).
 **CC‑G5.19** **Illumination triad.** When Illumination is active, **Q, D, and QD‑score MUST be computed and published** with Archive state; **Illumination is excluded from dominance unless explicitly enabled by policy.**
-**CC‑G5.20** **Archive reproducibility.** Any use of archives **MUST** declare **InsertionPolicy** (replacement, **K‑capacity**, dedup/tie rules) and record **DistanceDef** and **metricsEdition**; DescriptorMap editions **MUST** be logged in telemetry.
+**CC‑G5.20** **Archive reproducibility.** Any use of archives **MUST** declare **InsertionPolicy** (replacement, **K‑capacity**, dedup/tie rules) and record **DistanceDef** and **DHCMethodRef.edition**; DescriptorMapRef.edition **MUST** be logged in telemetry.
 **CC‑G5.21** **Open‑Ended portfolios.** In Open‑Ended mode, the selector **MUST** return portfolios of `{Environment, MethodFamily}` pairs; **EnvironmentValidityRegion** and **TransferRules** **MUST** be declared; SoS‑LOG/Acceptance branches govern validity of generated tasks.
 **CC‑G5.22** **Lawful ordering in niches.** Within any archive niche/cell, ordering **MUST** be lawful (lexicographic/medoid/median over compatible scales); **weighted sums across mixed scale types are forbidden**.
 **CC‑G5.23** **ATS visibility.** Tier/context crossings **MUST** be visible to ATS (E.11) (AH‑1..AH‑4); violations are fail‑fast defects of publication.
@@ -30921,7 +30970,7 @@ Each selection produces a **Decision Rationale Record (DRR)** + **SCR**, citing 
 
 * **Policy (E/E‑LOG).** Use a named **lens** `Barbell` with `explore_share ≈ 0.4`, `wild_bet_quota = 2`, `backstop_confidence = L1`; cite `EmitterPolicyRef` (UCB‑class, moderate τ). Record the **lens id** and **policy‑id Φ** in provenance.
 
-* **Telemetry & publication.** Emit **DRR+SCR** with: CG‑Spec characteristics consulted and MinimalEvidence verdicts (by lane), Γ‑fold contributors, ReferencePlane/CL^plane usage, CL penalties→R_eff, selected `{Environment, MethodFamily}` portfolio, and probe logs. Publish **IlluminationSummary** with `Q/D/QD‑score`, Archive snapshot, and **DescriptorMap edition** (`{metricsEdition, DistanceDef}`); for open‑ended mode also publish **coverage/regret per {Environment, MethodFamily}**. Register families and policies to **UTS** (twin labels; loss notes where bridged).
+* **Telemetry & publication.** Emit **DRR+SCR** with: CG‑Spec characteristics consulted and MinimalEvidence verdicts (by lane), Γ‑fold contributors, ReferencePlane/CL^plane usage, CL penalties→R_eff, selected `{Environment, MethodFamily}` portfolio, and probe logs. Publish **IlluminationSummary** with `Q/D/QD‑score`, Archive snapshot, and **DescriptorMap edition** (`{DHCMethodRef.edition, DistanceDef}`); for open‑ended mode also publish **coverage/regret per {Environment, MethodFamily}**. Register families and policies to **UTS** (twin labels; loss notes where bridged).
 
 
 ### 10) Relations
@@ -30993,7 +31042,7 @@ A **PathSliceId := PathId × Γ_time window × ReferencePlane**. It keys **relea
 
 * **Γ‑fold & penalties.** Unless justified otherwise in **CAL.ProofLedger**, **R** aggregates by **weakest‑link**, then applies **Φ(CL_min)**, any applicable **Ψ(`CL^k`)** (where a **KindBridge** is traversed), and **Φ_plane** (all **bounded, monotone**), and is **clipped**: `R_eff := max(0, …)`. **F = min**. **G** composes as **intersection along a path**; **SpanUnion** across **independent** lines only (see CC‑G6‑10/12). Penalties **never** modify F/G. **All numeric operations MUST be lawful per CG‑Spec (declared characteristic, unit/scale, Γ‑fold); illegal mixes trigger fail‑fast and RSCR.**
 * **Lane separation.** Evidence lanes remain **separable** through to the assurance surface and SCR; no averaging across lanes.
-* **Exposure to SCR.** Every path resolves to **SCR/RSCR** entries; the **Assurance SCR** displays node/edge values, aboutness and plane, **TA/VA/LA table**, **valid‑until/decay**, and **Epistemic‑Debt**. **Mandatory fields:** lane‑split, **Γ‑fold contributors** (with ids), **Φ(CL)**/**Φ\_plane policy‑ids**, **PathId/PathSliceId**, and, when QD/illumination is involved, `U.DescriptorMapRef.edition` and `DistanceDef` ids.
+* **Exposure to SCR.** Every path resolves to **SCR/RSCR** entries; the **Assurance SCR** displays node/edge values, aboutness and plane, **TA/VA/LA table**, **valid‑until/decay**, and **Epistemic‑Debt**. **Mandatory fields:** lane‑split, **Γ‑fold contributors** (with ids), **Φ(CL)**/**Φ\_plane policy‑ids**, **PathId/PathSliceId**, and, when QD/illumination is involved, `U.DescriptorMapRef.edition` and `DistanceDefRef.edition` ids.
 * **Reuse across Contexts.** Any cross‑Context/plane reuse must cite **Bridge ids + loss notes**; penalties route to **R\_eff only**; **policy‑ids** for Φ/Ψ are published in the SCR and CG‑Spec.
 
 **4.5 Conceptual API (notation‑independent surface).**
@@ -31037,7 +31086,7 @@ Scope: **Universal** within the Conceptual Core; numerical policies (Φ/Ψ table
 | **CC‑G6‑10 (Independence note)**       | If a **SpanUnion** of evidence lines is claimed, publish the **independence justification**.                                                             | Lawful enlargement of G.                                                                                                                     |
 | **CC‑G6‑11 (UTS hooks)**               | Evidence artefacts and PathIds **MUST** be **UTS‑citable** with twin labels (Tech/Plain).                                                                | Publication discipline.                                                                                                                     |
 | **CC‑G6‑12 (IndependenceCertificate)** | Independence for any **SpanUnion** MUST be carried by a **USM (`A.2.6 §7.3`) IndependenceCertificate** (partition of essential components; reference id in SCR). | Makes SpanUnion auditable and machine‑checkable. |
-| **CC‑G6‑13 (Mandatory SCR/DRR fields)** | SCR/DRR for any cited path **MUST** expose: lane‑split, **Γ‑fold contributors (ids)**, **Φ(CL)**/**Φ\_plane** policy‑ids, **PathId/PathSliceId**; with QD/illumination also expose `U.DescriptorMapRef.edition` and `DistanceDef` ids. | Ensures lawful, reproducible audits and refresh. |
+| **CC‑G6‑13 (Mandatory SCR/DRR fields)** | SCR/DRR for any cited path **MUST** expose: lane‑split, **Γ‑fold contributors (ids)**, **Φ(CL)**/**Φ\_plane** policy‑ids, **PathId/PathSliceId**; with QD/illumination also expose `U.DescriptorMapRef.edition` and `DistanceDefRef.**edition**` ids. | Ensures lawful, reproducible audits and refresh. |
 | **CC‑G6‑14 (Legality of numeric ops)** | Any numeric comparison/aggregation in paths **MUST** cite **CG‑Spec** (characteristic id, unit/scale, Γ‑fold). **Fail‑fast** on CSLC violations; no ordinal→cardinal promotion. | Prevents illegal arithmetic and hidden assumptions. |
 | **CC‑G6‑15 (Editioned QD/OEE telemetry)** | Ingested QD/illumination or OEE events **SHALL** record `U.DescriptorMapRef.edition`, `EmitterPolicyRef`, `InsertionPolicyRef`, and (for OEE) `EnvironmentValidityRegion`/`TransferRules` refs. | Reproducible fronts/coverage and environment lineage. |
 
@@ -31055,7 +31104,7 @@ Each hook below defines: **Trigger → Obligation → Publishes/Consumes → Inv
 #### **H2 — UTS PathCard (PathId/PathSliceId)**
 
 **Trigger.** A new **PathId** (or **PathSliceId**) is minted for a claim.  
-**Obligation.** Publish a **UTS Name Card** with twin labels for the Path (or PathSlice), listing **Context, ReferencePlane, Γ_time**, and cited **Bridge ids + CL/CL^plane** (with loss notes). **If present, include** `U.DescriptorMapRef.edition` **and** `DistanceDef` **ids.**  
+**Obligation.** Publish a **UTS Name Card** with twin labels for the Path (or PathSlice), listing **Context, ReferencePlane, Γ_time**, and cited **Bridge ids + CL/CL^plane** (with loss notes). **If present, include** `U.DescriptorMapRef.edition` **and** `DistanceDefRef.edition` **ids.**  
 * **Invariants.** **F/G invariants never mutate** due to CL penalties; penalties reduce **R only**. **Illumination/QD signals do not alter dominance unless a selection policy (C.19) explicitly declares it; such policy ids MUST be cited.**
 
 #### **H3 — RSCR Trigger on Evidence‑Impacting Edit (with Bridge Sentinels)**
@@ -31152,7 +31201,7 @@ G.6 concretises the “**because‑graph**” already implicit in A.10 as a **ty
 
 **Tag:** \[A] **Stage:** design‑time
 **Hooks:** **G.2** (SoTA Bridge Matrix), **F.9** (Bridges/CL & CL^k/Ψ), **G.5** (eligibility & selection across bridges), **C.23** (SoS‑LOG rules), **G.4** (CAL/Acceptance routes), **C.18/C.19** (NQD/QD spaces & governor), **G.6 hooks H1, H3–H7, H9–H10** (UTS, RSCR, LOG path citation, gate‑crossings, SCR/ProofLedger), **E.11 (ATS: AH‑1..AH‑4)**
-**Publishes to:** **UTS**; registers **Bridge Sentinels** for **G.11** refresh; emits **Telemetry(PathSlice)** with policy‑ids and **edition markers** (`DescriptorMapRef.edition`, `DistanceDef.edition`, and — when QD archives are implicated — `InsertionPolicyRef`) where relevant.
+**Publishes to:** **UTS**; registers **Bridge Sentinels** for **G.11** refresh; emits **Telemetry(PathSlice)** with policy‑ids and **edition markers** (`DescriptorMapRef.edition`, `DistanceDefRef.edition`, and — when QD archives are implicated — `InsertionPolicyRef`) where relevant.
 
 ### 1 · Intent
 
@@ -31164,7 +31213,7 @@ Turn the **SoTA Bridge Matrix** produced in **G.2** into **formal Bridges** with
 
 ### 3 · Problem
 
-1. **Rival Traditions** must be compared **without** semantic flattening; 2) cross‑plane talk (world|concept|episteme) introduces **CL^plane** penalties; 3) penalty routing must stay **assurance‑only (R)**, leaving **F/G** invariant; 4) changes to Bridges need **targeted** refresh, not a full re‑weave of evidence; 5) when Bridges touch **DescriptorMap** used by illumination/QD, their **DescriptorMapRef.edition** and **DistanceDef.edition** must be tracked to avoid silent drift.
+1. **Rival Traditions** must be compared **without** semantic flattening; 2) cross‑plane talk (world|concept|episteme) introduces **CL^plane** penalties; 3) penalty routing must stay **assurance‑only (R)**, leaving **F/G** invariant; 4) changes to Bridges need **targeted** refresh, not a full re‑weave of evidence; 5) when Bridges touch **DescriptorMap** used by illumination/QD, their **DescriptorMapRef.edition** and **DistanceDefRef.edition** must be tracked to avoid silent drift.
 
 ### 4 · Forces
 
@@ -31179,7 +31228,7 @@ Turn the **SoTA Bridge Matrix** produced in **G.2** into **formal Bridges** with
 ### 5 · Solution — **From Matrix to Bridges, with CL/CL^k Calibration, BCT & Sentinels**
 
 **S0 · Prepare a Bridge Calibration Table (BCT) & Regression Set.**
-Per Tradition‑pair, materialize a **BCT** capturing: `TradPairId`, `ComparableConstruct`, `FreshnessWindow`, `SentinelSetId`, `RegressionSetId`, and **declared units** (per C.21). Include **stability checks** for CL/CL^k/CL^plane across editions; record **edition ids** for `DescriptorMapRef.edition` and **DistanceDef.edition** (C.18) and — when applicable — `InsertionPolicyRef` to ensure edition‑aware auditing.
+Per Tradition‑pair, materialize a **BCT** capturing: `TradPairId`, `ComparableConstruct`, `FreshnessWindow`, `SentinelSetId`, `RegressionSetId`, and **declared units** (per C.21). Include **stability checks** for CL/CL^k/CL^plane across editions; record **edition ids** for `DescriptorMapRef.edition` and **DistanceDefRef.edition** (C.18) and — when applicable — `InsertionPolicyRef` to ensure edition‑aware auditing.
 
 **S1 · Forge Bridges from Matrix rows.**
 For each comparable construct in the G.2 Bridge Matrix, mint an F.9 BridgeCard **anchored at SenseCell granularity** (F.3/F.7); **never whole Contexts**. If tokens other than SenseCells are used, **declare their SenseCell anchors**. State `bridgeChannel ∈ {Scope, Kind}`, `kind` (≡/⊑/⋈/≈/… as supported), `CL ∈ {3,2,1,0}` with loss notes (Scope) and, where a KindBridge is used, `CL^k ∈ {3,2,1,0}` with loss notes. Record direction if non‑symmetric and the validity region. **CL ≥ 2** (and **CL^k ≥ 2**) is permitted; **= 1** requires a **Waiver**; **= 0** is forbidden. Publish a **UTS row** for every GateCrossing. **No implicit crossings.**
@@ -31191,7 +31240,7 @@ Per Bridge:
 2. **Counter‑example duty.** Assign **CL/CL^k** only if you can state at least one **counter‑example** for ≤ 2, or explain its absence for 3 (**honesty rule**).
 3. Penalty policies. Reference **Φ(CL)** (Scope) and, where applicable, **Ψ(CL^k)** (Kind), and **Φ_plane** — all **monotone, bounded, table‑backed** — used by your CG‑Frame. **Route penalties to `R_eff` only; F/G invariant.**
 4. Row scope (by reference). For Concept‑Set rows supported by Bridges, apply **F.7** row rules: **Row CL(min) = bottleneck** (no averages) and include a counter‑example when any cell carries a loss note. (Do not restate them here.)
-5. Stability check. Run the **BCT Regression Set**; if CL/CL^k/CL^plane changes, attach the regression delta, update **SentinelSet**, and emit **Telemetry(PathSlice)** with `policy‑id`(s) and any affected **DescriptorMapRef.edition** or **DistanceDef.edition**.
+5. Stability check. Run the **BCT Regression Set**; if CL/CL^k/CL^plane changes, attach the regression delta, update **SentinelSet**, and emit **Telemetry(PathSlice)** with `policy‑id`(s) and any affected **DescriptorMapRef.edition** or **DistanceDefRef.edition**.
 
 **S3 · Publish crossings to UTS & Evidence surfaces.**
 Every GateCrossing emits a UTS row listing `SourceTier→TargetTier`, `Context ids`, `Bridge id`, `bridgeChannel`, `CL` (and `CL^k` if KindBridge), `ReferencePlane(s)`, and `CL^plane` (if planes differ). **SCR shows the policy‑ids for Φ(CL), Ψ(CL^k) (if used), and Φ_plane** and cites the **BCT id** and **RegressionSet id**. (No implicit crossings.)
@@ -31200,7 +31249,7 @@ Every GateCrossing emits a UTS row listing `SourceTier→TargetTier`, `Context i
 All **Bridge ids** referenced by live **EvidenceGraph `PathId`/`PathSliceId`** are **watch‑listed**. On any change in **CL/CL^k/CL^plane** or **Φ/Ψ policy‑id**, emit **path‑local RSCR** triggers (per **H3/H4**) and schedule refresh **per PathSlice** (Γ_time × plane), not per pack. Where Bridges reference **DescriptorMapRef** or **DistanceDef**, any **edition change** also triggers sentinels and publishes an edition note to Telemetry.
 
 **S5 · Dispatcher & DHC hooks.**
-G.5 may only compare across Traditions when a Bridge exists; selection uses admissible orders, **bans cross‑ordinal scalarisation**, and applies **CL/CL^k/CL^plane penalties to R only**. **SoS‑LOG (C.23) gates** accompany any cross‑Tradition choice; **Acceptance (G.4)** holds thresholds/unknowns. For illumination/QD comparisons, G.5 must cite the **DescriptorMapRef.edition** and the **DistanceDef.edition** exposed by **G.7**. G.12 reports AlignmentDensity using Bridges with **CL ≥ 2** (units declared).
+G.5 may only compare across Traditions when a Bridge exists; selection uses admissible orders, **bans cross‑ordinal scalarisation**, and applies **CL/CL^k/CL^plane penalties to R only**. **SoS‑LOG (C.23) gates** accompany any cross‑Tradition choice; **Acceptance (G.4)** holds thresholds/unknowns. For illumination/QD comparisons, G.5 must cite the **DescriptorMapRef.edition** and the **DistanceDefRef.edition** exposed by **G.7**. G.12 reports AlignmentDensity using Bridges with **CL ≥ 2** (units declared).
 
 ### 6 · Structure (conceptual surfaces)
 
@@ -31217,7 +31266,7 @@ This is pure conceptual, notation-independent.
 ### 7 · Interfaces & Dependencies
 
 * **Consumes:** G.2 Bridge Matrix; E.10 LEX/I‑D‑S; E.11 ATS crossings; B.3 Φ‑policies; C.21 metrics schema; **C.18/C.19** QD descriptors & policies (when relevant); **C.23** SoS‑LOG clauses; **G.4** Acceptance thresholds.    
-* **Produces:** F.9‑conformant **BridgeCards**; **UTS** crossing rows; **PathSlice** sentinel registrations; CL policy ids for **SCR**; DHC‑visible bridge counts; **Telemetry(PathSlice)** entries with policy‑ids and, where applicable, **DescriptorMapRef.edition** and **DistanceDef.edition** and **InsertionPolicyRef**.
+* **Produces:** F.9‑conformant **BridgeCards**; **UTS** crossing rows; **PathSlice** sentinel registrations; CL policy ids for **SCR**; DHC‑visible bridge counts; **Telemetry(PathSlice)** entries with policy‑ids and, where applicable, **DescriptorMapRef.edition** and **DistanceDefRef.edition** and **InsertionPolicyRef**.
 
 ### 8 · Conformance Checklist (normative)
 
@@ -31228,7 +31277,7 @@ This is pure conceptual, notation-independent.
 5. Row bottleneck (by reference). Apply **F.7** row rules: **Row CL(min)=bottleneck** (no averages) and include a counter‑example when any cell has a loss note.
 6. **UTS publication.** Each GateCrossing publishes a **UTS row** with **ReferencePlane**(s) and **CL^plane** (if any); cites **BCT.id/RegressionSet.id**; **no implicit crossings**.
 7. **ATS harness.** **AH‑1..AH‑4** pass on published crossings and lanes; **fail** on missing Bridge/UTS or lane impurity.
-8. **Sentinel wiring.** Bridges cited by live **PathId/PathSliceId** are **watch‑listed**; edits to **CL/CL^k/CL^plane** or **Φ/Ψ** trigger **path‑local RSCR** per **H3/H4**; **DescriptorMapRef.edition / DistanceDef.edition changes** trigger the same.
+8. **Sentinel wiring.** Bridges cited by live **PathId/PathSliceId** are **watch‑listed**; edits to **CL/CL^k/CL^plane** or **Φ/Ψ** trigger **path‑local RSCR** per **H3/H4**; **DescriptorMapRef.edition / DistanceDefRef.edition changes** trigger the same.
 9. **ReferencePlane on transfer.** Any **inter‑Context** or **inter‑plane** transfer **MUST** explicitly declare `ReferencePlane(src,tgt)` and publish **Φ_plane** (if planes differ); absence is **fail‑fast**.
 10. **DHC accounts.** **AlignmentDensity** counts only **CL ≥ 2**; **CL=3** is free substitution, **CL=2** guarded (loss published).
 11. SenseCell anchoring. BridgeCards **MUST** anchor to **SenseCells**; if other tokens are used, **declare SenseCell anchors**.
@@ -31248,7 +31297,7 @@ This is pure conceptual, notation-independent.
    *Cells:* `Rosenbrock:stability‑region test` ↔ `IMEX:stiff‑ratio heuristic` • *Row CL(min):* 2 • *Loss:* test regimes differ; grid dependence; asymptotic constants • *Use:* **G.5** eligibility hints; acceptance thresholds live in **G.4**, not here.
 
 4. “Illumination descriptor mapping” *(senseFamily=Measurement; **Row Scope: QD comparability (DescriptorMap-only)**)* …
-   *Cells:* `MAP‑Elites:grid indices` ↔ `CVT‑MAP‑Elites:Voronoi centroids` • *Row CL(min):* 2 • *Loss:* binning vs. centroidal tessellation; drift when **DistanceDef** or centroid‑counts change • *Use:* lawful cross‑reporting of Q/D/QD‑scores; **DescriptorMapRef.edition* and **DistanceDef.edition** must be cited; thresholds remain in **G.4**.
+  *Cells:* `MAP‑Elites:grid indices` ↔ `CVT‑MAP‑Elites:Voronoi centroids` • *Row CL(min):* 2 • *Loss:* binning vs. centroidal tessellation; drift when **DistanceDef** or centroid‑counts change • *Use:* lawful cross‑reporting of Q/D/QD‑scores; **DescriptorMapRef.edition** and **DistanceDefRef.edition** must be cited; thresholds remain in **G.4**.
 
 *(All four rows presume extant F.9 Bridges; row bottlenecks and losses are printed as per F.7.)*
 
@@ -31264,7 +31313,7 @@ This is pure conceptual, notation-independent.
 ### 11 · Consequences
 
 * **Auditable plurality.** Teams can hold multiple Traditions in view and compare them **safely**; losses are visible; penalties touch **R** only.
-* **Selective & edition‑aware refresh.** Bridge edits or **DescriptorMapRef.edition / DistanceDef.edition** changes trigger **path‑local** refresh (lower cost, higher reactivity).
+* **Selective & edition‑aware refresh.** Bridge edits or **DescriptorMapRef.edition / DistanceDefRef.edition** changes trigger **path‑local** refresh (lower cost, higher reactivity).
 * **Downstream cleanliness.** **G.5** selectors have lawful crossings and **Φ** ids; **G.12** can compute DHC signals with declared units and windows; illumination/QD comparisons carry **edition** context, preventing silent drift.
 
 ### 12 · Relations
@@ -31311,7 +31360,7 @@ This is pure conceptual, notation-independent.
 | metric value; raw score | **Coordinate** (or **Value**) | “value” _(acceptable in plain usage when context is clear, but formally it’s a Coordinate tied to a Characteristic)_ | A.18, C.16 |
 | score (composite or normalized) | **Score** (produced via a **Gauge**) | “score” _(if needed in narrative, ensure it’s explained as a result of a defined Gauge)_ | A.17/A.18 (Gauge/Score) |
 | unit dimension; unit axis | **Unit** (of a Scale) | “unit” _(plain usage okay)_ | A.18 (Scale/Unit) |
-| metric (as a noun) | **Avoid in Tech and as primitive** → use **`U.MetricTemplate` / `U.Measure` / Score** | “metric” _(Plain only on first use, with pointer to canonical terms)_ | C.16 § 5.1 (L5), A.18 |
+| metric (as a noun) | **Avoid in Tech and as primitive** → use **`U.DHCMethodRef` / `U.Measure` / Score** | “metric” _(Plain only on first use, with pointer to canonical terms)_ | C.16 § 5.1 (L5), A.18 |
 
 ## Migration debt from A.2.6 (Scope, ClaimScope, WorkScope)
 
