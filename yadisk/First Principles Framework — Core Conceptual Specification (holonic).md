@@ -1,28 +1,32 @@
+# First Principles Framework — Core Conceptual Specification
+by Anatoly Levenchuk and assortment of LLMs.
+September 2025
+
 # Table of Content 
 
-**Preface (non-normative)**
+ **Preface (non-normative)**
 
 | ID & Title | Status | Concise content reminder — “what belongs here” |
 | :--- | :--- | :--- |
-| Introduction: FPF as a Pattern Language and its Historical Roots | full text | Introduces FPF's core mission to solve knowledge silos using a generative pattern language, outlining its intellectual lineage from Aristotle to Constructor Theory. |
-| Intellectual lineage | full text | Traces FPF's key ideas to their roots in various disciplines, from pattern languages and constructor theory to formal methods and trust calculus. |
-| Assurance and Imagination: FPF’s Two Engines | full text | Explains how FPF integrates both assurance (audits, evidence) and creativity (generating novel ideas), treating them as two complementary engines for responsible innovation. |
-| Navigating Uncertainty: Building Closed Worlds within an Open World | full text | Explains how FPF reconciles Open-World and Closed-World assumptions, using Bounded Contexts to create reliable 'islands of closure' for engineering decisions. |
-| FPF as an Evolutionary Architecture for Thought | full text | Positions FPF as an architecture for the reasoning process itself, designed to sustain key characteristics like auditability, evolvability, and falsifiability. |
-| Beyond Cognitive Biases: FPF as a Generative Architecture for Thought | full text | Contrasts FPF's generative, structural approach to avoiding cognitive errors with the traditional corrective, diagnostic approach of hunting for biases. |
-| Descriptive Ontologies vs A Thinking-Oriented Architecture | full text | Differentiates FPF's goal of orchestrating reasoning from classical ontologies' goal of cataloging existence, emphasizing FPF's focus on objectives, trust, and dynamics. |
-| FPF and 1980s Expert Systems: Shared Ambition, Different Standard | full text | Contrasts FPF as an 'architecture for thinking' with classic 'inference engines', highlighting differences in goals, world assumptions, and evolvability. |
-| The “big storylines” unique to FPF (load‑bearing commitments) | full text | Lists the eight core, load-bearing commitments that define FPF's unique architectural and philosophical stance. |
-| Transdisciplinarity as Meta-Theory of Thinking | full text | Explains how FPF treats transdisciplinarity as a meta-theory for designing reasoning, using architheories as generative scaffolds grounded in physical reality. |
-| Artefact Families as a Publication Standard | full text | Defines the three-family architecture (Core, Tooling, Pedagogy) governed by a unidirectional dependency rule to maintain conceptual integrity. |
-| Intellect Stack (informative overview) | full text | Presents a five-layer pedagogical map of cognitive skills (Structure → Knowledge → Action → Strategy → Purpose) and links them to FPF patterns. |
-| Purpose, Scope, and Explicit Non-Goals | full text | Clarifies FPF's mission as a generative scaffold for thought, its scope as tool-agnostic normative patterns, and what it explicitly is not (e.g., a domain encyclopedia). |
-| How to Navigate Architectural [A] and Definitional [D] Patterns | full text | Provides heuristics for reading the specification by distinguishing deep-dive [A] patterns from precise [D] definitions and using the ToC and links to navigate. |
+| FPF is a first principle based architecture decisions for transdiciplinary SoTA methods of evolving holons: systems, epistemes, communities. | full text | FPF serves the Engineer, Researcher, and Manager by providing a generative pattern language for constructing and evolving thought, designed as an "operating system for thought". |
+| Creativity in Open-Ended Evolution and Assurance* | full text | FPF integrates assurance (audits, evidence) and creativity (generating novel ideas) as complementary engines for responsible innovation, providing a structured choreography for creative work from abduction to operation. |
+| Navigating Uncertainty: Building Closed Worlds within an Open World | full text | Explains how FPF reconciles Open-World and Closed-World assumptions, using Bounded Contexts to create reliable 'islands of closure' for engineering decisions within an inherently open world. |
+| FPF as an Evolutionary Architecture for Thought | full text | Positions FPF as an architecture for the reasoning process itself, designed to sustain key characteristics like auditability, evolvability, and falsifiability by applying architectural thinking to the dynamics of reasoning. |
+| Architectural Characteristic of Thought | full text | Details the key characteristics of rigorous thought (e.g., Auditability, Evolvability, Composability) and the specific FPF mechanisms designed to preserve them. |
+| Beyond Cognitive Biases: FPF as a Generative Architecture for Thought | full text | Contrasts FPF's generative, structural approach to avoiding cognitive errors with the traditional corrective, diagnostic approach of hunting for biases, framing FPF as a scaffold that makes errors harder to commit. |
+| Thinking Through Writing: The FPF Discipline of Conceptual Work | full text | Describes how FPF uses a discipline of "thinking through writing" with conceptual forms (Cards, Tables, Records) to make thought tangible, shareable, and auditable, while remaining tool-agnostic. |
+| Descriptive Ontologies vs. A Thinking-Oriented Architecture | full text | Differentiates FPF's goal of orchestrating reasoning from classical ontologies' goal of cataloging existence, emphasizing FPF's focus on objectives, trust, and dynamics. |
+| The “big storylines” unique to FPF (load‑bearing commitments) | full text | Lists the nine core, load-bearing commitments that define FPF's unique architectural and philosophical stance, from its holonic kernel to its explicit treatment of creativity and assurance. |
+| Transdisciplinarity as a Meta‑Theory of Thinking | full text | Explains how FPF treats transdisciplinarity as a meta-theory for designing reasoning, using architheories as generative scaffolds grounded in physical reality to bridge disciplinary silos. |
+| FPF as a Culinary Architecture for Collective Thought: Why We Formalize “Obvious” Ideas | full text | Uses the 'culinary architecture' analogy to explain FPF's role in synthesizing 'obvious' ideas into a robust framework for complex, generative problems. |
+| Intellect Stack (informative Overview) | full text | Presents a five-layer pedagogical map of cognitive skills (Structure → Knowledge → Action → Strategy → Governance) and links them to FPF architheories. |
+| Purpose, Scope, and Explicit Non‑Goals | full text | Clarifies FPF's mission as a generative scaffold for thought, its scope as tool-agnostic normative patterns, and what it explicitly is not (e.g., a domain encyclopedia or a specific methodology). |
 
 **Part A · Kernel Architecture Cluster**
 
 | § | ID & Title | Status | Keywords & Search Queries | Dependencies |
 | :--- | :--- | :--- | :--- | :--- |
+| A.0 | **Onboarding Glossary (NQD & E/E‑LOG)** | Stable | *Keywords:* novelty, quality‑diversity (NQD), explore/exploit (E/E‑LOG), portfolio (set), illumination map (gauge), parity run, comparability, ReferencePlane, CL^plane, ParetoOnly default. *Queries:* "What is NQD in FPF?", "How does FPF handle creative generation?", "What is an explore-exploit policy in FPF?" | **Builds on:** E.2, A.5, C.17–C.19. **Coordinates with:** E.7, E.8, E.10; F.17; G.5, G.9–G.12. **Constrains:** Any pattern/UTS row that describes a generator, selector, or portfolio. |
 | ***Cluster A.I · Foundational Ontology*** | | | | |
 | A.1 | **Holonic Foundation: Entity → Holon** | Stable | *Keywords:* part-whole composition, system boundary, entity, holon, U.System, U.Episteme. *Queries:* "How does FPF model a system and its parts?", "What is a holon?", "Difference between entity and system." | **Builds on:** P-8 Cross-Scale Consistency. **Prerequisite for:** A.1.1, A.2, A.14, B.1. |
 | A.1.1 | **`U.BoundedContext`: The Semantic Frame** | Stable | *Keywords:* local meaning, context, semantic boundary, domain, invariants, glossary, DDD. *Queries:* "How does FPF handle ambiguity?", "What is a Bounded Context in FPF?", "How to define rules for a specific project?" | **Builds on:** A.1. **Prerequisite for:** A.2.1, F.0.1. |
@@ -54,7 +58,7 @@
 | A.14 | **Advanced Mereology: Components, Portions, Aspects & Phases**| Stable | *Keywords:* mereology, part-of, ComponentOf, PortionOf, PhaseOf, composition. *Queries:* "How to model different kinds of 'part-of' relationships?" | **Refines:** A.1. **Prerequisite for:** B.1.1. |
 | A.15 | **Role–Method–Work Alignment (Contextual Enactment)** | Stable | *Keywords:* enactment, alignment, plan vs reality, design vs run, MIC, WorkPlan. *Queries:* "How do roles, methods, and work connect?", "How does an intention become an action in FPF?" | **Integrates:** A.2, A.3, A.4. **Prerequisite for:** all operational models. |
 | A.15.1 | **`U.Work`: The Record of Occurrence** | Stable | *Keywords:* execution, event, run, actuals, log, occurrence. *Queries:* "What is a Work record?", "Where are actual resource costs stored?" | **Refines:** A.15. **Used by:** B.1.6, all Part D. |
-| A.15.2 | **`U.WorkPlan`: The Schedule of Intent** | Stable | *Keywords:* plan, schedule, intent, forecast, schedule. *Queries:* "How to model a plan or schedule?", "Difference between a WorkPlan and a MethodDescription." | **Refines:** A.15. **Informs:** `U.Work`. |
+| A.15.2 | **`U.WorkPlan`: The Schedule of Intent** | Stable | *Keywords:* plan, schedule, intent, forecast. *Queries:* "How to model a plan or schedule?", "Difference between a WorkPlan and a MethodDescription." | **Refines:** A.15. **Informs:** `U.Work`. |
 | A.16 | **Formality–Openness Ladder (FOL): Building Closed Worlds Inside an Open World** | Draft/Stub | *Keywords:* formality levels, rigor, proof, specification, sketch, F0-F9. *Queries:* "How to measure the formality of a document?", "What are the F0-F9 levels?" | **Builds on:** A.1. **Informs:** B.3. |
 | A.17 | **A.CHR-NORM — Canonical “Characteristic” & rename (Dimension/Axis → Characteristic)** | Stable | *Keywords:* characteristic, measurement, property, attribute, dimension, axis. *Queries:* "What is the correct term for a measurable property?", "How to define a metric?" | **Prerequisite for:** A.18, A.19, C.16. |
 | A.18 | **A.CSLC-KERNEL — Minimal CSLC in Kernel (Characteristic/Scale/Level/Coordinate)** | Stable | *Keywords:* CSLC, scale, level, coordinate, measurement Standard. *Queries:* "What is the CSLC Standard?", "How to ensure measurements are comparable?" | **Builds on:** A.17. **Prerequisite for:** all metric-based patterns. |
@@ -131,7 +135,7 @@
 | C.19 | **E/E‑LOG — Explore–Exploit Governor** | Stable | *Keywords:* explore-exploit, policy, strategy, decision lens, portfolio management. *Queries:* "How to balance exploration and exploitation?", "What is an EmitterPolicy?". | **Builds on:** Decsn-CAL. **Coordinates with:** NQD-CAL. |
 | C.20 | **Discipline‑CAL — Composition of `U.Discipline`** | Stable| *Keywords:* discipline, **U.AppliedDiscipline**, **U.Transdiscipline**, episteme corpus, standards, institutions, **Γ_disc**. *Queries:* "How to compose and assess a discipline in FPF?" | **Builds on:** C.2 KD‑CAL, G.0, Part F (Bridges/UTS). **Coordinates with:** C.21, C.23. |
 | C.21 | **Discipline‑CHR · Field Health & Structure** | Stable | *Keywords:* discipline, field health, reproducibility, standardisation, alignment, disruption. *Queries:* "How to measure the health of a scientific field?", "What is reproducibility rate?". | **Builds on:** C.16, C.2, A.2.6, B.3. **Coordinates with:** C.20, G.2. |
-| C.22 | **Problem‑CHR · Problem Typing & TaskSignature Binding** | Stable | *Keywords:* problem typing, TaskSignature, selector, eligibility, acceptance, CHR-typed traits. *Queries:* "How does FPF type problems for selection?", "What is a TaskSignature?". | **Builds on:** C.16, G.5, G.0. **Coordinates with:** G.4, C.23. |
+| C.22 | **Problem‑CHR · Problem Typing & TaskSignature Binding** | Stable | *Keywords:* problem typing, TaskSignature, selector, eligibility, acceptance, CHR‑typed traits. *Queries:* "How does FPF type problems for selection?", "What is a TaskSignature?". | **Builds on:** C.16, G.5, G.0. **Coordinates with:** G.4, C.23. | **Builds on:** C.16, G.5, G.0. **Coordinates with:** G.4, C.23. |
 | C.23 | **Method‑SoS‑LOG — MethodFamily Evidence & Maturity** | Stable | *Keywords:* MethodFamily, evidence, maturity, SoS-LOG, admit, degrade, abstain, selector. *Queries:* "How is method family maturity assessed?", "What is the SoS-LOG for selection?". | **Builds on:** G.5, G.4, C.22, B.3. |
 
 **Part D – Multi-scale Ethics & Conflict-Optimisation**
@@ -222,7 +226,13 @@
 | G.4 | **CAL Authoring: Calculi · Acceptance · Evidence**| Stable | *Keywords:* CAL, calculus, operators, acceptance clauses, evidence, logic, rules, predicates. *Queries:* "How to define new rules or logic in FPF?", "What is a CAL architheory?", "How to specify acceptance criteria for a method?". | **Builds on:** G.3, B.3 (Trust). **Prerequisite for:** G.5. |
 | G.5 | **Multi-Method Dispatcher & MethodFamily Registry**| Stable | *Keywords:* dispatcher, selector, method family, registry, No-Free-Lunch, policy, selection, multi-method. *Queries:* "How does FPF choose the right algorithm for a problem?", "What is the multi-method dispatcher?", "How to handle competing methods in FPF?". | **Builds on:** G.2, G.3, G.4, C.19 (E/E-LOG). |
 | G.6 | **Evidence Graph & Provenance Ledger** | Stable | *Keywords:* EvidenceGraph, provenance, path, anchor, lane, SCR, RSCR, PathId, PathSliceId. *Queries:* "How does FPF trace claims to evidence?", "What is an EvidenceGraph?", "How are evidence paths identified?". | **Builds on:** A.10, B.3, G.4, F.9, C.23. **Prerequisite for:** G.5. |
-| G.7 | **Cross-Tradition Bridge Matrix & CL Calibration** | Stable | *Keywords:* Bridge Matrix, Tradition, Congruence Level (CL), CL^k, calibration, sentinel, loss notes, ReferencePlane. *Queries:* "How to compare competing scientific theories in FPF?", "What is a Bridge Matrix?", "How is Congruence Level calibrated?". | **Builds on:** G.2, F.9, B.3, E.10, E.11. **Prerequisite for:** G.5. |
+| G.7 | **Cross-Tradition Bridge Matrix & CL Calibration** | stub | *Keywords:* Bridge Matrix, Tradition, Congruence Level (CL), CL^k, calibration, sentinel, loss notes, ReferencePlane. *Queries:* "How to compare competing scientific theories in FPF?", "What is a Bridge Matrix?", "How is Congruence Level calibrated?". | **Builds on:** G.2, F.9, B.3, E.10, E.11. **Prerequisite for:** G.5. |
+| G.8 | **SoS-LOG Bundles & Maturity Ladders** | Stable | *Keywords:* SoS-LOG, maturity ladder, admissibility ledger, selector, admit, degrade, abstain, portfolio, archive, dominance policy, illumination. *Queries:* "How to package SoS-LOG rules?", "What is a MethodFamily maturity ladder?", "How does the selector get its rules?". | **Builds on:** C.23, G.4, G.6, G.5, C.22, C.18, C.19, F.9, G.7, E.11, E.10. |
+| G.9 | **Parity / Benchmark Harness** | Stable | *Keywords:* parity, benchmark, harness, selector, portfolio, edition pins, freshness windows, comparator set, lawful orders, Pareto, Archive, gauges. *Queries:* "How to compare competing MethodFamilies?", "What is a parity run?", "How to ensure a fair benchmark in FPF?". | **Builds on:** G.5, G.6, G.4, C.23, C.22, C.18/C.19, G.7, F.15, F.9, E.11, E.5.2. |
+| G.10 | **SoTA Pack Shipping (Core Publication Surface)** | Stable | *Keywords:* SoTA-Pack, shipping surface, publication, parity pins, PathId, PathSliceId, telemetry, UTS, selector-ready. *Queries:* "What is the final output of the G-suite?", "How are SoTA packs published?", "What is a selector-ready portfolio?". | **Builds on:** G.1–G.8, F.17–F.18, B.3, E.5.2, E.11, C.18/C.19/C.23. |
+| G.11 | **Telemetry-Driven Refresh & Decay Orchestrator** | Stable | *Keywords:* telemetry, refresh, decay, PathSlice, Bridge Sentinels, edition-aware, epistemic debt, selector, portfolio. *Queries:* "How does FPF keep SoTA packs up-to-date?", "What triggers a model refresh?", "How is epistemic debt managed?". | **Builds on:** G.6, G.7, G.5, G.8, G.10, C.18/C.19, C.23, B.3.4, E.11. |
+| G.12 | **DHC Dashboards · Discipline-Health Time-Series (lawful gauges, generation-first)** | Stable | *Keywords:* dashboard, discipline health, DHC, time-series, lawful gauges, generation-first, selector, portfolio, Illumination. *Queries:* "How to measure the health of a discipline?", "What are DHC dashboards?", "How to create lawful time-series reports?". | **Builds on:** C.21, G.2, G.5, G.6, G.8, G.10, G.11, C.18/C.19, C.23, F.17/F.18, E.5.2. |
+| G.13 | **External Interop Hooks for SoTA Discipline Packs (conceptual)** | INF | *Keywords:* interop, external index, SoTA, mapper, telemetry, OpenAlex, ORKG, PRISMA, generation-first. *Queries:* "How does FPF integrate with external knowledge bases like OpenAlex?", "What is an InteropSurface?", "How to map external claims into FPF?". | **Builds on:** G.2, G.5, G.6, G.7, G.8, G.9, G.10, G.11, G.12, C.21, C.23, E.5.2, E.11. |
 
 **Part H – Glossary & Definitional Pattern Index**
 
@@ -258,89 +268,23 @@
 
 # **Preface** (non-normative)
 
-## Introduction: FPF as a Pattern Language and its Historical Roots 
+## FPF is a first principle based architecture decisions for transdisciplinary SoTA methods of evolving holons: systems, epistemes, communities.
 
-Modern science and engineering face a chronic ailment: **knowledge silos**. Specialised vocabularies accelerate depth yet obstruct cross-disciplinary reasoning. Previous cures oscillated between rigid “one-schema-fits-all” systems and airy meta-frameworks with little pragmatic bite. **First Principles Framework (FPF)** proposes a third path: a **pattern language** that is _generative_ rather than prescriptive—a toolkit for constructing thought. 
+FPF is designed to serve three primary roles: the Engineer, who builds reliable systems; the Researcher, who searches for and grows trustworthy knowledge; the Manager, who organizes the collective thinking process of the Engineers and Researchers. Therefore FPF stands on a deliberately cross‑disciplinary scaffold. What follows traces the ideas that most visibly shaped its kernel, holonic constructive algebra, transdisciplinary thinking methods (architheories) with conceptual standards of publication/presentation results of this thinking.
 
-+Each pattern follows the **Alexanderian quartet** (context ▲ problem ▲ solution, plus consequences); **\[A]** patterns use a seven‑part template and **\[D]** patterns are light‑weight micro‑stubs. **Both end with a _Conformance Checklist_ (CC)**—a logical test stated without tooling jargon. Patterns interlock to form an **operating system for thought** that is designed to **evolve** (Open‑Ended Evolution, **A.4**).
+Format of architecture decisions for transdisciplinary thinking architecture: similar to ADR (architecture decision records). **First Principles Framework (FPF)** proposes: a **pattern language** that is _generative_ rather than prescriptive—a toolkit for constructing thought. Each pattern follows the **Alexanderian quartet** (problem context - problem - solution - checklist - consequences - rationale, plus dependences); Patterns interlock to form an **operating system for thought** that is designed to **evolve** (Open‑Ended Evolution, **A.4**).
 
-FPF is designed to serve three primary roles: the Engineer, who builds reliable systems; the Researcher, who grows trustworthy knowledge; and the Learner, who develops robust mental models. 
+## Creativity in Open-Ended Evolution and Assurance*
 
-**This draft also makes explicit the constitutional and publication architecture that governs the language**: **E.1–E.4** (Vision, **Eleven Pillars**, Principle Taxonomy, Artefact Architecture) and the **Guard‑Rails E.5.\*** (Lexical Firewall, Notational Independence, Unidirectional Dependency, Cross‑Disciplinary Bias‑Audit), with evolution driven by **Design Rationale Records (E.9)**. It adopts an **Open‑Ended Kernel with Architheory Layering (A.5–A.6)** and introduces the **Unification Suite (Part F)**—Contextual Lexicon, **SenseCells/Bridges with CL**, **Concept‑Sets**, and the **Unified Term Sheet (UTS)**—as the publication surface for cross‑domain alignment. Alongside assurance and compliance, the Core includes **Creativity‑CHR (C.17)**, **NQD‑CAL (C.18)**, and **E/E‑LOG (C.19)**, bound to the **Abductive Loop** via **B.5.2.1**, turning ideation into **instrumented, Pareto‑front exploration**.
-
-## Intellectual lineage *(non‑normative)*
-
-FPF stands on a deliberately cross‑disciplinary scaffold. What follows traces the ideas that most visibly shaped its kernel, algebra, and publication Standard.
-
-* **Epistemic discipline & falsifiability (first principles).**
-  FPF’s mission and invariants center on falsifiable, auditable change: evolvability, cross‑scale coherence, and didactic transparency. These are operationalised as a micro‑kernel plus pluggable architheories and a pattern language—so that claims can be tested, versioned, and traced end‑to‑end.
-
-* **Pattern language as the operating system for thought.**
-  The specification uses an Alexander‑style pattern form (context → problem → solution → consequences) with a conformance checklist at the end of each pattern; architectural \[A] patterns and definitional \[D] micro‑stubs interlock to form a generative language.
-
-* **Bounded contexts, sense alignment, and controlled crossing.**
-  Meaning is local to `U.BoundedContext`; cross‑context reuse is explicit via **Bridges** that carry a **Congruence Level (CL)** and loss notes, and via the **two‑bridge rule** (scope bridge + kind bridge) that penalizes assurance **R** while keeping **F** and **G** invariant. The **Unified Term Sheet** (UTS) operationalises this discipline with SenseCells and CL/Loss entries.
-
-* **Formal methods & type‑theoretic rigor (post‑2015 toolchain awareness).**
-  The kernel’s **Formality scale (F0…F9)** ties claims to increasing rigor—from checkable predicates to machine‑checked proofs and higher equality/univalence. The spec explicitly interfaces with modern proof assistants and foundations (Lean 4, Coq, Isabelle; “Propositions as Types”), grounding F7–F9 content without mandating a single tool.
-
-* **Holonic mereology and identity through change.**
-  FPF’s world is holonic: part–whole structure (A.14), explicit temporal stance (Tᴰ/Tᴿ), and an **ecumenical identity** Standard that admits both 4D and 3D+1 readings when boundaries and events are declared. The **Meta‑Holon Transition (MHT)** captures genuine emergence—new boundary, objective, or supervision—rather than “massaging arithmetic” inside the same level.
-
-* **External transformer & causal clarity (constructor‑style stance).**
-  Every change is enacted by a **system bearing `TransformerRole`** across a boundary; “self‑magic” is forbidden and handled by a **Reflexive Split** when needed. This externalisation of agency aligns with post‑2015 “constructor‑style” thinking about tasks and capability as the unit of causal explanation.
-
-* **Role–Method–Work alignment & enactment gating.**
-  To prevent category errors, FPF strictly separates **roles** (contextual masks), **Method/MethodDescription** (capability/recipe), and **Work** (dated execution). The **Green‑Gate Law** gates any step that “requires role R” by a contemporaneous **StateAssertion** in an RSG (role state graph).
-
-* **Measurement, comparability, and gauge discipline (post‑2015 metrology).**
-  The **MM‑CHR** architheory and **A.19** provide a notation‑free operator library (Sub/Emb/Prod/Quot/**Fix\_g**), monotone gauges, quotient/gauge‑fixing, Lipschitz‑bounded predicates, and explicit **Φ(CL)**/**Ψ(CL^k)** penalties when meaning crosses spaces/Contexts—reflecting contemporary measurement theory and robust evaluation practice.
-
-* **Knowledge graphs & semantic web standards (post‑2015 maturation).**
-  The spec’s unification and provenance model draws on RDF 1.2/OWL 2, Common Logic, and PROV‑O, treating evidence and lineage as first‑class while remaining tool‑agnostic.
-
-* **Systems & software engineering standards (architecture, lifecycle, quality).**
-  FPF’s status separation (standard/evidence/requirement), architecture description discipline, and lifecycle obligations track contemporary standards—e.g., ISO/IEC/IEEE 42010:2022 (architecture), 15288:2023 (life cycle), and ISO 25010—again used as conceptual anchors rather than prescriptive tooling.
-
-* **Open‑world *and* closed‑world reasoning (explicit stance).**
-  The preface situates FPF as a hybrid: it operates in the open world while constructing locally closed worlds (Contexts) for reliable engineering decisions; OWA/CWA are reconciled through explicit scope, time selectors (Γ\_time), and typed guards.
-
-* **Trust & assurance calculus (F–G–R with congruence).**
-  Assurance is explicit and conservative: Cross‑context reuse never silently upgrades claims; instead, declared bridges and their CL drive **R‑lane** discounts, with “incomparable” as a legitimate outcome when gauges are missing.
-
-* **Agency spectrum & active inference (2017→).**
-  FPF treats agency as a graded, context‑bound role rather than a base type. The `Agency‑CHR` and `AgentialRole` pattern synthesize insights from active inference and basal cognition into a practical, auditable model for autonomy, responsibility, and risk.
-
-* **Regulatory semantics & deontics (typed guards; no synonym shortcuts).**
-  Regulatory categories are **Kinds** with declared intent and F; adoption across Contexts uses guard macros, **KindBridges** with type‑congruence **CL^k**, and deterministic membership, keeping scope and kind mapping separate and penalising **R** accordingly. Acceptance clauses are modeled as predicates over observed Work with explicit windows.
-
-* **Governance, language, and publication Standard.**
-  An **Open‑Ended Kernel with Architheory Layering** is governed by guard‑rails—lexical firewall, notational independence, unidirectional dependency—and published through the **Unification Suite** (SenseCells/Bridges/Concept‑Sets/UTS). Design Rationale Records (DRRs) drive controlled evolution.
-
-* **Didactic primacy and manager‑level exemplars.**
-  From pump curves to SRE incidents, the spec embeds manager‑oriented vignettes that show how the algebra reads in practice—evidence freshness, role gating, typed guards—so the lineage remains testable where decisions are made.
-
-> **Synthesis.** Across these lines, the through‑line is **explicitness**: explicit context, explicit roles, explicit bridges and losses, explicit gauges, explicit proofs. The result is a substrate‑neutral framework where ideas graduate into reliable action without sacrificing scientific humility.
-
-## Assurance *and* Imagination: FPF’s Two Engines *(non‑normative)*
-
-Most frameworks pick a side. They either optimise for **assurance**—audits, evidence, safety gates—or they celebrate **creativity**—ideas, leaps, pivots. **First Principles Framework (FPF)** is built to do both at once. It gives you sturdy rails for trust **and** a disciplined way to generate and mature novel ideas.
-
-**On the assurance rail,** FPF makes trust a first‑class concern. Claims are anchored to evidence; formality can scale from plain checks to machine‑verified proofs; confidence is computed, not intuited. Meaning is kept local to an explicit frame of reference so “the same word” can’t quietly shift under your feet. The result is a reasoning trail that explains *why* a decision is justified—clear enough to audit, conservative enough for safety, and evolvable over time.
+Most engineering and management standards, methodologies and frameworks pick a side. They either optimise for **assurance** — audits, evidence, safety gates — or they celebrate open-ended evolution/agility based on **creativity** — ideas, leaps, pivots. **First Principles Framework (FPF)** is built to do both at once. It gives you a disciplined way to collectiverly generate and mature novel ideas with trust.
 
 **On the imagination rail,** FPF is equally deliberate. It does not treat creativity as a black box or a personality trait. It provides a **named choreography for creative work**:
 
-* **Abduct first.** Start with the *“what could be true?”* move—the **Abductive Loop**—to propose bold candidate explanations or designs before you overfit to today’s data.
-* **Search widely, then focus.** Use an **open‑ended search** style to illuminate “adjacent possibles,” then apply an **explore–exploit governor** to decide when to roam for surprises and when to double‑down on promising directions.
-* **Shape → Evidence → Operate.** Turn a promising sketch into a concrete shape, collect the right evidence to test it, and run it for real. Then loop.
+* **Abduct first.** Start with the *“what could be true?”* move—the **Abductive Loop**—to propose bold candidate explanations or designs before you overfit to today’s data. **Search widely, then focus.** Use an **open‑ended search** style to illuminate “adjacent possibles,” then apply an **explore–exploit governor** to decide when to roam for surprises and when to double‑down on promising directions. **Shape → Evidence → Operate.** Turn a promising sketch into a concrete shape, collect the right evidence to test it, and run it for real. Then loop.
 
 FPF also **measures creative quality**. It distinguishes novelty for its own sake from *valuable* novelty. Work is scored along simple, universal characteristics—*Is it new?* *Is it useful?* *Does it fit the constraints?*—so that teams can compare options without collapsing into taste or hierarchy.
 
-| Question we must answer         | FPF’s assurance move                                                      | FPF’s creative move                                                                                   |
-| ------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| *“Why should we trust this?”*   | Tie every claim to explicit evidence; make confidence and scope visible.  | Keep space for hypotheses that stretch the current model, but insist they graduate into evidence.     |
-| *“How do we grow safely?”*      | Evolve in small, auditable steps; record rationale for changes.           | Run **open‑ended** searches early, then **govern** the switch from exploring to refining.             |
-| *“What does ‘good’ look like?”* | Pass/fail against declared acceptance criteria; compute assurance levels. | Score creative candidates on **Novelty, Use‑Value, Surprise, Constraint‑Fit**—not just style points.  |
+**On the assurance rail,** FPF makes trust a first‑class concern. Claims are anchored to evidence; formality can scale from plain checks to machine‑verified proofs; confidence is computed, not intuited. Meaning is kept local to an explicit frame of reference so “the same word” can’t quietly shift under your feet. The result is a reasoning trail that explains *why* a decision is justified—clear enough to audit, conservative enough for safety, and evolvable over time. One of important questions is *“What does ‘good’ look like?”* to pass/fail decision be against declared acceptance criteria. Created portfolio/collection of candidates scored **Novelty, Use‑Value, Surprise, Constraint‑Fit** on a Pareto fronties. And then we can evolve our holons-of-interest in small, auditable steps; record rationale for changes.  Run **open‑ended** searches early, then **govern** the switch from exploring to refining.   
 
 *In a lab:* a puzzling anomaly isn’t “noise”; it is a **prompt**. You generate alternate explanations, explore them widely, then pick a direction with a clear **explore–exploit** rule. Each candidate must face a **fit‑for‑purpose** test; only those with evidence advance.
 *In a product team:* concept sketches are not meetings in disguise; they are first‑class artifacts that move through **Explore → Shape → Evidence → Operate**. Creativity is expected; untested cleverness is not.
@@ -348,7 +292,7 @@ FPF also **measures creative quality**. It distinguishes novelty for its own sak
 
 Assurance without imagination calcifies. Imagination without assurance drifts. FPF’s Standard is to **separate the moves cleanly**—so you can be genuinely inventive without losing your audit trail—and to **reconnect them on purpose**—so good ideas survive contact with the world. The framework’s creative patterns make *generation* systematic; its assurance patterns make *selection* and *adoption* reliable. That is how a team becomes both safe and original.
 
-> **Synthesis.** FPF treats creativity as a governed search and assurance as a repeatable reckoning. Together they form an **engine for changing your mind responsibly**—and then changing your world.
+**Synthesis.** FPF treats creativity as a governed search and assurance as a repeatable reckoning. Together they form an **engine for changing collective's mind responsibly**—and then changing physical world.
 
 ## Navigating Uncertainty: Building Closed Worlds within an Open World *(non-normative)*
 
@@ -383,14 +327,17 @@ In essence, FPF does not attempt the impossible task of transforming the open wo
 
 ## FPF as an Evolutionary Architecture for Thought 
 
-A method of thinking is itself a system. Like any system, it can be designed with ad-hoc, brittle connections that fail under pressure, or it can be architected for resilience, clarity, and growth. The First Principles Framework is not merely a collection of concepts or a static ontology; it is a formal **architecture for a method of trans-disciplinary thinking**. Its very structure—a collection of interconnected Architectural and Definitional Patterns presented as a series of design records—is a deliberate choice that mirrors its function.
+A method of thinking is itself a system. Like any system, it can be designed with ad-hoc, brittle connections that fail under pressure, or it can be architected for resilience, clarity, and growth. The First Principles Framework is not merely a collection of concepts or a static ontology; it is a formal **architecture for a method of trans-disciplinary thinking**. Its very structure—a collection of interconnected Architectural and Definitional Patterns presented as a series of an architecture/design records — is a deliberate choice that mirrors its function.
 
 This concept is directly analogous to the modern practice of **Evolutionary Architecture** in software engineering. An evolutionary architecture is one designed to support incremental, guided change across multiple dimensions. It acknowledges that the systems we build are never "finished" and must be able to adapt to new requirements and a changing environment without catastrophic rewrites. The architecture itself provides the stable pathways and guiding principles—the "fitness functions"—that allow the system to evolve gracefully.
 
-FPF applies this same architectural thinking to the dynamic of reasoning itself. It provides a set of load-bearing patterns and constitutional principles (The Eleven Pillars) that act as the fitness functions for our thoughts. By building our reasoning within this architecture, we are not just seeking a correct answer in the moment; we are creating an intellectual artifact that is designed to last, to be understood, to be challenged, and to evolve.
+FPF applies this same architectural thinking to the dynamic of reasoning itself. It provides a set of load-bearing patterns and constitutional principles that act as the fitness functions for our thoughts. By building our reasoning within this architecture, we are not just seeking a correct answer in the moment; we seeking a collection/portfolio of answers at Pareto frontier in multi-criterial optimisation. This is SoTA answers that regularily need to re-check due to moving this Pareto frontier due to progress in science and engineering. Open-endedness and evolvability is The Rule.
 
-The value of this architectural approach lies in its ability to explicitly protect and sustain the critical **characteristics of rigorous thought**, holding them from the natural degradation they suffer in complex, long-running projects. Where traditional critical thinking identifies failures in these characteristics, FPF provides the mechanisms to build them in by design. **Creative generativity** is explicitly instrumented: the **Creativity‑CHR → NQD‑CAL → E/E‑LOG** stack supplies measurable **Novelty/Quality/Diversity** signals and explore–exploit policies.
+The value of this architectural approach lies in its ability to explicitly protect and sustain the critical **characteristics of rigorous thought**, holding them from the natural degradation they suffer in complex, long-running projects. Where traditional critical thinking identifies failures in these characteristics, FPF provides the mechanisms to build them in by design. Open-ended creative generativity is explicitly instrumented.
 
+Part of FPF architecture for open-ended evolution is counterintuitive. E.g., to determine SoTA systems, knowledge, communities, methods, disciplines and other entities, you need to compare them. Therefore FPF has measurement and comparability theory that starts all thinking with designing of a comparability-gauge frame (CG-frame). To discuss dynamics of holon change, FPF talks about holon's characteristics that are measurable within CG-frames and trajectories in characteristic spaces. 
+
+## Architectural Characteristic of Thought
 
 | Architectural Characteristic of Thought | What it protects / why it matters | The FPF Mechanisms that Preserve It |
 | :--- | :--- | :--- |
@@ -459,7 +406,7 @@ This flexibility is by design. The conceptual Standard of a **Role Description C
 
 Ultimately, the diverse forms within FPF are not bureaucratic artifacts to be produced; they are conceptual instruments to be used. They provide the minimal necessary structure to turn fleeting insights into durable, shareable, and contestable knowledge. They are the grammar that allows a team to write its thoughts, and then, together, to edit them towards truth.
 
-## Descriptive Ontologies vs. A Thinking-Oriented Architecture *(non-normative)*
+## Descriptive Ontologies vs. A Thinking-Oriented Architecture 
 
 The First Principles Framework (FPF) shares a goal with classical upper ontologies (e.g., **Basic Formal Ontology (BFO)**, **DOLCE**): to provide a universal, unified language that cuts across disciplinary silos. Yet they pursue this from fundamentally different starting points. Understanding this distinction is key to grasping FPF’s unique purpose.
 
@@ -479,66 +426,7 @@ The following contrasts highlight this shift:
 | **Cross-Disciplinarity** | Challenging: each domain = new branch. | Built-in: patterns span ≥3 domains (C-1 Universality). |
 | **Physical Grounding** | Optional; often abstract. | Mandatory: material Transformer anchor (e.g., in Pattern D.1 Mereology). |
 
-#### Why FPF Prioritizes Patterns
-FPF chooses patterns to address limitations in descriptive approaches:
-1. **Objective Alignment**: Complex endeavors fail from unstated goals; FPF mandates patterns for objectives and conflicts (e.g., Pattern D.4 Canonical Loop), ensuring reasoning starts with "why."
-2. **Trust Over Truth Tables**: Systems need epistemic scores (Pattern D.3); patterns incorporate trust dynamics, not just class membership.
-3. **Open-Ended Adaptability**: Ontologies ossify; FPF embeds evolution (Pattern C.4), allowing patterns to mutate via Design Rationale Records.
-4. **Didactic Transparency**: Each pattern includes a quotable closer and CC, providing mental hooks—an embodiment of Pillar P-2.
-
-Building on metasystem transitions (Turchin), FPF integrates feedback loops and layered control, making it a natural extension for domains like engineering and biology.
-
-#### Prophylactic Clarifications
-- *FPF does not reject descriptive ontologies*: They plug in as domain taxonomies via Role-Projection (B.5.3). What FPF rejects is letting taxonomy dictate the epistemic agenda.
-- *FPF is not a prescriptive checklist*: Patterns are enabling constraints—adopt subsets as needed, honoring CCs and guard-rails.
-
-In bridging these worlds, FPF transforms ontology from a map of existence into a compass for thought.
-
-> *"Where a taxonomy tells you what is, a pattern language reminds you why it matters—and how to change your mind when it no longer does."*
-
-### FPF and 1980s Expert Systems: Shared Ambition, Different Standard *(non‑normative)*
-
-The ambition that fuels the First Principles Framework is not new. It shares a direct intellectual lineage with the grand "expert system" projects of the 1980s. Both endeavors pursue the same fundamental goal: to capture expert knowledge in a formal "knowledge representation" language, making it explicit, reusable, auditable and capable of driving decisions. FPF can be seen as a modern realization of that very ambition, but one that operates under a profoundly different Standard, shaped by the lessons learned over the last four decades.
-
-The original expert system paradigm was predicated on logic-based languages. However, the industry later recognized that modern, multi-paradigm programming languages—with their rich object-oriented and functional constructs—were often more expressive and practical for representing complex knowledge than their purely logical predecessors. In parallel, "ontologies" found their primary role not as dynamic reasoning engines, but as sophisticated schemas for data, leaving the intricate work of inference to powerful algorithms. The complex, reliable software that runs our world today is, in many ways, the true heir to the expert system dream.
-
-FPF embraces this modern reality. It is a "standard for thinking"—a knowledge representation language that is neither a programming language nor a formal logic, but a structured, semi-formal medium designed for human cognition and machine-parsability alike. It inherits the spirit of standardization, where the goal is to make compliance and reasoning tractable through a more formal mode of expression. To make this standard both rigorous and ergonomically sound, FPF's architecture has been intentionally "tuned" with several key disciplines:
-* A Pattern Language Form. Every normative rule is presented not as a naked axiom, but within an Alexanderian pattern that exposes the problem, the competing forces, the solution, and its consequences. This makes the why behind every rule an integral part of the framework itself.
-* The "Tell-Show-Show" Principle. Abstract concepts are immediately grounded with concrete, archetypal examples (Archetypal Grounding, E.7). A universal rule is first told, then shown in the context of a physical U.System and an epistemic U.Epeme, making the framework's trans-disciplinary claims tangible.
-* Stratified Lexical Registers. FPF maintains a strict separation between a Tech register for formal precision and a Plain register for didactic clarity (Lexical Stratification, E.10). This allows the framework to be simultaneously accessible to managers and auditable by specialists.
-* An Explicit Constitution. The entire framework is governed by a small, stable constitution (Part E), which defines the rules for its own evolution. This ensures that FPF remains a living, adaptable system, not a static text.
-
-**What they share.** Both FPF and 1980s expert systems pursue a stubbornly practical aim: **make expert judgment explicit, reusable, and auditable**. They do it by **naming reasoning moves** and **constraining how they connect**. In that sense, FPF’s patterns (with their Conformance Checklists) and classic rule bases (with their production rules) spring from the same impulse: tame complexity by **codifying disciplined thinking**.
-
-**Where they part ways.** Expert systems were **inference engines**. Their Standard was: *given a closed set of facts and rules, compute a conclusion* (forward/backward chaining over a rule base). FPF is an **architecture for thinking**. Its Standard is: *given an open world, build safe **islands of closure** where decisions are justified, and make the justification itself composable, evolvable, and testable*. In FPF the primary deliverable is not an answer but a **well‑formed reasoning trail** that can be checked, extended, and aligned across domains.
-
-**Different unit of computation:** 
-* **Expert system:** *fire rules → derive new facts*.
-* **FPF:** *apply patterns → satisfy checks*. FPF’s “computation” is the systematic satisfaction of **pattern‑level invariants** (e.g., separation of Role–Method–Work; evidence anchoring; cross‑scale consistency). The outcome is a **go/no‑go** on conformance and a **trace** back to claims, roles, methods, work, and evidence.
-
-**Different world assumptions.**
-Expert systems typically presume a **single closed world** so that non‑derived facts are false. FPF assumes an **open world by default** and teaches how to **construct local closed worlds** on purpose—via **Bounded Contexts** with explicit invariants, role lattices, and acceptance policies—so engineering decisions remain crisp without pretending to global completeness.
-
-**Different kernel shape.**
-Classic stacks bundled **knowledge base + inference engine + working memory**. FPF offers a **micro‑kernel** plus **architheory plug‑ins** and **pattern Standards**:
-
-| Classic expert system | FPF counterpart (essence)                                                                                                                                        |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rule base (if‑then)   | **Named patterns** with **Conformance Checklists**; **Role/Capability/Service** separation frames *who/what/how* cleanly.                                        |
-| Inference engine      | **Reasoning & evolution loops** (abductive–deductive–inductive; run–observe–refine–deploy) orchestrate *how* conclusions mature, not *which* conclusion to pick. |
-| Working memory        | **Work & Evidence ledgers** (execution facts live in **Work**; claims in **Epistemes**; links are **evidence‑anchored** and decay‑aware).                        |
-
-**From “explain *why the engine fired*” to “explain *why the model is justified*.”** Expert systems popularized explanation facilities that replayed fired rules. FPF generalizes explanation into **assurance**: every normative claim must point to **evidence artefacts**, pass **trust/assurance calculus**, and obey **didactic and lexical guard‑rails**. Explanations cease to be transcripts of inference and become **auditable Standards** between design‑time intent and run‑time facts.
-
-**Reflexivity without self‑deception.** Expert systems struggle with **self‑modification** (changing the rule base that is also judging the change). FPF bakes in a **reflexive split**: **external transformers** act on models; **Design‑Rationale Records** govern change; **temporal duality** keeps design‑time artefacts (e.g., MethodDescription) separate from run‑time artefacts (Work). This lets teams evolve the “rules of thought” while preserving a clean audit trail.
-
-**Brittleness vs evolvability.** Classic rule bases often became brittle as rules multiplied. FPF’s **ontological parsimony**, **role algebra** (≤, ⊥, ⊗), **characterisation spaces**, and **state graphs** push complexity into **small, local, named Standards** that compose safely across scales. Instead of a monolithic rule web, FPF yields **lego‑blocks with fitness functions**.
-
-**How to read this in practice.** If you *do* embed a rule engine inside an FPF project, treat it as a **system bearing a role** that executes a **method** within a **bounded context**. Its outputs are **epistemes** that must earn **evidence roles**; its operational runs are **work** that will be evaluated against **acceptance clauses** of a declared **service**. In other words, an “expert system” becomes **one transformer among many** inside a larger, governed architecture of thought.
-
-**Bottom line.** Expert systems tried to *replace* expert thinking with machine inference on a closed rule set. FPF aims to *upgrade* expert thinking by giving humans and machines a **shared, evolvable operating system** for making, testing, and revising claims—under explicit roles, scopes, and evidence—without collapsing the open world into a brittle fiction. FPF is a scaffold of semi-formal documents (patterns, standard-like) of exceptional clarity. These patterns serve as a bridge, making FPF understandable to other humans — and structured enough to be understood by contemporary AI system. 
-
-### The “big storylines” unique to FPF (load‑bearing commitments)
+## The “big storylines” unique to FPF (load‑bearing commitments)
 1. **Holonic kernel with physical anchoring**  —  everything that composes is a `U.Holon`; every change is enacted by an **external transformer** (A.1; A.12).
 2. **Role–Method–Work split with time duality** — prevents the endemic plan/reality conflation; only `U.Work` carries actuals (A.4; A.15.1–.2).
 3. **Assurance as a first‑class calculus** — evidence roles, decay, and weakest‑link composition make “trust” computable and auditable (B.3; A.10).
@@ -546,59 +434,67 @@ Classic stacks bundled **knowledge base + inference engine + working memory**. F
 5. **Local meaning, global alignment** — `U.BoundedContext` islands and explicit Bridges with **congruence‑loss** turn “it depends” into a Standard (A.1.1; F.9).
 6. **Micro‑kernel + architheories** — CAL/LOG/CHR plug‑ins extend capability without contaminating the core (A.5–A.6; Part C).
 7. **Publication Standard & guard‑rails** — Core ↔ Tooling ↔ Pedagogy split, notational independence, and Lexical Discipline prevent conceptual drift (E.5; E.10).
-8. **Open‑ended evolution by design** — DRR, evidence refresh, **and explicit creative search (NQD + E/E‑LOG)** keep the system alive without ossification (A.4; B.4; **C.18; C.19;** E.6; E.9; B.3.4).
+8. **Open‑ended evolution by design** — evolve not only solutions but a problems too, work not only with holons-of-interest but with diversity of their environments.
+9. ** Creativity with Novelty and Quality Diversity optimisation**  — DRR, evidence refresh, **and explicit creative search (NQD + E/E‑LOG)** keep the system alive without ossification (A.4; B.4; **C.18; C.19;** E.6; E.9; B.3.4).
 
-**What FPF is**: a **generative, testable architecture for thinking** that any domain can inhabit.
+**What FPF is**: a **generative, testable architecture for open-ended evolutionary thinking** that any domain can inhabit.
 **What FPF is not**: a repository of domain facts, a rule‑chaining engine, a methodology du jour, or a notation.
 
-### Transdisciplinarity as a Meta‑Theory of Thinking  
+## Transdisciplinarity as a Meta‑Theory of Thinking  
 
 *Modern complexity lives at the junction of silos.*  A climate model borrows genetics to track pathogens; a venture‑capital pitch cites thermodynamic “runway.” Yet each field guards its own mathematics, and translation costs soar.  **FPF answers this tension by treating transdisciplinarity as a meta‑theory of thinking itself** — a language for designing reasoning, not another specialist dialect.
 
- An FPF **architheory** is a *theory about theories*: Systemic Calculus abstracts part‑whole composition; Knowledge Dynamics captures epistemic trust.  These patterns act as **generative scaffolds**: a biologist modelling adaptation, an engineer designing resilience, and a strategist planning pivot options all reach for the same invariant trio — *objective ▲ feedback loop ▲ trust metric*.  FPF names that trio explicitly (`U.Objective`, Canonical Evolution Loop, Unified Trust Model) and **requires universality** *(Principle C‑1: at least three heterogeneous domains)*.
+ An FPF **architheory** is a *theory about theories*: holonic Calculus abstracts part‑whole composition; Knowledge Dynamics captures changes in trust to knowledge about holons.  These patterns act as **generative scaffolds**: a biologist modelling adaptation, an engineer designing resilience, and a strategist planning pivot options all reach for the same invariant trio — *objective, feedback loop, trust metric*.  FPF names that trio explicitly (`U.Objective`, Canonical Evolution Loop, Unified Trust Model) and **requires universality** *(Principle C‑1: at least three heterogeneous domains)*.
 
-The synthesis is physical, not metaphoric. *Constructive mereology* (Kit Fine) and *Constructor Theory* (Deutsch & Marletto) insist that every whole arises through a **material Transformer as transformer of matter and information**—a sensor grid that binds “crowd‑flow” to joules, a data pipeline tying employee action to market response. Pattern **D.1 Aggregation & Mereology** formalises this anchor; without it, abstractions cannot cross scales.
+The synthesis is physical, not metaphoric. *Constructive mereology* (Kit Fine) and *Constructor Theory* (Deutsch & Marletto) insist that every whole arises through a **material Transformer as transformer of matter and information**—a sensor grid that binds “crowd‑flow” to joules, a data pipeline tying employee action to market response. Part B formalises this anchor; without it, abstractions cannot cross scales.
 
-The idea rests on a long lineage:
+Modern projects live at the junction of silos: software SREs speak of *incidents* and *SLOs*, manufacturing lines of *acceptance* and *tolerances*, scientists of *evidence* and *replication*. The same surface word often means different things across these local traditions, and unguarded reuse of labels silently corrupts designs, audits, and decisions. Part F provides a **local‑first** discipline for meaning that **keeps senses inside a `U.BoundedContext`** and requires any cross‑context reading to travel through an **explicit Bridge** with a declared **congruence level (CL)** and **loss notes**. In short: *translate across contexts; never collapse them*.  
 
-* Aristotle’s first principles and Descartes’ methodical doubt supply the goal of irreducible axioms.
-* Popper’s conjecture‑and‑refutation loop and Feynman’s “don’t fool yourself” ground FPF’s **abductive primacy**.
-* Christopher Alexander’s pattern language and the **Gang of Four** show how named solutions seed generative design.
-* Ashby’s cybernetic layering and Turchin’s *metasystem transition* illuminate cross‑scale control.
+Part F is the framework’s **publication surface for cross‑domain alignment**. It turns harvested terms into **SenseCells** (context‑scoped senses), relates them via **Bridges** (with kind, direction, CL, loss), bundles aligned senses into **Concept‑Sets**, and publishes the result as a single, human‑readable **Unified Term Sheet (UTS)**—*“one table that a careful mind can hold.”* This sheet is how engineers, managers, and researchers **talk precisely about the same things** while preserving local rigor.  Disciplines divide the world; trans-disciplinary theories that captured in FPF's architheories remind us it is one conversation.
 
-Together they yield what we call the **Congruence Hypothesis**: different domains often optimise the *same* abstract driver—thermodynamic *free energy*, ML *loss*, evolutionary *fitness*—all instances of `U.Objective`.
+Part G turns “state‑of‑the‑art” from a moving target into a **governed, selector‑ready portfolio**. It does this by (i) fixing *what may be compared and under which evidence minima*; (ii) generating and harvesting SoTA alternatives across rival traditions; (iii) authoring lawful measurements and calculi; (iv) registering method families and selecting among them **without semantic flattening**; and (v) shipping edition‑aware packs with telemetry so that refresh is principled rather than ad‑hoc. In short: **G formalises SoTA as an auditable, updatable object, not a leaderboard snapshot.**   
 
-*“Disciplines divide the world; meta‑theories remind us it is one conversation.”*
+## FPF as a Culinary Architecture for Collective Thought: Why We Formalize “Obvious” Ideas
 
-See **E.5** (Guard‑Rails), **A.4** (Temporal Duality & Open‑Ended Evolution), **B.5.3** (Role‑Projection / Type‑&‑Role calculus), and **B.3** (Trust & Assurance Calculus) for formal definitions and Conformance Checklists.
+A thoughtful reader encountering concepts like *Open-Ended Evolution*, *Minimally Viable Examples*, or the *Explore-Exploit* trade-off within FPF might rightly observe: "These are not new ideas. They are foundational principles in fields from Agile development to strategic management." This observation is not only correct; it is central to understanding FPF's unique value.
 
-### Artefact Families as a Publication Standard  *(non-normative)*
+FPF does not seek to invent the fundamental ingredients of rigorous thought. Its purpose is not to discover that evolution is effective or that empirical testing is valuable. Its mission is to provide a **transdisciplinary architectural synthesis** of these powerful, "obvious" ideas, transforming them from disconnected heuristics into a coherent, interoperable, and fully-governed "operating system for thought."
 
-*A spec that speaks only to machines soon alienates humans; a tutorial that ignores formal rules breeds cargo‑cult practice.* To keep both rigor and readability, FPF cleanly separates its artefacts into **three families bound by one‑way dependencies**—an architectural pattern as vital as any algebra in the Core.
+A useful analogy is the distinction between an individual cook following a recipe and a professional kitchen organized for the collective, high-quality production of diverse dishes in a dynamic environment:
+*   **The fundamental concepts** (MVP, evolution, exploration/exploitation) are like **fundamental ingredients**: flour, eggs, salt, heat. They are universal and essential.
+*   **A domain-specific methodology** (like Lean Startup or a specific scientific method) is like a **cookbook**: it provides excellent recipes for using those ingredients to create a specific dish, such as a software product or a research paper.
+*   **The First Principles Framework (FPF)** is the **architecture of the kitchen itself**—the system established by Auguste Escoffier as the *brigade de cuisine*.
 
----
+Escoffier did not invent the ingredients, nor did he create every recipe. He designed a **system** with defined roles (*Saucier, Pâtissier*), standardized techniques (*sauté, julienne*), and a clear workflow that could reliably produce a vast range of complex dishes to a consistently high standard. The architecture of the kitchen, not any single recipe, is what enables culinary excellence at scale.
 
-| Artifact Family                               | Purpose (mini‑definition)                                                               | May depend on | Must never depend on |
-| ---------------------------------- | --------------------------------------------------------------------------------------- | ------------- | -------------------- |
-| **Conceptual Core**  *(The Canon)* | Normative pattern language; tool‑agnostic; guarded by the **DevOps Lexical Firewall**.  | —             | Tooling, Pedagogy    |
-| **Tooling Reference**              | Executable artefacts—linters, simulators, schemas—that **verify Conformance Checklist**. | Core          | Pedagogy             |
-| **Pedagogical Companion**          | Tutorials, playbooks, Intellect‑Stack exercises that turn patterns into action.         | Core, Tooling | —                    |
+FPF provides this same architectural layer for the process of thinking. It operationalizes these "obvious" ideas by giving them a formal place and a normative function within a larger, cohesive system.
 
----
+| **Culinary Architecture** | **First Principles Framework (FPF)** | **The Value of the Architecture** |
+| :--- | :--- | :--- |
+| **Defined Roles** (e.g., *Pâtissier*) | **`U.Role` & `U.RoleAssignment` (A.2)** | Separates concerns and assigns clear, context-dependent responsibilities to agents. |
+| **Standardized Techniques** (e.g., *sauté*) | **`U.Method` & `U.MethodDescription` (A.3)** | Provides a universal, representation-agnostic way to describe *how* an action is performed, from a physical process to a line of reasoning. |
+| **Workflow & Composition** (plating a dish) | **Universal Algebra of Aggregation (Γ) (B.1)** | Guarantees that components (whether physical parts or logical premises) can be composed into a coherent whole in a predictable and auditable way. |
+| **Trans-Culinary Applicability** | **Transdisciplinarity (C-1)** | The same architecture that "cooks" a `U.System` can be used to "cook" a `U.Episteme` or a personal development strategy, because the underlying principles of composition, evolution, and assurance are universal. |
 
-This stack obeys the **Principle of Unidirectional Dependency** (`pat:guardrail/unidir-dependency`): arrows point *upward* only.  A new linter can evolve without touching a single pattern; a workshop can cite the linter, but the Canon remains untouched.  The design mirrors W3C’s *Recommendation → Test Suite → Note* split and the Linux kernel’s user‑space boundary—cross‑domain proof that the Standard is robust.
+Therefore, when one author applies the concept of "exploration vs. exploitation" by drawing from business literature and another by referencing FPF, they may arrive at similar practical advice. The difference is that the FPF user is operating within an architecture where that single concept is already connected to a rich, formal network of other principles. Their decision is implicitly wired into a system of evidence anchoring, trust calculus, and open-ended evolution, making it more robust, auditable, and seamlessly composable with other rigorously-defined concepts.
 
-Physical grounding persists.  A linter executable is a *Transformer* that binds abstract CC‑Style.1 to tangible bytecode; a classroom lab is a *Transformer* converting Canonical Evolution Loop into real telemetry.  Thus even supportive layers respect **Pattern D.1 Aggregation & Mereology**.
+Предложение: FPF does not claim ownership of the timeless ingredients of good thinking. It provides the timeless architecture that enables a world-class kitchen for collective thought.
 
-1. *Truth* lives in the Conceptual Core.
-2. *Verification* happens in Tooling.
-3. *Explanation* blooms in Pedagogy.
+This naturally leads to a crucial question: if a skilled practitioner, without formal knowledge of FPF, can produce a solution of comparable quality, where does the framework's value truly lie?
 
-Any proposed change starts as a **Design Rationale Record (DRR)**, the formal mechanism for governing change (E.9), Tooling updates its checks, and Pedagogy updates examples — preserving the conceptual integrity mandated by the Unidirectional Dependency guard-rail (E.5.3) and preventing “conceptual drift.”
+The answer lies at the threshold of complexity. For a well-defined problem solved by a single, expert agent, well-honed heuristics and tacit knowledge often suffice. The solutions proposed by such an expert and by FPF may indeed appear indistinguishable, much like a master chef's personal recipe for a single dish is impeccable without needing a formal kitchen architecture. FPF shines not in delivering a superior single-shot response, but in sustaining and evolving answers over time in collective thinkibng environment through its built-in cycles of reasoning and refinement with auditable trace and knowledge hands-off standardisation. While an initial pass through these cycles may yield comparable quality with or without FPF — drawing on common sense, ubiquitous knowledge and ad hoc intuition — the framework's true value emerges in the long term, where its evolvability, auditability, and mechanisms for managing epistemic debt ensure that solutions adapt, compound, and scale without fragmentation or decay.
 
-*“Layers divide labour; the Standard keeps the whole mind intact.”*
+FPF's utility begins to scale exponentially when the problem itself crosses a **Pareto frontier of complexity**, where the "general cultural knowledge" of even a brilliant individual becomes suboptimal. This frontier is defined not by mere computational difficulty, but by the emergence of several non-computational dimensions:
 
-### Intellect Stack (informative Overview) 
+*   **Compositional Complexity:** The need to integrate numerous, heterogeneous, and often conflicting components—be they physical parts, software modules, or logical premises—into a coherent and reliable whole.
+*   **Collaborative Complexity:** The need to align the mental models and coordinate the work of a diverse team, ensuring that a shared understanding is maintained without stifling individual contribution.
+*   **Temporal Complexity:** The need for a solution to live, adapt, and evolve over long periods, maintaining its conceptual integrity and remaining auditable for future generations of stakeholders.
+*   **Assurance Complexity:** The need to provide explicit, auditable, and often formal proof that a solution is safe, reliable, and fair, especially when the cost of failure is high.
+*   **Generative Complexity:** The need not to find a single correct answer, but to systematically explore a vast solution space, manage a portfolio of diverse options, and drive open-ended evolution.
+
+An expert's intuition can find a single, excellent point on this multi-dimensional frontier. FPF provides the architectural discipline to navigate the entire frontier. It is the necessary scaffold for building solutions that are not only clever, but also composable, collaborative, evolvable, trustworthy, and perpetually creative at scale.
+
+## Intellect Stack 
 
 *Complex problems fail more often from mis‑aligned competencies than from missing facts.* Inside one brain—or one team—model builders, testers, and decision makers can behave like separate departments. The **Intellect Stack** offers a **layered map of cognitive skills**, showing how FPF’s architheories combine into an “operating system for thought.”
 
@@ -622,11 +518,9 @@ A full description of the Intellect Stack and its layers resides in the Pedagogi
 
 *“A stack without mastery is scaffolding; mastery without a stack is improvisation—FPF supplies the ladder that turns skills into intelligence.”*
 
-### Purpose, Scope, and Explicit Non‑Goals  *(non-normative)*
+## Purpose, Scope, and Explicit Non‑Goals 
 
 *A framework that aims at everything excels at nothing.* To keep **Cognitive Elegance (P‑1)** and **Pragmatic Utility (P‑7)** intact, FPF draws a deliberate line around what it serves—and what it refuses to be.
-
----
 
 **Purpose – an operating system for thought**
 FPF’s mission is to supply a **generative scaffold** that carries a raw idea—whether from a physicist, a product‑manager, or an AI agent—toward a reproducible, auditable impact on the physical world. It does so by offering:
@@ -657,36 +551,133 @@ Everything here is **free of implementation detail**; verification lives in Tool
 
 This boundary avoids the fate of “grand unifiers” that collapsed under their own encyclopaedic weight. FPF instead follows the lesson of Euclidean geometry and the TCP/IP suite: a **small set of powerful, generative rules** outlives any single domain fashion.
 
-*“Purpose without scope is day‑dream; scope without non‑goals is sprawl—FPF charts the narrow ridge where ideas turn into reliable action.”*
-
-### How to Navigate Architectural \[A] and Definitional \[D] Patterns *(non-normative)*
-
-*A dictionary lists words; a grammar shows you how to speak.* FPF is written as a grammar of patterns, and fluency comes from knowing when to read a column and when to grab a brick.
-
-**Pattern taxonomy**
-
-| Tag                            | Template (payload)                                                                                              | Read it when you need …                                                     | Typical length |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------- |
-| **\[A] Architectural Pattern** | Seven‑part deep dive: *Context → Problem → Forces → Solution → Conformance Checklist → Consequences → Rationale* | a cross‑cutting rule—Aggregation algebra, Scalable Formality, Unified Trust | 1‑3 pages      |
-| **\[D] Definitional Pattern**  | Light form: *Term → Definition → Relations → CC*                                                                | a precise meaning—`U.TypeNode`, `verifiedBy`, `U.Objective`                 | ½ page         |
-
-(A‑patterns answer *why & how*; D‑patterns answer *what*.)
-
-**Navigation heuristics — “Zoom Out → Zoom In → Trace Links”**
-
-1. **Zoom out.** Skim the ToC for \[A] clusters. Pick the pattern whose subtitle states your dilemma.
-2. **Zoom in.** Inside that \[A] pattern, bold small‑caps terms (`U.Decision`) hyperlink to their \[D] definitions in a Glossary. Read only the meaning you need; bounce back.
-3. **Trace links.** The **Pattern Catalogue** shows a graph: hover “Unified Trust” to see it depends on Anchoring Relations \[D] and cites Conformance Checklist CC‑Trust.\*—use this to audit impacts before you extend a rule.
-
-**Pro tips**
-
-* **Problem‑first?** Start with forces in an \[A] pattern; they tell you which D‑terms are essential. 
-* **Term‑first?** Begin in Glossary; each D‑pattern lists “Used‑By” links back to governing A‑patterns.
-* **Evolve.** If neither A nor D covers your case, draft a **Design Rationale Record** referencing the closest CC, then propose a new pattern or variant—never patch the Canon directly.
-
-*Read D for the word, A for the music; let the hyperlinks conduct the score.*
-
 # Part A – Kernel Architecture Cluster
+
+## **A.0 — Onboarding Glossary (NQD & E/E‑LOG)**  \[A]
+**One‑screen purpose (manager‑first).** This pattern gives newcomers a plain‑language starter kit for FPF’s *generative* engine so they can run a lawful **problem‑solving / search loop** on day one. It explains the few terms you must publish when you **generate, select, and ship portfolios** (not single “winners”), and points to the formal anchors you’ll use later. *(OEE is a Pillar; NQD/E/E‑LOG are the engine parts.)*
+
+**Builds on.** E.2 (**P‑10 Open‑Ended Evolution; P‑2 Didactic Primacy**), A.5, C.17–C.19 · **Coordinates with.** E.7, E.8, E.10; F.17 (UTS); G.5, G.9–G.12 · **Constrains.** Any pattern/UTS row that **describes a generator, selector, or portfolio**.
+
+**Keywords & queries.** *novelty, quality‑diversity (NQD), explore/exploit (E/E‑LOG), **portfolio (set)**, illumination map *(gauge)*, parity run, comparability, ReferencePlane, CL^plane, **ParetoOnly** default*
+
+### 1) Problem frame
+
+Engineer‑managers meeting FPF for the first time need a **plain, on‑ramp vocabulary** for the framework’s *generative* engine so they can run an informed **problem‑solving/search loop** on day one—*before* formal architheories. Without that, Part G and Part F read as assurance/alignment only, and teams default to single “best” options. This **undercuts P‑10 Open‑Ended Evolution** and weakens adoption. 
+
+### 2) Problem
+
+In current practice:
+
+* **Single‑winner bias.** Teams look for “the best” option and publish a leaderboard, suppressing **coverage & diversity** signals essential to search.
+* **Metric confusion.** “Novelty” and “quality” are used informally; units/scales are omitted; ordinal values are averaged, breaking comparability.
+* **Hidden policies.** Explore/exploit budgets and governor rules are implicit; results are irreproducible and **refresh‑unsafe** (no edition/policy pins).
+* **Tool lock‑in.** Implementation terms (pipelines, file formats) leak into the Core, violating Guard‑Rails.
+
+FPF needs a **short, normative glossary** that names the generative primitives in **Plain** register and ties each to its **formal anchor**—so portfolios, not single scores, become the default publication. 
+
+### 3) Forces
+
+| Force                         | Tension                                                                         |
+| ----------------------------- | ------------------------------------------------------------------------------- |
+| **Readability vs Rigor**      | One‑liners for managers ↔ lawful definitions with editions and scale types.     |
+| **Creativity vs Assurance**   | Open‑ended search (OEE/QD) ↔ conformance, parity, and publication discipline.   |
+| **Comparability vs Locality** | Shared N‑U‑C‑D terms ↔ context‑local CG‑frames and bridges with CL.             |
+| **Tool‑agnostic Core**        | Conceptual publication in UTS ↔ engineering teams’ urge to cite specific tools. |
+
+### 4) Solution — **Normative onboarding glossary and publication hooks**
+
+#### 4.1 Plain one‑liners (normative on‑ramp; formal anchors in C.17–C.19)
+
+| Term                      | Plain definition (on‑ramp)                                                                                                                                   | See        |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- |
+| **Novelty (N)**           | *How unlike the known set in your declared **CharacteristicSpace***. **Compute lawfully** (declared `DescriptorMapRef` + `DistanceDefRef`; no ad‑hoc normalisation). | C.17, C.18 |
+| **Use‑Value (U / ValueGain)** | *What it helps you achieve now under your **CG‑Frame***; tie to acceptance/tests; **publish units, scale kind, polarity, ReferencePlane**.                   | C.17, C.18 |
+| **Constraint‑Fit (C)**    | *Satisfies must‑constraints (Resource/Risk/Ethics)*; legality via **CG‑Spec**; **unknowns propagate** (never coerce to zero).                                | C.18, G.4  |
+| **Diversity_P (portfolio)** | *Adds a new niche to the **portfolio***; measured against the **active archive/grid**, not a single list; declare **ReferencePlane** for each head.          | C.17, C.18 |
+| **E/E‑LOG**               | *Named, versioned **explore↔exploit** policy*; governs when to widen space vs refine candidates; **policy‑id is published**.                                   | C.19       |
+| **ReferencePlane**        | *Where a value lives:* **world** (system), **concept** (definition), **episteme** (about a claim). **Plane‑crossings add CL^plane** (penalties to **R only**); cite policy‑id. | F.9, G.6   |
+
+*(Registers & forbidden forms per **LEX‑BUNDLE**; avoid “axis/dimension/validity/process” for measurement and scope.)*  
+
+#### 4.2 Publication & telemetry duties (where these terms **show up**)
+
+1. **UTS surface (Part F).** When a **UTS row describes a generator, selector, or portfolio**, it **MUST** surface **N, U, C, Diversity_P, E/E‑LOG `policy‑id`, `ReferencePlane`**, with **units/scale/polarity** typed under **MM‑CHR / CG‑Spec**, and lawful references to `DescriptorMapRef`/`DistanceDefRef`. *(Row schema: F.17; shipping via G.10.)*  
+2. **Parity & edition pins (Part G).** When QD/OEE is in scope, **pin** `DescriptorMapRef.edition` and `DistanceDefRef.edition` (and, where applicable, `CharacteristicSpaceRef.edition`, `TransferRulesRef.edition`) and record `policy‑id` + `PathSliceId`. Treat **illumination/coverage as gauges**; publish an **Illumination Map** where G‑kit mandates parity artefacts. **Dominance policy defaults to `ParetoOnly`;** including illumination in dominance **MUST** cite a CAL policy‑id.  
+3. **Tell‑Show‑Show (E.7/E.8).** Any \[A] pattern that claims generative behaviour **MUST** embed **both** a **U.System** and a **U.Episteme** illustration using this glossary (manager‑first didactics). 
+
+#### 4.3 Minimal recipe (run this on day one)
+1) Declare **CG‑Frame** (what “quality” means; lawful units/scales) and **ReferencePlane**.  
+2) Pick 2–4 **Q components** + a simple **DescriptorMap** (≥2 dims) for N/D; publish **editions**.  
+3) Choose an **E/E‑LOG policy** (explore↔exploit budget); record **policy‑id**.  
+4) Call the selector under **G.5** with parity pins; **return a set** (Pareto/Archive), not a single score.  
+5) **Publish to UTS** + **PathIds/PathSliceId**; **Illumination Map** is a **gauge** by default.
+
+### 5) Archetypal Grounding
+*Informative; manager‑first (E.7/E.8 Tell‑Show‑Show).*  <!-- exact heading per CC‑AG.1 -->
+
+**Show‑A · SRE capacity plan (selector returns a set).**
+*Frame.* We must raise service headroom for Q4 without breaking latency SLOs.
+*Portfolio.* `{cache‑expansion, read‑replicas, query‑shaping, circuit‑breaker tuning, schema‑denorm}`.
+*Glossary in action.* `U = latency@p95 & error‑rate`, `C = budget ≤ $X, risk ≤ R`, `N = dissimilarity to current playbook`, `Diversity_P = adds a previously empty niche in our archive (e.g., “shifts load to edge”)`. E/E‑LOG starts **Explore‑heavy**, flips **Exploit‑heavy** once ≥ K distinct niches are lit. *(Publish UTS row + parity pins; illumination stays a gauge.)*  
+
+**Show‑B · Policy search with QD archive (MAP‑Elites‑class).**
+*Frame.* Robotics team explores gaits that trade stability vs energy use.
+*Glossary in action.* `CharacteristicSpace = {step‑frequency, lateral‑stability}`, `ArchiveConfig = CVT grid`, `N` from descriptor distance, `U` = task reward, `Diversity_P` = coverage gain; **PortfolioMode=Archive**. Families include **MAP‑Elites (2015)**, **CMA‑ME/MAE (2020–)**, **Differentiable QD/MEGA (2022–)**, **QDax (2024)**; publish editions and policy‑ids; treat illumination as a **gauge**.  
+
+*(Optional)* **Show‑C · OEE parity (POET/Enhanced‑POET).**
+Co‑evolve `{environment, method}` portfolios; publish **coverage/regret** as gauges; pin `TransferRulesRef.edition`; return *sets*, not a single winner. 
+  
+**Show‑Epi · Evidence synthesis (U.Episteme).**
+*Frame.* A living review compares rival **causal identification** methods (e.g., IV vs. DiD vs. RCT‑adjacent surrogates) across policy domains.
+*Glossary in action.* `U = external‑validity gain @ F/G‑declared lanes`, `C = ethics & data‑licence constraints`, `N = dissimilarity in **ClaimGraph** transformations`, `D_P = coverage of identification niches in the archive`. `ReferencePlane = episteme`. Illumination/coverage stays a **gauge**; selection returns a **portfolio** of methods per niche. *(Publish UTS rows; cite Bridges + CL for cross‑domain reuse; edition‑pin Descriptor/Distance defs where QD applies.)*
+
+### 6) Bias‑Annotation
+
+**Scope.** Trans‑disciplinary; glossary applies to both **System** and **Episteme** work.
+**Known risks & mitigations.**
+*Over‑aggregation:* forbid mixed‑scale sums; use **CG‑frame** and **MM‑CHR**.
+*Terminology drift:* enforce **LEX‑BUNDLE** registers; ban tool jargon in Core.
+*Optimization monoculture:* require **portfolio** publication where G‑kit mandates parity; illumination stays a **gauge** unless CAL authorises otherwise.   
+
+### 7) Conformance Checklist (SCR/RSCR stubs)
+
+| ID          | Requirement                                                                                                                                                                               | Purpose                                                                         |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **CC‑A0‑1** | If a pattern/UTS row **describes a generator, selector, or portfolio**, it **MUST** surface **N, U, C, Diversity_P, `ReferencePlane`, and E/E‑LOG `policy‑id`**; **units/scale/polarity** **MUST** be declared. | Makes generative claims comparable and auditable (UTS as publication surface).  |
+| **CC‑A0‑2** | When QD/OEE is in scope, **pin** editions: `DescriptorMapRef.edition`, `DistanceDefRef.edition` (and, where applicable, `CharacteristicSpaceRef.edition`, `TransferRulesRef.edition`); log `PathSliceId` and policy‑ids. | Enables lawful *parity/refresh*; edition‑aware telemetry.                       |
+| **CC‑A0‑3** | **No mixed‑scale roll‑ups**; ordinal data **SHALL NOT** be averaged; any roll‑up **MUST** live under a declared **CG‑frame**.                                                             | Prevents illegal scoring; keeps comparisons lawful.                             |
+| **CC‑A0‑4** | Where the G‑kit requires parity, **publish an Illumination Map** (coverage per niche); **single‑number leaderboards are non‑conformant** on the Core surface when a ParityReport is required. | Portfolio‑first publication; avoids single‑winner bias.                         |
+| **CC‑A0‑5** | Keep **illumination/coverage** as **gauges**; **dominance policy defaults to `ParetoOnly`**; any change is CAL‑authorised and cited by policy‑id.                                          | Separates fit from exploration; preserves auditability.                         |
+| **CC‑A0‑6** | Apply **E.7/E.8**: include a **U.System** and a **U.Episteme** illustration when claiming generative behaviour; obey **E.10** register hygiene; use the exact subsection title **“Archetypal Grounding.”** | Locks didactic primacy; prevents jargon drift.                                  |
+| **CC‑A0‑7** | **ReferencePlane declared** for every N/U/C/Diversity_P head and **CL^plane** penalties **route to R only**; **Φ_plane** policy‑id published when planes differ.                            | Prevents plane/stance category errors; aligns with Bridge/ATS guards.           |
+| **CC‑A0‑8** | **Diversity_P ≠ Illumination.** Diversity_P may enter dominance; **Illumination** remains a **gauge** unless explicitly promoted by CAL policy‑id.                                         | Matches QD triad semantics and parity defaults.                                 |
+
+### 8) Consequences
+
+**Benefits.**
+• **Immediate usability** for engineer‑managers (plain one‑liners) with **formal anchors** for auditors.
+• **Portfolio‑first** culture (sets & illumination) instead of brittle leaderboards.
+• **Edition‑aware comparability**; parity/refresh is routine, not ad‑hoc.
+
+**Trade‑offs & mitigations.**
+• Slightly longer UTS rows → mitigated by consistent schema and copy‑paste snippets.
+• Requires discipline on units/scales → mitigated by CG‑frame templates.
+
+### 9) Rationale
+
+This pattern **instantiates P‑10 Open‑Ended Evolution** by making *generation‑selection‑publication* **operational** at the on‑ramp: readers get just enough shared vocabulary to run *search as standard practice*. It aligns with **Didactic Primacy (P‑2)** and **LEX‑BUNDLE (E.10)** by keeping definitions *plain‑first* and scale‑lawful, and with **Plug‑in Layering (P‑5)** by pointing to C.17–C.19 for formal anchors without tool lock‑in. The post‑2015 line (MAP‑Elites → CMA‑ME/MAE → Differentiable QD/MEGA → QDax; POET/Enhanced‑POET/Darwinian Goedel Machine) normalised **quality‑diversity** and **open‑endedness** as first‑class search objectives; this glossary surfaces those ideas as **publication standards**, not tool recipes.  
+
+### 10) Relations
+
+**Builds on.** **E.2 Pillars** (P‑10, P‑2, P‑6), **A.5** (Open‑Ended Kernel), **B.5/B.5.2.1** (Abductive loops + NQD binding), **C.17–C.19** (Creativity‑CHR, NQD‑CAL, E/E‑LOG).    
+
+**Coordinates with.** **E.7/E.8** (Archetypal Grounding; Authoring template), **E.10** (LEX‑BUNDLE), **F.17** (UTS), **G.5/G.9–G.12** (set‑returning selectors, parity, shipping & refresh).    
+**Constrains.** Any generator/selector/portfolio publication on the Core surface: **N‑U‑C‑Diversity_P + policy‑ids; parity pins; lawful scales; portfolio‑first where mandated**. (Ties into UTS rows and parity artefacts.) 
+
+### Editor’s note (implementation hint)
+
+This pattern is an **on‑ramp**: it **does not replace** C.17–C.19. It binds Plain definitions to **publication/telemetry** expectations so newcomers can *use* NQD/E/E‑LOG immediately while experts follow the formal trails. 
+
 ## A.1 Holonic Foundation: Entity → Holon  \[A] 
 
 > *“Name the thing without smuggling in its parts.”*
@@ -18522,7 +18513,7 @@ Provide Γ_nqd.* operators and U.Types for DescriptorMap, Archive/Niche, policie
   - `Γ_nqd.selectFront(Archive|CandidateSet, characteristics={Q components, Novelty@context, ΔDiversity_P, …}) → ParetoFront`
 
 **Type notes.**
-- `U.DescriptorMap (Tech; twin‑labelled Plain) : Hypothesis → ℝ^d` (declares encoder, invariances, version, **CharacteristicSpaceRef**). Publish Tech/Plain per **E.10**; declare `DescriptorMapRef.edition` and `DistanceDefRef.edition`.
+- `U.DescriptorMap (Tech; twin‑labelled Plain) : Hypothesis → ℝ^d` (declares encoder, invariances, version, **CharacteristicSpaceRef**). Publish Tech/Plain per **E.10**; declare `DescriptorMapRef.edition` and `DistanceDefRef.edition`. **Dimensionality rule.** **Require `d≥2` only when QD/illumination surfaces are active**; for non‑QD contexts `d≥1` is lawful.
 - `NQD.CandidateSet` ≡ `Set<U.Hypothesis>` with attached per‑item vectors `{Q_i, N_i, D_i:=ΔDiversity_P, S_i?, provenance_i}`.
 - `U.NQDArchive` holds per‑cell elites and genealogy refs; context‑local.
 - `U.Niche` is a region in CharacteristicSpace (grid bucket / CVT centroid / cluster).
@@ -19008,11 +18999,15 @@ Operationalise No‑Free‑Lunch discipline in selection by ensuring every run�
 
 ### 2) Problem Frame (design/run split; ATS‑aware)
 
+**method‑first stance**
+In FPF a **Problem** exists when a Holder or external **Transformer** cannot cite a known **Method** (or specialisation thereof) that satisfies the current **TaskSignature** under the declared **ScopeSlice(G)**. Problem‑solving therefore entails **strategizing** (selecting or synthesising a method). The resulting **strategy/policy** is a composition under **G.5/E/E‑LOG** and **is not** a new kernel type.  
+**Unknown‑first discipline.** Author S2 with `unknown` traits rather than coercions; **SoS‑LOG** branches MUST specify `{admit|degrade|abstain|sandbox}` handling for `unknown` via closed enums registered at UTS.
+
 Un‑typed “problems” collapse into **informal prose**; selectors cannot **filter/abstain** lawfully; thresholds leak into scoring; cross‑Context reuse is by name, not Bridge. We need a Context‑local descriptor that (i) obeys **MM‑CHR legality** (Scale/Unit/Polarity proven before any aggregation), (ii) records **Assurance lanes (TA/VA/LA)** per **A.10** and **ReferencePlane**, (iii) carries **tri‑state unknowns** explicitly, and (iv) **publishes ATS crossings** (Bridge + UTS) with **Φ(CL)/Φ_plane policy ids**.
 
 ### 3) Problem
 
-+ Without typed descriptors, **Eligibility/Acceptance** degenerate into prose; **illegal ops** creep in (ordinal means; unit mixing); **cross‑plane comparisons** lose **CL/Φ** routing (**penalties to R_eff only**). 
+Without typed descriptors, **Eligibility/Acceptance** degenerate into prose; **illegal ops** creep in (ordinal means; unit mixing); **cross‑plane comparisons** lose **CL/Φ** routing (**penalties to R_eff only**). 
 
 ### 4) Forces
 
@@ -19047,9 +19042,10 @@ Each field is **CHR‑typed** (Characteristic/Scale/Unit/Polarity; MM‑CHR disc
 * **`CharacteristicSpaceRef`** — reference to **`U.CharacteristicSpace`**, with declared **d≥2**; **characteristics are CHR‑typed**; **ReferencePlane** per characteristic; pin edition via **`CharacteristicSpaceRef.edition`**.
 * **`ArchiveConfig`** — archive **topology** (grid/CVT/graph), **resolution** (bins/centroids), **K‑capacity**, **`InsertionPolicyRef`** (elite replacement/dedup/novelty), and **`DistanceDefRef.edition`** (declare **metric/pseudometric** status and invariances; any normalisation **MUST** cite lawful scale transforms in **CG‑Spec**); legality follows CG‑Spec.
 * **`EmitterPolicyRef`** — pointer to emitter/governor policy (C.19) applicable to this TaskSignature; **edition id** recorded.
-* **`DominancePolicy`** — a closed enum registered at UTS: `{ParetoOnly | ParetoPlusIllumination}`. **Default = `ParetoOnly`**; illumination **does not** enter dominance unless **CAL** enables `ParetoPlusIllumination` explicitly (policy id cited).
-* **`IlluminationSummary`** — a **gauge over `Diversity_P`**; **reported** in telemetry by default and **excluded from dominance** unless **CAL** authorises `ParetoPlusIllumination` (policy id cited).
-* **`PortfolioMode`** — `{Pareto | Archive}`. `Archive` indicates the selector may legally return an **archive** (QD portfolio) rather than only a Pareto frontier.
+* **`DominancePolicy`** — `{ParetoOnly | ParetoPlusIllumination}`. **Default = `ParetoOnly`** (illumination remains a gauge unless CAL explicitly authorises `ParetoPlusIllumination`, policy‑id cited).
+* **`IlluminationSummary`** — a **gauge over `Diversity_P`**; **published** by default; excluded from dominance unless a CAL enables `ParetoPlusIllumination` (policy‑id cited).
+* **`IlluminationMap`** *(parity‑run)* — required **publication artefact** (grid/CVT/graph per `ArchiveConfig`) recording coverage per niche/cell with `DescriptorMapRef`/`DistanceDefRef.edition`. **Leaderboards as single‑score lists are forbidden**; comparisons **MUST** be under CG‑frames.
+* **`PortfolioMode`** — `{Pareto | Archive}`. **Default = `Archive`**: selectors **publish portfolios** (QD archives) rather than a single “best” set; ε‑fronts remain admissible for local decisions under CG‑Spec.
 * **`Budgeting`** — evaluation/time/batch **budgets**, including **E/E‑LOG exploration budget** id; units declared (CG‑Spec).
 * **`TelemetryHooks`** — **PathSliceId**, **decay/refresh policy ids**, and **edition counters** to record **U.DescriptorMap** and **policy‑id** updates upon illumination gains.
 * **`GeneratorIntent`** (OEE) — optional intent to invoke a **`GeneratorFamily`** (G.5) with pointers to **`EnvironmentValidityRegion`**, **`TransferRulesRef`**, and **coverage/regret** reporting expectations.
@@ -19625,6 +19621,49 @@ FPF rests on **eleven non‑negotiable pillars**. Each pillar is a binding const
 | **CC‑P‑2** | Every DRR proposing a normative change **must** include a “Pillar Impact Analysis.”                                               | Makes constitutional review explicit. |
 | **CC‑P‑3** | Tooling and pedagogical artefacts **should** document which pillar(s) shape their design.                                         | Upholds P‑2 (Didactic Primacy).       |
 | **CC‑P‑4** | An architheory is conformant only if its invariants reference **≥ 3** pillars, demonstrating cross‑scale and pragmatic alignment. | Prevents narrow, siloed extensions.   |
+| **CC‑P‑5** | When two lawful approaches exist, authors **SHOULD** prefer methods whose capability is **non‑decreasing in expectation over the audited scale window** (data, compute, **freedom‑of‑action budget**) and **MUST** justify any exception **with** a **BLP Scale‑Audit** (see **BLP‑1**) and **declared tolerances** *(α = budget tolerance; δ = assurance tolerance; units declared)*. | Embeds Bitter‑Lesson preference; curbs heuristic debt. |
+ 
+##### Policy — Bitter‑Lesson Preference (BLP) 
+
+**Intent.** Favor **general, computation‑leveraged**, and **freedom‑of‑action** methods over hand‑tuned, brittle heuristics *when safety and legality are held constant*. This codifies the empirical trend that methods which scale with **data, compute, and search breadth** outpace bespoke rule‑engineering. **Applicability:** beyond ML, this policy covers **search/optimization**, **control**, **simulation‑based inference**, and other computational sciences where capability improves with scale and exploration. When **NQD/E/E‑LOG** promotes **novelty/coverage (illumination)** to decision status, these gauges are included in BLP comparisons.
+
+**BLP‑1 — Scale‑Audit Requirement.** Any DRR that selects a more specialized/hand‑engineered method over a general/scalable alternative **MUST** include a **Scale‑Audit**:
+* (a) **Parity harness**: same **ComparatorSet**, **freshness window**, and **evaluation seeds/replicates**; portfolio‑first evaluation (see **G.5/G.9**). Dominance criterion: **Pareto‑only** by default across the declared objective vector; any alternative requires a documented waiver by **Gov‑CAL** under **E.3** governance.
+* (b) **Budgets**: sweep **compute** (**steps/tokens/params/time/energy**, as applicable), **data** (size/quality), and **freedom‑of‑action** (from script‑like instructions → minimal prohibitions) **under a fixed risk/safety envelope**. If parameters cannot be swept, **pin** them and record the invariant.
+* (c) **Slopes & uncertainty**: report ∂quality/∂compute, ∂quality/∂data, and (where applicable) ∂coverage/∂**freedom‑of‑action** and **∂novelty/∂budget**; include **error bars/CI** from multi‑seed trials; publish edition pins and policy‑IDs in SCR/telemetry (**G.11**).
+* (d) **Resources**: publish **Resrc‑CAL** accounts (time/energy/FLOPs) and assurance deltas (B.3).  
+* (e) **Objective declaration**: list the **objective vector** (quality, risk, cost, **and any illumination gauges** per NQD/E/E‑LOG) used for Pareto comparison.
+
+**BLP‑2 — Preference Rule.** Given lawfulness and comparable assurance (within δ) and budget (within α), prefer the method whose **slope vector** is **Pareto‑dominant** over the audited range (per **BLP‑1c/1e**). If no dominance holds within error bounds, prefer the **more general** method (fewer domain‑specific heuristics, greater transfer via Bridges Φ/Ψ); otherwise resolve via **E/E‑LOG tie‑breakers** declared in policy.
+
+**BLP‑3 — Minimal‑Prescription Default.** Author **rules‑as‑prohibitions** (negative constraints) over step‑by‑step scripts. Encode limits in **Φ policy tables** (and **Φ_plane** where applicable) instead of procedural checklists; allow the agent/system to sequence functions autonomously under those constraints (SoS‑LOG). **Pre/post‑conditions and test harnesses remain permitted**; **scripts** are permissible only when mandated by safety, regulation, or compelling evidence recorded in the DRR **and reviewed under E.3 precedence/E.5 Guard‑Rails**.
+
+**BLP‑4 — Heuristic‑Debt Register.** Any hand‑tuned rule admitted for pragmatic reasons **MUST** be registered as **Heuristic Debt** with: scope, owner, expiry/review window, measurable replacement target under BLP‑2, and a de‑hardening/sunset plan. Track in **CalibrationLedger/BCT (Baseline Change Tracker)** and cite in SCR.
+
+**BLP‑5 — Continuous‑Learning Posture.** Where product policy allows, enable **feedback‑driven adaptation** (e.g., preference learning, critique loops) within Guard‑Rails (**E.5**) and privacy/regulatory controls, with appropriate opt‑outs where required. Disabling adaptation requires DRR justification and a review date.
+
+**BLP‑6 — Precedence & Safeguards.** BLP is a **Gov/Arch** policy instantiated by Pillars **P‑10 (Open‑Ended Evolution)**, **P‑11 (SoTA Alignment)**, **P‑7 (Pragmatic Utility)**, and **P‑1 (Cognitive Elegance)**. It does **not** override safety/ethics (**E.5**) **nor any E.3 precedence rulings**; where BLP conflicts with Guard‑Rails, Guard‑Rails prevail. When **NQD/E/E‑LOG** elevates illumination to dominance for exploration mandates, BLP **adopts that lens** rather than overriding it.
+
+*Informative SoTA contexts (post‑2015):* portfolio‑first selection across **LLM prompt‑programming vs fine‑tuned task models**; **preference‑learning families (RLHF ↔ DPO)**; **QD archives (MAP‑Elites/CMA‑ME/DQD/QDax)**; **open‑ended environment–method co‑evolution (POET‑class)**; **offline RL vs Decision Transformer parity**; and beyond ML, **optimization/control** (model‑based planning vs hand‑tuned controllers) and **simulation‑based inference** in the sciences. These are **illustrative only**; use the parity harness instead of single‑winner leaderboards.
+
+##### Conformance Checklist — BLP
+
+| ID            | Requirement                                                                                                     | Purpose                                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| **CC‑BLP.1**  | Tolerances **α (budget)** and **δ (assurance)** are declared in the DRR or referenced via policy profile.      | Makes BLP decisions reproducible.             |
+| **CC‑BLP.2**  | DRR includes a **Scale‑Audit** (BLP‑1a–e) with published slopes and pinned editions/policy‑IDs.               | Makes scale behavior auditable.               |
+| **CC‑BLP.3**  | Selection decision cites **BLP‑2** and lists the governing pillars and precedence checks.                      | Ties choice to constitution.                  |
+| **CC‑BLP.4**  | Any admitted heuristic is logged as **Heuristic Debt** with expiry/review and de‑hardening plan.               | Prevents silent drift toward brittle rules.   |
+| **CC‑BLP.5**  | Default authoring uses **rules‑as‑prohibitions**; deviations are DRR‑justified and safety‑anchored.            | Preserves agent autonomy under constraints.   |
+| **CC‑BLP.6**  | Resource accounts (time/energy/FLOPs) and assurance deltas are reported via **Resrc‑CAL** and B.3.             | Avoids “free heuristic” illusions.            |
+| **CC‑BLP.7**  | **Replicate counts/seeds** and **confidence intervals** for slope estimates are recorded.                      | Prevents spurious slope inferences.           |
+
+##### Relations — BLP
+* **Instantiates pillars:** P‑10, P‑11, P‑7, P‑1.  
+* **Depends on:** **G.5/G.9** (admission/comparator/selector & parity harness), **G.11** (refresh telemetry), **C.5** (Resrc‑CAL), **C.18** (NQD‑CAL), **C.19** (E/E‑LOG), **F.7/F.9** (Bridges, CL/Φ/Ψ).  
+* **Constrained by:** **E.5** Guard‑Rails (DevOps Lexical Firewall; Notational Independence; Cross‑Disciplinary Bias Audit) and **E.3** precedence.
+
+*Definitions.* **α (budget tolerance)** may be relative or absolute; declare units (e.g., % cost, wall‑time, energy). **δ (assurance tolerance)** is the permissible delta in assurance under **B.3**; declare measure and floor(s).
 
 ##### Consequences
 
@@ -19650,23 +19689,24 @@ The pillars are distilled from systems engineering, philosophy of science, softw
 
 *These pillars are not a cage but the load‑bearing columns of a workshop where ideas can be safely built, dismantled, and evolved.*
 
-#### Pattern E.3 — **Principle Taxonomy & Precedence Model** \[A] 
 
-##### Problem frame
+## Pattern E.3 — **Principle Taxonomy & Precedence Model** \[A] 
+
+### Problem frame
 Pattern E.2 supplies eleven immutable pillars, yet experience shows that a **flat list of principles invites ambiguity**: reviewers cannot decide which pillar overrules another  and “dead‑letter” rules accumulate. 
 
-##### Problem
+### Problem
 
 When two pillars or derived principles pull in opposite directions, architectural decisions stall—or worse, drift toward the loudest voice. Without an explicit **taxonomy and precedence cascade**, FPF risks devolving into subjective debate, breaking its claim to be a rigorously *auditable* “operating system for thought.”
 
-##### Forces
+### Forces
 | Force                                 | Tension                                                            |
 | ------------------------------------- | ------------------------------------------------------------------ |
 | **Categorical Clarity**               | Coherent grouping ↔ preservation of individual nuance              |
 | **Deterministic Conflict Resolution** | Predictable hierarchy ↔ flexibility for context‑specific overrides |
 | **Evolutionary Stability**            | Durable core ↔ adaptability to new knowledge                       |
 
-##### Solution
+### Solution
 1. **Principle Taxonomy**
    Every principle is an instance of `U.Principle` assigned **exactly one** class ∈ { `Gov`, `Arch`, `Epist`, `Prag`, `Did` }.
 
@@ -19695,11 +19735,9 @@ When two pillars or derived principles pull in opposite directions, architectura
 
  **Graph Rule** — The precedence graph MUST be acyclic; any new edge that would form a cycle is rejected.”
  
-Conformance Checklist	CC‑PT.2 missing Purpose column; CC‑PT.3 could reference Pillar numbers explicitly.	Fill purpose for CC‑PT.2 (Prevents circular override chains).
-
 Governance principle vs Architectural principle clash: e.g. Core release schedule (Gov) outranks performance‑tuning (Prag)
 
-##### **Conformance Checklist**
+### **Conformance Checklist**
 
 | ID          | Requirement                                                                                                          | Purpose                          |
 | ----------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
@@ -19707,7 +19745,7 @@ Governance principle vs Architectural principle clash: e.g. Core release schedul
 | **CC‑PT.2** | Precedence graph **MUST** be acyclic;    | Prevents circular law.           |
 | **CC‑PT.3** | Any DRR introducing/modifying a principle **MUST** include a *Pillar Impact Analysis* and proposed precedence edges impact on each affected Pillar (P‑1… P‑11)| Aligns evolution with Pillars.   |
 
-#### Illustrative Conflict Resolution
+### Illustrative Conflict Resolution
 
 1. **The Conflict**  
    * **P‑1 Cognitive Elegance** (`Arch`) demands an unambiguous term for “part–whole” entities, pushing us toward **Holon**.  
@@ -19726,6 +19764,66 @@ Governance principle vs Architectural principle clash: e.g. Core release schedul
    * providing aliases and an “On‑Ramp” tutorial.
 
 > *The precedence rule did not merely name a winner; it compelled a solution that honoured both principles in proportion to their rank.*
+
+**Precedence (high → low).** Law & Regulation → **E.5 Guard‑Rails** → **B.3 Trust & Assurance** → **E.3 Governance decisions** → **E/E‑LOG policies** → **BLP (Bitter‑Lesson Preference)** → Product Policies → Implementation Tactics.
+
+**Notes.**
+* BLP is a constitutional policy (see E.2 / “BLP”), but **does not supersede** E.5 Guard‑Rails nor B.3 assurance floors; it **does govern** ties among lawful, comparable‑assurance options.
+* Wherever **NQD/E/E‑LOG** promotes illumination gauges to dominance, **BLP adopts that lens** rather than overriding it (see E.2 BLP‑6).
+* Any exception to policy MUST include a DRR with rationale and expiry.
+* Any exception to policy MUST include a DRR with rationale and expiry.
+* **BLP Override (Waiver).** When a narrower hand‑engineered method is selected over a general/scalable alternative **within declared tolerances** (α = budget, δ = assurance), the DRR **MUST** include:
+  - a **BLP Scale‑Audit** (see E.2 **BLP‑1**) covering compute/data/**freedom‑of‑action** sweeps and slope/uncertainty reporting,
+  - the **tolerances** α/δ and objective vector used (E.2 **BLP‑1e**),
+  - a **Heuristic‑Debt** entry (owner, scope, expiry/review, de‑hardening plan) per E.2 **BLP‑4**,
+  - an **Oversight Level** (see **E.3‑ABL**) and the approving authority (see **E.3‑Governance Roles** below).
+* **Portfolio‑first parity.** All precedence decisions that compare methods **MUST** use the G.5/G.9 parity harness and **Pareto** dominance; scalarisation across mixed scales is prohibited (B.3).
+
+**BLP — Bitter‑Lesson Hooks into Precedence**
+1) **Tie‑breaking.** If two lawful options are **within δ** assurance and **within α** budget, prefer the option whose **slope vector Pareto‑dominates** over the audited window; if no dominance, prefer the **more general** method. (E.2 **BLP‑2**.)
+2) **Script‑vs‑Search conflicts.** For conflicts between **procedural scripts** and **general search/learning**, scripts prevail **only** when mandated by E.5 or regulation, or when a DRR records a **BLP‑waiver** with expiry and hazard rationale (E.2 **BLP‑3/6**).
+3) **Publication.** Precedence rulings that reference BLP **MUST** publish editioned policy‑IDs, edition pins, and **Resrc‑CAL** accounts to the SCR (E.2 **BLP‑1d**; G.11).
+
+**ABL — Autonomy‑Budget & Oversight Levels**
+This section defines **graduated levels of agent autonomy** (level taxonomy), the **budget envelopes** they operate under, and the **review/approval** gates. Levels apply to any **Agentic Tool‑Use & Call‑Planning** context (see **C.Agent‑Tools‑CAL**).
+
+| Level | Name                         | Freedom‑of‑Action (FoA)                  | Explore‑Share (default) | Typical Use                                     | Oversight Gate |
+|------:|------------------------------|------------------------------------------|-------------------------|-------------------------------------------------|----------------|
+| **L0** | Scripted Execution           | **Whitelist only**; fixed scripts        | 0                       | Compliance‑critical, deterministic procedures   | Engineer‑of‑Record (EoR) |
+| **L1** | Constrained Sequencing       | Negative constraints; **single‑tool**    | ≤ 0.10                  | Low‑risk automation with bounded novelty        | EoR + Peer Review |
+| **L2** | Supervised Autonomy          | Multi‑tool plans; bounded replanning     | 0.20 (±0.10)            | Ambiguous tasks; moderate budget                | Team Lead + Safety |
+| **L3** | Auditable Autonomy           | Multi‑step, self‑replanning; adaptive    | 0.30 (±0.10)            | Production agents with learning under guard‑rails | Product + Safety + Legal |
+| **L4** | Open‑Ended / Research Mode   | Broad FoA within sandbox & rails         | 0.40–0.50               | Illumination‑first exploration, sandboxes only  | Governance Board (Gov‑CAL) |
+
+**Normative requirements by level.**
+* **Budgets.** Each level **MUST** declare ceilings for **time / compute / cost / risk** and a FoA descriptor; units must be explicit (Resrc‑CAL). Budgets are **hard gates** at run‑time (C.Agent‑Tools‑CAL **ATC‑3**).
+* **Assurance floors.** **B.3** WLNK minima on **F** and **R** apply at all levels; **CL penalties** for integration **increase** with level (B.3.3). Pre‑deployment **assurance deltas** MUST be recorded for L2+.
+* **Exploration discipline.** `explore_share` MUST be explicit in the **CallPlan** (C.Agent‑Tools‑CAL **ATC‑4**). Deviations from defaults require DRR justification.
+* **Provenance.** L1+ MUST emit a **CallGraph** with Service/Method editions, EmitterPolicyRef, budget deltas, and observation hooks (C.Agent‑Tools‑CAL **ATC‑5/6**).
+* **BLP conformance.** For L2+, selection MUST apply **BLP** (E.2 **BLP‑2**) with **α/δ** tolerances declared in the plan policy. Any admitted heuristic requires a **Heuristic‑Debt** entry (E.2 **BLP‑4**).
+* **Learning/Adaptation.** L3–L4 MAY enable **feedback‑driven adaptation** within E.5 Guard‑Rails and privacy controls; L0–L2 default **off** unless a DRR documents mitigation (E.2 **BLP‑5**).
+* **Human‑in‑the‑Loop (HITL).** L0–L1 require **pre‑approval** of plans; L2 requires **sentinel‑triggered pausing** for review; L3 requires **periodic** review windows; L4 requires **continuous** telemetry review and **sandboxing**.
+
+**Approval matrix (who can approve what).**
+* **L0:** EoR or appointed maintainer.
+* **L1:** EoR **and** peer reviewer (two‑person rule).
+* **L2:** Team Lead **and** Safety representative.
+* **L3:** Product Owner **and** Safety **and** Legal/Privacy.
+* **L4:** **Gov‑CAL Board** (multi‑disciplinary) with documented scope, time‑boxed **trial budget**, and rollback criteria.
+
++**Escalation / de‑escalation triggers.**
+* **Escalate** level when repeated **BLP‑consistent** results show stable assurance within δ and budget adherence within α for ≥ N runs; DRR MUST include slope evidence (E.2 **BLP‑1c**).
+* **De‑escalate** level when: (i) sentinel breaches risk or budget, (ii) assurance drops below floors, (iii) policy changes, or (iv) a significant **heuristic‑debt** item expires without replacement.
+
+**Conformance checklist for BLP**
+
+| ID          | Requirement                                                                                                          | Purpose                          |
+| ----------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| **CC‑E3.10** | Precedence list includes **BLP** explicitly below E/E‑LOG and above product tactics; conflicts handled via **BLP‑waiver** discipline. | Makes BLP’s standing auditable. |
+| **CC‑E3.11** | Every DRR that overrides BLP **MUST** include a **Scale‑Audit** (E.2 **BLP‑1**) and a **Heuristic‑Debt** entry (E.2 **BLP‑4**). | Prevents silent heuristic drift. |
+| **CC‑E3.12** | Each agentic plan declares an **Oversight Level** (L0–L4) with explicit budgets, `explore_share`, and E/E‑LOG **EmitterPolicyRef**. | Aligns autonomy with assurance. |
+| **CC‑E3.13** | L1+ executions emit **CallGraphs** with editioned policy/method ids and budget deltas; L3+ include adaptation status. | Ensures replayability & audit. |
+| **CC‑E3.14** | Level changes follow **escalation/de‑escalation** triggers and are recorded with edition pins in the SCR. | Keeps autonomy under control. |
 
 ##### Consequences
 *Positive* — Turns subjective debate into objective, traceable decisions; high‑impact conflicts surface early.
@@ -28908,9 +29006,23 @@ Every UTS row **MUST** carry the following fields (verbatim headings recommended
 | **Unification Rationale** | One sentence: why these senses are the same *conceptually*.                                           |
 | **Notes (optional)**      | Brief temporal stance or trip‑wire hints (e.g., “design vs run”).                                     |
 
-> **Constraint.** “SenseCells (by **Context**)” **MUST** cite **at least three** distinct **Contexts** overall across the sheet for the thread (A.8). A single row may show fewer if the concept truly appears in fewer contexts; coverage is a property of the whole UTS.
+**Constraint.** “SenseCells (by **Context**)” **MUST** cite **at least three** distinct **Contexts** overall across the sheet for the thread (A.8). A single row may show fewer if the concept truly appears in fewer contexts; coverage is a property of the whole UTS.
 
 **Discipline:** Every SenseCell **must** cite the **Context name + edition** (e.g., _“BPMN 2.0 (2011): Activity instance”_).
+
+### 6.1 · NQD Fields (normative; when applicable)
+
+If a UTS row **describes** a **Generator/Selector/Portfolio** (design‑time or run‑time artefact), it **MUST** add the following fields. These are *publication* fields, not tooling‑specific formats.
+
+| Field | Purpose |
+| --- | --- |
+| **N (Novelty)** | Lawful novelty claim tied to `CharacteristicSpaceRef` + `DistanceDefRef` (declare metric/pseudometric & invariances; cite edition ids). |
+| **U (Use‑Value)** | Declared acceptance/test value under the active **CG‑Frame** (units & scale typed per MM‑CHR). |
+| **C (ConstraintFit)** | Feasibility against **ResourceEnvelope/RiskEnvelope** (and relevant deontic/ethics clauses); no `unknown→0` coercion. |
+| **D\_P (Portfolio Diversity)** | Diversity contribution relative to the **current PortfolioPack** (`ArchiveConfig`, grid/binning, K‑capacity, dedup). |
+| **E/E‑LOG policy‑id** | Edition id of the explore/exploit governor policy that governed generation/selection budgets. |
+
+**Note.** These fields *extend* the Row Schema; they do not change SenseCells/Bridges/Names. Rows that are *purely definitional* (no generator/selector/portfolio semantics) do not carry §6.1.
 
 ## 7 · Block Plan (didactic grouping)
 
@@ -30131,7 +30243,7 @@ CharacteristicSpace includes a **domain‑family coordinate** (grid or CVT / Cen
 23. **Variant Emitter.** CharacteristicSpace MUST include a domain‑family coordinate when available from F1‑Card; use HET‑FIRST lens (C.19) before exploit lenses.
 24. **ε‑front recorded.** Any front computation **records ε and DHCMethodRef.edition**, and **returns sets** (Pareto/Archive) under lawful partial orders; **no forced scalarisation**.
 25. **OEE branch legality.** When a **Task/Environment GeneratorFamily (POET‑class)** is used, publish `EnvironmentValidityRegion`, `TransferRules`, and the dedicated **SoS‑LOG/Acceptance** branches; **telemetry logs edition‑aware Illumination increases with Φ policy‑id**.
-
+26. **MOO (method of obtaining output) surfaced (generator).** Any emission of a **VariantPool** or shortlist **set** **MUST** name its **generation mechanism**: cite **EmitterPolicyRef** (and, where applicable, **InsertionPolicyRef/DHCMethodRef**) and record the active **E/E‑LOG policy‑id** in **SCR** and telemetry. (No file formats mandated; Core remains notationally independent.)
 
 ### 9) Consequences (informative)
 
@@ -30729,7 +30841,7 @@ Version the CAL pack; set **refresh cadence** (evidence decay, probe telemetry, 
 12. **No tool lock‑in.** No vendor keywords in core fields; implementations live under **E.5.\***.
 13. **Lifecycle set.** Refresh/decay declared; deprecations follow **F.13–F.14** with **Lexical Continuity** notes.
 14. **UTS‑ready.** Names minted/reused; twin labels present; **Worked‑Examples** attached.
-15. **Φ‑policies monotone.** **Φ(CL)** and **Φ_plane** **MUST** be **monotone** and published by **policy id**; penalties route to **R_eff only** (never **F/G**). **Illumination** enters dominance **only** if an explicit Φ‑policy says so.
+15. **Φ‑policies monotone.** **Φ(CL)** and **Φ_plane** **MUST** be **monotone** and published by **policy id**; penalties route to **R_eff only** (never **F/G**). **Illumination** enters dominance **only** if an explicit **CAL.Acceptance** policy authorises it (policy‑id recorded in SCR); Φ‑policies do **not** govern dominance.
 16. **No self‑evidence (A.10).** EvidenceProfiles and Acceptance proofs **MUST NOT** rely on carriers produced by the same holon without an external **TransformerRole**; cyclic provenance fails acceptance.
 17. **QD/OEE readiness.** If **NQD** or **GeneratorFamily** are present: (a) publish `DescriptorMapRef` (Tech; d≥2) and **CharacteristicSpace (Plain)**; (b) expose **Q/D/QD‑score** and **IlluminationSummary**; (c) record **edition** on archive updates; (d) declare `EnvironmentValidityRegion` and `TransferRules`; (e) Acceptance/SoS‑LOG branches exist for {environment, method}.
 18. **No new U.Types for strategy/policy.** Strategies/policies are **compositions** governed by **E/E‑LOG** and registered via G.5, not minted as new core types.
@@ -30828,7 +30940,10 @@ How to design a **general, auditable selector** that:
 
 ### 5) Solution — *Dispatcher & Registry chassis*
 
-**Selection kernel.** Apply **lawful orders only**; for partial orders **return a set** governed by **`PortfolioMode ∈ {Pareto | Archive}`** (default **Pareto**; **Archive** when QD is active), no forced scalarisation; **unit/scale mismatches fail fast**. **Default `DominancePolicy = ParetoOnly`; inclusion of Illumination in dominance requires an explicit `CAL.Acceptance` policy and its policy‑id recorded in SCR.** Eligibility/Acceptance are **tri‑state**; unknowns behave per MethodFamily policy (**pass**/**degrade**/**abstain**) and are logged in **SCR** **together with MinimalEvidence verdicts for each referenced characteristic**; **gate additionally by CG‑Spec.minimal\_evidence** (by Characteristic id) before applying orders. **SoS‑LOG rule sets (C.23) are the executable shells consumed here**; any **maturity floors** are enforced via **CAL.AcceptanceClause** (not by LOG). **Maturity is an ordinal poset; no global scalarisation is permitted in Core.**
+**Selection kernel.** Apply **lawful orders only**; for partial orders **return a set** governed by **`PortfolioMode ∈ {Pareto | Archive}`** (default **Pareto**; **Archive** when QD is active), no forced scalarisation; **unit/scale mismatches fail fast**. **Default `DominancePolicy = ParetoOnly`; inclusion of Illumination in dominance requires an explicit `CAL.Acceptance` policy and its policy‑id recorded in SCR.** Eligibility/Acceptance are **tri‑state**; unknowns behave per MethodFamily policy (**pass**/**degrade**/**abstain**) and are logged in **SCR** **together with MinimalEvidence verdicts for each referenced characteristic**; **gate additionally by CG‑Spec.minimal_evidence** (by Characteristic id) before applying orders. **SoS‑LOG rule sets (C.23) are the executable shells consumed here**; any **maturity floors** are enforced via **CAL.AcceptanceClause** (not by LOG). **Maturity is an ordinal poset; no global scalarisation is permitted in Core.**
+
+**Strategizing escalation.** When no admissible `MethodFamily` exists for the declared `TaskSignature`, the selector **MUST NOT fail closed**; it **SHALL** return an **empty `CandidateSet`** together with a **`Run‑safe Plan`** that includes an **`ActionHint=strategize`** (C.23 branch‑id), and—where registered—a **`GeneratorFamily`** stub (`EnvironmentValidityRegion`, `TransferRulesRef`). This escalates to **method creation/selection** under **E/E‑LOG**, avoiding ad‑hoc execution.
+
 **Telemetry & parity.** Open hooks for **G.11** (refresh) and **G.9** (parity/baselines). Route **CL penalties → R_eff only**; declare **ReferencePlane** for any claim; **record Φ(CL)/Φ_plane policy‑ids in SCR (Φ MUST be monotone and bounded)**; on plane/context crossings **cite Bridge ids**. When **Illumination** is active, compute and publish **Q (quality), D (diversity), and QD‑score** and the **Archive state**; **IlluminationSummary is a lawful gauge over `Diversity_P`** and **does not enter dominance** unless an explicit **CAL** policy states otherwise **and its policy‑id is recorded in SCR**. **Any increase of Illumination MUST log `PathSliceId`, the active policy‑id, and the active editions of `DescriptorMapRef` and `DistanceDefRef`.**
 
 “Strategy” is a **composition** inside G.5 under **E/E‑LOG** governance; **no new U.Type ‘Strategy’** is minted (**Plain‑register only** per E.10).
@@ -30845,7 +30960,7 @@ Define a **registry row** per *MethodFamily* (e.g., *Outranking*, *CDT*, *Active
 * **CostModel** and **KnownFailures** (adversarial/degenerate cases);
 * **PolicyHooks:** E/E‑LOG knobs (exploration quota, risk budget); optional **EmitterPolicyRef** (C.19) when Illumination is used;
 * **BridgeUsage:** declared Bridges and **CL** allowances with loss notes for any cross‑Context transfer;
-* **Twin‑naming (E.10):** **Tech:** `U.DescriptorMapRef` (d≥2); **Plain twin:** `CharacteristicSpaceRef`. **Aliases between them are forbidden** (distinct objects);
+* **Twin‑naming (E.10):** **Tech:** `U.DescriptorMapRef`; **require `d≥2` only when QD/illumination surfaces are active** (otherwise `d≥1` is lawful); **Plain twin:** `CharacteristicSpaceRef`. **Aliases between them are forbidden** (distinct objects);
 * When Illumination is used, declare `U.DescriptorMapRef.edition` and **pin all QD metrics to it**, together with **`DistanceDefRef.edition`** (diversity metric) and **`DHCMethodRef.edition`** to ensure reproducible fronts;
 * **InsertionPolicyRef** for archives (elitist replacement, **K‑capacity**, dedup/tie rules);
 * **Proof obligations** (what must be established before/after selection).
@@ -30908,9 +31023,9 @@ For any **Illumination increase**, telemetry **MUST** record the **`PathSliceId`
 | ------------------------ | ------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | **G.5‑1 RegisterFamily** | SoTA row(s) from **G.2**, CHR/CAL stubs (G.3/G.4), Context | `MethodFamily` record (eligibility Standard, assurance profile, UTS entry id) |
 | **G.5‑2 RegisterGeneratorFamily** | SoTA row(s) from **G.2**, Context | `GeneratorFamily` record (GeneratorSignature, EnvironmentValidityRegion, TransferRules **(+ TransferRulesRef.edition in OEE)**, CoEvoCouplers, Acceptance hooks) |
-| **G.5‑3 Select**         | `TaskSignature`, policy (E/E‑LOG), **SoS‑LOG rules (C.23)**, acceptance clauses   | `CandidateSet` with admissible (possibly partial) order; **return a set per `PortfolioMode`** (Pareto or Archive) when the order is non‑total; chosen `MethodFamily`; **DRR + SCR** (F–G–R/CL, **ReferencePlane & Φ ids**); **Portfolio Pack** (return mode + tie‑break notes); **Run‑safe Plan** (flows + legality proofs) |
+| **G.5‑3 Select**         | `TaskSignature`, policy (E/E‑LOG), **SoS‑LOG rules (C.23)**, acceptance clauses   | `CandidateSet` with admissible (possibly partial) order; **return a set per `PortfolioMode`** (Pareto or Archive) when the order is non‑total; chosen `MethodFamily`; **DRR + SCR** (F–G–R/CL, **ReferencePlane & Φ ids**); **Portfolio Pack** (return mode + tie‑break notes); **Run‑safe Plan** (flows + legality proofs); **if no candidate is admissible**, emit `ActionHint=strategize` (with responsible **C.23 branch‑id**) and **MAY** include a minimal `GeneratorFamily` stub (EVR + `TransferRulesRef.edition`) for lawful exploration under **E/E‑LOG**. |
 | **G.5‑4 Compose**        | `CandidateSet`, composition template                    | Composite strategy spec (with legality checks)                                |
-| **G.5‑5 Telemetry**      | Outcomes, probes                                        | Registry refresh cues; RSCR deltas; (if Illumination) Q/D/QD‑score + Archive deltas + `DescriptorMapRef.edition`/`DistanceDefRef.edition`/**`CharacteristicSpaceRef.edition?`**, **`PathSliceId`**, **policy‑id**; (if Open‑Ended) coverage/regret per `{Environment, MethodFamily}` |
+| **G.5‑5 Telemetry**      | Outcomes, probes                                        | Registry refresh cues; RSCR deltas; (if Illumination) Q/D/QD‑score + Archive deltas + `DescriptorMapRef.edition`/`DistanceDefRef.edition`/**`CharacteristicSpaceRef.edition` when a domain‑family coordinate is declared per C18‑1b**, **`PathSliceId`**, **policy‑id**; (if Open‑Ended) coverage/regret per `{Environment, MethodFamily}` |
 
 ### 7) Conformance Checklist (normative)
 
@@ -30937,13 +31052,16 @@ For any **Illumination increase**, telemetry **MUST** record the **`PathSliceId`
 **CC‑G5.20** **Gauge semantics.** **IlluminationSummary SHALL be treated as a gauge over `Diversity_P`**; inclusion in dominance requires an explicit **CAL** policy with a recorded **policy‑id** in SCR.
 **CC‑G5.21** **Archive reproducibility.** Any use of archives **MUST** declare **`InsertionPolicyRef`** (replacement, **K‑capacity**, dedup/tie rules) and record **`DistanceDefRef.edition`** and **`DHCMethodRef.edition`**; **`DescriptorMapRef.edition` MUST** be logged in telemetry; **all QD metrics SHALL be pinned to `DescriptorMapRef.edition`**.
 **CC‑G5.22** **Twin‑naming (E.10).** Use **Tech** `U.DescriptorMapRef` (d≥2) with **Plain twin** `CharacteristicSpaceRef`; **aliases are forbidden** (they are distinct objects).
-**CC‑G5.23** **Portfolio mode.** The selector **MUST** expose **`PortfolioMode ∈ {Pareto | Archive}`** (default **Pareto**; **Archive** for QD) and echo it in DRR/SCR and Portfolio Pack.
+**CC‑G5.23** **Portfolio mode.** The selector **MUST** expose **`PortfolioMode ∈ {Pareto | Archive}`** (**default = Archive**) and echo it in DRR/SCR and the Portfolio Pack; ε‑fronts are allowed as *local* decision aids under CG‑Spec.
 **CC‑G5.24** **Open‑Ended portfolios.** In Open‑Ended mode, the selector **MUST** return portfolios of `{Environment, MethodFamily}` pairs; **EnvironmentValidityRegion** and **TransferRules** **MUST** be declared; SoS‑LOG/Acceptance branches govern validity of generated tasks.
 **CC‑G5.25** **Transfer rules edition (OEE).** In OEE mode, **`TransferRulesRef.edition` is mandatory** and **MUST** be visible to Telemetry and **RSCR** triggers.
 **CC‑G5.26** **Lawful ordering in niches.** Within any archive niche/cell, ordering **MUST** be lawful (lexicographic/medoid/median over compatible scales); **weighted sums across mixed scale types are forbidden**.
 **CC‑G5.27** **ATS visibility.** Tier/context crossings **MUST** be visible to ATS (E.11) (AH‑1..AH‑4); violations are fail‑fast defects of publication.
-**CC‑G5.28** **Dominance policy default.** `DominancePolicy` **SHALL** default to `ParetoOnly`; inclusion of Illumination in dominance **MUST** be explicitly authorised by **CAL.Acceptance** (`ParetoPlusIllumination`), and the policy‑id **SHALL** be recorded in SCR.
+**CC‑G5.28** **Dominance policy default.** `DominancePolicy` **SHALL** default to `ParetoOnly`; inclusion of illumination in dominance **MUST** be explicitly authorised by **CAL.Acceptance** (`ParetoPlusIllumination`) with the policy‑id recorded in SCR; **parity‑run publication (CC‑G5.23a) remains mandatory** irrespective of dominance policy.
 **CC‑G5.29** **Illumination increase logging.** Any **increase in Illumination** **MUST** log `PathSliceId`, **policy‑id**, and the active **`DescriptorMapRef.edition`/`DistanceDefRef.edition`** in telemetry and expose them to **RSCR** triggers; **in Open‑Ended (GeneratorFamily) mode, `TransferRulesRef.edition` MUST also be logged.**
+**CC‑G5.30** **No Strategy minting (centralised).** “Strategy/policy” are **compositions** governed by **E/E‑LOG** and published via **G.5.Compose**; **no new `U.Type` “Strategy”** may be minted by other Part G patterns.
+**CC‑G5.31 (Strategy hint on non‑admissible sets).** If selection yields **∅** under the active SoS‑LOG and Acceptance, the selector **SHALL** emit `ActionHint=strategize` with the responsible **C.23 branch‑id** and **MAY** include a `GeneratorFamily` stub (EVR + `TransferRulesRef.edition`) to guide exploration under **E/E‑LOG**.
+**CC‑G5.32** **Parity‑run publication.** A selector/generator **MUST** publish an **Illumination Map** (archive topology + coverage per niche with `DescriptorMapRef`/`DistanceDefRef.edition`). **Single‑score leaderboards are forbidden**; any roll‑up **MUST** be lawful under **CG‑Spec** (no mixed‑scale sums).
 
 ### 8) Consequences
 
@@ -31380,6 +31498,7 @@ SoS-LOGBundle@Context :=
            DescriptorMapRef.edition,
            DistanceDefRef.edition, EmitterPolicyRef, InsertionPolicyRef}?,
   OEE?: {EnvironmentValidityRegion, TransferRulesRef.edition}?,
+  AuthoringMethodDescriptionRefs?[], // OPTIONAL: cite MethodDescription/Spec ids (with editions) of methods that materially shaped rules/ladder (SoTA-of-description traceability across ATS tiers)
   Edition, Notes ⟩
 ```
 
@@ -31419,10 +31538,12 @@ Publish **`MethodFamily.MaturityCardDescription@Context`** (UTS twin labels; **S
 * **CC‑G8‑2 (Tri‑state discipline).** Unknowns **MUST** map to an explicit LOG branch (`Degrade` or `Abstain`); `sandbox/probe‑only` is a **LOG branch** with an **E/E‑LOG policy‑id**. 
 * **CC‑G8‑3 (Path citation).** Every `Admit/Degrade/Abstain` **MUST** cite **EvidenceGraph PathId(s)** at run‑time when G.6 is present (per C.23/H4). **At packaging time**, the Bundle/Ledger **SHALL** provide **A.10 Evidence anchors** and **MAY** include stable **PathId(s)** where available.* **CC‑G8‑4 (Bridge & plane penalties).** Crossings **MUST** cite **Bridge ids** and **Φ(CL)**/**Φ_plane** policy‑ids; **penalties reduce `R_eff` only**; **F/G invariant**. 
 * **CC‑G8‑5 (Dominance defaults).** **Default** `DominancePolicy = ParetoOnly`; inclusion of **Illumination** in dominance **requires** an explicit CAL policy with **policy‑id recorded in SCR**. 
-* **CC‑G8‑6 (QD/OEE edition discipline).** When QD/OEE are active, bundles **MUST** pin **`U.DescriptorMapRef.edition`**, `DistanceDefRef.edition`, `EmitterPolicyRef`/`InsertionPolicyRef`, and (for OEE) `TransferRulesRef.edition`. Any illumination increase **MUST** log `PathSliceId` + **policy‑id**. **Telemetry SHALL also record `CharacteristicSpaceRef.edition`** when QD is in scope (packaging MAY omit pinning it), and this **MUST NOT** be used as a substitute for `DescriptorMapRef.edition`.
+* **CC‑G8‑6 (QD/OEE edition discipline).** When QD/OEE are active, bundles **MUST** pin **`U.DescriptorMapRef.edition`**, `DistanceDefRef.edition`, `EmitterPolicyRef`/`InsertionPolicyRef`, and (for OEE) `TransferRulesRef.edition`. **`CharacteristicSpaceRef.edition` SHALL be pinned whenever grid/cell boundaries or de‑duplication rules affect parity/selection;** otherwise it MAY be omitted from packaging, but **telemetry MUST still record it when QD is in scope**. Any illumination increase **MUST** log `PathSliceId` + **policy‑id**. `CharacteristicSpaceRef.edition` **MUST NOT** be used as a substitute for `DescriptorMapRef.edition`.
 * **CC‑G8‑7 (Maturity = ordinal).** Ladders **SHALL** declare **Scale kind=ordinal** and closed rungs; rung transitions **MUST** be justified by EvidenceGraph paths and published to UTS. 
 * **CC‑G8‑8 (Spaces ≠ Maps).** Do not alias `CharacteristicSpace` and `DescriptorMap`; use **Tech** heads with editions on **Refs** only; obey twin‑register rules. 
 * **CC‑G8‑9 (Notational independence).** Bundles **SHALL** remain tool/format‑neutral (Core semantics only). 
+* **CC‑G8‑10 (MOO cross‑reference).** Method of obtaining outputs: when the LOG bundle is consumed to emit selector **sets**, the producing step **SHALL** surface the **generation/parity mechanism** id (e.g., **ParityHarnessId** under G.9) and the controlling **policy‑id** in **SCR** and telemetry. (Packaging remains conceptual per **E.5.2**.)
+* **CC‑G8‑11 (SoTA‑of‑description trace).** If any authoring methods (e.g., discovery, clustering, summarisation) materially influenced rule text or ladder rungs, **cite their `AuthoringMethodDescriptionRefs` with editions**. This supports ATS‑tier SoTA tracking of the *methods that describe methods* without adding tool lock‑in (E.5.2).
 
 ### 7) Archetypal grounding (informative, SoTA‑oriented)
 
@@ -31548,6 +31669,9 @@ Benchmarks routinely compare unlike with unlike: different dataset editions, met
 9. **RSCR parity tests.** Publish RSCR tests covering **negative/refusal paths** (illegal CHR, missing Bridges/Φ tables, edition drift). 
 10. **ATS visibility.** AH‑1..AH‑4 **MUST** pass on crossings and lexical duty (UTS/twin labels). 
 11. **Tech‑register discipline.** Do not use the noun *metric* as a Tech primitive; cite **`DHCMethodRef`**/**`U.Measure`** and **`DistanceDefRef`** editions.
+12. **MOO surfaced (parity).** Method-of-obtaining-output: `Run_Parity` **MUST** record the **ParityHarnessId** and any active **EmitterPolicyRef/InsertionPolicyRef** (where QD applies), together with the **CAL policy‑id** for any non‑default dominance. These ids **SHALL** appear in **SCR** and parity telemetry (PathSlice‑keyed). (No scalarisation is introduced by this reporting.)
+
+
 
 ### 7) Anti‑patterns & remedies
 
@@ -31607,6 +31731,8 @@ Benchmarks routinely compare unlike with unlike: different dataset editions, met
 Provide a **single, normative shipping surface**—the **SoTA‑Pack(Core)**—that turns the outputs of G.1–G.8 into a **release‑quality, selector‑ready, edition‑aware portfolio** without mandating any file formats. The pack **exposes what was decided, why, and under which policies/editions**, so that **G.5 may return sets (Pareto or Archive)** and audits can cite **stable EvidenceGraph paths**. Illumination/coverage (**QD**) and OEE signals are exported as **gauges**, not forced into dominance unless a declared policy says so. (All order/illumination defaults are **inherited** from **G.5/G.6/G.8**.)
 
 **Why this matters.** Earlier G‑patterns emphasised legality and assurance; **G.10** completes the generative loop by defining **how SoTA outputs are *shipped***—with parity pins, PathSlice anchoring, ATS harness hooks, and telemetry stubs—so the next author or selector can **use** them immediately, not just verify them.
+
+**Editorial – Close the generative loop.** For each CG‑Frame, drive **G.1 Generator → G.2 SoTA Harvester → G.3–G.4 authoring → G.5 Selector (set‑returning)**, then publish a **SoTA‑Pack(Core)** (this pattern) with parity pins & PathIds, and register **G.11** refresh on illumination increases (QD/OEE). *(No additional file formats; Core remains notation‑independent.)*
 
 ### 2) Problem frame
 
@@ -31701,10 +31827,11 @@ Mint a **UTS Name Card** for the pack and its major items (e.g., `SoS‑LOGBundl
 This pattern **inherits** order/illumination, evidence, and bridge/penalty legality from **CC‑G5**, **CC‑G6**, **CC‑G8**. Shipping‑specific requirements:
 
 1. **CC‑G10.1 (Notation‑independent).** The pack **MUST NOT** rely on any specific file syntax; **cards/tables are conceptual**; tool serialisations are informative only.
-2. **CC‑G10.2 (Pack parity pins).** If QD/OEE fields are present, **pin** `DescriptorMapRef.edition`, `DistanceDefRef.edition`, (OEE) `TransferRulesRef.edition`; include `CharacteristicSpaceRef.edition` where it affects partitioning reproducibility; for **QD archive semantics** also **pin `EmitterPolicyRef` and `InsertionPolicyRef`**.
+2. **CC‑G10.2 (Pack parity pins).** If QD/OEE fields are present, **pin** `DescriptorMapRef.edition`, `DistanceDefRef.edition`, (OEE) `TransferRulesRef.edition`; include `CharacteristicSpaceRef.edition` where it affects partitioning reproducibility; for **QD archive semantics** also **pin `EmitterPolicyRef` and `InsertionPolicyRef`**. *(Informative alias: **ArchiveConfig** := {`CharacteristicSpaceRef`?, `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `EmitterPolicyRef`, `InsertionPolicyRef`}.)*
 3. **CC‑G10.3 (Telemetry discipline).** Any **illumination increase** or archive edit **SHALL** log **PathSliceId**, active **policy‑id**, the active editions of the pinned `…Ref` fields (including OEE `TransferRulesRef.edition`), **and** the active **`EmitterPolicyRef`/`InsertionPolicyRef`**.
 4. **CC‑G10.4 (UTS publication & twins).** All shipped heads appear on **UTS** with **Tech/Plain twins**; cross‑Context identity travels **only by Bridges** with CL and loss notes.
-5. **CC‑G10.5 (No strategy minting).** “Strategy/policy” remains a **composition under G.5/E/E‑LOG**; **no new U.Type** is minted in Core.
+5. **CC‑G10.5 (MOO surfaced in shipping).** Method-of-obtaining-output surfacing: for every **Portfolio set** or **Archive** published, the pack **SHALL** list the applicable **generation/parity mechanism** ids
++   (**EmitterPolicyRef/InsertionPolicyRef** for QD archives; **ParityHarnessId** for parity; **DHCMethodRef** where method definitions are generators) and the active **policy‑id(s)** in **SCR** and **telemetry pins**. (Core remains notationally independent.)
 
 ### 7) Relations
 
@@ -31752,6 +31879,14 @@ This pattern **inherits** order/illumination, evidence, and bridge/penalty legal
 
 **Why this exists.** Earlier G‑patterns made SoTA packs lawful and selector‑ready; this pattern closes the loop by **turning telemetry and decay into concrete refresh actions** that (i) keep SoTA packs current without pack‑wide reruns, (ii) preserve lawful orders (set‑returning selection; no forced scalarisation), and (iii) make QD/OEE exploration **operational** (edition‑aware, policy‑tracked) rather than merely auditable.  
 
+**Refresh triggers (normative)**
+Treat the following as **refresh causes** (Path‑local where possible) and run **targeted RSCR** before republication:
+* **Illumination/archive deltas (QD).** Telemetry events carrying `PathSliceId`, active `policy‑id`, and editions of `DescriptorMapRef`/`DistanceDefRef` (**plus** `CharacteristicSpaceRef` when domain‑family coordinates are used).
+* **OEE transfer deltas.** Edition change in `TransferRulesRef` or update to `EnvironmentValidityRegion`.
+* **Legality surface edits.** Changes to **Γ‑fold** definitions, **gauge** mappings, or **Φ** tables/policies.
+* **Bridge calibration edits.** Bridge/BCT changes that affect **CL** or plane penalties.
+* **Dominance policy changes.** CAL policy‑id changes that promote gauges into dominance.
+
 **Modularity note.** G.11 is **purely conceptual** (E.5.2): it prescribes identifiers, triggers, and obligations—not file formats or tools. Any serialisation lives in Annex/Interop; Core conformance is judged on semantics only. 
 
 ### 1) Intent
@@ -31781,6 +31916,7 @@ Blind “full rebuilds” and audit‑only workflows either waste compute or let
 
 #### 4.2 Trigger catalogue (normative)
 
+* **T0 — Policy change (generation/parity).** A change in the active **policy‑id** for **Emitter/Insertion** (E/E‑LOG) or parity harness under fixed editions ⇒ schedule **slice‑scoped** recomputation for the affected portfolios/archives; do **not** alter dominance defaults.
 * **T1 — Illumination increase.** Δcoverage>0 or ΔQD‑score>0 under the active archive & grid. ⇒ schedule archive‑scoped recomputation; **do not** change dominance unless CAL policy promotes illumination (policy‑id cited to SCR).  
 * **T2 — Edition bump (QD).** Change in `DescriptorMapRef.edition` and/or `DistanceDefRef.edition` (and, when partition depends on Space phase, `CharacteristicSpaceRef.edition`). ⇒ recompute the **same** QD metrics under new editions; publish **EditionBumpLog**. 
 * **T3 — Edition bump (OEE).** Change in `TransferRulesRef.edition` or `EnvironmentValidityRegion`. ⇒ re‑evaluate `{environment, method}` portfolios; **coverage/regret remain gauges**. 
@@ -31827,7 +31963,7 @@ Given: Telemetry events E, Bridge edits B, Freshness expiries F, Policy changes 
 ### 6) Conformance Checklist (CC‑G11)
 
 1. **CC‑G11.1 (Scoped by PathSlice).** Every refresh is **slice‑scoped**; pack‑wide reruns are prohibited unless the dependency closure spans all slices (record rationale). 
-2. **CC‑G11.2 (Edition discipline).** When QD/OEE are active, **pin** and **echo**: `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `CharacteristicSpaceRef.edition?`, `EmitterPolicyRef`, `InsertionPolicyRef`, `TransferRulesRef.edition` (OEE). **`.edition` SHALL apply only on `…Ref`**. **Fail** if any required pin is missing.  
+2. **CC‑G11.2 (Edition discipline).** When QD/OEE are active, **pin** and **echo**: `DescriptorMapRef.edition`, `DistanceDefRef.edition`, **`CharacteristicSpaceRef.edition` whenever a domain‑family coordinate is declared per C18‑1b**, `EmitterPolicyRef`, `InsertionPolicyRef`, `TransferRulesRef.edition` (OEE). **`.edition` SHALL apply only on `…Ref`**. **Fail** if any required pin is missing.  
 3. **CC‑G11.3 (Gauge legality).** Publish **Q/D/QD‑score** and **IlluminationSummary** as gauges; **exclude from dominance** unless a CAL policy promotes them; record the **policy‑id** in SCR. 
 4. **CC‑G11.4 (Bridge penalties).** CL/CL^k/CL^plane penalties **route to R_eff only**; **F/G invariant**; publish **Φ/Ψ ids** with loss notes. 
 5. **CC‑G11.5 (Selector invariants).** **G.5** is called with the same lawful **ComparatorSet** and returns **sets** (Pareto/Archive); no scalarisation is introduced by refresh. 
@@ -32042,8 +32178,6 @@ External indexes publish **claim‑adjacent signals** (citations, disruption, re
 
 * **`InteropSurface@Context`** — selector‑ and dashboard‑facing summary: what has been mapped, from which index edition, with which gauge/plane embeddings (published on UTS; twins Tech/Plain). 
 
-> **No strategy minting.** “Strategy/policy” remains a **composition under G.5/E/E‑LOG**; **no new U.Type** is minted by G.13. 
-
 #### 4.2 Generation‑first interop flow (notation‑independent)
 
 1. **Register sources.** Author **ExternalIndexCard**(s) with editions & freshness windows; declare AboutnessPlane. 
@@ -32099,8 +32233,6 @@ External indexes publish **claim‑adjacent signals** (citations, disruption, re
 5. **Gauge defaults.** **IlluminationSummary** and any coverage/regret **SHALL** be treated as **gauges** and **excluded from dominance** unless a CAL policy promotes them (policy‑id appears in **SCR**). 
 6. **Selector invariants.** Any selection spawned from interop **MUST** use **G.5** and **return sets** (Pareto/Archive) under lawful orders; no scalarisation is introduced by interop. 
 7. **ATS visibility.** All crossings must expose AH‑1..AH‑4 hooks; missing UTS+Bridge or impure lanes **blocks publication**. 
-
-> **No strategy minting.** “Strategy/policy” remains a **composition under G.5/E/E‑LOG**; **no new U.Type** is minted by G.13.
 
 ### 9) Consequences
 
