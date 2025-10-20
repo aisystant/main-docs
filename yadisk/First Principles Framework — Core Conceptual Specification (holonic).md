@@ -33,7 +33,7 @@ September 2025
 | A.1.1 | **`U.BoundedContext`: The Semantic Frame** | Stable | *Keywords:* local meaning, context, semantic boundary, domain, invariants, glossary, DDD. *Queries:* "How does FPF handle ambiguity?", "What is a Bounded Context in FPF?", "How to define rules for a specific project?" | **Builds on:** A.1. **Prerequisite for:** A.2.1, F.0.1. |
 | A.2 | **Role Taxonomy** | Stable | *Keywords:* role, assignment, holder, context, function vs identity, responsibility, U.RoleAssignment. *Queries:* "How to model responsibilities?", "What is the difference between what a thing *is* and what it *does*?" | **Builds on:** A.1, A.1.1. **Prerequisite for:** A.2.1-A.2.6, A.13, A.15. |
 | A.2.1 | **`U.RoleAssignment`: Contextual Role Assignment** | Stable | *Keywords:* Standard, holder, role, context, RoleEnactment, RCS/RSG. *Queries:* "How to formally assign a role in FPF?", "What is the Holder#Role:Context Standard?" | **Refines:** A.2. **Prerequisite for:** A.15. |
-| A.2.2 | **`U.Capability`: The Ability characteristic** | Stable | *Keywords:* ability, skill, performance, action, work scope. *Queries:* "How to separate ability from permission?", "What is a capability in FPF?" | **Builds on:** A.2. **Informs:** A.15, A.2.3. |
+| A.2.2 | **`U.Capability`: System Ability (dispositional property)** | Stable | *Keywords:* ability, skill, performance, action, work scope, measures. *Queries:* "How to separate ability from permission?", "What is a capability in FPF?" | **Builds on:** A.2. **Informs:** A.15, A.2.3. |
 | A.2.3 | **`U.Service`: The External Promise** | Stable | *Keywords:* promise, commitment, consumer, provider, SLO, SLA. *Queries:* "How to model a service promise?", "Difference between capability and service." | **Builds on:** A.2.2. **Prerequisite for:** F.12. |
 | A.2.4 | **`U.EvidenceRole`: The Evidential Stance** | Stable | *Keywords:* evidence, claim, support, justification, episteme. *Queries:* "How does an episteme serve as evidence?", "Modeling evidence roles." | **Builds on:** A.2. **Informs:** A.10, B.3. |
 | A.2.5 | **`U.RoleStateGraph`: The Named State Space of a Role**| Stable | *Keywords:* state machine, RSG, role state, enactability, lifecycle. *Queries:* "How to model the state of a role?", "What is a Role State Graph?" | **Builds on:** A.2.1. **Prerequisite for:** A.15. |
@@ -50,7 +50,6 @@ September 2025
 | A.6.0| **U.Signature — Universal, law‑governed declaration** | Stable | *Keywords:* signature, vocabulary, laws, applicability, bounded context. *Queries:* "What is the universal signature block?", "Where do laws vs. implementations live?" | **Placement:** Kernel; **Coordinates:** A.6, A.6.1. |
 | A.6 | **Architheory Signature & Realization** | Stable | *Keywords:* architheory, signature, realization, Γ-export, invariants. *Queries:* "What is an Architheory signature?", "How do I export Γ?", "What belongs in the signature vs realization?" | **Builds on:** A.5, E.10, E.8. **Prerequisite for:** Part C catalogue. |
 | A.6.1 | **U.Mechanism — Law‑governed signature for a GovernedSubject** | Stable | *Keywords:* mechanism, OpSig, LawSet, GuardPolicy, Transport(Bridge), Γ_time. *Queries:* "How to declare a mechanism?", "Where do CL/planes penalties route?", "How to relate mechanisms (refine/extend/quotient/product)?" | **Builds on:** A.6, E.10.D1; **Instances:** USM, UNM. |
-
 | ***Cluster A.V · Constitutional Principles of the Kernel*** | | | | |
 | A.7 | **Strict Distinction (Clarity Lattice)** | Stable | *Keywords:* category error, Object ≠ Description, Role ≠ Work, ontology. *Queries:* "How to avoid common modeling mistakes?", "What are FPF's core distinctions?" | **Builds on:** A.1, A.2, A.3. **Constrains:** all patterns. |
 | A.8 | **Universal Core (C-1)** | Stable | *Keywords:* universality, transdisciplinary, domain-agnostic, generalization. *Queries:* "How does FPF ensure its concepts are universal?" | **Builds on:** P-8. **Constrains:** Kernel-level `U.Type`s. |
@@ -86,7 +85,7 @@ September 2025
 | B.2.4 | **MFT (Meta-Functional Transition)**| Stable | *Keywords:* functional emergence, capability emergence, adaptive workflow, new process. *Queries:* "How do new capabilities or workflows emerge?", "What is a Meta-Functional Transition?" | **Builds on:** B.2, B.2.1, A.3.1. |
 | B.2.5 | **Supervisor–Subholon Feedback Loop** | Stable | *Keywords:* control architecture, feedback loop, supervisor, stability, layered control. *Queries:* "How does FPF model control systems?", "What is the supervisor-subholon pattern?" | **Builds on:** B.2, A.1. |
 | **B.3** | **Trust & Assurance Calculus (F–G–R with Congruence)**| Stable | *Keywords:* trust, assurance, reliability, F-G-R, formality, scope, congruence, evidence. *Queries:* "How is trust calculated in FPF?", "What is the F-G-R model?", "How does FPF handle evidence and confidence?" | **Builds on:** A.10. **Prerequisite for:** All B.3.x, D.4. |
-| B.3.1 | **Characteristic & Epistemic Spaces** | Draft | *Keywords:* F-G-R characteristics, measurement templates, epistemic space. *Queries:* "How are F, G, and R measured?", "What are epistemic spaces?" | **Builds on:** B.3. |
+| B.3.1 | **Components & Epistemic Spaces** | Draft | *Keywords:* F-G-R components, measurement templates, epistemic space. *Queries:* "How are F, G, and R measured?", "What are epistemic spaces?" | **Builds on:** B.3. |
 | B.3.2 | **Evidence & Validation Logic (LOG-use)** | Draft | *Keywords:* verification, validation, confidence, logic, proof. *Queries:* "What is the logic for validating claims in FPF?", "Difference between verification and validation." | **Builds on:** B.3, C.6. |
 | B.3.3 | **Assurance Subtypes & Levels** | Stable | *Keywords:* assurance levels, L0-L2, TA, VA, LA, typing, verification, validation. *Queries:* "What are the assurance levels in FPF?", "How does an artifact mature in FPF?" | **Builds on:** B.3. |
 | B.3.4 | **Evidence Decay & Epistemic Debt** | Stable | *Keywords:* evidence aging, decay, freshness, epistemic debt, stale data. *Queries:* "How does FPF handle outdated evidence?", "What is epistemic debt?" | **Builds on:** B.3. |
@@ -1785,9 +1784,7 @@ In real projects we must answer two different questions:
 * **“Can this system do X?”** — this is about an **ability** inherent to the system.
 * **“Is this system assigned to do X here and now?”** — this is about an **assignment** (a **Role assignment**) inside a bounded context.
 
-Teams frequently blur the two, and then further mix them with **how** the work is done (the **Method**) and **what actually happened** (the **Work**). `U.Capability` isolates the **ability characteristic** so that you can plan realistically, staff responsibly, and audit cleanly.
-
----
++Teams frequently blur the two, and then further mix them with **how** the work is done (the **Method**) and **what actually happened** (the **Work**). `U.Capability` isolates **ability as a first‑class concept** so that you can plan realistically, staff responsibly, and audit cleanly.
 
 ## 2 · Problem (what goes wrong without this concept)
 
@@ -1809,11 +1806,10 @@ Teams frequently blur the two, and then further mix them with **how** the work i
 
 ---
 
-## 4 · Solution — define the ability characteristic explicitly
+## 4 · Solution — define the ability explicitly
 
 ### 4.1 Definition
-**`U.Capability`** is a **property of a `U.System`** that states its **ability to produce a class of outcomes** (i.e., execute a class of Work) **within a declared `U.WorkScope` (conditions/assumptions) and meeting stated `U.WorkMeasures`**. It is **not** an assignment (Role), **not** a recipe (Method), and **not** an execution (Work).
-
+**`U.Capability`** is a **dispositional property of a `U.System`** that states its **ability to produce a class of outcomes** (i.e., execute a class of Work) **within a declared `U.WorkScope` (conditions/assumptions) and meeting stated `U.WorkMeasures`**. It is **not** an assignment (Role), **not** a recipe (Method), and **not** an execution (Work).
 
 > **One-liner to remember:** *Capability = “can do (within its **WorkScope** and measures)”*, independent of *“is assigned now”* or *“did do at time t”*.
 
@@ -1821,7 +1817,9 @@ Teams frequently blur the two, and then further mix them with **how** the work i
 * **`U.WorkScope`** (*Work scope*) — the set of `U.ContextSlice` under which the capability can deliver the intended `U.Work` (see **A.2.6 §6.4**);
 * **`U.WorkMeasures`** — measurable targets with units evaluated on a **JobSlice** (R‑lane facet);
 * **`U.QualificationWindow`** — the time policy that governs operational admissibility at **`Γ_time`** (R‑lane facet).
-**Note.** This separation supersedes the legacy “envelope + measures + validity interval” bundle.
+**Note.** This separation supersedes the legacy “envelope + measures + validity interval” bundle. **Work scope is the set of conditions (USM), not a Characteristic; measures are CHR‑characteristics; capability packages both.**
+
+**Reminder (measurement & scope).** *WorkScope* is a **set‑valued USM object** (membership, set algebra) and **not** a CHR Characteristic; *WorkMeasures* are **CHR Characteristics** with declared scales/units. **Admission checks these separately** (see § 10.3 WG‑2/WG‑3).
 
 ### 4.2 Conceptual descriptors (not a data schema)
 
@@ -1849,8 +1847,6 @@ To keep discussions terse yet precise, teams often write:
 * Or as a bullet in a capability table scoped to a context, e.g., *AssemblyLine\_2025 Capability Sheet*.
 
 This is not a formal notation—just a consistent way to keep the five prompts in view.
-
----
 
 ## 5 · Clear distinctions (litmus tests managers can apply)
 
@@ -1906,7 +1902,7 @@ This is not a formal notation—just a consistent way to keep the five prompts i
 
 * **Lenses tested:** `Arch`, `Prag`, `Did`, `Epist`.
 * **Scope declaration:** Universal; holder constrained to `U.System`.
-* **Rationale:** Gives the kernel a clean, reusable **ability characteristic** so Role (assignment), Method (recipe), Work (execution), and Service (promise) do not collapse into each other. Keeps planning talk truthful and checkable without introducing governance machinery here.
+* **Rationale:** Gives the kernel a clean, reusable **ability concept** so Role (assignment), Method (recipe), Work (execution), and Service (promise) do not collapse into each other. Keeps planning talk truthful and checkable without introducing governance machinery here. **`U.Capability`** is a **dispositional property of a `U.System`** that states its **ability to produce a class of outcomes** (i.e., execute a class of Work) **within a declared `U.WorkScope` (conditions/assumptions) and meeting stated `U.WorkMeasures`**.
 
 ## 8 · Conformance Checklist (normative)
 
@@ -3346,20 +3342,18 @@ Use when **adding/removing states**, **changing criteria**, or **bridging** acro
 
 # A.2.6 · **Unified Scope Mechanism (USM): Context Slices & Scopes**  \[A] 
 
-> **One‑line summary.** Introduces a single, context‑local **scope mechanism** for all holons: **`U.ContextSlice`** (where we reason and measure) and a family of **set‑valued scope characteristics** (**`U.Scope`**), specialized as **`U.ClaimScope`** for epistemes (**G** in **F–G–R**) and **`U.WorkScope`** for system capabilities, with one algebra (∩ / SpanUnion / translate / widen / narrow / refit) and uniform Cross‑context handling (Bridge + CL).
-
----
+> **One-line summary.** Introduces a single, context-local **scope mechanism** for all holons: **`U.ContextSlice`** (where we reason and measure) and a family of **set-valued scope types** (**USM scope objects, `U.Scope`**), specialized as **`U.ClaimScope`** for epistemes (**G** in **F–G–R**) and **`U.WorkScope`** for system capabilities, with one algebra (∩ / SpanUnion / translate / widen / narrow / refit) and uniform Cross-context handling (Bridge + CL).
 
 ## 0 · Status, Placement & Deprecations
 
 **Status.** Normative pattern \[A] in **Part A · Core Holonic Concepts**. Numbered **A.2.6**.
 
 **Replaces / deprecates.**
-This pattern **supersedes** the scattered use of characteristic labels *applicability*, *envelope*, *generality*, and *capability envelope* when they name a scope‑like characteristic. From now on:
+This pattern **supersedes** the scattered use of labels *applicability*, *envelope*, *generality*, *universality* and *capability envelope* where they tried to stand in for the one scope mechanism. From now on:
 
-* For epistemes, the only scope characteristic is **`U.ClaimScope`** (nick **G** in F–G–R).
-* For system capabilities, the only scope characteristic is **`U.WorkScope`**.
-* The abstract architectural notion is **`U.Scope`** (the shared set‑valued mechanism).
+* For epistemes, the only **scope type** is **`U.ClaimScope`** (nick **G** in F–G–R).
+* For system capabilities, the only **scope type** is **`U.WorkScope`**.
+* The abstract architectural notion is **`U.Scope`** — a **set-valued USM object** over `ContextSliceSpace` with its own algebra (∩ / SpanUnion / translate / widen / narrow / refit); it is **not** a `U.Characteristic` and MUST NOT appear in any `CharacteristicSpace`.
 
 Legacy words (*applicability / envelope / generality / capability envelope*) MAY appear **only** as explanatory aliases in non‑normative notes.
 
@@ -3374,7 +3368,7 @@ Legacy words (*applicability / envelope / generality / capability envelope*) MAY
 This pattern gives **engineering managers and assurance architects** one vocabulary, one model, and one set of operations to talk about **where** a claim holds and **under which conditions** a system can deliver a piece of **Work**. It removes the need to remember whether a document said “applicability,” a model said “envelope,” or a safety plan said “capability envelope.” **Scope is scope.** The only distinction that matters is **what carries it**:
 
 * **Knowledge/episteme** → **Claim scope** (G).
-* **System/capability** → **Work scope** (conditions to execute Work at the promised measures).
+* **System/capability** → **Work scope** (conditions under which Work at the promised measures is deliverable).
 
 With USM, teams can:
 
@@ -3464,9 +3458,11 @@ When **G** is a **set‑valued scope**, composition becomes precise: serial depe
 
 **Slice key (minimal).** A `U.ContextSlice` **SHALL** be addressable by a tuple containing at least: `(Context, Standard/version ids (if any), environment selectors, Γ_time)`. Contexts MAY extend this tuple (e.g., vocab/roleset ids).
 
-### 6.2 · `U.Scope` — the abstract set‑valued scope characteristic
+### 6.2 · `U.Scope` — the abstract set‑valued scope property (USM kind; **not** a CSLC measurement)
 
-**Definition.** `U.Scope ⊆ ContextSliceSpace` is a **set‑valued `U.Characteristic`** whose values are sets of `U.ContextSlice` where a given statement, behavior, or capability is **fit‑for‑use**. It is **not** numeric; its internal order is the subset relation `⊆`. There is no “unit”. The primitive judgement is **membership**: `slice ∈ Scope`.
+**Definition.** `U.Scope ⊆ ContextSliceSpace` is a **set‑valued USM property** whose values are sets of `U.ContextSlice` where a given statement, behavior, or capability is **fit‑for‑use**. It is **not** numeric; its internal order is the subset relation `⊆`. There is no “unit”. The primitive judgement is **membership**: `slice ∈ Scope`.  
+
+**Guard (normative).** `U.Scope`, `U.ClaimScope (G)`, and `U.WorkScope` are **not** `U.Characteristic`s in the A.17/CSLC sense; do **not** include them as slots in any `U.CharacteristicSpace`, and do **not** attach normalizations/scores to them. They are **USM scope objects**.
 
 **Operations.** USM admits:
 
@@ -3477,8 +3473,6 @@ When **G** is a **set‑valued scope**, composition becomes precise: serial depe
 * **Refit** (content‑preserving re‑expression; set equality).
 
 **Locality.** `U.Scope` values are defined and reasoned about **context‑locally**. Translation between Contexts never occurs implicitly; see §7.4.
-
----
 
 ### 6.3 · `U.ClaimScope` (nick **G**) — scope of a claim (episteme)
 
@@ -3569,7 +3563,7 @@ Scope_published = SpanUnion({S_i})  =  ⋃_{i=1..n} S_i
 
 ### 7.4 Why a **G-ladder/levels/scales** is not needed (and **must not** be introduced)
 
-**1) The scale type is not ordinal; it is set‑valued.**
+**1) G is not an ordinal scale; it is set-valued.**
 Under MM‑CHR, `U.ClaimScope` is a **set‑valued** `U.Characteristic` over `U.ContextSlice`. The only well‑typed primitives are **membership** and **set operations** (`⊆`, `∩`, `⋃`). Imposing ordinal “levels” such as **G0…Gk** violates the type discipline and produces non‑invariant behavior (the **same set** could be “rated” with different numbers under different heuristics).
 
 **2) G composes via `∩` / `SpanUnion`, not via `min` / `avg`.**
@@ -3653,7 +3647,7 @@ For empirical claims and operational capabilities, **R** typically binds evidenc
 
 ## 9 · Lexical Discipline (Part E compliance)
 
-**L‑USM‑1 (names).** Use **Claim scope (G)** for epistemes and **Work scope** for capabilities. Use **Scope** only when discussing the abstract mechanism. Avoid naming characteristics “applicability,” “envelope,” “generality,” “capability envelope,” or “validity”.
++**L-USM-1 (names).** Use **Claim scope (G)** for epistemes and **Work scope** for capabilities. Use **Scope** only when discussing the abstract mechanism. Avoid naming any **characteristic** as “applicability,” “envelope,” “generality,” “capability envelope,” or “validity”.
 
 **L‑USM‑2 (Work/Run).** Prefer **Work/Run** vocabulary from A.15 for system execution contexts. Do not introduce “operation/operating” as characteristic names; use **Work scope**.
 
@@ -3922,7 +3916,7 @@ claimScope:
 
 Contexts that adopt USM SHALL record, per scope‑aware decision:
 
-* **Owner & carrier.** Episteme (for Claim scope) or Capability (for Work scope).
+* **Owner.** Episteme (for Claim scope) or Capability (for Work scope).
 * **TargetSlice tuple.** Context, vocab/roles, versioned Standards, environment selectors, **`Γ_time`**.
 * **Guard outcomes.** Membership result, Bound measures (for Work scope), Freshness predicates (R).
 * **Bridge info (if any).** Mapping summary, **CL**, loss notes, applied R penalty.
@@ -5465,271 +5459,467 @@ The “hour‑glass” brings two further advantages:
 
 > *“A stable neck sustains an ever‑growing hour‑glass.”*
 
-### A.6 — Architheory Signature & Realization  \[A]
+## A.6.0 — **U.Signature · Universal, law‑governed declaration for a Subject on a HostSpace**  \[A]
 
-**Context**
+**Status.** Architectural pattern \[A], kernel‑level and universal.  
+**Placement.** Part A (Kernel), **before A.6** (“Architheory Signature & Realization”) and **A.6.1** (“U.Mechanism”).  
+**Builds on.** **E.8** (authoring order), **E.10** LEX‑BUNDLE (registers, naming, stratification), **E.10.D1** D.CTX (Context discipline).
+  
+**Coordinates with.** **A.6** (architheory specialisation of signatures), **A.6.1** (mechanism as law‑governed signature), **Part F** (Bridges & cross‑context transport; naming). Conformance keywords: RFC 2119.
 
-FPF’s architecture is built on a modular ecosystem of **architheories** (CAL/LOG/CHR) that extend a minimal kernel (Pattern A.5). For this ecosystem to function coherently, without descending into a "big ball of mud," each architheory must expose a stable, predictable, and machine-readable public Standard. This Standard, or **Signature**, allows other architheories to depend on its capabilities without needing to know anything about its internal logic or implementation, which is called its **Realization**.
+### 1 · Problem frame
 
-**Problem**
+FPF already uses “signatures” to stabilise public promises of **architheories** and, via **A.6.1**, of **mechanisms**. But authors also need stable, minimal declarations for **theories** (LOG), **methods** (operational families), and even **disciplines** (regulated vocabularies). Without **one** universal notion of signature:
+* similar constructs proliferate under incompatible names;
+    
+* readers cannot tell what is **declared** (intension & laws) versus what is **implemented** (specification);
+    
+* cross‑context reuse lacks a canonical place to state **applicability** and **lawful vocabularies**.
 
-If the line between an architheory's public Standard and its private implementation is blurred, the entire FPF ecosystem becomes brittle and unscalable. Three critical failure modes emerge:
+E.8 demands a single authoring voice and section order; E.10 demands lexical discipline across strata. A.6.0 provides the common kernel shape these patterns presuppose.
 
-1.  **Tight-Coupling Cascade:** Any change to an architheory's internal axioms or logic immediately risks breaking every other architheory that depends on it, leading to cascading failures and development gridlock.
-2.  **Loss of Polymorphism:** It becomes impossible for alternative implementations of the same concept (e.g., a classical vs. an intuitionistic logic) to coexist, as each would expose its unique internal structure, forcing a "winner-takes-all" scenario.
-3.  **Opaque Composition:** Without a formal, declarative Standard, it is impossible to automatically verify if a set of architheories is compatible. Teams are forced into manual, error-prone integration checks, and the promise of a predictable, composable "operating system for thought" is broken.
+### 2 · Problem
 
-**Forces**
+If each family (architheories, mechanisms, methods, disciplines) invents its own “signature”:
+
+1. **Tight coupling.** Private definitions leak as public standards, breaking substitutability.
+    
+2. **Lexical drift.** The same surface label (e.g., *scope*, *normalization*) hides different laws.
+    
+3. **Scope opacity.** Applicability (where the words mean what) remains implicit, violating D.CTX.
+    
+
+### 3 · Forces
 
 | Force | Tension |
-| :--- | :--- |
-| **Stability vs. Freedom** | Public Standards must remain stable for long-term compatibility, while the internal logic of an architheory must be free to evolve and improve. |
-| **Universality vs. Specificity**| The Standard mechanism must be uniform for all architheories, yet each calculus, logic, or characterization exports a unique set of concepts and guarantees. |
-| **Clarity vs. Boilerplate** | The Standard must be simple and clear enough for a human to read and understand, yet formal enough for a machine to parse and verify. |
-| **Implicit vs. Explicit Guarantees**| How do we move from an informal dependency ("this architheory runs after that one") to an explicit, verifiable Standard of preconditions and postconditions? |
-
-**Solution**
-
-FPF mandates a strict architectural separation between an architheory's public **Signature** and its private **Realization**. The Signature is the timeless, formal Standard, while the Realization is the concrete, mutable implementation.
-
-**1. The `U.ArchitheorySignature` — The Public, Declarative Standard**
-
-A Signature is a **normative, machine-readable declaration** of *what* an architheory promises to the FPF ecosystem. It is purely declarative and contains no implementation logic. To make this Standard explicit and verifiable, every Signature **SHALL** be structured around a four-part **Signature Block**:
-
-| Item | Purpose | Manager's View: What It Means |
-| :--- | :--- | :--- |
-| **Imports** | A list of the `U.Types` and relations that **MUST** already be present for this architheory to function. | "Here are the ingredients and tools this architheory needs to do its job." |
-| **Derivations** | A list of the new `U.Types`, relations, or constraints that this architheory **produces** if its rules are successfully applied. | "Here is the new knowledge or capability this architheory adds to the model." |
-| **Invariants** | A set of mathematical or logical statements that this architheory **guarantees** will be true for its outputs. | "Here are the promises this architheory makes. You can rely on these guarantees." |
-| **BelongsToAssurance** | A tag specifying which **Assurance Subtype** (Typing, Verification, or Validation) the architheory primarily supports. | "This architheory helps with ensuring correct naming (Typing), logical soundness (Verification), or real-world correctness (Validation)." |
-
-This Signature Block transforms the concept of an interface from a vague notion into a concrete, auditable artifact.
-
-**2. The `U.ArchitheoryRealization` — The Private, Opaque Implementation**
-
-A Realization is the **private, internal body of logic** that fulfills the promises made in a Signature. It contains the concrete axioms, definitions, algorithms, and proof scripts.
-
-*   **Opacity:** The internal details of a Realization are **opaque** to all other architheories. They can only interact with it through the formal `provides` and `invariants` declared in its public Signature.
-*   **Polymorphism:** A single Signature **MAY** be fulfilled by multiple, competing Realizations. This is the key to FPF's flexibility. For example, a `Logic-CAL` Signature could be implemented by both a classical logic Realization and an intuitionistic one. A user or a higher-level architheory can then choose which Realization to use without changing any code that depends only on the Signature.
-
-```
-Signature (e.g., Logic-CAL)
-  ├─ Realization α (Classical Axioms)
-  └─ Realization β (Intuitionistic Axioms)
-```
-
-**3. The Γ-Export Policy and Layering**
-
-To maintain a clear separation of concerns between constructing, reasoning, and describing, FPF enforces a strict policy on which architheory classes can export an aggregation operator (`Γ`).
-
-*   A **CAL** (Calculus) architheory **SHALL** export **exactly one** aggregation operator `Γ_*` in its Signature's `Derivations`. This operator is its primary "builder" function.
-*   **LOG** (Logic) and **CHR** (Characterization) architheories **SHALL NOT** export any `Γ_*` operator. They can reason about or describe artifacts created by a Calculus, but they cannot create new composite holons themselves.
-*   The import graph **SHALL** be acyclic, with dependencies generally pointing "down" towards the foundational Calculi. A LOG or CHR may import from a CAL, but a CAL should not depend on a LOG or CHR for its core constructive logic.
-
-**4. Signature Header and Metadata**
-
-For governance and automated processing, each architheory **SHALL** provide a **Signature header** in its manifestation, containing:
-
-*   `id`: The canonical, PascalCase identifier (e.g., `Sys-CAL`).
-*   `version`: The semantic version of the architheory.
-*   `status`: The lifecycle state (`draft`, `review`, `stable`, `deprecated`).
-*   `classification`: The architheory class (`CAL`, `LOG`, `CHR`).
-
-**Archetypal Grounding**
-
-Let's illustrate the Signature/Realization split with two examples.
-
-| Aspect | `U.System` Example – Robotic Arm | `U.Episteme` Example – Parsing Grammar |
-| :--- | :--- | :--- |
-| **Signature** | **`RobArm-CAL` Signature Block:** <br> • **Imports:** `Sys-CAL` (`U.System`). <br> • **Derivations:** `U.System:RobotArm`, `Γ_pickPlace` operator. <br> • **Invariants:** `endEffectorPosition` is always within `workspaceBoundary`. <br> • **BelongsToAssurance:** Verification. | **`Grammar-CAL` Signature Block:** <br> • **Imports:** `KD-CAL` (`U.Episteme`). <br> • **Derivations:** `U.Episteme:Grammar`, `parse` operator. <br> • **Invariants:** `parse(input)` is deterministic. <br> • **BelongsToAssurance:** Verification. |
-| **Realization A** | A six-axis articulated arm model with detailed kinematic equations and servo motor torque limits. | A context-free grammar (CFG) implementation in Backus-Naur Form (BNF) for parsing JSON. |
-| **Realization B** | A SCARA arm model with different kinematics (fewer degrees of freedom, faster for planar tasks). | A Parsing Expression Grammar (PEG) implementation, which is also capable of parsing JSON but uses a different, non-backtracking algorithm. |
-| **Benefit of the Split** | A factory automation architheory that imports `RobArm-CAL` can choose the six-axis arm for complex assembly or the SCARA arm for simple pick-and-place tasks. The choice is made by selecting a *Realization*, but the rest of the factory model, which depends only on the `RobArm-CAL` *Signature* (e.g., the `Γ_pickPlace` operator), remains unchanged. | A data validation architheory that imports `Grammar-CAL` can use either the BNF or PEG Realization to parse input. The choice might depend on performance needs or error handling preferences, but the higher-level logic that calls the `parse` operator does not need to be modified. |
-
-This **Signature-only dependency** is the architectural guarantee that enables this powerful "plug-and-play" capability, allowing the FPF ecosystem to be both stable and highly adaptable.
-
-**Conformance Checklist**
-
-*   **CC-A6.1 (Signature Mandate):** Every architheory **MUST** declare exactly one `Signature`, and this Signature **MUST** contain a complete four-part **Signature Block** (`Imports`, `Derivations`, `Invariants`, `BelongsToAssurance`).
-*   **CC-A6.2 (Realization Mandate):** Every architheory **MUST** provide at least one `Realization` that is demonstrably consistent with the promises made in its Signature.
-*   **CC-A6.3 (Acyclic Dependency):** The global graph of `imports` between architheory Signatures **MUST** be a Directed Acyclic Graph (DAG).
-*   **CC-A6.4 (Opaque Realization):** An axiom or rule within a Realization **SHALL NOT** reference the internal details of another architheory's Realization; it can only depend on its public Signature.
-*   **CC-A6.5 (Γ-Export Rule):** Only architheories with `classification: CAL` **MAY** export a `Γ_*` operator, and they **SHALL** export exactly one. `LOG` and `CHR` architheories **SHALL NOT** export a `Γ_*` operator.
-*   **CC-A6.6 (Liskov Substitutability):** A Realization **MAY** tighten the constraints or invariants promised by its Signature (e.g., offer stronger guarantees), but it **SHALL NOT** relax or contradict them. This ensures any Realization can be safely substituted for another under the same Signature.
-
-**Consequences**
-
-| Benefits | Trade-offs / Mitigations |
-| :--- | :--- |
-| **Hard Decoupling & Stability:** The FPF kernel and core architheories remain stable, as swapping a Realization never breaks dependent architheories. This dramatically reduces integration risk and maintenance costs. | **Authoring Discipline:** Architheory authors must invest upfront effort in designing a clean, stable Signature and explicitly documenting the Signature Block. *Mitigation:* FPF provides templates and checklists to streamline this process. |
-| **Enables Polymorphism and Competition:** The pattern allows alternative logics, physics models, or algorithms to coexist and compete under the same standard interface, fostering innovation. | **Potential for Over-abstraction:** A poorly designed Signature might be too abstract to be useful or too specific to allow for meaningful alternative Realizations. *Mitigation:* The FPF governance process (DRRs) includes a review of proposed Signatures for clarity and utility. |
-| **Machine-Checkable Composition:** Because `imports`, `derivations`, and `invariants` are declared formally, automated tools can verify the compatibility of a set of architheories before any reasoning begins, catching integration errors early. | - |
-| **Clear Pass Interface:** The Signature Block provides a clear, predictable "pass interface" for the Unification Routes. A modeller or tool knows exactly what state to expect after a given architheory has been applied. | - |
-
-**Rationale**
-
-This pattern elevates the classic "interface vs. implementation" separation from software engineering to the level of entire bodies of knowledge. The term **Signature** is chosen deliberately for its resonance in both computer science (a function's signature defines its Standard) and mathematics (a theory's signature enumerates its symbols). This dual meaning serves **Cognitive Elegance (P-1)** and **Didactic Primacy (P-2)**.
-
-By formalizing the Signature with the four-part **Signature Block**, this pattern moves beyond a simple `provides` list to a rich, verifiable Standard. The `Imports` and `Invariants` fields establish explicit pre- and post-conditions for each architheory's application. This operationalizes **Cross-Scale Consistency (P-8)** by ensuring that as a model is refined by a sequence of architheories, the guarantees accumulate in a predictable, auditable chain.
-
-Ultimately, the Signature/Realization split is the core mechanism that allows FPF to be both **stable and endlessly extensible**, fulfilling the promise of the **Open-Ended Kernel (P-4)** and **Plug-in Layering (P-5)** principles. It provides the architectural foundation for a modular, governable, and trustworthy ecosystem of thought.
-
-**Relations**
-
-*   **Implements & constrains:** `A.5 Open-Ended Kernel & Architheory Layering`.
-*   **Is instantiated by:** Every architheory in **Part C**.
-*   **Enables:** The concept of **Unification Routes**, where architheories are applied in a predictable sequence.
-*   **Provides the formal structure for:** The `manifest.yaml` file of every architheory.
-
-## A.6 Architheory Signature & Realization  \[A] 
-
-### Problem frame
-
-FPF depends on a growing library of **architheories** (CAL / LOG / CHR) that extend the minimal kernel with domain‑specific concepts. Without a **stable public Standard** for each architheory, the ecosystem would suffer tight‑coupling, version pinning, and un‑auditable conceptual drift.
-
-### Problem
-
-If an architheory’s *internal* definitions are exposed as its *external* Standard, three systemic failures arise:
-
-1. **Tight‑Coupling Cascade** – any local change in a module’s internal axioms propagates unpredictably through every module that re‑uses those axioms.
-2. **Loss of Polymorphism** – two alternative treatments of the same domain (e.g., classical vs. constructive logic) cannot co‑exist, because each forces its private axioms onto dependants.
-3. **Opaque Compatibility** – without a machine‑checkable declaration of imports/exports, nobody can guarantee whether a given set of architheories is semantically consistent.
-4. **Hidden dependency cycles** – because imports would be implicit, acyclic composition could not be guaranteed.
-
-### Forces
-
-| Force                            | Tension                                                                                                                  |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| **Stability vs. Freedom**        | Keep public Standards frozen ↔ allow internal axioms to evolve.                                                          |
-| **Universality vs. Specificity** | One uniform pattern for all architheories ↔ each calculus exports very different constructs.                             |
-| **Cognitive Elegance**           | Use a term that engineers and logicians instantly recognise ↔ avoid vocabulary that carries tool or process connotation. |
-
-### Solution
-
-FPF introduces a **strict interface pattern**:
-
-#### 1. `U.ArchitheorySignature` — *the public Standard*
-A Signature is **timeless**. It declares only **what** an architheory contributes, never **how**.
-
-| Field      | Purpose                                           | Examples                                 |
-| ---------- | ------------------------------------------------- | ---------------------------------------- |
-| `id`       | Canonical name, globally unique.                  | `Sys‑CAL`  ·  `Logic‑CAL`                |
-| `imports`  | Set of **other Signatures** required.             | `[Kernel, Kind-CAL]`                     |
-| `provides` | Set of new `U.Type`s **and** universal operators. | `U.Port`, `Γ\_sys`, `implies`, `entails` |
-
-*Invariant:* the **import graph must be acyclic** (no hidden recursion).
-
-#### 2. `U.ArchitheoryRealization` — *the private implementation*
-A Realization binds a Signature to a concrete body of **axioms, definitions, proofs**.
-Multiple Realizations MAY exist for the same Signature and MAY coexist in the same model so long as they **do not contradict** each other’s exports.
-
-```
-Signature  ──╼  Realization α   (classical logic axioms)
-           └─╼  Realization β   (intuitionistic axioms)
-```
-
-#### 2.1 · Normative Signature Block (Imports–Derivations–Invariants–Assurance)
-
-Every Architheory **SHALL** publish a compact **Signature Block** with four items:
-
-| Item | Purpose |
 | --- | --- |
-| **Imports** | The `U.Types` / relations that **MUST** already be present or are produced by earlier passes. |
-| **Derivations** | New relations/constraints the architheory **produces** when its rules succeed. |
-| **Invariants** | Mathematical statements the architheory **proves** (or marks `todo` with justification). |
-| **BelongsToAssurance** | One of **Typing / Verification / Validation** identifying the assurance sub‑layer. |
+| **Universality vs. fitness** | One shape must fit **architheories**, **mechanisms**, **theories**, **methods**, **disciplines**, without over‑committing to any one of them. |
+| **Intension vs. specification (I/D/S)** | Signatures declare **what** and **the laws** (intension), not recipes or test harnesses (specification). |
+| **Simplicity vs. expressivity** | Keep the kernel small while leaving **normalized** slots for specialisations (e.g., Γ‑export in A.6; Transport in A.6.1). |  
+| **Locality vs. transport** | Meaning is context‑local (D.CTX), yet cross‑context use must be explicit and auditable via Bridges without smuggling implementation. |
 
-*Intent:* to make pass interfaces explicit so downstream architheories can rely on declared guarantees.
+### 4 · Solution — **Define `U.Signature` once, reuse everywhere**
 
-#### 2.2 · Γ‑export policy and layering
+**Definition.** A **`U.Signature`** is a **public, law‑governed declaration** for a named **Subject** on a declared **HostSpace** that (i) introduces a **vocabulary** (types, relations, operators), (ii) states **laws** (axioms/invariants/guards) over that vocabulary, and (iii) records **applicability** (where and under which contextual assumptions the declarations hold).  Dependencies (**imports**) are metadata governed by specialisations (e.g., A.6) and **not** part of the universal four‑row Block.
 
-* A **CAL** architheory **SHALL** export **exactly one** aggregation operator `Γ` (its builder).
-* **LOG** and **CHR** architheories **SHALL NOT** export `Γ`.
-* Import layering **SHALL** respect the holonic stack: LOG/CHR **may** import CAL; CAL **may** import CAL; import graphs are **acyclic**.
+**Naming discipline.** The `Subject` **MUST** be a **single‑sense** noun phrase; avoid synonyms/aliases within the same Signature.
 
-This reflects the Part C catalogue where, e.g., LOG‑CAL may import Kind-CAL, while builders remain confined to the calculus layer.
+A `U.Signature` is **conceptual**: it contains **no implementation, no packaging/CI metadata, and no Γ‑builders**. Γ‑export, if any, is governed by **A.6** and only for architheories with `classification=CAL`.
 
-#### 2.3 · Signature header (metadata)
+#### 4.1 · The **Signature Block (universal form)**
 
-Each Architheory **SHALL** begin with a **Signature header** capturing:
-`id` (PascalCase), `version` (semver), `status` (draft/review/stable/deprecated),
-`classification` (CAL/LOG/CHR), `imports` (list), `provides` (list, including Γ if CAL).
-Anchors for any quoted artefacts **SHALL** be provided via **SCR/RSCR** (A.10). 
+Every `U.Signature` **SHALL** present a **four‑row conceptual block** (names are universal; family‑specific aliases are mapped below):
 
-#### 2.4 · Conformance checklist (author‑facing)
-* [ ] Section provides the four‑row Signature Block.
-* [ ] If `classification = CAL`, exactly one Γ is named.
-* [ ] Imports point **down** the layering and remain acyclic.
-* [ ] Any referenced artefacts are anchored by SCR/RSCR identifiers.
+1. **HostSpace & Subject** — the typed **HostSpace** (the value‑bearing space) and the **Subject** being governed (e.g., *charts*, *context slices*, *orders*, *grammars*).
+    
+2. **Vocabulary** — names and sorts of the public **types / relations / operators** this signature commits to.
+    
+3. **Laws (Invariants/Guards)** — equations, order/closure laws, admissibility constraints (no proofs here; only the law statements).
+    
+4. **Applicability (Scope & Context)** — conditions under which the laws are valid (bounded context, plane, stance, time notions). Applicability **MUST** bind a **`U.BoundedContext`** (D.CTX). Cross‑context use **MUST NOT** be implicit; if intended, **name** the Bridge (conceptual reference only). When numeric comparability is implied, **bind** legality to **CG‑Spec/MM‑CHR** (map‑then‑compare; lawful scales/units).
+    
+*Mapping to existing families (normative aliases).*  
+— **A.6 (Architheory).** *Vocabulary* ↔ **Derivations**; *Laws* ↔ **Invariants**; *Applicability* notes layer (**CAL/LOG/CHR**) and context; **Γ‑export** policy lives **only** in A.6.  
+— **A.6.1 (Mechanism).** *HostSpace & Subject* ↔ **HostSpace/GovernedSubject**; *Vocabulary* ↔ **OpSig**; *Laws* ↔ **LawSet**; *Applicability* carries **GuardPolicy** and a conceptual **Transport** clause (Bridges/CL named; Bridges per **F.9**; CL/penalties per **B.3**; **CL^plane** per **C.2.1**).
+— **Architheory View (A.6 add‑on).** Specialisation A.6 **adds** an adjacent **Imports/Derivations/Invariants/BelongsToAssurance** view for pass interfaces.
 
-#### 3. Normative Relations
+#### 4.2 · Authoring rules (I/D/S‑aware; lexically disciplined)
 
-* `implements(Realization, Signature)` — mandatory and one‑way.
-* `imports(Signatureᵢ, Signatureⱼ)` — edges of the dependency DAG.
-* `provides(Signature, U.Type ∪ Operator)` — defines the public namespace.
+* **I/D/S separation.** A signature **states intension and laws**; Realizations (if any) carry **specifications**. Do not mix tutorial text or operational recipes into the Block.
+* **Context discipline.** Bind Applicability to a **`U.BoundedContext`**. If cross‑context use is intended, **name** the crossing and **reference** the Bridge (Part F/B); A.6.0 does **not** prescribe CL ladders, **CL^plane**, Φ/Ψ tables, or penalty formulas.
+* **Stratification.** Use LEX‑BUNDLE registers and strata; do not redefine Kernel names in lower strata (no cross‑bleed).  
+* **Imports location.** If your family requires an explicit **imports** list (e.g., A.6 Architheory), place it in the **Signature header** or the **family‑specific view**, not inside the universal four‑row Block.
 
-These three relations are **purely conceptual**; they do **not** prescribe files, folders, CI jobs, or version tags.
+* **Token hygiene.** Do **not** mint new `U.*` tokens inside a Signature without a **DRR**; prefer referencing existing Kernel/Architheory `U.Type`s.
 
-#### Archetypal Grounding
+#### 4.3 · Specialisation knobs (for downstream patterns)
 
-| quartet Element     | `U.System` Example – Robotic Arm                                                                  | `U.Episteme` Example – Parsing Grammar                                                                |
-| ----------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| **Signature**     | `RobArm-CAL`: imports `Sys-CAL`; provides `U.System:RobotArm`, `Γ_pickPlace`.                     | `Grammar-CAL`: imports `KD-CAL`; provides `U.Episteme:Grammar`, `parse`.                              |
-| **Realization A** | Six‑axis arm with servo motors, kinematic limits, torque model.                                   | Context‑free BNF grammar for JSON.                                                                    |
-| **Realization B** | SCARA arm with step‑per‑second constraints, pneumatic gripper model.                              | Parsing‐expression grammar (PEG) for JSON.                                                            |
-| **Swap Effect**   | Vehicle‑assembly CAL that *imports* `RobArm‑CAL` can transparently choose either arm Realization. | Data‑validation CAL that *imports* `Grammar‑CAL` can transparently choose either grammar Realization. |
+A.6.0 exposes **three** conceptual knobs; specialisations (A.6, A.6.1, method/discipline specs) may **tighten** them:
 
-The **Signature‑only dependency** guarantees the swap is safe and localised—no ripple across the rest of the specification.
+1. **Builder policy.** Whether a signature may commit to a builder `Γ_*` is not decided here; **A.6** governs this for architheories (`classification=CAL` only).
+    
+2. **Transport clause.** If cross‑context/plane use is part of the design, the signature **may declare** a conceptual Transport clause; **A.6.1** gives a concrete schema (Bridge, **CL/CL^k/CL^plane**—Bridges per **F.9**, penalties per **B.3**, **CL^plane** per **C.2.1**), but A.6.0 remains agnostic about penalty shapes.
+    
+3. **Morphisms.** Families may define `SigMorph` (refinement, conservative extension, equivalence, quotient, product) to relate signatures; **A.6.1** instantiates this for mechanisms.
+    
+### 5 · Archetypal Grounding (Tell–Show–Show)
 
-The *Vehicle‑CAL* architheory can depend on `Engine‑CAL` **without knowing** which Realization (V8 or Electric) is loaded; likewise *Arg‑LOG* can build arguments on `Logic‑CAL` independently of whether proofs are classical or constructive.
+| quartet Element | `U.System` Example — **Grammar of Motions** | `U.Episteme` Example — **Normalization Family** |
+| --- | --- | --- |
+| **HostSpace & Subject** | HostSpace: `U.System:TrajectorySpace`; Subject: `MotionGrammar`. | HostSpace: `U.Episteme:ChartFamily` (within one `U.BoundedContext`); Subject: `NormalizationMethod‑Class`. |
+| **Vocabulary** | Types: `Pose`, `Segment`; Operators: `concat`, `reverse`, `sample` (any Γ‑builder is governed by A.6). | Operators: `apply(method)`, `compose`, `quotient(≡)`. |
+| **Laws (Invariants/Guards)** | Closure of `concat`; associativity; time‑monotone sampling; admissible `reverse` only for holonomic arms. | Ratio→positive‑scalar; Interval→affine; Ordinal→monotone; Nominal→categorical; LUT(+uncertainty). |
+| **Applicability (Scope & Context)** | Context: *industrial robotics*; stance: design; time notion: discrete ticks. Cross‑context transport not declared. | Context: *clinical metrics*; stance: analysis; validity windows declared; cross‑context transport via Bridge (concept only; details per A.6.1). Numeric comparability bound to CHR/CG‑Spec. |
 
-#### Conformance Checklist
+*Why these two?* E.8 requires pairs from **U.System** and **U.Episteme** to demonstrate trans‑disciplinary universality.
 
-| ID           | Requirement                                                                                       |
-| ------------ | ------------------------------------------------------------------------------------------------- |
-| **CC‑A.6.1** | Every architheory **MUST** declare exactly one `Signature`.                                       |
-| **CC‑A.6.2** | Every architheory **MUST** provide ≥ 1 `Realization` consistent with its Signature.               |
-| **CC‑A.6.3** | The global graph of `imports` **MUST** be acyclic.                                                |
-| **CC‑A.6.4** | No axiom in a Realization **MAY** reference internals of another architheory; only its Signature. |
-| **CC‑A.6.5** | A Signature’s `provides` list **MUST NOT** redeclare any `U.Type` already exported by its transitive `imports`.                                                   | Prevents accidental shadowing.                          |
-| **CC‑A.6.6** | A Realization **MAY** tighten axioms but **MUST NOT** *relax* constraints promised by its Signature.                                                              | Ensures Liskov‑style substitutability of Realizations.  |
-| **CC‑A.6.7** | If multiple Realizations are shipped for one Signature, authors **SHOULD** supply a short `Rationale` comparing trade‑offs (performance, constructiveness, etc.). | Satisfies **Didactic Primacy** without leaking tooling. |
+### 6 · Bias‑Annotation (lenses & defaults)
 
-#### Consequences
+* **Local‑first meaning.** Laws are **local** to the named Context; cross‑context use must be explicit (Bridge), never implicit.
+    
+* **No illicit scalarisation.** If numbers appear, legal comparability follows **CG‑Spec/MM‑CHR**; **no ordinal means**, **partial orders return sets**; unit/scale alignment is explicit.
+    
+* **Register hygiene.** Keep Tech vs Plain register pairs; avoid tooling/vendor talk in Kernel prose (E.10).
+  
+### 7 · Conformance Checklist (normative)
 
-* **Hard decoupling** – kernel stability preserved; swapping a Realization never breaks dependents.
-* **In‑framework competition** – alternative logics, physics, economic models can live side‑by‑side under the same interface.
-* **Machine‑checkable composition** – because imports form a DAG and “provides” names are explicit, automated loaders can detect conflicts before reasoning begins.
+| ID | Requirement |
+| --- | --- |
+| **CC‑A.6.0‑1** | A conformant text labelled **`U.Signature`** **SHALL** expose the **four‑row Signature Block**: *HostSpace & Subject; Vocabulary; Laws; Applicability*. |
+| **CC‑A.6.0‑2** | The Block is **conceptual only** (no packaging/CI metadata, no machine schemas, **no Γ**). |
+| **CC‑A.6.0‑3** | Applicability **binds** a `U.BoundedContext`; if cross‑context use is intended, a **Transport clause** is *named* (Bridge reference) without re‑stating Part F/B.3 details (including any **CL^plane**). |
+| **CC‑A.6.0‑4** | Where numeric comparability is implied, Applicability **binds** to **CG‑Spec/MM‑CHR** legality (map‑then‑compare; scale/unit alignment). |
+| **CC‑A.6.0‑5** | Families that specialise A.6.0 (e.g., **A.6**, **A.6.1**) **MAY** add constraints (e.g., Γ‑export policy; penalty routing) and **MAY** add a family‑specific view (e.g., the Architheory View) but **MUST NOT** contradict A.6.0’s separation of intension vs specification. |
+| **CC‑A.6.0‑6** | Under E.10/E.8, tokens respect strata/registers; Kernel names are not redefined in Architheory/Context prose (Part F naming discipline applies). |
 
-#### Rationale
+### 8 · Consequences
 
- Why the word **“Signature”**?
+* **Uniform kernel shape.** Authors can define **architheory**, **mechanism**, **method**, **discipline**, or **theory** signatures without inventing new templates.
+    
+* **Hard decoupling.** A.6 can continue to guarantee substitutable Realizations behind a stable Signature; A.6.1 can continue to guarantee law‑governed operations with explicit guard surfaces.
+    
+**Didactic cohesion.** Readers see the same four conceptual rows across the spec, satisfying E.8’s comparability goal.
 
-* **Software analogy** – a *function signature* tells programmers the inputs/outputs without revealing source code. By analogy, an *architheory signature* tells other thinkers exactly **which concepts** and **operators** are on offer.
-* **Mathematical analogy** – in model theory the **signature of a theory** enumerates its symbols; multiple *models* (our *Realizations*) can satisfy the same signature.
-* **Didactic power** – unlike “SCR” (politically loaded) or “interface Standard” (tooling flavour), “Signature” is compact, neutral, and familiar to both engineers and mathematicians.
+### 9 · Rationale
 
-This naming choice directly serves **P‑1 (Cognitive Elegance)** and **P‑2 (Didactic Primacy)**, while the whole pattern operationalises **P‑4 (Open‑Ended Kernel)** and **P‑5 (Plugin Layering)**.
+**Why “HostSpace & Subject”?** A.6.1 showed that making the **carrier explicit** (here: *HostSpace*) avoids category mistakes when moving between domains (e.g., *set‑algebra on context slices* vs *equivalence‑classes of normalisations*). A.6.0 lifts this to the kernel so every signature can declare **what it is about** before saying **what it provides**.  
+**Why one universal Block?** A.6 already proved the value of a compact **Signature Block** (Imports/Derivations/Invariants/Assurance). A.6.0 factors out the **conceptual core**—rephrased as “HostSpace & Subject / Vocabulary / Laws / Applicability”—so A.6 can **map** its four rows onto this universal frame without changing existing architheories.
 
-Because every plug‑in architheory surfaces only its Signature, the Kernel language stays permanently slim—even if hundreds of CAL/LOG/CHR modules accumulate above it.  That is how FPF simultaneously honours **Ontological Parsimony (C‑5)** and **Cross‑Scale Consistency (C‑3)**: new concepts appear only as *exports* of a Signature, never as ad‑hoc patches to the Kernel.
+**Informative echoes (post‑2015 SoTA).**  
+— **Algebraic effects & handlers** (OCaml 5, Koka, Effekt): *operation signatures + handler laws* mirror **Vocabulary + Laws** while keeping implementations separate.  
+— **Policy‑as‑code** (OPA/Rego): declarative guard surfaces echo **Applicability**.  
+— **Session/behavioural types** (2016–2024): protocol/admissibility laws parallel the **Laws** row.
 
-The Signature/Realization split is also the key that lets FPF host genuinely **competing** world‑views.  A `Logic‑CAL` user can switch from a classical to an intuitionistic Realization without touching anything that merely *imports* `Logic‑CAL`.  In practice this enables:
+### 10 · Relations
 
-| Domain question                                | Signature stays …                                 | Realization can vary …                      |
-| ---------------------------------------------- | ------------------------------------------------- | ------------------------------------------- |
-| “What proofs are acceptable?”                  | `Logic-CAL` ≡ `{U.Proposition, implies, entails}` | Classical / Intuitionistic / Sub‑structural |
-| “What engines drive this vehicle architheory?” | `Engine-CAL`                                      | Internal‑combustion / Electric / Fuel‑cell  |
+* **Specialises / is specialised by:** **A.6** (adds Γ‑export policy; imports DAG; architheory layering) and **A.6.1** (adds OpSig/LawSet/GuardPolicy/Transport for mechanisms).  
+* **Constrained by:** E.10 LEX‑BUNDLE (registers, strata); D.CTX for Context binding; **Part F** (Bridges & cross‑context transport; naming).
 
-Exactly the same pattern later supports future CALs for economics, biology, or jurisprudence—avoiding the “one size fits none” trap.
+* **Enables:** uniform authoring and comparison of signatures across Part C families, methods, and discipline glossaries (Part F).
+  
+### 11 · Footer marker
 
-#### Relations
+*This pattern follows the E.8 canonical order and uses Tech/Plain register discipline per E.10; it introduces no packaging metadata, no Γ, and remains purely conceptual.*
 
-* **Implements & constrains:** `pat:kernel/open-ended-kernel` (A.5).
-* **Depends on:** foundational ontology (`Holon`, `Role`, etc.) from A.1–A.2.
-* **Instantiated by:** every CAL / LOG / CHR in **Part C**.
 
-> *“A Signature is the promise; a Realization is but one way of keeping it.”*
+## A.6 — Architheory Signature & Realization  \[A]
 
+### 1. Problem frame
+
+FPF’s architecture is a modular ecosystem of **architheories** (CAL/LOG/CHR) that extend a slim Kernel. To keep composition stable and comparable, each architheory **publishes a public Signature** (the Standard) and provides one or more **Realizations** (private implementations).  
+**A.6 as a specialisation.** This pattern is the **architheory‑specific specialisation** of **A.6.0 `U.Signature`** and coordinates cross‑context use with **A.6.1 `U.Mechanism`** (Bridge/CL per **F.9**; penalties route to **R/R_eff** only per **B.3**; **F/G** invariant; **CL^plane** per **C.2.1 CHR:ReferencePlane**).
+
+
+### 2.  Problem
+
+When Signatures (interface) leak implementation, the ecosystem becomes brittle: (1) substitutability breaks, (2) imports entangle, (3) cross‑context use becomes implicit and unauditable.
+
+### 3. Forces
+| Force | Tension |
+| --- | --- |
+| **Stability vs. evolution** | Keep public promises stable while allowing private Realizations to evolve. |
+| **Universality vs. fitness** | One Signature shape across CAL/LOG/CHR vs architheory‑specific vocabularies. |
+| **Intension vs. specification** | Signatures state *what & laws*; Realizations carry *how/tests*. |
+| **Locality vs. transport** | Context‑local semantics vs explicit, auditable Bridge‑only crossings (R‑only penalties). |
+ 
+### 4. Solution
+
+#### 4.1. `U.ArchitheorySignature` — *the public Standard*
+
+A **Signature** states **what** an architheory offers—its vocabulary, laws, and applicability—**without** embedding implementation or build metadata. It is the stable unit that other architheories import.
+
+#### 4.2. `U.ArchitheoryRealization` — *the private implementation*
+
+A **Realization** satisfies the Signature while remaining opaque. Multiple Realizations may co‑exist; they **may tighten** (never relax) the Signature’s laws (Liskov‑style substitutability).
+
+#### 4.3 · Signature Block — **A.6.0 alignment** and **Architheory View**
+
+Every architheory **SHALL** publish **two adjacent views** of its public contract:
+1) the **universal** A.6.0 `U.Signature` Block (*HostSpace & Subject; Vocabulary; Laws; Applicability*), and  
+2) an **Architheory View** that preserves the pass interface used across Part C: **Imports / Derivations / Invariants / BelongsToAssurance**.
+This ensures both cross‑family uniformity **and** compatibility with existing architheory tooling.
+
+| `U.Signature` row (A.6.0)          | A.6 alias / where to author it                                           |
+|------------------------------------|---------------------------------------------------------------------------|
+| **HostSpace & Subject**            | One‑line declaration above the block (carrier plane and governed subject) |
+| **Vocabulary**                     | **Derivations** (public types/relations/operators that the theory contributes) |
+| **Laws (Invariants/Guards)**       | **Invariants** (law statements; proofs live in Realizations)             |
+| **Applicability (Scope & Context)**| **BelongsToAssurance** + context note in the header; bind a `U.BoundedContext` where relevant; numeric comparability **binds** to **CG‑Spec/MM‑CHR** (map‑then‑compare; lawful units/scales). |
+
+**Architheory View (mandatory alongside the universal view):**
+* **Imports** — required `U.Type`s/relations already present or produced by earlier passes.  
+* **Derivations** — new `U.Type`s/relations/operators the architheory contributes.  
+* **Invariants** — law statements (proofs in Realizations).  
+* **BelongsToAssurance** — {Typing | Verification | Validation}.
+ 
+*Prohibition.* The Signature block is **conceptual**: no packaging/CI/tooling metadata (LEX firewall), no Γ‑builders (except as permitted below for CAL).
+
+#### 4.4 · Γ‑export policy and layering
+
+* A **CAL** architheory **SHALL** export **exactly one** aggregation/builder `Γ`. The **`Γ` identifier MUST be namespaced** under the architheory `id` (e.g., `ArchitheoryId.Γ`) to avoid collisions.
+* **LOG** and **CHR** architheories **SHALL NOT** export `Γ`.  
+* Import layering **SHALL** respect the holonic stack: **LOG/CHR may import CAL; CAL may import CAL**; import graphs are **acyclic** and respect **LEX‑BUNDLE** strata (Kernel → Architheory → Context → Instance); no cross‑bleed.
+
+#### 4.5 · Signature header 
+
+Each Signature begins with:  
+`id` (PascalCase), `version` (SemVer), `status` (draft/review/stable/deprecated), `classification` (CAL/LOG/CHR), `imports` (list), `provides` (list, including Γ if CAL).  
+If **HostSpace & Subject** are non‑trivial, add a one‑liner in the header (or immediately above the block).
+
+### 5 · Transport & Cross‑Context Use (coordination with A.6.1)
+
+Signatures **SHALL NOT** restate Bridge/CL mechanics. If cross‑context/plane use is intended, the Signature **names** the Bridge conceptually. Semantics are governed by **A.6.1 `U.Mechanism`**; **Bridges** are specified in **F.9**; **CL/CL^k** and **Φ/Ψ** penalty calculus live in **B.3**; **CL^plane** follows **C.2.1 CHR:ReferencePlane**. No implicit “latest”; time‑sensitive guards require an explicit **Γ_time** policy in the consuming mechanism.
+
+### 6. Normative Relations
+
+`implements(Realization, Signature)` (mandatory, one‑way) · `imports(Signatureᵢ, Signatureⱼ)` (DAG) · `provides(Signature, U.Type ∪ Operator)` (public namespace).
+
+### 7 Archetypal Grounding
+
+Provide a brief pair of examples (Work/System; Knowledge/Episteme) that name HostSpace & Subject, show Vocabulary and Laws, and state Applicability/Context. Keep proofs out of the Signature.
+
+### 8 Conformance Checklist
+
+| ID | Requirement |
+|----|-------------|
+| **CC‑A6.1** | Every architheory **MUST** declare exactly one `Signature`. |
+| **CC‑A6.2** | Every architheory **MUST** provide ≥ 1 `Realization` consistent with its Signature. |
+| **CC‑A6.3** | The global graph of `imports` **MUST** be acyclic. |
+| **CC‑A6.4** | Realizations **MUST NOT** reference internals of other architheories; only their Signatures. |
+| **CC‑A6.5** | A Signature’s `provides` **MUST NOT** redeclare `U.Type`s already exported by transitive `imports`. |
+| **CC‑A6.6** | Realizations **MAY tighten** but **MUST NOT relax** Signature laws (Liskov‑style). |
+| **CC‑A6.7** | If multiple Realizations exist, authors **SHOULD** provide a short trade‑off rationale. |
+| **CC‑A6.8** | The Signature **MUST** include an explicit **A.6.0 alignment** mapping (table or one‑liners). |
+| **CC‑A6.9** | Where numeric comparability is implied, **bind** legality to **CG‑Spec/MM‑CHR** (map‑then‑compare; lawful units/scales; no ordinal means). |
+| **CC‑A6.10** | Any intended cross‑context/plane use **MUST** name the Bridge and defer semantics to **A.6.1**/**Part F**; penalties route to **R/R_eff** only. |  
+| **CC‑A6.11** | If `classification = CAL` and a `Γ` is exported, its identifier **MUST** be namespaced under the architheory `id`. |
+| **CC‑A6.12** | **Both views** of the Signature are present: the universal A.6.0 Block **and** the **Architheory View (Imports/Derivations/Invariants/BelongsToAssurance)** placed adjacently. |
+
+**Author-facing:**
+* [ ] The **two** Signature views are present (A.6.0 Block **and** Architheory View).  
+* [ ] If `classification = CAL`, **exactly one** Γ is named.  
+* [ ] Imports point **down** the layering and remain **acyclic**.  
+* [ ] Any referenced artefacts are anchored by SCR/RSCR identifiers (A.10).  
+* [ ] An **A.6.0 alignment note** is provided (table or one‑liners as above).
+
+### 9 Consequences
+
+* **Hard decoupling** — Kernel stability is preserved; swapping a Realization never breaks dependents.  
+* **In‑framework competition** — Alternative logics, physics, economic models can co‑exist under the same interface.  
+* **Machine‑checkable composition** — Because imports form a DAG and `provides` are explicit, automated loaders can detect conflicts early.
+
+### 10 Didactic Addendum — Benefits & Trade‑offs (informative)
+
+| Benefit | What you get | Trade‑off / Guard |
+| --- | --- | --- |
+| **Universal shape (A.6.0 alignment)** | One 4‑row block across architheories, mechanisms, methods, disciplines. | Maintain **Intension vs. Specification** separation; no Γ in Signatures except CAL per A.6. |
+| **Substitutability** | Multiple Realizations behind one Signature; safe swaps; Liskov‑style tightening allowed. | Relaxing laws is forbidden; otherwise mint a refined Signature or use **U.MechMorph** (A.6.1). |
+| **Transport discipline** | **Bridge‑only** crossing; CL penalties route to **R/R_eff**; **F/G invariant**. | Crossings are **named**; no implicit “latest”; **Γ_time** where relevant. |
+| **Numeric comparability sanity** | **Map‑then‑compare** via **CG‑Spec/MM‑CHR**; explicit unit/scale alignment. | **Partial orders return sets**; illegal scalarisation (e.g., ordinal means) is blocked. |
+| **Layering predictability** | Exactly **one Γ** for **CAL**; **LOG/CHR** export none; **imports acyclic; no cross‑bleed across strata**. | Some constructs belong as **Mechanisms (A.6.1)**, not as architheories. |
+
+### 11 Rationale
+
+Why “Signature”? Familiar to engineers (function/type signatures) and to logicians (algebraic signatures). It is concise, neutral, and keeps the Kernel slim while enabling competing world‑views to co‑exist behind the same interface.
+
+### 12 Relations
+
+*Specialises / is specialised by*: **A.6.0 `U.Signature`**, **A.6.1 `U.Mechanism`**.  
+*Constrained by*: LEX‑BUNDLE (registers/strata), D.CTX (Context), Part F (Bridges & cross‑context transport; naming).
+
+## **A.6.1 — U.Mechanism · Law‑governed signature for a GovernedSubject on a HostSpace** \[A]
+
+**One‑line summary.** A `U.Mechanism` is a **Signature with laws** over a declared **HostSpace** and **GovernedSubject**, with explicit **operations**, **invariants/guards**, and a named **Transport** clause for cross‑context use. Transport is **Bridge‑only** (per **F.9**) with penalties routed to **R**/**R_eff** only (per **B.3**); **F/G** remain invariant; **CL^plane** follows **C.2.1 CHR:ReferencePlane**. Realizations **MAY** be published under **A.6** (Signature→Realization; **one Γ only if `classification=CAL`**; acyclic imports; opacity).
+
+**Status.** Normative \[A\] in **Part A (Kernel)**.  
+
+**Placement.** Immediately **after A.6** as **A.6.1**. **USM (A.2.6)** and **UNM (A.19/C.16)** become **instances conforming to A.6.1** (no semantic change to either).
+
+### 1 · Problem frame
+
+Give FPF **one uniform kernel shape** for things like **USM** (set‑algebra on context slices) and **UNM** (classes of admissible normalizations with ≡_UNM) so authors can **define, compare, refine, compose, and port** mechanisms **without re‑inventing the meta‑language**; all cross‑context use is **Bridge‑only** with **CL penalties to R/R_eff**, never to **F/G**.
+
+### 2 · Problem 
+
+Without a kernel abstraction, scope/normalization/comparison constructs proliferate with incompatible algebras and guard surfaces; cross‑context reuse lacks visible **Bridge/CL routing**; comparability drifts into **illegal scalarisation** (e.g., ordinal means). FPF already curbs this via **A.6** (Signature discipline), **USM** (scope algebra & Γ_time), **UNM** (normalize‑then‑compare), and **CG‑Spec** (lawful comparators/gauges)—but lacks a **common meta‑slot** for “mechanism.”
+
+### 3 · Forces 
+
+**Locality vs transport.** Semantics are **context‑local**; crossing contexts is **Bridge‑only** (Part F/B.3); penalties hit **R/R_eff**; **F/G** invariant.
+
+**Expressivity vs legality.** Rich operators vs **CHR legality** and **CG‑Spec** (no ordinal averages; lawful unit alignment).
+
+**Time determinacy.** Explicit **Γ_time**; no implicit *latest*. (Required in USM’s `ContextSlice`.)
+
+**Signature hygiene.** Obey **A.6** (exactly one Γ from CAL, LOG/CHR export none; imports acyclic; realizations opaque).
+
+### 4 · Solution
+
+#### 4.1 **Mechanism Signature** 
+
+A `U.Mechanism` **publishes**  
+`U.MechSig := ⟨SignatureHeader, Imports, HostSpace, GovernedSubject, OpSig, LawSet, GuardPolicy, Transport, Γ_timePolicy, PlanePolicy⟩`  
++and admits Realizations (kernel‑level or architheory‑level) that respect it. The shape is **notation‑independent** and **conceptual** (no tooling, storage, or CI metadata).
+
+* **SignatureHeader.** `id` (PascalCase), `version` (SemVer), `status` (draft/review/stable/deprecated).  
+  If realized as an **Architheory**, add the **A.6** header with `classification ∈ {CAL|LOG|CHR}` and `imports/provides`; **only CAL may export exactly one Γ**; **LOG/CHR export none**. For **Kernel‑level** realizations, do **not** mint an A.6 header.
+
+* **Imports.** Architheory Signatures / `U.Types` this mechanism requires (notation‑independent; **acyclic**). When realized as an Architheory, **LOG/CHR may import CAL; CAL may import CAL** (A.6 layering).
+* **HostSpace.** The typed **value‑holding space** the mechanism ranges over (e.g., `U.ContextSliceSpace`; a `U.CharacteristicSpace`/chart family **within one `U.BoundedContext`**). **Do not mint** a new core type here; **reference existing `U.Type`s** (LEX discipline). If planes differ, state the **ReferencePlane** policy (see *PlanePolicy*).
+* **GovernedSubject.** What is governed: **Characteristic | TransformationClass | Equivalence | Protocol | Scope | …** (e.g., **Scope** sets; **NormalizationMethod classes** with induced **≡_UNM**).
+* **OpSig.** Named operations with types; examples:  
+  • **USM:** `∈, ⊆, ∩, SpanUnion, translate, widen, narrow, refit`.  
+  • **UNM:** `apply(method)`, `compose`, `quotient(≡_UNM)`; **normalize‑then‑compare**.
+
+* **LawSet.** Equations/admissibility (no proofs here; statements only). Laws **MUST** be compatible with CHR legality where numeric comparison/aggregation is induced. Examples:  
+  • **USM:** serial **intersection**; **SpanUnion** only where a **named independence assumption** is satisfied (state features/axes, validity window, evidence class); `translate` uses declared Bridges; **Γ_time** is mandatory.  
+  • **UNM:** **scale‑appropriate** transforms — ratio→positive‑scalar; interval→affine; ordinal→monotone; nominal→categorical; `tabular:LUT(+uncertainty)`.  
+  *(Do not mint a new Kernel token for “certificate”; if such a type is later required, it **MUST** follow DRR/LEX minting.)*
+
+* **GuardPolicy.** Deterministic, **context‑local** predicates that **fail closed** (e.g., “Scope covers TargetSlice” with named **Γ_time**; “NormalizationMethod class + validity window named”). Unknowns **→ {degrade | abstain}**; never coerce to 0/false.
+
+* **Transport.** **Bridge‑only** semantics for cross‑context / cross‑plane use: name the Bridge and channel (`Scope|Kind`) per **F.9**, and record **ReferencePlane**(src,tgt) per **C.2.1**. Do **not** restate CL ladders, **CL^plane**, or Φ/Ψ tables here; penalties **route to R/R_eff only** and **never** mutate F/G (per **B.3**). Crossings are explicit; **no implicit crossings**. Where **USM** or **KindBridge** are used together, apply the **two‑bridge rule** (scope CL and kind `CL^k` penalties handled **separately** to R).
+
+* **Γ_timePolicy.** Point/window/policy; **no implicit “latest.”** Validity windows are **named**; **required** whenever guards reference time.
+* **PlanePolicy.** Declare `ReferencePlane` on values/paths; when planes differ, name **CL^plane** and apply a **Φ_plane** policy (Part F/B.3). Plane penalties **do not** change CL; route to **R/R_eff** only; **F/G** stay invariant.
+
+* **Audit.** Conceptual audit surface only (no data/telemetry workflows): crossings are publishable on **UTS**; surface **policy‑ids** rather than tables. Edition pins and regression hooks (if any) are referenced by id; operational details remain out of scope.
+* **SignatureBlock alignment (A.6).** When realized as an **Architheory**, map `U.MechSig` to the **A.6 Signature Block** — `Imports`, **Derivations**, **Invariants**, **BelongsToAssurance** — and include the **A.6 header** with `classification/provides`. **CAL** Realizations MAY **provide exactly one Γ**; **LOG/CHR provide none**; **imports form a DAG**; internals **opaque**.
+
+**Compatibility with A.6.** If realized as an **architheory** (CAL/LOG/CHR), obey A.6 (**one Γ for CAL only; acyclic imports; opacity**). Kernel‑level realizations remain notation‑independent and publish the same fields for auditability. LEX discipline applies to all minted tokens.
+
+#### 4.2 U.MechMorph · Refinement, Extension, Equivalence & Composition
+
+**Intent.** Provide structure‑preserving **relations & constructors** between mechanisms.  
+**Definitions.**
+
+* **Refinement** `M′ ⊑ M`: narrows HostSpace/Applicability or **strengthens laws** (safe substitution; Liskov‑style).
+* **Extension** `M ⊑⁺ M″`: **adds operations** without weakening existing Laws; old programs remain valid (conservative extension).
+* **Equivalence** `M ≡ M′`: there exists a bijective mapping between Subjects/ops preserving/reflecting **LawSet** (up‑to‑isomorphism on HostSpace and OpSig).
+    
+* **Quotient** `M/≈`: factor by a **congruence** (e.g., **≡_UNM** for charts).
+
+* **Product** `M×N`: independent HostSpaces; ops are component‑wise; ensures **no illegal cross‑ops** (e.g., set‑algebra discipline for `SpanUnion`). Where independence is claimed, **name and justify** the assumption (do not mint new Kernel types here).
+
+**Transport** `Bridge⋅M`: lifts across Contexts/planes; names **CL/CL^k/CL^plane** regimes; penalties → **`R_eff` only**; **UTS row** recommended for publication; **ReferencePlane(src,tgt)** recorded. If mapping losses are material, **narrow** the mapped set or publish an **adapter** (best practice).
+
+**Passing example.** `USM′ = USM + “publish named independence‑assumption evidence for SpanUnion”` ⇒ **Refinement** (strengthened law; substitution‑safe).
+**Normalization quotient.** `UNM / ≡_UNM` exposes **compare‑on‑invariants** surfaces for CPM/SCM (map‑then‑compare).
+
+#### 4.3 U.MechAuthoring · Instantiation template
+
+**MechanismDescription (E.8 Tell–Show–Show; I/D/S‑compliant):**
+`Mechanism: U.<Name>`  *(Kernel conceptual description; no tooling fields)*
+`Imports: <Signatures / U.Types>` · `HostSpace: <U.Type>` · `GovernedSubject: <Characteristic | TransformationClass | Equivalence | Protocol | Scope | …>` · `OpSig: <ops with types>` · `LawSet: <equations/guards/monotonicity>` · `GuardPolicy: <admission predicates; Γ_time>` · `Transport: <Bridge channels; CL/CL^k/CL^plane named; ReferencePlane(src,tgt)>` · `PlanePolicy: <world|concept|episteme rules>`
+
+#### 4.4 MechFamilyDescription & MechInstanceDescription 
+
+* **MechFamilyDescription**: `{MechSig, Realizationα, Realizationβ, …}` — each Realization may **tighten** (never relax) Laws (Liskov‑style).
+
+* **MechInstanceDescription**: `{MechSig@Context, Windows, named Φ/Ψ/Φ_plane regimes, BridgeIds}` — a **conceptual instance**; operational telemetry/workflows are out of scope.
+
+### 5 · Archetypal Grounding
+
+#### 5.1 **U.System (Work) — USM as a U.Mechanism instance** (normative by reference)
+
+* **Imports:** `U.ContextSliceSpace`; Part F.9 **Bridge**; **C.2.1 ReferencePlane** (noted for crossings); **C.2.2 F–G–R**; **C.2.3 U.Formality**.
+* **HostSpace:** `U.ContextSliceSpace`.
+* **GovernedSubject:** `U.Scope` with specializations `U.ClaimScope` (G) and `U.WorkScope`.
+* **OpSig:** `∈, ⊆, ∩, SpanUnion, translate, widen, narrow, refit`.
+* **LawSet:** serial **intersection**; **SpanUnion** only where a **named independence assumption** is satisfied (state features/axes, validity window, evidence class); **translate** uses declared **Bridges**; **Γ_time** is **mandatory**.
+* **GuardPolicy:** deterministic **“Scope covers TargetSlice”**; **fail‑closed**; `unknown → {degrade|abstain}` (no implicit `unknown→0/false`).
+* **Transport:** **Bridge‑only** with **CL**; penalties → **`R_eff`**; **F/G** invariant; publish UTS notes.
+* **Γ_timePolicy:** `point | window | policy`; **no implicit “latest.”**
+* **PlanePolicy:** *not applicable to scope sets* (scope is set‑valued over `ContextSlice`, no value‑plane); **CL^plane** N/A.
+
+#### 5.2 **U.Episteme (Knowledge) — UNM as a U.Mechanism instance** (normative by reference)
+
+* **Imports:** **A.17/A.18 (CSLC)**; **C.16 (MM‑CHR)**; `U.BoundedContext`; Part F.9 **Bridge**; **C.2.1 ReferencePlane**.
+* **HostSpace:** chart/`U.CharacteristicSpace` family in a CN‑frame (one `U.BoundedContext`).
+* **GovernedSubject:** **NormalizationMethod classes** with induced **≡_UNM** equivalence over charts.
+* **OpSig:** `apply(method)`, `compose`, `quotient(≡_UNM)`; **normalize‑then‑compare** (exposes compare‑on‑invariants surfaces to CPM/SCM).
+* **LawSet:** scale‑appropriate transforms — `ratio:scale / interval:affine / ordinal:monotone / nominal:categorical / tabular:LUT(+uncertainty)`; **validity windows** per edition.
+* **GuardPolicy:** `method ∈ declared class‑set` AND **validity window named**; **fail‑closed**; `unknown → {degrade|abstain}`.
+* **Transport:** **Bridge‑only** on cross‑Context; when **aboutness changes**, declare **KindBridge (CL^k)**; penalties → **`R_eff` only**.
+* **Γ_timePolicy:** **named validity windows** for NormalizationMethod/instances (editioned).
+* **PlanePolicy:** values live on **episteme ReferencePlane**; on plane crossings apply **CL^plane** policy; penalties → **`R_eff` only**.
+
+*(No operational telemetry implied; publication remains conceptual.)*
+
+### 6 · Defaults
+
+* **Local‑first semantics.** All judgments are **context‑local**; crossings are **explicit** and **costed** (CL→R only).
+* **Legality‑first comparability.** Numeric comparison/aggregation requires **CG‑Spec** (lawful gauge, Γ‑fold, MinimalEvidence); **partial orders return sets**; **no ordinal means**.
+* **Tri‑state discipline.** `unknown → {degrade|abstain}`; `sandbox/probe‑only` is a **LOG branch** with a policy‑id (no implicit `unknown→0/false`).
+* **R‑only penalties.** **Φ/Ψ/Φ_plane** are **monotone and bounded**; penalties route to **`R_eff` only**; **F/G invariant**.
+
+### 7 · Conformance Checklist (normative)
+
+| ID | Requirement |
+|----|-------------|
+| **CC‑UM.1** | **Complete MechSig** publishes: `Imports, HostSpace (existing U.Type), GovernedSubject, OpSig, LawSet, GuardPolicy, Transport (Bridge named; ReferencePlane), Γ_timePolicy, PlanePolicy`. |
+| **CC‑UM.2** | **A.6 alignment:** if realized as Architheory, use A.6 header; **one Γ only if CAL**; LOG/CHR none; **imports acyclic**; Realizations **opaque**; laws may be **tightened** (not relaxed). |
+| **CC‑UM.3** | **Bridge‑only transport:** crossings **name** a **Bridge** (F.9); `ReferencePlane(src,tgt)` recorded (C.2.1); **CL^plane** named when planes differ; **no implicit crossings**. When typed reuse is involved, the **two‑bridge rule** applies (scope CL and kind `CL^k` penalties routed **separately** to **R**). |
+| **CC‑UM.4** | **R‑only routing:** Φ/Ψ/Φ_plane regimes and CL ladders per **B.3**; penalties **reduce R/R_eff** only; **F/G invariant**. |
+| **CC‑UM.5** | **CG‑Spec binding** for any numeric compare/aggregate: lawful gauges and Γ‑fold; **map‑then‑compare**; **partial orders return sets**; **no ordinal means**; interval/ratio arithmetic only with unit alignment (CSLC‑proven). |
+| **CC‑UM.6** | **E.8/E.10 compliance:** Tell–Show–Show present under **“Archetypal Grounding”**; twin registers & I‑D‑S respected; any new `U.*` token requires a **DRR** and **LEX.TokenClass** entry; non‑spec surfaces end with **“…Description”**; **no tool/vendor tokens in Core**. |
+| **CC‑UM.7** | **Unknowns tri‑state:** guards define `unknown → {degrade|abstain}`; sandbox/probe branches live in **SoS‑LOG** (not Acceptance).
+
+### 8 · Born‑via‑A.6.1 sketches (informative)
+
+**CPM — Comparison Mechanism (parity‑grade orders)**  
+**HostSpace:** typed traits/charts in a CG‑Frame. **OpSig:** lawful orders (≤, ≽, lexicographic) + **set‑returning** dominance (Pareto). **LawSet:** **no ordinal averaging**; **map‑then‑compare** when spaces/scales differ (UNM); editions pinned. **GuardPolicy:** **CG‑Spec** bound; **ComparatorSet** explicit. **Transport:** Bridge+CL → **R/R_eff only**.  
+
+**SCM — Scoring Mechanism (gauge‑first)**  
+**HostSpace:** `U.Measure` (CHR‑typed slots). **OpSig:** gauge embeddings + admissible aggregators; **WeightedSum** only on interval/ratio with unit alignment; partial orders return sets. **Guards:** **MinimalEvidence** \+ CG‑Spec legality. **Transport:** penalties → **R/R_eff**; UTS row.
+
+**PTM — Publication & Telemetry Mechanism (informative)**
+**HostSpace:** `SoTA‑Pack(Core)`, `PathId/PathSliceId`, `PolicyId`. **OpSig:** emit **selector‑ready** packs with parity pins and **telemetry stubs**; listen for edition/illumination bumps; trigger **slice‑scoped** refresh. 
+
+**LawSet:** **no change of dominance defaults** unless CAL policy promotes; edition‑aware refresh. **Guards:** AH‑1..AH‑4 block missing pins. **Transport/ Audit:** **G.10/G.11** publication & refresh semantics (CL routing to **R/R_eff**).
+
+*Informative SoTA:* telemetry hooks align with post‑2015 quality‑diversity families (CMA‑ME/MAE, DQD/MEGA) and open‑ended methods (POET‑class) when gauged (illumination) rather than scored.
+
+### 9 · SoTA echoes (informative only; mapping intuition)
+
+* **Algebraic effects & handlers** (post‑2015: Koka, Effekt, OCaml 5 effects): *operation signatures + handler laws* ↔ **OpSig + Realizations**; “effect scope” echoes **USM** guards.
+    
+* **Institutions (Goguen–Burstall; HETS)**: signature–sentences–models with (co)morphisms ↔ **A.6.1 + U.MechMorph**; FPF adds **Γ_time** and **R‑only penalties**.
+    
+* **Policy‑as‑Code (Rego/OPA)** and **ODD ISO 3450x**: admissibility predicates ↔ **GuardPolicy** with **ContextSlice** and **Γ_time**.
+    
+* **Session/Typestate types**: admissible sequences & state guards ↔ **deterministic Mechanism guards** and **set‑valued scopes**.
+
+ *(Analogies are descriptive only; normative content is in the FPF text and patterns above.)*
+
+### 10 · 60‑second didactic script 
+
+> *“To mint a mechanism, fill a **MechSig**: pick **HostSpace** and **GovernedSubject**; declare **OpSig** and **LawSet**; state **GuardPolicy** and **Γ_time**; define **Transport** (Bridge/CL with penalties to **`R_eff`** only), and **Audit** (UTS + Path pins). Realize it as CAL/LOG/CHR under **A.6**. USM and UNM are already such mechanisms; the same template births comparison, scoring, and publication mechanisms—safely bound to **CG‑Spec**—without leaving the kernel grammar.”*
+
+### 11 · Quick “builder’s” checklist (author‑facing)
+
+1. Draft **AT0/AT1 charter**: why this Mechanism, which **guard surfaces** and **comparability** are in scope; is a **Γ_m (CAL)** builder needed?
+    
+* Fill **MechSig** (HostSpace, CharacteristicKind, OpSig, LawSet, GuardPolicy, Transport, Γ_timePolicy, Audit).
+    
+* Bind **CHR legality & CG‑Spec** when comparing/aggregating (ComparatorSet, Gauge, MinimalEvidence, Γ‑fold).
+    
+Ship **UTS + G.10**; wire **G.11** telemetry (PathSlice‑keyed); ensure penalties **route to `R_eff` only**.
+
+### 12 · Consequences (informative)
+
+* **Uniform kernel shape.** Scope, normalization, comparison families can be authored and compared without lexical drift.
+* **Auditable reuse.** GateCrossings are UTS‑visible; penalties are transparent (**R only**), with **AH‑1..AH‑4** harness coverage.
+* **Scalarisation avoids illegality.** Partial orders remain set‑valued; cross‑scale arithmetic is blocked by **CG‑Spec/CSLC**.
+
+### 13 · Rationale (informative)
+
+Anchoring mechanisms in **A.6 Signature→Realization** provides a minimal, typed surface that preserves **USM** set‑algebra and **UNM** “normalize‑then‑compare” quotients while making **E.11** crossings explicit and costed on **R** (never **F/G**).
+
+### 14 · Relations (quick pointers)
+
+Builds on **A.6**; instantiates **A.2.6 USM** (ContextSlice, Γ_time, ∩/SpanUnion/translate) and **A.19/C.16 UNM** (classes, ≡\_UNM, validity windows); uses **Part B** (Bridges, CL/CL^k/CL^plane; **no implicit crossings**); binds **CG‑Spec** for any numeric comparison/aggregation; telemetry/publication via **G.10/G.11**.
+</мой вариант паттерна "механизма механизмов">
 
 
 ## **Cluster A.V · Constitutional Principles of the Kernel**
@@ -8068,12 +8258,11 @@ In essence, A.18 is the _infrastructure of meaning_ for metrics. It may appear a
 
 ### 1 · Intent & Scope (Normative)
 
-**Intent.** Establish a **kernel-level state carrier**—`U.CharacteristicSpace`—so that any holon’s **state changes** (whether in a system’s condition, an epistemic artifact’s status, a role’s readiness, etc.) can be formalized as **trajectories in a space of declared Characteristics with chosen Scales**. In other words, evolution is modeled as motion through a well-defined multi-Characteristic space rather than as ad-hoc lifecycle stages. This gives every `U.Dynamics` model a well-typed `stateSpace` and enables formal state certification (using RoleStateGraph checklists) instead of narrative stage transitions.
+**Intent.** Establish a **kernel‑level state‑space type**—`U.CharacteristicSpace`—so that any holon’s **state changes** (e.g., a system’s condition or a role’s readiness) can be formalized as **trajectories in a space of declared Characteristics with chosen Scales**. For **epistemes**, state is governed by **ESG**; **F–G–R** are **assurance coordinates**, not a state space. This gives every `U.Dynamics` model a well‑typed `stateSpace` and enables formal state certification (using RoleStateGraph checklists) instead of narrative stage transitions.
 
 **Scope.** Pattern A.19 **defines**:
 
--   the **type** `U.CharacteristicSpace` as a finite product of **scale carriers** (per A.18),
-    
+-   the **type** `U.CharacteristicSpace` as a finite product of **slot value sets** (per A.18),
 -   the **slot** construct for each factor (a pairing of a **Characteristic** with a chosen **Scale**),
     
 -   minimal **structural overlays** (optional **order**, **topology**, **metric** hooks) that downstream architheories _may_ attach to a space, and
@@ -8084,6 +8273,8 @@ In essence, A.18 is the _infrastructure of meaning_ for metrics. It may appear a
 A.19 **does not** introduce any new measurement aspects, composite metrics, or **normalization semantics** (those are provided by **C.16 (MM‑CHR)** under **UNM**), and it does not define how dynamics evolve over time or any predictive laws (see **A.3.3** for dynamics semantics). The focus here is purely on the _structure of state spaces_ and their comparability.
 
 **Lexical guard (“map”).** In normative text, lowercase **map** refers only to a mathematical function; it MUST NOT be used as a synonym for **NormalizationMethod**, **NCV**, or **UNM**. Capitalized **Map** keeps its suffix‑family meaning (e.g., `DescriptorMap`) and is unrelated to normalization. Use **NormalizationMethod** for the transform and **NCV** for its output.
+
+**Lexical guard (“carrier”).** In kernel prose, **Carrier** (capitalized) names `U.Carrier` (a **symbol bearer**). Do **not** use “carrier” for set‑theoretic supports; prefer **ValueSet**/**underlying set**. A.19 therefore uses **ValueSet(slot)** for the set that supplies values to a slot.
 
 ### 2 · Context (Informative)
 
@@ -8133,12 +8324,11 @@ where:
     
 -   `Scale_i` is a chosen **Scale** for that Characteristic (with a specified scale type and unit, per A.18 and the MM‑CHR rules).
     
+Then a **CharacteristicSpace** (CS) is formally the Cartesian product of all slot **value sets**:
 
-Then a **CharacteristicSpace** (CS) is formally the Cartesian product of all slot carriers:
+$$\mathbf{CS} = \prod_{i \in I} \mathrm{ValueSet}(\mathrm{slot}_i)\,.$$
 
-$$\mathbf{CS} = \prod_{i \in I} \mathrm{Carrier}(\mathrm{slot}_i)\,.$$
-
-In other words, a point (state) in the space consists of one coordinate value for each slot. A **state** _x_ in CS can be seen as a total function _x(i)_ that picks a value from each slot’s carrier (for every _i ∈ I_, _x(i) ∈ Carrier(slot\_i)_). By kernel mandate, any `U.Dynamics.stateSpace` **SHALL** be bound to some instance of `CharacteristicSpace`, and all states or trajectories described by that dynamics model **MUST** lie within that space’s carrier set. (The actual dynamic **laws** and time progression are handled in A.3.3; A.19 only defines the state-space container and its properties.)
+In other words, a point (state) in the space consists of one coordinate value for each slot. A **state** _x_ in CS can be seen as a total function _x(i)_ that picks a value from each slot’s **ValueSet** (for every _i ∈ I_, _x(i) ∈ ValueSet(slot\_i)_). By kernel mandate, any `U.Dynamics.stateSpace` **SHALL** be bound to some instance of `CharacteristicSpace`, and all states or trajectories described by that dynamics model **MUST** lie within that space’s **value set**. (The actual dynamic **laws** and time progression are handled in A.3.3; A.19 only defines the state‑space container and its properties.)
 
 ##### 5.1.2 Slot discipline (invariants)
 
@@ -11387,7 +11577,7 @@ Every non‑trivial result in FPF—*a composed system is safe*, *a model is cre
 
 To make such claims comparable and auditable across domains, B.3 introduces a **Trust & Assurance Calculus** that:
 
-* uses a **small characteristic space** (F–G–R) governed by CHR principles,
+* uses a **small set of characteristics** (F–G–R) governed by CHR principles (these are **not** a state space),
 * accounts for **integration quality** via **Congruence Level (CL)** along the edges of a `DependencyGraph` (B.1.1, A.14),
 * and composes these values with **Γ‑flavours** while respecting the **Invariant Quintet** (IDEM, COMM/LOC or their replacements, WLNK, MONO).
 
@@ -11420,11 +11610,11 @@ Without a disciplined calculus, four chronic failures appear:
 
 ---
 
-### 4) Solution — **Part 1: The characteristic space and the universal aggregation skeleton**
+### 4) Solution — **Part 1: The assurance tuple and the universal aggregation skeleton**
 
 B.3 defines **what** to measure, **how** those measures live on nodes and edges of the dependency graph, and the **shape** of the aggregation that any Γ‑flavour must honor when producing an *assurance result*.
 
-#### 4.1 The characteristic space (CHR‑compliant)
+#### 4.1 The F–G–R characteristics (CHR‑compliant)
 
 We standardize three characteristics on **nodes (holons)** plus one **edge** characteristic:
 
@@ -11487,6 +11677,8 @@ Each published Working‑Model assertion **SHALL** declare **`validationMode ∈
 * **On nodes:** each input holon contributes its local `F, G, R` according to its nature (system vs. episteme).
 * **On edges:** each integration step has a `CL` (congruence of the connection).
 * **Not inside Γ:** Γ consumes `D` and returns a composed holon; B.3 governs how `F, G, R, CL` **propagate** to the **Assurance** tuple for that composed holon. This keeps Γ algebra and assurance calculus **separable** and reviewable.
+* **Not a state space:** `⟨F,G,R⟩` is an **assurance tuple**, not a `U.CharacteristicSpace`; do **not** draw “trajectories” in `⟨F,G,R⟩`. For episteme evolution, use **ESG** states and the **assurance‑trace** hooks (see below).
+
 
 ---
 
@@ -11574,6 +11766,9 @@ B.3 remains neutral about *how* improvement happens, but for didactic clarity:
 * **Raise CL:** reconcile vocabularies, align units, formalize mappings, verify interface Standards.
 
 Each of these corresponds to recognizable **Transformer roles** and KD‑CAL moves (design‑time); their **run‑time** counterparts are covered by Γ\_time (phase evidence) and Γ\_work (cost of obtaining assurance).
+
+### 4.8 Prohibition (normative) — F–G–R is not a CharacteristicSpace
+Do not treat `⟨F,G,R⟩` as a `U.CharacteristicSpace` and do not define geometric **trajectories** over it. Use **ESG** for episteme state and the **assurance‑trace** hooks for trends in assurance tuples.
 
 ### 5) Proof obligations (attach these when producing an Assurance tuple)
 
@@ -13503,13 +13698,12 @@ The episteme passes the soundness checks below:
 * **`Edition`** — an instantaneous **phase** of an episteme; linked by `PhaseOf(rootEpisteme)` forming a time‑ordered DAG (not a mereology tree).
 * **`ESG(Context, EpistemeKind)`** — finite, **named** state set with transitions and guards **local to a `U.BoundedContext`**.
 * **`StateAssertion(E, state, Window)`** — evaluation verdict that **edition E** of the episteme **is in `state`** over the **Window**, with evidence anchors.
-* **`Γ_time`** — temporal fold over **edition sequences** (selection, windowing, roll‑up) used in queries, evaluation, and acceptance, conforming to **Contextual & Temporal Aggregation** (B.1.4), with explicit selectors and no implicit “latest”. For **low-F (≤F3)** `most_recent` MAY be permitted when the Context explicitly opts‑in; for **high-F (≥F7)** a selector MUST be named (e.g., `effective_at(t)`). 
+* **`Γ_time`** — temporal fold over **edition sequences** (selection, windowing, roll‑up) used in queries, evaluation, and acceptance, conforming to **Contextual & Temporal Aggregation** (B.1.4), with explicit selectors and no implicit “latest”. For **low-F (≤F3)** `most_recent` MAY be permitted when the Context explicitly opts‑in; for **high-F (≥F7)** a selector MUST be named (e.g., `effective_at(t)`).
 
- **Trajectory normative hooks**  
- *`traj_episteme(E, selector, space)`* → piecewise path of `E` in a declared **Epistemic CharacteristicSpace** (e.g., ⟨F,G,R⟩ or per‑corner coordinates) obtained by sampling editions via `Γ_time.selector` and evaluating assurance per edition.  
- *`traj_vertex(E.corner ∈ {Object,Concept,Symbol}, selector, space)`* → per‑corner trajectory (e.g., notation lineage for **Symbol**; envelope evolution for **Object**).  
- *`drift(E, metric, threshold)`* → detects change‑points on a trajectory; emits *StateAssertions* such as *Regressed/Improved/Stable*.  
- *`project(E, space)`* → current coordinate(s) (with CL penalties applied); compatible with B.3 assurance roll‑up.  // Γ_time + KD‑CAL basis. 
+**Assurance‑trace hooks (episteme, non‑geometric)**  
+*`assurance.trace(E, selector)`* → sequence of per‑edition **Assurance tuples** `⟨F_eff, G_eff, R_eff⟩` sampled via `Γ_time.selector`; **not** a trajectory in a `U.CharacteristicSpace`.  
+*`lineage.trace(E.corner ∈ {Object,Concept,Symbol}, selector)`* → sequence of edition tags for the chosen vertex (e.g., notation lineage for **Symbol**, scope‑predicate evolution for **Object**); **no state‑space geometry implied**.  
+*`assurance.drift(E, predicate)`* → detects change‑points in the **Assurance tuple** series; emits *StateAssertions* (*Regressed/Improved/Stable*) based on declared predicates. *`assurance.snapshot(E)`* → current **Assurance tuple** (with CL penalties applied) for reporting; compatible with B.3 aggregation.  // Γ_time + KD‑CAL basis.
 
 **Context‑local ESG.** State names and guards are **context‑local**; they **do not travel** without an explicit **Bridge** (kind, **CL**, loss notes). Out‑of‑Context ESG labels are **Inconclusive** unless bridged, and any assurance computed across the bridge carries the **CL penalty** on **R** (B.3). 
 
@@ -15411,7 +15605,7 @@ Week 4: Promote repeated masks to subkinds; publish first **KindBridge** record
 
 **Dependencies.**
 
-* **A.2.6 USM (Unified Scope Mechanism).** *Scope* is a set‑valued characteristic over `U.ContextSlice` on **claims/capabilities**; algebra: `∈` (membership), `∩` (intersection), `SpanUnion` (union across independent lines), `translate` (scope mapping). 
+* **A.2.6 USM (Unified Scope Mechanism).** *Scope* is a set‑valued **USM property** over `U.ContextSlice` on **claims/capabilities**; algebra: `∈` (membership), `∩` (intersection), `SpanUnion` (union across independent lines), `translate` (scope mapping).
 * **C.2.2 F–G–R.** F = formality of expression; **G = Claim scope**; R = assurance/evidence; weakest‑link for F/R; CL penalties feed **R**, not **F/G**.
 * **C.2.3 U.Formality (F).** Ordinal F0…F9; no arithmetic; applies to all content, including Kind signatures (defined in **C.3.2**).
 * **Part B Bridges & CL.** Generic (scope) bridges and CL; **Kind bridges** are specialized in **C.3.3**.
@@ -21484,7 +21678,7 @@ Example: using a `KernelToken` in a Context constraint may require a Bridge/alia
 * **RSCR‑MOR‑E01 (DevOps firewall).** Tool/file suffixes quarantined to Context; none leak into KernelToken names.
 * **RSCR‑MOR‑E02 (USM compliance).** For each LexicalAct, verify `USM.Scope ∈ AllowedScopes(LEX.TokenClass)` (see § 7.5).
 
-### Autonomy lexicon (L‑AUTO )
+### 8.8 Autonomy lexicon (L‑AUTO )
 **Forbidden (Core):** bare “validity”, “actor/agent” (as free‑standing nouns), “kill switch”, “process” for behavior, “envelope” when used **as scope**.
 **Use instead:** *Scope (G)* for epistemic scope; *WorkScope* for capability bounds; *RoleAssignment* for who acts; *SpeechAct* for overrides; *SafeStop* instead of “kill switch”.
 **Named prefixes (policy & registry):**
@@ -21496,11 +21690,24 @@ Example: using a `KernelToken` in a Context constraint may require a Bridge/alia
 1) Scope‑sensitive guards **must** declare the **Γ_time** window selector used for admission checks.
 2) Proper names of patterns/components that already include “Agent/Agency” (e.g., *Agency‑CHR*, *Agent‑Tools‑CAL*) are permitted as **titled terms**; avoid re‑introducing “agent” as a free‑standing noun in new prose.
 
+### 8.9 · LEX-CHR-STRICT — Reserve *Characteristic* for CSLC-measurable aspects
+
+**Intent.** Prevent calling **non-measurable** objects (sets, statuses, scopes, policies, bridges, contexts, guards) “characteristics”.
+
+**Rule L-CHR-S1 (Reservation).** Use **Characteristic** **only** for variables that **declare a CSLC scale** (nominal/ordinal/interval/ratio) with admissible values/units/polarity (Part C.16/A.17–A.18).  
+**Rule L-CHR-S2 (USM).** `U.Scope` / `U.ClaimScope (G)` / `U.WorkScope` are **USM scope objects**, not Characteristics; they **must not** appear in any `CharacteristicSpace`.  
+**Rule L-CHR-S3 (Status).** ESG/RSG statuses and deоntic/epistemic statuses — **not Characteristics**; its statuses/states.  
+**Rule L-CHR-S4 (Lexical classifiers).** Lexical classifiers/tags — **Facets**/**attributes**; do not name them as Characteristics, if not declared **CSLC**.
+**Checks.**  
+— **CC-L-CHR-1.** `scope characteristic(s)` is banned in Core/Context.  
+— **CC-L-CHR-2.** `CharacteristicSpace` near `Scope` — error.  
+— **CC-L-CHR-3.** Canonical rewrite: `F–G–R characteristics` → `F–G–R components`.
+
 ## 9 · Canonical rewrites for overloaded words (LEX L‑rules; normative)
 
 > **What this section does.** LEX L‑rules standardise **how we speak** in Core/Context by mapping overloaded everyday words to **canonical FPF concepts**.
 > **What this section does not do.** It does **not** restate naming (see **§ 7 MG·DA**) or morphology/casing/suffix rules (see **§ 8 LEX.Morph**); it **depends** on them.
-> **Guards.** Tokens are classified by **`LEX.TokenClass ∈ {KernelToken, ContextToken, DiscriminatorToken}`** (§ 7.1). Only **CHR:ReferencePlane** may use the bare word *plane*; I/D/S are **layers**; enumerations are **Characteristics** in a **CharacteristicSpace**.
+> **Guards.** Tokens are classified by **`LEX.TokenClass ∈ {KernelToken, ContextToken, DiscriminatorToken}`** (§ 7.1). Only **CHR:ReferencePlane** may use the bare word *plane*; I/D/S are **layers**; enumerations are **Characteristics** in a **CharacteristicSpace** **only when a CSLC scale is declared; otherwise treat such slots as non-measurable attributes (not Characteristics)**.
 
 ### 9.1 Hard bans and canonical rewrites (single table; normative)
 
@@ -32833,7 +33040,7 @@ Editors SHALL apply the following replacements:
 ### Migration playbook (informative)
 
 1. **Inventory** scope‑like phrases across your Context (search: applicability, envelope, generality, capability envelope, valid\*).
-2. **Classify** each occurrence as **Claim scope** (episteme) or **Work scope** (capability).
+2. **Classify** each occurrence as **Claim scope** (episteme) or **Work scope** (capability); replace any “scope characteristic(s)” with “scope type” or “USM scope object” depending on sentence grammar.
 3. **Rewrite** guards to use `Scope covers TargetSlice` + explicit **`Γ_time`**; remove “latest”.
 4. **Publish** any required **Bridges** with **CL** for Cross‑context usage.
 5. **Document** ΔG changes separately from evidence freshness (R).
