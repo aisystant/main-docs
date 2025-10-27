@@ -5881,17 +5881,53 @@ A `U.Mechanism` **publishes**
 
 *Informative SoTA:* telemetry hooks align with post‑2015 quality‑diversity families (CMA‑ME/MAE, DQD/MEGA) and open‑ended methods (POET‑class) when gauged (illumination) rather than scored.
 
-### 9 · SoTA echoes (informative only; mapping intuition)
+### **9 · SoTA-Echoing (post-2015 practice alignment)** *(informative)*
 
-* **Algebraic effects & handlers** (post‑2015: Koka, Effekt, OCaml 5 effects): *operation signatures + handler laws* ↔ **OpSig + Realizations**; “effect scope” echoes **USM** guards.
-    
-* **Institutions (Goguen–Burstall; HETS)**: signature–sentences–models with (co)morphisms ↔ **A.6.1 + U.MechMorph**; FPF adds **Γ_time** and **R‑only penalties**.
-    
-* **Policy‑as‑Code (Rego/OPA)** and **ODD ISO 3450x**: admissibility predicates ↔ **GuardPolicy** with **ContextSlice** and **Γ_time**.
-    
-* **Session/Typestate types**: admissible sequences & state guards ↔ **deterministic Mechanism guards** and **set‑valued scopes**.
+**Purpose.** To show how the FPF concept of a *Mechanism* (law-governed signature with guards and transport) aligns with, and improves upon, leading research and engineering practices after 2015.  
+All comparisons are *informative*: they serve didactic continuity, not new normative force.
 
- *(Analogies are descriptive only; normative content is in the FPF text and patterns above.)*
+#### 9.1 Contemporary references (post-2015 sources)
+
+1. **Algebraic effects and handlers** (Koka, Effekt, OCaml 5) — formalise “operation + lawful handler” semantics.
+    
+2. **Institution theory** (Goguen–Burstall; HETS evolutions) — defines translation between signatures, sentences, and models by typed morphisms.
+    
+3. **Policy-as-Code** (Rego/OPA, ISO 3450x ODD) — codifies admissibility and risk predicates for runtime enforcement.
+    
+4. **Session / Typestate types** (post-2017 multiparty protocols, linear usage) — constrain admissible operation sequences and states.
+    
+5. **Measurement-legality in machine learning** (2015 – 2025 monotone and calibrated learning, conformal prediction) — exemplifies the need for explicit scale compliance and monotonicity proofs (CSLC/CG-Spec echo).
+    
+
+Each source corresponds to a distinct *Tradition*: formal semantics, categorical algebra, compliance automation, protocol safety, and lawful AI.
+
+#### 9.2 Alignment with A.6.1 fields and concepts
+
+| External practice | Corresponding A.6.1 field / construct | FPF alignment and improvement |
+| --- | --- | --- |
+| Algebraic effects & handlers | **OpSig + LawSet** | FPF generalises effect signatures into universal operator laws; adds Γ_time for temporal legality and explicit R-routing. |
+| Institution morphisms | **U.MechMorph** (Refine/Extend/Quotient) | Mechanism morphisms reuse institutional structure but add ContextSlice & Bridge discipline; CL penalties route → R_eff. |
+| Policy-as-Code / ODD | **GuardPolicy + Γ_timePolicy** | Policies become first-class lawful guards; FPF forbids hidden context or “latest” defaults. |
+| Session / Typestate protocols | **GuardPolicy + set-valued USM Scopes** | Deterministic guards preserve state safety; composable across Contexts by Bridges. |
+| Lawful measurement (ML) | **CG-Spec / MM-CHR** binding | Enforces CSLC proofs; forbids ordinal averaging; guarantees unit/scale alignment. |
+
+#### 9.3 Adopt / Adapt / Reject summary
+
+* **Adopt** formal, law-governed signatures (Institutions + Effects); explicit admissibility predicates.
+    
+* **Adapt** runtime policy execution into *static GuardPolicy + Γ_time* (no embedded evaluators).
+    
+* **Reject** tool-bound semantics, automatic recency heuristics, or any cross-scale arithmetic without CSLC proof.
+
+#### 9.4 Holonic repeatability
+
+The same correspondence holds at **every holonic level**:  
+a part-holon declares its own `OpSig/LawSet/GuardPolicy`; a whole-holon merges them via Bridges; a meta-holon re-binds mechanisms under a new Γ-closure. All penalties remain in **R / R_eff**, while **F / G** invariants propagate intact.
+
+#### 9.5 Didactic interpretation
+
+FPF treats each Mechanism as *lawful physics* under its Signature’s *mathematics*, and every M2SAttachment as *engineering evidence* of that law in a concrete ContextSlice.  
+Thus the algebraic-effect lineage maps to *mathematical reasoning*, the institutional and policy lineages map to *physical law and governance*, and Binding makes these observable and auditable—bridging *mathematics → physics → engineering* at any holonic depth.
 
 ### 10 · 60‑second didactic script 
 
@@ -21118,24 +21154,24 @@ fracture, violating Pillars **P‑1 Cognitive Elegance** and
 All patterns **SHALL** follow this section order (headings verbatim).
 Sections marked ✱ are **mandatory for `[A]`**, optional for `[D]`.
 
-1. Header block (ID, Type, Status)  
-2. Problem frame  
-3. Problem  
-4. Forces  
-5. Solution  
-6. ✱ Archetypal Grounding (mandatory `[A]`; optional `[D]`)  
-7. Bias‑Annotation  
-8. Conformance Checklist  
-9. Consequences  
-10. Rationale  
-11. Relations  
-12. Footer marker
+1. Header block (ID, Type, Status)
+2. Problem frame
+3. Problem
+4. Forces
+5. Solution
+6. ✱ Archetypal Grounding (mandatory `[A]`; optional `[D]`)
+7. Bias‑Annotation
+8. Conformance Checklist
+9. Consequences
+10. Rationale
+11. SoTA‑Echoing (post‑2015 practice alignment)
+12. Relations
+13. Footer marker
 
-*Unification note:* historic A‑ and D‑templates differed only by the
-Grounding heading; optionality preserves clarity without duplication.
+*Unification note:* historic A‑ and D‑templates differed only by the Grounding and SoTA Echoing heading; optionality preserves clarity without duplication.
 Problem frame in alexandrian pattern canon historically called "context", FPF do not use this label due to overloading with Context a Plain label of a U.BoundedContext.
 
-##### 2 · Stylistic Principles (S‑0 … S‑11)
+##### 2 · Stylistic Principles (S‑0 ... S‑13)
 
 | # | Principle | Guideline |
 |---|-----------|-----------|
@@ -21148,9 +21184,11 @@ Problem frame in alexandrian pattern canon historically called "context", FPF do
 | S‑6 | Quotable Closers | Finish Solution or Consequences with a memorable aphorism. |
 | S‑7 | Generative over Prescriptive | Present rules as enabling constraints, not bureaucracy. |
 | S‑8 | Trans‑disciplinary Tie‑ins | Illustrate using at least two distinct fields. |
-| S‑9 | Physical Grounding Anchor | Link abstractions to a `Transformer` or physical process. |
+| S‑9 | Physical Grounding Reference | Link abstractions to a `Transformer` or physical process. |
 | S‑10 | Punchy Blocks | ≤ 5 sentences per paragraph; lists for clarity. |
-| S‑11 | Narrative Flow | Ensure sections read as a continuous story, not bullet soup. |
+| S‑11 | Narrative Flow | Ensure sections read as a continuous story, not bullet soup. |
+| S‑12 | Full sentences over tags | Avoid “keyword soup”. Each list item MUST contain a subject and a verb; prefer 2–4 sentence micro‑paragraphs to bare tag lists. |
+| S‑13 | SoTA‑Echo craft | In the SoTA‑Echoing section, present: **claim → practice → source → alignment → adoption status (adopt/adapt/reject)**; cite Bridges & CL when crossing Contexts/planes. |
 
 Authors use the principles as a *scaffold*, not a straitjacket: the goal
 is coherent, engaging insight.
@@ -21190,6 +21228,22 @@ If a pattern or example claims **autonomy** for any Role/Method/Service:
 | S‑1 Density w/o Jargon | “The pump boundary is the sealing plane.” | “An episteme’s F‑score captures falsifiability.” |
 | Hook‑Weave‑Anchor | Opens with field anecdote → links Γ‑core → anchors to motor torque. | Opens with historical paradox → links MHT → anchors to peer‑review data. |
 
+#### SoTA‑Echoing  *(normative; lineage & deltas to contemporary State‑of‑the‑Art)*
+
+**Purpose.** Make each pattern’s relationship to contemporary practice explicit and comparable without importing tooling or data governance. This section is prose‑first and notation‑independent.
+
+**Minimum contents (obligations).**
+1) **Sources (post‑2015).** Cite ≥ 3 primary SoTA sources (standards, seminal papers, widely‑used frameworks), at least **two independent Traditions** (per G‑cluster).  
+2) **Practice alignment.** For each cited item, state **what is adopted, adapted, or rejected**, and **why** (in 2–4 sentences).  
+3) **Scale legality.** If numeric operations are implied, **bind** them to **CG‑Spec** (Characteristic ids, Scale/Unit/Polarity, SCP/Γ‑fold) and declare partial‑order stance; **no scalarisation of partial orders**.  
+4) **Cross‑Context reuse.** Any reuse across `U.BoundedContext` **SHALL** cite **Bridge id + CL** with loss notes; penalties route to **R_eff only** (F/G invariant). For plane crossings, publish **Φ(CL)**/**Φ_plane** policy‑ids.  
+5) **Lexical hygiene.** Do **not** use the verb/noun “mapping” outside E.10’s reserved sense; prefer **alignment**/**Bridge**/**relation** language.
+
+**Writing guidance (readability).**
+*Write short paragraphs, not tag lists.* For each Tradition, provide (a) a one‑sentence capsule of the practice, (b) a one‑sentence comparison to the pattern’s Solution, (c) a one‑sentence adoption status with reason. Where helpful, add one **System** and one **Episteme** micro‑example (Tell–Show–Show).
+
+**Format: human‑first.** A small table is allowed, but each row **MUST** be accompanied by 1–2 sentences as above. Vendor/tool tokens, file formats, or data schemas are out of scope.
+
 ##### Conformance Checklist  
 
 | ID | Requirement | Purpose |
@@ -21198,7 +21252,12 @@ If a pattern or example claims **autonomy** for any Role/Method/Service:
 | **CC‑SG.2** | Architectural patterns (`[A]`) **MUST** include an *Archetypal Grounding* section; Definitional patterns (`[D]`) **MAY** omit it **only** if the Bias‑Annotation states a domain‑specific scope. | Enforces Tell‑Show‑Show unless formally limited. |
 | **CC‑SG.3** | The *Bias‑Annotation* section **SHALL** cite the five Principle‑Taxonomy lenses and declare either “Universal” or an explicit scope limitation. | Keeps cross‑disciplinary neutrality explicit (ties to Guard‑Rail 4). |
 | **CC‑SG.4** | Normative sentences **MUST** use keywords *SHALL*, *SHALL NOT*, *MUST*, *MAY* exactly as defined; synonyms are prohibited. | Prevents ambiguity for auditors and tooling. |
-| **CC‑SG.5** | Pattern prose **SHOULD** demonstrate adherence to Style Principles **S‑0 … S‑11**; reviewers are empowered to request revision when clarity or didactic quality suffers. | Embeds common narrative voice without rigid policing. |
+| **CC‑SG.5** | Pattern prose **SHOULD** demonstrate adherence to Style Principles **S‑0 … S‑13**; reviewers are empowered to request revision when clarity or didactic quality suffers. | Embeds common narrative voice without rigid policing. |
+| **CC‑SG.6 (SoTA‑Echo required for `[A]`).** | Architectural patterns **SHALL** include a **SoTA‑Echoing** section as specified above; Definitional patterns **SHOULD** include it when cross‑disciplinary comparability is at issue. | Ensures contemporary situating of rules. |
+| **CC‑SG.7 (Post‑2015, multi‑Tradition).** | SoTA‑Echoing **SHALL** cite ≥ 3 post‑2015 sources across ≥ 2 Traditions; each item **MUST** carry adoption status (adopt/adapt/reject) with reason. | Guards against monoculture; makes intent explicit. |
+| **CC‑SG.8 (Bridge & CL on reuse).** | Any cross‑Context or plane reuse mentioned in SoTA‑Echoing **MUST** cite **Bridge id + CL** and (if planes differ) **Φ(CL)**/**Φ_plane** policy‑ids; penalties **→ R_eff** only. | Safe, auditable reuse. |
+| **CC‑SG.9 (Lexical hygiene).** | The term **mapping** **SHALL NOT** appear in SoTA‑Echoing except in the precise E.10 sense; use **alignment/Bridge/relation** instead. | Avoids overloading reserved vocabulary. |
+| **CC‑SG.10 (No keyword soup).** | SoTA‑Echoing items **MUST** be written as sentences (not bare noun phrases); bullet lists are acceptable only with complete clauses. | Improves didactic quality and comparability. |
 
 ##### Consequences  
 
