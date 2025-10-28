@@ -49,7 +49,7 @@ September 2025
 | A.5 | **Open-Ended Kernel & Architheory Layering** | Stable | *Keywords:* micro-kernel, plug-in, CAL/LOG/CHR, modularity, extensibility. *Queries:* "What is the architecture of FPF?", "How are new domains added?" | **Builds on:** P-4, P-5. **Prerequisite for:** A.6, all Part C. |
 | A.6.0| **U.Signature — Universal, law‑governed declaration** | Stable | *Keywords:* signature, vocabulary, laws, applicability, bounded context. *Queries:* "What is the universal signature block?", "Where do laws vs. implementations live?" | **Placement:** Kernel; **Coordinates:** A.6, A.6.1. |
 | A.6 | **Architheory Signature & Realization** | Stable | *Keywords:* architheory, signature, realization, Γ-export, invariants. *Queries:* "What is an Architheory signature?", "How do I export Γ?", "What belongs in the signature vs realization?" | **Builds on:** A.5, E.10, E.8. **Prerequisite for:** Part C catalogue. |
-| A.6.1 | **U.Mechanism — Law‑governed signature for a GovernedSubject** | Stable | *Keywords:* mechanism, OpSig, LawSet, GuardPolicy, Transport(Bridge), Γ_time. *Queries:* "How to declare a mechanism?", "Where do CL/planes penalties route?", "How to relate mechanisms (refine/extend/quotient/product)?" | **Builds on:** A.6, E.10.D1; **Instances:** USM, UNM. |
+| A.6.1 | **U.Mechanism — Law-governed application to a SubjectKind over a BaseType** | Stable | *Keywords:* mechanism, **SubjectBlock** (SubjectKind, BaseType, SliceSet, ExtentRule, ResultKind?), ParamKinds, OpSig, LawSet, GuardPolicy, Applicability, Transport (Bridge/CL → R-only), Γ_time, PlanePolicy. *Queries:* “How to declare a mechanism?”, “Where do CL/plane penalties route?”, “How to relate mechanisms (refine/extend/quotient/product)?” | **Builds on:** A.6, E.10.D1; **Instances:** USM, UNM. |
 | ***Cluster A.V · Constitutional Principles of the Kernel*** | | | | |
 | A.7 | **Strict Distinction (Clarity Lattice)** | Stable | *Keywords:* category error, Object ≠ Description, Role ≠ Work, ontology. *Queries:* "How to avoid common modeling mistakes?", "What are FPF's core distinctions?" | **Builds on:** A.1, A.2, A.3. **Constrains:** all patterns. |
 | A.8 | **Universal Core (C-1)** | Stable | *Keywords:* universality, transdisciplinary, domain-agnostic, generalization. *Queries:* "How does FPF ensure its concepts are universal?" | **Builds on:** P-8. **Constrains:** Kernel-level `U.Type`s. |
@@ -3354,7 +3354,7 @@ This pattern **supersedes** the scattered use of labels *applicability*, *envelo
 
 * For epistemes, the only **scope type** is **`U.ClaimScope`** (nick **G** in F–G–R).
 * For system capabilities, the only **scope type** is **`U.WorkScope`**.
-* The abstract architectural notion is **`U.Scope`** — a **set-valued USM object** over `ContextSliceSpace` with its own algebra (∩ / SpanUnion / translate / widen / narrow / refit); it is **not** a `U.Characteristic` and MUST NOT appear in any `CharacteristicSpace`.
+* The abstract architectural notion is **`U.Scope`** — a **set-valued USM object** over `ContextSliceSet` with its own algebra (∩ / SpanUnion / translate / widen / narrow / refit); it is **not** a `U.Characteristic` and MUST NOT appear in any `CharacteristicSpace`.
 
 Legacy words (*applicability / envelope / generality / capability envelope*) MAY appear **only** as explanatory aliases in non‑normative notes.
 
@@ -3461,14 +3461,14 @@ When **G** is a **set‑valued scope**, composition becomes precise: serial depe
 
 ### 6.2 · `U.Scope` — the abstract set‑valued scope property (USM kind; **not** a CSLC measurement)
 
-**Definition.** `U.Scope ⊆ ContextSliceSpace` is a **set‑valued USM property** whose values are sets of `U.ContextSlice` where a given statement, behavior, or capability is **fit‑for‑use**. It is **not** numeric; its internal order is the subset relation `⊆`. There is no “unit”. The primitive judgement is **membership**: `slice ∈ Scope`.  
+**Definition.** `U.Scope ⊆ ContextSliceSet` is a **set‑valued USM property** whose values are sets of `U.ContextSlice` where a given statement, behavior, or capability is **fit‑for‑use**. It is **not** numeric; its internal order is the subset relation `⊆`. There is no “unit”. The primitive judgement is **membership**: `slice ∈ Scope`.  
 
 **Guard (normative).** `U.Scope`, `U.ClaimScope (G)`, and `U.WorkScope` are **not** `U.Characteristic`s in the A.17/CSLC sense; do **not** include them as slots in any `U.CharacteristicSpace`, and do **not** attach normalizations/scores to them. They are **USM scope objects**.
 
 **Operations.** USM admits:
 
 * **Intersection `∩`** (serial composition).
-* **SpanUnion** (parallel, independently supported coverage).
+* **SpanUnion** (parallel, independently supported coverage) **only when an explicit named independence assumption is declared** (features/axes named, validity window stated, evidence class cited). See **A.6.1/USM LawSet** for the normative template.
 * **Translate** (Cross‑context mapping via Bridge).
 * **Widen / Narrow** (monotone changes to the set).
 * **Refit** (content‑preserving re‑expression; set equality).
@@ -5460,7 +5460,7 @@ The “hour‑glass” brings two further advantages:
 
 > *“A stable neck sustains an ever‑growing hour‑glass.”*
 
-## A.6.0 — **U.Signature · Universal, law‑governed declaration for a Subject on a HostSpace**  \[A]
+## A.6.0 — **U.Signature · Universal, law‑governed declaration for a SubjectKind on a BaseType**  \[A]
 
 **Status.** Architectural pattern \[A], kernel‑level and universal.  
 **Placement.** Part A (Kernel), **before A.6** (“Architheory Signature & Realization”) and **A.6.1** (“U.Mechanism”).  
@@ -5501,7 +5501,7 @@ If each family (architheories, mechanisms, methods, disciplines) invents its own
 
 ### 4 · Solution — **Define `U.Signature` once, reuse everywhere**
 
-**Definition.** A **`U.Signature`** is a **public, law‑governed declaration** for a named **Subject** on a declared **HostSpace** that (i) introduces a **vocabulary** (types, relations, operators), (ii) states **laws** (axioms/invariants/guards) over that vocabulary, and (iii) records **applicability** (where and under which contextual assumptions the declarations hold).  Dependencies (**imports**) are metadata governed by specialisations (e.g., A.6) and **not** part of the universal four‑row Block.
+**Definition.** A **`U.Signature`** is a **public, law‑governed declaration** for a named **SubjectKind** on a declared **BaseType**. Where quantification depends on context, the Signature **SHALL** expose an explicit **SliceSet** and **ExtentRule**. A Signature (i) introduces a **vocabulary** (types, relations, operators), (ii) states **laws** (axioms/invariants/guards) over that vocabulary, and (iii) records **applicability** (where and under which contextual assumptions the declarations hold). Dependencies (**imports**) are governed by specialisations (e.g., A.6) and are **not** part of the universal Block.
 
 **Naming discipline.** The `Subject` **MUST** be a **single‑sense** noun phrase; avoid synonyms/aliases within the same Signature.
 
@@ -5509,29 +5509,43 @@ A `U.Signature` is **conceptual**: it contains **no implementation, no packaging
 
 #### 4.1 · The **Signature Block (universal form)**
 
+The **four conceptual rows** (“SubjectBlock / Vocabulary / Laws / Applicability”) give a repeatable, holon‑stable pattern across mathematics → physics → engineering:  
+* **SubjectBlock** = *what it’s about + how quantified* (axiomatics + domain of interpretation),  
+* **Vocabulary/Laws** = *principles/laws* (postulates & constraints),  
+* **Applicability** = *where they hold in practice* (bounded context & time).
+
 Every `U.Signature` **SHALL** present a **four‑row conceptual block** (names are universal; family‑specific aliases are mapped below):
 
-1. **HostSpace & Subject** — the typed **HostSpace** (the value‑bearing space) and the **Subject** being governed (e.g., *charts*, *context slices*, *orders*, *grammars*).
+1. **SubjectBlock** — ⟨**SubjectKind**, **BaseType**, **SliceSet**, **ExtentRule**, **ResultKind?**⟩.  
+   *SubjectKind* names the intensional subject (C.3); *BaseType* is the `U.Type` the signature ranges over (CHR Spaces appear here **as types**, not as field names); *SliceSet* addresses the quantification domain (USM; e.g., **ContextSliceSet**); *ExtentRule* computes `Extension(SubjectKind, slice)` (C.3.2); *ResultKind?* (optional) is the intensional kind of outputs.  
+   **Editorial split (allowed).** Authors **MAY** render the **SubjectBlock** as two adjacent lines — **Subject** *(SubjectKind, BaseType)* and **Quantification** *(SliceSet, ExtentRule, ResultKind?)* — **without changing semantics**. Even when visually split, SubjectBlock counts as **one** conceptual row.
+
+   **Semantic roles of the SubjectBlock kinds (informative)**
+   * **SubjectKind (intent).** The intensional “aboutness” of the signature (C.3.1), ordered by `⊑`. It carries no Scope.
+   * **BaseType (carrier).** The `U.Type` over which values/objects are ranged. In CHR regimes this may be a `U.CharacteristicSpace` **type**; elsewhere it is a set‑typed `U.Type`.
+   * **SliceSet (addressability).** The addressable set of `U.ContextSlice`s (USM). It identifies where **extent** is computed; it is not a “space” unless CHR.
+   * **ExtentRule (extent).** A rule yielding `Extension(SubjectKind, slice)` (C.3.2); this is the quantifier’s domain, computed per slice.
+   * **ResultKind? (outputs).** Optional: the intensional kind of the outputs of the operations declared in *Vocabulary* (use when outputs differ in kind from the SubjectKind).
     
 2. **Vocabulary** — names and sorts of the public **types / relations / operators** this signature commits to.
     
-3. **Laws (Invariants/Guards)** — equations, order/closure laws, admissibility constraints (no proofs here; only the law statements).
+3. **Laws (Axioms/Invariants)** — equations and order/closure laws that are context‑local truths under the stated Applicability (no proofs here). **Operational guard predicates belong to Mechanisms (A.6.1), not to Signatures.**
     
 4. **Applicability (Scope & Context)** — conditions under which the laws are valid (bounded context, plane, stance, time notions). Applicability **MUST** bind a **`U.BoundedContext`** (D.CTX). Cross‑context use **MUST NOT** be implicit; if intended, **name** the Bridge (conceptual reference only). When numeric comparability is implied, **bind** legality to **CG‑Spec/MM‑CHR** (normalize‑then‑compare; lawful scales/units).
     
 *Mapping to existing families (normative aliases).*  
 — **A.6 (Architheory).** *Vocabulary* ↔ **Derivations**; *Laws* ↔ **Invariants**; *Applicability* notes layer (**CAL/LOG/CHR**) and context; **Γ‑export** policy lives **only** in A.6.  
-— **A.6.1 (Mechanism).** *HostSpace & Subject* ↔ **HostSpace/GovernedSubject**; *Vocabulary* ↔ **OpSig**; *Laws* ↔ **LawSet**; *Applicability* carries **GuardPolicy** and a conceptual **Transport** clause (Bridges/CL named; Bridges per **F.9**; CL/penalties per **B.3**; **CL^plane** per **C.2.1**).
+— **A.6.1 (Mechanism).** *SubjectBlock* ↔ **SubjectKind/BaseType/SliceSet/ExtentRule**; *Vocabulary* ↔ **OpSig**; *Laws* ↔ **LawSet**; *Applicability* remains contextual; **GuardPolicy** is a separate field in the mechanism (not part of the Signature).
 — **Architheory View (A.6 add‑on).** Specialisation A.6 **adds** an adjacent **Imports/Derivations/Invariants/BelongsToAssurance** view for pass interfaces.
 
 #### 4.2 · Authoring rules (I/D/S‑aware; lexically disciplined)
 
-* **I/D/S separation.** A signature **states intension and laws**; Realizations (if any) carry **specifications**. Do not mix tutorial text or operational recipes into the Block.
+* **I/D/S separation.** A signature **states intension and laws**; Realizations (if any) carry **specifications**. Do not mix tutorial text or operational recipes into the Block. Do **not** include **GuardPolicy** or run‑time admissions here.
 * **Context discipline.** Bind Applicability to a **`U.BoundedContext`**. If cross‑context use is intended, **name** the crossing and **reference** the Bridge (Part F/B); A.6.0 does **not** prescribe CL ladders, **CL^plane**, Φ/Ψ tables, or penalty formulas.
 * **Stratification.** Use LEX‑BUNDLE registers and strata; do not redefine Kernel names in lower strata (no cross‑bleed).  
 * **Imports location.** If your family requires an explicit **imports** list (e.g., A.6 Architheory), place it in the **Signature header** or the **family‑specific view**, not inside the universal four‑row Block.
 
-* **Token hygiene.** Do **not** mint new `U.*` tokens inside a Signature without a **DRR**; prefer referencing existing Kernel/Architheory `U.Type`s.
+* **Token hygiene.** Do **not** mint new `U.*` tokens inside a Signature without a **DRR**; prefer referencing existing Kernel/Architheory `U.Type`s. 
 
 #### 4.3 · Specialisation knobs (for downstream patterns)
 
@@ -5547,7 +5561,7 @@ A.6.0 exposes **three** conceptual knobs; specialisations (A.6, A.6.1, method/di
 
 | quartet Element | `U.System` Example — **Grammar of Motions** | `U.Episteme` Example — **Normalization Family** |
 | --- | --- | --- |
-| **HostSpace & Subject** | HostSpace: `U.System:TrajectorySpace`; Subject: `MotionGrammar`. | HostSpace: `U.Episteme:ChartFamily` (within one `U.BoundedContext`); Subject: `NormalizationMethod‑Class`. |
+| **SubjectBlock** | **Subject:** SubjectKind=`MotionGrammar`; BaseType=`U.System:TrajectorySpace`. **Quantification:** SliceSet=`U.ContextSliceSet`; ExtentRule=`admissible motion words per slice (kinematics & guard constraints)`; ResultKind?=`Language[Segment]`. | **Subject:** SubjectKind=`NormalizationMethod‑Class`; BaseType=`U.Episteme:ChartFamily` (one `U.BoundedContext`). **Quantification:** SliceSet=`U.ContextSliceSet`; ExtentRule=`admissible method instances per slice (edition+validity)`; ResultKind?=`NormalizedChart`. |
 | **Vocabulary** | Types: `Pose`, `Segment`; Operators: `concat`, `reverse`, `sample` (any Γ‑builder is governed by A.6). | Operators: `apply(method)`, `compose`, `quotient(≡)`. |
 | **Laws (Invariants/Guards)** | Closure of `concat`; associativity; time‑monotone sampling; admissible `reverse` only for holonomic arms. | Ratio→positive‑scalar; Interval→affine; Ordinal→monotone; Nominal→categorical; LUT(+uncertainty). |
 | **Applicability (Scope & Context)** | Context: *industrial robotics*; stance: design; time notion: discrete ticks. Cross‑context transport not declared. | Context: *clinical metrics*; stance: analysis; validity windows declared; cross‑context transport via Bridge (concept only; details per A.6.1). Numeric comparability bound to CHR/CG‑Spec. |
@@ -5566,12 +5580,13 @@ A.6.0 exposes **three** conceptual knobs; specialisations (A.6, A.6.1, method/di
 
 | ID | Requirement |
 | --- | --- |
-| **CC‑A.6.0‑1** | A conformant text labelled **`U.Signature`** **SHALL** expose the **four‑row Signature Block**: *HostSpace & Subject; Vocabulary; Laws; Applicability*. |
+| **CC‑A.6.0‑1** | A conformant text labelled **`U.Signature`** **SHALL** expose the **four‑row Signature Block**: *SubjectBlock; Vocabulary; Laws; Applicability*. A visual split of SubjectBlock into **Subject**/**Quantification** lines is allowed; it still counts as **one** conceptual row. |
 | **CC‑A.6.0‑2** | The Block is **conceptual only** (no packaging/CI metadata, no machine schemas, **no Γ**). |
 | **CC‑A.6.0‑3** | Applicability **binds** a `U.BoundedContext`; if cross‑context use is intended, a **Transport clause** is *named* (Bridge reference) without re‑stating Part F/B.3 details (including any **CL^plane**). |
 | **CC‑A.6.0‑4** | Where numeric comparability is implied, Applicability **binds** to **CG‑Spec/MM‑CHR** legality (normalize‑then‑compare; scale/unit alignment). |
 | **CC‑A.6.0‑5** | Families that specialise A.6.0 (e.g., **A.6**, **A.6.1**) **MAY** add constraints (e.g., Γ‑export policy; penalty routing) and **MAY** add a family‑specific view (e.g., the Architheory View) but **MUST NOT** contradict A.6.0’s separation of intension vs specification. |
 | **CC‑A.6.0‑6** | Under E.10/E.8, tokens respect strata/registers; Kernel names are not redefined in Architheory/Context prose (Part F naming discipline applies). |
+| **CC‑A.6.0‑7** | The **Laws** row contains **axioms/invariants** only; **GuardPolicy** and operational admissions **MUST** appear only in **A.6.1 Mechanisms** that consume this Signature. |
 
 ### 8 · Consequences
 
@@ -5583,8 +5598,8 @@ A.6.0 exposes **three** conceptual knobs; specialisations (A.6, A.6.1, method/di
 
 ### 9 · Rationale
 
-**Why “HostSpace & Subject”?** A.6.1 showed that making the **carrier explicit** (here: *HostSpace*) avoids category mistakes when moving between domains (e.g., *set‑algebra on context slices* vs *equivalence‑classes of normalisations*). A.6.0 lifts this to the kernel so every signature can declare **what it is about** before saying **what it provides**.  
-**Why one universal Block?** A.6 already proved the value of a compact **Signature Block** (Imports/Derivations/Invariants/Assurance). A.6.0 factors out the **conceptual core**—rephrased as “HostSpace & Subject / Vocabulary / Laws / Applicability”—so A.6 can **map** its four rows onto this universal frame without changing existing architheories.
+**Why “SubjectBlock”?** A.6.1 showed that making the **carrier explicit** (here: *BaseType* — the carrier type) avoids category mistakes when moving between domains (e.g., *set‑algebra on context slices* vs *equivalence‑classes of normalisations*). A.6.0 lifts this to the kernel so every signature can declare **what it is about** before saying **what it provides**.
+**Why one universal Block?** A.6 already proved the value of a compact **Signature Block** (Imports/Derivations/Invariants/Assurance). A.6.0 factors out the **conceptual core**—rephrased as “SubjectBlock / Vocabulary / Laws / Applicability”—so A.6 can **map** its four rows onto this universal frame without changing existing architheories.
 
 **Informative echoes (post‑2015 SoTA).**  
 — **Algebraic effects & handlers** (OCaml 5, Koka, Effekt): *operation signatures + handler laws* mirror **Vocabulary + Laws** while keeping implementations separate.  
@@ -5636,13 +5651,13 @@ A **Realization** satisfies the Signature while remaining opaque. Multiple Reali
 #### 4.3 · Signature Block — **A.6.0 alignment** and **Architheory View**
 
 Every architheory **SHALL** publish **two adjacent views** of its public contract:
-1) the **universal** A.6.0 `U.Signature` Block (*HostSpace & Subject; Vocabulary; Laws; Applicability*), and  
+1) the **universal** A.6.0 `U.Signature` Block (*SubjectBlock; Vocabulary; Laws; Applicability*), and  
 2) an **Architheory View** that preserves the pass interface used across Part C: **Imports / Derivations / Invariants / BelongsToAssurance**.
-This ensures both cross‑family uniformity **and** compatibility with existing architheory tooling.
+This ensures both cross‑family uniformity **and** compatibility with existing architheory architecture. The **universal Block remains the source‑of‑truth**; the **Architheory View is a projection** that MUST NOT introduce fields not derivable from the Block (e.g., no hidden GuardPolicy; no Γ in LOG/CHR).
 
 | `U.Signature` row (A.6.0)          | A.6 alias / where to author it                                           |
 |------------------------------------|---------------------------------------------------------------------------|
-| **HostSpace & Subject**            | One‑line declaration above the block (carrier plane and governed subject) |
+| **SubjectBlock**            | One‑line declaration above the block (**SubjectKind + BaseType**; may be visually split into **Subject/Quantification**; avoid “governed” wording) |
 | **Vocabulary**                     | **Derivations** (public types/relations/operators that the theory contributes) |
 | **Laws (Invariants/Guards)**       | **Invariants** (law statements; proofs live in Realizations)             |
 | **Applicability (Scope & Context)**| **BelongsToAssurance** + context note in the header; bind a `U.BoundedContext` where relevant; numeric comparability **binds** to **CG‑Spec/MM‑CHR** (normalize‑then‑compare; lawful units/scales). |
@@ -5665,7 +5680,7 @@ This ensures both cross‑family uniformity **and** compatibility with existing 
 
 Each Signature begins with:  
 `id` (PascalCase), `version` (SemVer), `status` (draft/review/stable/deprecated), `classification` (CAL/LOG/CHR), `imports` (list), `provides` (list, including Γ if CAL).  
-If **HostSpace & Subject** are non‑trivial, add a one‑liner in the header (or immediately above the block).
+If **SubjectBlock** are non‑trivial, add a one‑liner in the header (or immediately above the block).
 
 ### 5 · Transport & Cross‑Context Use (coordination with A.6.1)
 
@@ -5677,7 +5692,7 @@ Signatures **SHALL NOT** restate Bridge/CL mechanics. If cross‑context/plane u
 
 ### 7 Archetypal Grounding
 
-Provide a brief pair of examples (Work/System; Knowledge/Episteme) that name HostSpace & Subject, show Vocabulary and Laws, and state Applicability/Context. Keep proofs out of the Signature.
+Provide a brief pair of examples (Work/System; Knowledge/Episteme) that name SubjectBlock, show Vocabulary and Laws, and state Applicability/Context. Keep proofs out of the Signature.
 
 ### 8 Conformance Checklist
 
@@ -5728,9 +5743,9 @@ Why “Signature”? Familiar to engineers (function/type signatures) and to log
 *Specialises / is specialised by*: **A.6.0 `U.Signature`**, **A.6.1 `U.Mechanism`**.  
 *Constrained by*: LEX‑BUNDLE (registers/strata), D.CTX (Context), Part F (Bridges & cross‑context transport; naming).
 
-## **A.6.1 — U.Mechanism · Law‑governed signature for a GovernedSubject on a HostSpace** \[A]
+## **A.6.1 — U.Mechanism · Law‑governed application to a SubjectKind over a BaseType** \[A]
 
-**One‑line summary.** A `U.Mechanism` is a **Signature with laws** over a declared **HostSpace** and **GovernedSubject**, with explicit **operations**, **invariants/guards**, and a named **Transport** clause for cross‑context use. Transport is **Bridge‑only** (per **F.9**) with penalties routed to **R**/**R_eff** only (per **B.3**); **F/G** remain invariant; **CL^plane** follows **C.2.1 CHR:ReferencePlane**. Realizations **MAY** be published under **A.6** (Signature→Realization; **one Γ only if `classification=CAL`**; acyclic imports; opacity).
+**One‑line summary.** A `U.Mechanism` is a **Signature with laws** applied to a declared **SubjectKind** over a **BaseType**, with explicit **operations**, **invariants/guards**, and a named **Transport** clause for cross‑context use. Transport is **Bridge‑only** (per **F.9**) with penalties routed to **R**/**R_eff** only (per **B.3**); **F/G** remain invariant; **CL^plane** follows **C.2.1 CHR:ReferencePlane**. Realizations **MAY** be published under **A.6** (Signature→Realization; **one Γ only if `classification=CAL`**; acyclic imports; opacity).
 
 **Status.** Normative \[A\] in **Part A (Kernel)**.  
 
@@ -5759,25 +5774,35 @@ Without a kernel abstraction, scope/normalization/comparison constructs prolifer
 #### 4.1 **Mechanism Signature** 
 
 A `U.Mechanism` **publishes**  
-`U.MechSig := ⟨SignatureHeader, Imports, HostSpace, GovernedSubject, OpSig, LawSet, GuardPolicy, Transport, Γ_timePolicy, PlanePolicy⟩`  
-+and admits Realizations (kernel‑level or architheory‑level) that respect it. The shape is **notation‑independent** and **conceptual** (no tooling, storage, or CI metadata).
+`U.MechSig := ⟨SignatureHeader, Imports,
+                SubjectBlock := ⟨SubjectKind, BaseType, SliceSet, ExtentRule, ResultKind?⟩,
+                ParamKinds, OpSig, LawSet, GuardPolicy, Applicability, Transport, Γ_timePolicy, PlanePolicy, Audit⟩`  
+and admits Realizations (kernel‑level or architheory‑level) that respect it. The shape is **notation‑independent** and **conceptual** (no tooling, storage, or CI metadata).
+
 
 * **SignatureHeader.** `id` (PascalCase), `version` (SemVer), `status` (draft/review/stable/deprecated).  
   If realized as an **Architheory**, add the **A.6** header with `classification ∈ {CAL|LOG|CHR}` and `imports/provides`; **only CAL may export exactly one Γ**; **LOG/CHR export none**. For **Kernel‑level** realizations, do **not** mint an A.6 header.
 
 * **Imports.** Architheory Signatures / `U.Types` this mechanism requires (notation‑independent; **acyclic**). When realized as an Architheory, **LOG/CHR may import CAL; CAL may import CAL** (A.6 layering).
-* **HostSpace.** The typed **value‑holding space** the mechanism ranges over (e.g., `U.ContextSliceSpace`; a `U.CharacteristicSpace`/chart family **within one `U.BoundedContext`**). **Do not mint** a new core type here; **reference existing `U.Type`s** (LEX discipline). If planes differ, state the **ReferencePlane** policy (see *PlanePolicy*).
-* **GovernedSubject.** What is governed: **Characteristic | TransformationClass | Equivalence | Protocol | Scope | …** (e.g., **Scope** sets; **NormalizationMethod classes** with induced **≡_UNM**).
+* **BaseType.** A `U.Type` the mechanism ranges over. CHR spaces (e.g., a `U.CharacteristicSpace`/chart family) appear here **as types**; outside CHR, use set‑typed `U.Type`s. **Do not mint** a new core type; **reference existing `U.Type`s**. If planes differ, state the **ReferencePlane** policy (see *PlanePolicy*).
+* **SubjectKind / SliceSet / ExtentRule / ResultKind? / ParamKinds.**
+  • **SubjectKind.** The intensional kind acted upon (C.3.1/3.2), separate from quantification.
+  • **SliceSet.** The addressable set of Context slices (USM: **ContextSliceSet**).
+  • **ExtentRule.** A rule yielding `Extension(SubjectKind, slice)` (C.3.2), used as the quantifier’s domain.
+  • **ResultKind?** Optional intensional kind for outputs of `OpSig`.
+  • **ParamKinds.** A name→Kind map for multi‑ary operators (inputs); avoids overloading “Role”.
 * **OpSig.** Named operations with types; examples:  
   • **USM:** `∈, ⊆, ∩, SpanUnion, translate, widen, narrow, refit`.  
   • **UNM:** `apply(method)`, `compose`, `quotient(≡_UNM)`; **normalize‑then‑compare**.
 
-* **LawSet.** Equations/admissibility (no proofs here; statements only). Laws **MUST** be compatible with CHR legality where numeric comparison/aggregation is induced. Examples:  
+* **LawSet.** Equations/invariants (no proofs here). **Admissions/eligibility tests belong under GuardPolicy, not here.** Laws **MUST** be compatible with CHR legality where numeric comparison/aggregation is induced. Examples:
   • **USM:** serial **intersection**; **SpanUnion** only where a **named independence assumption** is satisfied (state features/axes, validity window, evidence class); `translate` uses declared Bridges; **Γ_time** is mandatory.  
   • **UNM:** **scale‑appropriate** transforms — ratio→positive‑scalar; interval→affine; ordinal→monotone; nominal→categorical; `tabular:LUT(+uncertainty)`.  
   *(Do not mint a new Kernel token for “certificate”; if such a type is later required, it **MUST** follow DRR/LEX minting.)*
 
 * **GuardPolicy.** Deterministic, **context‑local** predicates that **fail closed** (e.g., “Scope covers TargetSlice” with named **Γ_time**; “NormalizationMethod class + validity window named”). Unknowns **→ {degrade | abstain}**; never coerce to 0/false.
+
+* **Applicability.** Binding to a **`U.BoundedContext`** with stance/plane/time notes and any **CG‑Spec/MM‑CHR** legality claims; cross‑context use is declared via **Transport** only.
 
 * **Transport.** **Bridge‑only** semantics for cross‑context / cross‑plane use: name the Bridge and channel (`Scope|Kind`) per **F.9**, and record **ReferencePlane**(src,tgt) per **C.2.1**. Do **not** restate CL ladders, **CL^plane**, or Φ/Ψ tables here; penalties **route to R/R_eff only** and **never** mutate F/G (per **B.3**). Crossings are explicit; **no implicit crossings**. Where **USM** or **KindBridge** are used together, apply the **two‑bridge rule** (scope CL and kind `CL^k` penalties handled **separately** to R).
 
@@ -5794,13 +5819,13 @@ A `U.Mechanism` **publishes**
 **Intent.** Provide structure‑preserving **relations & constructors** between mechanisms.  
 **Definitions.**
 
-* **Refinement** `M′ ⊑ M`: narrows HostSpace/Applicability or **strengthens laws** (safe substitution; Liskov‑style).
+* **Refinement** `M′ ⊑ M`: narrows **SliceSet/ExtentRule** or **strengthens laws** (safe substitution; Liskov‑style).
 * **Extension** `M ⊑⁺ M″`: **adds operations** without weakening existing Laws; old programs remain valid (conservative extension).
-* **Equivalence** `M ≡ M′`: there exists a bijective mapping between Subjects/ops preserving/reflecting **LawSet** (up‑to‑isomorphism on HostSpace and OpSig).
+* **Equivalence** `M ≡ M′`: there exists a bijective mapping between Subjects/ops preserving/reflecting **LawSet** (up‑to‑isomorphism on **BaseType** and **OpSig**).
     
 * **Quotient** `M/≈`: factor by a **congruence** (e.g., **≡_UNM** for charts).
 
-* **Product** `M×N`: independent HostSpaces; ops are component‑wise; ensures **no illegal cross‑ops** (e.g., set‑algebra discipline for `SpanUnion`). Where independence is claimed, **name and justify** the assumption (do not mint new Kernel types here).
+* **Product** `M×N`: independent **BaseTypes**; ops are component‑wise; ensures **no illegal cross‑ops** (e.g., set‑algebra discipline for `SpanUnion`). Where independence is claimed, **name and justify** the assumption (do not mint new Kernel types here).
 
 **Transport** `Bridge⋅M`: lifts across Contexts/planes; names **CL/CL^k/CL^plane** regimes; penalties → **`R_eff` only**; **UTS row** recommended for publication; **ReferencePlane(src,tgt)** recorded. If mapping losses are material, **narrow** the mapped set or publish an **adapter** (best practice).
 
@@ -5811,8 +5836,7 @@ A `U.Mechanism` **publishes**
 
 **MechanismDescription (E.8 Tell–Show–Show; I/D/S‑compliant):**
 `Mechanism: U.<Name>`  *(Kernel conceptual description; no tooling fields)*
-`Imports: <Signatures / U.Types>` · `HostSpace: <U.Type>` · `GovernedSubject: <Characteristic | TransformationClass | Equivalence | Protocol | Scope | …>` · `OpSig: <ops with types>` · `LawSet: <equations/guards/monotonicity>` · `GuardPolicy: <admission predicates; Γ_time>` · `Transport: <Bridge channels; CL/CL^k/CL^plane named; ReferencePlane(src,tgt)>` · `PlanePolicy: <world|concept|episteme rules>`
-
+`Imports: <Signatures / U.Types>` · `SubjectBlock: <SubjectKind, BaseType, SliceSet, ExtentRule, ResultKind?>` · `ParamKinds: <name→Kind map>` · `OpSig: <ops with types>` · `LawSet: <equations/invariants>` · `GuardPolicy: <admission predicates; Γ_time>` · `Transport: <Bridge channels; CL/CL^k/CL^plane named; ReferencePlane(src,tgt)>` · `PlanePolicy: <world|concept|episteme rules>`
 #### 4.4 MechFamilyDescription & MechInstanceDescription 
 
 * **MechFamilyDescription**: `{MechSig, Realizationα, Realizationβ, …}` — each Realization may **tighten** (never relax) Laws (Liskov‑style).
@@ -5823,9 +5847,10 @@ A `U.Mechanism` **publishes**
 
 #### 5.1 **U.System (Work) — USM as a U.Mechanism instance** (normative by reference)
 
-* **Imports:** `U.ContextSliceSpace`; Part F.9 **Bridge**; **C.2.1 ReferencePlane** (noted for crossings); **C.2.2 F–G–R**; **C.2.3 U.Formality**.
-* **HostSpace:** `U.ContextSliceSpace`.
-* **GovernedSubject:** `U.Scope` with specializations `U.ClaimScope` (G) and `U.WorkScope`.
+* **Imports:** `U.ContextSliceSet`; Part F.9 **Bridge**; **C.2.1 ReferencePlane** (noted for crossings); **C.2.2 F–G–R**; **C.2.3 U.Formality**.
+* **BaseType:** `U.ContextSliceSet`.
+* **SliceSet:** `U.ContextSliceSet` (addressable `U.ContextSlice`s).
+* **SubjectKind:** `U.Scope` with specializations `U.ClaimScope` (G) and `U.WorkScope`.
 * **OpSig:** `∈, ⊆, ∩, SpanUnion, translate, widen, narrow, refit`.
 * **LawSet:** serial **intersection**; **SpanUnion** only where a **named independence assumption** is satisfied (state features/axes, validity window, evidence class); **translate** uses declared **Bridges**; **Γ_time** is **mandatory**.
 * **GuardPolicy:** deterministic **“Scope covers TargetSlice”**; **fail‑closed**; `unknown → {degrade|abstain}` (no implicit `unknown→0/false`).
@@ -5836,8 +5861,8 @@ A `U.Mechanism` **publishes**
 #### 5.2 **U.Episteme (Knowledge) — UNM as a U.Mechanism instance** (normative by reference)
 
 * **Imports:** **A.17/A.18 (CSLC)**; **C.16 (MM‑CHR)**; `U.BoundedContext`; Part F.9 **Bridge**; **C.2.1 ReferencePlane**.
-* **HostSpace:** chart/`U.CharacteristicSpace` family in a CN‑frame (one `U.BoundedContext`).
-* **GovernedSubject:** **NormalizationMethod classes** with induced **≡_UNM** equivalence over charts.
+* **BaseType:** chart/`U.CharacteristicSpace` family in a CN‑frame (one `U.BoundedContext`).
+* **SubjectKind:** **NormalizationMethod classes** with induced **≡_UNM** equivalence over charts.
 * **OpSig:** `apply(method)`, `compose`, `quotient(≡_UNM)`; **normalize‑then‑compare** (exposes compare‑on‑invariants surfaces to UCPM/USCM).
 * **LawSet:** scale‑appropriate transforms — `ratio:scale / interval:affine / ordinal:monotone / nominal:categorical / tabular:LUT(+uncertainty)`; **validity windows** per edition.
 * **GuardPolicy:** `method ∈ declared class‑set` AND **validity window named**; **fail‑closed**; `unknown → {degrade|abstain}`.
@@ -5850,7 +5875,7 @@ A `U.Mechanism` **publishes**
 ### 6 · Defaults
 
 * **Local‑first semantics.** All judgments are **context‑local**; crossings are **explicit** and **costed** (CL→R only).
-* **Complience‑first comparability.** Numeric comparison/aggregation requires **CG‑Spec** (lawful **SCP**, Γ‑fold, MinimalEvidence); **partial orders return sets**; **no ordinal means**.
+* **Compliance‑first comparability.** Numeric comparison/aggregation requires **CG‑Spec** (lawful **SCP**, Γ‑fold, MinimalEvidence); **partial orders return sets**; **no ordinal means**.
 * **Tri‑state discipline.** `unknown → {degrade|abstain}`; `sandbox/probe‑only` is a **LOG branch** with a policy‑id (no implicit `unknown→0/false`).
 * **R‑only penalties.** **Φ/Ψ/Φ_plane** are **monotone and bounded**; penalties route to **`R_eff` only**; **F/G invariant**.
 
@@ -5858,7 +5883,7 @@ A `U.Mechanism` **publishes**
 
 | ID | Requirement |
 |----|-------------|
-| **CC‑UM.1** | **Complete MechSig** publishes: `Imports, HostSpace (existing U.Type), GovernedSubject, OpSig, LawSet, GuardPolicy, Transport (Bridge named; ReferencePlane), Γ_timePolicy, PlanePolicy`. |
+| **CC‑UM.1** | **Complete MechSig** publishes: `Imports; SubjectBlock (SubjectKind, BaseType, SliceSet, ExtentRule, ResultKind?); ParamKinds; OpSig; LawSet; GuardPolicy; Applicability; Transport (Bridge named; ReferencePlane); Γ_timePolicy; PlanePolicy; Audit`. |
 | **CC‑UM.2** | **A.6 alignment:** if realized as Architheory, use A.6 header; **one Γ only if CAL**; LOG/CHR none; **imports acyclic**; Realizations **opaque**; laws may be **tightened** (not relaxed). |
 | **CC‑UM.3** | **Bridge‑only transport:** crossings **name** a **Bridge** (F.9); `ReferencePlane(src,tgt)` recorded (C.2.1); **CL^plane** named when planes differ; **no implicit crossings**. When typed reuse is involved, the **two‑bridge rule** applies (scope CL and kind `CL^k` penalties routed **separately** to **R**). |
 | **CC‑UM.4** | **R‑only routing:** Φ/Ψ/Φ_plane regimes and CL ladders per **B.3**; penalties **reduce R/R_eff** only; **F/G invariant**. |
@@ -5869,15 +5894,15 @@ A `U.Mechanism` **publishes**
 ### 8 · Born‑via‑A.6.1 sketches (informative)
 
 **CPM — Unified Comparison Mechanism (parity‑grade orders)**  
-**HostSpace:** typed traits/charts in a CG‑Frame. **OpSig:** lawful orders (≤, ≽, lexicographic) + **set‑returning** dominance (Pareto). **LawSet:** **no ordinal averaging**; **normalize‑then‑compare** when spaces/scales differ (UNM); editions pinned. **GuardPolicy:** **CG‑Spec** bound; **ComparatorSet** explicit. **Transport:** Bridge+CL → **R/R_eff only**.  
+**BaseType:** typed traits/charts in a CG‑Frame. **OpSig:** lawful orders (≤, ≽, lexicographic) + **set‑returning** dominance (Pareto). **LawSet:** **no ordinal averaging**; **normalize‑then‑compare** when spaces/scales differ (UNM); editions pinned. **GuardPolicy:** **CG‑Spec** bound; **ComparatorSet** explicit. **Transport:** Bridge+CL → **R/R_eff only**.  
 
 **USCM — Unified Scoring Mechanism (SCP‑first)**  
-**HostSpace:** `U.Measure` (CHR‑typed slots). **OpSig:** gauge embeddings + admissible aggregators; **WeightedSum** only on interval/ratio with unit alignment; partial orders return sets. **Guards:** **MinimalEvidence** \+ CG‑Spec legality. **Transport:** penalties → **R/R_eff**; UTS row.
+**BaseType:** `U.Measure` (CHR‑typed slots). **OpSig:** gauge embeddings + admissible aggregators; **WeightedSum** only on interval/ratio with unit alignment; partial orders return sets. **Guards:** **MinimalEvidence** \+ CG‑Spec legality. **Transport:** penalties → **R/R_eff**; UTS row.
 
 **PTM — Publication & Telemetry Mechanism (informative)**
-**HostSpace:** `SoTA‑Pack(Core)`, `PathId/PathSliceId`, `PolicyId`. **OpSig:** emit **selector‑ready** packs with parity pins and **telemetry stubs**; listen for edition/illumination bumps; trigger **slice‑scoped** refresh. 
+**BaseType:** `SoTA‑Pack(Core)`, `PathId/PathSliceId`, `PolicyId`. **OpSig:** emit **selector‑ready** packs with parity pins and **telemetry stubs**; listen for edition/illumination bumps; trigger **slice‑scoped** refresh. 
 
-**LawSet:** **no change of dominance defaults** unless CAL policy promotes; edition‑aware refresh. **Guards:** AH‑1..AH‑4 block missing pins. **Transport/ Audit:** **G.10/G.11** publication & refresh semantics (CL routing to **R/R_eff**).
+**LawSet:** **no change of dominance defaults** unless CAL policy promotes; edition‑aware refresh. **Guards:** AH‑1..AH‑4 block missing pins. **Transport/Audit:** **G.10/G.11** publication & refresh semantics (CL routing to **R/R_eff**).
 
 *Informative SoTA:* telemetry hooks align with post‑2015 quality‑diversity families (CMA‑ME/MAE, DQD/MEGA) and open‑ended methods (POET‑class) when gauged (illumination) rather than scored.
 
@@ -5931,13 +5956,13 @@ Thus the algebraic-effect lineage maps to *mathematical reasoning*, the institut
 
 ### 10 · 60‑second didactic script 
 
-> *“To mint a mechanism, fill a **MechSig**: pick **HostSpace** and **GovernedSubject**; declare **OpSig** and **LawSet**; state **GuardPolicy** and **Γ_time**; define **Transport** (Bridge/CL with penalties to **`R_eff`** only), and **Audit** (UTS + Path pins). Realize it as CAL/LOG/CHR under **A.6**. USM and UNM are already such mechanisms; the same template births comparison, scoring, and publication mechanisms—safely bound to **CG‑Spec**—without leaving the kernel grammar.”*
+> *“To mint a mechanism, fill a **MechSig**: declare **SubjectBlock** (**SubjectKind**, **BaseType**, **SliceSet**, **ExtentRule**, **ResultKind?**) and **ParamKinds**; then **OpSig/Laws/GuardPolicy** and **Γ_time**; define **Transport** (Bridge/CL with penalties to R only), and **Audit** (UTS + Path pins). Realize it as CAL/LOG/CHR under **A.6**. USM and UNM are already such mechanisms; the same template births comparison, scoring, and publication mechanisms—safely bound to **CG‑Spec**—without leaving the kernel grammar.”*
 
 ### 11 · Quick “builder’s” checklist (author‑facing)
 
 1. Draft **AT0/AT1 charter**: why this Mechanism, which **guard surfaces** and **comparability** are in scope; is a **Γ_m (CAL)** builder needed?
     
-* Fill **MechSig** (HostSpace, CharacteristicKind, OpSig, LawSet, GuardPolicy, Transport, Γ_timePolicy, Audit).
+* Fill **MechSig** (**SubjectBlock**, **ParamKinds**, **OpSig**, **LawSet**, **GuardPolicy**, **Applicability**, **Transport**, **Γ_timePolicy**, **PlanePolicy**, **Audit**).
     
 * Bind **CHR legality & CG‑Spec** when comparing/aggregating (ComparatorSet, ScaleComplianceProfile (SCP), MinimalEvidence, Γ‑fold).
     
@@ -5951,13 +5976,11 @@ Ship **UTS + G.10**; wire **G.11** telemetry (PathSlice‑keyed); ensure penalti
 
 ### 13 · Rationale (informative)
 
-Anchoring mechanisms in **A.6 Signature→Realization** provides a minimal, typed surface that preserves **USM** set‑algebra and **UNM** “normalize‑then‑compare” quotients while making **E.11** crossings explicit and costed on **R** (never **F/G**).
+Anchoring mechanisms in **A.6 Signature→Realization** provides a minimal, typed surface that preserves **USM** set‑algebra and **UNM** “normalize‑then‑compare” quotients while making **Part F (Bridges)** crossings explicit and costed on **R** (never **F/G**).
 
 ### 14 · Relations (quick pointers)
 
 Builds on **A.6**; instantiates **A.2.6 USM** (ContextSlice, Γ_time, ∩/SpanUnion/translate) and **A.19/C.16 UNM** (classes, ≡\_UNM, validity windows); uses **Part B** (Bridges, CL/CL^k/CL^plane; **no implicit crossings**); binds **CG‑Spec** for any numeric comparison/aggregation; telemetry/publication via **G.10/G.11**.
-</мой вариант паттерна "механизма механизмов">
-
 
 ## **Cluster A.V · Constitutional Principles of the Kernel**
 
@@ -8278,7 +8301,7 @@ In essence, A.18 is the _infrastructure of meaning_ for metrics. It may appear a
 ## A.19 (A.CHR‑SPACE) — CharacteristicSpace & Dynamics Hook `[A]`
 
 **Non‑duplication note.** This pattern reuses the canonical measurement concepts (`U.Characteristic`, **CSLC** terms) from **A.17/A.18** and relies on **C.16 (MM‑CHR)** for **normalization evidence**. It **does not redefine** units or normalization semantics. **UNM** *names admissible re‑parameterizations within one `U.BoundedContext`* and thereby **induces a context‑local congruence** over charts, written **≡_UNM**, which is a **specialization of the framework’s congruence notion** used in **B.3** (and instantiated for epistemes in **B.1.3**). A **NormalizationFix** selects a canonical representative of an **≡_UNM** class. Timebases and laws remain out of scope (see **A.3.3**).
-**Locality & governance.** A **UNM** is *context‑local*: it is declared within a single `U.BoundedContext` for a given CharacteristicSpace (or family of charts) and **enumerates** (a) the **admissible classes of NormalizationMethod**, (b) the **invariants** they must preserve, (c) **closure** under composition (and inverses where defined), and (d) **validity/versioning rules** (editions, windows). Semantics and evidence backing remain under **C.16**; A.19 constrains how UNM artifacts are *named and used* in state/comparability logic.
+**Locality & governance.** A **UNM** is *context‑local*: it is declared within a single `U.BoundedContext` for a given CharacteristicSpace (or family of charts) and **enumerates** (a) the **admissible classes of NormalizationMethod**, (b) the **invariants** they must preserve, (c) **closure** under composition (and inverses where defined), and (d) **validity/versioning rules** (editions, windows). Semantics and evidence backing remain under **C.16**; A.19 constrains how UNM artifacts are *named and used* in state/comparability logic. **Cross‑context reuse** of a UNM **MUST** be declared via **A.6.1 Transport**; when the *aboutness* changes, declare a **KindBridge (CL^k)**. Any **CL^plane** penalties **route to R/R_eff only**.
 
 ### 0 · Terminology update (Normalization) — replaces legacy “gauge/map/κ”
 **UNM — Unified Normalization Mechanism.** A mechanism that packages admissible re‑parameterizations for a CharacteristicSpace so that values can be normalized for safe comparison **within one `U.BoundedContext`**.
@@ -14817,7 +14840,7 @@ Typed compatibility first (same‑Context **`⊑`** or **KindBridge**), then **S
 
 ### 6.3 · **Extension** & **MemberOf** (extent in a slice)  \[A]
 
-**Definition.** `Extension(k, slice) ⊆ EntitySpace(slice)` = set of instances that belong to `k` **in the given `U.ContextSlice`**. `MemberOf(e, k, slice)` is the membership predicate: `e ∈ Extension(k, slice)`.
+**Definition.** `Extension(k, slice) ⊆ EntitySet(slice)` = set of instances that belong to `k` **in the given `U.ContextSlice`**. `MemberOf(e, k, slice)` is the membership predicate: `e ∈ Extension(k, slice)`.
 
 **Summary of norms** *(authoritative text: **C.3.2 K‑05–K‑08**)*.
 — Membership is deterministic for a fixed `(k, slice)` (no hidden “latest”).
@@ -15776,7 +15799,7 @@ Contexts differ wildly in “type” practice. A large, prescriptive core would 
 
 # C.3.2 · **KindSignature (+F) & Extension/MemberOf**  \[A]
 
-> **One‑line summary.** Specifies the **intent and extent** of kinds: (**i**) a **`KindSignature(k)`** (the intensional definition of kind `k`) that **declares its own Formality F**; (**ii**) an **`Extension(k, slice) ⊆ U.EntitySpace(slice)`** and the **membership predicate** `MemberOf(e, k, slice)` that are **deterministic per `U.ContextSlice`**; (**iii**) **monotonicity** of extension under `SubkindOf`; (**iv**) a **definedness policy** that fails **closed** outside its domain. **Kinds still carry no Scope** (that rule lives in C.3.1); Scope stays on **claims/capabilities** (USM). This pattern gives managers and reviewers the **observable basis** to check “what counts as a member here and now” without entangling applicability (G) or assurance (R).
+> **One‑line summary.** Specifies the **intent and extent** of kinds: (**i**) a **`KindSignature(k)`** (the intensional definition of kind `k`) that **declares its own Formality F**; (**ii**) an **`Extension(k, slice) ⊆ U.EntitySet(slice)`** and the **membership predicate** `MemberOf(e, k, slice)` that are **deterministic per `U.ContextSlice`**; (**iii**) **monotonicity** of extension under `SubkindOf`; (**iv**) a **definedness policy** that fails **closed** outside its domain. **Kinds still carry no Scope** (that rule lives in C.3.1); Scope stays on **claims/capabilities** (USM). This pattern gives managers and reviewers the **observable basis** to check “what counts as a member here and now” without entangling applicability (G) or assurance (R).
 
 ---
 
@@ -15837,8 +15860,8 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 ## 5 · Solution — Objects & Standards (overview)
 
 * **`KindSignature(k)`** — the **intensional** definition of kind `k` in the Context; it **declares `U.Formality`** per C.2.3.
-* **`U.EntitySpace(slice)`** — the set (or well‑defined universe) of **entities addressable in a given `U.ContextSlice`**.
-* **`Extension(k, slice) ⊆ U.EntitySpace(slice)`** — **which entities** belong to `k` **at** `slice`.
+* **`U.EntitySet(slice)`** — the set (or well‑defined universe) of **entities addressable in a given `U.ContextSlice`**.
+* **`Extension(k, slice) ⊆ U.EntitySet(slice)`** — **which entities** belong to `k` **at** `slice`.
 * **`MemberOf(e, k, slice)`** — membership predicate: `e ∈ Extension(k, slice)`.
 
 **Design split.**
@@ -15874,12 +15897,12 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 **C3.2‑K‑08 (Separation from G).** Guards **SHALL** keep **Scope coverage** (USM) and **membership** **as separate predicates**:
 “`U.ClaimScope(Claim) covers TargetSlice` **AND** `MemberOf(?, k, TargetSlice)` is defined/used”.
 
-### 6.3 · Entity space & time
+### 6.3 · Entity set & time
 
-**C3.2‑S‑01 (`U.EntitySpace`).** A Context **SHALL** document what counts as `U.EntitySpace(slice)` (e.g., “rows in dataset D at version v,” “live objects in service S at build b,” “ontology individuals at vocabulary v”). This documentation **MUST** be stable and addressable via the `slice` tuple.
+**C3.2‑S‑01 (`U.EntitySet`).** A Context **SHALL** document what counts as `U.EntitySet(slice)` (e.g., “rows in dataset D at version v,” “live objects in service S at build b,” “ontology individuals at vocabulary v”). This documentation **MUST** be stable and addressable via the `slice` tuple.
 **C3.2‑S‑02 (Time).** `slice` **SHALL** specify **`Γ_time`** (point/window/policy). Membership **MUST NOT** rely on implicit recency. 
 
-`U.EntitySpace(slice)` **MUST NOT** expand implicitly via external defaults or time; its extent is fixed by the `slice` tuple (see **C3.2‑S‑02**).
+`U.EntitySet(slice)` **MUST NOT** expand implicitly via external defaults or time; its extent is fixed by the `slice` tuple (see **C3.2‑S‑02**).
 
 ## 7 · Interactions & Placement (informative)
 
@@ -15902,7 +15925,7 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 
 ### 8.2 · Authoring membership
 
-* **Define `U.EntitySpace(slice)`.** Write it down once per Context, make it addressable via the `slice` tuple, and reuse.
+* **Define `U.EntitySet(slice)`.** Write it down once per Context, make it addressable via the `slice` tuple, and reuse.
 * **Determinism first.** No hidden IO, no implicit time; membership must be recomputable from the slice.
 * **Document definedness.** If `MemberOf` is undefined without a Standard, say so; guards will fail closed.
 * **Respect `⊑`.** If you declare `k₁ ⊑ k₂`, verify subset behavior (C3.2‑K‑06).
@@ -15910,7 +15933,7 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 ### 8.3 · Review checklist (10 minutes)
 
 1. Is **signature F** declared? Is the signature sufficient to evaluate membership?
-2. Is **`U.EntitySpace(slice)`** documented and addressable?
+2. Is **`U.EntitySet(slice)`** documented and addressable?
 3. Is **membership deterministic** with explicit `Γ_time` (no “latest”)?
 4. If `⊑` links exist, does **subset behavior** hold at sample slices?
 5. Are **Scope** and **membership** kept **separate** in guards?
@@ -15929,7 +15952,7 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 * `hasBrakeSystem(x)`;
 * Standards: `registryAPI v1.4`; `Γ_time` policy: rolling 365 d for registry fields.
 
-**`U.EntitySpace(slice)`**: “records in `registryAPI v1.4` for plant `A` at build `b`, as of `Γ_time`.”
+**`U.EntitySet(slice)`**: “records in `registryAPI v1.4` for plant `A` at build `b`, as of `Γ_time`.”
 **`Extension(Vehicle, slice)`**: all records satisfying the predicates **in that `slice`**.
 **Monotonicity:** `PassengerCar ⊑ Vehicle` ⇒ `Extension(PassengerCar, s) ⊆ Extension(Vehicle, s)`.
 
@@ -15947,7 +15970,7 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 **KindSignature(AdultPatient)** *(F3→F4 as it hardens)*:
 
 * `ageYears(x, Γ_time) ≥ N` (jurisdictional N varies; recorded in the Context’s signature note).
-* `EntitySpace(slice)`: EHR `ehr‑east v7.5` @ `Γ_time`;
+* `EntitySet(slice)`: EHR `ehr‑east v7.5` @ `Γ_time`;
 * Membership deterministic if DOB present; undefined otherwise (fail closed).
 
 ---
@@ -15992,7 +16015,7 @@ Guards must be **reproducible** and **auditable**: same `slice` ⇒ same members
 | **C3.2‑K‑06** | **Monotonicity:** if `k₁ ⊑ k₂` then `Extension(k₁, s) ⊆ Extension(k₂, s)` for all `s`.          |
 | **C3.2‑K‑07** | **Definedness:** outside domain, membership **fails closed**; guards deny use.                  |
 | **C3.2‑K‑08** | **Separation:** guards keep **Scope coverage** (USM) and **membership** as distinct predicates. |
-| **C3.2‑S‑01** | The Context **documents `U.EntitySpace(slice)`** (stable, addressable via `slice`).                |
+| **C3.2‑S‑01** | The Context **documents `U.EntitySet(slice)`** (stable, addressable via `slice`).                |
 | **C3.2‑S‑02** | `slice` **specifies `Γ_time`**; membership **must not** rely on implicit recency.               |
 
 
@@ -16270,7 +16293,7 @@ Use the **`Guard_XContext_Typed`** macro (Annex C.3.A), which requires **both br
 **Depends on.**
 
 * **C.3.1 — U.Kind & SubkindOf (Core):** kinds are intensional; `⊑` is a partial order; kinds **carry no Scope**.
-* **C.3.2 — KindSignature (+F) & Extension/MemberOf:** signature F; deterministic `MemberOf(e,k,slice)`; `EntitySpace(slice)`.
+* **C.3.2 — KindSignature (+F) & Extension/MemberOf:** signature F; deterministic `MemberOf(e,k,slice)`; `EntitySet(slice)`.
 * **C.3.3 — KindBridge & CL^k:** Cross‑context kind mapping; `CL^k` penalties → **R** only.
 * **A.2.6 — USM (Context slices & Scopes):** Claim/Work scope (**G**) over `U.ContextSlice`; bridges and **CL** for scope.
 * **C.2.2 — F–G–R; C.2.3 — U.Formality (F).**
@@ -21610,7 +21633,7 @@ Every plain twin **MUST** have a **registry entry** (in the LEX registry) record
 
 ## 7 · Minimal Generality & Domain Anchoring (MG·DA) — names neither parochial nor vacuous
 
-> **Principle (MG·DA).** A minted name is **as general as necessary and no more**, and its **head noun is anchored to the object‑of‑talk**. First classify the **NameToken (name of a concept: term, lexical unit) itself** using **`LEX.TokenClass`**, then apply the guardrails corresponding to that class: kernel tokens must unify **across domains**; discriminator/context tokens must make the **domain legible** *from the name itself*.
+> **Principle (MG·DA).** A minted name is **as general as necessary and no more**, and its **head noun is anchored to the object‑of‑talk**. First classify the **NameToken (name of a concept: term, lexical unit) itself** using **`LEX.TokenClass`**, then apply the guardrails corresponding to that class: kernel tokens must unify **across domains**; discriminator/context tokens must make the **domain legible** *from the name itself*. Names too general to have obvious domain are **banned**. 
 
 ### 7.1 `LEX.TokenClass` (meta‑lexical; not a USM Scope)
 **Definition.** `LEX.TokenClass : NameToken → {KernelToken | ContextToken | DiscriminatorToken}`.  
@@ -21736,6 +21759,10 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 • **CHR guard:** the only token that may use the word *plane* is **CHR:ReferencePlane**.
 • **Axis/dimension metaphors** are deprecated; use **Characteristic / CharacteristicSpace** where an enumeration is intended (see § 7).
 
+**Not only suffix guard**
+* suffixes is strongly related to kinds and shold be clearly guarded by MG·DA.
+* other morphemes (not only suffixes) also should respect kinds, e.g. Space is geomertic concept, neve use it even not as a suffix (...Space...) for naming non-geometric enities as ...Spaces... (e.g. instead of Sets or Kits with membership)
+
 **L‑SURF — disciplined use of *Surface* **
 * ***Definition.** *Surface* is reserved for **publication/interoperability surfaces** (UTS, shipping, interop) that present lawful, plane‑aware summaries for human/selector consumption. Surfaces are **conceptual** (E.5.2); serialisations live in Annex/Interop.
 * ***Allowed:** `PublicationSurface`, `InteropSurface` (G.10/G.13).  
@@ -21743,7 +21770,13 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 * ***Preferred alternatives:** use `…Boundary` (structural border), `…View` (publication view), or `…Card` (UTS record).
 
 **L‑SPACE — disciplined use of *Space* **
-* Use *Space* only for **CHR‑grounded measurement/state constructs** (e.g., `CharacteristicSpace` per A.19). Do **not** coin generic `…Space` for sets/portfolios or publication artefacts. Publish portfolios/archives as **sets** via lawful selectors; surface them on UTS as **views/cards**, not as spaces.
+* Use *Space* only for **CHR‑grounded measurement/state constructs** (e.g., `CharacteristicSpace` per A.19). Do **not** coin generic `…Space` for sets/portfolios or publication artefacts. Publish portfolios/archives as **sets** via lawful selectors; surface them on UTS as **views/cards**, not as spaces. 
+* **Field‑name guard (Kernel blocks).** In **Kernel conceptual blocks** (e.g., A.6.0/A.6.1 lists), **do not** name a field `…Space`; reserve *Space* to the **types** (CHR/ReferencePlane families). Use **BaseType** as the field name and let the referenced `U.Type` carry `…Space` where appropriate; otherwise, for set‑valued universes, use `…Set`.
+* Space is geomertic concept, neve use it even not as a suffix for naming non-geometric spaces (e.g. instead of Sets with membership)
+
+**L-Role  disciplined use of Role**
+* Role is always Role Enactment for Holons kind. 
+* **Param slot / relation endpoint guard** Do **not** use the morpheme **`Role`** for **formal parameter positions** in operation signatures (`OpSig`). Reserve **`Role`** for **agentive kinds** only (A.2/F.4/F.6). Use a **`ParamKinds`** map (name→Kind) to type formal slots or something like RelationEndpointKinds. Same for similar situations (column of tables,  placements in tuples, etc.: use MG·DA with domain-specifit terminology, never "Role" that is always about Role Enactment).
 
 ### 8.2 Forbidden suffixes & the DevOps and Data Governance Lexical Firewall
 
