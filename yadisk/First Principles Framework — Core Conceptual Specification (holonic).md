@@ -5949,11 +5949,6 @@ Each source corresponds to a distinct *Tradition*: formal semantics, categorical
 The same correspondence holds at **every holonic level**:  
 a part-holon declares its own `OpSig/LawSet/GuardPolicy`; a whole-holon merges them via Bridges; a meta-holon re-binds mechanisms under a new Γ-closure. All penalties remain in **R / R_eff**, while **F / G** invariants propagate intact.
 
-#### 9.5 Didactic interpretation
-
-FPF treats each Mechanism as *lawful physics* under its Signature’s *mathematics*, and every M2SAttachment as *engineering evidence* of that law in a concrete ContextSlice.  
-Thus the algebraic-effect lineage maps to *mathematical reasoning*, the institutional and policy lineages map to *physical law and governance*, and Binding makes these observable and auditable—bridging *mathematics → physics → engineering* at any holonic depth.
-
 ### 10 · 60‑second didactic script 
 
 > *“To mint a mechanism, fill a **MechSig**: declare **SubjectBlock** (**SubjectKind**, **BaseType**, **SliceSet**, **ExtentRule**, **ResultKind?**) and **ParamKinds**; then **OpSig/Laws/GuardPolicy** and **Γ_time**; define **Transport** (Bridge/CL with penalties to R only), and **Audit** (UTS + Path pins). Realize it as CAL/LOG/CHR under **A.6**. USM and UNM are already such mechanisms; the same template births comparison, scoring, and publication mechanisms—safely bound to **CG‑Spec**—without leaving the kernel grammar.”*
