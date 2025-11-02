@@ -194,6 +194,7 @@ September 2025
 | E.14 | **Human-Centric Working-Model** | Stable | *Keywords:* working model, human-centric, publication surface, grounding, assurance layers. *Queries:* "What is the main interface for FPF users?", "How does FPF separate human-readable models from formal assurance?". | **Builds on:** E.7, E.8, C.2.3. **Coordinates with:** B.3.5, C.13, E.10. |
 | E.15 | **Lexical Authoring & Evolution Protocol (LEX-AUTH)** | stable | *Keywords:* lexical authoring, evolution protocol, LAT, delta-classes. *Queries:* "How are FPF patterns authored and evolved?", "What is a Lexical Authoring Trace (LAT)?". | **Builds on:** E.9, E.10, B.4, C.18, C.19, A.10, B.3, F.15. |
 | E.16 | **RoC‑Autonomy: Budget & Enforcement** | **normative** | *Keywords:* autonomy, budget, guard, override, ledger, SoD, SpeechAct. *Queries:* "How is autonomy bounded and tested?", "How are overrides enforced?" | **Builds on:** E.8, E.10, E.11; ties F.4/F.6/F.15/F.17; G.4/G.5/G.9. |
+| E.17 | Multi‑View Publication Kit (for Morphisms) | Stable | Keywords: publication, view, viewpoint, I→D→S, pins, functorial views, reindexing, UTS, CHR, CG‑Spec, ATS. Queries: “How do we publish any morphism across multiple faces without changing semantics?”, “What are the rules for functorial, edition‑pinned views?” | Builds on: A.7, E.8, E.10. Coordinates with: E.11 (ATS), F.17 (UTS), Part F/G. |
 
 **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
@@ -5979,9 +5980,9 @@ Builds on **A.6**; instantiates **A.2.6 USM** (ContextSlice, Γ_time, ∩/SpanUn
 
 ## **Cluster A.V · Constitutional Principles of the Kernel**
 
-### A.7 — Strict Distinction (Clarity Lattice)  \[A]
+## A.7 — Strict Distinction (Clarity Lattice)  \[A]
 
-#### 1 · Intent
+### 1 · Intent
 
 Provide a **single, didactically clear lattice of distinctions** that keeps models free from category errors. This pattern is the guard‑rail that prevents four recurrent confusions:
 
@@ -5992,18 +5993,16 @@ Provide a **single, didactically clear lattice of distinctions** that keeps mode
 
 It harmonizes A.12 (External Transformer), A.13 (Agential Role & Agency Spectrum), A.14 (Advanced Mereology), and A.15 (Role–Method–Work Alignment).
 
-#### 2 · Context
+#### 2 · Problem frame
 
 * **Holons (A.1) and systems.** All holons are part/whole units; **only systems** can enact behaviour.
 * **Externalization (A.12).** Every change is performed by a **system bearing TransformerRole** across a boundary; there is no “self‑magic”.
-* **Quartet backbone (A.3, A.15).** We separate **MethodDescription** (description), **Method** (design‑time capability), and **Work** (run‑time occurrence), with the **system bearing TransformerRole** as the acting side.
+* **Quartet backbone (A.3, A.15).** We separate **MethodDescription** (description), **Method** (**capability under a role**), and **Work** (run‑time occurrence), with the **system bearing TransformerRole** as the acting side.
 * **Evidence (A.10).** Knowledge claims are anchored via **Symbol‑Carrier Register (SCR)**; epistemes never “act”, they are **used** by systems that act on their **carriers**.
 
 Manager’s reading: if a sentence could be read as “the document decided” or “the process executed itself”, it violates A.7.
 
----
-
-#### 3 · Problem
+### 3 · Problem
 
 When documents blur the above lines, three classes of defects appear:
 
@@ -6011,47 +6010,47 @@ When documents blur the above lines, three classes of defects appear:
 2. **Agency misplacement.** Epistemes (documents, models) are treated as doers; collectives as raw sets; or a “holon” is used where **only a system** makes sense.
 3. **Audit failures.** A MethodDescription is cited as if it were evidence; or Work has no anchors (no carriers, no time span), making trust impossible (B.3).
 
----
-
-#### 4 · Forces
+### 4 · Forces
 
 | Force                                        | Tension                                                                                                                             |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| **Didactic brevity vs conceptual precision** | Teams want short words (“process”, “function”) ↔ the framework must keep five distinct layers apart.                                |
-| **Universality vs domain idioms**            | We support engineering idioms (procedure, SOP, algorithm, workflow) ↔ internally we must map them unambiguously.                    |
+| **Didactic brevity vs conceptual precision** | Teams want short words (“process”, “function”) ↔ the framework must keep five distinct layers apart.                                || **Universality vs domain idioms**            | We support engineering idioms (procedure, SOP, algorithm, workflow) ↔ internally we must map them unambiguously.                    |
 | **Parsimony vs completeness**                | Minimal concept set ↔ enough distinctions to avoid the classic traps (role/function; plan/capability/occurrence; episteme/carrier). |
 
-**Terminology (normative): Four orthogonal characteristics**
+### 5 · Solution — The **Clarity Lattice** (normative distinctions & safe vocabulary)
+
+#### 5.1 **Terminology (normative): orthogonal characteristics**
 • **senseFamily** — the categorical characteristic, used by F.7/F.8/F.9: {Role | Status | Measurement | Type‑structure | Method | Execution}. Rows must be **sense‑uniform**. 
 • **ReferencePlane** — the referent mode per CHR: {world/external | conceptual | epistemic}. 
-• **I/D/S layer** — the Intension/Description/Specification layer (E.10.D2). Not a I/D/S “plane” or "stance", and not a bare "layer".
+• **I/D/S layer** — the Intension/Description/Specification layer (E.10.D2). Not an I/D/S “plane” or "stance", and not a bare "layer".
 • **design/run Stance** — the design vs run temporal stance. Not a temporal “plane” or "layer", and not a bare "stance".
-
-#### 5 · Solution — The **Clarity Lattice** (normative distinctions & safe vocabulary)
+• **PublicationSurface** — the *didactic projection* of a Description/Specification into a **bundle of views** (ISO 42010 sense). **Surfaces are not the thing described**. Under L‑SURF, Core allows only **PublicationSurface** and **InteropSurface** tokens; faces SHALL be named **…View / …Card / …Lane** rather than inventing new `…Surface` kinds. The canonical didactic set for `[A]` is:
+  {**PlainView** (explanatory prose), **TechCard** (typed cards/IDs), **NormsCard** (checklists/SHALL‑clauses), **AssuranceLane** (evidence bindings/lanes)}. *Surfaces are orthogonal to I/D/S and to design/run.*
+• **Typed publication morphisms (I→D, D→S)** — total morphisms that *project* along I/D/S (they are **not** mechanisms):
+  `Publ_ID : I → D` (publish an intensional object into the world of descriptions) and 
+  `Formalize_DS : D → S` (refine a description into a specification). Composition `Publ_IS := Formalize_DS ∘ Publ_ID : I → S` is allowed but both stages MUST remain visible and auditable.
+  **Laws (normative):** (ID‑1) *Non‑extensibility of content*; (ID‑2) *Identity & meaning‑preserving composition*; (DS‑1) *Monotonic refinement* under ≤₍ref₎; (DS‑2) *Pin editions & measurable anchors* per **MM‑CHR** (C.16) via **CHR‑Pins**; (DS‑3) *No retro‑effects*.
 
 A.7 establishes the following **pairs and triplets**. Use their **names** and **scope** exactly as below.
 
-##### 5.1 Role vs Function (behaviour)
+#### 5.2 Role vs Function (behaviour)
 
-* **Role (role‑object, mask).** A contextual **position** a holon can bear (A.2, A.15). A role is **not behaviour**; it is the **mask** under which behaviour may be enacted.
-
-  * Example: **Cooling‑CirculatorRole** in a thermal loop.
+* **Role (role‑object, mask).** A contextual **position** a holon can bear (A.2, A.15). A role is **not behaviour**; it is the **mask** under which behaviour may be enacted. Example: **Cooling‑CirculatorRole** in a thermal loop.
 * **Function = behaviour = Method under a role.** What a **system** actually does **when bearing a role**. In Transformer context, this behaviour is the **Method** (design‑time capability) that can be executed as **Work** (run‑time).
 
-  * Safe rewrite for earlier “Holonic Duality (Substance ⧧ Function)”:
-    **Holonic Duality (Substance ⧧ Role).** A `U.System` keeps its identity (substance) while **switching roles**; each role may entail a **Method** (behaviour) and its possible **Work** (occurrence).
+  * Safe rewrite for earlier “Holonic Duality (Substance ⧧ Function)”: **Holonic Duality (Substance ⧧ Role).** A `U.System` keeps its identity (substance) while **switching roles**; each role may entail a **Method** (behaviour) and its possible **Work** (occurrence).
 
 **Normative guard:** Use “**Role**” for the mask; use “**Method/Work**” for behaviour/occurrence. Do **not** call the role itself a function.
 
-##### 5.2 MethodDescription vs Method vs Work (design vs capability vs occurrence)
+#### 5.3 MethodDescription vs Method vs Work (design vs capability vs occurrence)
 
 * **MethodDescription** — the **description** (algorithm / SOP / recipe / script) at design‑time. Anchored via **SCR** (A.10).
-* **Method** — the **order‑sensitive capability** the **system bearing TransformerRole** can enact, composed with **Γ\_method** (B.1.5). A Method **exists only while** related **Work** is underway; outside executions refer to it **via MethodDescription** (see A.15 §2.2, §4.1).
+* **Method** — the **order‑sensitive capability** the **system bearing TransformerRole** can enact, composed with **Γ\_method** (B.1.5). A Method is a **timeless semantic capability**; **concrete values** are **bound at `U.Work` creation**. Outside executions we **refer to it via MethodDescription** (see A.3.1 CC‑A3.1‑5/‑9; A.15 §2.2, §4.1). 
 * **Work** — the **dated run‑time occurrence** (what actually happened), with resource spend (Γ\_work) and temporal coverage (Γ\_time).
 
 **Normative guard:** Never use MethodDescription as evidence of Work; never present Method as if it had happened.
 
-##### 5.3 Holon vs System vs Episteme (who can act)
+#### 5.4 Holon vs System vs Episteme (who can act)
 
 * **System** — the only holon kind that can **bear behavioural roles** and enact **Method/Work**.
 * **Episteme** — **cannot act**; it is **changed via its carriers** by a system. Epistemes **may bear non‑behavioural roles** (e.g., **ReferenceRole**, **ConstraintSourceRole**).
@@ -6059,7 +6058,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 **Normative guard:** Behavioural roles (including TransformerRole) have **domain = system**. Epistemes may bear purely **classificatory** roles only.
 
-##### 5.4 Episteme vs Symbol Carrier (SCR/RSCR)
+#### 5.5 Episteme vs Symbol Carrier (SCR/RSCR)
 
 * **Episteme** — the knowledge content (claim, model, requirement set).
 * **Symbol Carrier** — the physical/digital sign that carries the episteme (file, volume, dataset item), tracked in **SCR**; remote sets in **RSCR**.
@@ -6067,7 +6066,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 **Normative guard:** When you say “we updated the spec”, detail **which carriers** changed (A.10).
 
-##### 5.5 Collective vs Set, and MemberOf vs Component/Constituent/Portion/Phase (A.14)
+#### 5.6 Collective vs Set, and MemberOf vs Component/Constituent/Portion/Phase (A.14)
 
 * **Set / Collection (MemberOf)** — **mathematical or catalog** grouping; **no joint behaviour** implied.
 * **Collective System** — a **system** with boundary and coordination Method (e.g., a team).
@@ -6081,7 +6080,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 **Normative guard:** If the grouping is expected to **act**, model a **collective system** (not a set) and provide its role and Method/Work.
 
-##### 5.6 Operator alignment (names you MUST use)
+#### 5.7 Operator alignment (names you MUST use)
 
 * **Γ\_sys** — composition of **system** properties (physical/systemic).
 * **Γ\_method** — composition of **Method** (order, branching).
@@ -6090,18 +6089,46 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 **Normative guard:** Avoid generic “process” for these operators. Reserve “process” for domain idioms; map internally to **Method** (design) and **Work** (run).
 
----
+#### 5.8 I/D/S vs PublicationSurface (orthogonal, normative)
+* **I/D/S governs the model.** What the thing *is* vs how it is *described/tested* lives in I/D/S (E.10.D2).
+* **PublicationSurface governs the didactic projection.** How D/S are **presented** lives on **PublicationSurface/InteropSurface** only; concrete faces SHALL be **PlainView / TechCard / InteropCard / AssuranceLane**. Cards/views are **carriers** of D/S, not the intensional object (A.10).
+* **Surface field pins.** When D/S are shown on **TechCard**, pin the minimal **CHR‑Pins** = {**UnitType**, **ScaleKind**, **ReferencePlane**, **EditionId**}. 
+* **Bridge routing.** Cross‑Context or cross‑plane reuse **MUST** cite **Bridge id + CL**; **Φ(CL)**/**Φ_plane** penalties route to **R (trust)** only; **F/G invariant**. 
 
-#### 6 · Grounding & didactic examples
+#### 5.9 Typed publication morphisms (I→D→S, normative)
+
+**What “publish” means in A.7.** For any intensional object `X ∈ I`, *publishing X* is the morphism application `Publ_ID(X) : D`; *formalizing that description* is `Formalize_DS(Publ_ID(X)) : S`. The collapsed arrow `Publ_IS(X)` MAY be referenced, but **implementations SHALL expose and audit both steps**.
+
+**Invariants (restate of the laws, audit‑oriented):**
+1. **Non‑extensibility (ID‑1).** `Publ_ID` MUST NOT introduce new epistemic commitments. If a claim `c` is absent in `X`, it is absent in `Publ_ID(X)`; any added structure is representational only (formatting, indexing, cross‑references).
+2. **Identity & meaning preservation (ID‑2).** If `f : X → Y` is a meaning‑preserving map in I, then `Publ_ID(f)` is defined and preserves identity, and where meaningful composition exists, `Publ_ID(f ∘ g) = Publ_ID(f) ∘ Publ_ID(g)`.
+3. **Monotonic refinement (DS‑1).** If `D₁ ≤₍ref₎ D₂`, then `Formalize_DS(D₁) ≤₍ref₎ Formalize_DS(D₂)`. Also `D ≤₍ref₎ Formalize_DS(D)` holds when S merely adds testable structure.
+4. **Pinning of editions & anchors (DS‑2).** `Formalize_DS` MUST pin: **edition id**, **unit/scale types**, **ReferencePlane**, and **measurable anchors** (CG‑Spec/CHR). Pins are visible on **TechCard/NormsCard** faces and recorded in **SCR**; edition governance follows **U.EditionSeries**.
+5. **No retro‑effects (DS‑3).** Applying `Formalize_DS` yields a *new* `S` and *new* carriers (new SCR ids); earlier carriers remain valid in their scope; **no retro‑mutation** of prior I/D carriers.
+6. **Separation from Γ.** `Publ_ID`/`Formalize_DS` do **not** compose with **Γ\_method**, **Γ\_time**, or **Γ\_work**; publication is *not execution* and accrues no resource/time semantics.
+7. **Ontology preservation.** Publishing any object (Calculus/Signature/Mechanism/…) via `Publ_ID` does **not** change its ontology; it yields a D/S projection by A.7 rules. *Publication is not a subtype of mechanism.*
+
+### 6 · Archetypal Grounding (Tell–Show–Show; System / Episteme)
+
+#### 6.1 System and Episteme example
+**System archetype — “Digital‑twin vs asset”.**  
+*Claim:* *The twin (episteme) does not “act”; the **system** bearing TransformerRole enacts Work on the asset; evidence binds to carriers.*  
+*Show:* A maintenance **MethodDescription** (tech card) lives at design‑time; a **Work** record (assurance face) lists Γ_time, Γ_work, PathId and **carrier** ids for telemetry. The twin’s update is **Work on the carrier**, not the asset; CL^plane penalties are disclosed when twin–asset crossings are analysed.
+
+**Episteme archetype — “Peer‑review vs manuscript”.**  
+*Claim:* *A review is Work by a **system** (the reviewer) **on carriers** of an episteme (the manuscript).*  
+*Show:* The **MethodDescription** is the review SOP; the **Work** cites carrier ids (file/edition) and the *aboutness* episteme; arguments/rebuttals live on epistemes; acceptance gating lives in CAL, not in CHR cards.
+
+#### 6.2 Didactic examples
 
 **Example 1 — Pump in a cooling loop**
 
 * **Substance (system):** Centrifugal pump P‑12.
 * **Role:** **Cooling‑CirculatorRole**.
-* **MethodDescription:** “Loop Circulation v3” (anchored in SCR).
+* **MethodDescription:** “Loop Circulation v3” (**TechCard**, anchored in SCR).
 * **Method:** ordered capability: start → ramp → hold → stop (Γ\_method).
 * **Work:** run on 2025‑08‑09 10:00–10:45; energy ledger via Γ\_work; log via Γ\_time.
-* **Safe phrasing:** *“The **system bearing TransformerRole** (P‑12 control unit) executed the **Method** described by **MethodDescription**, producing **Work** …”*
+* **Safe phrasing:** *“The **system** playing **Cooling‑CirculatorRole** (via the P‑12 control unit as **Transformer**) executed the **Method** described by **MethodDescription**, producing **Work** …”*
 * **What not to write:** “The pump’s function is the role” (role ≠ behaviour).
 
 **Example 2 — Standard document cited in a design**
@@ -6119,7 +6146,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 * **Collective system (team):** boundary, coordination **Method**, supervision **Work**; can bear **AgentialRole** (A.13).
 * **Safe phrasing:** *“Team T plays **Cooling‑MaintenanceRole** and executed Work W…”*
 
-#### 7 · Conformance Checklist (normative)
+### 7 · Conformance Checklist (normative)
 
 | ID                                       | Requirement                                                                                                                                                                                                                                                                                    | Practical test                                                                                                                            |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -6132,13 +6159,18 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 | **CC‑A7.7 (Collective vs set)**          | If a grouping is expected to **act**, it **MUST** be modelled as a **collective system** (boundary + coordination Method + Work), not as a **MemberOf** set.                                                                                                                                   | Presence of boundary, Method, Work for the group.                                                                                         |
 | **CC‑A7.8 (Diagram legend)**             | When domain idioms use **“process”**, diagrams/text **MUST** map them to FPF terms on first occurrence: *process (domain) ≡ Method (design‑time) / Work (run‑time).*                                                                                                                           | Legend or parenthetical present at first use.                                                                                             |
 | **CC‑A7.9 (Substance ⧧ Role wording)**   | The safe formula is **“System (substance) plays Role; under that Role it has Method; its execution is Work.”**                                                                                                                                                                                 | Sentences follow this order; “function” used only as synonym for **behaviour**, never for the **role**.                                   |
-| **CC‑A7.10 (Quartet clarity)**           | Any “triad” picture **MAY** be used only as a **design‑time Standardion** (Transformer + MethodDescription + Method) and **MUST** be accompanied by an explicit **Work** lane elsewhere in the same section. “quartet of quartets” headings **SHALL** be avoided; use **“Quartet backbone”** instead. | Diagram has a visible **Work** lane/timeline or separate box within the same section.                                                     |
+| **CC‑A7.10 (Quartet clarity)**           | Any “triad” picture **MAY** be used only as a **design‑time stand‑in** (Transformer + MethodDescription + Method) and **MUST** be accompanied by an explicit **Work** lane elsewhere in the same section. “quartet of quartets” headings **SHALL** be avoided; use **“Quartet backbone”** instead. | Diagram has a visible **Work** lane/timeline or separate box within the same section.                                                    
 | **CC‑A7.11 (Terminology hygiene)**       | Ban **“actor”** in core text. Use **“system bearing TransformerRole”**; bind local shorthand **“Transformer”** only per A.12 rules.                                                                                                                                                            | Plain text scan: no “actor”; shorthand is locally bound.                                                                                  |
 | **CC‑A7.12 (Role domain guards)**        | Behavioural roles’ domain = **system**. Epistemes may bear **non‑behavioural** roles (e.g., ReferenceRole, ConstraintSourceRole) only.                                                                                                                                                         | Role declarations name their domain.                                                                                                      |
+| **CC‑A7.13 (I→D→S visibility)**          | The I→D→S **chain MUST be explicit**: `Publ_ID` and `Formalize_DS` are named where publication/formalization occur; any I→S reference is justified as `Publ_IS := Formalize_DS ∘ Publ_ID`.                                                              | Both steps are visible in text/diagrams; audit shows two distinct operations.                                                             |
+| **CC‑A7.14 (Publ_ID laws)**              | `Publ_ID` obeys **ID‑1/ID‑2**: no new commitments; preserves identity & composition by meaning.                                                                                                                  | Diff check between I and D shows no new claims; mapping table shows preserved composition.                                                |
+| **CC‑A7.15 (Formalize_DS laws)**         | `Formalize_DS` obeys **DS‑1/DS‑2/DS‑3**: monotonic refinement; pins edition/unit/scale/ReferencePlane/anchors; produces new **S** + **SCR** carriers without retro‑mutation.                                     | Presence of **CHR‑Pins** and pinned anchors; new SCR ids; no edits to prior carriers.                                                     |
+| **CC‑A7.16 (Γ‑separation)**              | Publication morphisms **SHALL NOT** carry cost/time semantics; **Γ\_method/Γ\_time/Γ\_work** are used only for capability/occurrence/resources.                                                                  | No ledger/time fields attached to `Publ_ID`/`Formalize_DS`; any “publication cost” is Work in a separate publication service.             |
+| **CC‑A7.17 (L‑SURF tokens)**             | Only **PublicationSurface/InteropSurface** tokens are legal; faces are named **…View / …Card / …Lane** (e.g., PlainView/TechCard/NormsCard/AssuranceLane).                                                      | Token scan shows no ad‑hoc `…Surface` kinds.                                                       |
+| **CC‑A7.18 (Bridge+CL on crossings)**    | Any cross‑Context or cross‑plane content on a face **MUST** cite **Bridge id + CL** and **Φ policy‑ids**; penalties route to **R** only.                                                                         | Presence of Bridge ids and **Φ(CL)**/**Φ_plane** on TechCard/AssuranceLane.                        |
+| **CC‑A7.19 (UTS anchoring)**             | Public names shown on faces **SHALL** point to **UTS rows** with twin labels (Tech/Plain), edition pins, and SCR carrier ids.                                                                                    | Face carries UTS row ids + edition pins.                                                          |
 
----
-
-#### 8 · Canonical rewrites (didactic library)
+### 8 · Canonical rewrites (didactic library)
 
 | Instead of (ambiguous)                           | Write (canonical)                                                                                                                               | Why                                                       |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
@@ -6149,10 +6181,9 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 | “Team = set of members; it performed repair.”    | “The **team** is a **collective system** (boundary + coordination **Method**); it executed **Work** ⟨…⟩.”                                       | Acting groups must be systems, not sets.                  |
 | “Process cost is tracked by Γ\_method.”          | “**Work** cost is tracked by **Γ\_work**; **Γ\_method** composes the **Method** (order/branching).”                                             | Operator alignment.                                       |
 | “Holon bearing TransformerRole.”                 | “**System bearing TransformerRole**.”                                                                                                           | Only systems can bear behavioural roles.                  |
+| “Publication is a special mechanism.”            | “Publication = **typed projection** along I→D→S: `Publ_ID` then `Formalize_DS`; any execution around it is separate **Work** by a **system** on **carriers**.” | Publication is not behaviour; it is a morphism in the model. |
 
----
-
-#### 9 · Anti‑patterns (with fixes)
+### 9 · Anti‑patterns (with fixes)
 
 1. **Role‑as‑behaviour** — calling the **role** “the function”.
    **Fix:** Name the **role** + **Method/Work** pair explicitly.
@@ -6182,11 +6213,12 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
    **Fix:** Add parenthetical mapping at first use (Method/Work).
 
 10. **Carrier/episteme swap** — “we versioned the model” meaning a file was renamed.
-    **Fix:** State whether the **episteme content** changed; if only a carrier was renamed, say so.
+   **Fix:** State whether the **episteme content** changed; if only a carrier was renamed, say so.
 
----
+11. **Publication‑as‑mechanism** — modelling “publication” as if it were a Method/Mechanism.
+   **Fix:** Use `Publ_ID`/`Formalize_DS`. If there is operational toil (build, render, upload), model it as **Work** by a **system** on **carriers**; do not change the ontology of the published object.
 
-#### 10 · Consequences
+### 10 · Consequences
 
 | Benefit                      | Why it matters                                    | Trade‑off / Mitigation                             |
 | ---------------------------- | ------------------------------------------------- | -------------------------------------------------- |
@@ -6195,22 +6227,36 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 | **Operator determinism**     | Correct Γ‑flavour selection preserves invariants. | A bit more modelling → reusable templates.         |
 | **On‑ramp for managers**     | Canonical rewrites give immediate phrasing fixes. | Team training → this pattern is the training page. |
 
----
+| Benefits | Trade‑offs / Mitigations |
+|---------|---------------------------|
+| **Category‑error firewall.** Clear separation of System/Episteme; I/D/S vs Surface orthogonality removes recurring modeling defects. | Authors must tag surfaces explicitly; mitigated by a minimal **SurfacePack** template in E.8. |
+| **Audit and pedagogy align.** SCR/RSCR point to carriers; Normative face houses checklists; Plain face teaches; Tech face types. | Slight increase in pattern length; offset by predictable navigation and machine‑checkable CC. |
+| **Cross‑Context safety.** Bridge+CL discipline is now visible even on surfaces. | Authors must cite CL policy‑ids; tooling can assist (ATS), but text remains notation‑independent. |
 
-#### 11 · Rationale (informal)
+### 11 · SoTA‑Echoing (post‑2015 practice alignment)
+
+* **Digital Twins (ISO 23247, 2021→):** separates the asset (system) from its **digital representation** (episteme) and prescribes governance of twins without attributing *agency* to the twin itself — matching A.7’s “episteme ≠ actor” and carrier discipline. **Adopt.** 
+* **Observability (OpenTelemetry, 2019→2025):** codifies **semantic conventions** as a *publication layer* over traces/metrics/logs; semantics live in descriptions, not exporters — echoing our **PublicationSurface** orthogonality. **Adapt** (terminology). 
+* **Active Inference (2017→2024):** separates a **generative model** (episteme) from **actions** by the agent (system), with explicit perception–action cycles — mirroring A.7’s “who can act” and stance separation. **Adopt** 
+* **Constructor Theory (2016→):** frames knowledge and work as **possible transformations** enacted by constructors (systems), not by informational states — reinforcing “episteme ≠ actor”. **Adopt** 
+* **Quality‑Diversity (MAP‑Elites family, 2015→2024):** archives are **sets on typed spaces** (descriptions) whose **occurrences** are runs; selection returns **sets** under lawful orders — consonant with A.7 and A.15’s set‑returning discipline. **Adopt/Adapt**. 
+* **Refinement‑typed specs (2016→):** modern stacks (e.g., Liquid Haskell, Dafny’s post‑2017 refinements, Rust’s `uom` type‑level units) treat formalization as **monotonic refinement with pinned units/scales** — echoing **Formalize_DS** and **Surface field pins**. **Adapt** (terminology; pinning discipline).
+
+### 12 · Rationale (informal)
 
 * **Engineering cognition:** Large programmes fail less from equations than from category slips (“process vs procedure vs execution”). A.7 eliminates these slips by a small, repeatable grammar.
 * **Compatible with ISO/BORO practice:** Distinguishing artefacts (specs), capabilities (procedures), and occurrences (operations) mirrors established systems‑engineering discipline while keeping FPF’s holonic rigor.
 * **Didactic primacy:** Managers can approve sentences by spotting five tokens: **system bearing TransformerRole** / **Role** / **Method** / **Work** / **SCR**.
+* **Why bring “PublicationSurface” into A.7?** Strict Distinction already guards **what a thing is (I)** from **how we describe/specify it (D/S)**. In practice, **misreadings happen at the publication layer**: cards and tables are mistaken for objects; governance words leak where physics/logic should stand. By making **PublicationSurface** *explicit and orthogonal*, A.7 closes that gap without entangling semantics with any tool or notation. This preserves **C‑1 universality** and **P‑1 Cognitive Elegance**, while giving E.8 a crisp home for multi‑face presentation rules.
 
----
+### 13 · Relations
 
-#### 12 · Relations
-
-* **Builds on:** A.3 (Transformer Quartet), A.12 (Externalization & Reflexive Split), A.14 (Advanced Mereology), A.15 (Role–Method–Work Alignment), A.10 (Evidence & SCR).
-* **Constrains:** A.13 (Agency sits on systems only; epistemes non‑behavioural), Part B operators (Γ\_method/Γ\_time/Γ\_work/Γ\_sys) and their choice points.
-
-#### 13 · Manager’s one‑page review (copy‑paste)
+* **Builds on:** A.1 (Holon), A.2 (Roles), A.3 (Transformer Quartet), A.10 (Evidence & SCR), A.12 (External Transformer), A.14 (Advanced Mereology), A.15 (Role–Method–Work Alignment).  
+* **Constrains:** A.13 (Agency sits on systems only; epistemes non‑behavioural), Part B operators (**Γ_method**/**Γ_time**/**Γ_work**/**Γ_sys**) and their choice points; **publication is not a Γ‑operator**.  
+**Extends:** E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. **L‑SURF**), **Part F/G (UTS & CG‑Spec/CHR pinning)**, B.3 (Assurance routing), C‑cluster (selection/archives) — by enforcing I/D/S vs Surface orthogonality, System/Episteme separation, and typed I→D→S publication.  
+* **Coordinates with:** ATS (E.11) for surface‑level checks (Tier/Gate/Lane/LEX) and **UTS presence** without embedding any notation dependence.
+  
+### 14 · Manager’s one‑page review (copy‑paste)
 
 **Approval sentence template**
 
@@ -6502,9 +6548,9 @@ Packaging these insights as one memorisable quintet → **Cognitive Elegance
 
 #### 1 · Context
 
-FPF is a holonic framework: wholes are built from parts (A.1, A.14), and reasoning travels across scales via Γ‑flavours (B.1). To keep this reasoning honest and reproducible, every **published assertion** must be *anchored* in concrete **symbol carriers** and **well‑typed transformations** performed by an **external TransformerRole** (A.12, A.15).
-Managers can read this as a simple rule of thumb:
+FPF is a holonic framework: wholes are built from parts (A.1, A.14), and reasoning travels across scales via Γ‑flavours (B.1). To keep this reasoning honest and reproducible, every **published assertion** must be *anchored* in concrete **symbol carriers** and **well‑typed transformations** performed by an **external TransformerRole** (A.12, A.15). **Publication** itself is the typed projection **I→D→S** (`Publ_ID`, `Formalize_DS`) per A.7 and is **not execution**; any physical/digital release, rendering, or upload is **Work** by an external transformer **on carriers**, cited in SCR.
 
+Managers can read this as a simple rule of thumb:
 > **Claim → (Proof or Test) → Confidence badge**
 > …where the proof/test is traceable to real carriers and to an external system/Transformer who executed an agreed method.
 
@@ -21755,11 +21801,11 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 • **Axis/dimension metaphors** are deprecated; use **Characteristic / CharacteristicSpace** where an enumeration is intended (see § 7).
 
 **Not only suffix guard**
-* suffixes is strongly related to kinds and shold be clearly guarded by MG·DA.
-* other morphemes (not only suffixes) also should respect kinds, e.g. Space is geomertic concept, neve use it even not as a suffix (...Space...) for naming non-geometric enities as ...Spaces... (e.g. instead of Sets or Kits with membership)
+* Suffixes are strongly related to kinds and **should** be clearly guarded by MG·DA.
+* Other morphemes (not only suffixes) also **must** respect kinds. For example, **Space is a geometric concept** — **never** use it as a suffix (`…Space…`) or other morpheme in beginning or in the middle of a term to name non‑geometric entities (e.g. prefer **Set/Kid/Kit** instead of **Space** where membership is intended).
 
 **L‑SURF — disciplined use of *Surface* **
-* ***Definition.** *Surface* is reserved for **publication/interoperability surfaces** (UTS, shipping, interop) that present lawful, plane‑aware summaries for human/selector consumption. Surfaces are **conceptual** (E.5.2); serialisations live in Annex/Interop.
+* ***Definition.** *Surface* is reserved for **publication/interoperability surfaces** (UTS, shipping, interop) that present lawful, plane‑aware summaries for human/selector consumption. A **Surface is a bundle of views** (ISO 42010 sense) packaged for a stated **audience** and **purpose**, with declared **viewpoint**. Surfaces are **conceptual** (E.5.2); serialisations live in Annex/Interop. Surfaces package **D/S** projections produced via `Publ_ID` / `Formalize_DS` (A.7) and do **not** change object ontology.
 * ***Allowed:** `PublicationSurface`, `InteropSurface` (G.10/G.13).  
 * ***Forbidden:** `StructureSurface`, `MechanismSurface`, any `…Surface` that denotes a structural, mechanistic or measurement object.  
 * ***Preferred alternatives:** use `…Boundary` (structural border), `…View` (publication view), or `…Card` (UTS record).
@@ -21769,9 +21815,9 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 * **Field‑name guard (Kernel blocks).** In **Kernel conceptual blocks** (e.g., A.6.0/A.6.1 lists), **do not** name a field `…Space`; reserve *Space* to the **types** (CHR/ReferencePlane families). Use **BaseType** as the field name and let the referenced `U.Type` carry `…Space` where appropriate; otherwise, for set‑valued universes, use `…Set`.
 * Space is geomertic concept, neve use it even not as a suffix for naming non-geometric spaces (e.g. instead of Sets with membership)
 
-**L-Role  disciplined use of Role**
-* Role is always Role Enactment for Holons kind. 
-* **Param slot / relation endpoint guard** Do **not** use the morpheme **`Role`** for **formal parameter positions** in operation signatures (`OpSig`). Reserve **`Role`** for **agentive kinds** only (A.2/F.4/F.6). Use a **`ParamKinds`** map (name→Kind) to type formal slots or something like RelationEndpointKinds. Same for similar situations (column of tables,  placements in tuples, etc.: use MG·DA with domain-specifit terminology, never "Role" that is always about Role Enactment).
+**L‑ROLE — disciplined use of *Role***
+* **Role** is always **Role Enactment for the `U.Holon`/`U.System` kind** (agentive use).
+* **Param‑slot / relation‑endpoint guard.** Do **not** use the morpheme **`Role`** for **formal parameter positions** in operation signatures (`OpSig`). Reserve **`Role`** for **agentive kinds** only (A.2/F.4/F.6). Use a **`ParamKinds`** map (name→Kind) or `RelationEndpointKinds` to type formal slots. Same for similar situations (table columns, tuple placements): use MG·DA with domain‑**specific** terminology, never “Role”.
 
 ### 8.2 Forbidden suffixes & the DevOps and Data Governance Lexical Firewall
 
@@ -22924,7 +22970,7 @@ Without a disciplined tiering of authoring work:
 
 * **Work kind.** Execution of applied methods on situated problems, **outside** FPF’s transdiscipline scope.
 * **Typical outputs.** `RunObservation` *(run artefact; cf. `Observation`)*, `WorkLogCarrier`, optional `RunbookMethodDescription`.
-**Normative status inside FPF.** **Non‑normative** to higher tiers; may **inform** AT1 through a **`BridgeCard`** with CL notes.
+* **Normative status inside FPF.** **Non‑normative** to higher tiers; may **inform** AT1 through a **`BridgeCard`** with CL notes.
 
 * **Roles.** `ExecutorRole`, `OperatorRole`; **Holders** are concrete holons (teams/systems).
 * **Conformance note.** AT0 tokens **MUST NOT** assert norms for AT1–AT3; **`Work` stays execution‑only**, plans/logs/recipes are modeled as `WorkPlan`/Carriers/`MethodDescription`.
@@ -22944,7 +22990,7 @@ Without a disciplined tiering of authoring work:
 * **Normative status.** AT2 defines the **architheory norm set** (CAL/CHR/LOG) that **feeds** F/G reasoning; it **does not mutate Kernel types** and respects **unidirectional meaning** (Kernel → Architheory → Context → Instance).
 * **Portfolio‑aware constraint.** AT2 **MUST** treat **“one signature → many specialisations”** as the norm: do **not** embed **global thresholds** or **forced scalarisations** inside architheory text; selection remains **set‑valued** (Pareto/Archive) under **G.5**, with dominance governed by **CAL** policies. Any maturity floors **SHALL** be expressed via **`CAL.AcceptanceClause`** (clause id cited), not inside LOG.
 * **Roles.** `AuthorRole`, `AssessorRole` (review within AT2), `StewardRole` (pack upkeep).
-* **Cross‑tier references.** Cite AT1 only through `BridgeCard` with CL captured.
+* **Cross‑tier references.** Cite AT1 only through a `BridgeCard` with CL captured **and a matching UTS row**.
 * **Evidence.** Publishes **UTS rows** for visibility and **BridgeCard** for any cross‑tier references.
 
 **AT3 — `MetaAuthoringWork`** *(Plain twin: “Meta‑authoring”)*
@@ -22953,7 +22999,7 @@ Without a disciplined tiering of authoring work:
 * **Typical outputs.** `CoordinationFlowDescription`, `AuthoringPolicySpec`, `PublicationPlanDescription`.
 * **Normative status.** AT3 **organises** but **does not overrule** AT2 invariants; under **KD‑CAL/B.3**, AT3 **MUST NOT** alter AT2 **F/G invariants** nor introduce cross‑lane mutations; it sets **how** AT2 is executed, not **what** architheory is true.
 * **Roles.** `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole` (if a `U.Discipline` is orchestrated).
-* **Evidence.** Publishes **UTS rows** for visibility and **BridgeDescription** for any cross‑tier references.
+* **Evidence.** Publishes **UTS rows** for visibility and **BridgeCard** for any cross‑tier references.
 
 > **USM alignment.** Each AT\* is a **Work** class (USM *act*). Tokens produced at a tier are **typed** to that tier’s Work class and **obey E.10** lexical governance.
 
@@ -22969,8 +23015,8 @@ Without a disciplined tiering of authoring work:
 
 A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST** be recorded as:
 
-1. a **`BridgeCard`** linking source tokens to target tokens (with **Bridge id** and **CL** loss notes), and
-2. a **UTS row** listing: SourceTier, TargetTier, `ContextId` (from **D.CTX**), **Bridge id**, **bridgeChannel ∈ {Scope, Kind}**, **CL** (and **CL^k** if a **KindBridge** is used) with loss notes, **ReferencePlane**(source/target), **CL^plane** (if planes differ), steward Holder, and twin labels.
+1. a **`BridgeCard`** linking source tokens to target tokens (with **BridgeId** and **CL** loss notes), and
+2. a **UTS row** listing: SourceTier, TargetTier, `ContextId` (from **D.CTX**), **BridgeId**, **bridgeChannel ∈ {Scope, Kind}**, **CL** (and **CL^k** if a **KindBridge** is used) with loss notes, **ReferencePlane** (source/target), **CL^plane** (if planes differ), steward Holder, and twin labels.
 
 **ReferencePlane guard.** When a GateCrossing touches differing planes `{world|concept|episteme}`, compute and publish **CL^plane** (policy‑id + loss note) alongside CL.
 * **Evidence.** Publishes **UTS rows** for visibility and **BridgeCard** for any cross‑tier references.
@@ -22978,15 +23024,15 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 #### 5.2 Evidence lanes & CL routing
 
 * **Lane separation.** Keep **Form (F)**, **Grounding (G)**, **Assurance (R)** evidence **disentangled** across all tiers (publish lanes explicitly).
-* **CL routing.** Under **KD‑CAL**, **CL/CL^k/CL^plane penalties route to R only** and **MUST NOT** mutate F/G invariants. When planes differ, apply **CL^plane** in the assurance penalty; **Φ(CL)**/**Ψ(CL^k)**/**Φ_plane** MUST be **monotone** and **table‑backed**; publish **policy‑ids** in SCR.
+* **CL routing.** Under **KD‑CAL**, **CL/CL^k/CL^plane penalties route to R only** and **MUST NOT** mutate F/G invariants. When planes differ, apply **CL^plane** in the assurance penalty; **Φ(CL)**/**Ψ(CL^k)**/**Φ_plane** MUST be **monotone** and **table‑backed**; publish **policy‑ids** in SCR **and cite them on the UTS row**.
 * **Lane provenance.** Each evidence item carries: `LaneId`, `SourceTier`, `ContextId`, `BridgeId` (if imported), **ReferencePlane**, and (if applicable) **CL^plane**.
 
 #### 5.3 Telemetry & Refresh hooks (normative)
 
-* **Sentinel registration.** Every GateCrossing **MUST** register the **Bridge id** on a **PathSlice watch‑list**; edits to **CL/CL^k/CL^plane** or relevant **Φ/Ψ policy‑ids** **MUST** trigger **path‑local RSCR** and schedule **PathSlice** refresh (Γ_time × plane), not pack‑wide reruns.
+* **Sentinel registration.** Every GateCrossing **MUST** register the **BridgeId** on a **PathSlice watch‑list**; edits to **CL/CL^k/CL^plane** or relevant **Φ/Ψ policy‑ids** **MUST** trigger **path‑local RSCR** and schedule **PathSlice** refresh (Γ_time × plane), not pack‑wide reruns.
 * **Edition awareness.** Where Bridges reference **`U.DescriptorMapRef`**, **`DistanceDefRef`**, or **`InsertionPolicyRef`** (for archives), any **edition change** **MUST** be published to Telemetry and **MUST** trigger the same path‑local refresh.
 * **Dominance policy.** **Illumination/QD signals do not alter dominance by default**; `DominanceRegime` **defaults to `ParetoOnly`**. Participation of illumination in dominance **MUST** be authorised by a **CAL policy** and **MUST** be cited by policy‑id in SCR.
-* **Open‑Ended (GeneratorFamily) crossings.** Where a GateCrossing imports evidence from **`GeneratorFamily`** flows (POET‑class) — e.g., **`EnvironmentValidityRegion`** or **`TransferRulesRef`** — **register the Bridge id on the PathSlice watch‑list**; any **`…Ref.edition`** change **MUST** be published to Telemetry and **MUST** trigger a **path‑local RSCR/refresh**. Report **`IlluminationSummary`** as a **gauge**; dominance remains unaffected unless a **CAL** policy promotes it (policy‑id cited).
+* **Open‑Ended (GeneratorFamily) crossings.** Where a GateCrossing imports evidence from **`GeneratorFamily`** flows (POET‑class) — e.g., **`EnvironmentValidityRegion`** or **`TransferRulesRef`** — **register the BridgeId on the PathSlice watch‑list**; any **`…Ref.edition`** change **MUST** be published to Telemetry and **MUST** trigger a **path‑local RSCR/refresh**. Report **`IlluminationSummary`** as a **gauge**; dominance remains unaffected unless a **CAL** policy promotes it (policy‑id cited).
 
 ### 6) Interfaces to **C.20 §D.DISC** and **D.CTX / UTS**
 
@@ -22996,7 +23042,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 
 ### 7) Roles, Holders, and Carriers (holonic separation)
 
-* **Role tokens.** `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`.
+* **Role tokens.** `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `ReviewerRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`.
 * **Holders.** Use **`Holder#…Role:ContextId`** to type a role assumption, e.g., `Team‑Alpha is Holder#AuthorRole:Architheory‑Lab‑G`.
 * **Carriers.** Use **Carrier** for systems that **bear epistemes**: `ArchitheoryPackCarrier`, `UTSRegisterCarrier`, `BridgeRegisterCarrier`.
 * **Canonical rewrites.** Legacy `…CarrierRole` → **`Holder#…Role:Context`** (SCR‑LEX).
@@ -23027,7 +23073,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **C6.1.** `U.Discipline` is a **Holon**; comparability rules live in **CG‑Spec**.
 * **C6.2.** Any **Domain** mention must include the D.CTX projection and **UTS twins**; **no norms on Domain**.
 
-**C7 — Gate‑crossings.** Every cross‑tier reuse **MUST** provide: `BridgeCard` + `UTS` row (with **ReferencePlane**, **bridgeChannel**, **CL**/**CL^k?**, and **CL^plane** where applicable). No implied crossings.
+**C7 — Gate‑crossings.** Every cross‑tier reuse **MUST** provide: `BridgeCard` + `UTS` row (with **ReferencePlane**, **bridgeChannel**, **CL**, **CL^k** *if* `bridgeChannel=Kind`, and **CL^plane** where applicable). No implied crossings.
 
 **C8 — Minimal publication set.**
 
@@ -23041,7 +23087,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 
 * **AH‑1 (Classifier).** A deterministic classifier that maps a candidate **Work** record to {AT0|AT1|AT2|AT3} based on its **object‑of‑talk**, outputs, lane types, and declared Roles.
 * **AH‑2 (Gate check).** Given a citation across tiers, verifier **MUST** find a `BridgeCard` and matching **UTS row**; **if `bridgeChannel=Kind`, `CL^k` MUST be present** and **Ψ‑policy id** is visible in SCR.
-* **AH‑3 (Lane check).** Verifier **MUST** observe **CL/CL^k/CL^plane → R only**, **F/G invariants unchanged**, and — where planes differ — **CL^plane** presence with **Φ_plane** monotone/bounded and table‑backed; SCR shows **R_eff** as a function of Φ/Ψ terms. **When QD/OEE surfaces are present, edition pins MUST be visible**: `DescriptorMapRef.edition`, `DistanceDefRef.edition`, **`CharacteristicSpaceRef.edition?`**, and (for OEE) **`TransferRulesRef.edition`**.
+* **AH‑3 (Lane check).** Verifier **MUST** observe **CL/CL^k/CL^plane → R only**, **F/G invariants unchanged**, and — where planes differ — **CL^plane** presence with **Φ_plane** monotone/bounded and table‑backed; SCR shows **R_eff** as a function of Φ/Ψ terms. **When QD/OEE surfaces are present, edition pins MUST be visible**: `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `CharacteristicSpaceRef.edition` *(if present)*, and (for OEE) `TransferRulesRef.edition`.
 * **AH‑4 (Lexical check).** Head‑anchoring + I/D/S + Role/Holon separation checks (SCR‑LEX).
 
 ### 10) Structure (informative)
@@ -23060,8 +23106,6 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * `Holder#DesignerRole:Context‑X` (AT1), `Holder#AuthorRole:Architheory‑Lab` (AT2), `Holder#CoordinatorRole:Program‑G` (AT3).
 * `Holder` is always typed to a `U.BoundedContext`.
 * Avoid **titles** as kernel types; keep them in the **Plain** register with twin labels.
-
----
 
 ### 11) Examples (cross‑arena, MG·DA compliant)
 
@@ -23087,7 +23131,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **Q4. Lexical conformance.** % tokens passing **SCR‑LEX** (head‑anchoring, I/D/S, Role/Holon separation).
 * **Q5. Publication latency.** Median time between citation and UTS row publication.
 
-## 14) Implementation notes
+### 14) Implementation notes
 
 * **Classifier aid.** A simple rule of thumb:
 
@@ -23100,7 +23144,60 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 **Publication discipline.** Keep a **`BridgeRegisterCarrier`** and a **`UTSRegisterCarrier`** controlled by `Holder#StewardRole:Program‑X`.
  Record twin labels on UTS rows.
 
-### 15) Related patterns
+### 15) Modes & switches (normative) — **Core vs Lite**
+
+**E.11‑M1 · Mode token.** Authors MAY declare a mode on the ATS card:
+`ATSMODE ∈ {Core | Lite}` (default = **Core**). The mode governs the **harness reaction**, not the **invariants**.
+
+**E.11‑M2 · Red‑line invariants (apply in all modes).** The following remain **blocking** irrespective of mode:
+1) Cross‑tier reuse **without** `BridgeCard + UTS row` (and missing CL notes).  
+2) **CHR illegality**: ordinal means; unit/scale mixing; hidden thresholds in CHR/LOG/code.  
+3) Missing **ReferencePlane** on numeric/comparable claims; missing **CL^plane** on plane crossings; penalties not routed to **R_eff only**.  
+4) Any view/publication that **adds claims** beyond I/D/S (violates A.7 Publ_ID / Formalize_DS laws).  
+(*See A.7, E.10, F/G pins; red‑lines are mode‑independent.*)
+
+**E.11‑M3 · Harness reaction by mode.**
+- **Core (current default):** `AH‑1..AH‑4` failures **SHALL block** publication under this Scheme.  
+- **Lite:** `AH‑L1..AH‑L4` fire as **advisory**, producing **warnings** and **SCR defects**; publication proceeds unless a **red‑line invariant** (E.11‑M2) is violated.
+
+**E.11‑M4 · Minimal publication sets by mode (refines C8).**
+- **Core:** C8 minimal sets unchanged.  
+- **Lite:** During prototyping, authors MAY publish the **C8‑Lite set**:
+  * AT0↔AT1: `BridgeCard` + **stub `TaskPack` header** (scope heads only) + UTS row.  
+  * AT1↔AT2: `BridgeCard` + **stub `ArchitheoryPack` header** (pack head + edition pins only) + UTS row.  
+  * AT2↔AT3: `BridgeCard` + **stub `CoordinationFlowDescription`** (lane policy heads) + UTS row.  
+  Any numeric claims still require **pins** (units/scale/reference‑plane/edition).
+
+**E.11‑M5 · Migration rule (Lite → Core).** A `C8‑Lite` publication MUST be upgraded to **Core** before: (i) external consumption outside the home Context, or (ii) maturity advance on the UTS ladder that cites the pack.
+
+**E.11‑M6 · Surface defaults by mode (ties to MVPK).**
+- **Lite:** default **PlainView + TechCard**; `AssuranceLane` is **optional**, but MUST appear whenever numeric claims or crossings are present.  
+- **Core:** `PlainView + TechCard + AssuranceLane` are **required**; `InteropCard` remains project‑optional (Part I).
+
+### 16) ATS‑Lite harness (advisory)
+
+**Tech token:** `AuthoringTierSchemeLite` (**ATS‑Lite**).  
+**Plain twin:** *ATS‑Lite (advisory harness for small teams)*.
+
+**AH‑L1 (Classifier, advisory).** Same inputs as AH‑1; the classifier MAY be heuristic but MUST be deterministic. Output: {AT0|AT1|AT2|AT3} + confidence + warning if ambiguous; never blocks by itself.
+
+**AH‑L2 (Gate check, advisory).** On a cross‑tier citation, warn if `BridgeCard + UTS` are missing; **block only** if E.11‑M2(1) red‑line is hit.
+
+**AH‑L3 (Lane & pins check, advisory).** Warn on CL/CL^k/CL^plane routing mistakes, missing pins (`DescriptorMapRef.edition`, `DistanceDefRef.edition`, `CharacteristicSpaceRef.edition?`, `TransferRulesRef.edition`) or on attempts to include illumination in dominance without CAL policy. **Block** only if E.11‑M2(2–3) red‑lines are hit.
+
+**AH‑L4 (Lexical check, advisory).** Warn on head‑anchoring, I/D/S, Role/Holon slips; suggest canonical rewrites; never blocks unless publication adds claims beyond I/D/S (E.11‑M2(4)).
+
+**Outputs (Lite):** All AH‑L warnings are recorded as **SCR defects** with remediation notes; CI MAY enforce **warning budgets** per Context.
+
+### 17) Author’s quick rubric (Lite)
+
+1) **Bridge first.** If you cite across tiers, mint the `BridgeCard` and a UTS row, even if the pack card is a stub.  
+2) **Pin numbers.** If you print a number to compare/aggregate, pin unit/scale/plane/edition.  
+3) **Avoid ordinal means and unit mixing.** If in doubt, abstain and note the policy.  
+4) **Keep surfaces lean.** Start with PlainView+TechCard; add AssuranceLane when you cross Contexts/planes or use numbers.  
+5) **Upgrade on release.** Before external consumption or maturity advance, switch `ATSMODE=Core` and fill the full C8 set.
+
+### 18) Related patterns
 
 * **A.4** — Temporal Duality & Open‑Ended Evolution Principle (time‑split of design/run).
 * **B.4** — Canonical Evolution Loop (Observe→Refine→Deploy) governs ATS change/refresh cadence.
@@ -23113,16 +23210,16 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **C.20 §D.DISC** — Discipline CAL lexical guard (Holon, CG‑Spec, Domain stitching).
 * **D.CTX** — Context enumeration and stitching.
 
-### 16) Glossary (tokens minted or stabilised here)
+### 19) Glossary (tokens minted or stabilised here)
 
 * `AuthoringTierScheme` · `AuthoringTierSchemeDescription` · `AuthoringTierSchemeSpec`
 * `AppliedWork` (AT0) · `TransdisciplineDesignWork` (AT1) · `ArchitheoryAuthoringWork` (AT2) · `MetaAuthoringWork` (AT3)
 * `TaskPack` · `ArchitheoryPack` · `GaugeSpec` · `InvariantSetDescription`
 * `BridgeCard` · `UTS row` (PublicationCarrier entry) · `BridgeRegisterCarrier` · `UTSRegisterCarrier`
-* Roles: `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`
+* Roles: `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `ReviewerRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`
 * Lane markers: `F‑lane`, `G‑lane`, `R‑lane` · `CL` (conformance loss) with **CL→R only**
 
-### 17) Lexical/Conformance checklist (quick use)
+### 20) Lexical/Conformance checklist (quick use)
 
 * **Head‑anchoring:** All heads signal kind (System/Holon/Work/Method/Pack/Spec/Description/Role/Carrier).
 * **I/D/S morphology:** `…Description` vs `…Spec` used correctly; acceptance harness only for `…Spec`.
@@ -23134,7 +23231,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **Plain twins:** Figurative heads (e.g., “Ladder”, job titles, “Tradition”) also corrected by a twin plane lexical discipline.
 * **No minted `U.Type` “Strategy”.** Treat **strategy/policy** as compositions/lenses in **G.5** under **E/E‑LOG**; keep “strategy” in the **Plain** register only.
 
-### 18) Minimal worked “publish set” (ready‑to‑use)
+### 21) Minimal worked “publish set” (ready‑to‑use)
 
 1. **Mint** `AuthoringTierSchemeDescription` (this pattern).
 2. **Optionally mint** `AuthoringTierSchemeSpec` with AH‑1…AH‑4 harnesses (per E.10.D2).
@@ -23935,8 +24032,241 @@ If no **ScaleLensPolicy** is declared, selection remains **neutral** with respec
 
 *(These five are sufficient for a working test harness in Part F.)*
 
+## E.17 — **Multi‑View Publication Kit (for Morphisms)** \[A]
 
-### **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
+> **Tech‑name:** `U.MultiViewPublicationKit` (**MVPK**)  
+> **Plain‑name:** Multi‑view publication kit (for morphisms)  
+> **Signature (conceptual form):**  `MVPK : (U.Morphism, Σ_viewpoints) ↦ U.ViewFamily` with per‑viewpoint components
+> `ViewObj_s : U.Object → U.ViewObj_s` and `Emit_s(·) : U.Morphism → U.ViewMorph_s`,
+> such that `(ViewObj_s, Emit_s)` forms a functor `U → View_s(U)`. For each `s ⪯ t`, a **reindexing coercion**
+> `PromoteView[s→t]_X : ViewObj_s(X) → ViewObj_t(X)` exists and is **natural in `X`**: for every `f : X → Y`,
+> `PromoteView[s→t]_Y ∘ Emit_s(f) = Emit_t(f) ∘ PromoteView[s→t]_X` (see Laws §6.2).
+> **Notation:** `Σ_viewpoints` is abbreviated as `Σ` where convenient.
+> **Twin‑register aliases (naming discipline):**
+> • **Tech:** `Emit_PlainView`, `Emit_TechCard`, `Emit_InteropCard`, `Emit_AssuranceLane`; `PromoteView[s→t]_·`.  
+> • **Plain:** `PlainView(x)`, `TechCard(x)`, `InteropCard(x)`, `AssuranceLane(x)`; “Promote to *t*”.
+
+### 1 · Intent
+
+Provide a **disciplined, compositional way to publish morphisms** (arrows) across multiple didactic faces (views/cards) **without adding semantics**, while keeping **viewpoints** (the specifications that constrain views) explicit and auditable. Authors get a small **view‑pack** that, when applied to any `U.Morphism` (including compositions), yields a **family of views** that commute with arrow composition and respect edition/measurement pinning (Part F/G).
+
+### 2 · Problem frame
+
+* Teams routinely need several **faces** of the *same* arrow: a **Tech card** for the catalog, an **Interop card** for machine exchange, a **Plain view** for narrative, and an **Assurance lane** for evidence.    
+* Informal “renderings” quietly **drift semantics**; **composite arrows** are often published piecemeal, breaking traceability; **evidence** forgets unit/scale/edition pins.    
+* “View” and “viewpoint” are **blurred** in practice; authors conflate **publication** with **mechanism**.    
+* L‑SURF requires **Surface token discipline**; Core allows only **PublicationSurface/InteropSurface**; faces are **…View / …Card / …Lane** (no ad‑hoc `…Surface` kinds). 
+
+**MVPK** fixes this by making publication a **typed, functorial projection** (A.7 §5.9) subject to explicit **viewpoint specs** and **pinning guards**. **Part E is conceptual:** no machine‑exchange formats are specified here.
+
+### 3 · Problem
+
+1. **Semantic drift in publication.** Unchecked “presentations” introduce claims not present in the intensional arrow or its description/specification.    
+2. **Non‑compositionality.** Publishing `g∘f` yields surfaces that don’t match composing the surfaces of `f` and `g`.    
+3. **View vs viewpoint confusion.** A single template is treated as “the view”, with no declared concerns or conformance rules.    
+4. **Unpinned numbers.** Numeric claims lack unit/scale/reference‑plane and **edition pins** (Part F/G), undermining auditability.    
+
+### 4 · Forces
+
+| Force | Tension |
+| --- | --- |
+| **Compositionality vs legibility** | Preserve arrow laws across views ↔ keep each view didactic and audience‑appropriate. |
+| **Neutral naming vs domain idioms** | Use vocabulary stable across domains ↔ allow local templates (SOPs, APIs, checklists). |
+| **Surface orthogonality (A.7)** | Publication must not mutate I/D/S semantics ↔ authors expect “rich presentations”. |
+| **Evidence discipline** | Views must cite CG‑Spec/CHR anchors ↔ authors want compact cards. |
+
+### 5 · Solution — the **MVPK Kit**
+
+#### 5.1 Terminology (normative)
+
+* **View** (`U.View`): a **concrete publication** produced *under* a viewpoint.    
+* **View family** (`U.ViewFamily`): the **indexed family / bundle** of views `{View_s | s ∈ Σ_viewpoints}` for a given morphism (no product semantics assumed).  
+* **Per‑viewpoint view category** `View_s(U)`: with objects `U.ViewObj_s` and morphisms `U.ViewMorph_s`; `Emit_s(f) : ViewObj_s(X) → ViewObj_s(Y)`.
+* **Index set of viewpoints** `Σ` ≡ `Σ_viewpoints`.
+* **Publication vs presentation vs rendering vs representation (guard):**    
+    * **Publication** = typed projection along **I→D→S** onto a **PublicationSurface** (A.7 §5.8–5.9).        
+    * **Presentation** = rhetorical arrangement of a published carrier; **notation‑neutral**, adds no claims and is **not** a Surface kind.        
+    * **Rendering** = display/layout of a carrier, purely graphical/formatting; **Work on carriers** (A.7), not a Surface kind.        
+    * **Representation** = episteme↔referent relation; **not** a surface act. Use **publication** and **view** here; treat presentation/rendering as **Work on carriers** (A.7).        
+* **No‑mechanism equivalence:** MVPK **is not** a mechanism; any operational toil (build/render/upload) is **separate Work by a system on carriers** (A.7; see §6.5).
+
+#### 5.2 Allowed surfaces at Part E (L‑SURF discipline)
+Part E restricts the term *Surface* to **PublicationSurface** and **InteropSurface**. Concrete faces SHALL be named **…View / …Card / …Lane**. 
+
+**MVPK‑Max viewpoints (normative; exactly four):**
+* `PlainView` (explanatory prose view)    
+* `TechCard` (typed catalog card)    
+* `AssuranceLane` (evidence bindings/lanes)
+* `InteropCard` (conceptual interoperability view; **mapping to concrete exchange formats lives in Annex/Interop; Part E does not specify schemas**)
+
+**Lean profiles (small‑team friendly, optional):**
+* **MVPK‑Min (F0–F1):** Σ = {`PlainView`, `TechCard‑Lite`}. `AssuranceLane` omitted. No interop face.
+* **MVPK‑Lite (F1–F3):** Σ = {`PlainView`, `TechCard‑Lite`, `AssuranceLane‑Lite` gated by crossing trigger}. `InteropCard` only if external consumers exist.
+* **MVPK‑SetReady (F3–F5):** add `InteropCard` when replayability or external interchange is required (details outside Part E).
+* **Escalation triggers:** (i) cross‑Context/plane reuse; (ii) QD/OEE replay needs; (iii) external consumption.
+* **“‑Lite” variants (definition):** A *‑Lite* face removes optional fields only (never claims), keeps the same typing as its full counterpart, and MUST retain pins for any numeric content. Upgrading from *‑Lite* to full is a monotone **add‑fields** operation (no retractions).
+
+#### 5.3 The kit (constructs)
+
+1. **Object component** `ViewObj_s` for each viewpoint (see §5.1), to make types explicit.  
+2. **Index set of viewpoints** `Σ` with declared **partial order** `⪯` for formality/refinement (default chain: `PlainView ⪯ TechCard ⪯ InteropCard`; `AssuranceLane` is **orthogonal** and not ordered with respect to others).  
+3. **Emitters** `Emit_s(·) : U.Morphism → U.ViewMorph_s` (one per `s ∈ Σ`).
+4. **Coherence** (laws §6) + **Pins** policy (units/scale/reference‑plane/edition) for numeric/comparable content.    
+5. **Interop anchors (conceptual)** for `InteropCard` (concerns/semantics only); **any concrete schema/exchange mapping is outside Part E** (Annex/Interop).
+
+**Result:** `MVPK(f, Σ)` returns `U.ViewFamily(f)` whose components are `Emit_s(f)`. Reindexing across `s ⪯ t` is mediated by total object‑level coercions `PromoteView[s→t]_X` (see §6.2).
+
+#### 5.4 Intensional I/O vs Publication (normative convention)
+1) **I/O are intensional.** The **Input/Output** sections of a morphism describe **intensional** data types (I/D/S) only; they do **not** depend on any publication face.  
+2) **No duplication on faces.** MVPK faces **do not duplicate** I/O lists; they publish a **minimal profile**: **presence‑pins**, **CG‑Spec/CHR anchors**, and **EditionId** only.  
+3) **Signature reserved to intensional.** Use **“Signature”** exclusively for intensional objects (`U.Signature`, `U.PrincipleFrame`, …). On faces, avoid “signature” and use **TechName/PlainName**.  
+4) **Legacy terms.** Replace any **MechSig/OpSig** with **MechanismCore/OperatorAlgebra** at intensional level; faces refer to the named fields, not to a “sig”.  
+5) **Lawful orders, return sets.** Whenever a face shows **selection or comparison**, it **returns sets / lawful partial orders** and **never hides scalarization**; cite a **ComparatorSet**.  
+6) **Bridge routing, penalties.** Crossings go via **Bridge + CL**; publish **Φ(CL)/Φ_plane** ids; penalties route to **R only** (never F/G).  
+7) **Carrier anchoring & lanes.** On first mention, anchor carriers (**SCR/RSCR**); keep **Work occurrences** distinct from **epistemic claims** via lanes.  
+8) **Publication ≠ execution.** No time/resource semantics on faces; any build/render/upload is separate **Work**.
+
+#### 5.5 Author ergonomics (non‑normative)
+*Quick path for authors (three steps and a micro‑template):*
+1. **Declare Σ and profile.** Choose `{PlainView, TechCard, …}` and whether faces are full or *‑Lite*.
+2. **Pin once, reuse everywhere.** Attach `{UnitType, ScaleKind, ReferencePlane, EditionId}` to the arrow; cards reference these pins by ID (no duplication).
+3. **Emit & verify.** Generate all faces from the arrow, then run **ATS (E.11)**.
+
+*Guidance:* treat *‑Lite* as **field‑drop only**; never add claims in *‑Lite*. 
+
+### 6 · Laws (normative)
+
+For any composable arrows `X —f→ Y —g→ Z` in `U`, and any `s, t ∈ Σ_viewpoints`:
+
+1. **Functoriality & typing (per‑viewpoint).**  
+    * (a) **Identity:** `Emit_s(id_X) = id_{ViewObj_s(X)}`.    
+    * (b) **Composition:** `Emit_s(g∘f) = Emit_s(g) ∘ Emit_s(f)`.    
+    * (c) **Typing (totality):** if `f : X → Y` then `Emit_s(f) : ViewObj_s(X) → ViewObj_s(Y)` is **total**; ill‑typed composites must be fixed via `ViewObj_s`, not by weakening laws.    
+    * *Intuition:* every viewpoint acts functorially on arrows; publication does not break arrow algebra.
+2. **Reindexing coherence (monotone refinement + naturality).**    
+    * (a) If `s ⪯ t` then the `t`‑view **refines** the `s`‑view for the same morphism (**no content extension**; increased formality/typing only).    
+    * (b) For each `s ⪯ t` there are **object‑components** `PromoteView[s→t]_X : ViewObj_s(X) → ViewObj_t(X)` natural in `X`, i.e., for every `f : X → Y`  
+      `PromoteView[s→t]_Y ∘ Emit_s(f) = Emit_t(f) ∘ PromoteView[s→t]_X`.    
+    * (c) **Coherence:** `PromoteView[s→s]_X = id_{ViewObj_s(X)}`, and if `s ⪯ t ⪯ u` then `PromoteView[s→u]_X = PromoteView[t→u]_X ∘ PromoteView[s→t]_X` for all `X`.         
+    * *Defaults:* `PlainView ⪯ TechCard ⪯ InteropCard`.    
+    * *Note:* `AssuranceLane` is **orthogonal** to the chain; it binds **evidence‑about‑claims** and MUST NOT introduce new claims **of** the morphism. 
+3. **I/D/S projection compatibility (A.7).**    
+    * Each `Emit_s(·)` factors through `Publ_ID` and `Formalize_DS`:
+      `U.Morphism ──Publ_ID/DS──▶ D/S.Morphism ──emit_s──▶ U.ViewMorph_s`  
+      with **ID‑1/ID‑2, DS‑1/‑2/‑3** enforced (A.7 §5.9). **No new commitments** are introduced by publication. Edition governance follows **U.EditionSeries**; UTS rows are the identity anchors for names.
+4. **Pin discipline (Part F/G).**  
+     * Any numeric/comparable content in a view SHALL pin {UnitType, ScaleKind, ReferencePlane}. **EditionId MAY be coarse at Lean profiles**; if units/scale are unknown, **declare ordinal/compare‑only** and **forbid arithmetic** until CHR pins are available.  Pins upgrade monotonically with profile and risk.
+5. **No Γ‑leakage.**  
+    Publication morphisms carry **no** Γ\_method / Γ\_time / Γ_work semantics. Any build/render/upload toil is **separate Work by a system on carriers** (A.7).    
+     **Lean assurance lane:** `AssuranceLane‑Lite` MAY expose only presence bits for {PathId/PathSlice?, Γ_time window?, BridgeId?}; unknowns propagate (tri‑state) with an explicit {degrade|abstain|sandbox} policy note.
+6. **Carrier provenance.**  
+    Every emitted view records its **SCR/RSCR ids** on first occurrence (A.7 §5.6).
+7. **Isomorphism preservation.**    
+    * If `f` is an isomorphism in `U`, then `Emit_s(f)` is an isomorphism in `View_s(U)`; inverses map accordingly.  
+8. **Cross‑Context/plane bridging.**    
+    * If a view crosses contexts or reference planes, it **SHALL** cite the **Bridge + CL policy ids** (A.7 §5.8, “Bridge routing”). Such crossings MUST be explicit on `TechCard` and `AssuranceLane`.
+9. **Totality of publication morphisms.**    
+    * Publication maps are total on their domains; when a composition in a view would be ill‑typed, the author **must** fix the object mapping (via `ViewObj_s`) rather than weakening functoriality or reindexing laws.
+10. **ATS check‑points (authoring stance).**  
+    * MVPK outputs SHALL be checkable by **ATS**: (i) **pin/anchor presence**, (ii) **functoriality witnesses** for compositions, (iii) **reindexing naturality** witnesses, (iv) **Surface token discipline**. Failing cards are rejected at **E.11** gates.
+
+### 7 · Structure & participants
+```
+                 Σ_viewpoints
+                      │
+            ┌─────────┴─────────┐
+            │                   │
+        Emit_s(·)           Emit_t(·)      … (family)
+            │                   │
+U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g──▶ Z 
+        U.ViewMorph        U.ViewMorph
+            │                   │
+        Emit_s(f),…         Emit_t(f),…
+```
+* **Author** chooses `Σ_viewpoints` (declared concerns + conformance rules).    
+* **MVPK** emits `U.ViewFamily(f)` for each arrow `f`.    
+* **ATS (E.11)** checks that pins/anchors/IDs are present and laws are not violated.    
+
+### 8 · Examples (SoTA‑echoing)
+
+1. **Composite service pipeline (Interop + Assurance).**  
+    `f: Parse → Normalize`, `g: Normalize → Score`.
+    `InteropCard(g∘f)` is an interoperability **view** whose path set equals the **relational composition** of the two cards; `AssuranceLane(g∘f)` cites test artefacts as evidence **carriers** with edition pins. (Carriers, not semantics; concrete envelope formats are outside Part E.)
+2. **Control loop morphism (Tech + Plain).**
+    * For `h: Setpoint → Actuation`, `TechCard(h)` is a typed card with units; `PlainView(h)` narrates the same mapping with no new claims. (Monotone formalization echoes refinement‑typed stacks.)
+3. **Optics‑style compositional views.**
+    * Treat each `Emit_s(–)` as a **profunctor optic** from arrow semantics to its projection; then (by optics laws) `Emit_s(g∘f) = Emit_s(g) ∘ Emit_s(f)`. *Modern echo:* profunctor/optic literature (2017–2019) establishes precisely the kind of **compositional view** MVPK requires.  
+
+### 9 · Conformance checklist (normative)
+
+| ID | Requirement | Practical test |
+| --- | --- | --- |
+| **CC‑MVPK‑0 (ATS‑Lite)** | For Lean profiles, a minimal guard runs: (i) set‑returning selection present; (ii) ReferencePlane present; (iii) any crossing cites BridgeId+CL with penalties routed to R only. | ATS‑Lite report shows presence bits; penalties route to R only. |
+| **CC‑MVPK‑1 (Viewpoint explicit)** | Each view declares its **Viewpoint** (stakeholders, concerns, conformance). | Cards show `ViewpointId` and concerns. |
+| **CC‑MVPK‑2 (Functoriality)** | `Emit_s(id)` is identity; `Emit_s(g∘f) = Emit_s(g)∘Emit_s(f)`. | Compose two cards and diff with the card of the composite. |
+| **CC‑MVPK‑3 (No content extension)** | `PlainView`, `TechCard`, and `InteropCard` add **no new claims** beyond I/D/S. | Red‑line vs `Publ_ID/DS` output shows only formatting/indexing. |
+| **CC‑MVPK‑4 (Pins & anchors)** | Numbers/thresholds pin {...}. **Lean exception:** at MVPK‑Min/Lite profiles, EditionId MAY remain coarse; ordinal claims are legal only as compare‑only (no means/z‑scores). | ATS shows pins present or compare‑only gates enabled. |
+| **CC‑MVPK‑4b (Lean assurance)** | If `AssuranceLane‑Lite` is used, presence bits for {PathSliceId?, BridgeId?} suffice; full artefact lists are deferred. | Presence bits visible; deferred artefacts marked TODO. |
+| **CC‑MVPK‑4c (I/O vs publication)** | Faces **do not** restate I/O; they carry **presence‑pins + anchors + EditionId** only. | Face inspection shows no I/O duplication. |
+| **CC‑MVPK‑4d (Lawful orders)** | Any selection/comparison on faces **returns sets / lawful partial orders** with a **ComparatorSet** citation. | No hidden scalarization; ComparatorSetRef present. |
+| **CC‑MVPK‑4e (Signature on faces — banned)** | The term **“signature”** is **not used** on faces; use **TechName/PlainName**. | Token scan: no “signature” on faces. |
+| **CC‑MVPK‑4f (Legacy labels)** | Any **MechSig/OpSig** mention is replaced with **MechanismCore/OperatorAlgebra** (intensional). | Token scan passes; face fields name concrete heads. |
+| **CC‑MVPK‑5 (Carrier anchoring)** | First mention includes **SCR/RSCR** ids. | SCR ids visible on the card. |
+| **CC‑MVPK‑6 (Γ‑separation)** | No cost/time/data‑spend on publication morphisms. | Any such fields live in **Work** of a publication service. |
+| **CC‑MVPK‑7 (Reindexing monotone)** | If `s ⪯ t`, then `Emit_s(x) ⪯ Emit_t(x)`. | `TechCard` ≤ `InteropCard` (more structure, same claims). |
+| **CC‑MVPK‑8 (Surface discipline)** | Only **PublicationSurface/InteropSurface** are used; faces named …**View/…Card**. | Token scan; no “rendering/presentation” as surface kinds. |
+| **CC‑MVPK‑9 (Reindexing naturality)** | Reindexing coercions `PromoteView[s→t]` exist, are total, and commute with composition. | Witness shows `PromoteView[s→t]_Z ∘ Emit_s(g∘f) = (Emit_t(g) ∘ Emit_t(f)) ∘ PromoteView[s→t]_X`. |
+| **CC‑MVPK‑10 (Iso‑preservation)** | Isomorphisms in `U` remain isomorphisms under each viewpoint. | Cards show mapped inverses or an iso‑witness. |
+| **CC‑MVPK‑11 (Typing & totality)** | Ill‑typed composites are rejected at `ViewObj_s` rather than weakening functoriality. | Type‑check fails early; no “best‑effort” composition in cards. |
+| **CC‑MVPK‑12 (Bridge+CL on crossings)** | Any cross‑Context/plane view cites **Bridge + CL** policy ids. | IDs present on `TechCard`/`AssuranceLane`. |
+| **CC‑MVPK‑13 (ATS auditability)** | Views ship functoriality and reindexing **witnesses** and pass ATS checks for pins/anchors and Surface tokens. | CI shows proofs/witness artefacts; ATS gate passes. |
+
+### 10 · Anti‑patterns (with fixes)
+
+1. **“Presentation logic” as semantics.**  
+    *Fix:* Move any logic to `Formalize_DS`; keep views declarative; publication adds **zero** claims.    
+2. **Publishing only objects.**  
+    *Fix:* MVPK **acts on arrows**. Always emit views for `g∘f`, not just for objects `X, Y, Z`.    
+3. **Unpinned numbers.**  
+    *Fix:* Reject card; supply **pins** and CG/CHR anchors.    
+4. **Viewpointless views.**  
+    *Fix:* Define Viewpoint; attach concerns + conformance; re‑emit.    
+5. **Interop ≡ Tech duplication.**  
+    *Fix:* `InteropCard` may refine typing/shape but cannot contradict `TechCard` (reindexing monotone).    
+
+### 11 · Consequences
+
+| Benefit | Why it matters | Trade‑off / Mitigation |
+| --- | --- | --- |
+| **Arrow‑level traceability.** | Composition preserved across views enables chain‑of‑evidence on pipelines. | Slight authoring overhead → MVPK templates. |
+| **Audit‑ready surfaces.** | Pins + CHR anchors make numeric claims verifiable. | Tooling (ATS) performs checks. |
+| **Terminology hygiene.** | Clear View vs Viewpoint, Publication vs Presentation. | Enforce L‑SURF tokens in CI. |
+| **Notation independence.** | Viewpoints talk concerns, not tools. | Provide adapters to local stacks. |
+
+### 12 · SoTA-echoing (post‑2015; conceptual pointers)
+
+* **Profunctor/optic accounts (2017–2019).** Establish **compositional “views”** that compose like arrows—mirrors MVPK’s functorial law.    
+* **Refinement‑typed ecosystems (2016→).** Units/scale at type level echo **pin discipline**.    
+* **Interoperability & evidence envelopes.** External standards exist, but **their concrete formats live outside Part E** (see Annex/Interop for examples and mappings).
+
+(References are illustrative exemplars of practice; MVPK remains notation‑agnostic.)
+
+### 13 · Relations
+
+* **Builds on:** A.7 (Strict Distinction: I/D/S vs Surface; publication morphisms), E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. L‑SURF), ATS (E.11) for checks, Part F/G (UTS, CG‑Spec, CHR pins).    
+* **Constrains:** Any surface‑emitting automation; must treat publication as typed projection, not mechanism.    
+* **Coordinates with:** B‑operators (no Γ‑leakage), C‑cluster (selection/archives: views are carriers, not selections).
+
+### 14 · Minimal authoring template (E‑level)
+
+**Header:** `MVPK v⟨edition⟩ — Σ = {PlainView ⪯ TechCard ⪯ InteropCard, AssuranceLane ⟂}`  
+**For each arrow `f`:** emit `{Emit_s(f) | s ∈ Σ}` (or use the plain aliases `{PlainView(f), TechCard(f), …}`) with: ViewpointId, pins, CHR/CG anchors, SCR ids, Bridge+CL ids (if crossing), and—if composite—machine‑checkable witnesses that `Emit_s(g∘f) = Emit_s(g)∘Emit_s(f)` **and** for each `s ⪯ t` the naturality square `PromoteView[s→t]_Y ∘ Emit_s(f) = Emit_t(f) ∘ PromoteView[s→t]_X`.
+
+### 15 · Manager’s one‑page review (copy‑paste)
+
+> “We publish every **morphism** under a declared **set of viewpoints** using **MVPK**. Each **view** is **functorial** (identities, composition), **adds no new claims**, and pins **unit/scale/reference‑plane/edition** with **CHR/CG** anchors. **Interop** views clarify concerns/semantics only (concrete exchange lives outside Part E); **Assurance** cites evidence carriers (SCR). Any cross‑Context/plane view cites **Bridge+CL** (Φ→R only). Publication toil is **Work on carriers**, not a mechanism change.”
+
+# **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
 # Cluster F.I — context of meaning & Raw Material
 
