@@ -6069,7 +6069,7 @@ When documents blur the above lines, three classes of defects appear:
 • **senseFamily** — the categorical characteristic, used by F.7/F.8/F.9: {Role | Status | Measurement | Type‑structure | Method | Execution}. Rows must be **sense‑uniform**. 
 • **ReferencePlane** — the referent mode per CHR: {world/external | conceptual | epistemic}. 
 • **I/D/S layer** — the Intension/Description/Specification layer (E.10.D2). Not an I/D/S “plane” or "stance", and not a bare "layer".
-• **design/run Stance** — the design vs run temporal stance. Not a temporal “plane” or "layer", and not a bare "stance".
+• **DesignRunTag** — the design vs run DesignRunTag. Not a temporal “plane” or "layer", and not a bare "stance".
 • **PublicationSurface** — the *didactic projection* of a Description/Specification into a **bundle of views** (ISO 42010 sense). **Surfaces are not the thing described**. Under L‑SURF, Core allows only **PublicationSurface** and **InteropSurface** tokens; faces SHALL be named **…View / …Card / …Lane** rather than inventing new `…Surface` kinds. The canonical didactic set for `[A]` is:
   {**PlainView** (explanatory prose), **TechCard** (typed cards/IDs), **NormsCard** (checklists/SHALL‑clauses), **AssuranceLane** (evidence bindings/lanes)}. *Surfaces are orthogonal to I/D/S and to design/run.*
 • **Typed publication morphisms (I→D, D→S)** — total morphisms that *project* along I/D/S (they are **not** mechanisms):
@@ -9348,7 +9348,7 @@ DependencyGraph D = (V, E, scope, notes)
 * **V (nodes):** each `v ∈ V` is a `U.Holon` with:
 
   * `holonKind ∈ {U.System, U.Episteme}`
-  * `temporalScope ∈ {design, run}` (A.4) — **single, uniform per D**
+  * `DesignRunTag ∈ {design, run}` (A.4) — **single, uniform per D**
   * a declared `U.Boundary` (A.14)
   * optional characteristics (e.g., F–G–R, CL, Agency metrics) for use by downstream patterns (B.1.2/3; B.3; A.13)
 * **E (edges):** each `e ∈ E` is a **mereological** relation from the **normative vocabulary `V_rel`** (below).
@@ -9531,7 +9531,7 @@ Examples:
 #### 6.5 Scope & boundary attestations
 
 > **Obligation SCOPE‑1.**
-> Affirm `temporalScope(D) ∈ {design, run}` and that all nodes share it.
+> Affirm `DesignRunTag(D) ∈ {design, run}` and that all nodes share it.
 > **Obligation BOUND‑1.**
 > List the **U.Boundary** for each top‑level holon in `V` and record any **U.Interaction** edges that are relevant but not part of `E` (to show cross‑boundary influences were not mis‑typed as parthood).
 
@@ -9584,7 +9584,7 @@ Attach the row(s) you use as the **Proof Kit** to the Γ call record.
 | ID             | Requirement                                                                                                                                                | Purpose                             |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
 | **CC‑B1.1.1**  | `D` **SHALL** be acyclic (DAG).                                                                                                                            | Ensure foldability.                 |
-| **CC‑B1.1.2**  | All nodes in `D` **SHALL** share a single `temporalScope ∈ {design, run}`.                                                                                 | Ban design/run chimeras.            |
+| **CC‑B1.1.2**  | All nodes in `D` **SHALL** share a single `DesignRunTag ∈ {design, run}`.                                                                                 | Ban design/run chimeras.            |
 | **CC‑B1.1.3**  | All edges in `E` **SHALL** belong to the **normative `V_rel`** (**ComponentOf, ConstituentOf, PortionOf, PhaseOf** only). | Keep mereology crisp and finite. |
 | **CC‑B1.1.4**  | Cross‑holon influences **SHALL** be modelled as `U.Interaction`, **NOT** parthood.                                                                         | Preserve locality (LOC).            |
 | **CC‑B1.1.5**  | Every top‑level holon **SHALL** declare a `U.Boundary`; if Γ\_work will be used, a Boundary Ledger **SHALL** be produced.                                  | Make results comparable/auditable.  |
@@ -10227,14 +10227,14 @@ Both flavours **keep** IDEM, WLNK, MONO from B.1. They **replace** COMM/LOC by d
 1. **Edge discipline:** only `SerialStepOf` / `ParallelFactorOf`.
 2. **OrderSpec σ:** explicit partial order; joins must have well‑typed inputs/outputs (see B.1.5 for join soundness).
 3. **Independence declaration:** if you claim parallel folds commute locally, declare **which branches are independent** (no hidden shared state or side‑effects).
-4. **Scope:** single `temporalScope` (design *or* run) for all nodes; do not mix plans with histories.
+4. **Scope:** single `DesignRunTag` (design *or* run) for all nodes; do not mix plans with histories.
 5. **Boundary note:** if steps cross holon boundaries, record the relevant `U.Interaction`—do not recast it as parthood.
 
 **For Γ\_time**
 
 1. **Same carrier:** all phases are `PhaseOf` the **same** holon identity; identity change implies a Transformer producing a *new* holon.
 2. **Non‑overlap / coverage:** phase intervals are disjoint and cover `τ`; if not, specify how resolution limits or business rules justify the pattern.
-3. **Scope:** single `temporalScope`; design‑time hypothetical timelines and run‑time actual logs are kept separate.
+3. **Scope:** single `DesignRunTag`; design‑time hypothetical timelines and run‑time actual logs are kept separate.
 4. **Boundary note:** if Work across boundaries is reported for phases, route resource statements to **Γ\_work**; Γ\_time itself does not invent costs.
 
 ---
@@ -10283,7 +10283,7 @@ This Proof Kit instantiates the generic obligations from **B.1.1 §6** for the o
   Provide the one‑step singleton witness: Γ\_ctx of a single `SerialStepOf`‑free node returns that step unchanged (IDEM).
 
 * **CTX‑SCOPE/BOUND.**
-  Affirm a **single temporalScope** (`design` or `run`) and list any **U.Interaction** that crosses a holon boundary (do not recast it as parthood).
+  Affirm a **single DesignRunTag** (`design` or `run`) and list any **U.Interaction** that crosses a holon boundary (do not recast it as parthood).
 
 #### 5.2 Γ\_time obligations
 
@@ -10359,7 +10359,7 @@ Use these as templates; each fits on a page and references the obligations above
 | **CC‑B1.4.3** | An **independence declaration** (Γ\_ctx) or **coverage declaration** (Γ\_time) SHALL be attached, with join‑soundness statements (Γ\_ctx) and non‑overlap proof (Γ\_time).      | Make replaced COMM/LOC discipline explicit.   |
 | **CC‑B1.4.4** | **WLNK cutset** SHALL be identified (critical path for Γ\_ctx; critical epoch for Γ\_time).                                                                                     | Conservative bounds.                          |
 | **CC‑B1.4.5** | **MONO characteristics** SHALL be listed and justified for the call.                                                                                                                       | Prevent hidden regress.                       |
-| **CC‑B1.4.6** | All nodes SHALL share the same `temporalScope` (`design` or `run`) in a single fold.                                                                                            | Ban design/run chimeras.                      |
+| **CC‑B1.4.6** | All nodes SHALL share the same `DesignRunTag` (`design` or `run`) in a single fold.                                                                                            | Ban design/run chimeras.                      |
 | **CC‑B1.4.7** | Structural inclusion, mappings, and resource spending SHALL NOT be encoded as order/time edges; route to **Γ\_sys / Γ\_epist**, value‑level links or **Γ\_work** respectively. | Enforce A.15 Strict Distinction.              |
 | **CC‑B1.4.8** | If coverage breaks or identity changes, the modeller SHALL refactor the graph or declare a **Meta‑Holon Transition** (B.2).                                                     | Make emergence explicit.                      |
 
@@ -11976,7 +11976,7 @@ These obligations refine the generic Proof Kit from **B.1.1 §6** for **assuranc
   Identify the **relevant integration path(s)** and record `CL_min` used in the penalty `Φ(CL_min)`.
 
 * **ASS‑MAN (SCR).**
-  Produce a **SCR** listing all contributing nodes and edges with `(F, G, R)` and `CL` values, their **temporalScope**, and Evidence Graph Ref (A.10). If order or time were material, include the **OrderSpec** or **TimeWindow** identifiers from **B.1.4**.
+  Produce a **SCR** listing all contributing nodes and edges with `(F, G, R)` and `CL` values, their **DesignRunTag**, and Evidence Graph Ref (A.10). If order or time were material, include the **OrderSpec** or **TimeWindow** identifiers from **B.1.4**.
 
 * **ASS‑MONO (Declared monotone characteristics).**
   List the characteristics along which local improvement cannot reduce the aggregate (this supports future evolution, B.4).
@@ -19525,7 +19525,7 @@ Define a **portable minimal set** of CHR **slots**. Each slot is **CHR-typed** (
 **CC-C.21-1 (CHR typing).** Every DHC slot **MUST** declare **Characteristic + Scale/Unit/Polarity**, with CSLC legality proved before any aggregation.
 **CC-C.21-2 (Freshness).** Published values MUST carry Γ_time selector and freshness window; stale rows escalate to {degrade|abstain} in **G.4 Acceptance**.
 **CC-C.21-3 (Plane).** ReferencePlane declared; cross‑plane re‑use publishes **CL^plane** (policy id) alongside CL; both penalties route to **R_eff**.
-**CC‑C.21‑4 (Design/Run stance).** Every DHC row SHALL declare **Stance ∈ {design, run}**; design‑ и run‑characteristics **not mixing** in one value/aggregate.
+**CC‑C.21‑4 (DesignRunTag).** Every DHC row SHALL declare **Stance ∈ {design, run}**; design‑ и run‑characteristics **not mixing** in one value/aggregate.
 **CC-C.21-5 (Lane tags).** Each value **MUST** tag **TA/VA/LA** lanes of contributing evidence.
 **CC-C.21-6 (Ordinal discipline).** **StandardisationLevel** is ordinal; **no means**, **no z-scores**.
 **CC-C.21-7 (Scope).** All computations declare **TargetSlice**; **USM** membership is decidable and deterministic.
@@ -19655,7 +19655,7 @@ A TaskSignature is a minimal typed record the selector consumes:
 
 Values are **CHR‑typed** with **provenance**; traits may be **inferred** from CHR/CAL bindings (e.g., *convexity known? differentiable? ordinal vs interval scales?*) and from **USM** scope metadata. Unknowns are tri‑state; **Missingness semantics MUST align with CHR.Missingness** and be honored by Acceptance/Flows. 
 
-**Design/Run hygiene.** Do not mix design/run stance in one signature; **publish ATS crossings** (Bridge + UTS) when importing design‑time traits into run‑time.
+**Design/Run hygiene.** Do not mix DesignRunTag in one signature; **publish ATS crossings** (Bridge + UTS) when importing design‑time traits into run‑time.
 
 #### 5.3 Provenance & planes.
 Record **Context**, **ReferencePlane** for each value; on any cross‑Context/plane reuse, attach BridgeDescription + UTS row, apply **CL** (and, if planes differ, **CL^plane**) penalties to **R_eff only**; both **Φ(CL)** and (if used) **Φ_plane** MUST be **monotone, bounded, and table‑backed**; **no “distance” language; penalties never mutate F/G.** Publish policy‑ids in SCR and cite Bridge ids on crossings.
@@ -22360,7 +22360,7 @@ The platform offers **Service** ‘Object Storage’ (access = `S3_API_Spec_vX`;
 4. **LCTX‑INV‑4 (Frames, not contexts).** Pattern headers use **Problem Frame** for narrative.
 5. **LCTX‑INV‑5 (No hierarchy).** Contexts are flat; relationships are declared **only** via E.10.U9 Bridges.
 6. **LCTX‑INV‑6 (Plane hygiene).** Contexts describe **context of meaning** for sources; they are not roles, statuses, executions, or types (C‑6).
-7. **LCTX‑INV‑7 (Time tags).** Temporal stance is a **tag** on artefacts/sources; it does not multiply contexts.
+7. **LCTX‑INV‑7 (Time tags).** DesignRunTag is a **tag** on artefacts/sources; it does not multiply contexts.
 8. **LCTX‑INV‑8 (Language/edition).** Multilingual or multi‑edition handling follows D‑CTX‑7.
 
 ---
@@ -22608,7 +22608,7 @@ Every Description/Spec is **local to** a `U.BoundedContext` (E.10.D1). Phrases i
 `U.Carrier` holds **encodings** of a Description/Spec; the KU’s identity is **not** the file. *Never* say “the role contains the checklist in the PDF”; say “the **RoleDescription** characterises the role with checklists; this **carrier** encodes them.”
 
 **Time stance.**
-Descriptions/Specs must declare design/run stance when inherent (e.g., RoleDescription is design‑time; state attestation via `U.Evaluation` is run‑time).
+Descriptions/Specs must declare DesignRunTag when inherent (e.g., RoleDescription is design‑time; state attestation via `U.Evaluation` is run‑time).
 
 ---
 
@@ -24820,7 +24820,7 @@ Declare **DomainDistance** policy (cosine or transport) and δ_family threshold;
 3. **Heterogeneity.** Each unification line considers **≥ 3 distinct Domain families** (labels are informative only).
 4. **Parsimony.** Prefer few, canonical Contexts per family (1–3) that jointly expose the key sense splits.
 5. **No bridging here.** No equivalence or mapping is asserted between Contexts in F.1. (Bridges live in **F.9**.)
-6. **Design/run honesty.** If a canon fixes a temporal stance, note it. Do not reinterpret.
+6. **Design/run honesty.** If a canon fixes a DesignRunTag, note it. Do not reinterpret.
 7. **Didactic primacy.** Each Context Card must be readable by a thoughtful engineer in **under two minutes**.
 8. **Domain‑family neutrality.** Domain families **carry no semantics**; they SHALL NOT be used for inheritance, inference, or bridge implication.
 9. **Scope naming separation.** `Scope gist` on Cards is **didactic only**; formal *Scope/Aboutness* (=`USM.ScopeSlice(G)` ⊕ `Aboutness(TopicHolon, ReferencePlane)`) is declared **in G.0–G.1**, not in F.1.
@@ -25028,7 +25028,7 @@ Architheories in Part C (Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL, LCA‑CA
 * **SCR‑F1‑S03 (Locality pledge).** Nowhere in F.1 are Cross‑context equivalences or merges asserted.
 * **SCR‑F1‑S04 (Parsimony).** In every family, **1–3** Contexts are kept; if more, a clear sentence justifies each extra Context’s unique sense contribution.
 * **SCR‑F1‑S05 (Context discipline).** “Context” is used only as a synonym of **U.BoundedContext**; “domain” appears only as an informative family label.
-* **SCR‑F1‑S06 (Temporal honesty).** If a canon fixes design/run stance, the Card states it.
+* **SCR‑F1‑S06 (Temporal honesty).** If a canon fixes DesignRunTag, the Card states it.
 * **SCR‑F1‑S07 (Family neutrality).** No claim, classification, or relation in F.1 relies on Domain‑family membership; families appear only as shelf labels on cards.
 * **SCR‑F1‑S08 (dSig present).** Every Context Card has a 5‑characteristics `dSig`.
 * **SCR‑F1‑S09 (Collision policy).** Any pair with `dSig` match on ≥3 characteristics is either merged or replaced; SCR records the action.
@@ -25208,7 +25208,7 @@ For every Context (a **U.BoundedContext** from F.1), you gather **attested phras
 | **A8**  | **Vendor‑dialect elevation** | Treating a DSL/keyword list as “the domain”.                         | Projectionism; narrow idiom dominates.                       | If needed, model the DSL as **one context among others**; keep heterogeneity from F.1.                     |
 | **A9**  | **Tail chasing**             | Harvesting hundreds of rare terms.                                   | Cognitive overload; dilutes signal.                          | Keep **head terms** that feed F.3/F.4/F.9; justify rare units by their bridging value.                  |
 | **A10** | **Fake symmetry**            | Tech and Plain labels are identical jargon.                          | Didactic failure.                                            | Make **Plain** genuinely explanatory; keep **Tech** faithful to the canon.                              |
-| **A11** | **Temporal fudge**           | Using run‑time words in design Contexts (or vice versa).                | Category drift; later contradictions.                        | Respect the Context’s **design/run stance** from its Card (F.1 §7.2).                                      |
+| **A11** | **Temporal fudge**           | Using run‑time words in design Contexts (or vice versa).                | Category drift; later contradictions.                        | Respect the Context’s **DesignRunTag** from its Card (F.1 §7.2).                                      |
 | **A12** | **Cross‑language collapse**  | Merging bilingual terms as one unit.                                 | Erases idiom‑specific signals; hides normative mapping gaps. | Treat each language edition as its **own Context** unless the canon declares a normative mapping.          |
 | **A13** | **Alias inflation**          | Inventing new local names “for clarity”.                             | Strays from the canon; hinders bridging.                     | Prefer the canon’s idiom; keep invented phrasings to the **Plain** register only.                       |
 | **A14** | **Role/status conflation**   | RBAC “role” glossed as behavioural role.                             | Cross‑family bleed; wrong assignment later.                         | Call out the Context in the label: **access‑role (RBAC)** vs **participant (BPMN)**; keep senses disjoint. |
@@ -25363,7 +25363,7 @@ Architheories in Part C when referencing domain idioms (labels stay **context�
 * **SCR‑F2‑S04 (Lexical‑only).** No gloss contains behaviour, deontics, measurement math, or type axioms.
 * **SCR‑F2‑S05 (No Cross‑context claims).** Nowhere does F.2 assert equivalence/similarity/subsumption across Contexts.
 * **SCR‑F2‑S06 (Minimal generality).** Glosses match the Context’s use; no globalisation.
-* **SCR‑F2‑S07 (Temporal honesty).** For Contexts with fixed design/run stance, units and glosses respect it.
+* **SCR‑F2‑S07 (Temporal honesty).** For Contexts with fixed DesignRunTag, units and glosses respect it.
 
 ### 15.2 Regression (RSCR)
 
@@ -25496,7 +25496,7 @@ These are **thinking reference points** (cognitive only), not records or files. 
 5. **Usage‑first.** Sense lines reflect the **canon’s usage**, not imported taxonomies or external theories.
 6. **Counter‑examples rule.** If a counter‑example exists that the sense would wrongly include, **split**.
 7. **No behaviour math.** Sense lines contain **no** behavioural, deontic, metrological, or type calculus; those live in Part C.
-8. **Temporal honesty.** If the Context fixes **design/run stance**, the sense line respects it (e.g., PROV *activity* is **run‑time**).
+8. **Temporal honesty.** If the Context fixes **DesignRunTag**, the sense line respects it (e.g., PROV *activity* is **run‑time**).
 
 ---
 
@@ -25671,7 +25671,7 @@ These are **thinking reference points** (cognitive only), not records or files. 
 
 8. **Temporal guard**
    `stance(C)=design ⇒ forbid(run‑claims in σ)` (and symmetrically)
-   *Reading:* Sense lines must not cross the Context’s design/run stance.
+   *Reading:* Sense lines must not cross the Context’s DesignRunTag.
 
 9. **Edition guard**
    `C≠C′ (different editions with usage shift) ⇒ no‑merge(σ@C, τ@C′)`
@@ -26010,7 +26010,7 @@ Let **`stance(T)`** ∈ {**design**, **run**} (from the Context).
 `stance(T)=design ⊢ inv(T) may not assert run‑facts`
 `stance(T)=run ⊢ inv(T) may not assert design‑commitments`
 
-**Reading.** Invariants must **respect** the Context’s temporal stance (F.1).
+**Reading.** Invariants must **respect** the Context’s DesignRunTag (F.1).
 
 #### 11.6 Binding/Assertion admissibility
 
@@ -26446,7 +26446,7 @@ Without disciplined Role Assignment & Enactment reasoning:
 * **Subject** — the referent of a **Status** assertion; determined by the Template (may or may not be the Holder).
 * **subject_of(τ, H)** — function yielding the **Subject** for Status assertions given Template **τ** (and, if needed, candidate **H**).
 * **Eligibility** — conditions on the Holder that *must* hold to apply the Template (F.4 invariants).
-* **Window** — the temporal stance or interval relevant to the claim (design/run; instant/period).
+* **Window** — the DesignRunTag or interval relevant to the claim (design/run; instant/period).
 * **Evidence shape** — the **Observation/Result/Procedure/Feature** pattern (KD‑CAL) that could confirm/refute the claim in its Context.
 
 ### 5 · Pre‑conditions (lightweight)
@@ -26468,12 +26468,12 @@ All moves are **context‑local** and **side‑effect free** (they assert knowle
 **Reading.** Name the Context and the exact SenseCell that gives **local meaning** to the Template.
 **Note.** This forbids “floating” Roles/Statuses and prevents Context drift.
 
-#### M2 · Stance — *Respect design/run stance*
+#### M2 · Stance — *Respect DesignRunTag*
 
 **Form.**
 `stance(C)=s ∧ stance(τ)∈{s, both} ⊢ compatible_stance(τ,C)`
 
-**Reading.** The Template’s temporal stance is **compatible** with its Context’s stance (design vs run).
+**Reading.** The Template’s DesignRunTag is **compatible** with its Context’s stance (design vs run).
 **Note.** Guards against judging a design‑mask by run‑traces or judging a run‑status by design artefacts.
 
 #### M3 · Qualify — *Check Holder eligibility*
@@ -26544,7 +26544,7 @@ All moves are **context‑local** and **side‑effect free** (they assert knowle
 | **AP‑4**  | **Eligibility‑after‑the‑fact** | Declaring the claim, then back‑fitting eligibility to observed traces.                      | Confuses **necessary conditions** with **diagnostics**; risks circularity. | Perform **M3 Qualify** *before* **M4 Bind/Assert**; treat evidence only in **M5**/**M6**.                                    |
 | **AP‑5**  | **Global Label Illusion**      | Using bare labels (“process”, “agent”, “role”) as if universal.                             | Hides the Context; fuels homonym errors.                                      | Always recover **M1 Locate**: `address(τ)=⟨Context, SenseCell⟩`. Use F.5 naming discipline (Tech/Plain registers).              |
 | **AP‑6**  | **Evidence by Prestige**       | “Industry practice says …” offered instead of KD‑CAL‑shaped facts.                          | Replaces observable Results with authority talk.                           | State an **evidence shape Σ(Context)** in **M5**; later fill it with **Observation/Result** facts (KD‑CAL).                     |
-| **AP‑7**  | **Design/Run Inversion**       | Verifying a design‑time mask by design documents; verifying a run‑status with design specs. | Violates temporal stance; yields non‑falsifiable claims.                   | Apply **M2 Stance**: the Template’s stance must be compatible with the Context. Evidence follows the stance.                    |
+| **AP‑7**  | **Design/Run Inversion**       | Verifying a design‑time mask by design documents; verifying a run‑status with design specs. | Violates DesignRunTag; yields non‑falsifiable claims.                   | Apply **M2 Stance**: the Template’s stance must be compatible with the Context. Evidence follows the stance.                    |
 | **AP-8**  | **Premature Bridge**           | ... | ... | Keep the assignment/status claim local; if needed, create an **F.9 Bridge** with loss notes and CL penalty.                  |
 | **AP‑9**  | **Token Proofs**               | Single anecdotal event taken as universal confirmation.                                     | Over‑generalises; ignores evidence windows and procedures.                 | In **M5**, include **Procedure** and **Window**; in **M6**, roll confidence γ from adequacy of sampling (KD‑CAL).            |
 | **AP‑10** | **Role Explosion as Patch**    | New Role minted for every exception.                                                        | Name bloat; brittle semantics.                                             | Re‑examine **eligibility** and **Window**; consider a **Status** to mark exceptions instead of new Roles.                    |
@@ -26683,7 +26683,7 @@ Architheories (Part C) to anchor their examples: Sys‑CAL (execution/actuatio
 Without a disciplined Cross‑context view:
 
 1. **Silent equivalence.** Readers assume sameness by name alone (e.g., *process*).
-2. **Loss denial.** Mappings hide what is dropped (temporal stance, units, agency).
+2. **Loss denial.** Mappings hide what is dropped (DesignRunTag, units, agency).
 3. **Name inflation.** New U.Types are coined to avoid facing heterogeneity.
 4. **Cognitive scatter.** Concepts drift across documents without one compact, teachable “where‑what‑how‑same” view.
 
@@ -26758,7 +26758,7 @@ FPF Label (Tech / Plain) | Row Scope | Row CL(min) | [Context A] local label | [
 * **Licensing.** A row exists **iff** the relevant **Bridges (F.9)** already justify sameness at the chosen **Row Scope**.
 * **Bounding.** Prefer **2–4 Contexts** per row (parsimony); add more only if each adds a *distinct necessity* for the sameness claim.
 * **Typing.** A row is **typed by senseFamily**: Role, Status, Type‑structure, Measurement, etc. **Do not mix senseFamilies** in one row.
-* **Temporal honesty.** A row’s cells must share **compatible design/run stance**; if not, either split into two rows or mark a **contrast row**.
+* **Temporal honesty.** A row’s cells must share **compatible DesignRunTag**; if not, either split into two rows or mark a **contrast row**.
 
 ---
 
@@ -26806,7 +26806,7 @@ FPF Label (Tech / Plain) | Row Scope | Row CL(min) | [Context A] local label | [
 | **AP‑1**  | **Bridge‑free sameness**    | Cells listed as “same” because their labels look alike; no cited Bridges.      | Violates locality; imports meaning across Contexts by name.             | A row **exists only** if backed by **F.9 Bridges**. Otherwise produce a **contrast row**.                         |
 | **AP-2**  | **Scope creep**             | Row labelled “Type-structure” but used to justify **assignment/enactment-eligibility** or KD metrics. | Scope licences are not transferable; inference leaks.                | Keep a **small controlled set of Row Scopes**. If use widens, **mint a new row** or **re-bridge** with higher CL. |
 | **AP‑3**  | **senseFamily mixing**      | One row mixes Role, Status, Measurement, and Type‑structure cells.             | Conflates senseFamily (F.0.1); readers cannot tell “what kind of sameness”. | **Type each row.** If two senseFamilys are needed, **split** into two rows.                                             |
-| **AP‑4**  | **Temporal blur**           | Cells with incompatible design/run stance declared “same”.                     | Design artefacts ≠ run occurrences; claims invert.                   | Either **harmonise stance** (choose only compatible cells) or publish a **contrast row**.                         |
+| **AP‑4**  | **Temporal blur**           | Cells with incompatible DesignRunTag declared “same”.                     | Design artefacts ≠ run occurrences; claims invert.                   | Either **harmonise stance** (choose only compatible cells) or publish a **contrast row**.                         |
 | **AP‑5**  | **Loss denial**             | Bridges carry loss notes, but the row omits counter‑examples.                  | Readers over‑trust; misuse outside safe scope.                       | Add a **one‑line counter‑example** that illustrates the loss.                                                     |
 | **AP‑6**  | **CL averaging**            | Row CL(min) computed as an average of heterogeneous Bridges.                   | The weakest link governs; averages overstate safety.                 | Row CL(min) is the **bottleneck** (minimum along connecting paths).                                               |
 | **AP‑7**  | **Overwide rows**           | 6–8 Contexts in one row; hard to read; subtle mismatches hide.                    | Violates didactic primacy; invites hidden losses.                    | **Parsimony**: 2–4 Contexts per row unless each extra cell has a **distinct necessity** you can state in one line.   |
@@ -26877,7 +26877,7 @@ FPF Label (Tech / Plain) | Row Scope | Row CL(min) | [Context A] local label | [
 **Form.**
 `S = {SC(C₁), …, SC(Cₙ)}, Scope = s, τ(s) = requiredCL ⊢ licensable(S,s) ⇔ (∀ i<j: CL(SC(Cᵢ)↔SC(Cⱼ)) ≥ requiredCL ∧ senseFamily (S) is uniform ∧ stance(S) compatible)`
 
-**Reading.** A set of cells **licenses** a row of scope `s` iff every pair is bridged at or above the **required CL** for that scope, all cells sit in the **same senseFamily**, and **temporal stance** is compatible.
+**Reading.** A set of cells **licenses** a row of scope `s` iff every pair is bridged at or above the **required CL** for that scope, all cells sit in the **same senseFamily**, and **DesignRunTag** is compatible.
 
 ---
 
@@ -26958,7 +26958,7 @@ Part C architheories for didactic alignment pages; Part B trust calculus (B.
 * **SCR‑F7‑S01 (Context‑loyal cells).** Every non‑empty cell references an existing **SenseCell** (F.3) in a declared Context (F.1).
 * **SCR‑F7‑S02 (Closure & bottleneck).** For each Concept‑Set row, **every pair** of cells has a Bridge path with CL ≥ **Row CL(min)** printed; **Row CL(min)** equals the **minimum** pairwise CL.
 * **SCR‑F7‑S03 (Typed & scoped).** Each row declares a **Row Scope** from the controlled set and is **senseFamily‑uniform** (Role **or** Status **or** Measurement **or** Type‑structure…).
-* **SCR‑F7‑S04 (Temporal compatibility).** Non‑contrast rows have **compatible** design/run stance across cells.
+* **SCR‑F7‑S04 (Temporal compatibility).** Non‑contrast rows have **compatible** DesignRunTag across cells.
 * **SCR‑F7‑S05 (Loss disclosure).** If any supporting Bridge has a recorded loss, the row includes **≥1 counter‑example** line.
 * **SCR‑F7‑S06 (Parsimony).** Rows contain **2–4 Contexts** unless a one‑line necessity is stated for each extra Context.
 
@@ -27338,7 +27338,7 @@ Cross‑context work fails in predictable ways:
 
 1. **String‑equals fallacy.** Identical surfaces (“process”, “role”, “accuracy”) taken as identical meaning.
 2. **Scope creep.** A naming convenience is stretched to assignment or structural claims.
-3. **design/run stance jumping.** Design artefacts are substituted for run‑time occurrences (or vice‑versa).
+3. **DesignRunTag jumping.** Design artefacts are substituted for run‑time occurrences (or vice‑versa).
 4. **Direction amnesia.** Narrower/broader relations treated as symmetric.
 5. **Loss blindness.** Differences (units, granularity, preconditions) are left unstated, contaminating downstream reasoning.
 
@@ -27472,7 +27472,7 @@ CL expresses how safely meaning carries over.
 5. **Loss visibility.** Every Bridge carries **Loss Notes** (even “none”).
 6. **Row dependence.** A Concept‑Set row’s **scope** is **bounded by the weakest CL** among its participating Bridges (F.7/F.8).
 7. **No senseFamily jump by stealth.** You **must not** use an Interpretation Bridge to justify a **row** or **substitution**.
-8. **Time stance honesty.** If a Context fixes **design/run**, the Bridge must respect or explicitly declare stance relations (e.g., ⇄ᴅʀ).
+8. **Time DesignRunTag honesty.** If a Context fixes **design/run**, the Bridge must respect or explicitly declare stance relations (e.g., ⇄ᴅʀ).
 9. **Kernel restraint.** Bridges **cannot** be used to promote ad‑hoc sameness into a new **U.Type**; A.11 applies.
 10. **Non‑inheritance of Contexts.** Bridges **do not** imply “is‑a” between Contexts (E.10.D1).
 
@@ -27703,7 +27703,7 @@ CL expresses how safely meaning carries over.
 **“Keep statuses in their native modality; translate between Contexts explicitly.”**
 **Status.** Architectural pattern \[A], architheory‑agnostic.
 **Builds on:** E.10.D1 **D.CTX** (Context ≡ `U.BoundedContext`); F.1 (Contexts), F.2 (Seeds), F.3 (Local‑Senses → SenseCells), F.4 (Role Description **Status** templates), F.9 (Bridges).
-**Coordinates with.** B.3 **Trust & Assurance Calculus** (interprets CL penalties); Part C architheories: **KD‑CAL** (measurement semantics), **Norm‑CAL** (deontic logic), **Method‑CAL** (design/run stance).
+**Coordinates with.** B.3 **Trust & Assurance Calculus** (interprets CL penalties); Part C architheories: **KD‑CAL** (measurement semantics), **Norm‑CAL** (deontic logic), **Method‑CAL** (DesignRunTag).
 
 ---
 
@@ -28025,7 +28025,7 @@ If a Bridge cannot reach **CL≥2** on the **same senseFamily**, do **not** subs
    `noBridge(C,D) ⊢ crossContextUse(σ@C ⇒ τ@D) = namingOnly`
    *Reading:* Without a Bridge, only **explanatory prose** is allowed—no status inferences.
 
-13. **Design/run stance honesty**
+13. **DesignRunTag honesty**
    `statusModality=deontic ∧ targetKind=artefact/method ∧ window=W ⊢ doesNotDecide(clause κ @ W)`
    *Reading:* Approval of a method never decides a clause’s satisfaction for a run‑time Window.
 
@@ -28038,7 +28038,7 @@ E.10.D1 **D.CTX** (Context discipline); F.1 (Contexts in view); F.2–F.3 (Seeds
 
 * **F.4 (Role Description Status):** a Role Description Status **must** select a **StatusFamily**, **StatusModality**, **target kind**, and **Window**.
 * **F.8 (Naming):** status labels reused across Contexts **must** be marked as **Context‑scoped**; global synonyms forbidden.
-* **Part C architheories:** KD‑CAL provides measurement semantics for EvidenceStatus; Norm‑CAL provides clause logic for RequirementStatus; Method‑CAL frames design/run stance for StandardStatus.
+* **Part C architheories:** KD‑CAL provides measurement semantics for EvidenceStatus; Norm‑CAL provides clause logic for RequirementStatus; Method‑CAL frames DesignRunTag for StandardStatus.
 
 **Used by.**
 Service Acceptance (F.12), Assurance roll‑ups (B.3), any cross‑domain conformance narrative.
@@ -28220,7 +28220,7 @@ Each box/arrow is **context‑local** (SPEM, PROV‑O, IEC…). **Cross‑contex
 
 ## 8 · Invariants (normative)
 
-1. **Stance honesty.** Statements about **Method/MethodDescription** (design) **MUST NOT** be used as if they were statements about **Work/Actuation** (run) without an explicit Bridge and Window.
+1. **DesignRunTag honesty.** Statements about **Method/MethodDescription** (design) **MUST NOT** be used as if they were statements about **Work/Actuation** (run) without an explicit Bridge and Window.
 2. **Box discipline.** Every claim about “how”, “recipe”, “run”, or “control output” **MUST** point to the correct box in the quartet.
 3. **Context locality.** Terms (*process*, *activity*, *task*, *command*) **MUST** be read as **SenseCells** in their Contexts (F.3); Cross‑context equivalence is a matter for F.7/F.9 Bridges.
 4. **Status placement.** *Approved* attaches to MethodDescription; *Observed/Measured* attach to Work; *Satisfied/Violated* attach to clauses about Work outcomes within a **Window** (F.10).
@@ -28416,7 +28416,7 @@ Part C architheories (Sys‑CAL, KD‑CAL, Method‑CAL, Kind-CAL, LCA‑CAL) 
 
 ### 15.1 Static conformance checks (SCR)
 
-* **SCR‑F11‑S01 (Stance honesty).** Every normative claim about outcomes is attached to **Work** (with Window), not to **Method/MethodDescription**.
+* **SCR‑F11‑S01 (DesignRunTag honesty).** Every normative claim about outcomes is attached to **Work** (with Window), not to **Method/MethodDescription**.
 * **SCR‑F11‑S02 (Box placement).** Labels and statuses appear on the correct box (e.g., *Approved* on MethodDescription only).
 * **SCR‑F11‑S03 (Actuation inclusion).** All Actuation statements are modeled as **within** a Work interval.
 * **SCR‑F11‑S04 (Context discipline).** Each quartet term is expressed as a **SenseCell** with its Context; no Cross‑context identity is asserted here.
@@ -30113,7 +30113,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 * **SCR-F16-S03 (Role-Description anchoring).** Each **Role Description** appearing in the page references **exactly one SenseCell**.
 * **SCR‑F16‑S04 (Context prefixes).** First mention of each ambiguous term is **Context‑prefixed**.
 * **SCR‑F16‑S05 (Window discipline).** Any numeric comparison across Contexts names a **Window**.
-* **SCR‑F16‑S06 (Temporal stance).** Claims respect each Context’s **design/run** stance.
+* **SCR‑F16‑S06 (DesignRunTag).** Claims respect each Context’s **design/run** stance.
 * **SCR‑F16‑S07 (SoD).** If duties are named and SoD is relevant, **SoD is stated** and unviolated.
 * **SCR‑F16‑S08 (One‑page parsimony).** The example fits the **one‑page canvas**; if extended, each sub‑page still respects §6 invariants.
 
@@ -30132,7 +30132,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 2. **Split crowded rows.** If a row tries to carry more than \~4 cells, split into two rows and write a **one‑line purpose** for each.
 3. **Stabilise vocabulary.** If you find yourself rewriting terms mid‑page, you likely forgot a Context; return to F.1 and add a Card.
 4. **Teach the bridge itch.** Leave “*these are the same*” feelings ungratified until you can articulate **kind, CL, loss** in one sentence.
-5. **Stay in stance.** If a design‑only Context tempts you into runtime talk, move that part of the narrative into a **run‑Context** and Bridge as needed.
+5. **DesignRunTag respect.** If a design‑only Context tempts you into runtime talk, move that part of the narrative into a **run‑Context** and Bridge as needed.
 6. **Keep the page living.** When upstream rows/bridges evolve (F.7–F.9), adjust the page *minimally* and call out the change in a margin note (conceptual, not procedural).
 
 ---
@@ -30254,7 +30254,7 @@ Every UTS row **MUST** carry the following fields (verbatim headings recommended
 | **SenseCells (by context)** | Per selected Context: the local term(s) or construct that best realises the concept (one cell per Context). |
 | **Bridges (CL/Loss)**     | For any cross‑context relation, record the F.9 Bridge with **CL** and a 2–6‑word loss note; if identity, mark **CL=3 (identity)**. |
 | **Unification Rationale** | One sentence: why these senses are the same *conceptually*.                                           |
-| **Notes (optional)**      | Brief temporal stance or trip‑wire hints (e.g., “design vs run”).                                     |
+| **Notes (optional)**      | Brief DesignRunTag or trip‑wire hints (e.g., “design vs run”).                                     |
 
 **Constraint.** “SenseCells (by **Context**)” **MUST** cite **at least three** distinct **Contexts** overall across the sheet for the thread (A.8). A single row may show fewer if the concept truly appears in fewer contexts; coverage is a property of the whole UTS.
 
@@ -30416,7 +30416,7 @@ _(Choose 3–5 that fit the thread; do not place Contexts here.)_
 ## 13 · Didactic Aids
 
 * **Trip‑wire column (optional).** A ⚡ marker in `Notes` for known homonyms (e.g., *process (BPMN) ≠ process (thermo)*).
-* **Temporal stance tag (optional).** `design` / `run` hint for concepts whose senses split by time.
+* **DesignRunTag tag (optional).** `design` / `run` hint for concepts whose senses split by time.
 
 ## 14 · Micro Examples (one line each, illustrative)
 
@@ -31563,7 +31563,7 @@ How to **systematically** assemble a *complete‑enough* SoTA view that:
 * **Recency vs. stability.** Post‑2015 advances matter, but we need durable claims and exemplars (record freshness windows; edition every distance/metric).
 * **Exploration vs. exploitation.** Illumination/QD (diversity‑seeking) vs. best‑response optimisation; keep policies separate and publish which stance a synthesis adopts.
 * **Formalism vs. pedagogy.** Early outputs must be teachable and auditable (UTS + Name Cards).
-* **Design‑time vs. run‑time.** Keep modeling commitments separate from operational policies and proofs; record the stance explicitly.
+* **Design‑time vs. run‑time.** Keep modeling commitments separate from operational policies and proofs; record the DesignRunTag explicitly.
 
 ### 4) Solution (the harvesting & synthesis loop)
 
@@ -31664,7 +31664,7 @@ Required artifact for top‑level disciplines: **SoTAPaletteDescription (D)**, a
 
 * **“Global definition” temptation.** *Don’t:* collapse causal, evidential, and thermodynamic decision theories into one utility function. *Do:* keep **parallel claim sheets** and map **where** and **why** they diverge; attach **Bridges** with CL.
 * **Ordinal arithmetic creep.** *Don’t:* average Likert‑style scores across studies. *Do:* treat as ordinal; use order‑safe summaries, or justify interval mapping via MM‑CHR evidence.
-* **Design/run blur.** *Don’t:* treat policy heuristics as proven laws. *Do:* tag stance, and route proofs/policies to the proper lanes.
+* **Design/run blur.** *Don’t:* treat policy heuristics as proven laws. *Do:* DesignRunTagtance, and route proofs/policies to the proper lanes.
 
 ### 9) Consequences
 
@@ -32573,7 +32573,7 @@ Each hook below defines: **Trigger → Obligation → Publishes/Consumes → Inv
 
 ### 9) Consequences
 
-**Benefits.** Path‑addressable provenance; transparent **CL** and decay; clean **design/run stance**; selectors and auditors share the *same* object; **R** penalties become explainable deltas rather than folklore.
+**Benefits.** Path‑addressable provenance; transparent **CL** and decay; clean **DesignRunTag**; selectors and auditors share the *same* object; **R** penalties become explainable deltas rather than folklore.
 **Trade‑offs.** Authors must declare freshness and planes; mitigated by reusing G.4 **EvidenceProfiles** instead of duplicating fields.
 
 ### 10) Rationale
