@@ -3344,7 +3344,7 @@ Use when **adding/removing states**, **changing criteria**, or **bridging** acro
 
 # A.2.6 · **Unified Scope Mechanism (USM): Context Slices & Scopes**  \[A] 
 
-> **One-line summary.** Introduces a single, context-local **scope mechanism** for all holons: **`U.ContextSlice`** (where we reason and measure) and a family of **set-valued scope types** (**USM scope objects, `U.Scope`**), specialized as **`U.ClaimScope`** for epistemes (**G** in **F–G–R**) and **`U.WorkScope`** for system capabilities, with one algebra (∩ / SpanUnion / translate / widen / narrow / refit) and uniform Cross-context handling (Bridge + CL).
+> **One-line summary.** Introduces a single, context-local **scope mechanism** for all holons: **`U.ContextSlice`** (where we reason and measure) and a family of **set-valued scope types** (**USM scope objects, `U.Scope`**), specialized as **`U.ClaimScope`** for epistemes (**G** in **F–G–R**), **`U.WorkScope`** for system capabilities, and **`U.PublicationScope`** for publication carriers; with one algebra (∩ / SpanUnion / translate / widen / narrow / refit) and uniform Cross-context handling (Bridge + CL).
 
 ## 0 · Status, Placement & Deprecations
 
@@ -3355,6 +3355,7 @@ This pattern **supersedes** the scattered use of labels *applicability*, *envelo
 
 * For epistemes, the only **scope type** is **`U.ClaimScope`** (nick **G** in F–G–R).
 * For system capabilities, the only **scope type** is **`U.WorkScope`**.
+* For publication carriers (views/cards/lanes), the only **scope type** is **`U.PublicationScope`**.
 * The abstract architectural notion is **`U.Scope`** — a **set-valued USM object** over `ContextSliceSet` with its own algebra (∩ / SpanUnion / translate / widen / narrow / refit); it is **not** a `U.Characteristic` and MUST NOT appear in any `CharacteristicSpace`.
 
 Legacy words (*applicability / envelope / generality / capability envelope*) MAY appear **only** as explanatory aliases in non‑normative notes.
@@ -3362,8 +3363,8 @@ Legacy words (*applicability / envelope / generality / capability envelope*) MAY
 **Cross‑references.**
 — **C.2.3** (Unified Formality **F**) and **C.2.2** (F–G–R): this pattern **defines G** as `U.ClaimScope`.
 — **A.2.2** (Capabilities): capability gating now **SHALL** use `U.WorkScope`.
-— **Part B** (Bridges & CL): Cross‑context transfers **MUST** declare a Bridge with **CL**; CL affects **R**, not **F/G**.
-
+— **Part B** (Bridges & CL): Cross‑context transfers **MUST** declare a Bridge with **CL**; CL affects **R**, not **F/G**.
+— **Part E** (Publication discipline; e.g., **E.17 MVPK**): publication views/cards/lanes MAY declare `U.PublicationScope` to bound **where** a publication is admissible; `U.PublicationScope` MUST NOT widen the underlying `U.ClaimScope`/`U.WorkScope`. (USM supplies the scope calculus; Part E supplies publication discipline.)
 
 ## 1 · Purpose & Audience
 
@@ -3440,8 +3441,8 @@ When **G** is a **set‑valued scope**, composition becomes precise: serial depe
 * **One algebra:** serial **intersection**, parallel **SpanUnion** (only where supported), **translate** via Bridge (CL affects **R**, not **F/G**), and **widen / narrow / refit** operations for scope evolution.
 
 **Lexical commitments (normative):**
-— In normative text and guards, use **Claim scope (G)** and **Work scope**.
-— Do **not** name the characteristic “applicability/envelope/generality/capability envelope/validity.” Those words are permitted only as explanatory aliases in notes.
+— In normative text and guards, use **Claim scope (G)**, **Work scope**, and **Publication scope**.  
+— Do **not** name the characteristic “applicability/envelope/generality/capability envelope/**publication applicability**/validity.” Those words are permitted only as explanatory aliases in notes.
 
 ## 6 · Normative Definitions
 
@@ -3464,7 +3465,7 @@ When **G** is a **set‑valued scope**, composition becomes precise: serial depe
 
 **Definition.** `U.Scope ⊆ ContextSliceSet` is a **set‑valued USM property** whose values are sets of `U.ContextSlice` where a given statement, behavior, or capability is **fit‑for‑use**. It is **not** numeric; its internal order is the subset relation `⊆`. There is no “unit”. The primitive judgement is **membership**: `slice ∈ Scope`.  
 
-**Guard (normative).** `U.Scope`, `U.ClaimScope (G)`, and `U.WorkScope` are **not** `U.Characteristic`s in the A.17/CSLC sense; do **not** include them as slots in any `U.CharacteristicSpace`, and do **not** attach normalizations/scores to them. They are **USM scope objects**.
++**Guard (normative).** `U.Scope`, `U.ClaimScope (G)`, `U.WorkScope`, and `U.PublicationScope` are **not** `U.Characteristic`s in the A.17/CSLC sense; do **not** include them as slots in any `U.CharacteristicSpace`, and do **not** attach normalizations/scores to them. They are **USM scope objects**.
 
 **Operations.** USM admits:
 
@@ -3521,6 +3522,26 @@ The use‑time admission requires **all** of: `WorkScope covers JobSlice` **AND*
 * **`U.QualificationWindow` (mandatory for operational use).** A time policy (point/window/rolling) stating when the capability is considered qualified; evaluated at `Γ_time`.  
 These facets are **separate** from `U.WorkScope` and live in the **R‑lane** (assurance). They MUST be referenced in Method–Work guards (see §10.3 WG‑2/WG‑3).
 
+### 6.5 · `U.PublicationScope` — scope of a publication (view/surface)
+**Carrier.** Publication carriers (e.g., **PublicationSurface/InteropSurface** views/cards/lanes in Part E; MVPK faces).
+**Meaning.** The set of `U.ContextSlice` where a **publication** (a view/card/lane about some object or morphism) is **admissible for use** without introducing claims beyond its underlying carrier.
+
+**Relation to other scopes (normative).**
+* If the publication is **about an episteme `E`**:  
+  `PublicationScope(view_E) ⊆ ClaimScope(E)`.
+* If the publication is **about a capability `C`**:  
+  `PublicationScope(view_C) ⊆ WorkScope(C)`.
+* If the publication is **about a composition and/or crosses Contexts**:  
+  `PublicationScope(view) ⊆ translate(Bridge, ⋂ scopes of contributors)`; CL penalties apply to **R** only (scope set membership is unaffected).
+
+**Expression.** Authors SHALL declare `U.PublicationScope` as explicit predicates over `U.ContextSlice` (Context, Standard/version ids, environment selectors, `Γ_time`). It MAY be **narrower** than the underlying scope (e.g., due to pin availability, labeling, or audience constraints) but MUST NOT be wider.
+
+**Algebra & Δ‑moves.** Inherits the USM algebra (∩ / SpanUnion / translate / widen / narrow / refit). **Widen** is permitted only when the underlying `U.ClaimScope`/`U.WorkScope` widens accordingly; otherwise the publication MAY refit or narrow.
+
+**Orthogonality to measurement.** `U.PublicationScope` is a **USM scope object** (set‑valued), not a CHR Characteristic and MUST NOT appear as a slot in a `U.CharacteristicSpace`.
+
+**View refinement (profiles).** When a stricter publication profile/view **refines** another (e.g., a typed card that requires additional pins), its `U.PublicationScope` **MUST NOT** be wider than that of the less formal view.
+
 ## 7 · Scope Algebra
 
 ### 7.1 · Membership & Coverage
@@ -3531,8 +3552,6 @@ These facets are **separate** from `U.WorkScope` and live in the **R‑lane** (a
   * **singleton:** `TargetSlice ∈ Scope`, or
   * **set:** `TargetSet ⊆ Scope`.
 * **No implicit expansion.** Absent an explicit declaration, guards MUST NOT treat “close” slices as covered; widening requires a ΔG+ change.
-
----
 
 ### 7.2 · Serial Composition (Intersection)
 
@@ -3566,7 +3585,7 @@ Scope_published = SpanUnion({S_i})  =  ⋃_{i=1..n} S_i
 ### 7.4 Why a **G-ladder/levels/scales** is not needed (and **must not** be introduced)
 
 **1) G is not an ordinal scale; it is set-valued.**
-Under MM‑CHR, `U.ClaimScope` is a **set‑valued** `U.Characteristic` over `U.ContextSlice`. The only well‑typed primitives are **membership** and **set operations** (`⊆`, `∩`, `⋃`). Imposing ordinal “levels” such as **G0…Gk** violates the type discipline and produces non‑invariant behavior (the **same set** could be “rated” with different numbers under different heuristics).
+Under **USM**, `U.ClaimScope` is a **set‑valued** **USM scope object** over `U.ContextSlice`. The only well‑typed primitives are **membership** and **set operations** (`⊆`, `∩`, `⋃`). Imposing ordinal “levels” such as **G0…Gk** violates the type discipline and produces non‑invariant behavior (the **same set** could be “rated” with different numbers under different heuristics). (See also LEX‑CHR‑STRICT.)
 
 **2) G composes via `∩` / `SpanUnion`, not via `min` / `avg`.**
 USM already fixes composition: along a **dependent path** use **intersection**; across **independent support lines** publish **SpanUnion**. None of these operations relies on (or preserves) any linear order. An ordinal “G ladder” invites people to take **minimums/averages**, which is **incorrect** for sets and breaks the established algebra.
@@ -3649,7 +3668,7 @@ For empirical claims and operational capabilities, **R** typically binds evidenc
 
 ## 9 · Lexical Discipline (Part E compliance)
 
-+**L-USM-1 (names).** Use **Claim scope (G)** for epistemes and **Work scope** for capabilities. Use **Scope** only when discussing the abstract mechanism. Avoid naming any **characteristic** as “applicability,” “envelope,” “generality,” “capability envelope,” or “validity”.
+**L‑USM‑1 (names).** Use **Claim scope (G)** for epistemes, **Work scope** for capabilities, and **Publication scope** for publication carriers. Use **Scope** only when discussing the abstract mechanism. Avoid naming any **characteristic** as “applicability,” “envelope,” “generality,” “capability envelope,” or “validity”.
 
 **L‑USM‑2 (Work/Run).** Prefer **Work/Run** vocabulary from A.15 for system execution contexts. Do not introduce “operation/operating” as characteristic names; use **Work scope**.
 
@@ -3775,7 +3794,7 @@ AND Scope’ covers TargetSlice
 AND (Apply CL penalty to R)
 ```
 
-* **Owner(Scope).** The carrier that declares the scope: an **Episteme** (for `U.ClaimScope`) or a **Capability** (for `U.WorkScope`).  
++* **Owner(Scope).** The carrier that declares the scope: an **Episteme** (for `U.ClaimScope`), a **Capability** (for `U.WorkScope`), or a **Publication carrier** (for `U.PublicationScope`).  
 * **Translate(b, Scope).** The partial mapping of a set of source slices to target slices induced by Bridge **b**. If a source slice is unmappable, it is dropped. The result is a set of target slices; **CL penalties apply to R only**.
 * **Penalty to R**: applied per trust calculus; F and G remain as declared.
 
@@ -3803,12 +3822,11 @@ Implicit “latest” is not allowed. If multiple contributors declare different
 | **CC‑USM‑6 (Cross‑context).**            | Any Cross‑context use **MUST** declare a Bridge and **CL**; CL penalties apply to **R**, not **F/G**.                                                                                             |
 | **CC‑USM‑7 (No synonym drift).**      | In normative text and guards, **MUST** use **Claim scope (G)** or **Work scope**. Terms “applicability/envelope/generality/capability envelope/validity” **MUST NOT** name the characteristic. |
 | **CC‑USM‑8 (Determinism).**           | Membership evaluation **MUST** be deterministic given the slice tuple; no heuristic “close enough” matching.                                                                                   |
-| **CC‑USM‑9 (Edition triggers).**      | ΔG± (widen/narrow) constitutes a **content change**; refit does not. Contexts MAY require a new edition when published scope changes.                                                             |
-| **CC‑USM‑10 (Separation).**           | Scope coverage checks and evidence freshness/assurance checks **MUST** be separate predicates (G vs R).                                                                                        |
-| **CC‑USM‑11 (Versioned Standards).**  | Scope predicates **SHALL** name Standards/interfaces by **version**; changes in notations with faithful mapping do not change **G** (may change CL for R).                                     |
-| **CC‑USM‑12 (Min‑info publication).** | Published scopes **SHOULD** enumerate slices or predicate blocks sufficient to re‑evaluate membership without external folklore.                                                               |
-
----
+| **CC‑USM‑9 (Edition triggers).**      | ΔG± (widen/narrow) constitutes a **content change**; refit does not.                                                                                                                          |
+| **CC‑USM‑10 (Publication discipline).** | Publication carriers that gate usage **SHALL** declare `U.PublicationScope`. For any publication **about** an episteme or capability, `PublicationScope` **MUST** be a subset of the underlying `U.ClaimScope`/`U.WorkScope`. Cross‑context publications **MUST** cite Bridge + CL; CL penalties **apply to R only** (scope membership unchanged). |
+| **CC‑USM‑11 (Separation).**           | Scope coverage checks and evidence freshness/assurance checks **MUST** be separate predicates (G vs R).                                                                                        |
+| **CC‑USM‑12 (Versioned Standards).**  | Scope predicates **SHALL** name Standards/interfaces by **version**; changes in notations with faithful mapping do not change **G** (may change CL for R).                                     |
+| **CC‑USM‑13 (Min‑info publication).** | Published scopes **SHOULD** enumerate slices or predicate blocks sufficient to re‑evaluate membership without external folklore.                                                               |
 
 ## 12 · Worked Examples
 
@@ -3911,6 +3929,20 @@ claimScope:
 ```
 
 *(Illustrative only; the specification does not mandate a particular syntax.)*
+
+### 13.5 · Profiles as Scope configurations (informative)
+**Idea.** A **Scope profile** is a **named, editioned configuration** that expands to a concrete `U.Scope` predicate block (over `U.ContextSlice`), used to avoid repetition and to keep declarations consistent across carriers.
+
+**Rules.**
+* **P1 (Expansion).** Profiles are macros: guards **MUST** expand them to explicit predicates before evaluating `Scope covers TargetSlice`.
+* **P2 (Edition).** Profiles are editioned; changing a profile’s predicates is a content change for any carrier that references it.
+* **P3 (No stealth widen).** A profile update MUST NOT implicitly widen a carrier’s published scope; ΔG+ must be explicit in that carrier.
+* **P4 (Bridge awareness).** If a profile implies Cross‑context use, it MUST name the Bridge and CL policy; CL penalties apply to **R** only.
+* **P5 (Locality).** Profiles are context‑local conveniences; they do not introduce new scope types.
+
+**Examples (illustrative).**  
+— An engineering context defines `Ops‑Lab‑v3` as a profile pinning Standards, environment selectors, and a rolling `Γ_time` policy; claims, capabilities, and publications may reference it as a shorthand.  
+— A publication stack defines `TechCard‑Lite@Σ` as a profile that **narrows** `U.PublicationScope` to slices where required pins are available.
 
 ## 14 · Governance Hooks & Audits
 
@@ -4023,6 +4055,7 @@ It indicates “not usable anywhere (here, now)”. Guards MUST fail. This is co
 | capability envelope                 | **Work scope**                                           |
 | validity (as a characteristic name) | **Claim scope** or **Work scope** (depending on carrier) |
 | operational applicability           | **Work scope**                                           |
+| publication/view applicability      | **Publication scope**                                    |
 
 *(Use legacy terms only in explanatory notes; not in guards or conformance text.)*
 
@@ -4140,8 +4173,7 @@ def covers(scope: Set[Slice], target: Union[Slice, Set[Slice]]) -> bool:
 
 ---
 
-**Outcome.** The UTS shows strong convergence across SoTA Contexts on **addressable context** and **set‑valued applicability**. F.18 therefore fixes: **Context slice**, **Scope**, **Claim scope (G)**, **Work scope**, with the algebra and guard clauses mandated in A.2.6. This closes synonym drift while remaining readable for engineering managers and precise for assurance tooling.
-
+**Outcome.** The UTS shows strong convergence across SoTA Contexts on **addressable context** and **set‑valued applicability**. F.18 therefore fixes: **Context slice**, **Scope**, **Claim scope (G)**, **Work scope**, **Publication scope** with the algebra and guard clauses mandated in A.2.6. This closes synonym drift while remaining readable for engineering managers and precise for assurance tooling.
  
 # A.3 Transformer Constitution (Quartet)  \[A]
 
@@ -24132,6 +24164,8 @@ If no **ScaleLensPolicy** is declared, selection remains **neutral** with respec
 > • **Tech:** `Emit_PlainView`, `Emit_TechCard`, `Emit_InteropCard`, `Emit_AssuranceLane`; `PromoteView[s→t]_·`.  
 > • **Plain:** `PlainView(x)`, `TechCard(x)`, `InteropCard(x)`, `AssuranceLane(x)`; “Promote to *t*”.
 
+> **USM binding (overview):** `PublicationScope` is a **USM‑class** object that parameterizes MVPK; see §5.0.
+
 ### 1 · Intent
 
 Provide a **disciplined, compositional way to publish morphisms** (arrows) across multiple didactic faces (views/cards) **without adding semantics**, while keeping **viewpoints** (the specifications that constrain views) explicit and auditable. Authors get a small **view‑pack** that, when applied to any `U.Morphism` (including compositions), yields a **family of views** that commute with arrow composition and respect edition/measurement pinning (Part F/G).
@@ -24163,29 +24197,53 @@ Provide a **disciplined, compositional way to publish morphisms** (arrows) acros
 
 ### 5 · Solution — the **MVPK Kit**
 
+#### 5.0 USM anchoring (normative)
+* **PublicationScope (USM).** Define `U.PublicationScope` in **USM** analogously to `U.WorkScope` and `U.ClaimScope`. An MVPK kit instance is **governed by** a `PublicationScope` that fixes:
+  * (a) the **viewpoint index** `Σ` and its partial order `⪯`,
+  * (b) the **profile** (MVPK‑Min/Lite/SetReady/Max) as a *configuration* of this scope,
+  * (c) the admissible **Publication characteristics (PC)** and required **pinning contracts**,
+  * (d) any **cross‑Context/plane** constraints (Bridge/CL policies) applicable to emitted faces.
+* **Scope lineage.** `PublicationScope` participates in the same USM lineage regime as `WorkScope`/`ClaimScope` (editioning and migration rules); MVPK emits faces **under** a declared `PublicationScopeId`.
+* **L, P, D, E quartet.** The canonical MVPK‑Max scope enumerates exactly four **face kinds**: `PlainView (P)`, `TechCard (T)`, `InteropCard (I)`, `AssuranceLane (A)`. If a program elects to retain the mnemonic **(L, P, D, E)** tuple, it MUST map it 1‑to‑1 onto these **face kinds** within `PublicationScope` and SHALL NOT introduce additional kinds without a USM extension.
+
 #### 5.1 Terminology (normative)
 
 * **View** (`U.View`): a **concrete publication** produced *under* a viewpoint.    
-* **View family** (`U.ViewFamily`): the **indexed family / bundle** of views `{View_s | s ∈ Σ_viewpoints}` for a given morphism (no product semantics assumed).  
-* **Per‑viewpoint view category** `View_s(U)`: with objects `U.ViewObj_s` and morphisms `U.ViewMorph_s`; `Emit_s(f) : ViewObj_s(X) → ViewObj_s(Y)`.
-* **Index set of viewpoints** `Σ` ≡ `Σ_viewpoints`.
-* **Publication vs presentation vs rendering vs representation (guard):**    
+* **View** (`U.View`): a **concrete publication face** produced *under* a viewpoint; a **conceptual projection** (not a symbol carrier).  
+  Every `U.View` **SHALL** declare:  
+  `SurfaceKind ∈ {PublicationSurface, InteropSurface}`, `ViewpointId`, `AboutId`, and a `U.PublicationScope` (USM §6.5).  
+  Any materialization/rendering is separate **Work on SCR/RSCR carriers** and is not part of `U.View`.
+ **Publication vs presentation vs rendering vs representation (guard):**    
     * **Publication** = typed projection along **I→D→S** onto a **PublicationSurface** (A.7 §5.8–5.9).        
     * **Presentation** = rhetorical arrangement of a published carrier; **notation‑neutral**, adds no claims and is **not** a Surface kind.        
     * **Rendering** = display/layout of a carrier, purely graphical/formatting; **Work on carriers** (A.7), not a Surface kind.        
     * **Representation** = episteme↔referent relation; **not** a surface act. Use **publication** and **view** here; treat presentation/rendering as **Work on carriers** (A.7).        
-* **No‑mechanism equivalence:** MVPK **is not** a mechanism; any operational toil (build/render/upload) is **separate Work by a system on carriers** (A.7; see §6.5).
++* **No‑mechanism equivalence:** MVPK **is not** a mechanism; any operational toil (build/render/upload) is **separate Work by a system on carriers** (A.7; see **Laws 5 — No Γ‑leakage** in §6).
+* **ViewpointSpec (`U.Viewpoint`)** — a typed specification that declares stakeholders, concerns, conformance rules, allowed **Publication Characteristics**, and pinning requirements per profile. The index set `Σ` consists of identifiers of `U.Viewpoint` instances (see §5.3).
 
 #### 5.2 Allowed surfaces at Part E (L‑SURF discipline)
 Part E restricts the term *Surface* to **PublicationSurface** and **InteropSurface**. Concrete faces SHALL be named **…View / …Card / …Lane**. 
 
-**MVPK‑Max viewpoints (normative; exactly four):**
+**USM linkage (normative).** Every `U.View` **SHALL** declare a `U.PublicationScope` (USM §6.5).  
+For a view **about an episteme** `E`: `PublicationScope(view_E) ⊆ ClaimScope(E)`.  
+For a view **about a capability** `C`: `PublicationScope(view_C) ⊆ WorkScope(C)`.  
+Cross‑context views **SHALL** cite Bridge + CL; **CL penalties apply to R only** (scope membership unchanged).
+
+**L‑PUBSURF naming discipline**
+ * Allowed surface kinds: **PublicationSurface**, **InteropSurface**.
+ * Concrete faces MUST be named **…View / …Card / …Lane**.
+* The tokens **carrier/bearer/holder** MUST NOT name a `U.View` or any publication entity.  
+  Use **`U.View`** (PlainView / TechCard / InteropCard / AssuranceLane) for conceptual publication faces.  
+  Reserve **carrier** exclusively for **SCR/RSCR** (symbol/document/data carriers) and **Work on carriers**.
+* Avoid geometric metaphors (axis/dimension) for publication artifacts; use **Characteristic/CharacteristicSpace** only when referring to CHR‑MM entities.
+
+**MVPK‑Max viewpoints (normative; exactly four; governed by PublicationScope):**
 * `PlainView` (explanatory prose view)    
 * `TechCard` (typed catalog card)    
 * `AssuranceLane` (evidence bindings/lanes)
 * `InteropCard` (conceptual interoperability view; **mapping to concrete exchange formats lives in Annex/Interop; Part E does not specify schemas**)
 
-**Lean profiles (small‑team friendly, optional):**
+**Lean profiles (small‑team friendly, optional; as PublicationScope configurations):**
 * **MVPK‑Min (F0–F1):** Σ = {`PlainView`, `TechCard‑Lite`}. `AssuranceLane` omitted. No interop face.
 * **MVPK‑Lite (F1–F3):** Σ = {`PlainView`, `TechCard‑Lite`, `AssuranceLane‑Lite` gated by crossing trigger}. `InteropCard` only if external consumers exist.
 * **MVPK‑SetReady (F3–F5):** add `InteropCard` when replayability or external interchange is required (details outside Part E).
@@ -24195,9 +24253,9 @@ Part E restricts the term *Surface* to **PublicationSurface** and **InteropSur
 #### 5.3 The kit (constructs)
 
 1. **Object component** `ViewObj_s` for each viewpoint (see §5.1), to make types explicit.  
-2. **Index set of viewpoints** `Σ` with declared **partial order** `⪯` for formality/refinement (default chain: `PlainView ⪯ TechCard ⪯ InteropCard`; `AssuranceLane` is **orthogonal** and not ordered with respect to others).  
+2. **Viewpoint set** `Σ : FinSet(U.Viewpoint)` with declared **partial order** `⪯` for formality/refinement (default chain: `PlainView ⪯ TechCard ⪯ InteropCard`; `AssuranceLane` is **orthogonal** and not ordered with respect to others).  
 3. **Emitters** `Emit_s(·) : U.Morphism → U.ViewMorph_s` (one per `s ∈ Σ`).
-4. **Coherence** (laws §6) + **Pins** policy (units/scale/reference‑plane/edition) for numeric/comparable content.    
+4. **Coherence** (laws §6) + **Pin Characteristics** policy (UnitType/ScaleKind/ReferencePlane/EditionId) for any numeric/comparable content, grounded in CHR/UNM.    
 5. **Interop anchors (conceptual)** for `InteropCard` (concerns/semantics only); **any concrete schema/exchange mapping is outside Part E** (Annex/Interop).
 
 **Result:** `MVPK(f, Σ)` returns `U.ViewFamily(f)` whose components are `Emit_s(f)`. Reindexing across `s ⪯ t` is mediated by total object‑level coercions `PromoteView[s→t]_X` (see §6.2).
@@ -24206,12 +24264,60 @@ Part E restricts the term *Surface* to **PublicationSurface** and **InteropSur
 1) **I/O are intensional.** The **Input/Output** sections of a morphism describe **intensional** data types (I/D/S) only; they do **not** depend on any publication face.  
 2) **No duplication on faces.** MVPK faces **do not duplicate** I/O lists; they publish a **minimal profile**: **presence‑pins**, **CG‑Spec/CHR anchors**, and **EditionId** only.  
 3) **Signature reserved to intensional.** Use **“Signature”** exclusively for intensional objects (`U.Signature`, `U.PrincipleFrame`, …). On faces, avoid “signature” and use **TechName/PlainName**.  
-4) **Lawful orders, return sets.** Whenever a face shows **selection or comparison**, it **returns sets / lawful partial orders** and **never hides scalarization**; cite a **ComparatorSet**.  
+4) **Lawful orders, return sets.** Whenever a face shows **selection or comparison**, it **returns sets / lawful partial orders** and **never hides scalarization**; cite a **ComparatorSetRef** for any total order.  
 5) **Bridge routing, penalties.** Crossings go via **Bridge + CL**; publish **Φ(CL)/Φ_plane** ids; penalties route to **R only** (never F/G).  
 6) **Carrier anchoring & lanes.** On first mention, anchor carriers (**SCR/RSCR**); keep **Work occurrences** distinct from **epistemic claims** via lanes.  
 7) **Publication ≠ execution.** No time/resource semantics on faces; any build/render/upload is separate **Work**.
 
-#### 5.5 Author ergonomics (non‑normative)
+#### 5.5 Pin & Publication characteristics (normative; never “axes”)
+**Intent.** Make pinning and publication‑time measurement claims explicit, typed, and auditable without importing geometric metaphors. This section introduces **Publication characteristics** (PC) as CHR‑grounded, publication‑level facets that can legally appear on MVPK faces.
+
+**Terminology (aligned with CHR‑MM & UNM).**
+* **Characteristic** (`U.Characteristic`): a measured aspect as defined in CHR‑MM (entity/relation characteristic with a chosen **Scale**).  
+* **CharacteristicSpace** (`U.CharacteristicSpace`): a CHR‑typed product of slots used by dynamics/measurement theories (A.19).  
+* **Publication characteristic** (`U.PubCharacteristic`, **PC**): a **declarative facet** that a view/card/lane may expose *about a morphism* under a stated **Viewpoint**. Each PC is **backed by** CHR/CG‑Spec artifacts and **pinned** by {unit/scale/reference‑plane/edition}. PCs are **not** geometry and do **not** define “axes”.
+
+**PC catalog (initial set).** MVPK defines a minimal open set of PCs that are frequently surfaced:
+* **PC.Number** — numeric/comparable entries (thresholds, budgets, counts). **Pins required:** unit, scale, reference‑plane, edition.  
+* **PC.EvidenceBinding** — bindings to evidence carriers and policies (e.g., PathSliceId, BridgeId, CL notes).  
+* **PC.ComparatorSetRef** — an explicit comparator family for lawful partial orders on faces.  
+* **PC.CharacteristicSpaceRef?** — optional pointer when a face needs to cite the **space** in which a claim is interpreted (e.g., dominance on a declared space).  
+The catalog **MAY** be extended (see “Extensibility” below); PCs **must** remain declarative (no embedded mechanisms).
+
+**Norms (E17‑PC).**
+* **E17‑PC‑1 (CHR grounding).** Every PC that yields numeric/comparable content **SHALL** cite CHR/CG‑Spec anchors and carry pins {unit, scale, reference‑plane, edition}.  
+* **E17‑PC‑2 (Lexical discipline — no geometry).** Faces and PCs **MUST NOT** use “axis”, “dimension”, or geometric metaphors; use **Characteristic**, **slot**, **CharacteristicSpace** where applicable (**E.10**; see also A.19).  
+* **E17‑PC‑3 (No hidden arithmetic).** Faces **MUST NOT** smuggle aggregation/normalization; any such logic lives in **CG‑Spec** (UNM/NormalizationMethod) and is cited by **…Ref.edition**.  
+* **E17‑PC‑4 (Plane & crossing).** When a PC depends on **ReferencePlane** or crosses planes/contexts, the face **SHALL** cite `BridgeId` and **CL** policy‑ids; penalties route to the **R‑channel only**.  
+* **E17‑PC‑5 (Edition pinning).** PCs that rely on maps or distances **SHALL** pin `DescriptorMapRef.edition`, `DistanceDefRef.edition`, and, if used, `CharacteristicSpaceRef.edition` / `TransferRulesRef.edition`.  
+* **E17‑PC‑6 (Viewpoint scope).** Each PC instance declares the **Viewpoint** under which it is valid; promotion `PromoteView[s→t]` **MUST NOT** strengthen claims; at most, it reindexes or annotates.  
+* **E17‑PC‑7 (Comparator/SetSemantics edition).** `PC.ComparatorSetRef` and any `SetSemanticsRef` **SHALL carry edition identifiers**; cards MUST be re‑emitted upon edition change with migration notes.
+
+**Surfaces & responsibilities.**
+* **PlainView** MAY include **PC.Number** iff fully pinned; otherwise it uses **compare‑only** language.  
+* **TechCard** SHOULD carry **PC.Number**, **PC.ComparatorSetRef**, and **PC.CharacteristicSpaceRef?** when faces enable lawful ordering.  
+* **AssuranceLane** SHALL carry **PC.EvidenceBinding** and the pins for any numeric claims it relays.  
+* **InteropCard** MAY reference PCs conceptually but SHALL remain notation‑neutral in Part E (schemas map in Annex/Interop).
+
+**Rationale.** MVPK is a publication discipline, not a measurement calculus. By naming **Publication characteristics** and pinning them to CHR/UNM, we:
+1) prevent geometric leakage (no “axes”);  
+2) keep publication neutral yet auditable;  
+3) enable lawful set/ordering behavior on faces via explicit **ComparatorSet**;  
+4) make plane/crossing obligations first‑class and checkable by **ATS**.
+
+**Extensibility.**
+* **E17‑PC‑Ext‑1 (Open catalog).** New PCs MAY be added under `U.PubCharacteristic` provided they are declarative and CHR/UNM‑grounded.  
+* **E17‑PC‑Ext‑2 (Kinding).** New PCs MUST declare `kind ∈ {Number, EvidenceBinding, SelectorHint, …}` and a **pinning contract**.  
+* **E17‑PC‑Ext‑3 (Twin‑register names).** Supply **Tech** and **Plain** twins; avoid tokens that collide with E.10 bans; do not coin “…Space” names for publication artifacts.  
+* **E17‑PC‑Ext‑4 (Edition discipline).** If a PC depends on a definitional artifact, **edition‑pin** the reference (`…Ref.edition`) and document migration rules.
+
+**Adding invariants (procedure).**
+1) Place **new invariants** for PCs in **CG‑Spec** (S‑layer), not on faces; supply acceptance tests and an **ATS** check.  
+2) Version any affected **CharacteristicSpace**; publish embeddings if semantics change; never mutate slots in place.  
+3) Update **AH‑3/AH‑4 (or AH‑L3/AH‑L4)** to warn/block per **E.11‑M2** red‑lines; never weaken functorial laws.  
+4) **Document** edition/migration rules; extend §9 with a conformance item and provide **Lean‑profile downgrade** (advisory vs block) where applicable.
+
+#### 5.6 Author ergonomics (non‑normative)
 *Quick path for authors (three steps and a micro‑template):*
 1. **Declare Σ and profile.** Choose `{PlainView, TechCard, …}` and whether faces are full or *‑Lite*.
 2. **Pin once, reuse everywhere.** Attach `{UnitType, ScaleKind, ReferencePlane, EditionId}` to the arrow; cards reference these pins by ID (no duplication).
@@ -24241,7 +24347,7 @@ For any composable arrows `X —f→ Y —g→ Z` in `U`, and any `s, t ∈ Σ_v
       with **ID‑1/ID‑2, DS‑1/‑2/‑3** enforced (A.7 §5.9). **No new commitments** are introduced by publication. Edition governance follows **U.EditionSeries**; UTS rows are the identity anchors for names.
 4. **Pin discipline (Part F/G).**  
      * Any numeric/comparable content in a view SHALL pin {UnitType, ScaleKind, ReferencePlane}. **EditionId MAY be coarse at Lean profiles**; if units/scale are unknown, **declare ordinal/compare‑only** and **forbid arithmetic** until CHR pins are available.  Pins upgrade monotonically with profile and risk.
-5. **No Γ‑leakage.**  
+5. **No Γ‑leakage (publication independence).**  
     Publication morphisms carry **no** Γ\_method / Γ\_time / Γ_work semantics. Any build/render/upload toil is **separate Work by a system on carriers** (A.7).    
      **Lean assurance lane:** `AssuranceLane‑Lite` MAY expose only presence bits for {PathId/PathSlice?, Γ_time window?, BridgeId?}; unknowns propagate (tri‑state) with an explicit {degrade|abstain|sandbox} policy note.
 6. **Carrier provenance.**  
@@ -24253,7 +24359,12 @@ For any composable arrows `X —f→ Y —g→ Z` in `U`, and any `s, t ∈ Σ_v
 9. **Totality of publication morphisms.**    
     * Publication maps are total on their domains; when a composition in a view would be ill‑typed, the author **must** fix the object mapping (via `ViewObj_s`) rather than weakening functoriality or reindexing laws.
 10. **ATS check‑points (authoring stance).**  
-    * MVPK outputs SHALL be checkable by **ATS**: (i) **pin/anchor presence**, (ii) **functoriality witnesses** for compositions, (iii) **reindexing naturality** witnesses, (iv) **Surface token discipline**. Failing cards are rejected at **E.11** gates.
+    * MVPK outputs SHALL be checkable by **ATS**: (i) **Pin/Publication Characteristics presence** (incl. anchors and editions), (ii) **functoriality witnesses** for compositions, (iii) **reindexing naturality** witnesses, (iv) **Surface token discipline**. Failing cards are rejected at **E.11** gates.
+11. **PublicationScope discipline (subset & composition).**  
+    * (a) **Subset law:** If a view `v` is about episteme `E` then `PublicationScope(v) ⊆ ClaimScope(E)`; if about capability `C` then `PublicationScope(v) ⊆ WorkScope(C)`.  
+    * (b) **No widening by refinement:** If `s ⪯ t`, then promotion `PromoteView[s→t]` MUST NOT widen `PublicationScope`.  
+    * (c) **Compositional bound:** For composable arrows `X —f→ Y —g→ Z`,  
+      `PublicationScope(Emit_s(g∘f)) ⊆ PublicationScope(Emit_s(g)) ∩ PublicationScope(Emit_s(f))`.
 
 ### 7 · Structure & participants
 ```
@@ -24295,7 +24406,12 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 | **CC‑MVPK‑4c (I/O vs publication)** | Faces **do not** restate I/O; they carry **presence‑pins + anchors + EditionId** only. | Face inspection shows no I/O duplication. |
 | **CC‑MVPK‑4d (Lawful orders)** | Any selection/comparison on faces **returns sets / lawful partial orders** with a **ComparatorSet** citation. | No hidden scalarization; ComparatorSetRef present. |
 | **CC‑MVPK‑4e (Signature on faces — banned)** | The term **“signature”** is **not used** on faces; use **TechName/PlainName**. | Token scan: no “signature” on faces. |
-| **CC‑MVPK‑4f (Legacy labels)** | Legacy labels for mechanisms/operations are replaced with **Mechanism.Intension/OperatorAlgebra** (intensional). | Token scan passes; face fields name concrete heads. |
+| **CC‑MVPK‑4f (PC discipline)** | Any numeric/comparable publication uses **Publication characteristics** (PC) and carries pins {unit, scale, reference‑plane, edition}. | Cards show PC fields + pins; ATS check passes. |
+| **CC‑MVPK‑4g (No axis/dimension)** | Faces avoid “axis/dimension/plane” metaphors except **ReferencePlane**; use CHR terms (**Characteristic/slot/CharacteristicSpace**). | Lexical check flags none; only `ReferencePlane` appears. |
+| **CC‑MVPK‑4h (Edition pins on defs)** | Where maps/distances/spaces are cited, the face pins `DescriptorMapRef.edition`, `DistanceDefRef.edition`, and `CharacteristicSpaceRef.edition?`. | ATS shows the edition fields populated. |
+| **CC‑MVPK‑4i (Crossings gated)** | Plane/Context crossings cite **Bridge + CL** policies; penalties route to **R‑channel** only. | IDs present; routing verified in harness logs. |
+| **CC‑MVPK‑4j (PublicationScope present)** | Each view **declares `U.PublicationScope`** (USM §6.5). | Field present; ATS presence‑bit green. |
+| **CC‑MVPK‑4k (Subset‑of underlier)** | For views about epistemes/capabilities, `PublicationScope ⊆ ClaimScope/WorkScope`; reindexing **does not widen** it. | ATS subset witness passes; promotion diff shows no widening. |
 | **CC‑MVPK‑5 (Carrier anchoring)** | First mention includes **SCR/RSCR** ids. | SCR ids visible on the card. |
 | **CC‑MVPK‑6 (Γ‑separation)** | No cost/time/data‑spend on publication morphisms. | Any such fields live in **Work** of a publication service. |
 | **CC‑MVPK‑7 (Reindexing monotone)** | If `s ⪯ t`, then `Emit_s(x) ⪯ Emit_t(x)`. | `TechCard` ≤ `InteropCard` (more structure, same claims). |
@@ -24340,12 +24456,12 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 
 * **Builds on:** A.7 (Strict Distinction: I/D/S vs Surface; publication morphisms), E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. L‑SURF), ATS (E.11) for checks, Part F/G (UTS, CG‑Spec, CHR pins).    
 * **Constrains:** Any surface‑emitting automation; must treat publication as typed projection, not mechanism.    
-* **Coordinates with:** B‑operators (no Γ‑leakage), C‑cluster (selection/archives: views are carriers, not selections).
+* **Coordinates with:** B‑operators (no Γ‑leakage), C‑cluster (selection/archives: views are carriers, not selections), **CHR‑MM** (measurement semantics), **UNM** (normalization families).
 
 ### 14 · Minimal authoring template (E‑level)
 
 **Header:** `MVPK v⟨edition⟩ — Σ = {PlainView ⪯ TechCard ⪯ InteropCard, AssuranceLane ⟂}`  
-**For each arrow `f`:** emit `{Emit_s(f) | s ∈ Σ}` (or use the plain aliases `{PlainView(f), TechCard(f), …}`) with: ViewpointId, pins, CHR/CG anchors, SCR ids, Bridge+CL ids (if crossing), and—if composite—machine‑checkable witnesses that `Emit_s(g∘f) = Emit_s(g)∘Emit_s(f)` **and** for each `s ⪯ t` the naturality square `PromoteView[s→t]_Y ∘ Emit_s(f) = Emit_t(f) ∘ PromoteView[s→t]_X`.
+**For each arrow `f`:** emit `{Emit_s(f) | s ∈ Σ}` (or use the plain aliases `{PlainView(f), TechCard(f), …}`) with: **PublicationScope**, ViewpointId, pins, CHR/CG anchors, SCR ids, Bridge+CL ids (if crossing), and—if composite—machine‑checkable witnesses that `Emit_s(g∘f) = Emit_s(g)∘Emit_s(f)` **and** for each `s ⪯ t` the naturality square `PromoteView[s→t]_Y ∘ Emit_s(f) = Emit_t(f) ∘ PromoteView[s→t]_X`.
 
 ### 15 · Manager’s one‑page review (copy‑paste)
 
