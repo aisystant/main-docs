@@ -14244,7 +14244,8 @@ Post‑2015 practice converges on **explicit provenance**, **externalized action
 | Thread                      | Key (tech)                             | Plain label                 | Kind                             | Home (§)                           | One‑liner (normative intent)                                                                                                                                                   | Constraints / CL policy (capsule)                                                                                                                                                                                      | Cross‑refs                                                                                         |
 | --------------------------- | -------------------------------------- | --------------------------- | -------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | **Cross‑Context & Bridges** | **U.NotationBridge**                   | Notation Bridge             | `U.Alignment` subtype (relation) | F.9                                | Directional **mapping between notations** for the *same* concept/role/state **across Bounded Contexts**, with explicit **mapping rule**, **CL level**, and **loss notes**.     | **Must not override in‑Context rules** (RSG, `≤/⊥/⊗`). **CL ∈ {3,2,1,0}**: CL≥2 permitted; **CL=1 requires Waiver SpeechAct**; **CL=0 forbidden**. Mapping is **loss‑annotated**; declare preserved/dropped semantics. | E.5.2 (Notational Independence); A.2.5 (RSG refinement); B.3 (CL calculus); F.10 (status families) |
-| **Didactic & Higher‑Order** | **CHR:ReferencePlane** | Object Mode | CHR characteristic | A.7; **E.10.D2**; **C.2.1 Export‑E0** | Declares the **ReferencePlane** of a claim/evidence: **`world`** (material system), **`concept`** (intension/definition), **`episteme`** (about another episteme/claim). | Use to **prevent category errors** and to apply **`CL^plane`** when traversing across **ReferencePlanes**; **cross‑context reuse** additionally **requires a Bridge (F.9)** with declared **CL**, and penalties affect **R\_eff** only per **B.3** (no “distance” language). | A.1/A.7 (Clarity Lattice); B.3 (assurance) |
+| **Didactic & Higher‑Order** | **CHR:ReferencePlane** | Object Mode | CHR characteristic | A.7; **E.10.D2**; **C.2.1 Export‑E0** | Declares the **ReferencePlane** of a claim/evidence: **`world`** (material system), **`concept`** (intension/definition), **`episteme`** (about another episteme/claim). | Use to **prevent category errors** and to apply **`CL^plane`** when traversing across **ReferencePlanes**; **cross‑context reuse** additionally **requires a Bridge (F.9)** with declared **CL**, and penalties affect **R_eff** only per **B.3** (no “distance” language). Do **NOT** extend this enumeration. | A.1/A.7 (Clarity Lattice); B.3 (assurance)
+| **Didactic & Higher‑Order** | **WorldRegime** | Pre‑op vs live **within** `ReferencePlane=world` | policy flag (Characteristic) | A.7; E.10.D2 | Domain: **`{prep|live}`**. Refines `ReferencePlane=world`; **does not** add a new plane. `prep` ⇒ no **Work** on the asset; acceptance is limited (e.g., LA‑only) and telemetry is gated; `live` ⇒ normal obligations. | Use to gate acceptance and telemetry for mechanisms that are preparing the physical world; defaults to **`live`** if omitted. | B.3; Γ_work; E.11 |
 | **Didactic & Higher‑Order** | **aboutEpisteme(x,y)**                 | about‑episteme              | relation (binary)                | A.10; B.3                          | States that episteme/claim **x concerns y as an artefact/claim**, **not** y’s domain referent. Marks **x** as a **ReferencePlane Episteme** statement.                         | **Not a substitute for `about`** (domain aboutness). **Cycles** allowed only if **acyclic within one evaluation chain**. **ReferencePlane(x)=Episteme** by derivation.                                                 | A.10 (EPV‑DAG); CHR:ReferencePlane; B.3                                                           |
 | **Didactic & Higher‑Order** | **CL^plane**                           | Cross‑level CL              | CL policy parameter              | B.3                                | **Congruence‑level adjustment** for **cross‑level crossings** computed from **ReferencePlane** mismatch.                                                                       | Default **Φ\_plane**: **0** for same‑level; **−1 CL** for a one‑step cross‑level jump (requires extra checklist/evidence); **block (CL→0)** for ≥2 steps unless **Waiver SpeechAct** cites rationale.                  | U.NotationBridge; aboutEpisteme; B.3.4 (decay/debt)                                                |
 | **Didactic & Higher‑Order** | **U.InformalRationale**                | Informal Rationale          | `U.Episteme` subtype (status)    | E.12; E.9                          | Plain‑language rationale **attached to a pattern/claim/DRR**; **non‑normative**, tracked with **auto‑debt** until formalised.                                                  | **Not admissible as VA evidence**; may count at **LA** with low weight. **Auto‑debt** opens a refresh task until upgraded to a formal episteme/evidence role.                                                          | E.9 (DRR); B.3 (assurance); A.10 (anchors)                                                         |
@@ -22150,7 +22151,7 @@ procedures are `U.MethodDescription`; re‑runs are **Work**.
 ---
 
 **Editorial note.**
-This section **inherits** § 7 **MG·DA** (anchored head nouns; Characteristic/CharacteristicSpace for enums; collision checks) and § 8 **LEX.Morph** (suffix/prefix/casing). It deliberately **omits** their details to avoid duplication. The only legitimate use of *plane* remains **CHR:ReferencePlane**; all other “plane/layer/tier/lane” talk must pass § 7 (object‑of‑talk anchoring) or be expressed as an explicit **Characteristic**.
+This section **inherits** § 7 **MG·DA** (anchored head nouns; Characteristic/CharacteristicSpace for enums; collision checks) and § 8 **LEX.Morph** (suffix/prefix/casing). It deliberately **omits** their details to avoid duplication.  The only legitimate uses of *plane* in the Core are **CHR:ReferencePlane** and the derived operators **CL^plane** and **Φ_plane**; policy flags MUST NOT introduce new “planes”. To distinguish pre‑operational vs operational states *within* **ReferencePlane=world**, use **WorldRegime ∈ {prep|live}** (formerly `PlaneRegime`).
 
 ## 10 · Migration playbook — turning messy language into ULR‑clean prose *(informative)*
 
@@ -23262,60 +23263,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 **Publication discipline.** Keep a **`BridgeRegisterCarrier`** and a **`UTSRegisterCarrier`** controlled by `Holder#StewardRole:Program‑X`.
  Record twin labels on UTS rows.
 
-### 15) Modes & switches (normative) — **Core vs Lite**
-
-**E.11‑M1 · Mode token.** Authors MAY declare a mode on the ATS card:
-`ATSMODE ∈ {Core | Lite}` (default = **Core**). The mode governs the **harness reaction**, not the **invariants**.
-
-**E.11‑M2 · Red‑line invariants (apply in all modes).** The following remain **blocking** irrespective of mode:
-1) Cross‑tier reuse **without** `BridgeCard + UTS row` (and missing CL notes).  
-2) **CHR illegality**: ordinal means; unit/scale mixing; hidden thresholds in CHR/LOG/code.  
-3) Missing **ReferencePlane** on numeric/comparable claims; missing **CL^plane** on plane crossings; penalties not routed to **R_eff only**.  
-4) Any view/publication that **adds claims** beyond I/D/S (violates A.7 Publ_ID / Formalize_DS laws).  
-(*See A.7, E.10, F/G pins; red‑lines are mode‑independent.*)
-
-**E.11‑M3 · Harness reaction by mode.**
-- **Core (current default):** `AH‑1..AH‑4` failures **SHALL block** publication under this Scheme.  
-- **Lite:** `AH‑L1..AH‑L4` fire as **advisory**, producing **warnings** and **SCR defects**; publication proceeds unless a **red‑line invariant** (E.11‑M2) is violated.
-
-**E.11‑M4 · Minimal publication sets by mode (refines C8).**
-- **Core:** C8 minimal sets unchanged.  
-- **Lite:** During prototyping, authors MAY publish the **C8‑Lite set**:
-  * AT0↔AT1: `BridgeCard` + **stub `TaskPack` header** (scope heads only) + UTS row.  
-  * AT1↔AT2: `BridgeCard` + **stub `ArchitheoryPack` header** (pack head + edition pins only) + UTS row.  
-  * AT2↔AT3: `BridgeCard` + **stub `CoordinationFlowDescription`** (lane policy heads) + UTS row.  
-  Any numeric claims still require **pins** (units/scale/reference‑plane/edition).
-
-**E.11‑M5 · Migration rule (Lite → Core).** A `C8‑Lite` publication MUST be upgraded to **Core** before: (i) external consumption outside the home Context, or (ii) maturity advance on the UTS ladder that cites the pack.
-
-**E.11‑M6 · Surface defaults by mode (ties to MVPK).**
-- **Lite:** default **PlainView + TechCard**; `AssuranceLane` is **optional**, but MUST appear whenever numeric claims or crossings are present.  
-- **Core:** `PlainView + TechCard + AssuranceLane` are **required**; `InteropCard` remains project‑optional (Part I).
-
-### 16) ATS‑Lite harness (advisory)
-
-**Tech token:** `AuthoringTierSchemeLite` (**ATS‑Lite**).  
-**Plain twin:** *ATS‑Lite (advisory harness for small teams)*.
-
-**AH‑L1 (Classifier, advisory).** Same inputs as AH‑1; the classifier MAY be heuristic but MUST be deterministic. Output: {AT0|AT1|AT2|AT3} + confidence + warning if ambiguous; never blocks by itself.
-
-**AH‑L2 (Gate check, advisory).** On a cross‑tier citation, warn if `BridgeCard + UTS` are missing; **block only** if E.11‑M2(1) red‑line is hit.
-
-**AH‑L3 (Lane & pins check, advisory).** Warn on CL/CL^k/CL^plane routing mistakes, missing pins (`DescriptorMapRef.edition`, `DistanceDefRef.edition`, `CharacteristicSpaceRef.edition?`, `TransferRulesRef.edition`) or on attempts to include illumination in dominance without CAL policy. **Block** only if E.11‑M2(2–3) red‑lines are hit.
-
-**AH‑L4 (Lexical check, advisory).** Warn on head‑anchoring, I/D/S, Role/Holon slips; suggest canonical rewrites; never blocks unless publication adds claims beyond I/D/S (E.11‑M2(4)).
-
-**Outputs (Lite):** All AH‑L warnings are recorded as **SCR defects** with remediation notes; CI MAY enforce **warning budgets** per Context.
-
-### 17) Author’s quick rubric (Lite)
-
-1) **Bridge first.** If you cite across tiers, mint the `BridgeCard` and a UTS row, even if the pack card is a stub.  
-2) **Pin numbers.** If you print a number to compare/aggregate, pin unit/scale/plane/edition.  
-3) **Avoid ordinal means and unit mixing.** If in doubt, abstain and note the policy.  
-4) **Keep surfaces lean.** Start with PlainView+TechCard; add AssuranceLane when you cross Contexts/planes or use numbers.  
-5) **Upgrade on release.** Before external consumption or maturity advance, switch `ATSMODE=Core` and fill the full C8 set.
-
-### 18) Related patterns
+### 15) Related patterns
 
 * **A.4** — Temporal Duality & Open‑Ended Evolution Principle (time‑split of design/run).
 * **B.4** — Canonical Evolution Loop (Observe→Refine→Deploy) governs ATS change/refresh cadence.
@@ -23328,7 +23276,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **C.20 §D.DISC** — Discipline CAL lexical guard (Holon, CG‑Spec, Domain stitching).
 * **D.CTX** — Context enumeration and stitching.
 
-### 19) Glossary (tokens minted or stabilised here)
+### 16) Glossary (tokens minted or stabilised here)
 
 * `AuthoringTierScheme` · `AuthoringTierSchemeDescription` · `AuthoringTierSchemeSpec`
 * `AppliedWork` (AT0) · `TransdisciplineDesignWork` (AT1) · `ArchitheoryAuthoringWork` (AT2) · `MetaAuthoringWork` (AT3)
@@ -23337,7 +23285,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * Roles: `DesignerRole`, `TranslatorRole`, `AuthorRole`, `AssessorRole`, `ReviewerRole`, `CoordinatorRole`, `EditorRole`, `DisciplineStewardRole`
 * Lane markers: `F‑lane`, `G‑lane`, `R‑lane` · `CL` (conformance loss) with **CL→R only**
 
-### 20) Lexical/Conformance checklist (quick use)
+### 17) Lexical/Conformance checklist (quick use)
 
 * **Head‑anchoring:** All heads signal kind (System/Holon/Work/Method/Pack/Spec/Description/Role/Carrier).
 * **I/D/S morphology:** `…Description` vs `…Spec` used correctly; acceptance harness only for `…Spec`.
@@ -23349,7 +23297,7 @@ A **GateCrossing** between tiers (e.g., AT0→AT1, AT1→AT2, AT2→AT3) **MUST*
 * **Plain twins:** Figurative heads (e.g., “Ladder”, job titles, “Tradition”) also corrected by a twin plane lexical discipline.
 * **No minted `U.Type` “Strategy”.** Treat **strategy/policy** as compositions/lenses in **G.5** under **E/E‑LOG**; keep “strategy” in the **Plain** register only.
 
-### 21) Minimal worked “publish set” (ready‑to‑use)
+### 18) Minimal worked “publish set” (ready‑to‑use)
 
 1. **Mint** `AuthoringTierSchemeDescription` (this pattern).
 2. **Optionally mint** `AuthoringTierSchemeSpec` with AH‑1…AH‑4 harnesses (per E.10.D2).
@@ -24303,7 +24251,7 @@ The catalog **MAY** be extended (see “Extensibility” below); PCs **must** re
 1) prevent geometric leakage (no “axes”);  
 2) keep publication neutral yet auditable;  
 3) enable lawful set/ordering behavior on faces via explicit **ComparatorSet**;  
-4) make plane/crossing obligations first‑class and checkable by **ATS**.
+4) make plane/crossing obligations first‑class and checkable by declared publication checks / **OperationalGate(profile)** modules.
 
 **Extensibility.**
 * **E17‑PC‑Ext‑1 (Open catalog).** New PCs MAY be added under `U.PubCharacteristic` provided they are declarative and CHR/UNM‑grounded.  
@@ -24381,7 +24329,7 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 ```
 * **Author** chooses `Σ_viewpoints` (declared concerns + conformance rules).    
 * **MVPK** emits `U.ViewFamily(f)` for each arrow `f`.    
-* **ATS (E.11)** checks that pins/anchors/IDs are present and laws are not violated.    
+* **Gate‑based validation** (via declared publication checks / OperationalGate(profile) modules) verifies that pins/anchors/IDs are present and that MVPK laws are respected.    
 
 ### 8 · Examples (SoTA‑echoing)
 
@@ -24397,23 +24345,23 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 
 | ID | Requirement | Practical test |
 | --- | --- | --- |
-| **CC‑MVPK‑0 (ATS‑Lite)** | For Lean profiles, a minimal guard runs: (i) set‑returning selection present; (ii) ReferencePlane present; (iii) any crossing cites BridgeId+CL with penalties routed to R only. | ATS‑Lite report shows presence bits; penalties route to R only. |
+| **CC‑MVPK‑0 (Lean publication guard)** | For Lean profiles, a minimal guard runs: (i) set‑returning selection present; (ii) ReferencePlane present; (iii) any crossing cites BridgeId+CL with penalties routed to R only. | Validation report shows presence bits; penalties route to R only. |
 | **CC‑MVPK‑1 (Viewpoint explicit)** | Each view declares its **Viewpoint** (stakeholders, concerns, conformance). | Cards show `ViewpointId` and concerns. |
 | **CC‑MVPK‑2 (Functoriality)** | `Emit_s(id)` is identity; `Emit_s(g∘f) = Emit_s(g)∘Emit_s(f)`. | Compose two cards and diff with the card of the composite. |
 | **CC‑MVPK‑3 (No content extension)** | `PlainView`, `TechCard`, and `InteropCard` add **no new claims** beyond I/D/S. | Red‑line vs `Publ_ID/DS` output shows only formatting/indexing. |
-| **CC‑MVPK‑4 (Pins & anchors)** | Numbers/thresholds pin {...}. **Lean exception:** at MVPK‑Min/Lite profiles, EditionId MAY remain coarse; ordinal claims are legal only as compare‑only (no means/z‑scores). | ATS shows pins present or compare‑only gates enabled. |
+| **CC‑MVPK‑4 (Pins & anchors)** | Numbers/thresholds pin {...}. **Lean exception:** at MVPK‑Min/Lite profiles, EditionId MAY remain coarse; ordinal claims are legal only as compare‑only (no means/z‑scores). | Validation shows pins present or compare‑only mode engaged. |
 | **CC‑MVPK‑4b (Lean assurance)** | If `AssuranceLane‑Lite` is used, presence bits for {PathSliceId?, BridgeId?} suffice; full artefact lists are deferred. | Presence bits visible; deferred artefacts marked TODO. |
 | **CC‑MVPK‑4c (I/O vs publication)** | Faces **do not** restate I/O; they carry **presence‑pins + anchors + EditionId** only. | Face inspection shows no I/O duplication. |
 | **CC‑MVPK‑4d (Lawful orders)** | Any selection/comparison on faces **returns sets / lawful partial orders** with a **ComparatorSet** citation. | No hidden scalarization; ComparatorSetRef present. |
 | **CC‑MVPK‑4e (Signature on faces — banned)** | The term **“signature”** is **not used** on faces; use **TechName/PlainName**. | Token scan: no “signature” on faces. |
-| **CC‑MVPK‑4f (PC discipline)** | Any numeric/comparable publication uses **Publication characteristics** (PC) and carries pins {unit, scale, reference‑plane, edition}. | Cards show PC fields + pins; ATS check passes. |
+| **CC‑MVPK‑4f (PC discipline)** | Any numeric/comparable publication uses **Publication characteristics** (PC) and carries pins {unit, scale, reference‑plane, edition}. | Cards show PC fields + pins; validation passes. |
 | **CC‑MVPK‑4g (No axis/dimension)** | Faces avoid “axis/dimension/plane” metaphors except **ReferencePlane**; use CHR terms (**Characteristic/slot/CharacteristicSpace**). | Lexical check flags none; only `ReferencePlane` appears. |
-| **CC‑MVPK‑4h (Edition pins on defs)** | Where maps/distances/spaces are cited, the face pins `DescriptorMapRef.edition`, `DistanceDefRef.edition`, and `CharacteristicSpaceRef.edition?`. | ATS shows the edition fields populated. |
+| **CC‑MVPK‑4h (Edition pins on defs)** | Where maps/distances/spaces are cited, the face pins `DescriptorMapRef.edition`, `DistanceDefRef.edition`, and `CharacteristicSpaceRef.edition?`. | Validation shows edition fields populated. |
 | **CC‑MVPK‑4i (Crossings gated)** | Plane/Context crossings cite **Bridge + CL** policies; penalties route to **R‑channel** only. | IDs present; routing verified in harness logs. |
-| **CC‑MVPK‑4j (PublicationScope present)** | Each view **declares `U.PublicationScope`** (USM §6.5). | Field present; ATS presence‑bit green. |
-| **CC‑MVPK‑4k (Subset‑of underlier)** | For views about epistemes/capabilities, `PublicationScope ⊆ ClaimScope/WorkScope`; reindexing **does not widen** it. | ATS subset witness passes; promotion diff shows no widening. |
+| **CC‑MVPK‑4j (PublicationScope present)** | Each view **declares `U.PublicationScope`** (USM §6.5). | Field present; presence‑bit green. |
+| **CC‑MVPK‑4k (Subset‑of underlier)** | For views about epistemes/capabilities, `PublicationScope ⊆ ClaimScope/WorkScope`; reindexing **does not widen** it. | Subset witness passes; promotion diff shows no widening. |
 | **CC‑MVPK‑5 (Carrier anchoring)** | First mention includes **SCR/RSCR** ids. | SCR ids visible on the card. |
-| **CC‑MVPK‑6 (Γ‑separation)** | No cost/time/data‑spend on publication morphisms. | Any such fields live in **Work** of a publication service. |
+| **CC‑MVPK‑6 (Γ‑separation)** | No cost/time/data‑spend on publication morphisms. | CI shows proofs/witness artefacts; gate validation passes. |
 | **CC‑MVPK‑7 (Reindexing monotone)** | If `s ⪯ t`, then `Emit_s(x) ⪯ Emit_t(x)`. | `TechCard` ≤ `InteropCard` (more structure, same claims). |
 | **CC‑MVPK‑8 (Surface discipline)** | Only **PublicationSurface/InteropSurface** are used; faces named …**View/…Card**. | Token scan; no “rendering/presentation” as surface kinds. |
 | **CC‑MVPK‑9 (Reindexing naturality)** | Reindexing coercions `PromoteView[s→t]` exist, are total, and commute with composition. | Witness shows `PromoteView[s→t]_Z ∘ Emit_s(g∘f) = (Emit_t(g) ∘ Emit_t(f)) ∘ PromoteView[s→t]_X`. |
@@ -24440,7 +24388,7 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 | Benefit | Why it matters | Trade‑off / Mitigation |
 | --- | --- | --- |
 | **Arrow‑level traceability.** | Composition preserved across views enables chain‑of‑evidence on pipelines. | Slight authoring overhead → MVPK templates. |
-| **Audit‑ready surfaces.** | Pins + CHR anchors make numeric claims verifiable. | Tooling (ATS) performs checks. |
+| **Audit‑ready surfaces.** | Pins + CHR anchors make numeric claims verifiable. | Gate‑based validation performs checks. |
 | **Terminology hygiene.** | Clear View vs Viewpoint, Publication vs Presentation. | Enforce L‑SURF tokens in CI. |
 | **Notation independence.** | Viewpoints talk concerns, not tools. | Provide adapters to local stacks. |
 
@@ -24454,7 +24402,7 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 
 ### 13 · Relations
 
-* **Builds on:** A.7 (Strict Distinction: I/D/S vs Surface; publication morphisms), E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. L‑SURF), ATS (E.11) for checks, Part F/G (UTS, CG‑Spec, CHR pins).    
+* **Builds on:** A.7 (Strict Distinction: I/D/S vs Surface; publication morphisms), E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. L‑SURF), Part F/G (UTS, CG‑Spec, CHR pins).    
 * **Constrains:** Any surface‑emitting automation; must treat publication as typed projection, not mechanism.    
 * **Coordinates with:** B‑operators (no Γ‑leakage), C‑cluster (selection/archives: views are carriers, not selections), **CHR‑MM** (measurement semantics), **UNM** (normalization families).
 
@@ -31232,6 +31180,7 @@ CG‑Spec :=
 ⟨ UTS.id, Edition, Context, Purpose, Audience,
   Scope := USM.ScopeSlice(G) ⊕ Boundary{TaskKinds, ObjectKinds},
   Aboutness := ⟨TopicHolon, ReferencePlane ∈ {world|concept|episteme}⟩,
+  WorldRegime? ∈ {prep|live}, // refines ReferencePlane=world; affects acceptance/telemetry; introduces no new planes
   ReferenceMap := minimal map{term/id → UTS|CHR|G.2} (stabilizes naming & aboutness),
 
   ComparatorSet := [ComparatorSpec…],                 // finite, explicit
@@ -31256,7 +31205,7 @@ CG‑Spec :=
 
   Γ‑fold := ⟨default:=weakest‑link | override(proof_refs, monotonicity, boundary)⟩,
   CL‑Routing := map Bridge.CL → penalty on R_eff only (F invariant),
-  Φ := ⟨ Φ(CL) MUST be monotone, bounded (R_eff ≥ 0), and table‑backed; optional Φ_plane for {world|concept|episteme} crossings ⟩,
+  Φ := ⟨ Φ(CL) MUST be monotone, bounded (R_eff ≥ 0), and table‑backed; optional Φ_plane for {world|concept|episteme} crossings (unaffected by WorldRegime) ⟩,
   AcceptanceStubs := [AcceptanceClause template…],    // templates only; **context‑local thresholds live in CAL.Acceptance (G.4)**
   
   E/E‑LOG Guard := ⟨explore↔exploit budgets, probe accounting, NQD constraints⟩,
