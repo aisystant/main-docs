@@ -67,6 +67,10 @@ September 2025
 | A.18 | **A.CSLC-KERNEL — Minimal CSLC in Kernel (Characteristic/Scale/Level/Coordinate)** | Stable | *Keywords:* CSLC, scale, level, coordinate, measurement Standard. *Queries:* "What is the CSLC Standard?", "How to ensure measurements are comparable?" | **Builds on:** A.17. **Prerequisite for:** all metric-based patterns. |
 | A.19 | **A.CHR-SPACE — CharacteristicSpace & Dynamics hook** | Stable | *Keywords:* state space, CharacteristicSpace, dynamics, state model, RSG. *Queries:* "How to define a system's state space?", "How does FPF model change over time?" | **Builds on:** A.17, A.18, A.2.5. **Prerequisite for:** A.3.3. |
 
+| ***Cluster A.VI · Constitutional Principles of the Kernel*** | | | | |
+
+
+
 **Part B — Trans-disciplinary Reasoning Cluster**
 
 | § | ID & Title | Status | Keywords & Search Queries | Dependencies |
@@ -195,6 +199,7 @@ September 2025
 | E.15 | **Lexical Authoring & Evolution Protocol (LEX-AUTH)** | stable | *Keywords:* lexical authoring, evolution protocol, LAT, delta-classes. *Queries:* "How are FPF patterns authored and evolved?", "What is a Lexical Authoring Trace (LAT)?". | **Builds on:** E.9, E.10, B.4, C.18, C.19, A.10, B.3, F.15. |
 | E.16 | **RoC‑Autonomy: Budget & Enforcement** | **normative** | *Keywords:* autonomy, budget, guard, override, ledger, SoD, SpeechAct. *Queries:* "How is autonomy bounded and tested?", "How are overrides enforced?" | **Builds on:** E.8, E.10, E.11; ties F.4/F.6/F.15/F.17; G.4/G.5/G.9. |
 | E.17 | Multi‑View Publication Kit (for Morphisms) | Stable | Keywords: publication, view, viewpoint, I→D→S, pins, functorial views, reindexing, UTS, CHR, CG‑Spec, ATS. Queries: “How do we publish any morphism across multiple faces without changing semantics?”, “What are the rules for functorial, edition‑pinned views?” | Builds on: A.7, E.8, E.10. Coordinates with: E.11 (ATS), F.17 (UTS), Part F/G. |
+| E.18 | **Transduction Graph Architecture (E.TGA)** | Stable | *Keywords:* transduction graph, **nodes=morphisms**, **edge=U.Transfer** (single-edge kind), **OperationalGate(profile)**, **CV⇒GF** (ConstraintValidity → GateFit), **MVPK** faces, **SquareLaw**, **UNM single-writer**, **CSLC normalize-then-compare**, **Set-return selection**, **PathSlice/Sentinel refresh**, **DesignRunTag**. *Queries:* “What is E.TGA?”, “How do gates/bridges publish crossings?”, “How to model flows of morphisms?” | **Builds on:** E.17 (MVPK), E.8, E.10, A.7. **Coordinates with:** A.20–A.26 (Flow/GateProfilization/Profiles/Sentinels), F.9 (Bridges & CL), G.11 (Refresh). |
 
 **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
@@ -24414,6 +24419,308 @@ U :  X ──f──▶ Y ──g──▶ Z    X ──f──▶ Y ──g─�
 ### 15 · Manager’s one‑page review (copy‑paste)
 
 > “We publish every **morphism** under a declared **set of viewpoints** using **MVPK**. Each **view** is **functorial** (identities, composition), **adds no new claims**, and pins **unit/scale/reference‑plane/edition** with **CHR/CG** anchors. **Interop** views clarify concerns/semantics only (concrete exchange lives outside Part E); **Assurance** cites evidence carriers (SCR). Any cross‑Context/plane view cites **Bridge+CL** (Φ→R only). Publication toil is **Work on carriers**, not a mechanism change.”
+ 
+## E.18 **Transduction Graph Architecture** (E.TGA) · \[A]
+
+> **Tech‑name:** **E.TGA** (pattern label)
+> **Plain‑name:** Architecture of the transduction graph
+> **Twin labels:** Tech / Plain per E.10; faces emitted via E.17 MVPK (no schemas in Part E). 
+
+### 1 · Intent
+
+Provide a **notation‑independent** architecture for graphs whose vertices are **morphisms (transductions)** and whose edges are **typed transfers**. The architecture is **agnostic to the concrete morphism set** and equips the graph with **publication, comparability, crossing, and budget** disciplines so that **flows** are **valuations over paths** within the same object. Faces appear via **MVPK**; numeric/comparable publication carries **pins** with **Bridge/CL** notes; Φ/CL^plane penalties remain in **R**.  
+*Style note:* wording follows the **counterfactual register** of FPF: invariants are stated as model conditions, not deontic obligations (per E.8 style and the assignment).
+
+### 2 · Problem frame
+
+Teams can produce many **valid flows** over the same capability: e.g., the assignment’s reference path
+`U.FormalSubstrate → U.PrincipleFrame → U.Mechanism → U.ContextNormalization (UNM) → U.SelectionAndBinding ↔ U.WorkPlanning → U.Work → U.RefreshAndEvaluate`
+is one **path** among many possible domain paths. Without a common **graph‑level architecture**:
+
+* flows look ad‑hoc and **non‑comparable**;
+* cross‑Context **crossings** (plane/Context changes) are undocumented;
+* publication surfaces **smuggle arithmetic** or restate I/O;
+* set‑returning selection is silently replaced by **single scores**;
+* cycles lack **budget** discipline; refresh is **out‑of‑band**.
+
+MVPK already fixes publication drift at the **single‑arrow** level; E.TGA lifts those **publication and comparability laws** to the **graph as a whole**. 
+
+### 3 · Problem
+
+1. **Morphisms ≠ Graph.** A catalog of morphism‑level patterns (e.g., UNM, Selector, Work, Refresh) does not, by itself, explain **how the whole graph is built, constrained, and audited**.
+2. **Flow proliferation.** Multiple “reference flows” can be authored; readers need **one orchestration** that keeps them legal and comparable **without privileging any single flow**.
+3. **Unsafe publication.** Faces re‑list I/O, hide scalarization, or omit edition/plane pins; cross‑Context reuse lacks **Bridge/CL** citation; **plane penalties** leak to F/G. 
+4. **Cycles without norms.** Selection↔Planning loops run without explicit **budget (Γ_time)**, **FreshnessRequest**, or **slice‑scoped** refresh; **Work** bindings are made too early (outside `U.Work`). 
+
+### 4 · Forces
+
+| Force                                            | Tension                                                                                                                                                                    |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Universality vs specialization**               | One architecture must host supply chains, water networks, ML functionals, and the assignment’s “first‑principles → work” path, **without** baking in any one morphism set. |
+| **Publication neutrality vs auditability**       | Keep faces notation‑neutral and non‑mechanistic ↔ require **pins**, **ComparatorSet**, **Bridge/CL**, and **PublicationScope**.                                            |
+| **Set legality vs business pressure for totals** | Preserve **return‑sets / lawful partial orders** ↔ stakeholders demand single numbers.                                                                                     |
+| **Cross‑Context reuse vs safety**                | Enable reuse across `U.BoundedContext` ↔ enforce **Bridge/CL** with **R‑only penalties**.                                                                                  |
+| **Agility vs reproducibility**                   | Permit evolving CG‑Spec/UNM/Comparator editions ↔ require **edition pins** and **re‑emission** on change.                                                                  |
+| **Cycles vs convergence**                        | Allow Selection↔Planning iteration ↔ impose **budget** and **slice‑scoped** refresh to prevent thrash.                                                                     |
+
+---
+
+### 5 · Solution — the E.TGA kit (graph model + choreography)
+
+#### S1 · Graph object (conceptual)
+
+Define a **typed, editioned, directed multigraph**
+`TransductionGraph := (V, E, τ_V, τ_E, Γ_time, Bridge, CL, TransportRegistry^Φ)`
+with:
+
+* **Vertices `V`:** instances of `U.Morphism` (open world). Common specialisations **include but are not limited to** the assignment’s set: `U.FormalSubstrate`, `U.PrincipleFrame`, `U.Mechanism`, `U.ContextNormalization (UNM)`, `U.SelectionAndBinding`, `U.WorkPlanning`, `U.Work`, `U.RefreshAndEvaluate`. This list is **illustrative**, not exhaustive—the graph **does not depend** on this particular set.
+* **Edges `E`:** a **single edge kind `U.Transfer`** (typed) carrying artifacts/tokens; all **plane/Context/edition** changes occur **only at nodes via `OperationalGate(profile)`** with **Bridge + CL** annotations; penalties **→ R only**. Transport conversions pin **Φ‑policies** and editions.
+* **Scopes:** `Γ_time` (budgets, horizons), `PublicationScope` for faces (E.17), and **slice ids** for refresh (G.11).
+ **CtxState as PS‑projection:** `CtxState=⟨L,P,E⃗,D⟩` is the **projection of E.17 Publication Scope**; it is **open to extension** (e.g., Γ‑window, Role/Agent, Channel) provided the E.17 poset laws and SquareLaw hold. Raw `U.Transfer` does not mutate it; any change or entry to `U.Work` is placed at `OperationalGate(profile)`. **`DesignRunTag ∈ {design(T^D), run(T^R)}` resides in `D` and changes at gates.**  (A.21 ref; CC‑TGA‑06). **The data‑shape for flow valuations (PathId/PathSliceId, Γ_time pins, publication lineage) lives in A.22 `FlowSpec`; E.TGA only states that “flow = valuation”.** 
+* **Kinds:** `U.Transduction(kind∈{Signature, Mechanism, Work, Check})`. `OperationalGate ≔ U.Transduction(kind=Check)` with DecisionLog aggregation.
+
+> **MVPK binding.** Every vertex with an external surface emits **MVPK** faces (`PlainView`, `TechCard`, `AssuranceLane`, `InteropCard`), governed by a declared **PublicationScope**; faces carry only **presence‑pins + anchors + EditionId**, never restate I/O; any comparison on faces **returns sets / lawful orders** with **ComparatorSet** citation. 
+
+#### S2 · Flows as valuations (paths + state + guards)
+* A **Flow** is a **valuation** `ν` over `U.Transfer` edges and cut‑sets, paired with an admissible **path** `p = v₀ → … → v_k`. The valuation assigns tokens/states under `CtxState` and records publication events under a declared `PublicationScopeId`. **The concrete pins and идентификаторы (`PathId`, `PathSliceId`, Γ_time on compare/launch faces) are specified in A.22 `FlowSpec` and A.25 `Sentinel & SubFlow`.** This reflects the “graph ≠ flow” norm (flow = valuation), with gates placed exactly on GateCrossings.  
+* `U.Transfer` preserves `CtxState` (`⟨L,P,E⃗,D⟩`) and carries **Assurance‑operations** only (see S3b); any crossing of locus/plane/editions or `T^D↔T^R` is placed at `OperationalGate(profile)`.
+* A **PathSlice** is a **slice‑scoped execution window** used for refresh/telemetry; faces pin `PathSliceId`; **re‑emission** happens when any pinned edition changes or `SliceRefresh` is triggered by sentinel rules.
+
+> **Consequences.** The assignment’s “reference flow” is simply one `p` in `TransductionGraph`. Other domains (supply chain, water network, NN functional) instantiate different `p` on the **same architecture**.
+> 
+**Why "flow = valuation" doesn't kill the "something is flowing" intuition**
+There are two complementary perspectives:
+* **Lagrangian (intuitive):** "water particles" run through pipes; you "track" tokens.
+* **Eulerian (architectural):** you define a **function on edges** ("how much/what passes through each edge under a given regime"), with gate laws. E.TGA deliberately fixes the **Eulerian semantics of flow** at the architectural level: "flow (= valuation) + publication log", while the dynamics of "movement" show up as **re-valuation** over a **PathSlice** (the execution/republishing window) under gate rules and the SquareLaw. This yields comparability, reproducibility, and slice-local refresh.
+
+#### S3 · Publication discipline (faces)
+
+E.TGA **imports E.17** wholesale **and binds MVPK to `PublicationScope` (USM)**:
+
+1. **Face kinds** are exactly those of MVPK; **no new “surface” kinds** in Part E; **every face cites `PublicationScopeId` and its PC‑profile** (MVPK‑Min/Lite/SetReady/Max).  
+2. **Pins** on any numeric/comparable content: `{unit, scale, ReferencePlane, edition}` with **CHR/CG‑Spec anchors**; where maps/distances/spaces are cited, pin `DescriptorMapRef.edition`, `DistanceDefRef.edition`, `CharacteristicSpaceRef.edition?`.
+3. **Crossings** cite `BridgeId + UTS row + CL`; publish **Φ(CL)/Φ_plane RuleId**; **penalties remain in R‑lane**.
+4. **Gate‑requirement on cited editions.** Any face that references editions of `CG‑Spec` / `ComparatorSet` / `UNM.TransportRegistryΦ` includes **`BridgeCard + UTS row`**; faces без этой связки рассматриваются как непотребляемые downstream.  (delegated tests → A.27/A.34)  
+5. **ComparatorSet** and any `SetSemanticsRef` carry **edition identifiers**; **re‑emit** on change; faces with comparison **return sets / lawful partial orders** (no hidden scalarization).
+6. **No I/O re‑listing** on faces; **PublicationScopeId** is declared for each face (per E.17). **No arithmetic** on faces; normalization/aggregation lives in **UNM/CG‑Spec** and is cited by `…Ref.edition`.
+7. **Γ_time pin** appears on all compare/launch faces (implicit *latest* is avoided). **CHR avoids acceptance thresholds** (*NoThresholdsInCHR*); thresholding and launches surface in G‑patterns and `U.Work`.  (delegated tests → A.32/A.33). **Unknowns are tri‑state (`pass|degrade|abstain`) and fold per GateProfile (A.21/A.26).**  
+
+> **No “signature” on faces.** Keep I/O intensional; faces never duplicate I/O sections. 
+
+**Lean publish‑mode (AssuranceLane‑Lite).** Lean affects **faces only**; GateChecks required by the active `GateProfile` stay intact. Faces in Lean show presence‑pins and `DecisionLogRef`; the underlying module set remains unchanged.
+
+**Decision stability & idempotency (delegated).** Gate decisions are **idempotent** under a congruence relation over inputs; the **witness and equivalence criteria** are specified in **A.41 DecisionLog**. E.TGA **does not** prescribe storage formats, key shapes, or hashing schemes.
+
+#### S4 · Assurance‑operations on `U.Transfer` (bind‑replacement, no CtxState mutation)
+On `U.Transfer` edges, use **declarative assurance‑operations** instead of a fuzzy “bind”:
+`ConstrainTo(rule)` · `CalibrateTo(map|standard)` · `CiteEvidence(anchor)` · `AttributeTo(agent|role)`.
+These **do not change** `CtxState⟨L,P,E⃗,D⟩`. `CalibrateTo` occurs **within** the declared `ReferencePlane`; any plane/unit change requires `OperationalGate(profile)+Bridge+UTS`. Φ‑penalties are routed to **R only**.
+
+#### S5 · Comparability & aggregation (normalize‑then‑compare)
+
+E.TGA **requires**:
+
+* **UNM precedes comparison** on any path segment that intends to compare/aggregate; UNM is **method‑independent**, publishes **TransportRegistry^Φ** and **CG‑Spec** anchors; faces cite those editions.
+* Comparisons use **lawful orders**; **partial orders return sets** (Pareto/Archive).
+ * **Ordinal claims** are **compare‑only**; **no ordinal means/z‑scores**; total orders appear **only** with an explicit **ComparatorSetRef**. **Edition‑aware artifacts (e.g., QD archives) MUST pin `DescriptorMapRef.edition` / `DistanceDefRef.edition` (and `CharacteristicSpaceRef.edition` when applicable); refresh is slice‑local.**  (delegated tests → A.34/A.37)  
+
+#### S6 · Cycle discipline (Selection ↔ Planning)
+
+* The architecture centers the loop between `U.SelectionAndBinding` and `U.WorkPlanning`.
+* The loop operates under a local **budget / max_iter** in `Γ_time`; at expiry, the selector emits the **current `CandidateSet`** and **`MethodTuning`** with a **partial‑optimality** flag; further improvement rolls into the **next `PathSlice`**.
+* **UNM occurs before the loop**; if measurements are missing/stale, UNM emits a **FreshnessRequest** which is **planned** in `U.WorkPlanning` and **executed** in `U.Work`. Transfers, units, and calibrations are surfaced publication‑wise as `CalibrateTo(map|standard)` and pinned to `TransportRegistry^Φ` (**R‑channel only** for penalties).
+* **Work is the only binding site** for launch values (`FinalizeBinding / BindLaunchValuesOnly`). 
+
+> **Refresh orchestration.** Telemetry from `U.Work` and publication change notes feed the **G.11 refresh orchestrator**; updates are **slice‑scoped**, editions re‑pinned, faces **re‑emitted**. 
+
+#### S7 · Selector semantics (G.5) & parity harness (G.9)
+
+* **Selectors return sets.** Default **DominanceRegime** is `ParetoOnly`; **Illumination/coverage** are **gauges** (reported), excluded from dominance **unless** policy escalates via CAL.
+If `PortfolioMode=Archive`, a **QD archive** may be returned; when generation is in scope, pairs `{environment, method}` are managed under declared **EnvironmentValidityRegion** and **TransferRulesRef**; parity artefacts and `PathSliceId` are pinned on publication. Details of comparator semantics and archive pinning live in **A.28/A.34**.
+
+#### S8 · Guard ownership and handling (USM §1.2)
+* **USM.CompareGuard**/**USM.LaunchGuard** **publish `GuardOwnerGateId`**. Guard failures are **events** aggregated by the owner gate (not GateChecks).
+* **Ownership rules:** (i) `USM.LaunchGuard.owner = LaunchGateId(U.Work)`; (ii) inside a Subflow, `USM.CompareGuard.owner = OperationalGate(InSentinel)`; Join‑nodes cannot own guard pins.
+
+**GateProfile data shape (cross‑reference).** The **entire data shape** (SoD/quorum, declassify, budgets, TOCTOU/freshness windows, editions vector, scopes) is **specified in A.26**. E.TGA **only names** the structure and defers its fields to A.26.
+
+**Bridge‑aware guards (cross‑reference).** USM guards apply bridge‑translation semantics (`translate(Bridge, Scope)`) with CL penalties in R‑lane; the conceptual macro is defined in **A.24 USM.Guards**.
+
+**Error/timeout/unknown (profile‑bound).** GateCheck errors/timeouts fold to **`degrade`** under `Lean|Core` and to **`block`** under `SafetyCritical|RegulatedX`; `unknown` follows the GateCheck’s intensional rule (safety‑default: `degrade`). **The DecisionLog shape and the idempotency witness are defined in A.41; E.TGA does not define storage or key structures.**  
+
+#### S9 · Transport & crossings
+* Cross‑Context or cross‑plane edges appear as **GateCrossings** that include a **Bridge** with **CL** policy; **Φ(CL)/Φ_plane** are published; penalties route **to R only**; **Scope membership** (USM) is unchanged by crossings. **SquareLaw is checked within a single `DesignRunTag`; a `T^D↔T^R` change is modelled as a pair of coordinated gates with `DesignRunTagFrom/To` and an external enactor (see A.29).** 
+* When *aboutness/kind* changes across a boundary, declare an explicit **KindBridge (`CL^k`)** in addition to plane/context CL; cross‑context reuse of UNM **must** go via `Transport`, with any `CL^plane` penalties routed to **R‑lane** only.
+
+#### S10 · Non‑mechanism boundary
+
+* Publication is a **typed projection**, not execution. Any build/render/upload is **Work on carriers**; **no Γ‑semantics** may leak into faces. 
+
+#### S11 · Coordination thread (optional)
+Introduce **CoordinationFlow** as a named thread laid over `U.TransductionFlow__P2W`; crossings with production flow go via **Bridge+UTS**; coordination publishes **LexicalView** labels only and adds **no checks** or mechanisms.
+
+### 6 · Archetypal Grounding (Tell–Show–Show; concise)
+
+*Show‑A (Supply chain).* Nodes: procurement → inbound QC (UNM) → selection (supplier set; lawful order) ↔ planning (lotting/schedule; budget) → execution (receipts; **Work binds**) → refresh (quality telemetry; re‑emit faces). Crossings: vendor Context via **Bridge/CL**; penalties **→ R only**; comparators pinned to CG‑Spec edition. 
+
+*Show‑B (Neural‑net functional).* Nodes: formal substrate (typed tensor ops) → mechanism (combinator algebra) → UNM (dataset normalization; **TransportRegistry^Φ**) → selection (architecture/hyperparam set; Pareto set over accuracy@ratio & FLOPs@ratio) ↔ planning (compute budget horizon) → Work (training runs; Δ anchored) → refresh (parity inserts; slice‑scoped). Faces pin **DescriptorMapRef.edition / DistanceDefRef.edition** when QD metrics are shown; illumination remains a **gauge** by default. 
+
+> *Post‑2015 SoTA echoes (illustrative):* **TAMP/MPC**, **MAP‑Elites / QD (incl. CMA‑ME)**, **refinement‑typed stacks**, **profunctor optics**. **Worked‑examples and Tell–Show–Show vignettes move to A.31/A.34/A.37; E.TGA keeps only the carcass‑level alignment.**
+
+### 7 · Conformance — **Unified checklist (normative)**
+
+| ID | Requirement | Practical test |
+|----|-------------|----------------|
+| **CC‑TGA‑01 — Single edge kind** | The graph uses exactly one edge kind `U.Transfer`; all plane/Context/edition transitions occur only at nodes via `OperationalGate(profile)`. | Model lint finds no auxiliary edge kinds for unit/plane changes; crossings sit on declared gates. |
+| **CC‑TGA‑02 — Nodes are morphisms** | Nodes are intensional `U.Transduction(kind∈{Signature,Mechanism,Work,Check})`. | Type registry shows only these kinds; checks realized as `OperationalGate`. |
+| **CC‑TGA‑03 — Identity, composition, functorial faces** | Identities exist; path composition associative; publication is functorial: `Emit_s(t₂∘t₁)=Emit_s(t₂)∘Emit_s(t₁)`. | Pick two‑step path; MVPK faces commute (Square witness). |
+| **CC‑TGA‑04 — Graph spec** | Spec declares `τ_V, τ_E`, `Γ_time`, Transport/Bridge registries. | Spec file shows typed registries and Γ policy. |
+| **CC‑TGA‑05 — CtxState pins** | `CtxState=⟨L,P,E⃗,D⟩` is pinned on ports/tokens; raw `U.Transfer` does **not** change it. | Along a raw transfer, ⟨L,P,E⃗,D⟩ is preserved. |
+| **CC‑TGA‑06 — Operational gates only** | Any change in ⟨L,P,E⃗,D⟩ or entry into `U.Work` is mediated by `OperationalGate(profile)` with aggregated `DecisionLog`. | Diff CtxState across edges; if changed, exactly one gate exists with DecisionLog. |
+| **CC‑TGA‑07 — CV⇒GF activation predicate** | Until **aggregated `ConstraintValidity` = `pass`**, all **GateFit** checks return `abstain`. | Simulate CV failure ⇒ GateFit `abstain`. |
+| **CC‑TGA‑08 — LaunchGate discipline (incl. pre‑run barrier)** | Each `U.Work` has exactly one `LaunchGate` owning `USM.LaunchGuard`; **mandatory** checks: `FreshnessUpToDate`, `DesignRunTagConsistency`. If preceding step’s CV ≠ `pass`, LaunchGate decision is `block` (cause logged). | Owner resolution `GuardOwnerGateId = LaunchGateId(U.Work)`; CV≠pass ⇒ `block` with log. |
+| **CC‑TGA‑09 — MVPK publication discipline** | Every surfaced node uses MVPK; faces carry `PublicationScopeId`, presence‑pins, **edition ids**, Γ pins; **no I/O duplication** or arithmetic; faces add no new numeric claims. | Cards show `PublicationScopeId`; pins present; no “signature”/math on faces. |
+| **CC‑TGA‑10 — Normalize→Compare (CSLC)** | Any comparison cites **UNM/CG‑Spec** editions and **ComparatorSetRef**; ordinal claims are compare‑only; partial orders return sets; edition‑aware artifacts (QD/archives) pin `{DescriptorMapRef, DistanceDefRef, CharacteristicSpaceRef?}.edition`; **any face citing editions includes `BridgeCard + UTS row`**. | Faces show comparator pins; archive pins present; linter rejects edition cites without UTS. |
+| **CC‑TGA‑11 — Crossings gated** | Cross‑Context/plane crossings publish **BridgeId + UTS + CL/CL^plane**; **Φ/Φ_plane penalties → R‑lane only**; aboutness change publishes **KindBridge (CL^k)**; UNM reuse cross‑context goes via `Transport`. | Crossing surfaces show Bridge/UTS/CL pins; penalties routing audited. |
+| **CC‑TGA‑12 — Set‑returning selection** | `U.SelectionAndBinding` returns sets/archives under declared comparators (`ParetoOnly` by default) — no covert scalarization. | Selector output is a set/archive; policy id present if escalated. |
+| **CC‑TGA‑13 — Budgeted Selection↔Planning loop** | The loop declares **budget / max_iter**; on expiry selector publishes partial‑optimal set + `MethodTuning`; next **PathSlice** scheduled. | Logs show budget stop and slice rollover. |
+| **CC‑TGA‑14 — UNM before loop & Freshness lifecycle** | UNM runs before selection; stale/missing inputs produce **FreshnessTicket/FreshnessRequest** planned in `WorkPlanning` and executed in `Work`; calibrations appear as `CalibrateTo(map|standard)` with Φ pins. | Ticket state machine Issued→Planned→Executed→Closed; calibrations pinned. |
+| **CC‑TGA‑15 — FinalizeBinding only in Work** | Only `U.Work` performs `FinalizeBinding` and binds launch values. | Any earlier attempt blocks at LaunchGate; binding witness present in Work. |
+| **CC‑TGA‑16 — Guard ownership & semantics** | `USM.CompareGuard`/`USM.LaunchGuard` publish owner gate; guards are **events**, not GateChecks; failures are aggregated by owner’s gate per profile. | Guard pins show owner; GuardFail routed to owner’s DecisionLog. |
+| **CC‑TGA‑17 — Assurance ops on Transfer** | On `U.Transfer` only `ConstrainTo/CalibrateTo/CiteEvidence/AttributeTo`; none mutate `⟨L,P,E⃗,D⟩`. | Edge audit shows ops; CtxState unchanged across the edge. |
+| **CC‑TGA‑18 — Flow = valuation & slice‑local refresh** | A flow declares valuation `ν` over `U.Transfer` plus `PublicationScopeId` and `PathSliceId`; **sentinel‑bounded** refresh; re‑emit on edition change or sentinel rule. | FlowSpec shows ν; sentinel bump triggers slice‑local recompute. |
+| **CC‑TGA‑19 — Γ_time on compare/launch** | All compare/launch faces pin `Γ_time`; no implicit *latest*. | Face audit shows Γ pins; LaunchGate blocks on stale. |
+| **CC‑TGA‑20 — Lean publish‑mode ≠ weaken** | `AssuranceLane‑Lite` affects faces only; required GateChecks for the active profile remain intact. | Gate in Lean shows minimal pins + `DecisionLogRef`; module set unchanged. |
+| **CC‑TGA‑21 — Decision stability & idempotency witness** | Gate decisions are stable under the equivalence relation defined in **A.41**; a **witness of equivalence** is published via the DecisionLog surface; any change that breaks equivalence requires re‑aggregation. | Modify any input outside the declared equivalence ⇒ re‑aggregation; DecisionLog records the equivalence witness (A.41). |
+| **CC‑TGA‑22 — Errors/unknowns fold by profile** | Errors/timeouts fold to `degrade` under `Lean|Core` and to `block` under `SafetyCritical|RegulatedX`; `unknown` folds per GateCheck policy (safety‑default: `degrade`). | DecisionLog shows folds; profile switch changes fold behavior accordingly. |
+| **CC‑TGA‑23 — SquareLaw on crossings** | For every GateCrossing, `gate_out ∘ transfer = transfer' ∘ gate_in`; LaunchGate case is mandatory. | MVPK shows commuting square; inconsistency yields `block|degrade` per profile. |
+| **CC‑TGA‑24 — UNM single‑writer** | `CG‑Spec`, `ComparatorSet`, `UNM.TransportRegistryΦ` editions are authored only by `UNM.Authoring` (others ref‑only). | Authorship cards: UNM is sole writer; others have refs only. |
+| **CC‑TGA‑25 — Evidence lanes & DecisionLogs** | AssuranceLane publishes GateProfile, GateCheckRef list, edition pins, aggregated decision, `DecisionLogRef`. | Gate surfaces include these pins; logs retrievable. |
+
+> **Authoring note (scope of E.TGA vs A.*):** Detailed, mechanism‑level checks and most publication content are specified in the **A.* patterns** (A.20…A.42). E.TGA fixes only carcass‑level obligations above.
+
+### Gating Profiles (applied to E.TGA)
+
+> Gating is expressed as **publication‑gating** per E.17 profiles. The graph model aligns with the **CC items** listed for the chosen profile; higher profiles include all lower‑profile items.
+
+| Profile                          | Required CC‑items                                         | Additional notes                                                                               |                                                                  |
+| -------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Lean**                         | 01–06, 08–09, 11–12, 15, 19–21, 25                                                                                                           | Minimal MVPK presence; LaunchGate keeps `FreshnessUpToDate` & `DesignRunTagConsistency`. |
+| **Core**                         | **Lean** + 07, 10, 13–14, 16–18, 22–23, 24                                                                                                  | Adds CV⇒GF order, CSLC pins, budgeted loop, guards, valuation/sentinel refresh, error folds, SquareLaw, UNM single‑writer. |
+| **Safety‑Critical / RegulatedX** | **Core** + profile‑specific GateChecks (safety envelope, regulator id/editions) with stricter folds per **CC‑TGA‑22**; SquareLaw audits tightened | — |
+
+**Recommended defaults (non‑normative, tie‑in to A.26).** Profiles inherit along a `PathSlice`; local overrides may only **add** GateChecks; weakening requires a new `PathSlice` via sentinel (cf. A.26/A.25).
+
+### E.10 / LEX discipline (registration)
+Register Tech tokens (ASCII) used by this architecture with twin‑labels: `U.TransductionGraph`, `U.TransductionFlow`, `OperationalGate`, `GateProfile`, `GateCheckRef`, `DecisionLog`, `USM.CompareGuard`, `USM.LaunchGuard`, `SubflowRef`, `FlowEmbed`, `SentinelId`, `PathSliceId`, `SliceRefresh`, `FinalizeBinding`, `VALATA`. Reference MVPK E.17 naming for faces.
+
+### Consequences
+
+**Benefits.**
+
+1. **Universality with discipline:** one edge kind and explicit gates eliminate “second process ladders” and make cross‑domain flows (ML, supply‑chain, TAMP/MPC, scientific workflows) uniformly analyzable and auditable.
+2. **Comparability & replayability:** CSLC and edition‑pinned comparators prevent covert scalarization and enable lawful set returns and reproducible decisions.
+3. **Locality of change:** sentinel subflows restrict refresh to affected `PathSlice`s; large graphs remain stable under frequent edition bumps.
+4. **Clean design/run fold:** LaunchGate and `DesignRunTagConsistency` stop premature binding; acceptance and telemetry live where they occur (`U.Work`).
+5. **Assurance visibility:** MVPK makes GateProfile/DecisionLog explicitly visible and cacheable for the same `{PathSlice, Modules, Editions}`.
+
+**Trade‑offs.**
+a) **Higher upfront modeling cost:** explicit Bridge/UTS pins and GateProfiles demand care; mitigated by Lean profile and templates.
+b) **Longer edge surfaces:** MVPK faces are verbose by design; Lean surfaces can be used for low‑risk segments.
+c) **Tooling alignment:** some incumbent DAG‑only orchestrators conflict with budgeted cycles and set‑return semantics; adapters must project E.TGA semantics to their interop layer (never the other way round).
+
+### Rationale
+
+E.TGA enforces **strict separation of concerns** (carcass‑level only); **specialized semantics live in A.* patterns**:
+
+* **What the graph is:** typed intensional morphisms and a single transport edge `U.Transfer`.
+* **Where/when it may cross contexts:** **only** at `OperationalGate(profile)`, with Bridge+UTS, CL/CL^plane, and Φ routed to R‑lane.
+* **How comparability works:** UNM authors units/planes/transports (single writer) and selectors operate **only** on normalized, edition‑pinned comparators, returning sets/archives—not totals. **Edition‑aware pins and archive semantics are tested in A.28/A.34/A.37 (not repeated here).**
+* **How change propagates:** sentinel‑bounded `PathSlice` refresh; editions are monotone; LaunchGate is the only binder of launch‑values.
+
+This arrangement guarantees **functorial publication** (commuting squares on crossings) and **orthogonality** of inner technical validity (ConstraintValidity) to context fit (GateFit), which in turn makes gate aggregation **order‑independent** and cements the CV⇒GF activation predicate.
+
+## SoTA‑Echoing (post‑2015, multi‑Tradition)
+
+> Each item states **Adopt / Adapt / Reject**, and why. Vendor/tool tokens are kept as *informative*, not normative.
+
+1. **Applied category theory (compositional open systems).**
+   **Adopt.** Monoidal composition and wiring justify “nodes as morphisms, edges as carriers” and functorial publication of faces; they also provide algebraic laws for joining subflows. (Fong & Spivak, *Seven Sketches in Compositionality*, 2019).
+
+2. **Operads / wiring diagrams / hypergraph categories.**
+   **Adopt/Adapt.** Typed ports and decorated cospans model interfaces and “Bridge” junctions; we adapt the operadic composition to require CL/Φ pins on every crossing (publication‑level requirement not present in the math). (Spivak, *Operads of Wiring Diagrams*, 2021; Baez & Fong, *A Compositional Framework for Passive Linear Circuits*, 2015).
+
+3. **Open‑graph/string‑diagram rewriting.**
+   **Adapt.** Rewriting systems capture subflow refactors, but E.TGA binds rewrites to edition bumps and sentinel scopes rather than global rewrites, to preserve auditability and replay. (Bonchi et al., *Graphical Linear Algebra*, 2019; Kissinger—survey lineage).
+
+4. **Publication discipline & artefact portability.**  
+**Adopt.** Edition‑pinning and immutable registries echo contemporary reproducibility practice; E⃗ stays explicit and compositional at the publication layer.
+
+5. **Reproducibility & content addressability.**  
+   **Adopt.** Edition‑pinning and immutable registries echo modern content‑addressable reproducibility (conceptual); E⃗ stays explicit and compositional at the publication layer.
+
+6. **TAMP/MPC (integrated planning and control).**
+   **Adopt/Adapt.** The budgeted Selection↔Planning loop follows contemporary TAMP practice; MPC‑style freshness/constraint checks motivate **FreshnessUpToDate** as a hard LaunchGate module and “bind‑in‑Work‑only”. (Garrett, Lozano‑Pérez, Kaelbling, *Integrated Task and Motion Planning*, 2021; Rawlings et al., MPC updates).
+
+7. **Quality‑Diversity (QD) search.**
+   **Adopt.** QD (e.g., CMA‑ME, 2020) justifies **set‑return** and archive semantics in `U.SelectionAndBinding`; E.TGA bans covert scalarization that would collapse archives to single “bests”.
+
+8. **Profunctor optics (modular projections).**
+   **Adopt/Adapt.** Optics motivate view/projection discipline behind MVPK faces; we adapt by forbidding MVPK faces from introducing new claims (they are pure projections, not transformations). (Pickering, Gibbons, Wu, **Profunctor Optics**, 2019).
+
+*Cross‑tradition note.* Items 1–3 (category‑theoretic), 4–5 (publication/reproducibility concepts), 6 (controls/robotics), 7 (evolutionary search), and 8 (PL/semantics) jointly anchor E.TGA across multiple traditions, per E.8.
+
+## Bias‑Annotation (per E.8 SG‑bias slot)
+
+* **Acyclic‑bias risk.** Tooling accustomed to DAGs may discourage legal feedback loops; E.TGA explicitly permits loops with budget/sentinel controls (CC‑TGA‑13,‑18).
+* **Scalarization‑bias risk.** Cultural defaults to single‑score rankings can suppress Pareto/QD sets; E.TGA requires lawful orders and return‑sets (CC‑TGA‑10,‑12).
+* **Interop‑dominance risk.** File/format ecosystems (CWL/RO‑Crate/lineage) can leak into semantics; E.TGA places them in **InteropCard** and keeps intensional semantics in nodes/gates.
+* **Over‑formalization risk.** Category‑theoretic formalisms can obscure operational guard‑rails; E.TGA grounds crossings in Bridge/UTS/CL/Φ pins and SquareLaw audits (CC‑TGA‑11,‑17).
+* **Retrospective rewrite risk.** Global rewrites break replay; E.TGA confines them to edition bumps and slice‑local refresh (CC‑TGA‑16).
+
+**Mitigations.** Profile‑gated publication, audit of `DecisionLog`, mandatory edition pins, Lean‑to‑Core upgrade paths, and conformance tests tied to PathSlice replay.
+
+### Relations (explicit pattern‑to‑pattern edges)
+
+> Directed edges (→) are typed as **builds_on / constrains / hosts / specializes / publishes_on / requires / provides_checks_for**.
+
+**Foundations**
+
+* **E.TGA →builds_on→ E.17 MVPK (for Morphisms).** Faces, pins, lanes, functorial publication, Lean/Core/Regulated profiles.
+* **E.TGA →builds_on→ A.6.0 U.Signature / A.6.1 U.Mechanism.** Node kinds and intensional content boundaries.
+* **E.TGA →builds_on→ A.7 Strict Distinction (I/D/S vs Surface).** No new claims on faces; faces project morphisms.
+
+**Flow semantics & checks**
+
+* **E.TGA →hosts→ A.20 U.Flow (ConstraintValidity scope).** CV checks live inside transformations; no declaration/translation of planes/units in CV.
+* **E.TGA →hosts→ A.21 GateProfilization (GateFit scope).** GateFit modules are aggregated by `OperationalGate(profile)` with CV⇒GF activation; the **enumeration and data shape** of GateChecks live in **A.21**.
+* **E.TGA →requires→ USM.CompareGuard / USM.LaunchGuard.** Guards publish scope & ownership; guard failures route to owner gate.
+* **E.TGA →constrains→ F.* (Bridge+UTS, CL/CL^plane, Φ→R).** Every crossing publishes Bridge/UTS and penalty rule‑ids; penalties flow only in R‑lane.
+
+**UNM & comparability**
+
+* **E.TGA →constrains→ UNM.Authoring / UNM.Usage.** Single‑writer for `CG‑Spec/ComparatorSet/UNM.TransportRegistryΦ`; normalize‑then‑compare is mandatory.
+* **E.TGA →constrains→ G.5 SelectionAndBinding.** Set‑returning, comparator‑pinned decisions, no hidden scalarization; `MethodTuning` without launch binding.
+* **E.TGA →constrains→ G.11 RefreshAndEvaluate.** EditionBumpProposal, two‑phase commit in UNM.Authoring, path‑local refresh.
+
+**Work boundary**
+
+* **E.TGA →requires→ A.15 U.Work (Bind‑in‑Work‑only).** Single point of `FinalizeBinding`; `FreshnessUpToDate` hard at LaunchGate; acceptance/telemetry published here.
+
+**Structure & reuse**
+
+* **E.TGA →specializes→ U.TransductionFlow (and its family).** The graph architecture is the common substrate on which flow patterns (e.g., P2W, RefreshAndEvaluate) are defined; E.TGA ensures their crossings, guards, and MVPK faces are coherent.
+* **E.TGA →publishes_on→ E.17 MVPK views** (`PlainView`, `TechCard`, `InteropCard`, `AssuranceLane`) for every edge/node where publication occurs; Lean mode allowed only as per profile.
+
+### Conformance evidence (how to show you comply)
+
+1. **Model lint:** run static checks for CC‑TGA‑01…25 (edge kind, gates on crossings, CV⇒GF, guard ownership, single‑writer UNM, SquareLaw).
+2. **Publication audit:** sample a commuting square and a sentinel‑bounded subflow; verify pins and DecisionLog behavior on *block/degrade*.
+3. **Replay test:** freeze editions; re‑run selection on a PathSlice; observe identical return‑sets; apply a bump; see only affected `PathSlice`s refresh.
+
+[1]: https://webstore.ansi.org/preview-pages/ISO/preview_ISO%2B23247-1-2021.pdf?srsltid=AfmBOooAUXpg38IpkTlUFtcCpaMVOjivkewJWDIUd1VemIJO91abNEkG&utm_source=chatgpt.com "INTERNATIONAL STANDARD ISO 23247-1"
+
+</черновик E.TGA — Transduction Graph Architecture>
 
 # **Part F — The Unification Suite (U‑Suite): Concept‑Sets, SenseCells & Contextual Role Assignment**
 
