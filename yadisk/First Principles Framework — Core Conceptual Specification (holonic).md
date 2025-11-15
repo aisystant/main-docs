@@ -9201,7 +9201,7 @@ Under this pattern, CV is evaluated **inside** transformations. **If** a check d
 #### 4.2 Intensional object(s)
 
 **Genus.** `U.Flow` leaves step‑kinds abstract; CV/GF separation applies to any lawful instantiation.
-**Species (`U.TransductionFlow`).** `U.Transduction(kind) ∈ {Signature, Mechanism, Work, Check, StructuralReinterpretation}`; this set of **kinds** is a **minimum roles baseline** defined in E.TGA. The **species** space (e.g., `UNM.Authoring/Usage`, `SelectionAndBinding`, `WorkPlanning`, `RefreshAndEvaluate`, …) is **open‑world** and non‑exhaustive. `OperationalGate = U.Transduction(kind=Check)`. `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and may rotate **aboutness** under CC‑TGA‑06‑EX; see also A.45.
+**Species (`U.TransductionFlow`).** `U.Transduction(kind) ∈ {Signature, Mechanism, Work, Check, StructuralReinterpretation}`; this set of **kinds** is a **minimum roles baseline** defined in E.TGA. The **species** space (e.g., `UNM.Authoring/Usage`, `SelectionAndBinding`, `WorkPlanning`, `EvaluatingAndRefreshing`, …) is **open‑world** and non‑exhaustive. `OperationalGate = U.Transduction(kind=Check)`. `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and may rotate **aboutness** under CC‑TGA‑06‑EX; see also A.45.
 
 **`AdmissibilityConditionsSatisfaction`** — **If** the declared admissibility conditions hold on the step’s inputs and context, **then** the CV explanation **applies**; **otherwise** this explanation **does not apply**.
 **`LipschitzBounds`** — **If** inputs vary within the stated domain \(X\) and perturbations/noise \(≤ ε\), **then** the step’s estimate remains within **δ** of the reference; **otherwise** this explanation **does not apply**.
@@ -9233,6 +9233,7 @@ Minimum pins on faces that surface CV outcomes (**Lean surfacing** allowed by pr
 #### 4.4 GateChecks (table) — CV only
 
 **Activation predicate (in E.TGA).** *Until aggregated `CV = pass`, all GateFit checks return `abstain` (CV⇒GF).*
+**Role/Channel Fit guard (GateFit scope).** GateFit checks that involve roles SHALL use **Kernel `U.Role` tokens** (domain = `U.System`) and SHALL NOT consume `TypicalEnactorRoleName` strings from alias tables.
 
 | Check class (A.20)                                                                                | aspect | Mandatory | Allowed | Forbidden |
 | ------------------------------------------------------------------------------------------------- | -----: | :-------: | :-----: | :-------: |
@@ -9447,7 +9448,7 @@ Conforms to E.8 heading order and safety subsections (Archetypal Grounding, Conf
 
 #### Appendix B — LEX discipline (summary)
 
-Register token classes (Tech) include: `U.TransductionFlow`, `U.TransductionGraph`, `OperationalGate`, `GateProfile`, `GateCheckKind`, `GateCheckRef`, `DecisionLog`, `FreshnessTicket`, `FinalizeBinding`, `SubflowRef`, `FlowEmbed`, `SentinelId`, `PathSliceId`, `SliceRefresh`, `VALATA`; discriminators use `Base__P2W`, `Base__RefreshAndEvaluate`; Tech names are ASCII; aliases `GammaTimeRule/Plane`, `CLPlane`, `Phi` follow E.10. A.20 references these tokens; it does not introduce additional LEX classes. **For each surfaced CV check, `GateCheckRef.aspect` is fixed to `ConstraintValidity`.** *MVPK minima for CV faces also include `PathId/PathSliceId` where slice‑local refresh applies (A.22).*
+Register token classes (Tech) include: `U.TransductionFlow`, `U.TransductionGraph`, `OperationalGate`, `GateProfile`, `GateCheckKind`, `GateCheckRef`, `DecisionLog`, `FreshnessTicket`, `FinalizeBinding`, `SubflowRef`, `FlowEmbed`, `SentinelId`, `PathSliceId`, `SliceRefresh`, `VALATA`; discriminators use `Base__P2W`, `Base__EvaluatingAndRefreshing`; Tech names are ASCII; aliases `GammaTimeRule/Plane`, `CLPlane`, `Phi` follow E.10. A.20 references these tokens; it does not introduce additional LEX classes. **For each surfaced CV check, `GateCheckRef.aspect` is fixed to `ConstraintValidity`.** *MVPK minima for CV faces also include `PathId/PathSliceId` where slice‑local refresh applies (A.22).*
 
 # Part B – Trans‑disciplinary Reasoning Cluster
 
@@ -24472,7 +24473,8 @@ Provide a **disciplined, compositional way to publish morphisms** (arrows) acros
     * **Presentation** = rhetorical arrangement of a published carrier; **notation‑neutral**, adds no claims and is **not** a Surface kind.        
     * **Rendering** = display/layout of a carrier, purely graphical/formatting; **Work on carriers** (A.7), not a Surface kind.        
     * **Representation** = episteme↔referent relation; **not** a surface act. Use **publication** and **view** here; treat presentation/rendering as **Work on carriers** (A.7).        
-+* **No‑mechanism equivalence:** MVPK **is not** a mechanism; any operational toil (build/render/upload) is **separate Work by a system on carriers** (A.7; see **Laws 5 — No Γ‑leakage** in §6).
+* **ISO mapping note.** ISO **viewpoint** → `PublicationVPId` (publication layer); **engineering viewpoint** → `EngineeringVPId` (E.TGA §S12). An ISO **view** may be a single MVPK face; “bundles” are packaging only.
+* **No‑mechanism equivalence:** MVPK **is not** a mechanism; any operational toil (build/render/upload) is **separate Work by a system on carriers** (A.7; see **Laws 5 — No Γ‑leakage** in §6).
 * **ViewpointSpec (`U.Viewpoint`)** — a typed specification that declares stakeholders, concerns, conformance rules, allowed **Publication Characteristics**, and pinning requirements per profile. The index set `Σ` consists of identifiers of `U.Viewpoint` instances (see §5.3).
 
 #### 5.2 Allowed surfaces at Part E (L‑SURF discipline)
@@ -24490,6 +24492,7 @@ Cross‑context views **SHALL** cite Bridge + CL; **CL penalties apply to R only
   Use **`U.View`** (PlainView / TechCard / InteropCard / AssuranceLane) for conceptual publication faces.  
   Reserve **carrier** exclusively for **SCR/RSCR** (symbol/document/data carriers) and **Work on carriers**.
 * Avoid geometric metaphors (axis/dimension) for publication artifacts; use **Characteristic/CharacteristicSpace** only when referring to CHR‑MM entities.
+* **Non‑collision guard.** `ViewFamilyId` (lexical tag for viewpoint families) MUST NOT be used to name any `U.View` or surface kind; MVPK face kinds remain **{PlainView, TechCard, InteropCard, AssuranceLane}** only.
 
 **MVPK‑Max viewpoints (normative; exactly four; governed by PublicationScope):**
 * `PlainView` (explanatory prose view)    
@@ -24735,7 +24738,7 @@ Provide a **notation‑independent** architecture for graphs whose vertices are 
 ### 2 · Problem frame
 
 Teams can produce many **valid flows** over the same capability: e.g., the assignment’s reference path
-`U.FormalSubstrate → U.PrincipleFrame → U.Mechanism → U.ContextNormalization (UNM) → U.SelectionAndBinding ↔ U.WorkPlanning → U.Work → U.RefreshAndEvaluate`
+`U.FormalSubstrate → U.PrincipleFrame → U.Mechanism → U.ContextNormalization (UNM) → U.SelectionAndBinding ↔ U.WorkPlanning → U.Work → U.EvaluatingAndRefreshing`
 is one **path** among many possible domain paths. Without a common **graph‑level architecture**:
 
 * flows look ad‑hoc and **non‑comparable**;
@@ -24774,7 +24777,7 @@ Define a **typed, editioned, directed multigraph**
 `TransductionGraph := (V, E, τ_V, τ_E, Γ_time, Bridge, CL, TransportRegistry^Φ)`
 with:
 
-* **Vertices `V`:** instances of `U.Morphism` (open world). Common specialisations **include but are not limited to** the assignment’s set: `U.FormalSubstrate`, `U.PrincipleFrame`, `U.Mechanism`, `U.ContextNormalization (UNM)`, `U.SelectionAndBinding`, `U.WorkPlanning`, `U.Work`, `U.RefreshAndEvaluate`. This list is **illustrative**, not exhaustive—the graph **does not depend** on this particular set.
+* **Vertices `V`:** instances of `U.Morphism` (open world). Common specialisations **include but are not limited to** the assignment’s set: `U.FormalSubstrate`, `U.PrincipleFrame`, `U.Mechanism`, `U.ContextNormalization (UNM)`, `U.SelectionAndBinding`, `U.WorkPlanning`, `U.Work`, `U.EvaluatingAndRefreshing`. This list is **illustrative**, not exhaustive—the graph **does not depend** on this particular set.
 * **Edges `E`:** a **single edge kind `U.Transfer`** (typed) carrying artifacts/tokens; all **plane/Context/edition** changes occur **only at nodes via `OperationalGate(profile)`** with **Bridge + CL** annotations; penalties **→ R only**. Transport conversions pin **Φ‑policies** and editions.
 * **Scopes:** `Γ_time` (budgets, horizons), `PublicationScope` for faces (E.17), and **slice ids** for refresh (G.11).
 
@@ -24899,11 +24902,30 @@ Introduce **CoordinationFlow** as a named thread laid over `U.TransductionFlow__
 ### S12 · Viewpoint families → E.TGA constructs (neutral, holonic)
 
 **ISO 42010 alignment (terminology bridge).**  
-* A **viewpoint** maps to `MVPK.ViewpointId` (the rule set that generates a bundle of faces).  
-* A **view** corresponds to a `PublicationSurface` bundle (`PlainView/TechCard/InteropCard/AssuranceLane`) for the same morphism(s); *surfaces are not the thing described*.  
-* Stakeholder **concerns** are addressed via `GateProfile`s and explicit check catalogs exposed on `OperationalGate(profile)`.  
-* The **architecture description** is the **E.TGA graph + MVPK surfaces**, with crossings mediated by **Bridge+UTS** and CL policies; penalties accrue to `R` only.  
-This alignment keeps FPF’s **local‑first** meaning discipline intact (F.18) while supporting ISO‑style viewpoints and views.
+* An ISO **viewpoint** is realised in **two layers** in FPF:  
+  — **Engineering viewpoint (holon)** → `EngineeringVPId = E.TGA.ViewpointId` (rules for creating/reading engineering views over the holon).  
+  — **Publication viewpoint (AD)** → `PublicationVPId = MVPK.ViewpointId` (rules for emitting faces under a `PublicationScope`).  
+* An ISO **view** is realised by **one or more MVPK faces** for the same morphism(s) under a `PublicationVPId`. The **publication surface bundle** is a packaging convenience; **each face is a view**. Faces are **typed projections**, not the thing described.  
+* Stakeholder **concerns** live in the `U.Viewpoint` spec and are addressed either via **CV/GF check catalogs** (A.20/A.21) or via **Publication Characteristics** in `PublicationScope`; **not every concern is a GateCheck**.  
+* The **architecture description** is the **E.TGA graph + MVPK faces**, with crossings mediated by **Bridge+UTS** and CL policies; penalties accrue to `R` only.  
+This keeps ISO‑style viewpoints/views usable while preserving FPF’s **local‑first** semantics (F.18) and the **non‑mechanism** publication boundary (E.TGA §S10; E.17 §5.1).
+
+**Two‑layer conformance (Entities of Interest).**  
+* **EoI‑ENG (engineering).** The entity described by E.TGA is a **holon** (`U.System` or `U.Episteme`). E.TGA **engineering viewpoints** govern ISO 42010 views of this holon.  
+* **EoI‑PUB (publication).** MVPK governs **publication viewpoints** for the **architecture description as an entity‑of‑interest** (the AD itself). Publication viewpoints rule `PublicationSurface` bundles.  
+* **Bridging.** E.TGA views and MVPK surfaces **SHALL** be connected with ISO 42010 **correspondences** (possibly across architecture descriptions) so that every published surface cites the engineering view(s) it implements.  
+
+**Naming rules (disambiguation).**  
+* `EngineeringVPId` denotes an E.TGA engineering viewpoint identifier (e.g., `VP.Functional`, `VP.Procedural`, `VP.RoleEnactor`, `VP.ModuleInterface`).  
+* `PublicationVPId` denotes an MVPK publication viewpoint identifier (`MVPK.ViewpointId`).  
+* The legacy column name `ViewpointId` **MUST NOT** be used without a qualifier. If present, it **SHALL** be interpreted as `PublicationVPId` and is **DEPRECATED** (sunset when E.23 is published).  
+
+**ISO 42010 scope note.** Edition 2 generalizes the subject from “system‑of‑interest” to **entity‑of‑interest**, and permits **correspondences between architecture descriptions**; FPF relies on both to keep E.TGA and MVPK separate while still relatable.  
+
+**Terminology guards (non‑collision).**
+* The token **ViewFamilyId** denotes a *lexical tag* naming a widely used **viewpoint family** (e.g., `Functional|Procedural|RoleEnactor|ModuleInterface|…`). It is **not** a surface kind and **not** the MVPK type `U.View` nor the bundle `U.ViewFamily(f)`.
+* MVPK faces remain exactly **{PlainView, TechCard, InteropCard, AssuranceLane}** under `PublicationScope`. Aliases do **not** create surfaces and add **no new numeric claims** on faces.
+* Within S12, **view** means an ISO 42010 view; **publication surface** means an MVPK face (possibly packaged in a bundle). A face **is** a view only when it implements a declared `EngineeringVPId` via a `PublicationVPId` and declares an ISO **Correspondence** to that engineering view.
 
 **Purpose.** Provide a neutral (F.18) mapping from recurring engineering *viewpoint families* to E.TGA constructs so that the same **holon** can be described functionally, procedurally, structurally, or as a module‑and‑interface architecture without changing the underlying graph.
 
@@ -24911,32 +24933,103 @@ This alignment keeps FPF’s **local‑first** meaning discipline intact (F.18) 
 
 **Viewpoint family → primary E.TGA constructs**
 1) **Function‑Oriented View (capability‑flow)** — “what transformation is achieved under roles”
-   * **Flow substrate:** `U.TransductionFlow__P2W` through nodes `Signature → Mechanism → UNM → SelectionAndBinding ↔ WorkPlanning → Work → RefreshAndEvaluate`.
-   * **Publication:** MVPK views per E.17; comparable claims pin to `CG‑Spec/ComparatorSet` editions; crossings surface via `Bridge+UTS` and `CL/CL^plane`. 
-   * **Checks:** A.20 (CV) inside transformations; A.21 (GateFit) at gates; enforce CSLC/No‑Hidden‑Scalarization per A.28. 
-   * **Holonic note:** `U.Episteme` does not *act*; it is used by systems acting on carriers; `U.Work` appears only for `U.System`. 
-
-1) **Procedure‑Oriented View (step/time storyboard)** — “what steps occur and when”
-   * **Artifacts:** `U.WorkPlan` (A.15.2) for intent/schedule; `U.Work` for enactment.
-   * **Boundary:** entry into `U.Work` is via `OperationalGate(profile)` with `USM.LaunchGuard`; `DesignRunTag` separates design time from run time; `DesignRunTagFrom/To` appear only at gates. 
-   * **Holonic note:** Applies to any `U.System` scope (single holon or a supervised sub‑holon cluster); supervisory layering is handled by roles rather than structural mereology (B.2.5).
-
-1) **Device‑Structure View (principle‑schematic)** — “what carrier/ports/constraints exist”
-   * **Artifacts:** Effect *signatures* appear as `Signature` nodes (CHR‑typed); realizations appear as `Mechanism` nodes; **no** additional edge kinds are introduced—`U.Transfer` remains the only edge kind. 
-   * **Publication:** MVPK faces are **typed projections**, not executable artifacts; faces add **no new numeric claims** (E.17). Constraints and compatibility appear as CV checks (A.20). 
-   * **Holonic note:** Structural mereology (part/whole of the carrier) is modeled in Part A; E.TGA binds interface/exposure semantics to morphisms and gates.
-
+    * **Flow substrate:** `U.TransductionFlow__P2W` through nodes `Signature → Mechanism → UNM → SelectionAndBinding ↔ WorkPlanning → Work → EvaluatingAndRefreshing`.
+    * **Publication:** MVPK publication surfaces per E.17; comparable claims pin to `CG‑Spec/ComparatorSet` editions; crossings surface via `Bridge+UTS` and `CL/CL^plane` (penalties → **R‑lane** only). 
+    * **Checks:** A.20 (CV) inside transformations; A.21 (GateFit) at gates; enforce CSLC/No‑Hidden‑Scalarization per A.28. 
+    *  **Holonic note:** `U.Episteme` does not *act*; it is used by systems acting on carriers; `U.Work` appears only for `U.System`. 
+2) **Procedure‑Oriented View (step/time storyboard)** — “what steps occur and when”
+    * **Artifacts:** `U.WorkPlan` (A.15.2) for intent/schedule; `U.Work` for enactment.
+    * **Boundary:** entry into `U.Work` is via `OperationalGate(profile)` with `USM.LaunchGuard`; `DesignRunTag` separates design time from run time; `DesignRunTagFrom/To` appear only at gates. 
+    * **Holonic note:** Applies to any `U.System` scope (single holon or a supervised sub‑holon cluster); supervisory layering is handled by roles rather than structural mereology (B.2.5).
+3) **Device‑Structure View (with role‑enactor reading)** — “what carrier/ports/constraints exist; who typically enacts it”
+    * **Artifacts:** Effect *signatures* appear as `Signature` nodes (CHR‑typed); realizations appear as `Mechanism` nodes; **no** additional edge kinds are introduced—`U.Transfer` remains the only edge kind. 
+    * **Publication:** MVPK faces are **typed projections**, not executable artifacts; faces add **no new numeric claims** (E.17). Constraints and compatibility appear as CV checks (A.20). 
+    * **Holonic note:** Structural mereology (part/whole of the carrier) is modeled in Part A; E.TGA binds interface/exposure semantics to morphisms and gates.
+    * **Device‑View reading (Transduction↔Transductor).** The same capability‑flow MAY be read as a **device** that performs the transduction (**transductor**) without changing the graph: model with `Signature` + `Mechanism` only; do **not** introduce extra edge kinds. If aboutness rotates (function↔element), use `StructuralReinterpretation` with a **`KindBridge (CL^k)`** on **UTS** and a **SquareLaw‑Rotation witness**; preserve `⟨L,P,E⃗,D⟩` and treat it as a non‑crossing (**CC‑TGA‑06‑EX**; witness shape §4.7).  
+    * **Role‑label guard.** `TypicalEnactorRoleName` is **pedagogical only** and MUST NOT be used as a GateFit role; GateFit uses `U.Role` (A.21).
 4) **Module‑Interface View (physical architecture)** — “what modules exist and how they contract across interfaces”
-   * **Artifacts:** Module *interfaces* are `Signature` nodes; module realizations are `Mechanism` nodes; inter‑module dependencies traverse `U.Transfer`, with gates on crossings. 
-   * **Aboutness switch:** When a view *reinterprets* “function ↔ element”, use `StructuralReinterpretation`, publish a **`KindBridge (CL^k)`** on the UTS, and include a **SquareLaw‑Rotation witness**; `⟨L,P,E⃗,D⟩` is preserved; **no plane/unit change occurs** (CC‑TGA‑06‑EX). 
-   * **Holonic note:** The same module may appear as a holon in multiple views; supervisory loops (B.2.5) remain orthogonal to structural composition.
-
+    * **Artifacts:** Module *interfaces* are `Signature` nodes; module realizations are `Mechanism` nodes; inter‑module dependencies traverse `U.Transfer`, with gates on crossings. 
+    * **Aboutness note:** Functional↔element reinterpretation follows the **Device‑View reading** rule above (Role‑Enactor family) and **CC‑TGA‑06‑EX**; see **§4.7** for the Rotation witness shape and CV witness binding.
+    * **Holonic note:** The same module may appear as a holon in multiple views; supervisory loops (B.2.5) remain orthogonal to structural composition.
 This is an expandable list of viewpoint families; TGA is intentionally viewpoint‑neutral. 
+
+**Open Examples of Viewpoint Families (no kind changes)**.
+Core families are: Functional, Procedural, Role‑Enactor (Device‑Structure), Module‑Interface (as mapped above).
+Open set (aliases only; no new faces):
+* **Assurance‑Oriented** — emphasize A.20/A.21/A.28 and **AssuranceLane** (evidence carriers and edition/Bridge pins).
+* **Interoperability‑Oriented** — emphasize **InteropCard**; Part E remains schema‑agnostic; crossings publish **Bridge+UTS** with **CL/CL^plane** (penalties → R‑lane only).
+* **Information/Data‑Oriented** — emphasize what is published and pinned: **CG‑Spec/CHR anchors, ReferencePlane, ComparatorSetRef**; any edition citation includes **BridgeCard + UTS row**.
+* **Operational/Deployment** — emphasize **LaunchGate**, **FreshnessUpToDate**, **DesignRunTagConsistency**, and **DecisionLog**; `T^D↔T^R` appears only at gates.
+* **Mission/Context** — emphasize local‑first naming (F.18) with explicit **Bridges** and **CL**; narrative remains in **Plain** with Tech anchors.
 
 **Traditional functional/logical vs physical views in systems engineering**
 * **Functional view (definition).** A publication bundle whose *aboutness* is the **capability** of a holon under a role (`Method`/`Mechanism`), expressed as a **flow of morphisms** with comparators and gates (E.TGA + A.20/A.21/A.28).  
 * **Physical view (definition).** A publication bundle whose *aboutness* is the **carrier** (holon as structure with interfaces/ports/constraints), surfaced as typed projections (E.17) and realized by `Signature`/`Mechanism` without altering `U.Transfer`.
-* **Switching rule (projection‑preserving).** To switch between the two views, the model MAY use **`StructuralReinterpretation`** (when only aboutness rotates) if and only if: CtxState `⟨L,P,E⃗,D⟩` is preserved; a **`KindBridge (CL^k)`** is published on the `UTS`; a **SquareLaw‑Rotation witness** exists; the operation is **PathSlice‑local**; **no plane/unit change** occurs; and `CV.ReinterpretationEquivalence` = `pass` (CC‑TGA‑06‑EX).
+* **Switching rule (projection‑preserving).** To switch between the two views, the model MAY use **`StructuralReinterpretation`** (when only aboutness rotates) if and only if: CtxState `⟨L,P,E⃗,D⟩` is preserved; a **`KindBridge (CL^k)`** is published on the `UTS`; a **SquareLaw‑Rotation witness** exists; the operation is **PathSlice‑local**; **no plane/unit change** occurs; and `CV.ReinterpretationEquivalence` = `pass` (**CC‑TGA‑06‑EX**).  **Witness pointer.** The **Rotation witness (UTS)** and the **CV witness** shapes are normative in **§4.7** (UTS: iso/optic with Put‑Get/Get‑Put laws; CV: `ReinterpWitness`), leveraging post‑2017 **Profunctor Optics** as the constructive proof pattern.
+
+**ViewFamily‑bound Aliases (LEX‑only).**
+*Scope.* Authors MAY declare **lexical aliases** for **transduction species** that align with widely used **viewpoint families** (ISO 42010‑style).
+*Non‑collision.* “ViewFamily” here is ISO‑style *family of viewpoints* and **not** an MVPK *View*. Aliases do **not** create faces; surfaces remain exactly {PlainView, TechCard, InteropCard, AssuranceLane}.
+*Norms.*
+1. Each `U.Transduction` **species** MAY publish `AliasesInViewFamilies[]` — an open list of records  
+   `{ ViewFamilyId ∈ {Functional|Procedural|RoleEnactor|ModuleInterface|…}, Alias : TechASCII }`.
+2. **PrimaryViewFamily = Functional.** Authoring SHOULD use the Functional alias (gerund/gerundive nominal).
+3. Aliases are **LEX‑level only**: **no arithmetic, no new claims, no check participation, no change of `CtxState` or `DesignRunTag`**.
+4. Twin registers allowed (Tech/Plain) per E.10; obey **F.18 local‑first** naming.
+5. **Do not** name transductions by **operands/effects** (operation ≠ operand).
+6. `TypicalEnactorRoleName` MAY be added for pedagogy; it **SHALL NOT** be used as a GateFit role (GateFit uses `U.Role` only).
+7. Morphology: ASCII TitleCase; conjunctions via `And`; for composite actions use `XingAndYing` (or `XAndYing` if grammar requires).
+8. **P2W reference species** — fixed alias table (Functional=primary; Procedural=storyboard; `TypicalEnactorRoleName` pedagogical only):
+
+| tech id (species of U.Kind) | U.Kind      | functional (primary)     | procedural/step       | TypicalEnactorRoleName       |
+|-----------------------------|-------------|---------------------------|-----------------------|-----------------------------|
+| `U.SubstrateFormalization`  | U.Signature | SubstrateFormalization    | FormalizeSubstrate    | SubstrateFormalizerRole     |
+| `U.PrincipleFraming`        | U.Signature | PrincipleFraming          | FramePrinciple        | PrincipleFramerRole         |
+| `U.MechanismRealization`    | U.Mechanism | MechanismRealization      | RealizeMechanism      | MechanismRealizerRole       |
+| `U.ContextNormalization`    | U.Mechanism | ContextNormalization      | NormalizeContext      | ContextNormalizerRole       |
+| `U.SelectionAndBinding`     | U.Mechanism | SelectionAndBinding       | SelectAndBind         | SelectorAndBinderRole       |
+| `U.WorkPlanning`            | U.Mechanism | WorkPlanning              | PlanWork              | WorkPlannerRole             |
+| `U.WorkEnactment`           | U.Work      | WorkEnactment             | EnactWork             | WorkerRole                  |
+| `U.EvaluatingAndRefreshing` | U.Mechanism | EvaluatingAndRefreshing   | EvaluateAndRefresh    | EvaluatorAndRefresherRole   |
+
+*Clarification.* The lemma **“Valuation”** is reserved for **A.22 FlowSpec** (ν‑assignments, Path/PathSlice keys, edition lineage). Do not use it in species names of the post‑work cycle; use **“Evaluation”** for assessment semantics.
+
+*Primary family.* **PrimaryViewFamily = Functional.** Authoring SHOULD use the Functional alias (gerund nouns).  
+*Twin registers.* Aliases MAY be provided in **TechASCII** and **Plain** registers (E.10).  
+*No semantics change.* Aliases are **LEX‑level only**: **no arithmetic, no new claims, no checks, no `CtxState` or `DesignRunTag` change**.  
+*Role labels.* `TypicalEnactorRoleName` is pedagogical only and **SHALL NOT** be used as a GateFit role (this is name for Role Enactor, not for transduction).  
+*Field name.* Use `AliasInViewFamily` to avoid confusion with MVPK `U.View`.  
+*Projection/aboutness guard.* When an alias implies a **function↔element** reinterpretation, it is treated as **`StructuralReinterpretation`**: preserve `⟨L,P,E⃗,D⟩`, publish a **`KindBridge (CL^k)`** and a **SquareLaw‑Rotation witness** on UTS; the step is **PathSlice‑local** and introduces **no plane/unit change**.  
+*Open set.* The core families are **Functional, Procedural, Device‑Structure, Module‑Interface**; additional readings (e.g., **Information‑, Assurance‑, Operational‑, Allocation‑, EngineeringProcess‑, Performance‑oriented**, etc.) are permitted **as aliases only** (no new faces).
+
+**Deliverable — `UTS.ViewpointMap` (normative).**  
+Publish a **UTS block** named **`ViewpointMap`** with **≥ 4 rows** covering at least  
+`{Functional, Procedural, RoleEnactor (Device‑Structure), Module‑Interface}`.  
+**Tech labels MUST be neutral** per F.18; any external brand/standard terms appear only as **LEX‑level aliases** in an Annex (no new surfaces).
+*Publication profile.* Lean surfacing of MVPK faces is permitted per E.17/E.10; this does not introduce new surface kinds and does not weaken the checks required by the active GateProfile.
+
+**Minimum row schema (per row).**
+* `ViewFamilyId` *(lexical family id; e.g., Functional/Procedural/RoleEnactor/Module‑Interface)*  
+* `EngineeringVPId = E.TGA.ViewpointId` *(governs creation/interpretation of engineering views for the holon)*  
+* `PublicationVPId = MVPK.ViewpointId` *(rules for PublicationSurfaces of the AD; optional if not publishing)*  
+* `TargetHolon ∈ {U.System|U.Episteme}` *(Extended — optional: `∈ {U.Service|U.MethodFamily}`; if `TargetHolon ≠ U.System`, no `U.Work` enactment appears)*  
+* `PrimaryTGAConstructs` *(nodes/edges/gates actually used by the family for this holon)*  
+* `Crossings{BridgeId, CL/CL^plane?}` *(if any; penalties route to **R‑lane** only)*  
+* `EditionPins{…}` whenever comparable claims appear *(bind to CG‑Spec/ComparatorSet editions; “any face citing editions includes BridgeCard + UTS row”)*  
+* `SenseCells[]` *(**≥ 2** per row; each cites **Context name + edition**; UTS‑wide coverage rules still apply; definition/register discipline per **F.17/E.10**)*  
+* *(REQUIRED when publishing)* `CorrespondenceRef[]` *(ISO 42010 correspondences linking each emitted face to the engineering view(s) it implements; may cross ADs)*
+* *(RECOMMENDED)* `ConcernsCovered[]` *(42010 stakeholder concerns addressed by this row, via GateProfiles/Check catalogs)*
+
+**Conformance (Unified, S12‑scoped).**  
+(i) `UTS.ViewpointMap` exists; 
+(ii) each required column above is present (including `ViewFamilyId`);  
+(iii) rows that surface editions also include **BridgeCard + UTS row** per A.27;  
+(iv) each row has **≥ 2 SenseCells** (and the sheet meets global UTS coverage);  
+(v) any `TargetHolon=U.System` that reaches `U.Work` shows **LaunchGate** with `DesignRunTag` consistency;  
+(vi) crossings follow **CC‑TGA‑11**; comparability follows **CC‑TGA‑10**.  
+(vii) any row that cites editions but lacks the **BridgeCard + UTS row** **MUST NOT** be used for downstream consumption; a conformance linter **MUST** reject such rows.  
+(viii) rows **MUST NOT** use an unqualified `ViewpointId`; they **MUST** use `EngineeringVPId` and/or `PublicationVPId` explicitly;  
+(ix) when faces are published, `CorrespondenceRef[]` **MUST** be present and resolvable to `U.Viewpoint` ids.
 
 ### 6 · Archetypal Grounding (Tell–Show–Show; concise)
 
@@ -25111,7 +25204,7 @@ This arrangement guarantees **functorial publication** (commuting squares on cro
 
 * **E.TGA →constrains→ UNM.Authoring / UNM.Usage.** Single‑writer for `CG‑Spec/ComparatorSet/UNM.TransportRegistryΦ`; normalize‑then‑compare is mandatory.
 * **E.TGA →constrains→ G.5 SelectionAndBinding.** Set‑returning, comparator‑pinned decisions, no hidden scalarization; `MethodTuning` without launch binding.
-* **E.TGA →constrains→ G.11 RefreshAndEvaluate.** EditionBumpProposal, two‑phase commit in UNM.Authoring, path‑local refresh.
+* **E.TGA →constrains→ G.11 EvaluatingAndRefreshing.** EditionBumpProposal, two‑phase commit in UNM.Authoring, path‑local refresh.
 
 **Work boundary**
 
@@ -25119,7 +25212,7 @@ This arrangement guarantees **functorial publication** (commuting squares on cro
 
 **Structure & reuse**
 
-* **E.TGA →specializes→ U.TransductionFlow (and its family).** The graph architecture is the common substrate on which flow patterns (e.g., P2W, RefreshAndEvaluate) are defined; E.TGA ensures their crossings, guards, and MVPK faces are coherent.
+* **E.TGA →specializes→ U.TransductionFlow (and its family).** The graph architecture is the common substrate on which flow patterns (e.g., P2W, EvaluatingAndRefreshing) are defined; E.TGA ensures their crossings, guards, and MVPK faces are coherent.
 * **E.TGA →publishes_on→ E.17 MVPK views** (`PlainView`, `TechCard`, `InteropCard`, `AssuranceLane`) for every edge/node where publication occurs; Lean mode allowed only as per profile.
 
 ### Conformance evidence (how to show you comply)
