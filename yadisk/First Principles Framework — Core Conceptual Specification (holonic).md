@@ -31040,7 +31040,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 > A strong worked example is a **one‑page alignment**: claim → Contexts → cells → **one row** → explicit **bridges** → Role-Description hooks → window/SoD if needed. No tooling, no process charts—just **visible thinking** that any careful reader can replay and critique at the right place.
 
 
-# F.17 — Unified Term Sheet (UTS) \[A]
+## F.17 — Unified Term Sheet (UTS) \[A]
 
 **“One table that a careful mind can hold.”**
 **Status.** Architectural pattern \[A], architheory‑agnostic.
@@ -31048,7 +31048,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 **Coordinates with:** A.1.1 `U.BoundedContext`, A.7 **Strict Distinction**, A.8 **Heterogeneity**, A.11 **Ontological Parsimony**, A.15 **Role–Method–Work Alignment**.
 **Non‑goals.** No registries, workflows, editors, or storage formats. No by‑name Cross‑context equivalence. No “data pipeline.” This pattern prescribes **what a UTS is** and **how to judge it**, not how to generate files.
 
-## 1 · Intent & Applicability
+### 1 · Intent & Applicability
 
 **Intent.** Provide a **single, normative table**—the **Unified Term Sheet (UTS)**—that distils the output of F.1–F.12 into **human‑readable rows**. Each row expresses **one Concept‑Set** unified into **one FPF U.Type** with its **Tech/Plain names** and **cross‑context senses**. The UTS is the *front‑door view* that authors, engineers, and managers use; it replaces scattered notes and eliminates guesswork.
 
@@ -31061,7 +31061,7 @@ Any example placed in Part C or Part B **must** render its claim through thi
 
 **Why now.** Earlier F‑patterns define *how to think*. **F.17** defines *what you publish* so others can think with you.
 
-## 2 · Problem Frame
+### 2 · Problem Frame
 
 Without a single sheet:
 
@@ -31074,7 +31074,7 @@ Without a single sheet:
 
 ---
 
-## 3 · Forces
+### 3 · Forces
 
 | Force                             | Constraint in UTS                                                                                                   |
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
@@ -31085,7 +31085,7 @@ Without a single sheet:
 
 ---
 
-## 4 · Core Idea
+### 4 · Core Idea
 
 **A UTS is a Concept‑Set table with names.**
 Each **row** = one **Concept‑Set** unified into one **FPF U.Type** (the “what we mean”).
@@ -31098,7 +31098,7 @@ Two **canonical layouts** are allowed (pick one or publish both):
 
 Both layouts are normative; choose based on audience. In Layout A, comparability is by **BCC** (*Bounded‑Context Column*); in Layout B, comparability is by **DC** (*Discipline Column*); never conflate the two.
 
-## 5 · Minimal Vocabulary (for this pattern)
+### 5 · Minimal Vocabulary (for this pattern)
 
 * **UTS (Unified Term Sheet).** The published, human‑readable table per thread.
 * **Context.** Alias in Tech register for **`U.BoundedContext`** (E.10.D1). Normative unit of meaning; every SenseCell is scoped to a Context _(name + edition)._  
@@ -31113,7 +31113,7 @@ Both layouts are normative; choose based on audience. In Layout A, comparabili
 
 > **Discipline.** “Context” always means **`U.BoundedContext`** (E.10.D1). No global words.
 
-## 6 · Row Schema (normative)
+### 6 · Row Schema (normative)
 
 Every UTS row **MUST** carry the following fields (verbatim headings recommended):
 
@@ -31135,7 +31135,7 @@ Every UTS row **MUST** carry the following fields (verbatim headings recommended
 
 **Discipline:** Every SenseCell **must** cite the **Context name + edition** (e.g., _“BPMN 2.0 (2011): Activity instance”_).
 
-### 6.1 · NQD Fields (normative; when applicable)
+#### 6.1 · NQD Fields (normative; when applicable)
 
 If a UTS row **describes** a **Generator/Selector/Portfolio** (design‑time or run‑time artefact), it **MUST** add the following fields. These are *publication* fields, not tooling‑specific formats.
 
@@ -31149,7 +31149,7 @@ If a UTS row **describes** a **Generator/Selector/Portfolio** (design‑time or 
 
 **Note.** These fields *extend* the Row Schema; they do not change SenseCells/Bridges/Names. Rows that are *purely definitional* (no generator/selector/portfolio semantics) do not carry §6.1.
 
-### 6.2 · Autonomy fields (when applicable)
+#### 6.2 · Autonomy fields (when applicable)
 Add the following columns (nullable; **required** when autonomy is claimed by the row’s subject):
 * `AutonomyBudgetDeclRef` (id, version)
 * `Aut-Guard policy-id`
@@ -31160,7 +31160,7 @@ Add the following columns (nullable; **required** when autonomy is claimed by th
 * *(optional)* `ScaleLensOptIn ∈ {OptedIn, Neutral, OptedOut}`
 **Note.** These fields are required for UTS rows that describe a **Role**, **Method**, **Service**, or **Selector** with autonomy claims; optional fields make **Bitter‑Lesson/Scale‑Lens** an explicit **opt‑in** with published criteria.
 
-## 7 · Block Plan (didactic grouping)
+### 7 · Block Plan (didactic grouping)
 
 A UTS **MUST** declare a **Block Plan**—the sequence of blocks that group rows. Blocks are **thread‑specific**. Example **Block Plan** for *Role Assignment & Enactment* (matches your earlier tables):
 
@@ -31173,9 +31173,9 @@ A UTS **MUST** declare a **Block Plan**—the sequence of blocks that group rows
 
 > **Rule.** Block names are **didactic**, not ontological. Do **not** infer mereology or subtyping from blocks.
 
-## 8 · Column Families (two canonical layouts)
+### 8 · Column Families (two canonical layouts)
 
-### 8.1 Layout A — Kernel‑first (U.Type as rows)
+#### 8.1 Layout A — Kernel‑first (U.Type as rows)
 
 **Columns:**
 
@@ -31187,7 +31187,7 @@ A UTS **MUST** declare a **Block Plan**—the sequence of blocks that group rows
   
 Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bounded‑Context Columns (BCC)**.
 
-### 8.2 Layout B — Base‑concept pivot (discipline columns)
+#### 8.2 Layout B — Base‑concept pivot (discipline columns)
 
 **Columns:** Base concept · Scale‑map · Unified Tech name · **Unified Plain name** · Plain‑Twin Governance (PTG) · Twin‑Map Id (LEX) · Formal U.Type · **Discipline Columns (DC)** (e.g., Operational Management / IT/Software / Physics / …) · Rationale · Notes.
 
@@ -31206,7 +31206,7 @@ Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bo
 > **Guidance.** Publish **Layout A** for kernel users and spec authors; publish **Layout B** for cross‑disciplinary onboarding and teaching.
 > **Clarification — Plain vs Base concept.** In Layout B the `Base concept (EN/RU)` is a **discipline vantage** aid and **does not substitute** for the single **Unified Plain name** in the left rail. Do not mint alternative unified‑plain synonyms inside DC cells; flag homonym risks with ⚡ in `Notes`.
 
-## 9 · Invariants (normative constraints)
+### 9 · Invariants (normative constraints)
 
 1. **Locality.** Every SenseCell is **Context‑scoped** (E.10.D1). No global synonyms.
 2. **Bridges only via F.9.** Cross‑context equivalence appears **only** as an explicit Bridge with **CL**. Any row citing > 1 **Context** must state at least one Bridge.
@@ -31224,7 +31224,7 @@ Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bo
 10. **Plain‑twin discipline.** The single **Unified Plain name** lives in the left rail; BCC/DC cells carry senses only. Any additional Plain aliases are managed in LEX (tv:*) and never minted per column.
 
 
-## 10 · How to Compile (conceptual moves, not a workflow)
+### 10 · How to Compile (conceptual moves, not a workflow)
 
 **M1 · Fix contexts (F.1).** Declare the **12 (±)** contexts for this thread.
 **M2 · Harvest & cluster (F.2–F.3).** Identify candidate senses per Context; cluster *within* Contexts; mint **SenseCells**.
@@ -31237,9 +31237,9 @@ Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bo
 
 > **Note.** These are **thought moves**. No tooling is implied or required.
 
-## 11 · Acceptance Harness (SCR/RSCR) for a UTS
+### 11 · Acceptance Harness (SCR/RSCR) for a UTS
 
-### 11.1 Static Conformance Rules (SCR‑UTS)
+#### 11.1 Static Conformance Rules (SCR‑UTS)
 
 * **SCR‑UTS‑01 (Row completeness).** Each row contains: `U.Type`, `Tech`, `Plain`, `FPF Description`, `SenseCells (≥ 1)`, `Rationale`.
 * **SCR‑UTS‑02 (Dual register).** Each row has both Tech and Plain labels; Tech is used in spec prose, Plain in didactics.
@@ -31253,7 +31253,7 @@ Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bo
 * **SCR‑UTS‑10 (Column discipline).** **Layout A:** all non‑left‑rail columns are **Contexts** with editions. **Layout B:** all non‑left‑rail columns are **discipline columns**. No cross‑use.
 * **SCR‑UTS‑11 (Plain‑twin hygiene).** The **Unified Plain name** appears **once** in the **left rail** (**tv:primary**). Neither BCC (Layout A) nor DC (Layout B) cells may introduce alternative **unified** Plain synonyms; use the ⚡ marker in `Notes` to flag homonym risk where needed.
 
-### 11.2 Regression Rules (RSCR‑UTS)
+#### 11.2 Regression Rules (RSCR‑UTS)
 
 * **RSCR‑UTS‑A (Edition churn).** When a Context’s edition changes, old SenseCells remain addressable; new cells are added; **no silent rewrites**.
 * **RSCR‑UTS‑B (Name stability).** Tech labels change only with a documented F.5 decision; Plain labels may evolve didactically if the Tech name stays.
@@ -31261,7 +31261,7 @@ Do not mix **Discipline Columns (DC)** in Layout A. Columns here are only **Bo
 * **RSCR‑UTS‑D (Loss drift).** If new evidence changes a Bridge’s CL/Loss, the row updates both the CL and the 2–6 word loss note.
 * **RSCR‑UTS‑E (Plain discipline).** No per‑column Plain text appears in BCC/DC columns; any additional Plain aliases are tracked in Annex with **tv:** entries and counted against the alias budget (F.13). 
 
-## 12 · Canonical Heading Templates (fill with your Contexts/Discipline columns)
+### 12 · Canonical Heading Templates (fill with your Contexts/Discipline columns)
 
 **Layout A — Kernel‑first**
 
@@ -31288,12 +31288,12 @@ _(Plain twin discipline identical: only one **Unified Plain name (tv:primary)** 
 **Examples of Discipline Columns (illustrative):** Operational Management · IT/Software · Physics · Science/Theory · Mathematics · Literature · Religion.  
 _(Choose 3–5 that fit the thread; do not place Contexts here.)_
 
-## 13 · Didactic Aids
+### 13 · Didactic Aids
 
 * **Trip‑wire column (optional).** A ⚡ marker in `Notes` for known homonyms (e.g., *process (BPMN) ≠ process (thermo)*).
 * **DesignRunTag tag (optional).** `design` / `run` hint for concepts whose senses split by time.
 
-## 14 · Micro Examples (one line each, illustrative)
+### 14 · Micro Examples (one line each, illustrative)
 
 *(These illustrate Layout A headings; swap Contexts to match your cut.)*
 
@@ -31307,20 +31307,20 @@ _(Choose 3–5 that fit the thread; do not place Contexts here.)_
 
 > These rows are examples only; your UTS MUST be compiled from your chosen **Contexts** (Layout A) or **Discipline Columns (DC)** (Layout B) and SenseCells.
 
-## 15 · Relations
+### 15 · Relations
 
 * **Builds on:** F.1–F.3 (contexts & local senses), F.7 (Concept‑Set), F.5 (names), F.9 (Bridges).
 * **Feed:** Part A and Part C definitions/examples (row ids used as cross‑refs); teaching bundles (F.16).
 * **Constrained by.** A.7 **Strict Distinction**, A.11 **Parsimony**, **E.10 §6 Twin‑Register Discipline** (Tech/Plain), **E.10.P (prefix registry: tv: / ut:)**, E.10.D1 **Context discipline**.
 
-## 16 · Migration Notes
+### 16 · Migration Notes
 
 * **Re‑blocking.** If the Block Plan changes, keep row ids stable; move rows between blocks rather than renumbering.
 * **Context growth.** When adding a new Context, populate SenseCells progressively; do not claim coverage until ≥ 1 row per block cites it.
 * **Name evolution.** Update **Plain** labels freely for pedagogy; change **Tech** labels only via F.5 with clear S‑rules.
 
 
-## 17 · FAQ (authoring hygiene)
+### 17 · FAQ (authoring hygiene)
 
 **Q1. Is the UTS a registry?**
 *A.* No. It is a **didactic publication artifact**. No CRUD semantics, no workflows.
@@ -31334,19 +31334,20 @@ _(Choose 3–5 that fit the thread; do not place Contexts here.)_
 **Q4. How do we show deontic approvals?**
 *A.* The concept rows (`U.SpeechAct`, `U.Commitment`, `U.ServiceClause`, `U.ServiceEvaluation`) make the communicative/epistemic pieces visible; enactment appears in examples, not as sheet mechanics.
 
-## 18 · 90‑Second Teaching Script
+### 18 · 90‑Second Teaching Script
 
 > “To make our language usable, we publish a **Unified Term Sheet** for each thread. Each **row** is one **unified concept** (a Concept‑Set) named with a **Tech** and a **Plain** label and tied to concrete senses in our chosen **context of meaning**. If two contexts differ, we show an explicit **Bridge** with a **CL score** and a short **loss note**. The rows are grouped into 5–7 **didactic blocks** so the whole sheet fits in working memory. This is not a database; it’s the **one table** a careful mind can hold. From this sheet, everyone—engineers, managers, researchers—can talk precisely about **the same things** across disciplines.”
 
-# **F.18 — Local‑First Unification Naming Protocol** \[A]
+## **F.18 — Local‑First Unification Naming Protocol** \[A]
 *Status: normative (Part F, Unification Suite). Audience: engineer‑managers, lead architects, editors of FPF artefacts. 
 
 ### 1. Context
 
-Part F establishes a *local‑first* discipline: meanings live inside a **Bounded Context** (“Context of meaning”), and Cross‑context relations exist only as explicit **Alignment Bridges** with stated fit/loss. Within that discipline, teams still need **names** they can speak, read, and govern. Names must carry enough signal for everyday use, yet never smuggle in Cross‑context identities, hidden assumptions, or role/metric clutter. F.18 supplies that naming discipline and weaves it through F.1–F.17: Term Harvesting, Sense Clustering, Role Descriptions, Concept‑Sets, Bridges, Lexical Continuity, Anti‑Explosion control, and the Unified Term Sheet (UTS).
+Names must carry enough signal for everyday use, yet never smuggle in Cross‑context identities, hidden assumptions, or role/metric clutter. F.18 supplies that naming discipline and weaves it through F.1–F.17: Term Harvesting, Sense Clustering, Role Descriptions, Concept‑Sets, Bridges, Lexical Continuity, Anti‑Explosion control, and the Unified Term Sheet (UTS).
+
+**Scope.** This protocol applies to naming of **any concepts** authored in Part F (U.Types and **local concepts** alike: kinds, roles, services, methods, works, relations, characteristics, states/statuses, etc.). The **U.Types** norms in this section are a **specialization**, not a restriction of scope.
 
 **Purpose of this pattern.** Provide a **human‑legible, context‑anchored naming protocol** that:
-
 * keeps *local meaning first* and prevents Cross‑context conflation;
 * makes the **kind** of thing explicit (System, Episteme, Role, Service, Method, Work, Decision, Requirement, etc.);
 * integrates smoothly with **Concept-Sets**, **`U.RoleDescription`**, and **Bridges** without requiring any special notation or tooling;
@@ -31383,7 +31384,7 @@ These failures erode trust, block reuse, and make Part F machinery (Concept-Sets
 
 ### 4. Solution — The Local‑First Naming Protocol
 
-F.18 defines **seven rules** (R‑rules) and **four practices** (P‑practices). Together they produce **Name Cards** that any reader can interpret without guessing, and that slot cleanly into the rest of Part F.
+F.18 defines **seven rules** (R‑rules) and **five practices** (P‑practices). Together they produce **Name Cards** that any reader can interpret without guessing, and that slot cleanly into the rest of Part F.
 
 **Path Card (subset of Name Card).** A **Name Card** whose **object‑of‑talk** is an **EvidenceGraph Path**: it cites a **PathId** (or **PathSliceId**), **Context**, **ReferencePlane**, **Γ_time**, and any **Bridge id(s) + CL/CL^plane** (with loss notes). Used by **G.6** and **G.10** to make justifications portable on UTS.
 
@@ -31394,6 +31395,9 @@ A name is **never** context‑free. When you introduce or use a name, **pair it 
 
 **R2 — State the *Kind* on the Card.**
 Every Name Card **must** state the **Kind** (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, etc.). This prevents category errors and keeps Role–Method–Work alignment clean. *Clarification:* this is a **Card requirement**, not a demand that the label string begin with the Kind.
+
+**R2a — Declare the *Purpose / use‑domain* on the Card.**
+In addition to **Kind**, the Name Card **must** state the intended **Purpose / use‑domain** that situates the concept in practice and signals **which families of contexts** are expected to use it (e.g., mathematical formalism, engineering practice, computer science, systems management). This enables reconstruction of usage from the lexicon and reduces unintended scope drift. *Clarification:* this is a **Card field**; it does **not** require the label string to carry the purpose qualifier.
 
 **R3 — Anchor the name to a *Local‑Sense*.**
 A minted name **must** resolve to a **Local‑Sense** inside its Context (the result of F.2–F.3). If a name points to a Role Description, state that template and its sense basis. No name floats unattached.
@@ -31413,7 +31417,14 @@ When another context needs to reference a name, use an **Alignment Bridge** that
 **R7 — Make renames and merges *first‑class events*.**
 When a label changes, or two labels consolidate or split, record it on the Name Card as a lifecycle action (rename, merge, split, retire) with rationale and dates. Past uses *remain valid as historical facts*; continuity comes from lineage, not silent edits.
 
-#### 4.2 The Four P‑practices (normative process)
+#### 4.2 The Five P‑practices (normative process)
+
+**P0 — Candidate set (*NQD‑front* of seed‑words).**
+Do **not** pick a label “in one shot”. Build a **small, non‑dominated candidate set** (an *NQD‑front*, typically 3–7 items) by seeding and varying along:
+ **Traditions** — mathematics, physics, engineering, computer science, systems thinking, management, etc.;  
+ **Novelty/Familiarity** — from careful **reuse** of established terms to sharper **neologisms**;  
+ **Lexical form** — root/morpheme choice, readability/pronounceability, inflection/declension, transparency.
+Use the **Novelty–Quality–Diversity** discipline from **Part G** to maintain only **non‑dominated** candidates; when appropriate, you may implement this via **Γ_nqd.generate (G.18)**. Record the **seeds** and the short rationale in the Card’s notes. Choose final **Unified Tech**/**Plain** labels **from this frontier**; if a strong candidate is discarded, briefly note why.
 
 **P1 — Mint‑or‑Reuse gate (F.8).**
 Before minting, search your Context’s **Concept‑Set table**. If a row already covers your sense, reuse it and only add a **local label**. If not, propose a **new row** and capture the decision in a brief rationale.
@@ -31435,24 +31446,27 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 
 0. **Row ID** — the stable, opaque **UTS row identifier** (the identity anchor).
 1. **Context of meaning** — the Bounded Context and, if relevant, its edition.
-2. **Kind** — what sort of thing this is (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic…).
-3. **Minimal Definitional Statement (MDS)** — one‑paragraph intended sense in the home context (no tool/process slang).
-4. **Didactic subtitle** — ≤ 12 words that signal pragmatic use.
-5. **Sense anchor** — a Local‑Sense reference (how F.2–F.3 clustered it).
-6. **Twin labels** — **Unified Tech** and **Plain** (per E.10).
-7. **Concept‑Set linkage** — Concept‑Set reference or “not applicable” (with rationale).
-8. **Alignment note** — if a Bridge exists to other Contexts, cite it and record **loss/fit** in plain words (no formulas required on the Card).
-9. **Relation kind & stance** — **structural** vs **epistemic**; declare `validationMode ∈ {axiomatic, inferential, postulate}`. For **structural** relations, provide **Constructive** grounding (`tv:groundedBy → Γₘ.sum|set|slice`). 
-10. **Lifecycle** — current status (Idea, Draft, Pilot, Ratified, Deprecated) plus lineage (renamed‑from, split‑from, merged‑from) and steward contact.
-11. **Manager’s clip** — one‑line “use/avoid” guidance for everyday communication.
+2. **Kind** — what sort of thing this is (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, etc.). 
+3. **Purpose / use‑domain** — the intended area(s) of use (which families of contexts are expected to use it).
+4. **Minimal Definitional Statement (MDS)** — one‑paragraph intended sense in the home context (no tool/process slang).
+5. **Didactic subtitle** — ≤ 12 words that signal pragmatic use.
+6. **Sense anchor** — a Local‑Sense reference (how F.2–F.3 clustered it).
+7. **Twin labels** — **Unified Tech** and **Plain** (per E.10).
+8. **Concept‑Set linkage** — Concept‑Set reference or “not applicable” (with rationale).
+9. **Alignment note** — if a Bridge exists to other Contexts, cite it and record **loss/fit** in plain words (no formulas required on the Card).
+10. **Relation kind & stance** — **structural** vs **epistemic**; declare `validationMode ∈ {axiomatic, inferential, postulate}`. For **structural** relations, provide **Constructive** grounding (`tv:groundedBy → Γₘ.sum|set|slice`). 
+11. **Lifecycle** — current status (Idea, Draft, Pilot, Ratified, Deprecated) plus lineage (renamed‑from, split‑from, merged‑from) and steward contact.
+12. **Manager’s clip** — one‑line “use/avoid” guidance for everyday communication.
+13. **NQD‑front seeds** — brief rationale for discarded candidates.
+14.  **Card notes** — optional free text with comments about name (e.g. recomended translations, etymology, pronunciation, etc.).
 
-**Manager’s reading habit.** When two names collide in a meeting, ask for their **Context**, **Kind**, and **Sense anchor**. If those three differ, you are comparing different things; switch to **Bridge** talk, not label talk.
+**Manager’s reading habit.** When two names collide in a meeting, ask for their **Context**, **Kind**, **Purpose/use‑domain**, and **Sense anchor**. If any of those differ, you are comparing different things; switch to **Bridge** talk, not label talk.
 
 ### 6. What *belongs* in the label—and what does not
 
 **Belongs (keeps the label clean and durable):**
 
-* The **core head word** that signals the kind (e.g., “Pump”, “Standard”, “Requirement”, “Surgeon Role”, “Cooling Service”).
+* The **core head word** that names the thing *(the **Kind** is recorded on the Card; the string need not encode it)* (e.g., “Pump”, “Standard”, “Requirement”, “Surgeon”, “Cooling”).
 * A **purpose qualifier** if it is essential to the local sense and stable across editions (e.g., “Cooling” vs “Fuel”).
 * A **scope qualifier** only if it is part of the *meaning* rather than the current plan (“Surgical Ward” rather than dates or batch numbers).
 
@@ -31466,8 +31480,6 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 
 **Quick litmus for authors.** If removing a number, date, or state *does not* change the *meaning* of the thing, it should **not** be in the label.
 
----
-
 ### 7. Worked triad (three short, context‑local examples)
 
 *(Names below are illustrative; the same words in other Contexts may mean something else. The point is how the Name Card keeps them clear.)*
@@ -31475,36 +31487,42 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 #### 7.1 Industrial operations Context: “Thermal Management · 2026”
 
 * **Kind:** Service
-* **Technical Label:** Cooling Supply
-* **Plain Label:** Chilled water for line B
+* **Purpose / use‑domain:** industrial thermal utilities; line‑level planning and operations
+* **Unified Tech label:** Cooling Supply
+* **Plain label:** Chilled water for line B
 * **Sense anchor:** supply of water at defined temperature/flow to boundary B
 * **Concept‑Set:** “Utility service” row; local variant recorded
 * **Alignment note:** Bridge to “Plant Utilities · 2026” notes that “Cooling Supply” there bundles filtration; *loss:* filtration is not guaranteed in this Context
 * **Lifecycle:** current
+* **NQD‑front (seed candidates):** *Cooling Supply*, *Chilled Water Service*, *Process Cooling*, *Cooling Utility*. **Chosen:** *Cooling Supply* (neutral, morphology‑stable).
 
 **Why it’s good.** The label doesn’t encode temperature or flow limits (those live in acceptance). It names a Service; nobody will confuse it with a pump System or a Method.
 
 #### 7.2 Clinical Context: “Hospital OR · 2026”
 
 * **Kind:** Role
-* **Technical Label:** Surgeon Role
-* **Plain Label:** Operating surgeon
+* **Purpose / use‑domain:** OR governance and staffing; credentialing and checklists
+* **Unified Tech label:** Surgeon Role
+* **Plain label:** Operating surgeon
 * **Sense anchor:** person who is authorised to perform surgical steps under defined checks
 * **Concept‑Set:** “Clinical roles” row
 * **Alignment note:** Bridge to “Training & Credentialing · 2026” shows partial overlap; *loss:* that Context’s “Senior Surgeon” carries teaching duties that do not apply here
 * **Lifecycle:** current; renamed‑from “Lead Surgeon” (2025) with rationale: avoided “lead” vs “operating” ambiguity
+* **NQD‑front (seed candidates):** *Surgeon Role*, *Operating Surgeon*, *Primary Surgeon*, *Operating Physician*. **Chosen:** *Surgeon Role* (Kind‑neutral string; Plain clarifies).
 
 **Why it’s good.** No fatigue thresholds or readiness states in the name; those live in the Role’s state graph and checklists.
 
 #### 7.3 Public service Context: “Civic Services · 2026”
 
 * **Kind:** Requirement
-* **Technical Label:** Passport Lead‑Time
-* **Plain Label:** Time to issue a passport
+* **Purpose / use‑domain:** service performance management; public service SLAs
+* **Unified Tech label:** Passport Lead‑Time
+* **Plain label:** Time to issue a passport
 * **Sense anchor:** elapsed time from complete application to issuance
 * **Concept‑Set:** “Service quality requirements” row
 * **Alignment note:** Bridge to “Legal Framework · 2026” records that legal “deadline” has different remedies; *loss:* legal exemptions not carried into this Context
 * **Lifecycle:** current
+* **NQD‑front (seed candidates):** *Passport Lead‑Time*, *Issuance Time*, *Service Turnaround*, *Time to Issue Passport*. **Chosen:** *Passport Lead‑Time* (neutral; Plain remains didactic).
 
 **Why it’s good.** Target values (e.g., ≤ 20 days) are not in the label; they live in acceptance clauses.
 
@@ -31518,10 +31536,13 @@ Every name used in normative text **must** be paired with its **Context of meani
 **CC‑F18.2 (Kind clarity).**
 Every Name Card **must** state the **kind** (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, …). Using labels that hide kind is non‑conformant.
 
+**CC‑F18.2a (Purpose declared).**
+Every Name Card **must** state the **Purpose / use‑domain** (families of contexts where the concept is expected to be used). Omitting Purpose is non‑conformant.
+
 **CC‑F18.3 (Sense anchoring).**
 A minted name **must** resolve to a **Local‑Sense** in its Context. If a sense cannot be stated, label minting is deferred.
 
-**CС-F18.4 (Twin registers).**
+**CC‑F18.4 (Twin registers).**
 Each Name Card carries a **Unified Tech** and a **Plain** label (E.10). Tech appears in **Core** prose; Plain in teaching/examples.
 
 **CC‑F18.5 (No thresholds/states in labels).**
@@ -31537,10 +31558,10 @@ Renames, splits/merges, and retirements **must** be recorded on the Name Card wi
 Before minting, authors **must** check the Context’s Concept‑Set table; if a row exists, **reuse** it with a local label unless a documented reason compels a new row.
 
 **CC‑F18.9 (UTS entry).**
-Names used in normative artefacts **must** appear on the **Unified Term Sheet** with the eight Name‑Card fields.
+Names used in normative artefacts **must** appear on the **Unified Term Sheet** with the specified **Name‑Card fields** (#0–#13; include Notes when present).
 
 **CC‑F18.10 (No cross‑kind labels).**
-Do not reuse the same Technical Label for different kinds inside one context (e.g., “Cooling” as a Service and as a Method). If unavoidable, add a stable qualifier to disambiguate and record the decision on both Name Cards.
+Do not reuse the same **Unified Tech label** for different kinds inside one context (e.g., “Cooling” as a Service and as a Method). If unavoidable, add a stable qualifier to disambiguate and record the decision on both Name Cards.
 
 **CC‑F18.11 (Manager’s clip).**
 Each Name Card **should** carry a one‑line “use/avoid” note to guide everyday speech. Where omitted, editors add it during review.
@@ -31568,10 +31589,7 @@ For each adopted name, the home supplies:
 Each rung on the ladder depends only **downwards**: a name at rung *n* can rely on names ratified at rungs ≤ *n*, never sideways or upwards. Cycles are prohibited. If a dependency is not yet ratified at the required rung, the new name remains Draft or Pilot.
 
 **9.5 Local‑first before reuse.**
-Teams MUST first mint locally (within their Bounded Context) and only then consider reuse. Reuse is done by **alignment bridges** that map the local sense to an existing sense elsewhere, without collapsing the local home.
-
-**9.6 Sense, not string.**
-Publication concerns **sense** (intended meaning in context), not the literal string. Synonyms are allowed as **Working-Names** if they point to the same Concept-ID and pass the tests in §12. Strings must not be treated as identity.
+Teams MUST first **identify and stabilize the local sense** (within their Bounded Context). **Within the home**, reuse existing **Concept‑Set rows** where they fit (§4.2 **P1**). **Across contexts**, reuse occurs via **Alignment Bridges** that map the local sense to an existing sense elsewhere—without collapsing the local home.
 
 **9.6 Sense, not string.**
 Publication concerns **sense** (intended meaning in context), not the literal string. Synonyms are allowed as **Plain** labels or **aliases** only if they point to the same **Row ID** and pass the tests in §14. Strings must not be treated as identity.
@@ -31597,8 +31615,6 @@ Names and their MDS must not carry terms whose only meaning is tied to operating
 **9.13 Human‑only conformance.**
 Conformance for this protocol is judged by trained human reviewers using the checklists in §12. Automated heuristics, if any exist in an organization, have no standing in the Core.
 
----
-
 ### 10. Rationale (why this exists and why these rules)
 
 **10.1 Local‑first unlocks velocity without lexical debt.**
@@ -31617,9 +31633,8 @@ Acyclic dependencies cut off circular definitions and policy deadlocks. The ladd
 Part-whole claims **(structural)** must rest on **Constructive** grounds (`tv:groundedBy → Γₘ.sum|set|slice`, `validationMode=axiomatic`). Experience-based or evaluative relations **(epistemic)** follow assurance rules (**Logical/Mapping**, and **Empirical Validation** when *postulate*), with an explicit `validationMode ∈ {inferential, postulate}`. Mixing relation kinds inside a single name confuses review and invites hidden assumptions. 
 
 **10.6 Sense over string reduces false conflicts.**
-Disputes often orbit the string (“we hate that word”). By separating **sense** (what we mean) from **string** (how we say it), the protocol enables peaceful coexistence: keep the Concept-ID constant; permit multiple Working-Names if needed.
+Disputes often orbit the string (“we hate that word”). By separating **sense** (what we mean) from **string** (how we say it), the protocol enables peaceful coexistence: keep the **Row ID** constant; use one **Plain** label and, where helpful, a budgeted **alias** per register.
 
----
 
 ### 11. Application Guidance (how to apply, step by step)
 
@@ -31627,7 +31642,7 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 * Clarify **your Bounded Context** and audience.
 * Collect 2–3 typical user stories that require the name.
-* Scan near‑neighbors in adjacent contexts (see §12.2 checklist).
+* Scan near‑neighbors in adjacent contexts (see §14.2 Reviewer checklist).
 
 **11.2 Mint locally.**
 
@@ -31637,8 +31652,9 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 **11.3 Choose surfaces.**
 
-* **Concept-ID**: concise, technical clarity; avoid metaphor.
-* **Working-Name**: approachable; may include metaphor if it cannot distort the Concept-ID.
+* **Unified Tech label**: concise, morphology‑stable, neutral; avoid metaphor.
+* **Plain label**: approachable phrasing for non‑specialists.
+* **How to choose**: pick both **from a small NQD‑frontier** (see §4.2 P0): diversify by tradition, novelty/familiarity, and lexical form; record discarded contenders and rationale on the Card.
 
 **11.4 Place on the ladder.**
 
@@ -31679,7 +31695,7 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 * *Home C (Operations)* mints **Incident** with MDS: “An unplanned interruption or reduction in the quality of a service.” **Epistemic**.
 * *Home D (Monitoring)* mints **Event** with MDS: “A recorded observation of a state change in a system.” **Epistemic**.
-* **Unification:** Bridge notes: “Some Events are Incidents when they degrade service; not all Events are Incidents.” Working-Names may vary (e.g., “Outage” as a Working-Name for Incident) but the Concept-IDs stay distinct. No part‑whole claims are implied.
+* **Unification:** Bridge notes: “Some Events are Incidents when they degrade service; not all Events are Incidents.” **Plain** labels (and at most one alias per register) may vary (e.g., “Outage” as an alias for **Incident**), but the **Row IDs** stay distinct. No part‑whole claims are implied.
 
 **12.3 “Customer” vs “Account Holder” (business roles).**
 
@@ -31691,9 +31707,7 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 * *Home G (Manufacturing)* mints **Batch**: “A collection of items produced under shared conditions.” **Epistemic membership**.
 * *Home H (Quality)* mints **Lot**: “An integrated whole packaged and tracked as one item.” **Structural whole**.
-* **Unification:** Explicitly separate **Member‑of** readings from **Part‑of**. A bridge explains lawful conversions (e.g., how multiple Batch members may become Components of a Lot through an integration process). Names stay distinct; cross‑rung dependencies are avoided.
-
----
+* **Unification:** Bridge notes: “A **Lot** may originate from a single **Batch** or a slice of a Batch; not every Batch yields a single Lot.” Relation mapping: **MemberOf** (Batch membership) vs **ComponentOf**/**Whole** (Lot integration). *Loss note:* membership evidence does **not** imply part‑whole structure; part‑whole structure does **not** imply shared production conditions.
 
 ### 13. Anti‑Patterns & Failure Modes (what to avoid)
 
@@ -31712,10 +31726,8 @@ Letting collection names induce part‑whole claims. **Fix:** separate names, se
 **13.5 “Sideways dependency.”**
 Defining a name by appealing to another Draft at the same rung or higher. **Fix:** depend only downward or postpone ratification.
 
-**13.6 “Working-Name drift.”**
-Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix:** periodic Working-Name review; prune metaphors that start bending sense.
-
----
+**13.6 “Alias/Plain drift.”**
+Letting a Plain label or alias accumulate extra meanings absent in the underlying row. **Fix:** periodic label review; prune metaphors that start bending sense; respect the alias budget.
 
 ### 14. Assurance & Conformance (human‑only checks)
 
@@ -31726,7 +31738,7 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 * [ ] I declared the **relation kind** (structural vs epistemic) and the **validationMode**; no mixing.
 * [ ] If **structural**, I can point to **exactly one Constructive trace** that backs the structural claim.
 * [ ] I surveyed near‑neighbors and recorded my decision to align, merge, or keep separate.
-* [ ] I produced both **Concept-ID** and **Working-Name**, with the same sense.
+* [ ] I produced both **Unified Tech** and **Plain** labels (per E.10), with the same sense and pointing to the same **Row ID**.
 * [ ] Dependencies point **only downward**; no sideways or upward pulls.
 * [ ] I scheduled a **refresh date** and listed 2–3 usage examples.
 
@@ -31738,7 +31750,7 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 * [ ] Member vs Component is respected where relevant.
 * [ ] Alignment bridges are proposed where overlap exists, with explicit reading of convergence/divergence.
 * [ ] The ladder discipline holds: acyclic, downward‑only dependencies.
-* [ ] Working-Name does not smuggle extra commitments; Concept-ID and Working-Name remain co‑referential.
+* [ ] The **Plain** label does not smuggle extra commitments; **Unified Tech** and **Plain** remain co‑referential and point to the same **Row ID**.
 * [ ] Lifecycle state is accurate (Idea/Draft/Pilot/Ratified/Deprecated) and dated.
 
 **14.3 Lightweight outcomes.**
@@ -31811,7 +31823,8 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 
 ## 18 · Worked examples (compact)
 
-> Each example shows **how the Protocol steers naming** so engineers and managers can communicate without hidden Cross‑context leaks.
+> Each example shows **how the Protocol steers naming** so engineers and managers can communicate without hidden Cross‑context leaks.  
+> **Card hygiene shown explicitly:** each example **states the Kind and the Purpose/use‑domain** and **chooses Tech/Plain labels from a small NQD‑frontier** (seed set diversified by traditions, novelty/familiarity, and lexical form; see Part G (G.18)).
 
 ### Example 1 — *MethodDescription* vs *Work* (recipe vs run)
 
@@ -31819,10 +31832,16 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
   *BPMN 2.0 (2011):* “Process model” (recipe) and “Activity instance” (run).
   *PROV‑O (2013):* `prov:Plan` vs `prov:Activity`.
   *ITIL:* “Work instruction” vs “Change implementation record.”
-* **Unification outcome:** Two rows, two names.
-  **Tech:** `U.MethodDescription` (Plain: “recipe”); **Tech:** `U.Work` (Plain: “run”).
-  **Bridges:** recipe↔run **related**, not identical; loss note “control‑flow vs. execution.”
-  **Why it matters:** Managers can schedule **Work** while authors improve the **MethodDescription**—no category errors. (F.11/F.16; F.17 rows.)
+* **Kind:** `U.MethodDescription` (design‑time artifact) **and** `U.Work` (run‑time occurrence).
+* **Purpose / use‑domain:** planning/scheduling vocabulary across BPMN, PROV‑O, ITIL; separates *design recipe* from *execution episode* for governance and telemetry.
+* **NQD‑front (seed candidates):**  
+  *design‑time:* *Procedure*, *ProcessModel*, *MethodSpec*, *WorkflowDefinition*, *Recipe*, *MethodScript*  
+  *run‑time:* *Run*, *Execution*, *Enactment*, *ActivityInstance*, *Job*, *Episode*
+* **Chosen from frontier (Unified Tech / Plain):**  
+  `U.MethodDescription` / “recipe”; `U.Work` / “run”.  
+  *Discarded highlights:* **Procedure** (collides with governance “procedure/policy”); **Execution** (overloaded in CS/security); **Enactment** (speech‑act nuance).
+* **Bridges:** recipe↔run **related**, not identical; loss note “control‑flow vs. execution.”
+* **Why it matters:** Managers can schedule **Work** while authors improve the **MethodDescription**—no category errors. The NQD‑front preserves tradition‑diverse, lexically stable options until a reasoned choice is made. (F.11/F.16; F.17 rows.)
 
 ### Example 2 — *Service* (promise) vs *SpeechAct* (utterance) vs *Commitment* (deontic)
 
@@ -31830,21 +31849,34 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
   *IT service canon:* “SLA/OLA clause”, “ticket approved”.
   *Speech‑act theory:* “performative utterance”.
   *Org governance:* “approval signature”.
-* **Unification outcome:** Three rows: `U.Service` (promise), `U.SpeechAct` (utterance), `U.Commitment` (deontic bond).
-  **Bridges:** utterance **institutes** commitment; commitment **binds** service clause; no synonymy claimed.
-  **Why it matters:** Status tracking becomes intelligible without pretending that a “service” acts. (F.12; F.17 blocks D/R.)
+* **Kind:** `U.Service` (promise), `U.SpeechAct` (utterance), `U.Commitment` (deontic bond).
+* **Purpose / use‑domain:** ops/governance vocabulary connecting ITSM, organizational policy, and pragmatics; separates saying, binding, and promising.
+* **NQD‑front (seed candidates):**  
+  *promise:* *Service*, *Offering*, *Provision*, *CapabilityOffer*  
+  *utterance:* *SpeechAct*, *Performative*, *Utterance*, *Declaration*  
+  *deontic bond:* *Commitment*, *Obligation*, *Binding*, *Duty*
+* **Chosen from frontier (Unified Tech / Plain):**  
+  `U.Service` / “service (promise)”; `U.SpeechAct` / “utterance”; `U.Commitment` / “commitment”.  
+  *Discarded highlights:* **Offering** (business‑model connotations); **Declaration** (too narrow for performatives); **Obligation** (legalese; narrower than commitment envelope).
+* **Bridges:** utterance **institutes** commitment; commitment **binds** service clause; no synonymy claimed.
+* **Why it matters:** Status tracking becomes intelligible without pretending that a “service” acts; the NQD‑front yields neutral, cross‑tradition readable labels. (F.12; F.17 blocks D/R.)
 
 ### Example 3 — *Characteristic* names without lifecycle bias
 
 * **Context harvest:**
   *Quality canon:* “maturity level”; *Performance canon:* “throughput”.
-* **Unification outcome:** Neutral Tech names: `U.ReadinessLevel` (ordinal) and `U.Throughput` (ratio).
-  **Narrative:** Dynamics shown as **movement in state‑space**, not via names like “pre‑production process”.
-  **Why it matters:** Prevents time from leaking into labels; dynamics stay explicit and comparable. (A‑series CHR rationale; F.17 §4–§6.)
+ **Kind:** `U.Characteristic` (measurement names).
+* **Purpose / use‑domain:** CHR‑compatible measurements for planning and performance; bridgeable across engineering and management.
+* **NQD‑front (seed candidates):**  
+  *readiness (ordinal):* *MaturityLevel*, *ReadinessLevel*, *PhaseReadiness*, *TRL*, *ReadinessScore*  
+  *throughput (ratio):* *Throughput*, *Rate*, *ProcessingRate*, *OpsPerSecond*, *FlowRate*
+* **Chosen from frontier (Unified Tech / Plain):**  
+  `U.ReadinessLevel` / “readiness level” (ordinal); `U.Throughput` / “throughput” (ratio).  
+  *Discarded highlights:* **TRL** (tied to a specific scale/tradition); **Rate/OpsPerSecond** (over‑specific units baked in).
+* **Narrative:** Dynamics are shown as **movement in state‑space**, not via lifecycle‑laden names such as “pre‑production process”.
+* **Why it matters:** Prevents lifecycle/time from leaking into labels; the NQD‑front ensures neutrality and recognizability. (A‑series CHR rationale; F.17 §4–§6.)
 
----
-
-## 19 · FAQ (authoring hygiene)
+### 19 · FAQ (authoring hygiene)
 
 **Q1. How many Contexts must a naming proposal cite?**
 **A.** The **sheet** for a thread should cite **≥ 3** distinct Contexts overall; an individual row may cite fewer if the concept appears in fewer Contexts. The point is breadth at the **UTS** level, not token‑stuffing rows. (F.17 §6 constraint.)
@@ -31863,30 +31895,30 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 
 ---
 
-## 20 · 90‑second teaching script (for engineer‑managers)
+### 20 · 90‑second teaching script (for engineer‑managers)
 
 > “**Local‑first** means we start in **context of meaning**—we harvest terms **inside** each Context and only then unify. A unified name is a **teachable promise**: one **Tech** label for precision, one **Plain** label for outreach. Its **row** in the **UTS** shows where the idea lives in real disciplines (the **SenseCells**) and how those Contexts connect (explicit **Bridges** with a brief loss note). We never equate terms by spelling; we argue sameness with a **bridge**. We also never bake stages or actors into names—those belong to **dynamics** and **roles**, not labels. When the story changes, we evolve names with **lexical continuity** rather than re‑inventing words. The result is a vocabulary managers and engineers can **hold on one page** and use the same way across projects.”
 
-## 21 · Acceptance Harness (SCR/RSCR) for F.18
+### 21 · Acceptance Harness (SCR/RSCR) for F.18
 
 **Purpose.** Provide auditable, notation‑independent checks that a proposed unified name (and its publication on a UTS line) satisfies the **local‑first** unification discipline. The harness extends the general unification checks in **F.15** with **naming‑specific** obligations.
 
-### 21.1 Static Conformance Rules (SCR‑UNIFY)
+#### 21.1 Static Conformance Rules (SCR‑UNIFY)
 
 | ID                                                                                                                                                                                                       | Requirement (normative “SHALL/SHALL NOT”)                   | Why this exists (conceptual)                                 | Where this is reflected |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ | ----------------------- |
-| **SCR‑U‑01 (Row‑first).** A unified Tech/Plain name **SHALL** be published **only** on a **Concept‑Set row** whose cells are SenseCells drawn from declared Contexts. No free‑floating names.               | Names are *lenses* onto a defended **row**, not vice‑versa. | **F.7** row‑as‑unit; **F.17** UTS row discipline.            |                         |
-| **SCR‑U‑02 (Bridge‑only equivalence).** Cross‑context sameness **SHALL** be claimed **only** via an explicit **Bridge** with a relation kind and **CL** + loss/fit note.                                    | Prevents “string‑match identity”.                           | **F.9** Bridges; **F.0.1** principles.                       |                         |
-| **SCR‑U‑03 (Neutral Tech).** The **Unified Tech** label **SHALL** be **neutral**—not lifted wholesale from any single Context **unless** the row’s Concept‑Set shows exact identity.                        | Avoids importing a local worldview as global.               | **F.5** naming neutrality; **F.17** 9.8 naming neutrality.   |                         |
-| **SCR‑U‑04 (Twin registers).** Each row **SHALL** carry **Tech** and **Plain** names with the Part E register discipline; Plain is teacher‑friendly, Tech is morphology‑stable.                          | Satisfies didactic primacy without jargon creep.            | **E.10** registers; **F.5** naming rules.                    |                         |
-| **SCR‑U‑05 (No window‑in‑name).** Variations by **time/phase/scale** **SHALL** be handled by **applicability windows** on **Statuses** (or examples), **NOT** by baking modifiers into the unified name. | Prevents type/status explosion by adjectives.               | **F.10/F.12** windows; **F.14** explosion guard.             |                         |
-| **SCR‑U‑06 (Heterogeneity).** A UTS block **SHALL** demonstrate **≥ 3** independent domain families across its rows, or an explicit Bias‑Annotation shall scope the claim.                               | Enforces trans‑disciplinary reach or honest scope.          | **F.17** invariants 3; **E.8** Bias‑Annotation.              |                         |
-| **SCR‑U‑07 (Member≠Component sanity).** Names **SHALL NOT** imply holarchic composition when the row unifies **collections**; keep **MemberOf** distinct from **ComponentOf**.                           | Stops structural category errors.                           | Part F principles / anti‑patterns.                           |                         |
-| **SCR‑U‑08 (One‑breath rationale).** Each row **SHALL** include a **single‑sentence** Unification Rationale that states **why** the cells denote the same thing despite wording differences.             | Keeps the argument visible and auditable.                   | **F.17** invariant 7.                                        |                         |
-| **SCR‑U‑09 (Alias budget).** Per register, legacy aliases on a unified name **SHALL** be **≤ 1**; additional legacy labels go to Annex/Glossary.                                                         | Controls lexical drift while preserving continuity.         | **F.13** alias budget rule.                                  |                         |
-| **SCR‑U‑10 (No Cross‑context rename).** A rename **SHALL** occur **within** the same Context or same row; Cross‑context “renames” are **prohibited**—use Bridges.                                                 | Keeps locality intact; forbids silent conflation.           | **F.13** continuity; **F.9** Bridges.                        |                         |
+| **SCR‑U‑01 (Row‑first).** A unified Tech/Plain name **SHALL** be published **only** on a **Concept‑Set row** whose cells are SenseCells drawn from declared Contexts. No free‑floating names.               | Names are *lenses* onto a defended **row**, not vice‑versa. | **F.7** row‑as‑unit; **F.17** UTS row discipline.            | §F.7; §F.17             |
+| **SCR‑U‑02 (Bridge‑only equivalence).** Cross‑context sameness **SHALL** be claimed **only** via an explicit **Bridge** with a relation kind and **CL** + loss/fit note.                                    | Prevents “string‑match identity”.                           | **F.9** Bridges; **F.0.1** principles.                       | §F.9                    |
+| **SCR‑U‑03 (Neutral Tech).** The **Unified Tech** label **SHALL** be **neutral**—not lifted wholesale from any single Context **unless** the row’s Concept‑Set shows exact identity.                        | Avoids importing a local worldview as global.               | **F.5** naming neutrality; **F.17** 9.8 naming neutrality.   | §F.5; §F.17             |
+| **SCR‑U‑04 (Twin registers).** Each row **SHALL** carry **Tech** and **Plain** names with the Part E register discipline; Plain is teacher‑friendly, Tech is morphology‑stable.                          | Satisfies didactic primacy without jargon creep.            | **E.10** registers; **F.5** naming rules.                    | §E.10; §F.5             |
+| **SCR‑U‑05 (No window‑in‑name).** Variations by **time/phase/scale** **SHALL** be handled by **applicability windows** on **Statuses** (or examples), **NOT** by baking modifiers into the unified name. | Prevents type/status explosion by adjectives.               | **F.10/F.12** windows; **F.14** explosion guard.             | §F.10; §F.12; §F.14     |
+| **SCR‑U‑06 (Heterogeneity).** A UTS block **SHALL** demonstrate **≥ 3** independent domain families across its rows, or an explicit Bias‑Annotation shall scope the claim.                               | Enforces trans‑disciplinary reach or honest scope.          | **F.17** invariants 3; **E.8** Bias‑Annotation.              | §F.17; §E.8             |
+| **SCR‑U‑07 (Member≠Component sanity).** Names **SHALL NOT** imply holarchic composition when the row unifies **collections**; keep **MemberOf** distinct from **ComponentOf**.                           | Stops structural category errors.                           | Part F principles / anti‑patterns.                           | §9.8; §13               |
+| **SCR‑U‑08 (One‑breath rationale).** Each row **SHALL** include a **single‑sentence** Unification Rationale that states **why** the cells denote the same thing despite wording differences.             | Keeps the argument visible and auditable.                   | **F.17** invariant 7.                                        | §F.17                   |
+| **SCR‑U‑09 (Alias budget).** Per register, legacy aliases on a unified name **SHALL** be **≤ 1**; additional legacy labels go to Annex/Glossary.                                                         | Controls lexical drift while preserving continuity.         | **F.13** alias budget rule.                                  | §F.13                   |
+| **SCR‑U‑10 (No Cross‑context rename).** A rename **SHALL** occur **within** the same Context or same row; Cross‑context “renames” are **prohibited**—use Bridges.                                                 | Keeps locality intact; forbids silent conflation.           | **F.13** continuity; **F.9** Bridges.                        | §F.13; §F.9             |
 
-### 21.2 Regression Rules (RSCR‑UNIFY)
+#### 21.2 Regression Rules (RSCR‑UNIFY)
 
 | ID                                                                                                                                                                       | Regression duty across editions                                        | Effect |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------- | ------ |
@@ -31896,9 +31928,7 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 | **RSCR‑U‑E04 (Name neutrality check).** If the Unified Tech label is traceable to one context’s idiom, re‑justify neutrality or retitle the row.                            | Keeps the name “ours,” not “theirs.” **F.17** 9.7–9.8.                 |        |
 | **RSCR‑U‑E05 (Window misuse).** Reject newly proposed types that are really **windows** on an existing Status/Role.                                                      | Prevents explosion by adjectives. **F.14** S14/E11 patterns.           |        |
 
----
-
-## 21 · Migration & Deprecation Notes (informative, naming‑specific)
+### 21 · Migration & Deprecation Notes (informative, naming‑specific)
 
 1. **Start from rows, not strings.** When consolidating legacy labels, **build or revisit the Concept‑Set row** first; only then pick the **Unified Tech/Plain** names. This keeps **meaning** primary. **(F.7, F.17)** 
 2. **Prefer alias over merge.** If the *sense* is stable but the label misleads, **rename and retain one alias**; if the sense changed, **mint a new row** (no retrofits). **(F.13)**
@@ -31906,9 +31936,7 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 4. **Keep neutrality visible.** If stakeholders push a brand‑coloured label, document why the chosen **Unified Tech** is **neutral** and include the brand as an **alias** in Glossary/Annex. **(F.5, F.17)** 
 5. **Don’t globalise a Context.** Never move a Context label into the unified name as if it were universal. Use **Bridges** to relate Contexts, with an explicit **loss note**. **(F.0.1, F.9)** 
 
----
-
-## 22 · FAQ (authoring hygiene for engineer‑managers)
+### 22 · FAQ (authoring hygiene for engineer‑managers)
 
 **Q1. Can we reuse a dominant industry term as the Unified Tech name?**
 **A.** Only if the row’s Concept‑Set shows **exact identity** across Contexts; otherwise pick a **neutral** Unified Tech and list the industry label as an **alias** in the Glossary. **(F.5, F.17)** 
@@ -31925,15 +31953,11 @@ Letting a Working-Name accumulate extra meanings absent in the Concept-ID. **Fix
 **Q5. Can we compress two near‑equivalent rows into one to “simplify the sheet”?**
 **A.** Only if the **one‑breath rationale** remains true after review and the Bridges support equivalence with the same or stronger CL; otherwise keep **two rows** with explicit differences. **(F.17, F.9)** 
 
----
-
-## 23 · Didactic distillation (90‑second script)
+### 23 · Didactic distillation (90‑second script)
 
 > **“Name on a row, never on a whim.”** In FPF we **speak inside Contexts**, then unify across them by building **one Concept‑Set row per thing**. Only there do we mint a **Unified Tech** label (neutral) and a **Plain** label (teachable). If Contexts differ, we **Bridge** with a **CL** and a brief **loss note**. We **avoid adjectives** in names—variation lives in **windows** or **examples**. We keep **aliases scarce** (≤ 1 per register) and **never** rename across Contexts. That’s the **local‑first** protocol: rows before names, Bridges before claims, **clarity before comfort**. **Your UTS is the one page a careful mind can hold.** 
 
----
-
-## 24 · Relations
+### 24 · Relations
 
 **Builds on:**
 **F.0.1** Contextual Lexicon Principles (local meaning; bridge‑only Cross‑context claims). **F.1–F.3** Contexts → term harvesting → local sense clustering. **F.5** Naming discipline. **F.7** Concept‑Set construction. **F.8** Mint‑or‑Reuse decision lattice. **F.13** Lexical continuity (renames/aliases/splits/merges). **F.14** Anti‑explosion controls (bundles, SoD, windows). **F.15** SCR/RSCR harness. **F.17** UTS as the publication surface.  
