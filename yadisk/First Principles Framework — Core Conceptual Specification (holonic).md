@@ -24791,7 +24791,14 @@ with:
  **Extension discipline.** Any extra slot beyond ⟨L,P,E⃗,D⟩ **SHALL** be registered in the **E.17/LEX “CtxState Extension Registry”** with slot‑id, intent, partial‑order law (neutral/absorbing), and SquareLaw compatibility; unregistered extensions are non‑conformant.
  **Data‑shape location.** Concrete record shapes for `PathId/PathSliceId`, Γ‑pins, and lineage remain in A.22 `FlowSpec`; E.TGA fixes that **flow = valuation** and that `CtxState` is preserved across raw transfers.
 
-* **Kinds:** `U.Transduction(kind∈{Signature, Mechanism, Work, Check, StructuralReinterpretation})`. `OperationalGate ≔ U.Transduction(kind=Check)` with DecisionLog aggregation. `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and MAY rotate **aboutness** under **CC‑TGA‑06‑EX** with **KindBridge (`CL^k`)** and a **SquareLaw‑Rotation witness** present on UTS; the operation remains **PathSlice‑local** and performs **no plane/unit change**.  (See also CC‑TGA‑11 for crossings.)
+* **Kinds:** `U.Transduction(kind∈{Signature, Mechanism, Work, Check, StructuralReinterpretation})`.  
+  **Exact identification (no TGA‑local taxonomy):**  
+  — `Signature` **≡** **A.6.0** `U.Signature` (universal, law‑governed declaration).  
+  — `Mechanism` **≡** **A.6.1** `U.Mechanism` (law‑governed application over a SubjectKind/BaseType).  
+  — `Work` **≡** **A.15** `U.WorkEnactment` (bind‑in‑world; `FinalizeBinding` only here).  
+  — `Check` **≡** `OperationalGate(profile)` (universal **gate**; A.* patternisation pending; CC‑TGA catalog applies).  
+  `OperationalGate ≔ U.Transduction(kind=Check)` with DecisionLog aggregation.  
+  `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and MAY rotate **aboutness** under **CC‑TGA‑06‑EX** with **KindBridge (`CL^k`)** and a **SquareLaw‑Rotation witness** present on UTS; the operation remains **PathSlice‑local** and performs **no plane/unit change**.  (See also CC‑TGA‑11 for crossings.)
 
 > **MVPK binding.** Every vertex with an external surface emits **MVPK** faces (`PlainView`, `TechCard`, `AssuranceLane`, `InteropCard`), governed by a declared **PublicationScope**; faces carry only **presence‑pins + anchors + EditionId**, never restate I/O; any comparison on faces **returns sets / lawful orders** with **ComparatorSet** citation. 
 
@@ -25043,7 +25050,7 @@ Publish a **UTS block** named **`ViewpointMap`** with **≥ 4 rows** covering 
 | ID | Requirement | Practical test |
 |----|-------------|----------------|
 | **CC‑TGA‑01 — Single edge kind** | The graph uses exactly one edge kind `U.Transfer`; all plane/Context/edition transitions occur only at nodes via `OperationalGate(profile)`. | Model lint finds no auxiliary edge kinds for unit/plane changes; crossings sit on declared gates. |
-| **CC‑TGA‑02 — Nodes are morphisms** | Nodes are intensional `U.Transduction(kind∈{Signature,Mechanism,Work,Check,StructuralReinterpretation})`. This enumeration is a **minimal roles baseline**. **Domain‑specific species are open‑world** and non‑exhaustive; they bind to one of these kinds. Adding a **new kind** requires an explicit E.TGA update. `StructuralReinterpretation` nodes are **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and carry CV/GF obligations per A.20/A.21/A.45. | Type registry shows at least the listed kinds; additional species map to one of them; checks realized as `OperationalGate` (see CC‑TGA‑06‑EX/11). |
+| **CC‑TGA‑02 — Nodes are morphisms** | Nodes are intensional `U.Transduction(kind∈{Signature,Mechanism,Work,Check,StructuralReinterpretation})`. This enumeration is a **minimal roles baseline**. **Domain‑specific species are open‑world** and non‑exhaustive; they bind to one of these kinds. Adding a **new kind** requires an explicit E.TGA update. `StructuralReinterpretation` nodes are **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and carry CV/GF obligations per A.20/A.21/A.45. **Mapping to A.\*** (normative): the enumeration is **not** a TGA‑local taxonomy; each `kind` is identified 1‑to‑1 with its A.\* anchor: `Signature→A.6.0`, `Mechanism→A.6.1`, `Work→A.15`, `Check→OperationalGate` (until a dedicated A.\* pattern is published). **Disambiguation:** `Signature (kind)` ≠ `KindSignature` (C.3.2) and ≠ `A.6 Architheory Signature` view. | Type registry shows at least the listed kinds; additional species map to one of them; checks realized as `OperationalGate` (see CC‑TGA‑06‑EX/11). **Lint:** registry/table exposes `{species → {kind, KindDefinition}}`; missing or mismatched `KindDefinition` fails. |
 | **CC‑TGA‑03 — Identity, composition, functorial faces** | Identities exist; path composition associative; publication is functorial: `Emit_s(t₂∘t₁)=Emit_s(t₂)∘Emit_s(t₁)`. | Pick two‑step path; MVPK faces commute (Square witness). |
 | **CC‑TGA‑04 — Graph spec** | Spec declares `τ_V, τ_E`, `Γ_time`, Transport/Bridge registries. | Spec file shows typed registries and Γ policy. |
 | **CC‑TGA‑05 — CtxState pins** | `CtxState=⟨L,P,E⃗,D⟩` is pinned on ports/tokens; raw `U.Transfer` does **not** change it. | Along a raw transfer, ⟨L,P,E⃗,D⟩ is preserved. |
@@ -25077,6 +25084,10 @@ Publish a **UTS block** named **`ViewpointMap`** with **≥ 4 rows** covering 
 
 **Glossary (additions)**  
 * *Open‑world species* — non‑exhaustive domain‑level specializations of `U.Transduction` that map to the minimal kind set.  
+* *Signature (TGA kind)* — `U.Transduction(kind=Signature)`; **identical to** **A.6.0** `U.Signature` (universal block). **Not** a `C.3.2 KindSignature`.  
+* *Architheory Signature (A.6)* — family‑specific **view** and discipline that **specialises** A.6.0 for architheories; the universal A.6.0 block remains the source of truth.  
+* *KindSignature (C.3.2)* — intensional definition of a `U.Kind` (intent/extent, F); **unrelated** to TGA kinds; never a `genus`.  
+* *Species (domain‑level)* — typed specialisations `speciesOf(kind=…)` that **MUST** declare `KindDefinition=A.*` id (e.g., `kind=Mechanism; KindDefinition=A.6.1`).  
 * *KindBridge (`CL^k`)* — a compatibility surface on UTS for aboutness/kind transitions; required by CC‑TGA‑06‑EX and crossings (CC‑TGA‑11).
 * *Eulerian interpretation* — operational stance where a flow is treated as a valuation over `U.Transfer` and edges perform assurance‑only operations (no token‑passing semantics).
 * **GateCheckRef shape (publication lexeme, normative here).** Where GateChecks are surfaced, a **GateCheckRef** is a record
