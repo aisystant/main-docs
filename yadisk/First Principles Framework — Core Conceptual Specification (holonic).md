@@ -31387,81 +31387,86 @@ These failures erode trust, block reuse, and make Part F machinery (Concept-Sets
 
 ### 4. Solution — The Local‑First Naming Protocol
 
-F.18 defines **seven rules** (R‑rules) and **five practices** (P‑practices). Together they produce **Name Cards** that any reader can interpret without guessing, and that slot cleanly into the rest of Part F.
+F.18 defines **eight rules** (R‑rules) and **six practices** (P‑practices). Together they produce **Name Cards** that any reader can interpret **ontologically** without guessing, and that slot cleanly into the rest of Part F.
 
-**Path Card (subset of Name Card).** A **Name Card** whose **object‑of‑talk** is an **EvidenceGraph Path**: it cites a **PathId** (or **PathSliceId**), **Context**, **ReferencePlane**, **Γ_time**, and any **Bridge id(s) + CL/CL^plane** (with loss notes). Used by **G.6** and **G.10** to make justifications portable on UTS.
+**Path Card (subset of Name Card).** A **Name Card** whose **object‑of‑talk/entity-of-interest** is an **EvidenceGraph Path**: it cites a **PathId** (or **PathSliceId**), **Context**, **ReferencePlane**, **Γ_time**, and any **Bridge id(s) + CL/CL^plane** (with loss notes). Used by **G.6** and **G.10** to make justifications portable on UTS.
 
-#### 4.1 The Seven R‑rules (normative)
+#### 4.1 The Eight R‑rules (normative)
 
 **R1 — Speak every name *with its Context*.**
-A name is **never** context‑free. When you introduce or use a name, **pair it with the Bounded Context** where it lives (the “Context of meaning”), and with the **edition** of that Context if relevant. In everyday speech: “X, *in* Y.” Cross‑context use requires a Bridge; labels alone do not travel.
+A name is **never** context‑free. When you introduce or use a name, **pair it with the Bounded Context** where it lives (the “Context of meaning”), and with the **edition** of that Context if relevant. In everyday speech: “X, *in* Y.” Cross‑context use requires a Bridge; labels alone do not travel. 
 
-**R2 — State the *Kind* on the Card.**
+**R2 — State the ontological *Kind* on the Card.**
 Every Name Card **must** state the **Kind** (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, etc.). This prevents category errors and keeps Role–Method–Work alignment clean. *Clarification:* this is a **Card requirement**, not a demand that the label string begin with the Kind.
 
-**R2a — Declare the *Purpose / use‑domain* on the Card.**
+**R3 — Declare the *Purpose / use‑domain* on the Card.**
 In addition to **Kind**, the Name Card **must** state the intended **Purpose / use‑domain** that situates the concept in practice and signals **which families of contexts** are expected to use it (e.g., mathematical formalism, engineering practice, computer science, systems management). This enables reconstruction of usage from the lexicon and reduces unintended scope drift. *Clarification:* this is a **Card field**; it does **not** require the label string to carry the purpose qualifier.
 
-**R3 — Anchor the name to a *Local‑Sense*.**
-A minted name **must** resolve to a **Local‑Sense** inside its Context (the result of F.2–F.3). If a name points to a Role Description, state that template and its sense basis. No name floats unattached.
+**R4 — Resolve the name to a *Local‑Sense*.**
+A minted name must resolve to a Local-Sense inside its Context (the result of F.2–F.3). If a name points to a Role Description, state that template and its sense basis. Avoid heavily overloaded surface terms: when needed, prefer concise two-word Tech labels that hint at the intended sense.
 
-**R4 — Use *Twin Registers* (Unified Tech + Plain).**
+**R5 — Use *Twin Registers* (Unified Tech + Plain).**
 Provide two human‑oriented labels on the Name Card, per **E.10** register discipline:
 * a **Unified Tech** label (short, morphology‑stable, neutral in wording);
 * a **Plain** label (reader‑friendly phrasing for managers and subject‑matter experts).
 The **Unified Tech** label is the only one used in **Core** normative prose; **Plain** is for teaching and examples. Both remain **context‑local**; neither establishes Cross‑context identity (that is the job of the **UTS row** and **Bridges**).
 
-**R5 — Keep thresholds and states *out of the name*.**
+**R6 — Keep thresholds and states *out of the name*.**
 Do not encode numeric limits, separation‑of‑duties, or readiness states in the label. Put thresholds on **Method steps** (capability/acceptance), states in **Role State Graphs**, and SoD via **incompatibility** relations. Names carry *what this is* and *which Context claims it*—not *when and how it may act*.
 
-**R6 — Cross Context only by *Bridge* with loss notes.**
+**R7 — Cross Context only by *Bridge* with loss notes.**
 When another context needs to reference a name, use an **Alignment Bridge** that states the relation (equivalent, narrower, broader, analogous) and its **Congruence Level** with explicit **loss/fit** annotations. Never equate two names by label alone.
 
-**R7 — Make renames and merges *first‑class events*.**
+**R8 — Make renames and merges *first‑class events*.**
 When a label changes, or two labels consolidate or split, record it on the Name Card as a lifecycle action (rename, merge, split, retire) with rationale and dates. Past uses *remain valid as historical facts*; continuity comes from lineage, not silent edits.
 
-#### 4.2 The Five P‑practices (normative process)
+#### 4.2 The Six P‑practices (normative process)
 
-**P0 — Candidate set (*NQD‑front* of seed‑words).**
-Do **not** pick a label “in one shot”. Build a **small, non‑dominated candidate set** (an *NQD‑front*, typically 3–7 items) by seeding and varying along:
- **Traditions** — mathematics, physics, engineering, computer science, systems thinking, management, etc.;  
- **Novelty/Familiarity** — from careful **reuse** of established terms to sharper **neologisms**;  
+**P1 — Candidate set (*NQD‑front* of seed‑words).**
+Do **not** pick a label “in one shot”. Build a **small, non‑dominated candidate set** (an *NQD‑front*, typically 5–10 items) by seeding and varying along:
+ **Traditions** — mathematics, physics, engineering, computer science, systems thinking, management, etc. with their typical contexts and situations; use maximum diversity here;
+ **Novelty/Familiarity** — from careful **reuse** of established terms to sharper **neologisms** from recent SoTA traditions;  
  **Lexical form** — root/morpheme choice, readability/pronounceability, inflection/declension, transparency.
 Use the **Novelty–Quality–Diversity** discipline from **Part G** to maintain only **non‑dominated** candidates; when appropriate, you may implement this via **Γ_nqd.generate (G.18)**. Record the **seeds** and the short rationale in the Card’s notes. Choose final **Unified Tech**/**Plain** labels **from this frontier**; if a strong candidate is discarded, briefly note why.
 
-**P1 — Mint‑or‑Reuse gate (F.8).**
+**P2 — Semantic read‑through against archetypal situations.**
+Alongside the NQD‑front of label candidates, maintain a **small set of 5–10 archetypal situations** (“**sense‑seeds**”) that instantiate the intended use (purpose) across different traditions. For **each** candidate label, perform a **read‑through test**:
+– write **1–2 short example sentences per sense‑seed** (e.g., “In case X, we perform \<Label\>”);
+– ask whether a careful reader, **from wording alone**, would reliably infer the intended sense or it is too narrow, or too wide, or this word is overloaded with other meanings.
+**Discard** labels that **systematically evoke the wrong prototype**, even if they rank high on novelty or lexical elegance. Record **rejected candidates** and its **mismatch pattern** in the Name Card’s **NQD‑front notes**.
+
+**P3 — Mint‑or‑Reuse gate (F.8).**
 Before minting, search your Context’s **Concept‑Set table**. If a row already covers your sense, reuse it and only add a **local label**. If not, propose a **new row** and capture the decision in a brief rationale.
 
-**P2 — Concept‑Set linkage (F.7).**
+**P4 — Concept‑Set linkage (F.7).**
 Every Name Card **must** indicate its Concept‑Set row (or record “not applicable” for intentionally Context‑unique names). This is the handle for alignment and anti‑explosion control.
 
-**P3 — UTS registration (F.17).**
+**P5 — UTS registration (F.17).**
 Publish each Name Card to the **Unified Term Sheet** with Context, kind, twin labels, sense anchor, edition, and lifecycle status. Keep the UTS the single, human‑readable table of record.
 
-**P4 — Lifecycle hygiene (F.13).**
+**P6 — Lifecycle hygiene (F.13).**
 Apply the same discipline to renames, splits/merges, and retirements; leave a forward/backward pointer so readers can trace continuity at a glance.
-
----
 
 ### 5. The Name Card (authoring template, representation‑agnostic)
 
 A **Name Card** is the authoritative, human‑readable record of a name inside its Context. It has these fields; teams may add local notes.
 
-0. **Row ID** — the stable, opaque **UTS row identifier** (the identity anchor).
-1. **Context of meaning** — the Bounded Context and, if relevant, its edition.
-2. **Kind** — what sort of thing this is (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, etc.). 
-3. **Purpose / use‑domain** — the intended area(s) of use (which families of contexts are expected to use it).
-4. **Minimal Definitional Statement (MDS)** — one‑paragraph intended sense in the home context (no tool/process slang).
-5. **Didactic subtitle** — ≤ 12 words that signal pragmatic use.
-6. **Sense anchor** — a Local‑Sense reference (how F.2–F.3 clustered it).
-7. **Twin labels** — **Unified Tech** and **Plain** (per E.10).
-8. **Concept‑Set linkage** — Concept‑Set reference or “not applicable” (with rationale).
-9. **Alignment note** — if a Bridge exists to other Contexts, cite it and record **loss/fit** in plain words (no formulas required on the Card).
-10. **Relation kind & stance** — **structural** vs **epistemic**; declare `validationMode ∈ {axiomatic, inferential, postulate}`. For **structural** relations, provide **Constructive** grounding (`tv:groundedBy → Γₘ.sum|set|slice`). 
-11. **Lifecycle** — current status (Idea, Draft, Pilot, Ratified, Deprecated) plus lineage (renamed‑from, split‑from, merged‑from) and steward contact.
+1. **Row ID** — the stable, opaque **UTS row identifier** (the identity anchor).
+2. **Twin labels** — **Unified Tech** and **Plain** (per E.10).
+3. **Context of meaning** — the Bounded Context and, if relevant, its edition.
+4. **Kind** — what sort of thing this is (System, Episteme, Role, Service, Method, Work, Objective, Requirement, Decision, Characteristic, etc.), this is ontology notion. 
+5. **Purpose / use‑domain** — the intended area(s) of use (which families of contexts are expected to use it).
+6. **Minimal Definitional Statement (MDS)** — one‑paragraph intended sense in the home context (no tool/process slang).
+7. **Didactic subtitle** — ≤ 12 words that signal pragmatic use.
+8. **Sense reference** — a Local‑Sense reference (how F.2–F.3 clustered it).
+9. **Concept‑Set linkage** — Concept‑Set reference or “not applicable” (with rationale).
+10. **Alignment note** — if a Bridge exists to other Contexts, cite it and record **loss/fit** in plain words (no formulas required on the Card).
+11. **Relation kind** — if name is for relation then **structural** vs **epistemic**; declare `validationMode ∈ {axiomatic, inferential, postulate}`. For **structural** relations, provide **Constructive** grounding (`tv:groundedBy → Γₘ.sum|set|slice`). If name is not for relation with arity 2 or more, field is "n/a".
 12. **Manager’s clip** — one‑line “use/avoid” guidance for everyday communication.
-13. **NQD‑front seeds** — brief rationale for discarded candidates.
-14.  **Card notes** — optional free text with comments about name (e.g. recomended translations, etymology, pronunciation, etc.).
+13. **Archetypal situations (sense‑seeds)** — **5-10 short “X‑case” lines** used by **P2** for the semantic read‑through; keep them **edition‑aware** and **context‑local**.
+14. **NQD‑front seeds** — brief rationale for discarded candidates (**include mismatch patterns from P2**).
+15. **Version**  — current status and history of editions
+16. **Card notes** — optional free text with comments about name (e.g. recommended translations, etymology, pronunciation, etc.).
 
 **Manager’s reading habit.** When two names collide in a meeting, ask for their **Context**, **Kind**, **Purpose/use‑domain**, and **Sense anchor**. If any of those differ, you are comparing different things; switch to **Bridge** talk, not label talk.
 
@@ -31496,7 +31501,7 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 * **Sense anchor:** supply of water at defined temperature/flow to boundary B
 * **Concept‑Set:** “Utility service” row; local variant recorded
 * **Alignment note:** Bridge to “Plant Utilities · 2026” notes that “Cooling Supply” there bundles filtration; *loss:* filtration is not guaranteed in this Context
-* **Lifecycle:** current
+* **Version:** 20 Feb 2024
 * **NQD‑front (seed candidates):** *Cooling Supply*, *Chilled Water Service*, *Process Cooling*, *Cooling Utility*. **Chosen:** *Cooling Supply* (neutral, morphology‑stable).
 
 **Why it’s good.** The label doesn’t encode temperature or flow limits (those live in acceptance). It names a Service; nobody will confuse it with a pump System or a Method.
@@ -31510,7 +31515,7 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 * **Sense anchor:** person who is authorised to perform surgical steps under defined checks
 * **Concept‑Set:** “Clinical roles” row
 * **Alignment note:** Bridge to “Training & Credentialing · 2026” shows partial overlap; *loss:* that Context’s “Senior Surgeon” carries teaching duties that do not apply here
-* **Lifecycle:** current; renamed‑from “Lead Surgeon” (2025) with rationale: avoided “lead” vs “operating” ambiguity
+* **Version:** Feb 2025; renamed‑from “Lead Surgeon” (2025) with rationale: avoided “lead” vs “operating” ambiguity
 * **NQD‑front (seed candidates):** *Surgeon Role*, *Operating Surgeon*, *Primary Surgeon*, *Operating Physician*. **Chosen:** *Surgeon Role* (Kind‑neutral string; Plain clarifies).
 
 **Why it’s good.** No fatigue thresholds or readiness states in the name; those live in the Role’s state graph and checklists.
@@ -31524,7 +31529,7 @@ A **Name Card** is the authoritative, human‑readable record of a name inside i
 * **Sense anchor:** elapsed time from complete application to issuance
 * **Concept‑Set:** “Service quality requirements” row
 * **Alignment note:** Bridge to “Legal Framework · 2026” records that legal “deadline” has different remedies; *loss:* legal exemptions not carried into this Context
-* **Lifecycle:** current
+* **Version:** current
 * **NQD‑front (seed candidates):** *Passport Lead‑Time*, *Issuance Time*, *Service Turnaround*, *Time to Issue Passport*. **Chosen:** *Passport Lead‑Time* (neutral; Plain remains didactic).
 
 **Why it’s good.** Target values (e.g., ≤ 20 days) are not in the label; they live in acceptance clauses.
@@ -31561,7 +31566,7 @@ Renames, splits/merges, and retirements **must** be recorded on the Name Card wi
 Before minting, authors **must** check the Context’s Concept‑Set table; if a row exists, **reuse** it with a local label unless a documented reason compels a new row.
 
 **CC‑F18.9 (UTS entry).**
-Names used in normative artefacts **must** appear on the **Unified Term Sheet** with the specified **Name‑Card fields** (#0–#13; include Notes when present).
+Names used in normative artefacts **must** appear on the **Unified Term Sheet** with the specified **Name‑Card fields**; include Notes when present).
 
 **CC‑F18.10 (No cross‑kind labels).**
 Do not reuse the same **Unified Tech label** for different kinds inside one context (e.g., “Cooling” as a Service and as a Method). If unavoidable, add a stable qualifier to disambiguate and record the decision on both Name Cards.
@@ -31657,7 +31662,7 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 * **Unified Tech label**: concise, morphology‑stable, neutral; avoid metaphor.
 * **Plain label**: approachable phrasing for non‑specialists.
-* **How to choose**: pick both **from a small NQD‑frontier** (see §4.2 P0): diversify by tradition, novelty/familiarity, and lexical form; record discarded contenders and rationale on the Card.
+* **How to choose**: pick both **from a small NQD‑frontier** (see §4.2 P1 (candidate set), P2(read-through)): diversify by tradition, novelty/familiarity, and lexical form; record discarded contenders and rationale on the Card.
 
 **11.4 Place on the ladder.**
 
@@ -31680,9 +31685,7 @@ Disputes often orbit the string (“we hate that word”). By separating **sense
 
 **11.8 The “Friday test.”**
 
-* On a busy Friday, could a competent colleague apply the name correctly using only the MDS, subtitle, and two examples? If not, refine before ratification.
-
----
+* On a busy Friday, could a competent colleague apply the name correctly using only the MDS, subtitle, and two examples? If not, refine before ratification: it too overloaded with meanings to be helpful.
 
 ### 12. Examples (worked mini‑cases for engineer‑managers)
 
@@ -31920,6 +31923,7 @@ Letting a Plain label or alias accumulate extra meanings absent in the underlyin
 | **SCR‑U‑08 (One‑breath rationale).** Each row **SHALL** include a **single‑sentence** Unification Rationale that states **why** the cells denote the same thing despite wording differences.             | Keeps the argument visible and auditable.                   | **F.17** invariant 7.                                        | §F.17                   |
 | **SCR‑U‑09 (Alias budget).** Per register, legacy aliases on a unified name **SHALL** be **≤ 1**; additional legacy labels go to Annex/Glossary.                                                         | Controls lexical drift while preserving continuity.         | **F.13** alias budget rule.                                  | §F.13                   |
 | **SCR‑U‑10 (No Cross‑context rename).** A rename **SHALL** occur **within** the same Context or same row; Cross‑context “renames” are **prohibited**—use Bridges.                                                 | Keeps locality intact; forbids silent conflation.           | **F.13** continuity; **F.9** Bridges.                        | §F.13; §F.9             |
+| **SCR‑U‑11 (Semantic read‑through).** A unified Tech/Plain name **SHALL** pass a **semantic read‑through**: the Name Card lists **5–10 diverse NQD archetypal situations** and the **NQD‑front notes** record rejected candidate and their **mismatch patterns**. | Prevents labels that mislead across the intended situations; ties lexical choice to demonstrated use. | §F.18 §4.2; §F.18 §5. | §F.18 |
 
 #### 21.2 Regression Rules (RSCR‑UNIFY)
 
