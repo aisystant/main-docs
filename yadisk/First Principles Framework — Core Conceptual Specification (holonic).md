@@ -5597,11 +5597,11 @@ For every **n‑ary relation or operator** declared in the **Vocabulary** row, t
 where:
 * **SlotKind_i** is a named position in the relation/operator (Tech name with `…Slot` suffix) whose semantics are documented (see A.6.5).
 * **ValueKind_i** is the FPF type (`U.Kind` or kernel‑level type) of admissible occupants at that position.
-* **refMode_i** is either `ByValue` or a **RefKind** (e.g., `U.EntityRef`, `U.HolonRef`), indicating whether the KU stores values directly or references/identifiers.
+* **refMode_i** is either `ByValue` or a **RefKind** (e.g., `U.EntityRef`, `U.HolonRef`), indicating whether the episteme stores values directly or references/identifiers.
 
 Full discipline and lexical rules for **SlotKind/ValueKind/RefKind** are given in A.6.5 `U.RelationSlotDiscipline` and E.10 (§8.1). A.6.0 requires that every vocabulary‑level relation or operator that takes arguments **declare** these SlotSpecs; downstream patterns MAY provide templates for common shapes (e.g., episteme slots in C.2.1).
 
-**Mini‑example (informative).** For an episteme kind `ModelEvaluationResultKind`, a simplified KU might expose:
+**Mini‑example (informative).** For an episteme kind `ModelEvaluationResultKind`, a simplified episteme might expose:
 * `describedEntityRef : U.MethodRef`
 * `datasetRef : U.EntityRef`
 * `metricRef : U.CharacteristicRef`
@@ -5610,7 +5610,7 @@ Full discipline and lexical rules for **SlotKind/ValueKind/RefKind** are given i
 
 An authorial SlotSpec table then reads:
 
-| Parameter (KU field)   | SlotKind              | ValueKind          | refMode                |
+| Parameter (episteme field)   | SlotKind              | ValueKind          | refMode                |
 | ---------------------- | --------------------- | ------------------ | ---------------------- |
 | `describedEntityRef`   | `DescribedEntitySlot` | `U.Method`         | `U.MethodRef`          |
 | `datasetRef`           | `DatasetSlot`         | `U.Entity`         | `U.EntityRef`          |
@@ -5709,7 +5709,7 @@ This makes `profile=FormalSubstrate` and `profile=PrincipleFrame` *morphisms* in
 | **CC‑A.6.0‑12 (Profile conformance).** | If the Signature declares `profile=FormalSubstrate` or `profile=PrincipleFrame`, the corresponding **profile pins** in §4.2 are **mandatory**; failure to emit them makes the Signature **non‑conformant** for that profile. |
 | **CC‑A.6.0‑13 (Profile morphism discipline).** | Applying a profile **SHALL** satisfy §4.6 (structure‑preserving morphism: SubjectBlock preserved, Vocabulary/Laws monotone, Applicability restrictive, no admissibility/handlers). |
 | **CC‑A.6.0‑14 (SlotSpec for argument positions).** | Any `U.Signature` whose **Vocabulary** declares n‑ary relations or operators **SHALL** provide, for each argument position, a **SlotSpec** triple `⟨SlotKind, ValueKind, refMode⟩` (with `refMode ∈ {ByValue \| RefKind}`) as per A.6.5 `U.RelationSlotDiscipline`. |
-| **CC‑A.6.0‑15 (Slot/Ref lexical discipline on signatures).** | Names of SlotKinds and RefKinds used in SlotSpecs **MUST** obey E.10/A.6.5 lexical guards: tokens ending with **`…Slot`** denote SlotKinds only; tokens ending with **`…Ref`** denote either RefKinds or KU fields whose type is a RefKind; no ValueKind ends with these suffixes. |
+| **CC‑A.6.0‑15 (Slot/Ref lexical discipline on signatures).** | Names of SlotKinds and RefKinds used in SlotSpecs **MUST** obey E.10/A.6.5 lexical guards: tokens ending with **`…Slot`** denote SlotKinds only; tokens ending with **`…Ref`** denote either RefKinds or episteme fields whose type is a RefKind; no ValueKind ends with these suffixes. |
 | **CC‑A.6.0‑16 (SlotSpecs for n‑ary relations).** | Any `U.Signature` whose **Vocabulary** declares an **n‑ary relation or morphism** **SHALL** assign to each parameter position a `SlotSpec_i = ⟨SlotKind, ValueKind, refMode⟩` as defined in **A.6.5 `U.RelationSlotDiscipline`**; SlotSpecs live inside the Vocabulary row’s per‑relation parameter block and **MUST NOT** introduce additional rows beyond the four‑row Block. |
 | **CC‑A.6.0‑17 (SlotSpec‑based substitution laws).** | Specialisations of A.6.0 that define **substitution, retargeting, or profile application** over n‑ary relations/morphisms (e.g., **A.6.2–A.6.4**) **SHALL** phrase their rules in terms of **SlotSpecs** (SlotKind / ValueKind / RefKind) rather than unnamed parameter indices and **SHALL** obey the `…Slot` / `…Ref` lexical discipline in **A.6.5** and **F.18**. |
 
@@ -6116,7 +6116,7 @@ Builds on **A.6**; instantiates **A.2.6 USM** (ContextSlice, Γ_time, ∩/SpanUn
 – E.10 (LEX‑BUNDLE: Tech/Plain registers, naming guards). 
 
 **Coordinates with.**
-– C.2.1 `U.EpistemicMediationGraph` (episteme slots: DescribedEntity, GroundingHolon, ClaimGraph, Viewpoint, View, ReferenceScheme).
+– C.2.1 `U.EpistemeSlotGraph` (episteme slots: DescribedEntity, GroundingHolon, ClaimGraph, Viewpoint, View, ReferenceScheme).
 – C.3.* Kind‑CAL (Kinds, KindSignature, KindBridge). 
 – F.18 (name governance; twin‑register discipline). 
 
@@ -6130,7 +6130,7 @@ FPF relies heavily on **n‑ary relations and morphisms**:
 * guards and bridges in Part B/C,
 * publication and view operators in Part E.
 
-In practice, existing KU and drafts **frequently conflate**:
+In practice, existing episteme and drafts **frequently conflate**:
 
 1. the **place** in a relation (“the 2nd argument, named Subject”),
 2. the **kind of value** that may occupy that place (`U.Entity`, `U.Holon`, …), and
@@ -6147,7 +6147,7 @@ This produces subtle bugs:
 
 * a **SlotKind** — *where* in the relation,
 * a **ValueKind** — *what sort of thing* may occupy that place, and
-* a **RefKind** — *how we point at it* in KU (identifier / handle), if at all.
+* a **RefKind** — *how we point at it* in episteme (identifier / handle), if at all.
 
 This pattern makes slot discipline explicit and shareable across **epistemes, roles, methods, services, bridges, and guards**.
 
@@ -6158,7 +6158,7 @@ This pattern makes slot discipline explicit and shareable across **epistemes, ro
 Typical failure modes the pattern is designed to eliminate:
 
 1. **Slot vs value vs ref confusion.**
-   KU fields such as `DescribedEntityRef` are sometimes treated as:
+   episteme fields such as `DescribedEntityRef` are sometimes treated as:
 
    * the **slot** (“the described entity position”),
    * the **value kind** (“the described entity type”), and
@@ -6181,7 +6181,7 @@ Typical failure modes the pattern is designed to eliminate:
    In the absence of a discipline, the suffix `…Ref` is attached to:
 
    * entity kinds (`U.EntityRef` interpreted as “the entity itself”),
-   * KU fields (`describedEntityRef`),
+   * episteme fields (`describedEntityRef`),
    * sometimes even to slots (“DescribedEntityRefSlot”).
      That makes it impossible to read signatures and know whether we talk about:
    * a **conceptual value** (pass‑by‑value), or
@@ -6261,7 +6261,7 @@ The result: **local convenience, global incoherence** — exactly what A.6.0 and
    – ValueKind is a **Kind** (C.3.*) or another kernel‑level type; it is **not** a slot and never carries `*Slot`/`*Ref` suffixes.
 
 3. **RefKind (how we store / refer).**
-   *What reference/identifier we actually store in KU when we fill this slot.*
+   *What reference/identifier we actually store in episteme when we fill this slot.*
    – Examples: `U.EntityRef`, `U.HolonRef`, `U.MethodRef`, `U.EpistemeRef`, `U.ViewpointRef`, `U.SurfaceRef`, (optionally) `U.ClaimGraphRef` if a Context chooses to reference claim graphs rather than store them by value.
    – RefKind is **about references, not values**; it usually points to an editioned artifact (A.7, F.15) and carries the `.edition` field when pinning a phase.
 
@@ -6282,7 +6282,7 @@ This pattern introduces the following **lexical constraints**, aligned with E.10
    * `*Slot` **MUST NOT** appear in names of:
      – ValueKind (e.g. `U.Entity`, `U.Holon`, `U.Method`),
      – RefKind (e.g. `U.EntityRef`),
-     – concrete KU fields (they may be named e.g. `describedEntityRef`, but not `describedEntitySlotField`).
+     – concrete episteme fields (they may be named e.g. `describedEntityRef`, but not `describedEntitySlotField`).
 1. **`*Ref` reserved for RefKind and reference fields.**
    * Any Tech name ending with `…Ref` **MUST** denote either:
      – a **RefKind** (type of references/identifiers), or
@@ -6332,7 +6332,7 @@ In practice, a `U.Signature` that follows this pattern:
 
 Given a relation or morphism `R` with signature Σ and SlotSpecs `{SlotSpec_i}`:
 
-* A **substitution** at slot `i` is a change of the argument that fills SlotKind_i, within or across KU entries.
+* A **substitution** at slot `i` is a change of the argument that fills SlotKind_i, within or across episteme entries.
 * `U.RelationSlotDiscipline` enforces:
 
 1. **SlotKind invariance.**
@@ -6422,7 +6422,7 @@ The SlotKind/ValueKind/RefKind discipline makes these substitutions **local and 
 The following short examples are intended for a didactic guide or for cross‑references from A.6.0/A.6.x/C.2.1. In all of them:
 * **SlotKind** names the **place in the relation** (position/cell in the tuple).
 * **ValueKind** is the **kind of value** admissible at that place (what can ever sit there).
-* **RefKind** is the **reference/identifier type** used in KU when that slot is filled (absent when the slot is by‑value).
+* **RefKind** is the **reference/identifier type** used in episteme when that slot is filled (absent when the slot is by‑value).
 * `GroundingHolon` is **not** a separate kernel type: it is simply a `U.Holon` used as the ValueKind of `GroundingHolonSlot`.
 
 Example names like `FurnitureSafetyDescriptionKind`, `AuthPipelineSpecKind`, `ModelEvaluationResultKind`, `IncidentRunbookSpecKind`, `ServiceSLARequirementKind` are **context‑local** kinds, not new kernel tokens.
@@ -6455,7 +6455,7 @@ In all three cases the SlotKinds (and ValueKinds) are stable; only the **Refs th
 *Substitutions:*
 * Episteme `Spec_OIDC`: `describedEntityRef = UserService#prod`, `authProviderComponentRef = Auth_OIDC`.
 * Episteme `Spec_LDAP`: same `describedEntityRef = UserService#prod`, but `authProviderComponentRef = Auth_LDAP`.
-Here **SlotKind is identical** (`AuthProviderComponentSlot`); ValueKind is “any auth‑provider holon”; the KU change is purely in the **`U.HolonRef` occupant**. This illustrates substitution of one component holon for another in the same slot, without inventing a separate ontology of “component roles”.
+Here **SlotKind is identical** (`AuthProviderComponentSlot`); ValueKind is “any auth‑provider holon”; the episteme change is purely in the **`U.HolonRef` occupant**. This illustrates substitution of one component holon for another in the same slot, without inventing a separate ontology of “component roles”.
 
 ##### (3) Data/ML — swapping dataset or target characteristic
 
@@ -22755,7 +22755,7 @@ Do **not** mint *ETLService* at kernel level—model ETL as `MethodDescription`;
 **SCR‑LEX‑S03 (Object‑of‑talk anchoring).** Heads name the object classified (DA‑D1).
 **SCR‑LEX‑S04 (CharacteristicSpace).** Enumerations declare their value set and space (DA‑D2/3).
 **SCR‑LEX‑S05 (USM compatibility).** For each LexicalAct, `USM.Scope ∈ AllowedScopes(LEX.TokenClass)`.
-**SCR‑LEX‑S06 (Slot/Ref suffix discipline).** Any token with suffix **`…Slot`** or **`…Ref`** is either (a) a **SlotKind**/**RefKind** declared under A.6.5, or (b) a KU field whose type is a RefKind; no ValueKind or other type class may end with these suffixes.
+**SCR‑LEX‑S06 (Slot/Ref suffix discipline).** Any token with suffix **`…Slot`** or **`…Ref`** is either (a) a **SlotKind**/**RefKind** declared under A.6.5, or (b) a episteme field whose type is a RefKind; no ValueKind or other type class may end with these suffixes.
 **RSCR‑LEX‑E01 (Banned generics).** Reject tokens matching the banned combinators list (DA‑D7).
 **RSCR‑LEX‑E02 (Metaphor hygiene).** If a metaphor is used, show the pattern that defines it; otherwise rename.
 **RSCR‑LEX‑E03 (Strategy token minting).** Reject new Kernel tokens named **Strategy**/**Policy** as kinds; model them as **lenses/flows/compositions** inside **G.5** or as **…Description/…Spec** in Contexts. (Prevents kernel overloading; aligns with C.22 “no minted Strategy head”.)
@@ -22792,7 +22792,7 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 | **`Capability`**        | **System ability**                         | I‑layer                              | KernelToken/ContextToken        | `ScheduleGenerationCapability`                    | Mislabeling roles or methods as capabilities.                         |
 | **`Dynamics`**          | **Law/model of change**                    | I‑layer                              | KernelToken/ContextToken        | `LotkaVolterraDynamics`                           | Using for abilities (`Capability`) or recipes (`Method`).             |
 | **`Observation`**       | **Observation record/kind**                | (run artefact; not I/D/S)            | ContextToken/DiscriminatorToken | `VibrationObservation`                            | Mixing with `MethodDescription` or `Evaluation`.                      |
-| **`Evaluation`**        | **Evaluation artefact**                    | D/S‑layer (epistemic KU)             | ContextToken/DiscriminatorToken | `CalibrationEvaluation`                           | Using to name roles or methods.                                       |
+| **`Evaluation`**        | **Evaluation artefact**                    | D/S‑layer (epistemic episteme)              | ContextToken/DiscriminatorToken | `CalibrationEvaluation`                           | Using to name roles or methods.                                       |
 | **`EvidenceRole`**      | **Role in evidence assembly**              | I‑layer (role kind)                  | KernelToken/ContextToken        | `WitnessStatementEvidenceRole`                    | Using as a generic “evidence”.                                        |
 | **`Episteme`**          | **Epistemic knowledge unit** (structural)  | D/S‑layer                            | KernelToken/ContextToken        | `TraceabilityEpisteme`                            | Colliding with CHR **ReferencePlane** (never suffix “Plane”).         |
 | **`System`/`Holon`**    | **Substantial entity**                     | I‑layer                              | KernelToken/ContextToken        | `AnesthesiaSystem`, `OrderFulfillmentHolon`       | Using to denote Context or run artefact.                              |
@@ -22812,8 +22812,8 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 | **Def** | S‑layer alias (CG‑Spec family) | A **definition/specification artifact** that fixes a **formula** or **distance** over a space; *synonym of …Spec* **within CG‑Spec registries only** | Part G (CG‑Spec family) | `DistanceDef` ≍ `DistanceSpec`. Prefer **…Spec** in new normative prose; **…Def** retained where already published. |
 | **DefRef** | Pointer | Registry reference to a **…Spec/…Def** | Data fields / UTS | `DistanceDefRef`. Use **`DistanceDefRef.edition`** to pin the exact formula edition. |
 | **Spec** | S‑layer | Testable invariants bound to acceptance harness (per E.10.D2) | S‑layer, Spec‑gated | Use for normative calculi and gauges. |
-| **Slot** | Structural position | Named **argument position** in a relation/morphism signature (SlotKind in A.6.5) | Kernel A.6.0/A.6.5 | `DescribedEntitySlot`, `GroundingHolonSlot`. Always names a *position*; never used for ValueKinds or KU fields. |
-| **Ref** | Pointer | **Reference/identifier** to a registry item of some ValueKind (RefKind in A.6.5), not the thing itself | Data fields / UTS; RefKind types | `U.EntityRef`, `U.HolonRef`; KU fields `…Ref : U.EntityRef`. Reserved for **RefKinds** and KU fields typed as them; `…Ref` **never** carries content and is never used for ValueKinds or SlotKinds. |
+| **Slot** | Structural position | Named **argument position** in a relation/morphism signature (SlotKind in A.6.5) | Kernel A.6.0/A.6.5 | `DescribedEntitySlot`, `GroundingHolonSlot`. Always names a *position*; never used for ValueKinds or episteme fields. |
+| **Ref** | Pointer | **Reference/identifier** to a registry item of some ValueKind (RefKind in A.6.5), not the thing itself | Data fields / UTS; RefKind types | `U.EntityRef`, `U.HolonRef`; episteme fields `…Ref : U.EntityRef`. Reserved for **RefKinds** and episteme fields typed as them; `…Ref` **never** carries content and is never used for ValueKinds or SlotKinds. |
 | **Series** | Governance object | A **PhaseOf chain** (“editions”) for an episteme | Edition governance | `U.EditionSeries`. Holds immutability and provenance rules. |
 | **.edition** | Attribute (on **Ref**) | The **phase id** of the **referenced artifact**; attaches to `…Ref`, not to the artifact’s name | Data fields / UTS | Use `XRef.edition`, **not** bare `XEdition` fields. Lower camelCase for keys. |
 
@@ -22839,7 +22839,7 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 
 **L‑ROLE — disciplined use of *Role***
 * **Role** is always **Role Enactment for the `U.Holon`/`U.System` kind** (agentive use).
-* **Param‑slot / relation‑endpoint guard.** Do **not** use the morpheme **`Role`** for **formal parameter positions** in operator algebra declarations (`OperatorAlgebra`). Reserve **`Role`** for **agentive kinds** only (A.2/F.4/F.6). Use a **`ParamKinds`** map (name→Kind) or `RelationEndpointKinds` to type formal slots. Same for similar situations (table columns, tuple placements): use MG·DA with domain‑**specific** terminology, never “Role”.
+* **Param‑slot / relation‑endpoint guard.** Do **not** use the morpheme **`Role`** for **formal parameter positions** in operator algebra declarations (`OperatorAlgebra`) or Signature arguments. Reserve **`Role`** for **agentive kinds** only (A.2/F.4/F.6). Use a **`ParamKinds`** list (name→Kind) or `RelationEndpointKinds` to type formal slots. Same for similar situations (table columns, tuple placements): use MG·DA with domain‑**specific** terminology, never “Role”. 
 
 ### 8.2 Forbidden suffixes & the DevOps and Data Governance Lexical Firewall
 
@@ -23462,7 +23462,7 @@ The platform offers **Service** ‘Object Storage’ (access = `S3_API_Spec_vX`;
 ### 4.1 The triad (applies to **any** intensional `U.T`)
 
 **Terminology discipline (normative).** Say **I/D/S layers** when you mean the **stratified order with a Spec‑gate**; say **I/D/S triad** only to note **three‑ness without order or dependency**. **Do not call I/D/S a “plane”.** Reserve **plane** for uses explicitly defined elsewhere (e.g., **`CHR:ReferencePlane`** and status families).
-**Layer semantics (clarity).** **I‑layer** = **kernel/intensional type** (non‑epistemic; **not** a KU). **D‑layer** and **S‑layer** = **epistemic Knowledge Units** (KUs). The **Spec‑gate** upgrades a Description to a Specification only under declared checkability and harness conditions (unchanged).
+**Layer semantics (clarity).** **I‑layer** = **kernel/intensional type** (non‑epistemic; **not** a episteme) . **D‑layer** and **S‑layer** = **epistemic Knowledge Units** (KUs). The **Spec‑gate** upgrades a Description to a Specification only under declared checkability and harness conditions (unchanged).
 
 For every intensional type `U.T`:
 
@@ -23470,11 +23470,11 @@ For every intensional type `U.T`:
   The thing itself (e.g., `U.Role`, `U.Method`, `U.Service`, `U.System`, `U.Work`, `U.RCS`, `U.RSG`).
   *It does **not** contain documents, checklists, or carriers; it is not a runtime event or a file.*
 
-* **Description KU — `U.TDescription(@Context)`**
+* **Description episteme — `U.TDescription(@Context)`**
   A **Context‑local** knowledge unit that **characterises** `U.T` with labels (Tech/Plain), glosses, and, when applicable, **Role Characterisation Space (`U.RCS`)**, **Role State Graph (`U.RSG`)**, and **state conformance checklists**.
   *Readable, precise, didactic; may reference evaluation criteria but does not assert testable “shall”s by itself.*
 
-* **Specification KU — `U.TSpec(@Context)`**
+* **Specification episteme — `U.TSpec(@Context)`**
   A **Context‑local** knowledge unit that states **testable invariants** for `U.T` and is **bound to an acceptance harness**.
   *Normative, verifiable, suitable for SCR/RSCR (F.15).*
 
@@ -23529,7 +23529,7 @@ If any condition is missing, the artefact **must be** a `…Description`.
 
 * Use **`…Description`** by default (M‑mode or F‑mode without harness).
 * Use **`…Spec`** *only* when **all** Spec‑gate conditions (Sec. 4.2) hold.
-* No alternative suffixes (“Profile”, “Definition”, “Guide”) inside the Core; such KUs live in pedagogy/tooling layers, not in the I/D/S discipline.
+* No alternative suffixes (“Profile”, “Definition”, “Guide”) inside the Core; such epistemes live in pedagogy/tooling layers, not in the I/D/S discipline.
 
 **Naming morphology (recap of F.5 as it applies here).**
 
@@ -23538,7 +23538,7 @@ If any condition is missing, the artefact **must be** a `…Description`.
 * Statuses over knowledge (e.g., Evidence/Requirement) are **not** role states; they name **roles over KUs** (F‑R family), not nodes in `U.RSG`.
 
 **Context anchoring.**
-Every Description/Spec is **local to** a `U.BoundedContext` (E.10.D1). Phrases in the KU must read correctly once prefixed by the Context name (e.g., “(ITIL4) Acceptance criteria …”).
+Every Description/Spec is **local to** a `U.BoundedContext` (E.10.D1). Phrases in the episteme must read correctly once prefixed by the Context name (e.g., “(ITIL4) Acceptance criteria …”).
 
 **Carriers.**
 `U.Carrier` holds **encodings** of a Description/Spec; the KU’s identity is **not** the file. *Never* say “the role contains the checklist in the PDF”; say “the **RoleDescription** characterises the role with checklists; this **carrier** encodes them.”
@@ -23557,7 +23557,7 @@ An intensional `U.T` **MUST NOT** be conflated with its Description/Spec or with
 Every `…Description/…Spec` **MUST** name a `U.BoundedContext`. Wording inside is read **as‑local**; no global meaning is implied.
 
 **IDS-3 (Spec-gate).**
-A KU **MUST NOT** use the **–Spec** suffix unless: *(a)* the artefact declares **`U.Formality = Fk` with k ≥ 4** per **C.2.3**, *(b)* invariants are testable predicates, *(c)* an acceptance harness is linked (F.15), *(d)* Context is explicit.
+A episteme **MUST NOT** use the **–Spec** suffix unless: *(a)* the artefact declares **`U.Formality = Fk` with k ≥ 4** per **C.2.3**, *(b)* invariants are testable predicates, *(c)* an acceptance harness is linked (F.15), *(d)* Context is explicit.
 
 **IDS‑4 (Characterisation verbs).**
 Texts **MUST** say: *“`U.Role` is **characterised by** `U.RCS`/`U.RSG` in the RoleDescription”*.
@@ -23668,7 +23668,7 @@ isDescriptionOf(TDesc, U.T, C) ∧ U.Formality(TSpec) ≥ F4
 | ---- | --------------------------- | -------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | A‑1  | **Spec‑by‑name**            | Every write‑up is titled “Spec”.                                     | Inflates normativity; untestable claims.  | Apply **Spec‑gate** (IDS‑3). If any condition fails, rename to `…Description`.                 |
 | A‑2  | **Role contains RSG**       | “The role contains a state graph.”                                   | Plane mixing; mereological confusion.     | Use **characterised by** phrasing (IDS‑4); RSG presentation lives in RoleDescription/RoleSpec. |
-| A‑3  | **Status ≡ state**          | *Approved* (status over KU) appears as a node in the role graph.     | Cross‑plane conflation; logic errors.     | Keep **statuses** (over KUs) separate from **role states** (IDS‑7).                            |
+| A‑3  | **Status ≡ state**          | *Approved* (status over episteme)  appears as a node in the role graph.     | Cross‑plane conflation; logic errors.     | Keep **statuses** (over KUs) separate from **role states** (IDS‑7).                            |
 | A‑4  | **Stealth bridge**          | Copying state names across Contexts to imply sameness.                  | Hidden cross‑context import.              | Declare an **F.9 Bridge** or accept divergence (IDS‑9).                                        |
 | A‑5  | **Checklist = process**     | Treating conformance checklist as an execution workflow.             | Category error (design vs run).           | Checklists are **criteria** used by `U.Evaluation`; executions live under `U.Work`.            |
 | A‑6  | **Carrier identity**        | File path/version treated as “the spec itself.”                      | Identity drift; archival brittleness.     | Identity is the **KU**; `U.Carrier` is only an encoding (Sec. 5).                              |
@@ -23797,7 +23797,7 @@ No “workflow” required in the Description.
 
 **Is used by.**
 
-* **Part C architheories.** Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL cite `…Description/…Spec` KUs explicitly and consume **state attestations** from `U.Evaluation`.
+* **Part C architheories.** Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL cite `…Description/…Spec` epistemes explicitly and consume **state attestations** from `U.Evaluation`.
 * **Part B trust calculus.** Uses the presence/absence of harnessed Specs and the windowed nature of attestations in confidence roll‑ups.
 
 ---
@@ -23807,7 +23807,7 @@ No “workflow” required in the Description.
 > Goal: remove conflations and normalise names without changing underlying models.
 
 1. **Rename by default.** Any `XSpec` lacking a bound acceptance harness becomes **`XDescription`**. Keep content intact; change suffix and preface with a “Description, not Spec” note.
-2. **Promote selectively.** For KUs that *are* testable and declare **F ≥ F4**, add harness links (F.15) and re-label as **`XSpec`** via the Spec-gate.
+2. **Promote selectively.** For epistemes that *are* testable and declare **F ≥ F4**, add harness links (F.15) and re-label as **`XSpec`** via the Spec-gate.
 3. **Fix the verbs.** Rewrite “Role contains RSG/RCS” → “Role is **characterised by** RSG/RCS in RoleDescription”.
 4. **Detach carriers.** Replace identity‑by‑file with **`U.Carrier` encodes …Description/Spec** wording.
 5. **Add Contexts.** Where a Description drifts globally (“the backlog refinement is…”), prefix with the Context and adjust wording to be **local**.
@@ -23821,9 +23821,9 @@ No “workflow” required in the Description.
 
 ### 12.1 Static conformance checks (SCR)
 
-* **SCR-D2-S01 (Suffix discipline).** Every KU with suffix **–Spec** passes the **Spec-gate** (**F ≥ F4** ∧ testable invariants ∧ harness link ∧ Context named). Otherwise it bears **–Description**.
+* **SCR-D2-S01 (Suffix discipline).** Every episteme with suffix **–Spec** passes the **Spec-gate** (**F ≥ F4** ∧ testable invariants ∧ harness link ∧ Context named). Otherwise it bears **–Description**.
 * **SCR‑D2‑S02 (Characterisation verbs).** Texts never say an intension “contains” RCS/RSG; they say it is **characterised by** them via the Description/Spec.
-* **SCR‑D2‑S03 (Plane purity).** No KU mixes role **states** and knowledge **statuses**; each appears only on its correct plane.
+* **SCR‑D2‑S03 (Plane purity).** No episteme mixes role **states** and knowledge **statuses**; each appears only on its correct plane.
 * **SCR‑D2‑S04 (context‑locality).** Every Description/Spec names its `U.BoundedContext`; wording reads correctly when prefixed by the Context.
 * **SCR‑D2‑S05 (Two registers).** Tech **and** Plain labels present on all Descriptions/Specs.
 * **SCR‑D2‑S06 (Carrier separation).** Identity statements refer to KUs; files are referenced only as `U.Carrier` encodings.
@@ -23885,9 +23885,9 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 
 ### 15.2 Canonical/alias map (current edition).**
 
-| Concept (intension) | Preferred KU name      | Allowed alias (equal scope)   | Deprecated alias | Notes                                                                                 |
+| Concept (intension) | Preferred episteme name      | Allowed alias (equal scope)   | Deprecated alias | Notes                                                                                 |
 | ------------------- | ---------------------- | ----------------------------- | ---------------- | ------------------------------------------------------------------------------------- |
-| Role                | **RoleDescription**    | RoleCard *(Pedagogy only)*    | —                | *RoleCard* is informal (teaching layer), not a normative KU name.                     |
+| Role                | **RoleDescription**    | RoleCard *(Pedagogy only)*    | —                | *RoleCard* is informal (teaching layer), not a normative episteme name.                     |
 | Role (F‑mode)       | **RoleSpec**           | —                             | —                | Only after Spec‑gate.                                                                 |
 | Method              | **MethodDescription**  | —                             | **MethodSpec**   | Global rename complete; legacy references should be updated.                          |
 | Method (F‑mode)     | **MethodSpec**         | —                             | —                | Now reserved for harnessed, testable methods.                                         |
@@ -31958,8 +31958,6 @@ Names must carry enough signal for everyday use, yet never smuggle in Cross‑co
 * integrates smoothly with **Concept-Sets**, **`U.RoleDescription`**, and **Bridges** without requiring any special notation or tooling;
 * supports lifecycle actions (mint, reuse, align, deprecate, split/merge) with a paper trail that managers can audit.
 
----
-
 ### 2. Problem
 
 Without a shared naming protocol inside Part F, the same recurrent failures appear:
@@ -31973,8 +31971,6 @@ Without a shared naming protocol inside Part F, the same recurrent failures ap
 
 These failures erode trust, block reuse, and make Part F machinery (Concept-Sets, `U.RoleDescription`, Bridges) harder to apply.
 
----
-
 ### 3. Forces
 
 | Force                                      | Tension to balance                                                                                                            |
@@ -31984,8 +31980,6 @@ These failures erode trust, block reuse, and make Part F machinery (Concept-Sets
 | **Stability vs evolution**                 | Names should be durable, yet easy to deprecate or refine without breaking links to past evidence and work.                    |
 | **Brevity vs auditability**                | A compact “badge” for everyday speech, plus an authoritative **Name Card** that records meaning, scope, edition, and lineage. |
 | **Parsimony vs inclusivity**               | Reuse existing Concept‑Set rows where possible; mint new names only when indispensable in the local context.                     |
-
----
 
 ### 4. Solution — The Local‑First Naming Protocol
 
