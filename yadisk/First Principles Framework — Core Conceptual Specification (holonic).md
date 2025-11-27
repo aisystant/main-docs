@@ -50,7 +50,10 @@ September 2025
 | A.6.0| **U.Signature — Universal, law‑governed declaration** | Stable | *Keywords:* signature, vocabulary, laws, applicability, bounded context. *Queries:* "What is the universal signature block?", "Where do laws vs. implementations live?" | **Placement:** Kernel; **Coordinates:** A.6, A.6.1. |
 | A.6 | **Architheory Signature & Realization** | Stable | *Keywords:* architheory, signature, realization, Γ-export, invariants. *Queries:* "What is an Architheory signature?", "How do I export Γ?", "What belongs in the signature vs realization?" | **Builds on:** A.5, E.10, E.8. **Prerequisite for:** Part C catalogue. |
 | A.6.1 | **U.Mechanism · Law‑governed application to a SubjectKind over a BaseType** | Stable | Keywords: Mechanism, OperatorAlgebra, LawSet, AdmissibilityConditions, Transport, Bridge‑only. Queries: "How to define a mechanism like USM/UNM?", "Where do operational guards live?", "How to handle cross‑context transport?" | **Builds on:** A.6, E.10.D1. **Instances:** USM (A.2.6), UNM (A.19). |
-| A.6.5 | **U.RelationSlotDiscipline — SlotKind/ValueKind/RefKind discipline for n‑ary relations** | Stable | *Keywords:* slot, argument position, value, reference, signature, substitution, pass‑by‑value, pass‑by‑reference. *Queries:* “How do I declare positions and references in relations?”, “How do we stop mixing roles, values and ids in signatures?”, “How does SlotKind/ValueKind/RefKind interact with I/D/S and Epistemes?” | **Builds on:** A.6.0 (U.Signature), A.1 (Holon), A.7 (Strict Distinction), E.8 (pattern authoring discipline), E.10 (LEX‑BUNDLE; Tech/Plain registers). **Used by:** C.2.1 (U.EpistemicMediationGraph), A.6.2–A.6.4 (episteme morphisms), B.5.* (RoleEnactment), C.3.* (Kinds & KindSignature), E.17.0 (U.MultiViewDescribing), discipline‑packs for methods/services. |
+| A.6.2 | **U.EffectFreeEpistemicMorphing — Effect-Free Morphisms of Epistemes** | Stable | *Keywords:* episteme, effect-free, morphism, functoriality, describedEntity, lenses, reproducibility. *Queries:* "How to transform descriptions/specs without mechanisms?", "What are conservative episteme-to-episteme transforms in FPF?", "How do Describe_ID / Specify_DS fit into a general morphism class?" | **Builds on:** A.1 (Holon), A.7 (Strict Distinction, Object≠Description≠Carrier), A.6.0 (U.Signature), A.6.5 (U.RelationSlotDiscipline), E.10.D2 (I/D/S discipline), C.2.1 (U.EpistemeSlotGraph). **Used by:** A.6.3 (U.EpistemicViewing), A.6.4 (U.EpistemicRetargeting), E.17.0 (U.MultiViewDescribing), E.17 (MVPK), E.18 (E.TGA StructuralReinterpretation), KD-CAL mapping rules. |
+| A.6.3 | **U.EpistemicViewing — describedEntity-Preserving Morphism** | Stable | *Keywords:* episteme, view, EpistemicViewing, describedEntity preservation, ClaimGraph, Viewpoint, RepresentationScheme, CorrespondenceModel, Direct vs Correspondence Viewing, optics, displayed fibration. *Queries:* "How to define a view of an artefact without adding new claims?", "What is an EpistemicViewing in FPF terms?", "How do ISO 42010 views and SysML v2 views-as-queries sit in FPF?" | **Builds on:** A.6.0 (U.Signature), A.6.2 (U.EffectFreeEpistemicMorphing), A.6.5 (U.RelationSlotDiscipline), A.7 (Strict Distinction; I/D/S vs Surface), E.10.D2 (I/D/S discipline), C.2.1 (U.EpistemeSlotGraph), C.2 (KD-CAL: describedEntity & ReferencePlane). **Used by:** E.17.0 (U.MultiViewDescribing), E.17 (MVPK), E.17.1/E.17.2 (ViewpointBundleLibrary & TEVB), E.18 (E.TGA viewpoint families), B.5.3 (Role-Projection Bridge), KD-CAL view operators. |
+| A.6.4 | **U.EpistemicRetargeting — describedEntity-Retargeting Morphism** | New | *Keywords:* retargeting, subject retargeting, describedEntity shift, KindBridge, SquareLaw-retargeting, StructuralReinterpretation. *Queries:* "How to change the object-of-talk without losing truth?", "What is StructuralReinterpretation in FPF terms?", "When is a Fourier-like transform a retargeting rather than a new Γ-construction?" | **Builds on:** A.6.2 (effect-free episteme morphisms), A.1 (Holon: System/Episteme split), F.9 (Bridges & CL, including CL^plane and KindBridge), C.2.1 (U.EpistemeSlotGraph; DescribedEntity/GroundingHolon), C.2 (KD-CAL: ReferencePlane & CL propagation), E.18.S9/S12 (E.TGA crossings & StructuralReinterpretation rules). **Used by:** E.18 (StructuralReinterpretation node in E.TGA as species of U.EpistemicRetargeting), KD-CAL/LOG-CAL retargeting rules, Fourier-style transforms and data↔model re-targetings in discipline packs. |
+| A.6.5 | **U.RelationSlotDiscipline — SlotKind/ValueKind/RefKind discipline for n-ary relations** | Stable | *Keywords:* slot, argument position, value, reference, signature, substitution, pass-by-value, pass-by-reference. *Queries:* “How do I declare positions and references in relations?”, “How do we stop mixing roles, values and ids in signatures?”, “How does SlotKind/ValueKind/RefKind interact with I/D/S and Epistemes?” | **Builds on:** A.6.0 (U.Signature), A.1 (Holon), A.7 (Strict Distinction), E.8 (pattern authoring discipline), E.10 (LEX-BUNDLE; Tech/Plain registers). **Used by:** C.2.1 (U.EpistemeSlotGraph), A.6.2–A.6.4 (episteme morphisms), B.5.* (RoleEnactment), C.3.* (Kinds & KindSignature), E.17.0 (U.MultiViewDescribing), discipline-packs for methods/services. |
 | ***Cluster A.V · Constitutional Principles of the Kernel*** | | | | |
 | A.7 | **Strict Distinction (Clarity Lattice)** | Stable | *Keywords:* category error, Object ≠ Description, Role ≠ Work, ontology. *Queries:* "How to avoid common modeling mistakes?", "What are FPF's core distinctions?" | **Builds on:** A.1, A.2, A.3. **Constrains:** all patterns. |
 | A.8 | **Universal Core (C-1)** | Stable | *Keywords:* universality, transdisciplinary, domain-agnostic, generalization. *Queries:* "How does FPF ensure its concepts are universal?" | **Builds on:** P-8. **Constrains:** Kernel-level `U.Type`s. |
@@ -112,7 +115,7 @@ September 2025
 | **Cluster C.I – Core CALs / LOGs / CHRs** | | | | |
 | C.1 | **Sys‑CAL** | Draft | *Keywords:* physical system, composition, conservation laws, energy, mass, resources, U.System. *Queries:* "How to model physical systems in FPF?", "What are conservation laws in FPF?", "Modeling a pump or engine." | **Builds on:** A.1 Holonic Foundation, A.14. **Coordinates with:** Resrc-CAL. **Prerequisite for:** M-Sys-CAL. |
 | C.2 | **KD‑CAL** | Stable | *Keywords:* knowledge, epistemic, evidence, trust, assurance, F-G-R, Formality, ClaimScope, Reliability, provenance. *Queries:* "What is F-G-R?", "How does FPF handle evidence and trust?", "How to model a scientific theory?". | **Builds on:** A.1, A.10, B.3. **Prerequisite for:** All patterns using F-G-R, M-KD-CAL. |
-| C.2.1 | **U.Episteme — Semantic Triangle via Components** | Stable | *Keywords:* semantic triangle, object, concept, symbol, carrier, meaning, representation. *Queries:* "What is a knowledge artifact in FPF?", "How does FPF separate meaning from its physical form?". | **Builds on:** C.2. **Refines:** A.1, A.7. |
+| C.2.1 | **U.Episteme — Epistemes and their slot graph** | Stable | *Keywords:* episteme, EpistemeSlotGraph, DescribedEntitySlot, GroundingHolonSlot, ClaimGraphSlot, ViewpointSlot, ReferenceScheme, RepresentationScheme, View/Viewpoint. *Queries:* "What is an episteme in FPF?", "How are DescribedEntity, ClaimGraph, GroundingHolon and Viewpoint organised as slots?", "How do KD-CAL epistemes connect to views/viewpoints and multi-view descriptions?" | **Builds on:** C.2 (KD-CAL), A.1 (Holonic Foundation), A.6.5 (U.RelationSlotDiscipline), E.10.D2 (I/D/S discipline). **Used by:** A.6.2–A.6.4 (U.EffectFreeEpistemicMorphing / U.EpistemicViewing / U.EpistemicRetargeting), E.17.0–E.17.2 (U.MultiViewDescribing, Viewpoint bundles, TEVB), E.17 (MVPK), B.1.3 (Γ_epist), discipline-packs that define or consume epistemes. |
 | C.2.3 | **Unified Formality Characteristic F** | Stable | *Keywords:* Formality, F-scale, F0-F9, rigor, proof, specification, formal methods. *Queries:* "What are the FPF formality levels?", "How to measure the rigor of a specification?". | **Builds on:** C.2. **Constrains:** All patterns referencing F-G-R. |
 | C.3 | **Kind‑CAL — Kinds, Intent/Extent, and Typed Reasoning** | Stable | *Keywords:* kind, type, intension, extension, subkind, typed reasoning, classification, vocabulary. *Queries:* "How does FPF handle types?", "What is a 'Kind'?", "Difference between 'scope' and 'type'?". | **Builds on:** A.1, A.2.6 (USM). **Prerequisite for:** LOG-CAL, ADR-Kind-CAL, and any pattern needing typed guards. |
 | C.3.1 | **`U.Kind` & `U.SubkindOf` (Core)** | Stable | *Keywords:* kind, subkind, partial order, type hierarchy. *Queries:* "What is U.Kind in FPF?", "How to model 'is-a' relationships?". | **Builds on:** A.1, A.2.6 (USM). **Prerequisite for:** C.3.2, C.3.3. |
@@ -190,7 +193,7 @@ September 2025
 | E.10 | **LEX-BUNDLE: Unified Lexical Rules for FPF** | Stable | *Keywords:* lexical rules, naming, registers, rewrite rules, process, function, service. *Queries:* "What is the complete set of FPF naming rules?". | **Builds on:** A.7, E.5, F.5. **Coordinates with:** A.2, A.10, A.15, B.1, B.3, Part F. |
 | E.10.P | **Conceptual Prefixes (policy & registry)** | Stable | *Keywords:* prefixes, U., Γ_, ut:, tv:, namespace, registry. *Queries:* "What do the prefixes like 'U.' mean in FPF?". | **Depends on:** E.9. **Constrains:** E.5.1, E.5.2. |
 | E.10.D1 | **Lexical Discipline for “Context” (D.CTX)** | Stable | *Keywords:* context, U.BoundedContext, anchor, domain, frame. *Queries:* "What is the formal meaning of 'Context' in FPF?". | **Builds on:** A.7, A.4. **Coordinates with:** F.1, F.2, F.3, F.7, F.9. |
-| E.10.D2 | **Intension–Description–Specification Discipline (I/D/S)** | Stable | *Keywords:* intension, description, specification, I/D/S, testable, verifiable. *Queries:* "Difference between a description and a specification in FPF?". | **Builds on:** A.7, E.10.D1, C.2.3. **Constrains:** F.4, F.5, F.8, F.9, F.15. |
+| E.10.D2 | **Intension–Description–Specification Discipline (I/D/S)** | Stable | *Keywords:* intension, description, specification, I/D/S, testable, verifiable. *Queries:* "Difference between a description and a specification in FPF?". | **Builds on:** A.7, E.10.D1, C.2.1, C.2.3. **Constrains:** F.4, F.5, F.8, F.9, F.15. |
 | E.11 | **Authoring-Tier Scheme (ATS)** | stable | *Keywords:* authoring tiers, AT0, AT1, AT2, AT3, gate-crossings. *Queries:* "What are the FPF authoring tiers?", "How does FPF separate applied work from architheory authoring?". | **Builds on:** E.10, G.0. |
 | E.12 | **Didactic Primacy & Cognitive Ergonomics** | Stable | *Keywords:* didactic, cognitive load, ergonomics, usability, Rationale Mandate, HF-Loop. *Queries:* "How does FPF ensure it's understandable?", "What is the 'So What?' test in FPF?". | **Builds on:** E.2 (P-2). **Complements:** E.13. |
 | E.13 | **Pragmatic Utility & Value Alignment** | Stable | *Keywords:* pragmatic, utility, value, Goodhart's Law, Proxy-Audit Loop, MVE. *Queries:* "How does FPF ensure solutions are useful, not just correct?", "What is a Minimally Viable Example (MVE)?". | **Builds on:** E.2 (P-7). **Complements:** E.12. |
@@ -5501,9 +5504,9 @@ The “hour‑glass” brings two further advantages:
 
 **Status.** Architectural pattern \[A], kernel‑level and universal.  
 **Placement.** Part A (Kernel), **before A.6** (“Architheory Signature & Realization”) and **A.6.1** (“U.Mechanism”).  
-**Builds on.** **E.8** (authoring order), **E.10** LEX‑BUNDLE (registers, naming, stratification), **E.10.D1** D.CTX (Context discipline).
+**Builds on.** **A.2.6** (USM: context slices & scopes), **E.8** (authoring order), **E.10** LEX-BUNDLE (registers, naming, stratification), **E.10.D1** D.CTX (Context discipline).
   
-**Coordinates with.** **A.6** (architheory specialisation of signatures), **A.6.1** (mechanism as law‑governed signature), **Part F** (Bridges & cross‑context transport; naming). Conformance keywords: RFC 2119.
+**Coordinates with.** **A.6** (architheory specialisation of signatures), **A.6.1** (mechanism as law-governed signature), **A.6.5** (`U.RelationSlotDiscipline` for n-ary arguments), **Part F** (Bridges & cross-context transport; naming). Conformance keywords: RFC 2119.
 
 ### 1 · Problem frame
 
@@ -5538,7 +5541,7 @@ If each family (architheories, mechanisms, methods, disciplines) invents its own
 
 ### 4 · Solution — **Define `U.Signature` once, reuse everywhere**
 
-**Definition.** A **`U.Signature`** is a **public, law‑governed declaration** for a named **SubjectKind** on a declared **BaseType**. Where quantification depends on context, the Signature **SHALL** expose an explicit **SliceSet** and **ExtentRule**. A Signature (i) introduces a **vocabulary** (types, relations, operators), (ii) states **laws** (axioms/invariants; no operational admissions), and (iii) records **applicability** (where and under which contextual assumptions the declarations hold). Dependencies (**imports**) are governed by specialisations (e.g., A.6) and are **not** part of the universal Block. For any `U.Signature` whose **Vocabulary** row declares **n‑ary relations or operators**, each argument position **SHALL** have a **SlotSpec** triple `⟨SlotKind, ValueKind, refMode⟩` as defined in A.6.5 `U.RelationSlotDiscipline` (with `refMode ∈ {ByValue \| RefKind}`).
+**Definition.** A **`U.Signature`** is a **public, law-governed declaration** for a named **SubjectKind** on a declared **BaseType**. Where quantification depends on context, the Signature **SHALL** expose an explicit **SliceSet** and **ExtentRule**. A Signature (i) introduces a **vocabulary** (types, relations, operators), (ii) states **laws** (axioms/invariants; no operational admissions), and (iii) records **applicability** (where and under which contextual assumptions the declarations hold). Dependencies (**imports**) are governed by specialisations (e.g., A.6) and are **not** part of the universal Block. **Discipline for argument-position typing is delegated to A.6.5 `U.RelationSlotDiscipline`: whenever the Vocabulary declares an n-ary relation or operator, SlotSpecs for its parameter positions SHALL be provided as in §4.1.1 and A.6.5.**
 
 Where the **Vocabulary** introduces an **n‑ary relation or morphism**, the Signature **SHALL**, for each parameter position `i`, declare a `SlotSpec_i = ⟨SlotKind_i, ValueKind_i, refMode_i⟩` as defined in **A.6.5 `U.RelationSlotDiscipline`**. SlotSpecs live inside the per‑relation parameter block of the **Vocabulary** row and **MUST NOT** introduce additional rows beyond the four‑row Signature Block.
 
@@ -5568,15 +5571,13 @@ Every `U.Signature` **SHALL** present a **four‑row conceptual block** (names a
    **Editorial split (allowed).** Authors **MAY** render the **SubjectBlock** as two adjacent lines — **Subject** *(SubjectKind, BaseType)* and **Quantification** *(SliceSet, ExtentRule, ResultKind?)* — **without changing semantics**. Even when visually split, SubjectBlock counts as **one** conceptual row.
 
    **Semantic roles of the SubjectBlock kinds (informative)**
-   * **SubjectKind (intent).** The intensional “aboutness” of the signature (C.3.1), ordered by `⊑`. It carries no Scope.
+   * **SubjectKind (intent).** The intensional “describedEntity” of the signature (C.3.1), ordered by `⊑`. It carries no Scope.
    * **BaseType (carrier).** The `U.Type` over which values/objects are ranged. In CHR regimes this may be a `U.CharacteristicSpace` **type**; elsewhere it is a set‑typed `U.Type`.
    * **SliceSet (addressability).** The addressable set of `U.ContextSlice`s (USM). It identifies where **extent** is computed; it is not a “space” unless CHR.
    * **ExtentRule (extent).** A rule yielding `Extension(SubjectKind, slice)` (C.3.2); this is the quantifier’s domain, computed per slice.
    * **ResultKind? (outputs).** Optional: the intensional kind of the outputs of the operations declared in *Vocabulary* (use when outputs differ in kind from the SubjectKind).
     
-2. **Vocabulary** — names and sorts of the public **types / relations / operators** this signature commits to (no handler semantics; no AdmissibilityConditions). For each **n‑ary relation or morphism** in the Vocabulary, parameters **SHALL** be declared via **SlotSpecs**
-   `SlotSpec_i = ⟨SlotKind, ValueKind, refMode⟩` per **A.6.5 `U.RelationSlotDiscipline`**. SlotKinds and RefKinds **MUST** follow the `…Slot` / `…Ref`
-   lexical discipline in **A.6.5** and **E.10 (LEX‑BUNDLE)**; ValueKinds **MUST** remain free of these suffixes.
+2. **Vocabulary** — names and sorts of the public **types / relations / operators** this signature commits to (no handler semantics; no AdmissibilityConditions). For each **n‑ary relation or morphism** in the Vocabulary, parameters **SHALL** be declared via **SlotSpecs** `SlotSpec_i = ⟨SlotKind, ValueKind, refMode⟩` per **A.6.5 `U.RelationSlotDiscipline`**. SlotKinds and RefKinds **MUST** follow the `…Slot` / `…Ref` lexical discipline in **A.6.5** and **E.10 (LEX‑BUNDLE)**; ValueKinds **MUST** remain free of these suffixes. For each **n‑ary relation or morphism** in the Vocabulary, parameters **SHALL** be declared via **SlotSpecs**
   
 3. **Laws (Axioms/Invariants)** — equations and order/closure laws that are context‑local truths under the stated Applicability (no proofs here). **Operational guard predicates belong to Mechanisms (A.6.1)**, not to Signatures.
     
@@ -5584,7 +5585,8 @@ Every `U.Signature` **SHALL** present a **four‑row conceptual block** (names a
     
 *Mapping to existing families (normative aliases).*  
 — **A.6.1 (Mechanism).** *SubjectBlock* ↔ **SubjectKind/BaseType/…**; *Vocabulary* ↔ **OperatorAlgebra**; *Laws* ↔ **LawSet**; *Applicability* remains contextual; **AdmissibilityConditions** — separate field of mechanism (not in the `U.Signature`).  
-— **A.6 (Architheory).** A.6 **adds** an adjacent **Architheory View** preserving **Imports / Derivations / Invariants / BelongsToAssurance**. The **universal Block remains the source‑of‑truth**; the view is a projection and **MUST NOT** introduce fields not derivable from the Block.
+— **A.6 (Architheory).** A.6 **adds** an adjacent **Architheory View** preserving **Imports / Derivations / Invariants / BelongsToAssurance**. The **universal Block remains the source-of-truth**; the view is a projection and **MUST NOT** introduce fields not derivable from the Block.  
+— **Task/Problem/Discipline signatures (C.22, G-cluster).** These **SHALL** be introduced as **species of `U.Signature`** that reuse the same four-row Block (SubjectBlock / Vocabulary / Laws / Applicability); any extra per-family views are projections only (no new conceptual rows).
 
 ##### 4.1.1 · SlotSpec for argument positions (normative; see A.6.5)
 
@@ -5618,7 +5620,7 @@ An authorial SlotSpec table then reads:
 | `groundingHolonRef`    | `GroundingHolonSlot`  | `U.Holon`          | `U.HolonRef`           |
 | `claimGraph`           | `ClaimGraphSlot`      | `U.ClaimGraph`     | `ByValue`              |
 
-This example illustrates the intended reading: **parameters are typed twice**—once by their **ValueKind** (what sort of thing occupies the position) and once by **refMode** (by‑value or which RefKind). SlotKinds (with `…Slot` suffix) give stable names for substitution laws and aboutness statements across patterns.
+This example illustrates the intended reading: **parameters are typed twice**—once by their **ValueKind** (what sort of thing occupies the position) and once by **refMode** (by‑value or which RefKind). SlotKinds (with `…Slot` suffix) give stable names for substitution laws and describedEntity statements across patterns.
 
 #### 4.2 · Profile specialisations (normative; structure‑preserving)
 To enable first‑principles layers without minting new Kernel kinds, apply **profiles** to `U.Signature`:
@@ -5661,7 +5663,7 @@ A.6.0 exposes **three** conceptual knobs; specialisations (A.6, A.6.1, method/di
     
 2. **Transport clause.** If cross‑context/plane use is part of the design, the signature **may declare** a conceptual Transport clause; **A.6.1** gives a concrete schema (Bridge, **CL/CL^k/CL^plane**—Bridges per **F.9**, penalties per **B.3**, **CL^plane** per **C.2.1**), but A.6.0 remains agnostic about penalty shapes.
     
-3. **Morphisms.** Families may define `SigMorph` (refinement, conservative extension, equivalence, quotient, product) to relate signatures; **A.6.1** instantiates this for mechanisms. Where such morphisms, or downstream **substitution / retargeting** laws (e.g., **A.6.2–A.6.4**), act on **n‑ary relations or morphisms**, they **SHALL** express their read/write/rotation discipline in terms of **SlotSpecs**  (SlotKind / ValueKind / RefKind) rather than unnamed parameter indices, using **A.6.5 `U.RelationSlotDiscipline`** as the normative slot calculus.
+3. **Morphisms.** Families may define `SigMorph` (refinement, conservative extension, equivalence, quotient, product) to relate signatures; **A.6.1** instantiates this for mechanisms. Where such morphisms, or downstream **substitution / retargeting** laws (e.g., **A.6.2–A.6.4**), act on **n‑ary relations or morphisms**, they **SHALL** express their read/write/retargeting discipline in terms of **SlotSpecs**  (SlotKind / ValueKind / RefKind) rather than unnamed parameter indices, using **A.6.5 `U.RelationSlotDiscipline`** as the normative slot calculus.
 
 #### 4.6 · Profile‑specialisation as a structure‑preserving morphism (normative)
 Profile application `ι_profile : U.Signature → U.Signature(profile=…)` **SHALL** be a **structure‑preserving morphism**:
@@ -5991,7 +5993,7 @@ and admits Realizations (kernel‑level or architheory‑level) that respect it.
 * **OperatorAlgebra:** `apply(method)`, `compose`, `quotient(≡_UNM)`; **normalize‑then‑compare** (exposes compare‑on‑invariants surfaces to UCPM/USCM).
 * **LawSet:** scale‑appropriate transforms — `ratio:scale / interval:affine / ordinal:monotone / nominal:categorical / tabular:LUT(+uncertainty)`; **validity windows** per edition.
 * **AdmissibilityConditions:** `method ∈ declared class‑set` AND **validity window named**; **fail‑closed**; `unknown → {degrade|abstain}`.
-* **Transport:** **Bridge‑only** on cross‑Context; when **aboutness changes**, declare **KindBridge (CL^k)**; penalties → **`R_eff` only**.
+* **Transport:** **Bridge‑only** on cross‑Context; when **describedEntity changes**, declare **KindBridge (CL^k)**; penalties → **`R_eff` only**.
 * **Γ_timePolicy:** **named validity windows** for NormalizationMethod/instances (editioned).
 * **PlaneRegime:** values live on **episteme ReferencePlane**; on plane crossings apply **CL^plane** policy; penalties → **`R_eff` only**.
 
@@ -6102,6 +6104,1335 @@ Anchoring mechanisms in **A.6 Signature→Realization** provides a minimal, type
 
 Builds on **A.6**; instantiates **A.2.6 USM** (ContextSlice, Γ_time, ∩/SpanUnion/translate) and **A.19/C.16 UNM** (classes, ≡\_UNM, validity windows); uses **Part B** (Bridges, CL/CL^k/CL^plane; **no implicit crossings**); binds **CG‑Spec** for any numeric comparison/aggregation; telemetry/publication via **G.10/G.11**.
 
+## A.6.2 · **`U.EffectFreeEpistemicMorphing` — Effect‑free morphisms of epistemes** [A]
+
+**One‑line summary.** `U.EffectFreeEpistemicMorphing` (EFEM) is the universal class of **effect‑free, law‑governed morphisms between epistemes**. An EFEM morphism rewrites episteme components (ClaimGraph, `describedEntityRef`, optional `groundingHolonRef`, `viewpointRef`, `referenceScheme`, and—where C.2.1+ is in use—`representationSchemeRef` and related slots, plus meta) in a **conservative, functorial, reproducible** way, with an explicit mode for what happens to the **DescribedEntitySlot** (`DescribedEntityChangeMode ∈ {preserve, retarget}`) as defined by `C.2.1 U.EpistemeSlotGraph`.
+
+**Status.** Normative [A] in **Part A (Kernel)**.
+
+**Placement.** After **A.6.1 `U.Mechanism`** and before any specialisations (`A.6.3 U.EpistemicViewing`, `A.6.4 U.EpistemicRetargeting`).
+
+**Builds on.**
+A.6.0 `U.Signature` (subject/vocabulary/laws/applicability); A.6.1 `U.Mechanism`; A.6.5 `U.RelationSlotDiscipline`; C.2.1 `U.Episteme — Epistemes and their slot graph`; E.10.D2 (I/D/S discipline); C.3.* (Kind‑CAL / KindBridge for described‑entity classes).
+
+**Used by.**
+A.6.3 `U.EpistemicViewing`; A.6.4 `U.EpistemicRetargeting`; E.17.0 `U.MultiViewDescribing`; E.17 (MVPK); E.18 (E.TGA StructuralReinterpretation, Transduction graph).
+
+### 1 · Problem frame
+
+FPF has many operations that **transform knowledge artifacts** without directly doing work in the world:
+
+* turning an informal method description into a more formal specification;
+* projecting a large system description into a smaller “for‑safety‑officer” view;
+* re‑expressing the same behavioural model in a different calculus or notation;
+* retargeting an analysis from “this subsystem” to “that subsystem” along a known KindBridge.
+
+All of these are **episteme→episteme** transforms: they change what is written in an episteme, but they **do not themselves measure, execute, or actuate**. They are neither Work (A.15) nor Mechanisms in the A.6.1 sense; they are “pure morphisms over epistemes”.
+
+Without a universal pattern for such morphisms:
+
+* every family (KD‑CAL, E.TGA, MVPK, discipline packs) reinvent their own notion of “projection”, “reinterpretation”, or “refinement”;
+* laws about what may change in an episteme (content vs described entity vs grounding holon vs reference plane) fragment across the spec;
+* cross‑family reasoning (e.g. “this E.TGA StructuralReinterpretation is a retargeting, not a view”) becomes brittle and ad‑hoc.
+
+### 2 · Problem
+
+Concretely, without EFEM:
+
+1. **No single place for “effect‑free” discipline.**
+   The distinction *“episteme‑only change”* vs *“Work in the world”* is already important (C.2.1 separates episteme components from Work and from presentation surfaces), but the laws for “episteme‑only” operations are scattered or implicit. 
+
+2. **Described entity behaviour is unclear.**
+   Many transforms **intend** to keep “what this episteme is about” fixed (viewing), others **intend** to change it under an invariant (retargeting). Without a common *DescribedEntityChangeMode* discipline we get silent breaks in “describedEntity”: an operation that looks like a harmless format change may in fact surreptitiously change the entity‑of‑interest.
+
+3. **No functorial backbone.**
+   MVPK, KD‑CAL and E.TGA all implicitly assume that episteme transforms **compose** and respect identities, but the conditions for this (purity, conservativity, idempotence, scope) are not formulated once and reused. Different parts of the spec repeat subtly different sets of laws.
+
+4. **Slot/Ref confusion.**
+   With the new `U.EpistemeSlotGraph` and `U.RelationSlotDiscipline`, every episteme now has explicit **SlotKind / ValueKind / RefKind** discipline. Laws for “projection” or “retargeting” that are written against “fields” or unnamed tuple components are now out of alignment.
+
+The result: engineers and tool builders can no longer tell **when they are allowed to transform epistemes without changing what is being claimed about the world**, nor what needs to be witnessed by Bridges and CL‑penalties when describedEntity does change.
+
+### 3 · Forces
+
+* **Epistemic purity vs operational power.**
+  Effect‑free episteme transforms are attractive precisely because they can be reasoned about algebraically and composed freely. But the more operational power they are given (IO, solver calls, measurements), the less they remain “pure” and the more they belong under `U.Mechanism` / `U.WorkEnactment`.
+
+* **Preserve vs retarget.**
+  Viewing is describedEntity‑preserving; reinterpretation along a KindBridge is describedEntity‑retargenting. Both are important, but **they must be distinguished and witnessed differently**.
+
+* **Conservativity vs usefulness.**
+  EFEM should be **conservative**: no new intensional commitments beyond what input epistemes already entail. At the same time, we need transformations that can *factor*, *aggregate*, or *normalise* content, which may drop some information or change its representation.
+
+* **Locality vs reference planes and Bridges.**
+  Epistemes live on **reference planes** (C.2.1); cross‑plane and cross‑Context reasoning goes via Bridges and CL penalties (Part F/B.3). EFEM must respect this: it cannot smuggle plane changes or transport into “pure” content rewrites.
+
+* **I/D/S strict distinction.**
+  Intension (`I`) is not itself an episteme; `…Description` and `…Spec` are epistemes with a `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`. EFEM must support operations on D/S epistemes while keeping the I/D/S layering intact (A.7, E.10.D2).
+
+### 4 · Solution — define `U.EffectFreeEpistemicMorphing` once
+
+#### 4.1 · Informal definition
+
+> **Definition.** A `U.EffectFreeEpistemicMorphing` (EFEM) is a class of **episteme→episteme morphisms** that:
+>
+> * operate **only** on the components of an episteme as fixed in `C.2.1 U.EpistemeSlotGraph` (ClaimGraph, slots for described entity, grounding holon, viewpoint, representation/reference schemes, meta); 
+> * are **effect‑free** (no Work, no Mechanism application, no mutation of systems or carriers);
+> * are **conservative** in what they claim about the described entity (no new intensional commitments beyond logical consequences under the declared ReferenceScheme);
+> * are **functorial** (identities and composition behave as expected on the category of epistemes);
+> * declare an explicit **DescribedEntityChangeMode ∈ {preserve, retarget}**, controlling how `DescribedEntitySlot` (and associated subjectRef) behaves.
+
+The **objects** of the EFEM universe are epistemes of some `U.EpistemeKind` (typically realised as `U.EpistemeCard` / `U.EpistemeView` / `U.EpistemePublication`). The **arrows** are EFEM morphisms `f : X → Y` satisfying the P0–P5 laws below.
+
+Specialisations:
+
+* `U.EpistemicViewing` (A.6.3) — EFEM with `DescribedEntityChangeMode = preserve`.
+* `U.EpistemicRetargeting` (A.6.4) — EFEM with `DescribedEntityChangeMode = retarget`, tied to KindBridges/ReferencePlanes.
+
+#### 4.2 · Signature Block (A.6.0 alignment)
+
+As a `U.Signature`, EFEM publishes the following **SubjectBlock** and the standard four‑row block (“SubjectBlock / Vocabulary / Laws / Applicability”) from A.6.0, specialised to episteme→episteme morphisms.
+
+**SubjectBlock**
+
+```
+SubjectBlock
+  SubjectKind   = U.EffectFreeEpistemicMorphing
+  BaseType      = ⟨X : U.Episteme, Y : U.Episteme⟩        // carrier pair (domain,codomain)
+  Quantification= SliceSet:=U.ContextSliceSet; 
+  ExtentRule:=admissibleEpistemeMorphisms // Context slices & admissible EFEM per slice
+  ResultKind?   = U.Morphism                               // typed morphism f : X→Y
+```
+
+This says: EFEM is “about” **morphisms between epistemes**, indexed by Context slices; its results are morphisms of a declared type `U.Morphism` in the `Ep` category.
+
+**Vocabulary (core operators & kinds)**
+
+* **Types**
+  * `U.Episteme` (as holon; realised via species `U.EpistemeCard`, `U.EpistemeView`, `U.EpistemePublication` under C.2.1).
+  * `U.EpistemeKind` (episteme n‑ary relation signature; slots per A.6.5 / C.2.1).
+  * `U.SubjectRef` (subject reference; for D/S epistemes this is `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩` per IDS‑13 (DescriptionContext discipline; C.2.1 §6.1 / E.10.D2)).
+  * `U.Morphism` (arrow in `Ep`).
+  * `U.DescribedEntityChangeMode = {preserve, retarget}` (enumeration; no new Kernel type for “DescribedEntity”).
+
+* **Operators (arrow algebra)**
+
+  * `id_X : U.Morphism(X→X)` for any episteme `X`.
+  * `compose(g,f) : U.Morphism(X→Z)` where `f : X→Y`, `g : Y→Z`.
+  * `apply(f, x:U.Episteme) : U.Episteme`.
+  * `dom(f), cod(f) : U.Episteme`.
+  * `subjectRef(E) : U.SubjectRef`.
+  * `describedEntityChangeMode(f) : U.DescribedEntityChangeMode`  // EFEM‑level characteristic from C.2.1.
+
+Each operator that takes epistemes as arguments obeys **SlotSpec discipline** from A.6.5: in particular, laws below are phrased in terms of the **named SlotKinds** (`DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, `ViewpointSlot`, `ReferenceSchemeSlot`, `ViewSlot`, and—when the C.2.1+ extension is used—`RepresentationSchemeSlot`) and their associated ValueKind/RefKind; we never speak of “field 1/2/3”.
+
+**Laws row** and **Applicability** are given by P0–P5 and the Scope clause below.
+
+#### 4.3 · Laws P0–P5 (normative)
+
+All laws below are **normative**: any morphism advertised as an instance of `U.EffectFreeEpistemicMorphing` SHALL satisfy them.
+
+##### P0 — Typed signature & component profile (C.2.1‑grounded)
+
+For any EFEM morphism `f : X→Y`:
+
+1. **Typed objects.** `X` and `Y` are epistemes of declared kinds `K_X, K_Y : U.EpistemeKind`, each with a SlotKind signature as per C.2.1 and A.6.5 (at least `DescribedEntitySlot`, `ClaimGraphSlot`, `ViewpointSlot?`, `RepresentationSchemeSlot?`, `ReferenceSchemeSlot?`; `GroundingHolonSlot?`, `ViewSlot?` where relevant).
+
+2. **Component projection.** For each episteme `E`, EFEM laws may refer to:
+   * `content(E) : U.ClaimGraph` — value of `ClaimGraphSlot` (stored **by value** in the minimal core);
+   * `describedEntityRef(E) : U.EntityRef` — value of the RefKind for `DescribedEntitySlot`;
+   * `groundingHolonRef?(E) : U.HolonRef` — if the episteme kind includes `GroundingHolonSlot`;
+   * `viewpointRef?(E) : U.ViewpointRef` — if `ViewpointSlot` is present;
+   * `referenceScheme?(E) : U.ReferenceScheme` — value of `ReferenceSchemeSlot` (stored **by value** in the minimal core);
+   * `representationSchemeRef?(E) : U.RepresentationSchemeRef` — only for episteme kinds that use the C.2.1+ `RepresentationSchemeSlot`;
+   * `meta(E)` — edition/provenance/status components (species‑level).
+
+3. **Declared `DescribedEntityChangeMode`.**
+   Each EFEM species **declares** a fixed `DescribedEntityChangeMode ∈ {preserve, retarget}`. At the level of individual morphisms:
+
+   * if `describedEntityChangeMode(f) = preserve`, then `describedEntityRef(Y) = describedEntityRef(X)` (and usually `groundingHolonRef(Y) = groundingHolonRef(X)` unless an explicit Grounding Bridge is declared);
+   * if `describedEntityChangeMode(f) = retarget`, then `describedEntityRef(Y) ≠ describedEntityRef(X)` in general and a **KindBridge** between the two described entities MUST be named (A.6.4 / F.9).
+
+4. **SubjectRef compatibility.**
+   For D/S epistemes (`…Description` / `…Spec`), `subjectRef(E)` is a `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩` (E.10.D2). EFEM species SHALL state how `subjectRef` transforms in terms of these components (usually: preserve or explicitly adjust `ViewpointRef` while preserving `DescribedEntityRef` and `BoundedContextRef`).
+
+##### P1 — Purity (no external effects)
+
+EFEM morphisms are **pure functions on epistemes**:
+* Applying `f : X→Y` **does not**:
+  * change any `U.System` or `U.Holon` state;
+  * execute Work (`U.WorkEnactment`) or run a `U.Mechanism` (A.6.1) with operational guards;
+  * mutate `U.PresentationCarrier` (files, databases, message buses, IDEs).
+* The **only** state change introduced by EFEM is the replacement of input epistemes by output epistemes according to `apply(f, X) = Y`, with all component changes governed by P2–P5.
+
+Any operation that requires **measurements, simulations, solver calls, or tool use with external side‑effects** SHALL be modelled as a `U.Mechanism`/`U.Work` that **produces new epistemes**, which may then be related by EFEM morphisms.
+
+##### P2 — Conservativity (no new intensional commitments)
+
+Let `content_X = content(X)`, `content_Y = content(Y)`, with associated `referenceScheme_X`, `referenceScheme_Y`, `describedEntityRef_X`, `describedEntityRef_Y`, `groundingHolonRef_X`, `groundingHolonRef_Y`. Interpret each `content` via its `ReferenceScheme` and slots. Then:
+
+> The set of **claims about the described entities** that can be read from `Y` **SHALL NOT introduce new atomic commitments** beyond those that are logical consequences of the claims read from `X`, possibly after applying a declared correspondence between representation/reference schemes.
+
+Intuitively:
+
+* EFEM may:
+  * delete information (projection/abstraction);
+  * normalise or re‑express information (e.g., reordering ClaimGraph, changing notation via a ReferenceScheme/RepresentationScheme correspondence);
+  * add **meta‑claims about the episteme** itself (edition, source, status, witness entries).
+
+* EFEM may **not**:
+  * assert new atomic facts about the described entities or grounding holons beyond what is derivable from input ClaimGraphs under the declared ReferenceSchemes;
+  * silently widen the scope of claims (e.g., treating local facts as global, changing Context or ReferencePlane without a Bridge).
+
+Where `describedEntityChangeMode(f) = retarget`, conservativity is understood **relative to a declared invariant** of the KindBridge (A.6.4): e.g., conservation of energy for a Fourier transform, or preservation of functional behaviour for a structural reinterpretation.
+
+##### P3 — Functoriality (identity, composition, correspondence)
+
+We work in the category **Ep** whose objects are epistemes (species of `U.Episteme`) and whose arrows are EFEM morphisms satisfying P0–P2, together with the functor
+
+```
++α : Ep → Ref
+```
+
+that maps each episteme to the object it describes (value of `DescribedEntitySlot`, i.e. `describedEntityRef(E)`) as in the mathematical layer for epistemes. EFEM instances with `describedEntityChangeMode(f) = preserve` are **vertical morphisms** for α (`α(f) = id`), while those with `describedEntityChangeMode(f) = retarget` reindex along a declared `KindBridge` in **Ref**.
+
+1. **Identities.** For each episteme `X`, there exists `id_X : X→X` such that:
+
+   ```text
+   apply(id_X, X) = X
+   compose(id_Y, f) = f = compose(f, id_X)
+   ```
+
+   `id_X` preserves all components (`content`, `describedEntityRef`, `groundingHolonRef`, `viewpointRef`, `representationSchemeRef`, `referenceScheme`, `meta`).
+
+2. **Composition.** For `f : X→Y`, `g : Y→Z`, the composite `h = compose(g,f)` is an EFEM morphism `X→Z` with:
+
+   ```
+   apply(h, X) = apply(g, apply(f, X))
+   describedEntityChangeMode(h) = combine(describedEntityChangeMode(f), describedEntityChangeMode(g))   // as per species-specific rules
+   ```
+
+and P0–P2 hold for `h`. For example, two `preserve` morphisms compose to `preserve`; `preserve` after `retarget` is `retarget` if the KindBridge composition exists.
+
+3. **Correspondence‑aware composition.**
+   When EFEM changes `RepresentationScheme` or `ReferenceScheme`, a **CorrespondenceModel** (as in C.2.1 §6 and E.17) may be needed to witness commutativity: composition MUST respect these correspondences up to declared isomorphism/oplax naturality (witness epistemes may be recorded in `meta`).
+
+##### P4 — Idempotence & determinism (on fixed configuration)
+
+For any EFEM morphism `f : X→Y` with fixed configuration (episteme kinds, `DescribedEntityChangeMode` characteristic, KindBridge/CorrespondenceModel where needed):
+
+1. **Determinism.**
+   For the same input episteme `X` (identical content, slots, meta), `apply(f, X)` yields the same output episteme `Y` up to declared structural equivalence (normal forms, alpha‑renaming etc.). There is no dependence on ambient time, randomness, network state, or solver heuristics unless these are **encoded as explicit inputs**.
+
+2. **Idempotence (up to declared equivalence).**
+   Re‑applying the same EFEM to its own output yields no further essential change:
+
+   ```text
+   apply(f, apply(f, X)) ≅ apply(f, X)
+   ```
+
+   where `≅` denotes the structural equivalence declared for the episteme kinds in question (e.g., ClaimGraph normalisation).
+
+Species MAY weaken idempotence to “idempotent after normalisation”; if so, the normalisation step MUST itself be specified as an EFEM morphism and the composite be idempotent.
+
+##### P5 — Applicability, scope & compatibility
+
+Each EFEM species **publishes** an Applicability clause:
+
+* **EoI / described entity class.**
+  A constraint on the allowed ValueKind of `DescribedEntitySlot` (via `EoIClass ⊑ U.Entity`): e.g., “epistemes describing `U.Holon` that are systems of type X”.
+
+* **Grounding holon & Context.**
+  Constraints on `GroundingHolonSlot` and `U.BoundedContext`: where the morphism is valid (lab, runtime environment, organisational context).
+
+* **Representation/ReferenceSchemes.**
+  Enumerates supported `RepresentationScheme`/`ReferenceScheme` pairs and any required CorrespondenceModels.
+
+* **Viewpoint discipline.**
+  For Descr/Spec epistemes, EFEM SHALL specify which `U.Viewpoint`s (E.17.0) it supports and how it interacts with `U.MultiViewDescribing` families (e.g., “works only on engineering viewpoints from TEVB” or “viewpoint‑agnostic normalisation”).
+
+Applying EFEM **outside** its Applicability (e.g., wrong EoIClass, missing grounding holon, incompatible Viewpoint) is **non‑conformant**: a conformant implementation MUST reject such attempts or model them as different mechanisms/works, not as EFEM.
+
+Cross‑Context or cross‑plane use (changing `U.BoundedContext` or `ReferencePlane`) is **not part of EFEM**; it is handled by Bridges (Part F) and A.6.1 transport, which then feed new epistemes into EFEM.
+
+### 5 · Archetypal Grounding (Tell–Show–Show)
+
+The examples below show how EFEM is intended to be used across I/D/S and Viewpoint/MVPK layers.
+
+#### 5.1 · Typed formalisation `Specify_DS : D→S` (species of EFEM)
+
+*Context.* You have an informal `U.MethodDescription` for a safety check and want a more formal `U.MethodSpec` with test harness obligations, but **about the same method**.
+
+*Shape.*
+
+* Domain: `X = U.MethodDescription` episteme with
+  `describedEntityRef(X) : U.MethodRef`, `content(X) : U.ClaimGraph_D`, `viewpointRef(X)` an engineering viewpoint (TEVB), `ReferenceScheme_D`.
+* Codomain: `Y = U.MethodSpec` episteme with the **same** `describedEntityRef(Y) = describedEntityRef(X)`, `viewpointRef(Y) = viewpointRef(X)`, more structured `content(Y) : U.ClaimGraph_S`, stronger ReferenceScheme (explicit pre/post, obligations).
+
+`Specify_DS` is a species of EFEM:
+
+* `describedEntityChangeMode(Specify_DS) = preserve`.
+* P1 — effect‑free: it transforms epistemes only.
+* P2 — conservative: any behavioural claims in the Spec must be logically entailed by the informal Description and the underlying Method Intension; if the spec makes stronger claims, that is modelled as creating a **new Intension with its own D/S pair**, not as a valid EFEM instance.
+* P3–P5 — functorial and scoped: specs compose, applicability bound to the appropriate engineering context and Viewpoints.
+
+This matches A.7/E.10.D2 strict distinction: I→D (`Describe_ID`) is not itself an episteme→episteme morphism, but `Specify_DS` is; EFEM supplies its laws.
+
+#### 5.2 · Internal normalisation of a View (species of EFEM, `describedEntityChangeMode = preserve`)
+
+*Context.* In MVPK you compute a engineering view `V` of a system description; you then normalise the view (sort, factor, put equations into normal form) without changing what it says.
+
+Let `X = V_raw`, `Y = V_norm`, both `U.EpistemeView` instances with the same:
+
+* `describedEntityRef(X) = describedEntityRef(Y)` (same system);
+* `groundingHolonRef(X) = groundingHolonRef(Y)` (same environment);
+* `viewpointRef(X) = viewpointRef(Y)` (same Viewpoint);
+* `representationSchemeRef(X) = representationSchemeRef(Y)` (same notation).
+
+The EFEM `NormalizeView : X→Y`:
+
+* has `describedEntityChangeMode(NormalizeView) = preserve`;
+* changes only `content` and maybe `meta` (e.g. “normalised at edition E”);
+* is idempotent and deterministic (P4);
+* is conservative (P2): no new claims, only re‑expression.
+
+MVPK can then **assume** functoriality of such normalisations without re‑stating the EFEM laws.
+
+#### 5.3 · Retargeting sketch (bridge‑backed, `describedEntityChangeMode = retarget`)
+
+*Context.* E.TGA’s StructuralReinterpretation maps a physical layout view into a functional behaviour view, changing the described entity from “physical module assembly” to “functional graph” along a KindBridge.
+
+Inside EFEM, this becomes a species with `describedEntityChangeMode = retarget`:
+* input episteme describes `S₁` (e.g. a component hierarchy holon);
+* output episteme describes `S₂` (e.g. a functional network holon);
+* a declared `KindBridge(S₁,S₂)` and invariant (e.g. behavioural equivalence) provide the semantic glue;
+* P2 conservativity is checked **w.r.t. that invariant**.
+
+The details belong to A.6.4/E.TGA; EFEM provides the generic discipline.
+
+#### 5.4 · Worked SlotSpec example (engineering SystemDescription episteme kind)
+*(informative)*
+
+To make the SlotKind/ValueKind/RefKind discipline and EFEM laws concrete, consider a simple engineering `U.EpistemeKind` for system descriptions over `EoIClass ⊑ U.Entity` with `EoIClass = U.System` in a given Context. A minimal SlotSpec table for such a kind could be:
+
+| SlotKind              | ValueKind                                     | RefKind / refMode   | Notes                                                                 |
+| --------------------- | --------------------------------------------- | ------------------- | --------------------------------------------------------------------- |
+| `DescribedEntitySlot` | `U.Entity` (constrained by `EoIClass = U.System`) | `U.EntityRef`    | describes which system the episteme is about                          |
+| `GroundingHolonSlot`  | `U.Holon`                                     | `U.HolonRef`        | plant / runtime SoS grounding measurements and validation             |
+| `ClaimGraphSlot`      | `U.ClaimGraph`                                | ByValue             | KD‑CAL/LOG‑CAL ClaimGraph for the description or spec                 |
+| `ViewpointSlot`       | `U.Viewpoint`                                 | `U.ViewpointRef`    | engineering viewpoint (e.g. from TEVB) under which D/S are validated |
+| `ReferenceSchemeSlot` | `U.ReferenceScheme`                           | ByValue             | how the ClaimGraph is read against described entity and grounding     |
+
+This table is an instance of A.6.5 `U.RelationSlotDiscipline`: each row is a SlotSpec triple ⟨SlotKind, ValueKind, refMode/RefKind⟩; no additional kernel types are introduced, and C.2.1’s constraints on `DescribedEntitySlot`/`GroundingHolonSlot` are preserved.
+
+Two typical EFEM species over this kind are:
+* `Specify_DS_Sys : SystemDescription → SystemSpec` — a `DescribedEntityChangeMode = preserve` species that:
+  * **reads** `DescribedEntitySlot`, `GroundingHolonSlot`, `ViewpointSlot`, `ReferenceSchemeSlot` and **writes** a refined `ClaimGraphSlot` and possibly a strengthened `ReferenceSchemeSlot`;
+  * satisfies P2 by only adding claims that are logical consequences of the original description plus the fixed Intension (A.7/E.10.D2);
+  * satisfies CC‑C.2.1‑5 by explicitly declaring its slot profile and change mode.
+
+* `Normalize_EngView : EpistemeView → EpistemeView` — a view‑normalisation EFEM (again with `DescribedEntityChangeMode = preserve`) that:
+  * **reads** all slots and **writes** only `ClaimGraphSlot` (normal form) and `meta`;
+  * is idempotent and deterministic (P4) and pure (P1);
+  * is conservative (P2) by construction: it never introduces new atoms about the described system.
+
+In later A.6.3/A.6.4/E.17.* patterns, concrete EpistemeKinds (for specific engineering description/specification idioms) are expected to provide SlotSpecs of this general shape and to state explicitly, per CC‑C.2.1‑5 / CC‑EFEM.*, which slots their EFEM species read and write.
+
+### 6 · Bias & Defaults (informative)
+
+* **Episteme‑first, world‑second.** EFEM is strictly about **epistemes as objects**; any world contact (measurements, executions) lives in `U.Mechanism`/`U.Work` and produces new epistemes that EFEM may subsequently relate.
+
+* **SlotKinds, not “fields”.** Laws talk about `DescribedEntitySlot`, `GroundingHolonSlot`, etc., and their ValueKind/RefKind, as per A.6.5 and C.2.1; they never use unnamed tuple positions or “role 1/2/3”. This keeps EFEM aligned with the slot discipline used for methods, roles, services, and other n‑ary relations.
+
+* **Local‑first semantics.** EFEM is **Context‑local**; crossings of Context or ReferencePlane are always delegated to Bridges / A.6.1 transport (with CL penalties to `R/R_eff` only). No “implicit cross‑Context EFEM” is permitted.
+
+* **I/D/S respect.** EFEM never collapses Intension with Description/Spec: I→D and D→S operations are typed explicitly and either (i) conform to EFEM laws where they are episteme→episteme, or (ii) remain separate morphism classes (A.7) while being described as EFEM‑conformant.
+
+### 7 · Conformance Checklist (normative)
+
+| ID                                                  | Requirement                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **CC‑EFEM.1 (Typed episteme objects).**             | Every morphism advertised as `U.EffectFreeEpistemicMorphing` SHALL have domain and codomain epistemes whose kinds (`U.EpistemeKind`) publish SlotKinds/ValueKinds/RefKinds according to C.2.1 and A.6.5 (at least `DescribedEntitySlot` and `ClaimGraphSlot`; other slots as declared).                                                                                                               |
+| **CC‑EFEM.2 (Declared DescribedEntityChangeMode).** | Each EFEM **species** SHALL declare the `DescribedEntityChangeMode` characteristic `describedEntityChangeMode : U.Morphism → {preserve, retarget}` as per C.2.1. For every instance `f`, `describedEntityChangeMode(f)` MUST be either `preserve` (⇒ `describedEntityRef` unchanged) or `retarget` (⇒ a KindBridge and invariant are explicitly named; see A.6.4 / F.9).                                                                                         |
+| **CC‑EFEM.3 (Purity).**                             | EFEM morphisms SHALL be effect‑free: they MUST NOT directly perform Work or run mechanisms with operational guards; they only read input epistemes and construct output epistemes consistent with P2–P5. Any use of external solvers/measurements MUST be modelled as separate Mechanisms/Work that feed new epistemes into EFEM.                                                                     |
+| **CC‑EFEM.4 (Conservativity).**                     | Laws for EFEM species SHALL state their conservativity regime: claims in the output MUST be logical consequences of input claims under declared ReferenceSchemes and any CorrespondenceModels/KindBridges. If an operation may strengthen claims (e.g. add commitments not entailed by inputs), it is **not** EFEM and MUST be modelled separately.                                                   |
+| **CC‑EFEM.5 (Functoriality & idempotence).**        | EFEM species SHALL support identity and composition with the usual category laws, and SHALL specify any structural equivalence under which idempotence holds. Non‑deterministic or order‑sensitive behaviour (beyond declared structural equivalences) is non‑conformant.                                                                                                                             |
+| **CC‑EFEM.6 (Applicability & scope).**              | Each EFEM species SHALL publish Applicability in terms of: allowed EoI classes (ValueKind for `DescribedEntitySlot`), Context/BoundedContext and grounding holon constraints, supported Viewpoints and representation/reference schemes. Applying EFEM outside this Applicability (including cross‑Context or cross‑plane) is non‑conformant. Crossings MUST be delegated to Bridges/A.6.1 transport. |
+| **CC‑EFEM.7 (I/D/S & subjectRef discipline).**      | For any episteme that is a `…Description`/`…Spec` (E.10.D2), EFEM laws SHALL be phrased in terms of `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩` and MUST respect the I/D/S discipline **and** DescriptionContext invariants (including IDS‑13 Viewpoint‑locality as defined in E.10.D2/C.2.1): `Describe_ID` lives in A.7; `Specify_DS` MAY be species of EFEM but MUST preserve Intension. |
+| **CC‑EFEM.8 (Slot‑level read/write declaration).**  | Any EFEM species that defines morphisms between epistemes SHALL also satisfy C.2.1 checkpoint CC‑C.2.1‑5: it MUST state whether it is a species of `U.EffectFreeEpistemicMorphing`/`U.EpistemicViewing`/`U.EpistemicRetargeting`, declare its `describedEntityChangeMode`, name which SlotKinds it reads and writes, and state its behaviour on `describedEntityRef`, `groundingHolonRef`, `viewpointRef`, and `referenceScheme`. |
+
+### 8 · SoTA‑Echoing (informative, lineage)
+
+EFEM is intentionally “thin”: it provides a **minimal categorical and slot‑based discipline** for episteme→episteme morphisms, making it easy to align with several post‑2015 lines of work:
+
+* **Categorical semantics & displayed categories.**
+  Treating `Ep` as a category over `Ref` via a functor `α : Ep → Ref` (mapping each episteme to its described entity) matches the *displayed categories* view on fibrations: EFEM arrows are those morphisms in `Ep` that are “vertical” (preserve α) or “structured reindexings” (retarget under a KindBridge). This is exactly the intended alignment with C.2.1’s subjectRef/ReferencePlane picture.
+
+* **Optics as universal projections.**
+  Viewing operations (`U.EpistemicViewing`) refine EFEM in a way analogous to **lenses/prisms/traversals** in the optics literature: effect‑free, compositional accessors for parts of a larger structure. EFEM captures the laws that underlie those projections (purity, conservation, functoriality); optics‑style constructions can then be used inside discipline packs without modifying the core.
+
+* **Structured cospans & correspondences.**
+  Many correspondence‑based multi‑view patterns (ISO 42010 correspondences, model synchronisation, traceability links) can be seen as spans/cospans between epistemes. EFEM ensures that the legs of such cospans are effect‑free and conservative, while CorrespondenceModels carry the extra structure needed for consistency management.
+
+* **Bidirectional transformations (BX).**
+  The “no new commitments” and “functorial & idempotent” constraints mirror modern BX practice around **consistency restoration**: EFEM is the universal core that BX‑like constructions (view updates, synchronisers) must respect when instantiated for epistemes.
+
+EFEM does *not* prescribe a specific calculus (deductive, probabilistic, latent‑space), nor a specific representation (symbolic vs distributed); those choices are captured in `U.ClaimGraph`, `U.RepresentationScheme` and discipline‑level architheories. EFEM only says what it means to transform epistemes **legally** in that chosen substrate.
+
+### 9 · Consequences
+
+* **Single place for episteme‑to‑episteme laws.**
+  All effect‑free transforms of knowledge artefacts, across KD‑CAL, MVPK, E.TGA, discipline packs, can now be defined as species of EFEM, instead of each family re‑inventing its own law set.
+
+* **Clear separation from mechanisms & work.**
+  Anything that touches the world (measurements, execution, simulation) is forced into `U.Mechanism` / `U.WorkEnactment`, with CL‑penalised Bridges and Γ_time; EFEM remains pure and compositional.
+
+* **Stable backbone for Viewing & Retargeting.**
+  A.6.3 and A.6.4 do not need to repeat P0–P5; they specialise EFEM with additional constraints (preserve/retarget). Other patterns (e.g. MultiViewDescribing, MVPK, E.TGA StructuralReinterpretation) can depend on EFEM as a stable base.
+
+* **Slot‑level clarity.**
+  By formulating EFEM laws in terms of SlotKinds/ValueKinds/RefKinds (A.6.5) and the EpistemeSlotGraph (C.2.1), it becomes much harder for Episteme to confuse “object of talk”, “slot in a relation”, and “reference to that object”.
+
+* **Better didactics.**
+  The old “semantic triangle” becomes a didactic projection of EFEM over the EpistemeSlotGraph: EFEM + C.2.1 explain precisely what the triangle was trying to gesture at (symbol, concept, object), while correctly foregrounding operations, viewpoints, grounding holons, and reference schemes.
+
+### 10 · Rationale
+
+**Why a separate EFEM pattern (A.6.2) instead of folding into A.6.1 or C.2.1?**
+
+* A.6.1 governs **Mechanisms** (operations with AdmissibilityConditions, Γ_time, transport and Bridges)—too operational for the pure episteme transforms we want here.
+* C.2.1 fixes the **ontology of epistemes** (slots, components, ReferencePlane), but does not talk about morphisms. EFEM is explicitly a **morphism‑level** pattern over that ontology.
+
+This split mirrors how Signature (A.6.0) separates “what is declared” from “how it is realised”: C.2.1 says what an episteme is; A.6.2 says what a legal episteme→episteme transform is.
+
+**Why insist on DescribedEntityChangeMode?**
+
+Because almost all subtle errors in multi‑view reasoning show up as **silent retargeting**: a transform that appears to keep the same object‑of‑talk actually changes it (e.g., from “component assembly” to “function bundle”) without naming the bridge or invariant. By forcing every species to declare `preserve` vs `retarget`, EFEM makes those decisions explicit and reviewable.
+
+**Why attach EFEM to SlotKinds instead of informal “fields”?**
+
+FPF already committed to a single SlotKind/ValueKind/RefKind discipline (A.6.5) across relations, methods, roles, and now epistemes. Re‑using that discipline here:
+
+* aligns episteme morphisms with the rest of the framework;
+* enables later mechanised checks (e.g., that a viewing only touches slots it promised to touch);
+* avoids minting yet another notion of “parameter” or “role in a relation”.
+
+### 11 · Relations
+
+* **Specialises / is specialised by.**
+
+  * Builds on A.6.0 `U.Signature` and A.6.1 `U.Mechanism` for the uniform SubjectBlock/vocabulary/laws/applicability structure.
+  * Specialised by A.6.3 `U.EpistemicViewing` (describedEntity‑preserving EFEM) and A.6.4 `U.EpistemicRetargeting` (describedEntity‑retargering EFEM).
+
+* **Constrained by.**
+  A.6.5 `U.RelationSlotDiscipline` (SlotKind/ValueKind/RefKind); C.2.1 `U.EpistemeSlotGraph` (episteme components, ReferencePlane); E.10.D2 (I/D/S discipline); Part F (Bridges, CL, ReferencePlane crossings); E.10 (LEX‑BUNDLE naming rules, especially on `…Slot` / `…Ref` and ban on Subject/Object in episteme tech names).
+
+* **Consumed by.**
+  E.17.0 `U.MultiViewDescribing` (families of D/S epistemes under Viewpoints); E.17 (MVPK — publication as species of Viewing/EFEM); E.18 (E.TGA StructuralReinterpretation and other transductions over epistemes); KD‑CAL/LOG‑CAL rules that reason about episteme transforms categorically.
+
+## A.6.3 · **`U.EpistemicViewing` — describedEntity‑preserving morphism** \[A]
+
+**One‑line summary.** `U.EpistemicViewing` is the **describedEntity‑preserving** species of `U.EffectFreeEpistemicMorphing`: an effect‑free projection between epistemes that may change content and representation, but **never changes what the episteme is about** (the occupant of `DescribedEntitySlot` in C.2.1).
+
+**Status.** Normative [A] in **Part A (Kernel)**.
+**Placement.** After **A.6.2 `U.EffectFreeEpistemicMorphing`**, before **A.6.4 `U.EpistemicRetargeting`**.
+
+**Builds on.**
+A.6.0 `U.Signature`; A.6.2 `U.EffectFreeEpistemicMorphing`; A.6.5 `U.RelationSlotDiscipline`; A.7/E.10.D2 (I/D/S discipline, `DescriptionContext`); C.2.1 `U.Episteme — Epistemes and their slot graph`; C.2 (KD‑CAL/LOG‑CAL, `subjectRef`, ReferencePlane).
+
+**Used by.**
+E.17.0 `U.MultiViewDescribing`; E.17 (MVPK — Multi‑View Publication Kit); E.17.1/E.17.2 (Viewpoint bundle libraries, TEVB); B.5.3 (Role‑EpistemicViewing); discipline packs for architecture, safety, and ML/LLM‑based representations.
+
+### 1 · Problem frame
+
+Engineers and researchers constantly need **views of the same knowledge artefact**:
+* an ISO 42010‑style architectural view for a particular stakeholder group over a shared architecture description;
+* a SysML v2 “view‑as‑query” over an underlying model, changing visualisation but not the modelled system;
+* a publication view (Plain/Tech/Assurance) in MVPK over a common description/specification;
+* an LLM‑friendly episteme derived from a symbolic specification (or vice versa), preserving what system is being described.
+
+All of these are **episteme→episteme** transforms which intend to:
+* keep the **DescribedEntity** fixed (`DescribedEntitySlot` in C.2.1), and
+* change only **how** the episteme talks about it: sliced `U.ClaimGraph`, different `U.Viewpoint`, alternative `U.RepresentationScheme`, or a different `U.ReferenceScheme` tuned to the same entity and grounding holon.
+
+We need a single, reusable notion of **“epistemic viewing”** that captures these projections as:
+* **effect‑free** (no Work/Mechanism side‑effects),
+* **describedEntity‑preserving** (no silent retargeting),
+* **conservative** (no new intensional commitments about the same entity),
+* and **functorial** (compose cleanly in multi‑step pipelines).
+
+### 2 · Problem
+
+Without a dedicated pattern for EpistemicViewing:
+1. **Views vs retargetings blur.**
+   Operations that *intend* to change only representation (viewing) are easily conflated with operations that change the **object‑of‑talk** (retargeting). A Fourier‑style transform or a StructuralReinterpretation in E.TGA can quietly drift from “view of S” into “view of a different S′”, without declaring a `KindBridge`.
+
+2. **“View” vs “viewpoint” vs “surface” collapse.**
+   In standards and tools, “view” is often used interchangeably to mean:
+   * the **viewpoint** (specification of concerns and conformance rules),
+   * the **episteme** produced under that viewpoint, and
+   * the **surface** (rendered document or GUI).
+     Without a clear episteme‑level notion of viewing, MVPK and E.17.0 cannot cleanly separate these layers.
+
+2. **No describedEntity guarantees.**
+   A projection that looks like a harmless slice of a system description may in fact:
+   * change `describedEntityRef` (switching to a subsystem or a function),
+   * change `groundingHolonRef` (different plant or runtime),
+   * or smuggle in new intensional claims.
+     Without explicit laws on C.2.1 components, “view” becomes an informal metaphor, not a reliable morphism class.
+
+4. **Multi‑view reasoning has no core discipline.**
+   Multi‑view patterns (ISO 42010 viewpoint libraries, SysML v2 view queries, TEVB, MVPK faces) need:
+   * **vertical** projections over the same described entity (`α : Ep → Ref` fixed),
+   * and **correspondence‑based** projections that rely on explicit cross‑episteme links.
+     If each family re‑invents its own notion of “view”, consistency and tool support degrade.
+
+### 3 · Forces
+
+* **Same entity, different concerns.**
+  Stakeholders want different slices of the same description/specification, sometimes under different viewpoints, without re‑identifying the entity (system, method, role, service) being described.
+
+* **Internal vs cross‑episteme views.**
+  Some views depend only on a single episteme (direct viewing); others depend on a **CorrespondenceModel** (e.g. aligning requirements and design models). Both must be supported, but with **different obligations**.
+
+* **Conservativity vs expressivity.**
+  A view must not introduce new commitments about the described entity, but it may:
+
+  * aggregate or factor claims,
+  * change representation regime (diagrammatic vs symbolic vs latent),
+  * or shift to a different inference regime, **as long as this is conservative**.
+
+* **I/D/S strictness.**
+  `…Description` and `…Spec` are epistemes with `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`. Viewing must work over these **DescriptionContexts** without collapsing Intension (`I`) into episteme or confusing D/S with publication surfaces.
+
+* **Slot discipline and modularity.**
+  With C.2.1 and A.6.5, epistemes now have explicit `SlotKind`/`ValueKind`/`RefKind` triples. Viewing laws must be stated **at the slot level**, not in terms of ad‑hoc “fields”, so they can be reused across engineering, publication, and discipline packs.
+
+### 4 · Solution — `U.EpistemicViewing` as EFEM profile (`describedEntityChangeMode = preserve`)
+
+#### 4.1 · Informal definition
+
+> **Definition (informal).**
+> `U.EpistemicViewing` is the **describedEntity‑preserving species** of `U.EffectFreeEpistemicMorphing`.
+> A `U.EpistemicViewing v : X→Y`:
+>
+> * takes an input episteme `X` and produces an output episteme `Y`,
+> * preserves the occupant of `DescribedEntitySlot` (`describedEntityRef(Y) = describedEntityRef(X)`),
+> * may refine or re‑express `content : U.ClaimGraph`, `viewpointRef`, `representationSchemeRef`, and `referenceScheme`,
+> * is **effect‑free and conservative** (no new intensional claims about the same described entity),
+> * and composes functorially with other epistemic viewings.
+
+In C.2.1 terms `U.EpistemicViewing` behaves like a **lens/optic over the episteme slot graph**: it focuses on some SlotKinds (typically `ClaimGraphSlot`, `ViewpointSlot`, `RepresentationSchemeSlot`, `ReferenceSchemeSlot`) while preserving `DescribedEntitySlot` (and usually `GroundingHolonSlot`).
+
+#### 4.2 · Signature (A.6.0 / A.6.5 alignment)
+
+**Signature header.**
+`U.EpistemicViewing` is a **Morphism‑kind** under A.6.0:
+
+```
+SubjectBlock
+  SubjectKind    = U.EpistemicViewing
+  BaseType       = ⟨X:U.Episteme, Y:U.Episteme⟩      // carrier pair
+  Quantification = SliceSet := U.ContextSliceSet;
+                   ExtentRule := admissible view morphisms
+  ResultKind     = U.Morphism                        // an instance v
+```
+
+**Vocabulary (re‑uses A.6.2).**
+* **Types.** `U.Episteme`, `U.SubjectRef`, `U.Morphism`, `U.EpistemicViewing`.
+* **Operators.**
+  * `id    : U.Morphism(X→X)`
+  * `compose(g,f) : U.Morphism(X→Z)` where `f:X→Y`, `g:Y→Z`
+  * `apply(v, x:U.Episteme) : U.Episteme`
+  * `dom(v), cod(v) : U.Episteme`
+  * `subjectRef(·) : U.SubjectRef`
+**Slot‑level discipline.**
+Domain and codomain epistemes are instances of some `U.Episteme` species (typically `U.EpistemeCard`, `U.EpistemeView`, or `U.EpistemePublication`) whose episteme kinds each provide SlotSpecs (A.6.5) including at least:
+  * `DescribedEntitySlot` (ValueKind `U.Entity`, RefKind `U.EntityRef`),
+  * `GroundingHolonSlot?` (ValueKind `U.Holon`, RefKind `U.HolonRef`),
+  * `ClaimGraphSlot` (ValueKind `U.ClaimGraph`, by‑value),
+  * `ViewpointSlot?` (ValueKind `U.Viewpoint`, RefKind `U.ViewpointRef`),
+  * `ReferenceSchemeSlot` (ValueKind `U.ReferenceScheme`, by‑value),
+  * and, where C.2.1+ is in use, `RepresentationSchemeSlot`, `ViewSlot` and related slots.
+
+Practical species of EpistemicViewing will very often take `X` and `Y` from the same `U.EpistemeKind`, but the pattern itself only requires that the SlotSpecs of the domain and codomain kinds be **compatible** in the sense of A.6.5, not literally identical.
+
+**Relation to EFEM.**
+* Every `U.EpistemicViewing` is an **EFEM morphism** with `describedEntityChangeMode = preserve` in the sense of A.6.2/C.2.1.
+* It **inherits** P0–P5 from A.6.2, specialised to the case where the occupant of `DescribedEntitySlot` is unchanged.
+
+#### 4.3 · Laws (EV‑0…EV‑6, over C.2.1 components)
+
+All laws below are **in addition** to A.6.2’s EFEM laws P0–P5 and SHALL be read directly against C.2.1 components and A.6.5 SlotSpecs.
+
+**EV‑0 · Species & DescribedEntityChangeMode.**
+
+* Any morphism `v:X→Y` declared as `U.EpistemicViewing` **MUST**:
+  * be a species of `U.EffectFreeEpistemicMorphing` (A.6.2), and
+  * declare `describedEntityChangeMode(v) = preserve`.
+* Consequently:
+  * `DescribedEntitySlot` has the **same ValueKind and RefKind** in the episteme kind of `X` and `Y` (same `EoIClass ⊑ U.Entity`);
+  * `describedEntityRef(Y) = describedEntityRef(X)` **by definition** of the species.
+
+**EV‑1 · Typed domain/codomain & DescriptionContext behaviour.**
+
+For any `v:X→Y` in `U.EpistemicViewing`:
+1. `X` and `Y` are instances of `U.Episteme` species whose episteme kinds both realise at least the core C.2.1 slots (`DescribedEntitySlot`, `GroundingHolonSlot?`, `ClaimGraphSlot`, `ViewpointSlot?`, `ReferenceSchemeSlot`) and obey A.6.5. Many practical species of EpistemicViewing will take `X` and `Y` from the **same** `U.EpistemeKind`, but the A.6.3 pattern only requires **SlotSpec compatibility** between domain and codomain kinds (in the sense of A.6.5), not literal kind equality.
+
+2. At the SlotKind level:
+   * `DescribedEntitySlot` is **read‑only** (no change in `describedEntityRef`).
+   * `GroundingHolonSlot`, if present, is:
+     * either preserved exactly, or
+     * changed only within an explicitly declared **grounding context** (e.g. normalising identifiers for the same plant or runtime), justified via a `Bridge` in the same ReferencePlane.
+   * `ViewpointSlot`, if present, is:
+     * either preserved (internal normalisation under the same viewpoint), or
+     * changed only to another `U.ViewpointRef` **within a declared `U.MultiViewDescribing` family** (E.17.0), with a `CorrespondenceModel` providing witnesses.
+3. For any episteme that is a `…Description`/`…Spec` (E.10.D2), `subjectRef` decodes to `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`. EpistemicViewing MUST:
+   * preserve `DescribedEntityRef`,
+   * preserve `BoundedContextRef` (unless a Bridge is explicitly cited),
+   * treat `ViewpointRef` as in (2) above.
+
+**EV‑2 · Effect‑free boundary (over EpistemeSlotGraph).**
+EpistemicViewing remains **pure** in the EFEM sense:
+* It may change **only C.2.1 components of the codomain episteme**:
+  * `content : U.ClaimGraph` (e.g. filtering, aggregation, normalisation),
+  * `viewpointRef` (under the constraints in EV‑1),
+  * `representationSchemeRef` and `ReferenceScheme` (within a fixed representation family or under a declared `CorrespondenceModel`),
+  * meta‑components (edition, provenance, status flags).
+* It **MUST NOT**:
+  * invoke `U.Mechanism` or `U.WorkEnactment` (measure, execute, actuate),
+  * create or modify `U.PresentationCarrier` (no direct publishing to surfaces),
+  * cross ReferencePlanes implicitly (plane crossings go through Bridges with CL penalties in Part F).
+
+Any operational machinery (e.g. SAT/SMT solving, simulation, LLM tool‑use) MUST be modelled as a **separate `U.Mechanism`** that produces input epistemes or auxiliary artefacts consumed by the EpistemicViewing morphism.
+
+**EV‑3 · No new intensional claims about the same DescribedEntity.**
+
+Let `X` and `Y = apply(v,X)` with:
+* `content_X`, `referenceScheme_X`,
+* `content_Y`, `referenceScheme_Y`,
+* shared `describedEntityRef` and (typically) `groundingHolonRef`.
+
+Then:
+* The set of claims about `<describedEntityRef, groundingHolonRef>` obtained by reading `content_Y` through `referenceScheme_Y` **MUST NOT strictly extend** what is already entailed, in KD‑CAL/LOG‑CAL, by `content_X` read through `referenceScheme_X` under the same ReferencePlane and context.
+* Admissible changes:
+  * re‑expression (changing representation, not truth conditions),
+  * aggregation (e.g. summarising multiple claims into an explicitly derivable macro‑claim),
+  * dropping some information (lossy projection), provided **no new atomic commitments** about the same described entity are introduced.
+* Any intended strengthening of behavioural or structural commitments about the same entity **is not a valid EpistemicViewing**; it must be modelled either as:
+  * a change in Intension (new D/S pair under A.7/E.10.D2), or
+  * an A.6.4 `U.EpistemicRetargeting` plus a new Intension.
+
+**EV‑4 · Functoriality & correspondence alignment.**
+
+EpistemicViewing **inherits EFEM functoriality** and specialises it:
+
+1. **Direct EpistemicViewing (same representation scheme).**
+   Where `representationSchemeRef` and `ReferenceScheme` of `X` and `Y` are the same (up to declared normal forms), EpistemicViewing acts as a **strict functor** on ClaimGraphs:
+   * `apply(id, X) = X`,
+   * `apply(g ∘ f, X) = apply(g, apply(f, X))`,
+   * `content` transformation corresponds to a structural ClaimGraph function.
+
+2. **Correspondence‑based EpistemicViewing (representation changes).**
+   When viewing relies on a `CorrespondenceModel` between epistemes or representation schemes:
+   * the viewing morphism MUST reference that `CorrespondenceModel`,
+   * compositions involving such viewings **MUST** publish witnesses (epistemes or proof objects) that squares commute **up to declared isomorphism** (oplax naturality is allowed, but corrections are deterministic and reproducible),
+   * `describedEntityRef` and `groundingHolonRef` remain as in EV‑1; any transfer across contexts/planes goes via Bridges, not via hidden behaviour of the viewing.
+
+**EV‑5 · Idempotency & determinism on fixed configuration.**
+
+For any `v:X→Y` in `U.EpistemicViewing`, with fixed:
+* `describedEntityRef`,
+* `groundingHolonRef`,
+* `viewpointRef`,
+* `representationSchemeRef`,
+* `referenceScheme`,
+* and fixed `CorrespondenceModel` (if used),
+
+the following MUST hold:
+* **Idempotency.** `apply(v, apply(v, X))` is **isomorphic** to `apply(v, X)`:
+  * same DescribedEntity and grounding holon,
+  * same viewpoint and representation scheme,
+  * ClaimGraphs differ, at most, by declared structural equivalence (e.g. normal form vs source form).
+* **Determinism.** For fixed input and configuration, the result is uniquely determined (modulo declared equivalence). Any source of non‑determinism (random seeds, timing, external service state) MUST either:
+  * be exposed as part of `content` / `meta` of `X`, or
+  * be moved into a Mechanism outside the viewing morphism.
+
+**EV‑6 · Applicability & MultiViewDescribing alignment.**
+
+Each species of `U.EpistemicViewing` MUST:
+1. Declare an **Applicability profile** (A.6.0) specifying:
+   * permitted `EoIClass ⊑ U.Entity` (ValueKind of `DescribedEntitySlot`),
+   * permitted `groundingHolonRef` classes and ReferencePlanes,
+   * admissible `viewpointRef` ranges (possibly a named `U.ViewpointBundle`),
+   * supported `representationSchemeRef` families.
+1. For D/S epistemes in a `U.MultiViewDescribing` family (E.17.0):
+   * preserve `DescribedEntityRef` of `DescriptionContext`,
+   * either preserve `ViewpointRef` or change it within the declared viewpoint bundle, with any additional constraints recorded in the family’s `CorrespondenceModel`,
+   * never widen `ClaimScope` beyond what EV‑3 permits.
+3. Treat **any change of DescribedEntity** (even if “intuitively minor”, such as moving from subsystem to system) as **out of scope** for A.6.3; such moves belong to A.6.4 `U.EpistemicRetargeting`.
+
+#### 4.4 · Profiles: `U.DirectEpistemicViewing` and `U.CorrespondenceEpistemicViewing`
+
+`U.EpistemicViewing` is further structured into two important species; both inherit EV‑0…EV‑6.
+
+1. **`U.DirectEpistemicViewing` — self‑contained views.**
+   * Domain and codomain epistemes share:
+     * the same `representationSchemeRef` (up to declared normalisation),
+     * the same `ReferenceScheme` (or a refinement which is conservative and structurally documented).
+   * No external `CorrespondenceModel` is needed: the view is computed **solely from the input episteme** and, optionally, fixed configuration.
+   * Typical cases:
+     * internal normalisation (sorting, rewriting) of an engineering view;
+     * filtering `U.ClaimGraph` to keep only safety‑relevant claims;
+     * simplifying a proof‑oriented specification to a more operational form under the same semantics.
+
+1. **`U.CorrespondenceEpistemicViewing` — views relying on correspondence models.**
+   * Viewing depends on:
+     * one or more subject epistemes (e.g. requirements and design),
+     * an explicit `CorrespondenceModel` that relates their ClaimGraphs and representation schemes.
+   * The result is an episteme (often an `U.EpistemeView`) whose `describedEntityRef` matches that of the primary episteme, but whose content is computed **through** the correspondence links.
+   * Typical cases:
+     * ISO 42010‑style correspondences between architectural descriptions;
+     * cross‑model views in model‑based systems engineering (MBSE), where view content is computed from multiple model fragments;
+     * traceability‑based views aggregating requirements, design elements, and tests.
+
+In both profiles:
+* `CorrespondenceModel` remains an **episteme‑level artefact**, not a new kernel‑type hidden inside A.6.3.
+* `U.EpistemicViewing` stays **view‑like**: it reveals what is already there under the correspondence; it does not perform Γ‑style constructions of new Intensions.
+
+### 5 · Archetypal grounding (Tell–Show–Show)
+
+#### 5.1 · Engineering system description → safety officer view (DirectEpistemicViewing)
+
+*Context.*
+A system team maintains a rich `SystemDescription` episteme for a plant holon `S` under an engineering viewpoint from TEVB. A safety officer needs a concise view showing only safety‑critical components, hazards, and mitigations.
+
+*Shape.*
+
+* **Domain `X`.**
+  `X : U.SystemDescription` with:
+  * `describedEntityRef(X) : U.SystemRef` (the plant `S`),
+  * `groundingHolonRef(X) : U.HolonRef` (runtime environment),
+  * `viewpointRef(X) : U.ViewpointRef` (engineering TEVB viewpoint),
+  * `content(X) : U.ClaimGraph` (full behavioural & structural claims).
+* **Codomain `Y`.**
+  `Y : U.EpistemeView` with:
+  * `describedEntityRef(Y) = describedEntityRef(X)`,
+  * `groundingHolonRef(Y) = groundingHolonRef(X)`,
+  * `viewpointRef(Y)` either equal to or a refinement of the original engineering viewpoint (TEVB safety sub‑viewpoint),
+  * `content(Y)` containing only safety‑relevant claims, plus explicit aggregation nodes (e.g. hazard summaries).
+
+`SafetyView : X→Y` is a **DirectEpistemicViewing**:
+* `describedEntityChangeMode = preserve`,
+* only `content`, `viewpointRef` (within TEVB) and `meta` change,
+* KD‑CAL/LOG‑CAL checks show that every hazard/mitigation claim in `Y` is entailed by `X`,
+* view is idempotent and deterministic given `X` and the selected safety profile.
+
+This is the canonical “engineering view” archetype that later species in E.17.2/TEVB refer back to.
+
+#### 5.2 · MVPK publication view normalisation (DirectEpistemicViewing)
+
+*Context.*
+MVPK emits a `TechCard` view `V_raw` for an arrow `f` in a morphism class (e.g. an ATS‑checked service). The publication pipeline wants a normalised view `V_norm` where:
+* arrows are ordered canonically,
+* units and names follow a fixed naming discipline,
+* redundant cells are removed.
+
+*Shape.*
+
+* `X = V_raw`, `Y = V_norm`, both `U.EpistemeView` instances with:
+  * same `describedEntityRef` (the morphism’s arrow or capability),
+  * same `groundingHolonRef` (runtime/plant),
+  * same `viewpointRef` (publication viewpoint),
+  * same `representationSchemeRef` (TechCard schema).
+
+`NormalizeTechCard : X→Y` is a **DirectEpistemicViewing**:
+* changes only `content` and `meta` (e.g. “normalised at edition E”),
+* is pure and idempotent (two passes give the same normal form),
+* is conservative: no new claims about the arrow `f` appear; information is only reordered or discarded.
+
+MVPK can rely on this as an A.6.3‑conformant step without restating EFEM laws.
+
+#### 5.3 · Cross‑model consistency view (CorrespondenceEpistemicViewing)
+
+*Context.*
+A system has:
+* a requirements episteme `R` (“what the system should do”), and
+* a design episteme `D` (“how the system does it”),
+
+both with `describedEntityRef` pointing to the same system holon `S`, but living in different notations and contexts. A systems engineer wants a view that shows **only those requirements that currently have design coverage**.
+
+*Shape.*
+
+* `R : U.SystemRequirementsDescription` with ClaimGraph `C_R`.
+* `D : U.SystemDesignDescription` with ClaimGraph `C_D`.
+* `CM : U.CorrespondenceModel` relating requirements to design elements.
+* `Y : U.EpistemeView` with:
+  * `describedEntityRef(Y) = describedEntityRef(R) = describedEntityRef(D) = S`,
+  * `groundingHolonRef(Y)` inherited from `R`/`D` or declared via a Bridge,
+  * `content(Y)` aggregating only those requirements in `C_R` for which `CM` records coverage in `C_D`.
+
+`CoveredRequirementsView(R,D,CM) : X→Y` (with `X` a compound episteme or a bundle episteme over `R,D,CM`) is a **CorrespondenceEpistemicViewing**:
+* relies essentially on `CM` (without it, the view is undefined — fail‑closed),
+* must publish witnesses that two different ways of composing local correspondences give the same result up to declared equivalence,
+* remains conservative: it does not assert that any requirement is covered unless that fact is recorded in `CM` and justified in `D`.
+
+This archetype mirrors post‑2015 work on model synchronisation and bidirectional transformations, but anchored in the EpistemeSlotGraph.
+
+### 6 · Consequences
+
+* **Clear separation of viewing vs retargeting.**
+  `U.EpistemicViewing` and `U.EpistemicRetargeting` (A.6.4) now **cleanly separate**:
+
+  * “view of the same entity” vs “description of a different entity under a bridge”, and
+  * vertical morphisms (`α` fixed) vs retargeting morphisms (α changes under KindBridge).
+
+* **Stable backbone for multi‑view patterns.**
+  Multi‑view description (E.17.0), viewpoint bundle libraries (E.17.1/E.17.2), and MVPK publication now share a **single notion of view morphism**, aligned with C.2.1 slots and the I/D/S discipline.
+
+* **Slot‑level discipline for tools.**
+  Tools implementing views (queries, projections, report generators, LLM‑based summarisation) must declare:
+
+  * which SlotKinds they read,
+  * which SlotKinds they may write,
+  * and that `DescribedEntitySlot` is preserved.
+    This removes ambiguity around “subject/object” changes and supports robust static checking.
+
+* **Alignment with modern view/query practices.**
+  The pattern aligns with:
+  * ISO 42010:2011/2022 and its focus on **viewpoints**, **views**, and **correspondences** over an entity‑of‑interest;
+  * SysML v2 “views‑as‑queries” paradigm, where views are queries over a stable model, not new models;
+  * post‑2015 work on **optics** and **displayed categories**, treating views as structured projections over a fibred category of epistemes.
+
+### 7 · Rationale & SoTA‑echoing  *(informative)*
+
+* **Optics and displayed categories.**
+  In categorical terms, epistemes form a category `Ep` fibred over a category of described entities `Ref` via `α : Ep → Ref`. EpistemicViewing corresponds to **vertical morphisms** that preserve α. Their behaviour closely tracks **profunctor optics**: the DescribedEntitySlot plays the role of the “focus index”, while ClaimGraphs and representation schemes act as the data being transformed. Recent work on optics (2018‑onwards) provides compositional laws that FPF leverages without committing to a specific optic calculus.
+
+* **Multi‑view modelling and viewpoint libraries.**
+  ISO 42010 and its successors, as well as MBSE practice from ~2015 onwards, have refined the separation between **viewpoints** (families of concerns, stakeholders, and notations) and **views** (instances under those viewpoints). `U.EpistemicViewing` gives FPF a substrate‑agnostic notion of “view” that can be instantiated for architecture descriptions, safety cases, or even research artefacts, while TEVB and E.17.0 specialise it to engineering holons.
+
+* **Bidirectional transformations and consistency management.**
+  Modern BX research treats views and consistency restoration as structured transformations between models, with consistency relations acting as correspondences. `U.CorrespondenceEpistemicViewing` echoes this practice but insists that:
+  * viewing is **non‑creative** in intensional terms (no new commitments),
+  * any strengthening or change of described entity is explicitly modelled as retargeting or Intension change.
+
+* **Hybrid symbolic/latent representations.**
+  Contemporary work on LLMs and neurosymbolic systems often toggles between:
+  * symbolic specifications (logical, tabular, diagrammatic), and
+  * distributed or latent representations used for computation.
+    By treating `U.RepresentationScheme` and `U.RepresentationOperation` as first‑class episteme components, FPF allows EpistemicViewing to range over:
+  * purely symbolic projections,
+  * latent‑space projections,
+  * or hybrids that invoke external mechanisms before applying a pure view, without changing the core laws.
+
+### 8 · Conformance checklist (normative)
+
+**CC‑A.6.3‑1 · EFEM species and DescribedEntityChangeMode.**
+Any pattern that claims to define `U.EpistemicViewing` **SHALL**:
+
+* declare itself a species of `U.EffectFreeEpistemicMorphing` (A.6.2),
+* fix `describedEntityChangeMode = preserve`,
+* and state its Applicability profile (EoIClass, contexts, viewpoints, representation schemes).
+
+**CC‑A.6.3‑2 · Slot‑level read/write discipline.**
+For each species of EpistemicViewing, authors **MUST**:
+
+* list the SlotKinds it **reads** (typically `DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, `ViewpointSlot`, `RepresentationSchemeSlot`, `ReferenceSchemeSlot`),
+* list the SlotKinds it **writes** (typically `ClaimGraphSlot`, optionally `ViewpointSlot`, `RepresentationSchemeSlot`, `ReferenceSchemeSlot`, and `meta`),
+* assert explicitly that `DescribedEntitySlot` is read‑only,
+* and state any constraints on `GroundingHolonSlot` / `ViewpointSlot` changes.
+
+This satisfies A.6.5 and C.2.1 checkpoint CC‑C.2.1‑5.
+
+**CC‑A.6.3‑3 · DescriptionContext discipline (for D/S epistemes).**
+When domain/codomain epistemes are `…Description`/`…Spec`:
+* viewing laws SHALL be phrased in terms of `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`,
+* `DescribedEntityRef` MUST be preserved,
+* `BoundedContextRef` MUST be preserved unless a Bridge is explicitly cited,
+* `ViewpointRef` MUST either be preserved or changed within a declared `U.ViewpointBundle`.
+
+**CC‑A.6.3‑4 · Conservativity witness.**
+For each species, authoring SHALL provide:
+* a clear statement of what counts as a **new intensional claim** in the relevant discipline,
+* and a sketch of how conservativity (EV‑3) is checked or approximated (e.g. via KD‑CAL entailment, proof obligations, or structural invariants).
+
+**CC‑A.6.3‑5 · Profile classification.**
+* Species that do not require a `CorrespondenceModel` MUST be marked as `U.DirectEpistemicViewing`.
+* Species that do require such a model MUST be marked as `U.CorrespondenceEpistemicViewing` and SHALL:
+  * document the shape of the `CorrespondenceModel`,
+  * describe how witness epistemes ensure oplax naturality of compositions.
+
+**CC‑A.6.3‑6 · Separation from Retargeting and Mechanisms.**
+* Any species that may change `describedEntityRef` is **not** a conformant EpistemicViewing; it MUST be treated as `U.EpistemicRetargeting` (A.6.4) or as a different pattern.
+* Any species that performs measurements, actuation, or other side‑effects MUST be declared as `U.Mechanism`/`U.WorkEnactment` and cannot be an EpistemicViewing.
+
+### 9 · Mini‑checklist (for authors)
+
+When you introduce a new “view” in FPF, check:
+1. **Same described entity?**
+   Does `describedEntityRef` stay the same? If not, this is **Retargeting**, not Viewing.
+
+2. **Which slots move?**
+   Have you listed exactly which SlotKinds you read/write, and shown that `DescribedEntitySlot` is read‑only?
+
+3. **Conservative?**
+   Can you explain, in your discipline’s terms, why the view does not introduce new claims about the same entity?
+
+4. **Profile?**
+   Is this a self‑contained projection (`U.DirectEpistemicViewing`) or does it depend on a `CorrespondenceModel` (`U.CorrespondenceEpistemicViewing`)?
+
+5. **Context & viewpoint?**
+   Have you stated:
+   * the EoIClass for `DescribedEntitySlot`,
+   * the contexts/ReferencePlanes you assume,
+   * and the viewpoint bundle (if any) you operate under?
+
+If all answers are crisp and the laws EV‑0…EV‑6 are satisfied, the pattern is a good candidate for `U.EpistemicViewing`.
+
+## A.6.4 · **`U.EpistemicRetargeting` — describedEntity‑retargeting morphism** \[A]
+
+**One‑line summary.** `U.EpistemicRetargeting` is the **describedEntity‑retargetning** species of `U.EffectFreeEpistemicMorphing`: an effect‑free episteme→episteme morphism that **intentionally changes what the episteme is about** (the occupant of `DescribedEntitySlot` in C.2.1) under a declared `KindBridge` and invariant, while remaining conservative with respect to that invariant.
+
+**Status.** Normative [A] in **Part A (Kernel)**.
+**Placement.** After **A.6.3 `U.EpistemicViewing`**, before **A.6.5 `U.RelationSlotDiscipline`**. 
+
+**Builds on.**
+A.6.0 `U.Signature`; A.6.2 `U.EffectFreeEpistemicMorphing`; A.6.3 `U.EpistemicViewing`; A.6.5 `U.RelationSlotDiscipline`; A.7/E.10.D2 (I/D/S discipline, `DescriptionContext`); C.2.1 `U.Episteme — Epistemes and their slot graph`; C.2/C.3 (KD‑CAL/LOG‑CAL, ReferencePlane, Kind‑level reasoning); F.9 (Bridges, `KindBridge`, CL/CL^plane, SquareLaw witnesses).
+
+**Used by.**
+E.18 (E.TGA StructuralReinterpretation and other reinterpretation nodes); discipline packs for signal/spectrum transforms, data↔model retargetings, abstraction/refinement under kind‑invariants; KD‑CAL/LOG‑CAL retargeting rules; future species for architecture and governance reinterpretations. 
+
+### 1 · Problem frame
+
+Many important operations on descriptions **change the object‑of‑talk** while preserving a structural or behavioural invariant:
+
+* **Physical vs functional reinterpretation.**
+  An episteme about a physical module (cabinet, rack, device) is re‑interpreted as an episteme about a function‑holon it realises. This is precisely what StructuralReinterpretation nodes in E.TGA attempt to do. 
+
+* **Signal vs spectrum.**
+  A time‑domain signal description is re‑targeted to a description of its frequency‑domain spectrum. The underlying invariant (typically energy or inner‑product) is preserved, but the “thing we talk about” changes from `time→value` trajectories to `frequency→amplitude/phase` distributions. 
+
+* **Data vs model.**
+  An episteme about raw observations (dataset) is turned into an episteme about a learned or estimated model, keeping an invariant such as likelihood, sufficient statistics, or predictive performance. 
+
+All of these are **Ep→Ep transforms** that:
+* do **not** change the Intension (`I`) directly (they operate on descriptions/specifications),
+* do **not** merely slice or re‑express an episteme of the same entity (that would be EpistemicViewing, A.6.3),
+* but **do change** the **DescribedEntity‑bundle** (`DescribedEntitySlot` and usually `GroundingHolonSlot`) under a formal bridge between kinds.
+
+We need a single, reusable notion of **“epistemic retargeting”** that captures these operations as:
+* **effect‑free** at the level of Work/Mechanism (EFEM discipline),
+* **describedEntity‑retargeotating** in a controlled way,
+* **invariant‑conservative** (no violation of the declared invariant between kinds),
+* and **functorial** (retargetings compose cleanly and align with Bridges).
+
+### 2 · Problem
+
+Without a dedicated pattern for EpistemicRetargeting:
+1. **Retargeting is silently confused with viewing.**
+   Structural reinterpretations (e.g., component→function, signal→spectrum, data→model) can be mistakenly treated as “just another view” of the same entity, even though they change `describedEntityRef`. This hides the fact that the **object‑of‑talk** has changed and that a `KindBridge` and invariant are required.
+
+2. **Invariants float untyped.**
+   Fourier‑style moves, structural reinterpretations, and abstraction/refinement steps are often justified by “energy is preserved”, “this component realises that function”, or “this model summarises those data” — but these invariants are not connected to the episteme morphism class. Without a dedicated species:
+
+   * invariants live only in text,
+   * CL‑penalties and ReferencePlane crossings cannot be tracked systematically (Part F).
+
+3. **Cross‑kind reasoning has no canonical morphism.**
+   A general EFEM (A.6.2) can change `describedEntityRef` by setting `describedEntityChangeMode = retarget`, but:
+
+   * nothing states what that means at the level of kinds (`Kind(describedEntityRef(X))` vs `Kind(describedEntityRef(Y))`),
+   * nothing connects these moves to `KindBridge` and ReferencePlane policies.
+
+4. **StructuralReinterpretation is ad‑hoc.**
+   E.TGA currently hosts StructuralReinterpretation as a special node, but its semantics are much closer to a generic “retargeting under a bridge” pattern than to something specific to graph‑based architectures. Without a core pattern:
+
+   * StructuralReinterpretation risks duplicating retargeting logic,
+   * other discipline packs may reinvent their own ad‑hoc re‑targetings.
+
+5. **I/D/S discipline is left underspecified.**
+   For descriptions/specifications (`…Description` / `…Spec`), retargeting **changes `DescribedEntityRef` in `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`** (E.10.D2), but must say what happens to context and viewpoint. Without an explicit pattern, these decisions get scattered across different E‑patterns instead of being governed centrally. 
+
+### 3 · Forces
+
+* **Changing the object‑of‑talk vs constructing something new.**
+  Retargeting should express **“talking about a different but bridge‑related entity”**, not arbitrary construction of a new Intension/episteme. The invariant lives **across** the pair of entities, not inside a single episteme.
+
+* **Invariants may be lossy but must be explicit.**
+  A retargeting is often **lossy** (e.g. data→model, signal→spectrum, structural→functional view), but:
+
+  * it must preserve an explicitly declared invariant (energy, behaviour, statistics),
+  * any additional strengthening must be modelled as a change of Intension plus new D/S, not as a hidden side‑effect.
+
+* **Bridges and CL‑penalties.**
+  Retargeting often crosses:
+  * Kind‑planes (different `Kind(U.Entity)`),
+  * ReferencePlanes (different observability or abstraction regimes).
+    Part F already has `KindBridge`, plane Bridges and CL‑penalties; EpistemicRetargeting must **re‑use** them instead of introducing its own notion of “link”.
+
+* **Functors over `α : Ep → Ref`.**
+  In the fibred view of epistemes (C.2 / A.6.2), `α : Ep → Ref` maps each episteme to its described entity. EpistemicViewing preserves α (`α(v) = id`). Retargeting must:
+  * change α in a controlled way (`α(r) = b : R₁→R₂` in `Ref`),
+  * align with `KindBridge` and plane Bridges used for those base arrows.
+
+* **Slot discipline and modularity.**
+  C.2.1 and A.6.5 give epistemes a precise `SlotKind`/`ValueKind`/`RefKind` structure, including `DescribedEntitySlot` and `GroundingHolonSlot`. Retargeting laws must be stated **at the slot level**, not on ad‑hoc “fields”, so they can be reused across E.TGA, MVPK, and discipline packs.
+
+### 4 · Solution — `U.EpistemicRetargeting` as EFEM profile (`describedEntityChangeMode = retarget`)
+
+#### 4.1 · Informal definition
+
+> **Definition (informal).**
+> `U.EpistemicRetargeting` is the **describedEntity‑retargeting species** of `U.EffectFreeEpistemicMorphing`.
+> A `U.EpistemicRetargeting r : X→Y`:
+>
+> * takes an input episteme `X` and produces an output episteme `Y`,
+> * **changes** the occupant of `DescribedEntitySlot` (`describedEntityRef(Y) ≠ describedEntityRef(X)`),
+> * relates the kinds of the old and new described entities via an explicit `KindBridge` in the appropriate ReferencePlane,
+> * preserves a declared **invariant** across the pair of entities (e.g. energy, behaviour, sufficient statistics),
+> * is **effect‑free** at the level of Work/Mechanism (EFEM discipline),
+> * and composes functorially with other retargetings and viewings.
+
+In C.2.1 terms, `U.EpistemicRetargeting` **re‑indexes** an episteme along a base‑level bridge: it moves the `DescribedEntitySlot` (and often the `<DescribedEntitySlot, GroundingHolonSlot>` bundle) along a `KindBridge`, while re‑expressing `content : U.ClaimGraph` and `referenceScheme` so that the declared invariant continues to hold at the new target. 
+
+#### 4.2 · Signature (A.6.0 / A.6.5 alignment)
+
+**Signature header.**
+`U.EpistemicRetargeting` is a **Morphism‑kind** under A.6.0, specialised from EFEM:
+
+```
+SubjectBlock
+  SubjectKind    = U.EpistemicRetargeting
+  BaseType       = ⟨X:U.Episteme, Y:U.Episteme⟩      // carrier pair
+  Quantification = SliceSet := U.ContextSliceSet;
+                   ExtentRule := admissible retargeting morphisms
+  ResultKind     = U.Morphism                        // an instance r
+```
+
+**Vocabulary (re‑uses A.6.2).**
+
+* **Types.** `U.Episteme`, `U.SubjectRef`, `U.Morphism`, `U.EpistemicRetargeting`.
+* **Operators.**
+
+  * `id    : U.Morphism(X→X)`
+  * `compose(g,f) : U.Morphism(X→Z)` where `f:X→Y`, `g:Y→Z`
+  * `apply(r, x:U.Episteme) : U.Episteme`
+  * `dom(r), cod(r) : U.Episteme`
+  * `subjectRef(·) : U.SubjectRef`
+* **Slot‑level discipline.**
+  Domain and codomain epistemes are instances of some `U.Episteme` species (typically `U.EpistemeCard`, `U.EpistemeView`, or `U.EpistemePublication`) whose episteme kinds each provide SlotSpecs (A.6.5) including at least:
+
+  * `DescribedEntitySlot` (ValueKind `U.Entity`, RefKind `U.EntityRef`, usually restricted to an `EoIClass ⊑ U.Entity`),
+  * `GroundingHolonSlot?` (ValueKind `U.Holon`, RefKind `U.HolonRef`),
+  * `ClaimGraphSlot` (ValueKind `U.ClaimGraph`, by‑value),
+  * `ViewpointSlot?` (ValueKind `U.Viewpoint`, RefKind `U.ViewpointRef`),
+  * `ReferenceSchemeSlot` (ValueKind `U.ReferenceScheme`, by‑value),
+  * and, where C.2.1+ is in use, `RepresentationSchemeSlot`, `ViewSlot` and related slots.
+
+The pattern only requires **SlotSpec compatibility** between domain and codomain kinds (in the sense of A.6.5); they need not be literally the same kind.
+
+**Relation to EFEM and Viewing.**
+
+* Every `U.EpistemicRetargeting` is an **EFEM morphism** with `describedEntityChangeMode = retarget` in the sense of A.6.2/C.2.1.
+* It **inherits** EFEM laws P0–P5 and adds retargeting‑specific obligations ER‑0…ER‑6 below.
+* `U.EpistemicViewing` (A.6.3) covers the complementary case `describedEntityChangeMode = preserve`, where the object‑of‑talk does not change.
+
+#### 4.3 · Laws (ER‑0…ER‑6, over C.2.1 components)
+
+All laws below are **in addition** to A.6.2’s EFEM laws P0–P5 and SHALL be read directly against C.2.1 components and A.6.5 SlotSpecs. 
+
+**ER‑0 · Species & DescribedEntityChangeMode.**
+
+* Any morphism `r:X→Y` declared as `U.EpistemicRetargeting` **MUST**:
+  * be a species of `U.EffectFreeEpistemicMorphing` (A.6.2), and
+  * declare `describedEntityChangeMode(r) = retarget`.
+* Consequently:
+ * the pair `<DescribedEntitySlot, GroundingHolonSlot>` is the **target bundle** for the change (as in C.2.1 §7.3: DescribedEntity‑bundle retargeting),
+ * `DescribedEntitySlot` is **write‑enabled** (unlike Viewing) but only under the constraints below,
+  * there exist entities `T₁, T₂ : U.Entity` such that:
+    * `describedEntityRef(X) = T₁`,
+    * `describedEntityRef(Y) = T₂`,
+    * `T₁ ≠ T₂` (as Ref/identity), and
+    * `Kind(T₁)` and `Kind(T₂)` are related by a `KindBridge` in Part F’s sense (with declared CL^k). 
+
+**ER‑1 · Typed domain/codomain & DescribedEntity‑bundle behaviour.**
+
+For any `r:X→Y` in `U.EpistemicRetargeting`:
+
+1. `X` and `Y` are instances of `U.Episteme` species whose episteme kinds both realise at least the core C.2.1 slots (`DescribedEntitySlot`, `GroundingHolonSlot?`, `ClaimGraphSlot`, `ViewpointSlot?`, `ReferenceSchemeSlot`) and obey A.6.5.
+
+2. At the SlotKind level:
+
+   * `DescribedEntitySlot`:
+     * **MUST change** (`describedEntityRef(Y) ≠ describedEntityRef(X)`),
+     * the ValueKinds for the slot in the domain and codomain kinds **MUST** be related via an `EoIClass` pair that the `KindBridge` covers (e.g. `PhysicalModule` ↔ `FunctionHolon`, `Signal` ↔ `Spectrum`, `Dataset` ↔ `StatisticalModel`). 
+
+   * `GroundingHolonSlot`, if present:
+     * is either preserved exactly (`groundingHolonRef(Y) = groundingHolonRef(X)`), or
+     * changed only along a declared holon‑Bridge in the same ReferencePlane (for example, moving from one runtime to another under a deployment bridge) with CL^plane penalties recorded in Part F.
+
+   * `ViewpointSlot`, if present:
+     * is either preserved, or
+     * changed only within a declared `U.ViewpointBundle` (E.17.1/E.17.2), with the corresponding `CorrespondenceModel` explaining how the invariant is maintained under the new viewpoint.
+
+1. For any episteme that is a `…Description`/`…Spec` (E.10.D2), `subjectRef` decodes to `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`. Under EpistemicRetargeting:
+   * `DescribedEntityRef` **MUST** change from `T₁` to `T₂` as in ER‑0,
+   * `BoundedContextRef` is:
+     * either preserved, or
+     * changed along an explicit Context‑Bridge (E.10.D1, Part F),
+   * `ViewpointRef` is treated as in (2) above (preserved or mapped within a bundle), and any resulting change in admissible claims is governed by ER‑2.
+
+The pair `<DescribedEntitySlot, GroundingHolonSlot>` is treated as a **target bundle**: many practical retargetings work at the level of this bundle rather than DescribedEntity alone, especially in E.TGA. 
+
+**ER‑2 · Invariant‑based conservativity (lossy but lawful).**
+
+Let `X` and `Y = apply(r,X)` with:
+* `describedEntityRef(X) = T₁`, `describedEntityRef(Y) = T₂`,
+* `KindBridge(T₁,T₂)` and associated invariant `Inv` declared for this species (e.g. energy, behavioural relation, likelihood),
+* `content_X`, `referenceScheme_X`,
+* `content_Y`, `referenceScheme_Y`,
+* `groundingHolonRef_X`, `groundingHolonRef_Y`.
+
+Then:
+1. There MUST exist a KD‑CAL/LOG‑CAL expression of `Inv` such that:
+   * all claims about `Inv` that can be derived by reading `content_Y` through `referenceScheme_Y` relative to `<T₂, groundingHolonRef_Y>`
+     **are entailed by**
+     claims about `Inv` derivable from `content_X` through `referenceScheme_X` relative to `<T₁, groundingHolonRef_X>`. 
+
+2. Retargeting, as an EFEM instance, **may**:
+   * discard information not needed to maintain `Inv` (lossy summarisation),
+   * change representation schemes (e.g. time vs frequency domain),
+   * move to different abstraction levels or ReferencePlanes (with Bridges and CL penalties declared),
+   but **MUST NOT** violate the declared invariant.
+
+3. Any intended change that **strengthens** commitments about `Inv` beyond what is derivable from `X` **is not a valid EpistemicRetargeting**. It must be modelled as:
+   * a change of Intension (new D/S pair under A.7/E.10.D2), or
+   * a chain of retargetings and Intension updates explicitly recorded in KD‑CAL/LOG‑CAL.
+
+**ER‑3 · Functoriality, α‑reindexing & SquareLaw witnesses.**
+
+EpistemicRetargeting **inherits EFEM functoriality** and specialises it to the retargeting case:
+
+1. At the `Ep` level:
+   * `apply(id, X) = X` (no retargeting),
+   * `apply(r₂ ∘ r₁, X) = apply(r₂, apply(r₁, X))` whenever domains/codomains match,
+   * the composite `r₂∘r₁` has `describedEntityRef(X) = T₁` and `describedEntityRef(cod(r₂∘r₁)) = T₃`, with a composed `KindBridge(T₁,T₃)` whenever the Bridges of `r₁` and `r₂` compose.
+
+2. At the `Ref` level, under `α : Ep → Ref`:
+   * each retargeting `r` induces a base arrow `α(r) : R₁→R₂` in `Ref`, compatible with the `KindBridge` used in ER‑0,
+   * the square formed by:
+     * `X→Y` in `Ep` (retargeting),
+     * `α(X)→α(Y)` in `Ref` (base retargeting),
+     * any measurement or evaluation morphisms on either side,
+       **MUST** commute **up to a declared SquareLaw‑retargeting witness** (Part F / E.TGA), documenting that evaluating then retargeting vs retargeting then evaluating yields equivalent results (modulo CL‑penalties).
+
+2. When retargetings use CorrespondenceModels between epistemes (e.g. aligning detailed hardware layouts with function networks), they MUST:
+   * reference the CorrespondenceModel explicitly,
+   * publish witness epistemes that certify commutativity of key squares, analogous to EV‑4 but now across **different described entities.**
+
+**ER‑4 · Idempotency & determinism on fixed Bridge/invariant.**
+
+For any `r:X→Y` in `U.EpistemicRetargeting`, with fixed:
+* `KindBridge(T₁,T₂)` and ReferencePlane policies,
+* invariant `Inv`,
+* configuration (ContextSlice, representation families, CorrespondenceModels),
+
+the following MUST hold:
+
+* **Idempotency.**
+  Applying `r` twice does not further change the described entity or invariant‑relevant content:
+  * `apply(r, apply(r, X))` is **isomorphic** (in the EFEM sense) to `apply(r, X)`,
+  * `describedEntityRef` is already `T₂` after the first application,
+  * `content` and `referenceScheme` differ at most by declared structural equivalence (e.g. normal forms at the new target).
+
+* **Determinism.**
+  For fixed input `X` and fixed Bridge/invariant configuration, the result is uniquely determined modulo declared equivalence. Any source of non‑determinism (randomness, time, external service state) MUST either:
+  * be made explicit as part of `content`/`meta` of `X`, or
+  * be moved to a `U.Mechanism` outside the retargeting morphism.
+
+**ER‑5 · Applicability, EoI‑pairs & CL‑discipline.**
+
+Each species of `U.EpistemicRetargeting` MUST declare an **Applicability profile** (A.6.0) that includes:
+
+1. **EoI‑pairs.**
+   Admissible pairs of `EoIClass`es (ValueKinds of `DescribedEntitySlot` for domain and codomain), for example:
+   * `(PhysicalModule, FunctionHolon)`,
+   * `(Signal, Spectrum)`,
+   * `(Dataset, StatisticalModel)`.
+
+   For each such pair, the pattern MUST reference the appropriate `KindBridge` species in Part F.
+
+2. **Grounding constraints.**
+   Permitted classes of `groundingHolonRef` and ReferencePlanes, including whether:
+   * grounding must stay within the same holon,
+   * or may move along specific holon Bridges with CL^plane penalties.
+
+3. **Viewpoint/context constraints.**
+   Whether retargeting is allowed for all viewpoints or only for specific `U.ViewpointBundle`s (TEVB etc.), and any requirements on `BoundedContextRef`.
+
+4. **CL‑discipline.**
+   Minimum CL^k and CL^plane required for the Bridges used, aligning with F.9 and E.TGA’s StructuralReinterpretation rules.
+
+Any attempt to apply a retargeting outside this Applicability profile is **ill‑typed**.
+
+**ER‑6 · Compatibility with Viewing and Mechanisms.**
+
+1. **Separation from Viewing.**
+
+   * Any morphism that **does not change** `describedEntityRef` (and keeps `DescribedEntityChangeMode = preserve`) belongs to A.6.3 `U.EpistemicViewing`, not to `U.EpistemicRetargeting`.
+   * Any morphism that **does** change `describedEntityRef` **MUST NOT** be declared as `U.EpistemicViewing`; it is either:
+     * a `U.EpistemicRetargeting`, or
+     * a more general pattern that composes several retargetings and Intension changes.
+
+   In any composite `V∘r` or `r∘V`, describedEntity changes are localised to retargeting steps; Viewing steps are always `describedEntityChangeMode = preserve`.
+
+2. **Separation from Mechanisms.**
+
+   * Retargeting MAY depend on artefacts produced by `U.Mechanism` (e.g., computing a Fourier transform, fitting a model), but those are separate Work/Mechanism steps.
+   * `U.EpistemicRetargeting` itself remains **effect‑free**: it rearranges epistemes, slots and ClaimGraphs, but does not perform measurements or actuation.
+
+### 5 · Archetypal grounding (Tell–Show–Show)
+
+**Tell.**
+EpistemicRetargeting captures **“same invariant, different described entity”** moves:
+
+* we stop talking about “this cabinet” and start talking about “the routing function it realises”;
+* we stop talking about “this signal over time” and start talking about “its spectrum over frequency”;
+* we stop talking about “this dataset” and start talking about “a model class with parameters θ learned from it”.
+
+In each case, what remains stable is an **invariant** (behaviour, energy, likelihood), not the described entity itself.
+
+**Show 1 — StructuralReinterpretation in E.TGA.** 
+* `X` describes a physical module holon `S_phys`.
+* `Y` describes a function holon `S_func`.
+* A `KindBridge(S_phys, S_func)` expresses “this module realises that function”.
+* A StructuralReinterpretation node in E.TGA is an instance of `U.EpistemicRetargeting` whose invariant is the behaviour relation between `S_phys` and `S_func`.
+
+**Show 2 — Signal↔Spectrum.**
+* `X` describes a time‑domain signal `s(t)`; `DescribedEntityRef(X) = S_time`.
+* `Y` describes its spectrum `S(ω)`; `DescribedEntityRef(Y) = S_freq`.
+* `KindBridge(S_time, S_freq)` encodes Fourier duality in the relevant ReferencePlane.
+* The invariant is energy (or inner product), expressed as a KD‑CAL statement; EpistemicRetargeting ensures that energy‑related claims in `Y` are entailed by `X`.
+
+**Show 3 — Data→Model.**
+* `X` describes a dataset `D` (observations); `DescribedEntityRef(X) = S_data`.
+* `Y` describes a model `M` (e.g. a parametric family with learned parameters); `DescribedEntityRef(Y) = S_model`.
+* `KindBridge(S_data, S_model)` encodes the intended data→model relation (e.g. MLE, Bayesian posterior).
+* The invariant is likelihood or predictive performance; the retargeting laws ensure `Y` does not claim more about this invariant than is supported by `X`.
+
+### 6 · Consequences
+
+* **Clear separation of Viewing vs Retargeting.**
+  A.6.3 and A.6.4 now jointly distinguish:
+  * **views**: same `DescribedEntityRef`, possible representation/viewpoint changes;
+  * **retargetings**: different `DescribedEntityRef` under `KindBridge` and invariants.
+
+* **Canonical home for StructuralReinterpretation.**
+  E.TGA StructuralReinterpretation becomes a **species of `U.EpistemicRetargeting`**, not an ad‑hoc special node. This reduces duplication and clarifies how CL penalties and Bridges are used.
+
+* **Invariants become first‑class.**
+  Retargeting makes invariants explicit and type‑checked: every such morphism must state what it preserves and how that is expressed in KD‑CAL/LOG‑CAL.
+
+* **Safer cross‑plane reasoning.**
+  ReferencePlane crossings and kind‑level moves are handled via existing Bridges (Part F), with CL^plane/CL^k penalties and SquareLaw witnesses, instead of hidden in implementation details.
+
+* **Better integration with I/D/S.**
+  For `…Description`/`…Spec` epistemes, retargeting is the only place where `DescribedEntityRef` in `DescriptionContext` is allowed to change; all other I/D/S‑level operations (Describe/Specify, Viewing) keep it fixed. 
+
+### 7 · Rationale & SoTA‑echoing  *(informative)*
+* **Fibrations and base‑change (displayed categories, 2017+).**
+  With epistemes forming a category `Ep` fibred over `Ref` via `α : Ep → Ref` (C.2 / A.6.2), EpistemicViewing corresponds to **vertical morphisms** (`α(v) = id`), while EpistemicRetargeting corresponds to **reindexing along base arrows** (`α(r) = b : R₁→R₂`). This lines up with base‑change and transport along fibrations in category theory.
+
+* **Structured cospans and reinterpretation.**
+  Modern work on structured cospans and open systems uses cospans and their morphisms to move between different presentations of a system while preserving a notion of interface/behaviour. Retargeting plays a similar role: it moves from one entity kind to another while preserving a declared invariant.
+
+* **Fourier‑style dualities.**
+  In signal processing and physics, Fourier and related transforms are often treated as isometries between function spaces, preserving energy while changing the domain of discourse. `U.EpistemicRetargeting` abstracts this pattern: the invariant is codified in KD‑CAL/LOG‑CAL; the morphism explicitly changes the described entity along a `KindBridge`.
+
+* **Data/model duality in ML.**
+  Contemporary ML workflows cycle between data and models; invariants such as likelihood, risk, and calibration matter more than raw equality of ClaimGraphs. Retargeting gives a structured way to talk about data→model (and, potentially, model→data) moves as episteme morphisms, rather than untyped “training” steps.
+
+* **Consistency management and abstraction.**
+  In model‑driven and bidirectional transformation literature, abstraction and refinement transfers information between models with different subject domains. Treating these as retargetings with explicit Bridges and invariants makes their assumptions amenable to CL accounting and KD‑CAL reasoning, instead of hiding them in tooling.
+
+### 8 · Conformance checklist (normative)
+
+**CC‑A.6.4‑1 · EFEM species and DescribedEntityChangeMode.**
+Any pattern that claims to define `U.EpistemicRetargeting` **SHALL**:
+
+* declare itself a species of `U.EffectFreeEpistemicMorphing` (A.6.2),
+* fix `describedEntityChangeMode = retarget`,
+* and state its Applicability profile (EoI‑pairs, contexts, viewpoints, representation schemes, invariants).
+
+**CC‑A.6.4‑2 · Slot‑level read/write discipline.**
+For each species of EpistemicRetargeting, authors **MUST**:
+* list the SlotKinds it **reads** (at least `DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, `ViewpointSlot`, `ReferenceSchemeSlot`, plus any C.2.1+ slots used),
+* list the SlotKinds it **writes** (at least `DescribedEntitySlot`, typically also `ClaimGraphSlot`, `ReferenceSchemeSlot`, and `meta`),
+* state explicitly how `GroundingHolonSlot` and `ViewpointSlot` behave (preserved vs bridged),
+* reference A.6.5 to show that SlotSpecs remain consistent across domain/codomain kinds.
+
+**CC‑A.6.4‑3 · Bridge & invariant declaration.**
+Each species SHALL:
+* identify the relevant `KindBridge` species (and, where applicable, plane Bridges),
+* declare the invariant(s) it preserves (in KD‑CAL/LOG‑CAL terms),
+* sketch how invariant preservation is checked or approximated (e.g. through proofs, tests, or statistical guarantees).
+
+**CC‑A.6.4‑4 · SquareLaw‑retargeting witnesses.**
+For retargetings that interact with E.TGA or other graph‑level transductions, authors **MUST**:
+* describe the commutative squares (or more general diagrams) that express “evaluate then retarget = retarget then evaluate” up to equivalence,
+* identify the corresponding SquareLaw‑retargeting witnesses and how they are represented as epistemes.
+
+**CC‑A.6.4‑5 · D/S‑context behaviour.**
+For retargetings over `…Description`/`…Spec` epistemes:
+* laws MUST be phrased in terms of `DescriptionContext = ⟨DescribedEntityRef, BoundedContextRef, ViewpointRef⟩`,
+* `DescribedEntityRef` MUST change in a way consistent with the declared `KindBridge`,
+* `BoundedContextRef` MUST either be preserved or changed only via explicit Context‑Bridges,
+* `ViewpointRef` MUST either be preserved or change within a declared `U.ViewpointBundle`.
+
+**CC‑A.6.4‑6 · Separation from Viewing and Mechanisms.**
+* Any species that leaves `describedEntityRef` unchanged is **not** a conformant EpistemicRetargeting; it belongs to `U.EpistemicViewing` (A.6.3) or another EFEM species.
+* Any species that performs measurements, actuation, or other side‑effects MUST be declared as `U.Mechanism`/`U.WorkEnactment` and cannot be an EpistemicRetargeting.
+
+### 9 · Mini‑checklist (for authors)
+
+When you think you need “retargeting” in FPF, ask:
+
+1. **Does `describedEntityRef` change?**
+   If no, this is Viewing (A.6.3), not Retargeting.
+
+2. **Is there a `KindBridge` between old and new entities?**
+   If not, you probably need to introduce one in Part F or rethink the Intension, not fudge a retargeting.
+
+3. **What invariant are you preserving?**
+   Write it down in KD‑CAL/LOG‑CAL terms. If you cannot, retargeting is underspecified.
+
+4. **How do `GroundingHolonRef`, context and viewpoint behave?**
+   Explicitly state whether they stay the same, move along Bridges, or are out of scope.
+
+5. **Can the operation be factored as Mechanism + pure retargeting?**
+   If the step needs computation (FFT, model fitting), separate the Mechanism from the EpistemicRetargeting.
+
+### 10 · Relations
+
+* **Specialises / is specialised by.**
+  * Specialises A.6.2 `U.EffectFreeEpistemicMorphing` as the `describedEntityChangeMode = retarget` profile.
+  * Complements A.6.3 `U.EpistemicViewing` (describedEntity‑preserving EFEM) as the “retargeting” counterpart.
+
+* **Constrained by.**
+  * A.6.5 `U.RelationSlotDiscipline` for SlotKind/ValueKind/RefKind discipline.
+  * C.2.1 `U.EpistemeSlotGraph` for episteme components and `DescribedEntitySlot`/`GroundingHolonSlot`.
+  * E.10.D2 (I/D/S discipline; `DescriptionContext`).
+  * Part F (Bridges, `KindBridge`, ReferencePlane crossings, CL/CL^plane).
+  * E.10 (LEX‑BUNDLE naming rules, especially on `…Slot`/`…Ref` and ban on Subject/Object in episteme tech names).
+
+* **Consumed by.**
+  * E.18 (E.TGA StructuralReinterpretation and other cross‑kind architecture transformations).
+  * E.17.0/E.17 (for cases where publication needs to move between different entities‑of‑interest but preserve invariants).
+  * KD‑CAL/LOG‑CAL rules that reason about retargeting and invariant preservation across different described entities.
+
+
+
 ## A.6.5 — **U.RelationSlotDiscipline** · SlotKind/ValueKind/RefKind discipline for n‑ary relations  \[A]
 
 **Plain‑name.** Relation slot discipline.
@@ -6128,16 +7459,14 @@ FPF relies heavily on **n‑ary relations and morphisms**:
 * role enactment and assignment,
 * method/service signatures,
 * guards and bridges in Part B/C,
-* publication and view operators in Part E.
+* publication and view operators in Part E, and any other `U.Signature` whose **Vocabulary** row declares n-ary relations or operators across Part A/B/C/E.
 
 In practice, existing episteme and drafts **frequently conflate**:
-
 1. the **place** in a relation (“the 2nd argument, named Subject”),
 2. the **kind of value** that may occupy that place (`U.Entity`, `U.Holon`, …), and
 3. the **reference/identifier** we actually store there (`…Id`, `…Ref`).
 
 This produces subtle bugs:
-
 * misuse of “Subject/Object” as slot names for very different kinds,
 * “Ref” suffix attached to both **entities and fields**,
 * mixed reasoning about “role”, “slot”, and “object”,
@@ -6149,9 +7478,7 @@ This produces subtle bugs:
 * a **ValueKind** — *what sort of thing* may occupy that place, and
 * a **RefKind** — *how we point at it* in episteme (identifier / handle), if at all.
 
-This pattern makes slot discipline explicit and shareable across **epistemes, roles, methods, services, bridges, and guards**.
-
----
+This pattern makes slot discipline explicit and shareable across **epistemes, roles, methods, services, bridges, guards, and all other `U.Signature`d calculi**: any “parameter list”, “port list”, or “coordinate tuple” for an n-ary relation in FPF **is** a set of SlotSpecs governed by this discipline.
 
 ### 2 · Problem (symptoms in FPF)
 
@@ -6214,13 +7541,13 @@ The result: **local convenience, global incoherence** — exactly what A.6.0 and
 
 * **F2 · Cross‑disciplinary reuse.**
   Slot discipline must work for:
-
   * logical relations (KD‑CAL, LOG‑CAL),
   * episteme structures (C.2.1),
   * systems/roles/methods (A/B),
-  * services and APIs,
+  * services and APIs (including Method/Service interfaces),
+  * guards, bridges, and flows in E.TGA,
   * and publication operations (E.17).
-    A scheme that is too domain‑specific (e.g. “database attributes only”) won’t scale.
+    A scheme that is too domain-specific (e.g. “database attributes only”) won’t scale; the same discipline must underlie **all** `U.Signature`d argument/port lists.
 
 * **F3 · Alignment with existing tooling.**
   Tooling stacks already operate with:
@@ -6235,7 +7562,7 @@ The result: **local convenience, global incoherence** — exactly what A.6.0 and
 
   * slot ≠ value ≠ reference,
   * system role ≠ slot name,
-  * aboutness ≠ guard.
+  * describedEntity ≠ guard.
 
 * **F5 · Didactic primacy and naming discipline.**
   E.8 and E.10 demand patterns that are:
@@ -6248,12 +7575,15 @@ The result: **local convenience, global incoherence** — exactly what A.6.0 and
 
 #### 4.1 · Three layers for every argument position
 
-`U.RelationSlotDiscipline` extends `U.Signature` with a **three‑layer description** for every argument position (whether we call it “parameter”, “slot”, “coordinate”, or “port”):
+`U.RelationSlotDiscipline` extends `U.Signature` with a **three-layer description** for every argument position (whether we call it “parameter”, “slot”, “coordinate”, or “port” in colloquial prose).
+In **normative** text, the canonical word is **slot**, and the canonical carrier is a **SlotSpec** triple (A.6.0).
 
 1. **SlotKind (place in relation).**
-   *What this position is called and how it participates in the relation’s semantics.*
+   *How this position is denoted in the Signature and what is fixed about it by the relation’s definition.*
    – Examples: `DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, `ViewpointSlot`, `ServiceEndpointSlot`, `CallerHolonSlot`, `MetricSlot`.
-   – SlotKind is **structural**: it says *“this is the 1st/2nd/3rd coordinate of relation R”* with a given semantic role.
+   – SlotKind is **structural**: it picks out **one distinguished place** in the argument/port list of a given relation or operator; it does **not** name a “role” played by the occupant.
+   – For an n-ary relation declared in a `U.Signature`, the pair *(Signature id, SlotKind)* identifies a **slot**; positional indices are merely a presentation-level enumeration of these slots.
+   – What an occupant “does” in that place (its contribution to laws, constraints, effects) is governed by the **laws over the Signature** and by the corresponding ValueKind, not by SlotKind-as-“role”.
 
 2. **ValueKind (kind of occupant).**
    *Which kinds of things may occupy this position in principle (at the intensional level).*
@@ -6347,7 +7677,7 @@ Given a relation or morphism `R` with signature Σ and SlotSpecs `{SlotSpec_i}`:
    If `refMode=RefKind`, the stored field is of that RefKind; substitutions operate on references, not on underlying values. Edition pinning is handled as usual by `.edition` fields in F‑patterns (F.15, etc.).
 
 4. **By‑value vs by‑ref awareness.**
-   Substitutions at by‑value slots (e.g. `ClaimGraphSlot`) are **content changes** to the episteme or relation instance; they may affect formality F or assurance lanes. Substitutions at ref slots are **re‑targetings** of aboutness or context, and their legality is governed by A.6.2–A.6.4 and Bridge/CL rules. Tooling SHOULD surface this difference explicitly in authoring surfaces (e.g. separate “Ref” vs “embedded content” columns).
+   Substitutions at by‑value slots (e.g. `ClaimGraphSlot`) are **content changes** to the episteme or relation instance; they may affect formality F or assurance lanes. Substitutions at ref slots are **re‑targetings** of describedEntity or context, and their legality is governed by A.6.2–A.6.4 and Bridge/CL rules. Tooling SHOULD surface this difference explicitly in authoring surfaces (e.g. separate “Ref” vs “embedded content” columns).
 
 These rules give a uniform way to say:
 
@@ -6516,8 +7846,8 @@ This example highlights the difference between:
 * **By‑value/by‑ref honesty.**
   We explicitly separate ValueKind and RefKind instead of hiding “by‑reference” behind the type system. This increases verbosity but makes reasoning about edition pinning, caching, and re‑targeting more robust, and keeps I/D/S distinctions visible inside signatures.
 
-* **Episteme‑first aboutness.**
-  The examples and cross‑references prioritise episteme use‑cases (C.2.1, A.6.2–A.6.4) where aboutness and retargeting are subtle. System‑only usages (e.g. method signatures) are absolutely allowed but not the driving case; they inherit the same discipline without additional obligations.
+* **Episteme‑first describedEntity.**
+  The examples and cross‑references prioritise episteme use‑cases (C.2.1, A.6.2–A.6.4) where describedEntity and retargeting are subtle. System‑only usages (e.g. method signatures) are absolutely allowed but not the driving case; they inherit the same discipline without additional obligations.
 
 
 ### 7 · Conformance Checklist (normative)
@@ -6553,7 +7883,7 @@ SlotKinds **MUST NOT** use “Role” as their head noun; use “Slot” with a 
 Any pattern that describes substitution or replacement of arguments **MUST** phrase its rules in terms of SlotKinds and ValueKinds (and, where relevant, RefKinds), not in terms of unstructured parameter indices or ad‑hoc labels.
 
 **CC‑A.6.5‑8 · Cross‑pattern consistency.**
-When the same conceptual position is used across patterns (e.g. “aboutness target”, “grounding holon”, “caller system”), the **same SlotKind name** and ValueKind **SHALL** be reused, unless a documented Bridge declares a different discipline or the pattern explicitly scopes itself to a distinct calculus.
+When the same conceptual position is used across patterns (e.g. “describedEntity target”, “grounding holon”, “caller system”), the **same SlotKind name** and ValueKind **SHALL** be reused, unless a documented Bridge declares a different discipline or the pattern explicitly scopes itself to a distinct calculus.
 
 **CC‑A.6.5‑9 · Migration of legacy `…Ref`/`…Slot` usage.**
 Contexts adopting this pattern **MUST** maintain a migration table for legacy types/fields whose names contain `Ref` or `Slot` but do not comply with the new discipline. Each entry shall state:
@@ -6572,7 +7902,7 @@ New or revised patterns in Part A/B/C/E that introduce n‑ary relations, morphi
   Any n‑ary relation (episteme, role, method, service, guard) can be described with the same SlotKind/ValueKind/RefKind triple.
 
 * **Safer substitutions.**
-  Substitution, retargeting, and viewing laws (A.6.2–A.6.4) can be stated in terms of *which SlotKinds* they read/write and *which ValueKinds* they preserve or rotate.
+  Substitution, retargeting, and viewing laws (A.6.2–A.6.4) can be stated in terms of *which SlotKinds* they read/write and *which ValueKinds* they preserve or retarget.
 
 * **Cleaner naming and migration.**
   Misuses of `*Ref`, `*Slot`, “Role”, “Subject”, “Object” in signatures become guard‑detectable; migration strategies can be described as re‑factoring SlotKinds and ValueKinds rather than ad‑hoc renames.
@@ -6589,15 +7919,15 @@ New or revised patterns in Part A/B/C/E that introduce n‑ary relations, morphi
   Some legacy names will need migration (`EpistemicObject`, ad‑hoc `…Ref` types). Mitigation: migration notes in F.18 and dedicated anti‑pattern sections; transitional aliases allowed but marked deprecated.
 
 * **Learning curve.**
-  Authors must learn to think “SlotKind/ValueKind/RefKind” before writing `id` or `subject`. Mitigation: Tell‑Show‑Show examples and a didactic micro‑guide on slots and aboutness referenced from A.6.0/C.2.1/E.17.0.
+  Authors must learn to think “SlotKind/ValueKind/RefKind” before writing `id` or `subject`. Mitigation: Tell‑Show‑Show examples and a didactic micro‑guide on slots and describedEntity referenced from A.6.0/C.2.1/E.17.0.
 
 ### 9 · Rationale
 
 **Why a SlotKind/ValueKind/RefKind triple at all.** At architheory level, this pattern makes `U.Signature` behave like a lightweight dependently‑typed record discipline: SlotKind plays the role of an index or label, ValueKind is the family of admissible occupants at that position, and RefKind captures the representation choice (by‑value or via a handle). This mirrors the way post‑2015 work on row‑polymorphic data and effect rows treats labels and field kinds as first‑class, while keeping the Core notation‑neutral.
 
-**Why separate ValueKind from RefKind.** In practice, “Ref” types tend to be quietly used as if they were values, eroding the I/D/S split and making edition discipline invisible. By insisting that ValueKind is always the conceptual kind (“what sort of thing is this about?”) and RefKind is always the reference/identifier kind (“how do we point at it in KU?”), the pattern aligns with E.10.D2’s intension/description/specification discipline and with modern resource‑aware logics that keep values and resources distinct.
+**Why separate ValueKind from RefKind.** In practice, “Ref” types tend to be quietly used as if they were values, eroding the I/D/S split and making edition discipline invisible. By insisting that ValueKind is always the conceptual kind (“what sort of thing is this about?”) and RefKind is always the reference/identifier kind (“how do we point at it in Episteme?”), the pattern aligns with E.10.D2’s intension/description/specification discipline and with modern resource‑aware logics that keep values and resources distinct.
 
-**Why standardise episteme SlotKinds.** Aboutness and grounding recur across epistemes; standard SlotKinds (`DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, etc.) let A.6.2–A.6.4 and C.2.1 talk about substitutions and retargetings once, instead of re‑defining “what this is about” in every pattern. This is the same move that SoTA specification frameworks make when they stabilise their core judgement forms and then vary only instances and laws.
+**Why standardise episteme SlotKinds.** describedEntity and grounding recur across epistemes; standard SlotKinds (`DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, etc.) let A.6.2–A.6.4 and C.2.1 talk about substitutions and retargetings once, instead of re‑defining “what this is about” in every pattern. This is the same move that SoTA specification frameworks make when they stabilise their core judgement forms and then vary only instances and laws.
 
 **Why lexical rules (`*Slot`, `*Ref`, no “Role” heads).** The triple only buys safety if authors and tools can see it at a glance. Reserving `*Slot` for SlotKinds and `*Ref` for RefKinds/fields gives a cheap, syntax‑level guard against conflating places, kinds, and handles. Banning “Role” as a SlotKind head prevents clash with `U.Role` and the RoleEnactment calculus, preserving the clean separation between “mask worn by a system” and “position in a relation”.
 
@@ -6637,7 +7967,7 @@ Refines parameter declarations with SlotSpec triples `⟨SlotKind, ValueKind, re
 Fixes core episteme SlotKinds (`DescribedEntitySlot`, `GroundingHolonSlot`, `ClaimGraphSlot`, `ViewpointSlot`, `ViewSlot`, `ReferenceSchemeSlot`) and their ValueKinds/`ByValue` vs Ref discipline. C.2.1 and its extensions SHALL use these SlotKinds (or documented refinements) so that episteme morphisms can be expressed uniformly over slots.
 
 **Supports A.6.2–A.6.4 (episteme morphisms and viewing).**  
-Aboutness‑preserving vs aboutness‑rotating morphisms can now be stated as constraints on which SlotKinds’ ValueKinds/RefKinds they may change. Retargeting becomes “substitution at `DescribedEntitySlot` under a Kind‑Bridge” rather than an ad‑hoc parameter tweak.
+DescribedEntity‑preserving vs describedEntity‑retargeting morphisms can now be stated as constraints on which SlotKinds’ ValueKinds/RefKinds they may change. Retargeting becomes “substitution at `DescribedEntitySlot` under a Kind‑Bridge” rather than an ad‑hoc parameter tweak.
 
 **Coordinates with B.5.* (RoleEnactment).**  
 Role/assignment relations may declare SlotKinds such as `HolderHolonSlot`, `RoleSlot`, `ContextSlot`, `WindowSlot` with clear ValueKinds/RefKinds, instead of overloading “role” for both holonic roles and relation positions. This keeps `U.Role` semantics (A.2, F.6) separate from slot discipline.
@@ -6707,10 +8037,10 @@ When documents blur the above lines, three classes of defects appear:
 • **I/D/S layer** — the Intension/Description/Specification layer (E.10.D2). Not an I/D/S “plane” or "stance", and not a bare "layer".
 • **DesignRunTag** — the design vs run DesignRunTag. Not a temporal “plane” or "layer", and not a bare "stance".
 • **PublicationSurface** — the *didactic projection* of a Description/Specification into a **bundle of views** (ISO 42010 sense). **Surfaces are not the thing described**. Under L‑SURF, Core allows only **PublicationSurface** and **InteropSurface** tokens; faces SHALL be named **…View / …Card / …Lane** rather than inventing new `…Surface` kinds. The canonical didactic set for `[A]` is:
-  {**PlainView** (explanatory prose), **TechCard** (typed cards/IDs), **NormsCard** (checklists/SHALL‑clauses), **AssuranceLane** (evidence bindings/lanes)}. *Surfaces are orthogonal to I/D/S and to design/run.*
-• **Typed publication morphisms (I→D, D→S)** — total morphisms that *project* along I/D/S (they are **not** mechanisms):
-  `Publ_ID : I → D` (publish an intensional object into the world of descriptions) and 
-  `Formalize_DS : D → S` (refine a description into a specification). Composition `Publ_IS := Formalize_DS ∘ Publ_ID : I → S` is allowed but both stages MUST remain visible and auditable.
+  {**PlainView** (explanatory prose), **TechCard** (typed cards/IDs), **NormsCard** (TechCard profile for checklists/SHALL‑clauses), **AssuranceLane** (evidence bindings/lanes)}. *Surfaces are orthogonal to I/D/S and to design/run.*
+• **Typed describing/formalising morphisms (I→D, D→S)** — total morphisms that *project* along I/D/S (they are **not** mechanisms):
+  `Describe_ID : I → D` (describe an intensional object into the world of descriptions; historical alias `Publ_ID`) and
+  `Specify_DS`/`Formalize_DS : D → S` (refine a description into a specification). Composition `Describe_IS := Specify_DS ∘ Describe_ID : I → S` is allowed but both stages MUST remain visible and auditable.
   **Laws (normative):** (ID‑1) *Non‑extensibility of content*; (ID‑2) *Identity & meaning‑preserving composition*; (DS‑1) *Monotonic refinement* under ≤₍ref₎; (DS‑2) *Pin editions & measurable anchors* per **MM‑CHR** (C.16) via **CHR‑Pins**; (DS‑3) *No retro‑effects*.
 
 A.7 establishes the following **pairs and triplets**. Use their **names** and **scope** exactly as below.
@@ -6773,22 +8103,22 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 #### 5.8 I/D/S vs PublicationSurface (orthogonal, normative)
 * **I/D/S governs the model.** What the thing *is* vs how it is *described/tested* lives in I/D/S (E.10.D2).
-* **PublicationSurface governs the didactic projection.** How D/S are **presented** lives on **PublicationSurface/InteropSurface** only; concrete faces SHALL be **PlainView / TechCard / InteropCard / AssuranceLane**. Cards/views are **carriers** of D/S, not the intensional object (A.10).
+* **PublicationSurface governs the didactic projection.** How D/S are **presented** lives on **PublicationSurface/InteropSurface** only; concrete faces SHALL be **PlainView / TechCard / InteropCard / AssuranceLane**. Cards/views are **conceptual views over D/S**, not the intensional object **and not symbol carriers**; physical/digital **carriers** stay in **SCR/RSCR** (A.10).
 * **Surface field pins.** When D/S are shown on **TechCard**, pin the minimal **CHR‑Pins** = {**UnitType**, **ScaleKind**, **ReferencePlane**, **EditionId**}. 
 * **Bridge routing.** Cross‑Context or cross‑plane reuse **MUST** cite **Bridge id + CL**; **Φ(CL)**/**Φ_plane** penalties route to **R (trust)** only; **F/G invariant**. 
 
-#### 5.9 Typed publication morphisms (I→D→S, normative)
+#### 5.9 Typed describing/formalising morphisms (I→D→S, normative)
 
-**What “publish” means in A.7.** For any intensional object `X ∈ I`, *publishing X* is the morphism application `Publ_ID(X) : D`; *formalizing that description* is `Formalize_DS(Publ_ID(X)) : S`. The collapsed arrow `Publ_IS(X)` MAY be referenced, but **implementations SHALL expose and audit both steps**.
+**What `Describe_ID` / `Specify_DS` mean in A.7.** For any intensional object `X ∈ I`, *describing X* is the morphism application `Describe_ID(X) : D` (historical alias `Publ_ID(X)` in earlier drafts); *formalising that description* is `Specify_DS(Describe_ID(X)) : S` (alias `Formalize_DS`). The collapsed arrow `Describe_IS(X)` MAY be referenced, but **implementations SHALL expose and audit both steps**.
 
-**Invariants (restate of the laws, audit‑oriented):**
-1. **Non‑extensibility (ID‑1).** `Publ_ID` MUST NOT introduce new epistemic commitments. If a claim `c` is absent in `X`, it is absent in `Publ_ID(X)`; any added structure is representational only (formatting, indexing, cross‑references).
-2. **Identity & meaning preservation (ID‑2).** If `f : X → Y` is a meaning‑preserving map in I, then `Publ_ID(f)` is defined and preserves identity, and where meaningful composition exists, `Publ_ID(f ∘ g) = Publ_ID(f) ∘ Publ_ID(g)`.
-3. **Monotonic refinement (DS‑1).** If `D₁ ≤₍ref₎ D₂`, then `Formalize_DS(D₁) ≤₍ref₎ Formalize_DS(D₂)`. Also `D ≤₍ref₎ Formalize_DS(D)` holds when S merely adds testable structure.
-4. **Pinning of editions & anchors (DS‑2).** `Formalize_DS` MUST pin: **edition id**, **unit/scale types**, **ReferencePlane**, and **measurable anchors** (CG‑Spec/CHR). Pins are visible on **TechCard/NormsCard** faces and recorded in **SCR**; edition governance follows **U.EditionSeries**.
-5. **No retro‑effects (DS‑3).** Applying `Formalize_DS` yields a *new* `S` and *new* carriers (new SCR ids); earlier carriers remain valid in their scope; **no retro‑mutation** of prior I/D carriers.
-6. **Separation from Γ.** `Publ_ID`/`Formalize_DS` do **not** compose with **Γ\_method**, **Γ\_time**, or **Γ\_work**; publication is *not execution* and accrues no resource/time semantics.
-7. **Ontology preservation.** Publishing any object (Calculus/Signature/Mechanism/…) via `Publ_ID` does **not** change its ontology; it yields a D/S projection by A.7 rules. *Publication is not a subtype of mechanism.*
+**Invariants (restate of the A.6.2/A.6.3 laws, audit‑oriented):**
+1. **Non‑extensibility (ID‑1).** `Describe_ID` MUST NOT introduce new epistemic commitments. If a claim `c` is absent in `X`, it is absent in `Describe_ID(X)`; any added structure is representational only (formatting, indexing, cross‑references).
+2. **Identity & meaning preservation (ID‑2).** If `f : X → Y` is a meaning‑preserving map in I, then `Describe_ID(f)` is defined and preserves identity, and where meaningful composition exists, `Describe_ID(f ∘ g) = Describe_ID(f) ∘ Describe_ID(g)`.
+3. **Monotonic refinement (DS‑1).** If `D₁ ≤₍ref₎ D₂`, then `Specify_DS(D₁) ≤₍ref₎ Specify_DS(D₂)` (equivalently `Formalize_DS(D₁) ≤₍ref₎ Formalize_DS(D₂)`). Also `D ≤₍ref₎ Specify_DS(D)` holds when S merely adds testable structure.
+4. **Pinning of editions & anchors (DS‑2).** `Specify_DS`/`Formalize_DS` MUST pin: **edition id**, **unit/scale types**, **ReferencePlane**, and **measurable anchors** (CG‑Spec/CHR). Pins are visible on **TechCard/NormsCard** faces and recorded in **SCR**; edition governance follows **U.EditionSeries**.
+5. **No retro‑effects (DS‑3).** Applying `Specify_DS` yields a *new* `S` and *new* carriers (new SCR ids); earlier carriers remain valid in their scope; **no retro‑mutation** of prior I/D carriers.
+6. **Separation from Γ.** `Describe_ID`/`Specify_DS` (`Publ_ID`/`Formalize_DS` in legacy text) do **not** compose with **Γ\_method**, **Γ\_time**, or **Γ\_work**; I/D/S describing/formalising is *not execution* and accrues no resource/time semantics.
+7. **Ontology preservation.** Describing any object (Calculus/Signature/Mechanism/…) via `Describe_ID` does **not** change its ontology; it yields a D/S projection by A.7 rules. *Describing/formalising is not a subtype of mechanism*; publishing to surfaces is handled separately in E.17 (MVPK).
 
 ### 6 · Archetypal Grounding (Tell–Show–Show; System / Episteme)
 
@@ -6799,7 +8129,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 **Episteme archetype — “Peer‑review vs manuscript”.**  
 *Claim:* *A review is Work by a **system** (the reviewer) **on carriers** of an episteme (the manuscript).*  
-*Show:* The **MethodDescription** is the review SOP; the **Work** cites carrier ids (file/edition) and the *aboutness* episteme; arguments/rebuttals live on epistemes; acceptance gating lives in CAL, not in CHR cards.
+*Show:* The **MethodDescription** is the review SOP; the **Work** cites carrier ids (file/edition) and the *describedEntity* episteme; arguments/rebuttals live on epistemes; acceptance gating lives in CAL, not in CHR cards.
 
 #### 6.2 Didactic examples
 
@@ -6844,11 +8174,11 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 | **CC‑A7.10 (Quartet clarity)**           | Any “triad” picture **MAY** be used only as a **design‑time stand‑in** (Transformer + MethodDescription + Method) and **MUST** be accompanied by an explicit **Work** lane elsewhere in the same section. “quartet of quartets” headings **SHALL** be avoided; use **“Quartet backbone”** instead. | Diagram has a visible **Work** lane/timeline or separate box within the same section.                                                    
 | **CC‑A7.11 (Terminology hygiene)**       | Ban **“actor”** in core text. Use **“system bearing TransformerRole”**; bind local shorthand **“Transformer”** only per A.12 rules.                                                                                                                                                            | Plain text scan: no “actor”; shorthand is locally bound.                                                                                  |
 | **CC‑A7.12 (Role domain guards)**        | Behavioural roles’ domain = **system**. Epistemes may bear **non‑behavioural** roles (e.g., ReferenceRole, ConstraintSourceRole) only.                                                                                                                                                         | Role declarations name their domain.                                                                                                      |
-| **CC‑A7.13 (I→D→S visibility)**          | The I→D→S **chain MUST be explicit**: `Publ_ID` and `Formalize_DS` are named where publication/formalization occur; any I→S reference is justified as `Publ_IS := Formalize_DS ∘ Publ_ID`.                                                              | Both steps are visible in text/diagrams; audit shows two distinct operations.                                                             |
-| **CC‑A7.14 (Publ_ID laws)**              | `Publ_ID` obeys **ID‑1/ID‑2**: no new commitments; preserves identity & composition by meaning.                                                                                                                  | Diff check between I and D shows no new claims; mapping table shows preserved composition.                                                |
+| **CC‑A7.13 (I→D→S visibility)**          | I/D/S morphisms MUST be **explicit**; do not conflate them with MVPK or TGA steps. If a flow shows only surfaces, the underlying `Describe_ID`/`Specify_DS` steps MUST be recoverable.       | Both steps are visible in text/diagrams; audit shows two distinct operations.                                                             |
+| **CC‑A7.14 (Describe_ID / Specify_DS laws)** | Any implementation of `Describe_ID` MUST enforce **ID‑1/ID‑2**; `Specify_DS`/`Formalize_DS` MUST enforce **DS‑1/‑2/‑3**. Violating systems are considered out‑of‑model.                                                                                                              | Diff check between I and D shows no new claims; mapping table shows preserved composition.                                                |
 | **CC‑A7.15 (Formalize_DS laws)**         | `Formalize_DS` obeys **DS‑1/DS‑2/DS‑3**: monotonic refinement; pins edition/unit/scale/ReferencePlane/anchors; produces new **S** + **SCR** carriers without retro‑mutation.                                     | Presence of **CHR‑Pins** and pinned anchors; new SCR ids; no edits to prior carriers.                                                     |
-| **CC‑A7.16 (Γ‑separation)**              | Publication morphisms **SHALL NOT** carry cost/time semantics; **Γ\_method/Γ\_time/Γ\_work** are used only for capability/occurrence/resources.                                                                  | No ledger/time fields attached to `Publ_ID`/`Formalize_DS`; any “publication cost” is Work in a separate publication service.             |
-| **CC‑A7.17 (L‑SURF tokens)**             | Only **PublicationSurface/InteropSurface** tokens are legal; faces are named **…View / …Card / …Lane** (e.g., PlainView/TechCard/NormsCard/AssuranceLane).                                                      | Token scan shows no ad‑hoc `…Surface` kinds.                                                       |
+| **CC‑A7.16 (Γ‑separation)**              |  Both I/D/S describing/formalising morphisms (`Describe_ID`/`Specify_DS`) and publication‑to‑surface morphisms (MVPK) SHALL NOT carry cost/time semantics; **Γ\_method**, Γ\_time and Γ\_work belong to **Method/Work/System**, not to description/specification or publication. Any aggregate on a card must cite the Γ operator and policy.   | No ledger/time fields attached to `Describe_ID`/`Specify_DS` or MVPK publication steps; any “publication cost” is Work in a separate publication service.             |
+| **CC‑A7.17 (**Surface tokens only)**     |  Only **PublicationSurface/InteropSurface** tokens are allowed; faces are **…View/…Card/…Lane**. Use only `PlainView`, `TechCard`, `InteropCard`, `AssuranceLane` (and their tech aliases) unless a DRR extends the set. New `…Surface` kinds require a DRR and L‑SURF revision.                                                 | Token scan shows no ad‑hoc `…Surface` kinds.                                                       |
 | **CC‑A7.18 (Bridge+CL on crossings)**    | Any cross‑Context or cross‑plane content on a face **MUST** cite **Bridge id + CL** and **Φ policy‑ids**; penalties route to **R** only.                                                                         | Presence of Bridge ids and **Φ(CL)**/**Φ_plane** on TechCard/AssuranceLane.                        |
 | **CC‑A7.19 (UTS anchoring)**             | Public names shown on faces **SHALL** point to **UTS rows** with twin labels (Tech/Plain), edition pins, and SCR carrier ids.                                                                                    | Face carries UTS row ids + edition pins.                                                          |
 
@@ -6863,7 +8193,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 | “Team = set of members; it performed repair.”    | “The **team** is a **collective system** (boundary + coordination **Method**); it executed **Work** ⟨…⟩.”                                       | Acting groups must be systems, not sets.                  |
 | “Process cost is tracked by Γ\_method.”          | “**Work** cost is tracked by **Γ\_work**; **Γ\_method** composes the **Method** (order/branching).”                                             | Operator alignment.                                       |
 | “Holon bearing TransformerRole.”                 | “**System bearing TransformerRole**.”                                                                                                           | Only systems can bear behavioural roles.                  |
-| “Publication is a special mechanism.”            | “Publication = **typed projection** along I→D→S: `Publ_ID` then `Formalize_DS`; any execution around it is separate **Work** by a **system** on **carriers**.” | Publication is not behaviour; it is a morphism in the model. |
+| “Publication is a special mechanism.”            | “Publication = **typed projection** from existing Descriptions/Specifications onto **PublicationSurface/InteropSurface** (MVPK); **describing/formalising** are `Describe_ID`/`Specify_DS`, and any execution around them is separate **Work** by a **system** on **carriers**.” | Publication is not behaviour; it is a D/S→Surface projection in the model. |
 
 ### 9 · Anti‑patterns (with fixes)
 
@@ -6898,7 +8228,7 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
    **Fix:** State whether the **episteme content** changed; if only a carrier was renamed, say so.
 
 11. **Publication‑as‑mechanism** — modelling “publication” as if it were a Method/Mechanism.
-   **Fix:** Use `Publ_ID`/`Formalize_DS`. If there is operational toil (build, render, upload), model it as **Work** by a **system** on **carriers**; do not change the ontology of the published object.
+   **Fix:** Separate **describing/formalising** (`Describe_ID`/`Specify_DS`) from **publication** (MVPK D/S→Surface). If there is operational toil (build, render, upload), model it as **Work** by a **system** on **carriers**; do not change the ontology of the described object or the D/S episteme being surfaced.
 
 ### 10 · Consequences
 
@@ -6933,9 +8263,9 @@ A.7 establishes the following **pairs and triplets**. Use their **names** and **
 
 ### 13 · Relations
 
-* **Builds on:** A.1 (Holon), A.2 (Roles), A.3 (Transformer Quartet), A.10 (Evidence & SCR), A.12 (External Transformer), A.14 (Advanced Mereology), A.15 (Role–Method–Work Alignment).  
+ **Builds on:** A.1 (Holon), A.2 (Roles), A.3 (Transformer Quartet), A.10 (Evidence & SCR), A.12 (External Transformer), A.14 (Advanced Mereology), A.15 (Role–Method–Work Alignment).  
 * **Constrains:** A.13 (Agency sits on systems only; epistemes non‑behavioural), Part B operators (**Γ_method**/**Γ_time**/**Γ_work**/**Γ_sys**) and their choice points; **publication is not a Γ‑operator**.  
-**Extends:** E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. **L‑SURF**), **Part F/G (UTS & CG‑Spec/CHR pinning)**, B.3 (Assurance routing), C‑cluster (selection/archives) — by enforcing I/D/S vs Surface orthogonality, System/Episteme separation, and typed I→D→S publication.  
+* **Extends:** E.8 (Authoring conventions), E.10 (LEX‑BUNDLE incl. **L‑SURF**), **Part F/G (UTS & CG‑Spec/CHR pinning)**, B.3 (Assurance routing), C‑cluster (selection/archives) — by enforcing I/D/S vs Surface orthogonality, System/Episteme separation, and typed I→D→S describing/formalising discipline (**publication = D/S→Surface in E.17**).  
 * **Coordinates with:** ATS (E.11) for surface‑level checks (Tier/Gate/Lane/LEX) and **UTS presence** without embedding any notation dependence.
   
 ### 14 · Manager’s one‑page review (copy‑paste)
@@ -9064,7 +10394,7 @@ In essence, A.18 is the _infrastructure of meaning_ for metrics. It may appear a
 ## A.19 (A.CHR‑SPACE) — CharacteristicSpace & Dynamics Hook `[A]`
 
 **Non‑duplication note.** This pattern reuses the canonical measurement concepts (`U.Characteristic`, **CSLC** terms) from **A.17/A.18** and relies on **C.16 (MM‑CHR)** for **normalization evidence**. It **does not redefine** units or normalization semantics. **UNM** *names admissible re‑parameterizations within one `U.BoundedContext`* and thereby **induces a context‑local congruence** over charts, written **≡_UNM**, which is a **specialization of the framework’s congruence notion** used in **B.3** (and instantiated for epistemes in **B.1.3**). A **NormalizationFix** selects a canonical representative of an **≡_UNM** class. Timebases and laws remain out of scope (see **A.3.3**).
-**Locality & governance.** A **UNM** is *context‑local*: it is declared within a single `U.BoundedContext` for a given CharacteristicSpace (or family of charts) and **enumerates** (a) the **admissible classes of NormalizationMethod**, (b) the **invariants** they must preserve, (c) **closure** under composition (and inverses where defined), and (d) **validity/versioning rules** (editions, windows). Semantics and evidence backing remain under **C.16**; A.19 constrains how UNM artifacts are *named and used* in state/comparability logic. **Cross‑context reuse** of a UNM **MUST** be declared via **A.6.1 Transport**; when the *aboutness* changes, declare a **KindBridge (CL^k)**. Any **CL^plane** penalties **route to R/R_eff only**.
+**Locality & governance.** A **UNM** is *context‑local*: it is declared within a single `U.BoundedContext` for a given CharacteristicSpace (or family of charts) and **enumerates** (a) the **admissible classes of NormalizationMethod**, (b) the **invariants** they must preserve, (c) **closure** under composition (and inverses where defined), and (d) **validity/versioning rules** (editions, windows). Semantics and evidence backing remain under **C.16**; A.19 constrains how UNM artifacts are *named and used* in state/comparability logic. **Cross‑context reuse** of a UNM **MUST** be declared via **A.6.1 Transport**; when the *describedEntity* changes, declare a **KindBridge (CL^k)**. Any **CL^plane** penalties **route to R/R_eff only**.
 
 ### 0 · Terminology update (Normalization) — replaces legacy “gauge/map/κ”
 **UNM — Unified Normalization Mechanism.** A mechanism that packages admissible re‑parameterizations for a CharacteristicSpace so that values can be normalized for safe comparison **within one `U.BoundedContext`**.
@@ -9690,7 +11020,7 @@ In this stub, RSG\_REFINEMENT maps states of a sub-role to states of a super-rol
 * **SCR‑A19.4‑S03 (Comparability test).** Provide one worked example showing **coordinatewise** or **normalization‑based** comparison end‑to‑end (with Evidence Graph Ref).
 * **SCR‑A19.4‑S04 (Γ‑fold audit).** Aggregation rule spells out WLNK/COMM/LOC/MONO choices; reviewer reconstructs result on a toy set.
 * **SCR‑A19.4‑S05 (SoD).** Distinct `RoleAssignments` for `CN‑frameStewardRole` and `CN‑frameCertifierRole` exist; windows do not overlap.
-* **SCR‑A19.4‑S06 (Aboutness & anchors surfaced).** For each CN‑Spec characteristic used in the worked example, cite the corresponding CHR Characteristic name and the evidence anchor(s) (A.10) that make the reading observable in this Context.
+* **SCR‑A19.4‑S06 (describedEntity & anchors surfaced).** For each CN‑Spec characteristic used in the worked example, cite the corresponding CHR Characteristic name and the evidence anchor(s) (A.10) that make the reading observable in this Context.
 
 #### 11.2 **RSCR — Regression (on change)**
 
@@ -9801,7 +11131,7 @@ Under this pattern, CV is evaluated **inside** transformations. **If** a check d
 #### 4.2 Intensional object(s)
 
 **Genus.** `U.Flow` leaves step‑kinds abstract; CV/GF separation applies to any lawful instantiation.
-**Species (`U.TransductionFlow`).** `U.Transduction(kind) ∈ {Signature, Mechanism, Work, Check, StructuralReinterpretation}`; this set of **kinds** is a **minimum roles baseline** defined in E.TGA. The **species** space (e.g., `UNM.Authoring/Usage`, `SelectionAndBinding`, `WorkPlanning`, `EvaluatingAndRefreshing`, …) is **open‑world** and non‑exhaustive. `OperationalGate = U.Transduction(kind=Check)`. `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and may rotate **aboutness** under CC‑TGA‑06‑EX; see also A.45.
+**Species (`U.TransductionFlow`).** `U.Transduction(kind) ∈ {Signature, Mechanism, Work, Check, StructuralReinterpretation}`; this set of **kinds** is a **minimum roles baseline** defined in E.TGA. The **species** space (e.g., `UNM.Authoring/Usage`, `SelectionAndBinding`, `WorkPlanning`, `EvaluatingAndRefreshing`, …) is **open‑world** and non‑exhaustive. `OperationalGate = U.Transduction(kind=Check)`. `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and may retarget **describedEntity** under CC‑TGA‑06‑EX; see also A.45.
 
 **`AdmissibilityConditionsSatisfaction`** — **If** the declared admissibility conditions hold on the step’s inputs and context, **then** the CV explanation **applies**; **otherwise** this explanation **does not apply**.
 **`LipschitzBounds`** — **If** inputs vary within the stated domain \(X\) and perturbations/noise \(≤ ε\), **then** the step’s estimate remains within **δ** of the reference; **otherwise** this explanation **does not apply**.
@@ -9809,8 +11139,8 @@ Under this pattern, CV is evaluated **inside** transformations. **If** a check d
 
 **Terminology & bindings (normative)**
 * **Status/witness lexicon (E.10 discipline).** In CV scope, publications use **Status/Witness** terminology; **GateDecision…** lexemes belong to GateFit (A.21) and do **not** apply to CV.
-* **Aboutness = KindBridge.** Any CV mention of “aboutness” SHALL be read via **`KindBridge (CL^k)`** on **UTS** (A.27 / C.3.3). CV **does not** declare or translate planes/units/comparators.
-* **Rotation/witness binding.** For `U.Transduction(kind=StructuralReinterpretation)`, the CV class **`ReinterpretationEquivalence`** SHALL surface **`CV.WitnessRef := ReinterpWitness`** over the addressed `PathSliceId`; the UTS **`SquareLaw‑Rotation` witness** is referenced from MVPK/UTS and **linked** from the CV witness without duplication.
+* **describedEntity = KindBridge.** Any CV mention of “describedEntity” SHALL be read via **`KindBridge (CL^k)`** on **UTS** (A.27 / C.3.3). CV **does not** declare or translate planes/units/comparators.
+* **retargeting/witness binding.** For `U.Transduction(kind=StructuralReinterpretation)`, the CV class **`ReinterpretationEquivalence`** SHALL surface **`CV.WitnessRef := ReinterpWitness`** over the addressed `PathSliceId`; the UTS **`SquareLaw‑retargeting` witness** is referenced from MVPK/UTS and **linked** from the CV witness without duplication.
 * **`ReinterpWitness` record (normative).**  
   `ReinterpWitness := { PathSliceId, PublicationScopeId, mapping:{kind: iso|optic, laws: PutGet/GetPut}, commutingSquares:[TransferId], definedOn: PathSliceId, properties:{invertible?:bool, idempotent?:bool}, UTS.RowId, NoHiddenScalarization:true }`.
 
@@ -9854,15 +11184,15 @@ CV **must not** declare/translate `Units/ReferencePlane/ComparatorSet`; crossing
 
 #### 4.6 CtxState & GateCrossing
 
-* **Crossings only at `OperationalGate(profile)`** (plane/unit/context) with a **strict exception** for **`StructuralReinterpretation`**: a **projection‑only rotation** MAY occur without a gate **iff** `⟨L,P,E⃗,D⟩` is preserved, **KindBridge (`CL^k`)** and a **SquareLaw‑Rotation witness** are present on MVPK/UTS, and the action is **PathSlice‑local** (`PathSliceId` pinned).
-* **Projection vs aboutness (normative reduction).** “Projection” denotes a change of **MVPK published view** that is point‑wise identity on the intensional transformation; “aboutness” is the **Kind‑channel** on UTS evidenced by a `CL^k` row. “No unit/plane change” holds iff `P` is equal on both sides and **no `CL^plane`** is emitted for the step.
-* **Projection/aboutness normalization (normative).** In the context of `StructuralReinterpretation`, the terms **projection** and **aboutness** are read **via UTS**: projection = change of **published view coordinates** only; aboutness = **Kind‑channel** change under `CL^k`. A **“no unit/plane change”** test SHALL verify that `ReferencePlane(src)=ReferencePlane(tgt)` and `CL^plane` is absent (or `= ⊤`), otherwise the step is a gated crossing.
-* **Assurance operations on edges.** `ConstrainTo/CalibrateTo/CiteEvidence/AttributeTo` reside on `U.Transfer` and do **not** alter `⟨L,P,E⃗,D⟩`; plane/unit changes occur only at gates; Φ/`CL^plane` penalties route in **R‑lane**. Aboutness/kind transitions are surfaced as **`KindBridge (CL^k)`** on **UTS** (see A.27 / C.3.3). Aboutness/kind transitions use **KindBridge (`CL^k`)** (A.27/E.TGA); under CC‑TGA‑06‑EX this appears without a gate and remains PathSlice‑local.
+* **Crossings only at `OperationalGate(profile)`** (plane/unit/context) with a **strict exception** for **`StructuralReinterpretation`**: a **projection‑only retargeting** MAY occur without a gate **iff** `⟨L,P,E⃗,D⟩` is preserved, **KindBridge (`CL^k`)** and a **SquareLaw‑retargeting witness** are present on MVPK/UTS, and the action is **PathSlice‑local** (`PathSliceId` pinned).
+* **Projection vs describedEntity (normative reduction).** “Projection” denotes a change of **MVPK published view** that is point‑wise identity on the intensional transformation; “describedEntity” is the **Kind‑channel** on UTS evidenced by a `CL^k` row. “No unit/plane change” holds iff `P` is equal on both sides and **no `CL^plane`** is emitted for the step.
+* **Projection/describedEntity normalization (normative).** In the context of `StructuralReinterpretation`, the terms **projection** and **describedEntity** are read **via UTS**: projection = change of **published view coordinates** only; describedEntity = **Kind‑channel** change under `CL^k`. A **“no unit/plane change”** test SHALL verify that `ReferencePlane(src)=ReferencePlane(tgt)` and `CL^plane` is absent (or `= ⊤`), otherwise the step is a gated crossing.
+* **Assurance operations on edges.** `ConstrainTo/CalibrateTo/CiteEvidence/AttributeTo` reside on `U.Transfer` and do **not** alter `⟨L,P,E⃗,D⟩`; plane/unit changes occur only at gates; Φ/`CL^plane` penalties route in **R‑lane**. describedEntity/kind transitions are surfaced as **`KindBridge (CL^k)`** on **UTS** (see A.27 / C.3.3). describedEntity/kind transitions use **KindBridge (`CL^k`)** (A.27/E.TGA); under CC‑TGA‑06‑EX this appears without a gate and remains PathSlice‑local.
 
 **Terminology binding (TGA‑specific, normative)**
 * **Status/witness lexicon (E.10 discipline).** In CV scope, publications use **Status/Witness** terminology; **GateDecision…** lexemes belong to GateFit (A.21) and do **not** apply to CV.
-* **Aboutness = KindBridge.** Any CV mention of “aboutness” SHALL be read via **`KindBridge (CL^k)`** on **UTS** (A.27 / C.3.3). CV **does not** declare or translate planes/units/comparators.
-* **Rotation/witness binding.** For `U.Transduction(kind=StructuralReinterpretation)`, the CV class **`ReinterpretationEquivalence`** SHALL surface **`CV.WitnessRef := ReinterpWitness`** over the addressed `PathSliceId`; the UTS **`SquareLaw‑Rotation` witness** is referenced from MVPK/UTS and **linked** from the CV witness without duplication.
+* **describedEntity = KindBridge.** Any CV mention of “describedEntity” SHALL be read via **`KindBridge (CL^k)`** on **UTS** (A.27 / C.3.3). CV **does not** declare or translate planes/units/comparators.
+* **retargeting/witness binding.** For `U.Transduction(kind=StructuralReinterpretation)`, the CV class **`ReinterpretationEquivalence`** SHALL surface **`CV.WitnessRef := ReinterpWitness`** over the addressed `PathSliceId`; the UTS **`SquareLaw‑retargeting` witness** is referenced from MVPK/UTS and **linked** from the CV witness without duplication.
 * **`ReinterpWitness` record (normative).**  
   `ReinterpWitness := { PathSliceId, PublicationScopeId, mapping:{kind: iso|optic, laws: PutGet/GetPut}, commutingSquares:[TransferId], definedOn: PathSliceId, properties:{invertible?:bool, idempotent?:bool}, UTS.RowId, NoHiddenScalarization:true }`.
 
@@ -9870,23 +11200,23 @@ CV **must not** declare/translate `Units/ReferencePlane/ComparatorSet`; crossing
 
 For any gate‑mediated crossing adjacent to CV‑checked steps:
 `gate_out ∘ transfer = transfer' ∘ gate_in`.
-For **projection rotations** under `StructuralReinterpretation`, a **SquareLaw‑Rotation witness** shows that the **view rotation commutes** with transfers on the PathSlice. Inconsistencies lead to `degrade`/`block` per active profile (GateFit decision).
+For **projection retargetings** under `StructuralReinterpretation`, a **SquareLaw‑retargeting witness** shows that the **view retargeting commutes** with transfers on the PathSlice. Inconsistencies lead to `degrade`/`block` per active profile (GateFit decision).
 
-**Rotation witness shape (normative, UTS‑level).** A **SquareLaw‑Rotation witness** is an artifact that demonstrates commutativity of a published‑projection rotation over the addressed **`PathSliceId`**:  
+**retargeting witness shape (normative, UTS‑level).** A **SquareLaw‑retargeting witness** is an artifact that demonstrates commutativity of a published‑projection retargeting over the addressed **`PathSliceId`**:  
   1) identifies **`PathSliceId`** and **`PublicationScopeId`**;  
   2) presents a **bidirectional view mapping** between projections either as an **iso** or as a **profunctor optic** (`get : A→B`, `put : (B×A)→A`) satisfying **Put‑Get / Get‑Put** laws;  
-  3) enumerates the **commuting squares** for the cut‑set edges considered (ids of transfers before/after the rotation);  
+  3) enumerates the **commuting squares** for the cut‑set edges considered (ids of transfers before/after the retargeting);  
   4) declares properties (**invertible?**, **idempotent?**) and the **definedness area**;  
   5) cites the **UTS.RowId** and links the **DecisionLog** entries that rely on this witness.  
 Realizations via **profunctor optics (post‑2017)** are permitted; the optic/lens laws serve as the proof template of commutativity.
 
-**CV witness for reinterpretation (normative, CV‑level).** `CV.ReinterpretationEquivalence` SHALL surface a **ReinterpretationEquivalenceWitness** distinct from the UTS rotation witness and scoped to the mechanism state over the same **`PathSliceId`**:
+**CV witness for reinterpretation (normative, CV‑level).** `CV.ReinterpretationEquivalence` SHALL surface a **ReinterpretationEquivalenceWitness** distinct from the UTS retargeting witness and scoped to the mechanism state over the same **`PathSliceId`**:
   — `PathSliceId`, `PublicationScopeId`, and **definedness region** (domain constraints);  
   — a **pair of internal transformations** (or an optic) with **Put‑Get / Get‑Put** obligations **over mechanism state** (not faces);  
   — a **list of commuting squares** for the **adjacent raw transfers** (before/after reinterpretation) showing SquareLaw at CV boundary;  
   — an explicit **NoHiddenScalarization assertion** (see §4.9) for any comparable return shape;  
   — **edition neutrality**: no new editions are authored; only refs/pins appear.  
-This CV witness links to the UTS `SquareLaw‑Rotation` witness when present, but does not duplicate UTS fields.
+This CV witness links to the UTS `SquareLaw‑retargeting` witness when present, but does not duplicate UTS fields.
 
 **CV witness binding (normative).** For the CV class **`ReinterpretationEquivalence`**, the witness **SHALL** be a `ReinterpWitness` record:
 `ReinterpWitness := { PathSliceId, PublicationScopeId, mapping: {kind: iso|optic, laws: PutGet/GetPut}, commutingSquares: [TransferId], definedOn: PathSliceId, properties: {invertible?: bool, idempotent?: bool}, UTS.RowId, NoHiddenScalarization: true }`.
@@ -10038,13 +11368,13 @@ Conforms to E.8 heading order and safety subsections (Archetypal Grounding, Conf
 * **TypeDomainRange.** Type/domain/range compliance of inputs/outputs (ref‑only to definitions).
 * **ReinterpretationEquivalence.** Mechanism’s reinterpretation preserves internal meaning on a **PathSlice**.  
   **Witness (normative):** **ReinterpretationEquivalenceWitness** (see §4.7) with: `(i)` `PathSliceId`, `PublicationScopeId`, `(ii)` bidirectional mapping (iso/optic) with Put‑Get/Get‑Put obligations, `(iii)` commuting squares for adjacent raw transfers, `(iv)` **NoHiddenScalarization** assertion (if comparable), `(v)` definedness region.  
-  — **No plane/unit change**; any aboutness change must have `KindBridge (CL^k)` on UTS.
+  — **No plane/unit change**; any describedEntity change must have `KindBridge (CL^k)` on UTS.
 * **LipschitzBounds / stability.** Bounded sensitivity of the mechanism under a declared metric.  
   **Certificate (normative):** `LipschitzCertificate := { metricId (with units/plane), bound L, methodId, methodRef (e.g., spectral estimate / cert. robustness bound), validity region (inputs/state), proof sketch/ref }`.  
   — The **method** MUST be cited; **units/plane** of the metric MUST be explicit; bounds are **ref‑only** at CV; any acceptance action remains GateFit.
 * **TypeDomainRange.** Well‑typedness and domain/range consistency for the transformation signature.
   (Enumeration mandated by A.20; GF matters excluded).
-* **ReinterpretationEquivalence (StructuralReinterpretation).** Existence of a correspondence/reversibility witness between source and rotated projections; preservation of `⟨L,P,E⃗,D⟩`; no comparator/plane/unit declaration or translation at CV. The witness is **PathSlice‑local** and supports **idempotence & reversibility** within the addressed slice. The normative record is `ReinterpWitness` (see §4.7).
+* **ReinterpretationEquivalence (StructuralReinterpretation).** Existence of a correspondence/reversibility witness between source and retarget projections; preservation of `⟨L,P,E⃗,D⟩`; no comparator/plane/unit declaration or translation at CV. The witness is **PathSlice‑local** and supports **idempotence & reversibility** within the addressed slice. The normative record is `ReinterpWitness` (see §4.7).
 
 #### Appendix B — LEX discipline (summary)
 
@@ -12838,7 +14168,7 @@ Any Γ‑flavour that claims an **Assurance** result **must** adopt the followin
 
 4. **SCR and Notes:**
    * The aggregate SHALL produce a SCR listing all contributing nodes and edges, with their F, G, R, CL, scopes, and evidence links (A.10).  
-   * The SCR SHALL additionally surface the **aboutness** (`about(Object→GroundingHolon)`) and the **ReferencePlane** for the claim, and present a **separable TA/VA/LA table** of evidence contributions with **valid_until/decay** marks and the **Epistemic‑Debt** per § B.3.4.  
+   * The SCR SHALL additionally surface the **describedEntity** (`describe(Object→GroundingHolon)`) and the **ReferencePlane** for the claim, and present a **separable TA/VA/LA table** of evidence contributions with **valid_until/decay** marks and the **Epistemic‑Debt** per § B.3.4.  
    * If order/time mattered for the claim, attach the OrderSpec or TimeWindow identifiers (B.1.4).
 
 This skeleton is **mandatory**. Domain‑specific architheories may add **refinements** (e.g., separate epistemic “replicability” vs. “calibration”) as long as they **do not violate** WLNK or MONO and preserve scale kinds.
@@ -13021,7 +14351,7 @@ These obligations refine the generic Proof Kit from **B.1.1 §6** for **assuranc
 | **CC‑B3.3** | The **Congruence Level** `CL` **SHALL** live on **edges**; the penalty `Φ(CL)` **SHALL** be **monotone decreasing** and **bounded** (`R_eff ≥ 0`).                            | Make integration quality first‑class.        |                                   |
 | **CC‑B3.4** | `R_eff` **SHALL** be computed as `R_eff = max(0, min_i R_i − Φ(CL_min))` for the relevant integration path(s), unless a stricter domain‑specific rule is justified.           | Enforce WLNK and penalize weak integrations. |                                   |
 | **CC‑B3.5** | `F_eff = min_i F_i`; `G_eff = SpanUnion({G_i})` **constrained by support**.                                                                                                   | Prevent over‑generalization.                 |                                   |
-| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, Evidence Graph Ref, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **aboutness binding** `about(Object→GroundingHolon)` for the claim and the declared **CHR:ReferencePlane ∈ {world|concept|episteme}** (cf. C.2.3); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
+| **CC‑B3.6** | An **Assurance SCR** **SHALL** be produced, listing node/edge values, Evidence Graph Ref, and any OrderSpec/TimeWindow identifiers, **and SHALL also display**:  (i) the **describedEntity binding** `describe(Object→GroundingHolon)` for the claim and the declared **CHR:ReferencePlane ∈ {world|concept|episteme}** (cf. C.2.3); (ii) a **TA/VA/LA breakdown** of anchored evidence **kept separable** per **CC–KD‑08**, with **decay/valid‑until** indicators on empirical bindings (A.10), and the **Epistemic‑Debt** tally as computed in **§ B.3.4**. | Provide auditability (A.10).                 |                      
 | **CC‑B3.7** | **Agency‑CHR** values (A.13) **SHALL NOT** override WLNK or `Φ(CL)` penalties; if agency grade change alters capabilities, model it as a **Meta‑Holon Transition**.           | Preserve safety; keep agency separate.       |                                   |
 | **CC‑B3.8** | Design‑time and run‑time assurance **SHALL NOT** be mixed in one tuple; compare them side‑by‑side if needed.                                                                  | Avoid design/run mixing.                     |                                   |
 
@@ -14240,7 +15570,7 @@ This approach is inspired by contemporary practices in both ontology engineering
 
 ## 1 · Context
 
-FPF fixes two archetypal sub‑holons: **`U.System`** (physical/operational) and **`U.Episteme`** (knowledge holon). KD‑CAL is the **home architheory** of `U.Episteme`, giving engineers a compact, testable way to say (a) how strictly an episteme is written (**F**), (b) how much structure it manages (**G**), (c) how well it is warranted by evidence or severe tests (**R**), and (d) how closely **two** epistemes coincide (**CL**). KD‑CAL is built atop **C.2.1 U.Episteme — Semantic Triangle via Components**, which reifies every episteme as **Concept** (claim‑graph), **Object** (aboutness & evaluation rules), and **Symbol** (notation)—*not the file itself*; **carriers** and **work/executions** remain outside and are linked via `isCarriedBy` / `producedBy(U.Work)`.
+FPF fixes two archetypal sub‑holons: **`U.System`** (physical/operational) and **`U.Episteme`** (knowledge holon). KD‑CAL is the **home architheory** of `U.Episteme`, giving engineers a compact, testable way to say (a) how strictly an episteme is written (**F**), (b) how much structure it manages (**G**), (c) how well it is warranted by evidence or severe tests (**R**), and (d) how closely **two** epistemes coincide (**CL**). KD‑CAL is built atop **C.2.1 U.Episteme — Semantic Triangle via Components**, which reifies every episteme as **Concept** (claim‑graph), **Object** (describedEntity & evaluation rules), and **Symbol** (notation)—*not the file itself*; **carriers** and **work/executions** remain outside and are linked via `isCarriedBy` / `producedBy(U.Work)`.
 
 ## 2 · Problem
 
@@ -14790,7 +16120,7 @@ Any episteme that previously mixed slot/value/ref concepts (e.g., using `Describ
 
 #### 4.3 Minimal epistemic morphisms (informal schema)
 
-> **Note.** The full mathematical treatment (categories Ep and Ref, describedEntityChange functor `α : Ep → Ref`, and effect‑free morphisms) lives in A.6.2–A.6.4. Here we fix only the **object‑level relations** that C.2.1 expects to exist between its positions.
+> **Note.** The full mathematical treatment (categories Ep and Ref, describedEntity functor `α : Ep → Ref`, and effect‑free morphisms) lives in A.6.2–A.6.4. Here we fix only the **object‑level relations** that C.2.1 expects to exist between its positions.
 
 At the level of `U.EpistemeCard` components and SlotKinds, we assume the following **primitive relations** (not all are functions):
 
@@ -14897,7 +16227,7 @@ Intensions (I‑layer) such as `U.System`, `U.Method`, `U.Role` **do not** inhab
   * the same `BoundedContextRef` and `ViewpointRef` (hence same DescriptionContext),
   * a `content : U.ClaimGraph` that raises formality F (F≥4) and adds test harness hooks, but is conservative with respect to the underlying intension.
 
-  As an Ep→Ep morphism, `Specify_DS` is a **species of A.6.2** and must obey the invariants over the C.2.1 slots (describedEntityChange‑mode = preserve; no change to DescribedEntity; ClaimGraph refinement only).
+  As an Ep→Ep morphism, `Specify_DS` is a **species of A.6.2** and must obey the invariants over the C.2.1 slots (DescribedEntityChangeMode = preserve; no change to DescribedEntity; ClaimGraph refinement only).
 
 C.2.1 does **not** define I/D/S; it only insists that any `…Description`/`…Spec` species that claims to respect I/D/S discipline must:
 * implement `U.EpistemeCard` or `U.EpistemeView` **with** `content`, `describedEntityRef`, `groundingHolonRef?`, `viewpointRef?`, and `referenceScheme?` fields, and
@@ -14923,17 +16253,17 @@ For any `f : X → Y` that is an instance of `U.EffectFreeEpistemicMorphing`:
   ```
 
   Any additional C.2.1+ components (RepresentationScheme, Tokens, Carriers, Operations) are visible to A.6.2 only through their declared SlotKinds (A.6.5).
-* **DescribedEntityChange characteristic.**
-  `f` **MUST** declare a **`describedEntityMode ∈ {preserve, retarget}`**:
+* **DescribedEntityChangeMode characteristic.**
+  `f` **MUST** declare a **`describedEntityChangeMode ∈ {preserve, retarget}`**:
   * `preserve` — `describedEntityRef(Y) = describedEntityRef(X)` and any change to `groundingHolonRef`/`viewpointRef` must be justified by Bridges/CorrespondenceModel, without changing the DescribedEntitySlot value;
   * `retarget` — permitted only for A.6.4 species; see below; in this case the characteristic records an intentional change in the pair `<describedEntityRef, groundingHolonRef>` under a declared `KindBridge` in the appropriate ReferencePlane.
 
-  This **DescribedEntityChange** is a CHR-style *characteristic* (A.17) on episteme morphisms, which points directly to `DescribedEntitySlot`. Avoid introducing a separate “aboutness” term alongside `DescribedEntity`. 
+  This **DescribedEntityChangeMode** is a CHR-style *characteristic* (A.17) on episteme morphisms, which points directly to `DescribedEntitySlot`. Avoid introducing a separate “describedEntity” term alongside `DescribedEntity`. 
   
 * **Component discipline.**
   P0–P5 from A.6.2 are read **directly** in terms of C.2.1 components:
   * purity ⇒ only C.2.1 components of Y may change; no Work/Mechanism side‑effects;
-  * conservativity ⇒ claims in `content_Y` read via `referenceScheme_Y` about the new `<DescribedEntity, GroundingHolon>` do not go beyond what already follows from `content_X` via `referenceScheme_X` under the declared DescribedEntityChange and Bridges;
+  * conservativity ⇒ claims in `content_Y` read via `referenceScheme_Y` about the new `<DescribedEntity, GroundingHolon>` do not go beyond what already follows from `content_X` via `referenceScheme_X` under the declared DescribedEntityChangeMode and Bridges;
   * functoriality ⇒ composition of such transformations respects the slot structure and ReferenceSchemes.
 
 Any Ep→Ep pattern that operates on `U.Episteme` **MUST** state which C.2.1 slots it reads and which it may write, in terms of SlotKinds/ValueKinds/RefKinds (A.6.5), and then declare itself a species of A.6.2/3/4 as appropriate.
@@ -14957,13 +16287,13 @@ In terms of SoTA, EpistemicViewing behaves like a **lens** or **optic** over C.2
 
 #### 7.3 · EpistemicRetargeting (A.6.4) as DescribedEntity-bundle retargeting on episteme morphisms
 
-`U.EpistemicRetargeting` is the species of A.6.2 where **`describedEntityMode = retarget`**.
+`U.EpistemicRetargeting` is the species of A.6.2 where **`describedEntityChangeMode = retarget`**.
 It is always a **morphism between epistemes** (`f : X → Y` in `U.Episteme`), but the adjective “retargeting” refers **not** to the fact that an episteme is mapped to another episteme (this is true for all A.6.2 species), and **not** to a separate describedEntity, but specifically to the **change in the DescribedEntity-bundle** selected by C.2.1:
 * `describedEntityRef(Y) ≠ describedEntityRef(X)` — the value stored for `DescribedEntitySlot` changes;
 * a `KindBridge` must relate `Kind(describedEntityRef(X))` and `Kind(describedEntityRef(Y))`;
 * `groundingHolonRef` may remain the same (e.g. same plant, different subsystem) or be transformed along a Bridge in the same ReferencePlane.
 
-In practice, many retargetings operate on the **target bundle** `<DescribedEntitySlot, GroundingHolonSlot>` (for example, when an episteme about a physical module is re-interpreted as an episteme about a function-holon realised in a different environment). The characteristic `describedEntityMode` still classifies such morphisms by whether this bundle is preserved or intentionally re-identified under a `KindBridge` and reference-plane policy; the episteme on the codomain side is just the usual A.6.2 target object.
+In practice, many retargetings operate on the **target bundle** `<DescribedEntitySlot, GroundingHolonSlot>` (for example, when an episteme about a physical module is re-interpreted as an episteme about a function-holon realised in a different environment). The characteristic `describedEntityChangeMode` still classifies such morphisms by whether this bundle is preserved or intentionally re-identified under a `KindBridge` and reference-plane policy; the episteme on the codomain side is just the usual A.6.2 target object.
 
 
 Over C.2.1 this is used for:
@@ -15086,7 +16416,7 @@ Any episteme species whose name or pattern claims to be a `…Description` or `�
 **CC‑C.2.1‑5 · Morphism declarations over slots.**
 Any pattern in A.6.2–A.6.4, E.17, E.TGA, or discipline packs that defines morphisms between epistemes **SHALL**:
 * state whether it is a species of `U.EffectFreeEpistemicMorphing`, `U.EpistemicViewing`, or `U.EpistemicRetargeting`,
-* declare its `describedEntityChange` (preserve/retarget),
+* declare its `describedEntityChangeMode` (preserve/retarget),
 * name which SlotKinds it reads and writes,
 * state its behaviour on `describedEntityRef`, `groundingHolonRef`, `viewpointRef`, and `referenceScheme`.
 
@@ -15107,7 +16437,7 @@ Any `U.Episteme` species that is consumed by KD‑CAL / LOG‑CAL / CHR‑based 
 C.2.1 **inherits** A.7/A.12’s separation obligations: `U.PresentationCarrier` / `U.Surface` artefacts and `U.Work` instances **MUST NOT** be treated as parts of `U.Episteme` or as values of any SlotKind in `U.EpistemeSlotGraph`. Episteme content stays in `U.ClaimGraph` and `U.ReferenceScheme`; evidence enters only via `U.EvidenceRole` bindings that point to external `U.Work` / carriers (A.10/B.3). Changing carriers or re‑publishing work alone does **not** change the episteme determined by ⟨content, describedEntityRef, referenceScheme⟩ in its `U.BoundedContext`.
 
 **CC‑C.2.1‑10 · Reflexive describedEntity guard.**
-When an episteme uses C.2.1 to speak **about** another episteme (ReferencePlane = episteme), or about itself (self‑describing or meta‑specification cases), patterns **SHALL** ensure that the resulting JustificationGraph / evaluation chains are **acyclic** along support paths. Reflexive `about` / citation edges may exist as literature anchors, but they MUST NOT form minimal support cycles for acceptance or KD‑CAL assurance decisions; the trust calculus MUST always bottom out in external evidence (`U.Work` with `U.EvidenceRole`) rather than in purely self‑referential claims.
+When an episteme uses C.2.1 to speak **about** another episteme (ReferencePlane = episteme), or about itself (self‑describing or meta‑specification cases), patterns **SHALL** ensure that the resulting JustificationGraph / evaluation chains are **acyclic** along support paths. Reflexive `describe` / citation edges may exist as literature anchors, but they MUST NOT form minimal support cycles for acceptance or KD‑CAL assurance decisions; the trust calculus MUST always bottom out in external evidence (`U.Work` with `U.EvidenceRole`) rather than in purely self‑referential claims.
 
 ### 11 · Consequences  *(informative)*
 
@@ -15146,7 +16476,7 @@ When an episteme uses C.2.1 to speak **about** another episteme (ReferencePlane 
 * E.8, E.10 — for pattern authoring discipline and lexical guards.
 
 * **Constrains**
-* A.6.2–A.6.4 — by fixing the minimal episteme component set those morphisms operate on and by requiring an explicit **DescribedEntityChange characteristic** (`describedEntityMode ∈ {preserve, retarget}`) over `DescribedEntitySlot`/`GroundingHolonSlot`.
+* A.6.2–A.6.4 — by fixing the minimal episteme component set those morphisms operate on and by requiring an explicit **DescribedEntityChangeMode characteristic** (`describedEntityChangeMode ∈ {preserve, retarget}`) over `DescribedEntitySlot`/`GroundingHolonSlot`.
 * E.17.0–E.17.2 — by specifying how `DescribedEntity`, `Viewpoint`, `View` and ReferenceSchemes are represented at episteme level.
 * E.17 (MVPK) — by separating `U.View` (episteme) from `U.PresentationCarrier` (surface), and by requiring that publication morphisms be `U.EpistemicViewing` species over C.2.1‑conformant views.
 * F.18 (LEX‑BUNDLE) — by providing the episteme‑specific name cards and guards for DescribedEntity/GroundingHolon/Viewpoint/View/ReferenceScheme and their SlotKinds.
@@ -15154,7 +16484,7 @@ When an episteme uses C.2.1 to speak **about** another episteme (ReferencePlane 
 **Used by**
 * A.6.2 `U.EffectFreeEpistemicMorphing` — as the default episteme object structure for episteme‑to‑episteme transforms.
 * A.6.3 `U.EpistemicViewing` — as the substrate for describedEntity‑preserving projections (views).
-* A.6.4 `U.EpistemicRetargeting` — as the substrate for DescribedEntity-bundle retargeting transforms between epistemes (Ep→Ep with `describedEntityMode = retarget`).
+* A.6.4 `U.EpistemicRetargeting` — as the substrate for DescribedEntity-bundle retargeting transforms between epistemes (Ep→Ep with `describedEntityChangeMode = retarget`).
 * E.17.0 `U.MultiViewDescribing`, E.17.1, E.17.2 — to organise families of D/S‑epistemes under Viewpoints and EoI classes.
 * E.17 (MVPK) — to publish episteme views as surfaces.
 * E.TGA — to interpret StructuralReinterpretation and other engineering projections as episteme morphisms over a well‑typed `U.EpistemeSlotGraph`.
@@ -15682,7 +17012,7 @@ Raising or (exceptionally) lowering **F** constitutes a **content change** (ΔF)
 
 **Status.** Normative architheory in **Part C**. Identifier **C.3**. This pattern lays the **architectural invariant** and manager‑level guidance. The **mechanics** are defined by its child patterns.
 
-**Readers.** Engineering managers, architects, and assurance leads who must reason about *typed claims* across Contexts without mixing up **aboutness** (Kinds), **applicability** (**G**), and **assurance** (**R**).
+**Readers.** Engineering managers, architects, and assurance leads who must reason about *typed claims* across Contexts without mixing up **describedEntity** (Kinds), **applicability** (**G**), and **assurance** (**R**).
 
 **Depends on.**
 — **A.2.6 USM** (Context slices & Scopes): **`U.ClaimScope` = G**, **`U.WorkScope`**, ∈/∩/**SpanUnion**/translate, **Γ\_time** policy, Bridges + **CL** (scope).
@@ -15726,7 +17056,7 @@ Teams routinely overspend on proofs for **instance‑level** questions and under
 
 ## 2 · Context  \[I]
 
-Cross‑disciplinary work mixes artifacts that *look like “types”* but behave differently: ontology classes, schema “shapes,” programming types, BORO super/sub categories, ad‑hoc labels. At the same time, **USM** made “scope” precise. What was missing was a *small, neutral* notion of **aboutness** that (a) **does not** re‑invent a global “type system,” (b) composes with USM and F–G–R, and (c) lets Contexts keep their idioms—**with bridges** when crossing boundaries.
+Cross‑disciplinary work mixes artifacts that *look like “types”* but behave differently: ontology classes, schema “shapes,” programming types, BORO super/sub categories, ad‑hoc labels. At the same time, **USM** made “scope” precise. What was missing was a *small, neutral* notion of **describedEntity** that (a) **does not** re‑invent a global “type system,” (b) composes with USM and F–G–R, and (c) lets Contexts keep their idioms—**with bridges** when crossing boundaries.
 
 ---
 
@@ -15735,7 +17065,7 @@ Cross‑disciplinary work mixes artifacts that *look like “types”* but behav
 1. **Scope–type conflation.** Authors try to widen **G** by “abstracting the wording,” yielding claims that *sound* general but are only supported on a thin slice.
 2. **Silent drift across Contexts.** A “vehicle” here is not the same as a “transport unit” there; reuse proceeds without a declared mapping or risk accounting.
 3. **Wasteful planning.** Without a signal about the *kind‑level*, teams either over‑formalize single‑slice decisions or under‑test class‑level claims (no variant coverage along subkinds).
-4. **Unsafe composition.** Claims about incompatible “things” get composed because the aboutness was implicit in prose.
+4. **Unsafe composition.** Claims about incompatible “things” get composed because the describedEntity was implicit in prose.
 
 ---
 
@@ -15743,7 +17073,7 @@ Cross‑disciplinary work mixes artifacts that *look like “types”* but behav
 
 | Force                             | Tension to resolve                                                                                 |
 | --------------------------------- | -------------------------------------------------------------------------------------------------- |
-| **Local freedom vs global sense** | Contexts need their own vocabularies; Cross‑context work needs a common skeleton for **aboutness**.      |
+| **Local freedom vs global sense** | Contexts need their own vocabularies; Cross‑context work needs a common skeleton for **describedEntity**.      |
 | **Minimality vs utility**         | The notion of kind must be tiny yet powerful enough to guide ΔF/ΔR/bridges/composition.            |
 | **Intent vs extent**              | Kinds come with a **definition** and a **population in place**; both are needed and must not mix.  |
 | **Typed discipline vs F–G–R**     | Typed safety must not distort **G** (Scope) nor introduce a parallel “assurance math.”             |
@@ -15871,7 +17201,7 @@ Typed compatibility first (same‑Context **`⊑`** or **KindBridge**), then **S
 
 **E‑Sketch 1 — Policy over `Vehicle`.**
 Claim: “For all `x ∈ Vehicle`: brakeDistance(x) ≤ 50 m (dry), ≤ 40 m (wet).”
-– **Aboutness:** `Vehicle` (Kind, typically K2) — *what* we quantify over.
+– **describedEntity:** `Vehicle` (Kind, typically K2) — *what* we quantify over.
 – **Scope (G):** `{surface∈{dry,wet}, speed≤50, rig=v3, Γ_time=rolling 180d}` — *where* the claim holds.
 – **Extent in slice:** which instances the lab currently classifies as `Vehicle` (via `MemberOf`).
 Typed checks happen **before** Scope intersection; **G** is not widened by “abstract wording.”
@@ -15889,7 +17219,7 @@ Producer A emits `Request`; consumer B expects `AuthenticatedRequest`.
 
 A typed claim has two independent parts:
 
-1. **Aboutness (Kind).** *Which things the statement talks about.*
+1. **describedEntity (Kind).** *Which things the statement talks about.*
    “For every item of kind **k** in the **target context** (the selected **TargetSlice**) …”.
    — The **definition** of kind **k** lives in **KindSignature(k)** (with its **F**, C.3.2).
    — **Which items count as “k”** is evaluated in the **TargetSlice** (C.3.2) by a deterministic membership check.
@@ -15915,7 +17245,7 @@ A typed claim has two independent parts:
 * **Serial path:** take the **intersection** of the contributors’ claim scopes.
 * **Parallel independent lines:** use **SpanUnion** of the serial scopes (only if independence is justified).
 
-**Rule C‑T‑3 (no type‑by‑scope).** A kind mismatch **MUST NOT** be “fixed” by widening **G**. Changes in aboutness require **subkind introduction**, **signature edits**, or a **KindBridge**—not a scope change.
+**Rule C‑T‑3 (no type‑by‑scope).** A kind mismatch **MUST NOT** be “fixed” by widening **G**. Changes in describedEntity require **subkind introduction**, **signature edits**, or a **KindBridge**—not a scope change.
 
 **Manager hint.** First confirm the **port shape** matches (kinds line up), then check the **operating area** (scope), and finally look at **confidence** (evidence freshness plus any bridge congruence penalties).
 
@@ -15969,7 +17299,7 @@ You never add or average **F/G**: you **compose scope** per USM rules and apply 
 
 ---
 
-#### 7.2.2 **Kind‑CAL** (this Part) — name the *aboutness*  \[A]
+#### 7.2.2 **Kind‑CAL** (this Part) — name the *describedEntity*  \[A]
 
 **What it supplies.**
 • **`U.Kind`** objects for those nouns; a partial order **`⊑`** (subkind‑of).
@@ -16226,9 +17556,9 @@ If a bridge’s loss notes indicate material mismatch (dropped invariants, colla
 
 Create a Kind when:
 
-* multiple claims refer to the **same “aboutness”** using unstable labels;
+* multiple claims refer to the **same “describedEntity”** using unstable labels;
 * you need **subkinds** (refinement) or repeated **RoleMasks**;
-* different Contexts must **map** this “aboutness” via bridges;
+* different Contexts must **map** this “describedEntity” via bridges;
 * you need to **quantify** over a population (and plan variant coverage) instead of over a single exemplar.
 
 Avoid creating a Kind for **one‑off** instance references—prefer a clear **K0** facet or just a literal exemplar in the claim.
@@ -16290,7 +17620,7 @@ Never treat **AT** as “wider/narrower” **G**.
 
 ### 10.1 · Reviewer’s 8‑point checklist
 
-1. **Named aboutness.** Does the claim state **what** it quantifies over (`U.Kind`)?
+1. **Named describedEntity.** Does the claim state **what** it quantifies over (`U.Kind`)?
 2. **Scope explicit.** Is **G** declared (no “domain” placeholders, no implicit “latest”)?
 3. **Typed compatibility.** For compositions, do we have `⊑` (same Context) or a **KindBridge**?
 4. **RoleMasks.** If used, are they **registered**, **deterministic**, and not masquerading as kinds?
@@ -16418,7 +17748,7 @@ Apply **Φ(2)** and **Ψ(1)** to **R**; restrict groups to mapped subset; requir
 
 | Anti‑pattern (what goes wrong)                                   | Why it’s wrong (conceptual fault)                                                               | The fix (normative/informative pointers)                                                                                                              |
 | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **“We widened G because we reworded the type.”**                 | Confuses **aboutness** (kind) with **applicability** (scope). Abstract wording ≠ broader scope. | Keep typed pre‑check separate (C.3.1 `⊑` or C.3.3 KindBridge). Widen **G** only via **ΔG+** with support (USM A.2.6).                                 |
+| **“We widened G because we reworded the type.”**                 | Confuses **describedEntity** (kind) with **applicability** (scope). Abstract wording ≠ broader scope. | Keep typed pre‑check separate (C.3.1 `⊑` or C.3.3 KindBridge). Widen **G** only via **ΔG+** with support (USM A.2.6).                                 |
 | **“Kind scope” block attached to a Kind.**                       | Kinds don’t carry Scope; they carry **intent/extent**.                                          | Remove the block. Scope stays on claims/capabilities (USM). If you meant classifier definedness, state it via **K‑07** (C.3.2).                       |
 | **Inferring scope from extension size.**                         | **Scope ≠ Extension**; extension is “which instances in a slice,” not “where the claim holds.”  | Keep **G** set‑valued over `U.ContextSlice` (USM). Use `MemberOf` only inside the typed quantifier.                                                   |
 | **Mask used as a hidden kind (“just call it the masked kind”).** | Opaque drift; reviewers can’t see constraints.                                                  | Register a **RoleMask** (C.3.4). If reused across guards, **promote to subkind** with `⊑`.                                                            |
@@ -16426,7 +17756,7 @@ Apply **Φ(2)** and **Ψ(1)** to **R**; restrict groups to mapped subset; requir
 | **Using AT (K0…K3) as a gate/threshold.**                        | AT is an **informative facet**, not a Characteristic; gating on AT recreates a G‑ladder.        | Remove AT from guards. Use it only to **aim ΔF/ΔR** and to set **bridge expectations** (C.3.5).                                                       |
 | **“Automated execution success proves the type claim.”**                            | Execution success (F5/6) is not proof (F7+); also confuses **R** with **F**.                    | If you need proof‑grade properties, raise **F** for the claim/KindSignature (C.2.3) or restrict the claim. Keep **R** as evidence freshness/coverage. |
 | **Hidden “latest” in membership or scope checks.**               | Non‑deterministic evaluation; unverifiable audit trail.                                         | Declare **Γ\_time** explicitly in Scope (USM). Membership must be **deterministic** (C.3.2 K‑05/K‑07).                                                |
-| **Fixing type mismatch by “unioning scopes.”**                   | G‑union cannot repair **aboutness** mismatches.                                                 | Introduce a **subkind**, add an **adapter** (+evidence), or define a **KindBridge**.                                                                  |
+| **Fixing type mismatch by “unioning scopes.”**                   | G‑union cannot repair **describedEntity** mismatches.                                                 | Introduce a **subkind**, add an **adapter** (+evidence), or define a **KindBridge**.                                                                  |
 | **Collapsing subkinds silently in a bridge.**                    | Reviewers don’t see lost distinctions → false confidence.                                       | Record **loss notes** on the KindBridge (C.3.3 KB‑11); consider **narrowing** mapped Scope or adding an adapter.                                      |
 
 ---
@@ -16484,7 +17814,7 @@ Apply **Φ(2)** and **Ψ(1)** to **R**; restrict groups to mapped subset; requir
 ### 14.1 · Inventory & refactor (steps)
 
 1. **Inventory** claims that implicitly talk about “things” (vehicles, requests, accounts, cohorts…).
-2. **Name kinds** for recurring “aboutness”; start at **K1**; promote to **K2** as invariants stabilize.
+2. **Name kinds** for recurring “describedEntity”; start at **K1**; promote to **K2** as invariants stabilize.
 3. **Extract KindSignature** (aim **F4**); declare **F**.
 4. **Refactor claims** to typed quantification: `∀ x ∈ Extension(k, slice) …` plus **Scope (G)** predicates.
 5. **Publish bridges** where reuse is Cross‑context: Scope Bridge (**CL**) and KindBridge (**`CL^k`**) with loss notes; wire penalties **Φ/Ψ** to **R**.
@@ -16558,10 +17888,10 @@ A **KindBridge** behaves like a **functor** that (approximately) preserves struc
 ## 15bis · Rationale (Part E form)  \[I]
 
 **Problem.** (recap)
-— Authors conflate *aboutness* with *applicability*, widening G by abstract wording.
+— Authors conflate *describedEntity* with *applicability*, widening G by abstract wording.
 — Cross‑context reuse drifts semantically without declared mappings or risk accounting.
 — Planning misfires: over‑formalization for instance claims; under‑testing for class claims.
-— Unsafe compositions when aboutness is implicit.
+— Unsafe compositions when describedEntity is implicit.
 
 **Forces.** (recap)
 — Local freedom vs global sense; minimality vs utility; intent vs extent; typed discipline vs F–G–R; abstraction vs applicability.
@@ -16657,7 +17987,7 @@ Week 4: Promote repeated masks to subkinds; publish first **KindBridge** record
 
 ## 1 · Purpose & Audience
 
-This pattern gives **one small, stable vocabulary** to say *what* a claim ranges over (its **aboutness**) without entangling that with *where it applies* (Scope) or *how well it is supported* (R). For managers:
+This pattern gives **one small, stable vocabulary** to say *what* a claim ranges over (its **describedEntity**) without entangling that with *where it applies* (Scope) or *how well it is supported* (R). For managers:
 
 * It prevents the costly mistake “more abstract wording ⇒ wider scope.”
 * It enables **typed composition** (you cannot combine claims about incompatible “things”).
@@ -16675,7 +18005,7 @@ across Contexts, “type” means OWL class, SHACL shape, code type, BORO catego
 
 1. **Scope–Type conflation.** Teams broaden G by “abstracting” prose, not by adding supported slices.
 2. **Unsafe composition.** Claims are joined though they talk about different “things.”
-3. **Cross‑context drift.** Without an explicit core notion of kind, bridges blur aboutness vs applicability.
+3. **Cross‑context drift.** Without an explicit core notion of kind, bridges blur describedEntity vs applicability.
 
 ---
 
@@ -16685,7 +18015,7 @@ across Contexts, “type” means OWL class, SHACL shape, code type, BORO catego
 | ------------------------------ | ------------------------------------------------------------------------- |
 | **Minimality vs utility**      | Keep the core tiny yet sufficient for composition and governance.         |
 | **Locality vs reuse**          | Kinds are context‑local, but projects reuse claims across Contexts via bridges. |
-| **Aboutness vs applicability** | Ordering should not leak into Scope; kinds must not carry G.              |
+| **describedEntity vs applicability** | Ordering should not leak into Scope; kinds must not carry G.              |
 | **Neutrality vs specificity**  | Avoid committing to any particular type/ontology stack or notation.       |
 
 ---
@@ -16695,7 +18025,7 @@ across Contexts, “type” means OWL class, SHACL shape, code type, BORO catego
 * **`U.Kind`** — a **context‑local intensional** object naming a “kind of thing” claims may quantify over.
 * **`U.SubkindOf (⊑)`** — a **partial order** on kinds (reflexive, transitive, antisymmetric). `k₁ ⊑ k₂` reads “`k₁` refines `k₂`.”
 
-> **No Scope on kinds.** Scope is for **claims/capabilities** (USM). Kinds supply **aboutness only**; **membership** and **signature** live in **C.3.2**.
+> **No Scope on kinds.** Scope is for **claims/capabilities** (USM). Kinds supply **describedEntity only**; **membership** and **signature** live in **C.3.2**.
 
 ---
 
@@ -16720,7 +18050,7 @@ across Contexts, “type” means OWL class, SHACL shape, code type, BORO catego
 * **With F–G–R (C.2.2).** This pattern does not alter the triple; typed checks happen **before** scope algebra, preventing invalid compositions.
 * **Order of checks reference.** See **Annex C.3.A §5 (E‑01)** for the normative evaluation order: typed compatibility first, then Scope coverage, then penalties to **R** and freshness.
 * **With Formality (C.2.3).** A **KindSignature** (C.3.2) declares its **F**; claims retain their own F via weakest‑link.
-* **With Bridges (Part B).** Use **KindBridge** (C.3.3) for aboutness; use **Scope Bridge** (Part B) for applicability. Penalties land in **R** via different channels.
+* **With Bridges (Part B).** Use **KindBridge** (C.3.3) for describedEntity; use **Scope Bridge** (Part B) for applicability. Penalties land in **R** via different channels.
 
 ---
 
@@ -16734,7 +18064,7 @@ If a local constraint is temporary or purely procedural, prefer a **RoleMask** (
 
 **Review prompts.**
 
-1. Does the draft introduce a new *aboutness* concept? → consider a kind.
+1. Does the draft introduce a new *describedEntity* concept? → consider a kind.
 2. Does prose hint at “is‑a” relationships? → capture as `⊑`, not as scope widening.
 3. Are authors trying to widen scope by abstracting wording? → stop; widen **G** only via **ΔG** (USM) with support.
 
@@ -16800,7 +18130,7 @@ Contexts differ wildly in “type” practice. A large, prescriptive core would 
 
 ## 1 · Purpose & Audience
 
-This pattern makes **aboutness testable** in a Context:
+This pattern makes **describedEntity testable** in a Context:
 
 * Authors get a place to write **what defines a kind** (`KindSignature`) and at **what rigor (F)**.
 * Reviewers can ask **deterministic** questions: *“Given this `TargetSlice`, which entities are in `k`?”*
@@ -16957,7 +18287,7 @@ Different Contexts encode “type” intent differently (predicates, schemas, on
 | Anti‑pattern                                         | Why it’s wrong                        | Remedy                                                              |
 | ---------------------------------------------------- | ------------------------------------- | ------------------------------------------------------------------- |
 | Using “latest” implicitly in membership              | Non‑deterministic; unreproducible     | Require explicit `Γ_time`; treat freshness separately in **R**      |
-| Encoding Scope (“only in EU plant”) in the signature | Confuses applicability with aboutness | Move such conditions to **Claim scope (G)**; keep signature general |
+| Encoding Scope (“only in EU plant”) in the signature | Confuses applicability with describedEntity | Move such conditions to **Claim scope (G)**; keep signature general |
 | Declaring `k₁ ⊑ k₂` but not ensuring subset behavior | Breaks typed reasoning                | Tighten `KindSignature` or drop the `⊑` link                        |
 | Treating RoleMask as a different kind                | Catalog sprawl; hidden semantics      | Keep mask as adaptation; promote to subkind if widely reused        |
 | Membership relying on external, unnamed assumptions  | Hidden dependencies; review fatigue   | Name assumptions in the signature; point to Standards/versions      |
@@ -16998,7 +18328,7 @@ Guards must be **reproducible** and **auditable**: same `slice` ⇒ same members
 
 # C.3.3 · **KindBridge & CL^k — Cross‑context Mapping of Kinds**  \[A]
 
-> **One‑line summary.** Defines **`KindBridge`** as the normative mechanism for moving **kinds** (their **intent** and selected **subkind‑of** links) between bounded contexts (“Contexts”). A bridge declares **how a source kind maps to a target kind**, which parts of the **`⊑`** order are preserved or collapsed, and publishes a **type‑congruence level `CL^k`** with **loss notes** and a **definedness area**. **`CL^k` penalties apply only to Reliability (R)** when a claim depends on Cross‑context classification; **F** (formality) and **G** (Claim scope) remain unchanged. Scope translation continues to use the **USM Bridge + CL** channel; **KindBridge** is a **separate, parallel channel** for aboutness.
+> **One‑line summary.** Defines **`KindBridge`** as the normative mechanism for moving **kinds** (their **intent** and selected **subkind‑of** links) between bounded contexts (“Contexts”). A bridge declares **how a source kind maps to a target kind**, which parts of the **`⊑`** order are preserved or collapsed, and publishes a **type‑congruence level `CL^k`** with **loss notes** and a **definedness area**. **`CL^k` penalties apply only to Reliability (R)** when a claim depends on Cross‑context classification; **F** (formality) and **G** (Claim scope) remain unchanged. Scope translation continues to use the **USM Bridge + CL** channel; **KindBridge** is a **separate, parallel channel** for describedEntity.
 
 ---
 
@@ -17025,7 +18355,7 @@ Guards must be **reproducible** and **auditable**: same `slice` ⇒ same members
 Cross‑context reuse fails in two **orthogonal** ways:
 
 1. **Applicability** (G): *where* the claim holds (handled by USM Scope Bridge).
-2. **Aboutness** (Kind): *what* the claim quantifies over (handled by **KindBridge**).
+2. **describedEntity** (Kind): *what* the claim quantifies over (handled by **KindBridge**).
 
 **C.3.3** gives managers an explicit, auditable channel for **(2)**, so a team can say, with evidence: *“`Vehicle` in Lab maps to `TransportUnit` in Plant with `CL^k=2`; the EV subkind collapses; here’s what we lost.”* Guards stay deterministic; assurance math stays clean (penalties in **R** only).
 
@@ -17033,7 +18363,7 @@ Cross‑context reuse fails in two **orthogonal** ways:
 
 ## 2 · Context
 
-Contexts use different **classifications**: ontology classes vs shape Standards, regulatory cohorts vs app types, etc. Informal “same‑name” reuse silently mutates aboutness. USM already made scope moves explicit. **KindBridge** does the same for kinds: **declare the mapping**, rate its **congruence**, and capture known **losses**.
+Contexts use different **classifications**: ontology classes vs shape Standards, regulatory cohorts vs app types, etc. Informal “same‑name” reuse silently mutates describedEntity. USM already made scope moves explicit. **KindBridge** does the same for kinds: **declare the mapping**, rate its **congruence**, and capture known **losses**.
 
 ---
 
@@ -17226,7 +18556,7 @@ Use the **`Guard_XContext_Typed`** macro (Annex C.3.A), which requires **both br
 | Claiming preserved `⊑` while inverting order | Makes typed reasoning unsound          | Mark as **not preserved**; add **loss note**; consider adapter or subkind redesign  |
 | Hiding collapses                             | Overstates coverage                    | List collapsed subkinds explicitly; plan extra **R** for lost granularity           |
 | “Latest mapping”                             | Non‑deterministic; non‑auditable       | Version bridges; bind to Standards/versions; **fail closed** outside definedness    |
-| Using KindBridge to widen G                  | Conflates aboutness with applicability | Keep Scope edits in **USM** (ΔG±); KindBridge never widens Scope                    |
+| Using KindBridge to widen G                  | Conflates describedEntity with applicability | Keep Scope edits in **USM** (ΔG±); KindBridge never widens Scope                    |
 | Adjusting F/G for poor `CL^k`                 | Violates F–G–R & USM separation             | Route consequences to **R** only; consider narrowing Scope or adding adapters       |
 
 ---
@@ -17295,7 +18625,7 @@ If each team clones a fresh kind, catalogs fragment and bridges multiply. **Role
 
 ## 2 · Context
 
-Kinds (C.3.1/3.2) name **what** claims quantify over; USM (A.2.6) governs **where** claims hold. In practice, procedures need **local tailoring** of kinds for a role/process (compliance profile, product line, cohort). RoleMask gives that tailoring **without** mutating aboutness (Kind) or applicability (Scope).
+Kinds (C.3.1/3.2) name **what** claims quantify over; USM (A.2.6) governs **where** claims hold. In practice, procedures need **local tailoring** of kinds for a role/process (compliance profile, product line, cohort). RoleMask gives that tailoring **without** mutating describedEntity (Kind) or applicability (Scope).
 
 ---
 
@@ -17396,7 +18726,7 @@ Penalties **MUST** route to **R**: `Ψ(CLᵏ)` for kind, plus any **Φ(CL)** for
 ## 7 · Invariants & Non‑goals (normative)
 
 * **No Scope leakage.** RoleMasks **cannot** widen/narrow **Claim scope (G)**; any context conditions are enforced by USM guards.
-* **Identity preservation.** The carrier kind remains `k`; RoleMask does not change aboutness.
+* **Identity preservation.** The carrier kind remains `k`; RoleMask does not change describedEntity.
 * **Weakest‑link unaffected.** RoleMasks do not alter weakest‑link rules on **F/R**; guards **route entity predicates to membership** and **context predicates to USM Scope**.
 
 ## 8 · Interactions (informative)
@@ -17684,7 +19014,7 @@ This keeps AT **useful** without risking a “second G” or back‑door quality
 
 # C.3.A · **Typed Guard Macros for Kinds + USM (Annex)**  \[A/I]
 
-> **One‑line summary.** Provides **normative guard macros** that combine **USM Scope** (A.2.6) with **Kind‑CAL** (C.3.x) so authors can gate state changes and compositions that **quantify over kinds** without conflating **aboutness** (Kinds) with **applicability** (Scope **G**) or **assurance** (**R**). Includes **decision trees, anti‑patterns, and examples** (informative). **AT (KindAT)** is **never** used in guards.
+> **One‑line summary.** Provides **normative guard macros** that combine **USM Scope** (A.2.6) with **Kind‑CAL** (C.3.x) so authors can gate state changes and compositions that **quantify over kinds** without conflating **describedEntity** (Kinds) with **applicability** (Scope **G**) or **assurance** (**R**). Includes **decision trees, anti‑patterns, and examples** (informative). **AT (KindAT)** is **never** used in guards.
 
 ---
 
@@ -17720,7 +19050,7 @@ This keeps AT **useful** without risking a “second G” or back‑door quality
 Projects often:
 
 * treat **“more abstract wording”** as wider **G**,
-* glue claims with incompatible **aboutness** (kinds),
+* glue claims with incompatible **describedEntity** (kinds),
 * move typed content across Contexts without **declared bridges**,
 * or bake **AT** (abstraction vibe) into decision logic.
 
@@ -17819,7 +19149,7 @@ All guards in this Annex share three invariants:
 2. **Independence justification.** Publisher **SHALL** include a partition or certificate showing that essential components of `Lᵢ` are **disjoint** from `Lⱼ` (no shared weakest link). *(A.2.6 §7.3)*
 3. **Published scope.** `Scope_published = SpanUnion({Sᵢ})`, where each `Sᵢ` is the serial scope for line `Lᵢ`.
 4. **No overreach.** The union **MUST NOT** include slices not covered by any `Sᵢ`.
-5. **Typed consistency.** The **aboutness** (kind **k**) is **the same** across lines; if not, normalize via subkinds or adapters before union.
+5. **Typed consistency.** The **describedEntity** (kind **k**) is **the same** across lines; if not, normalize via subkinds or adapters before union.
 
 **Note.** Independence and union rules are USM‑native; this macro ties them to typed claims without adding new algebra.
 
@@ -17870,7 +19200,7 @@ All guards in this Annex share three invariants:
 | **GC‑03** | Cross‑context typed reuse **SHALL** use **Guard\_XContext\_Typed** with **both** bridges; penalties **MUST** route to **R** (Φ/Ψ), not to F/G. |
 | **GC‑04** | All guards **SHALL** declare **Γ\_time** explicitly and **SHALL** fail closed on undefined membership or missing bridges.                |
 | **GC‑05** | Guards **MUST NOT** reference **AT**; any such reference **MUST** be removed or replaced with ΔF/ΔG/ΔR predicates.                       |
-| **GC‑06** | Scope union **MUST** follow USM **SpanUnion** rules (independence justification); typed union **MUST NOT** change aboutness.             |
+| **GC‑06** | Scope union **MUST** follow USM **SpanUnion** rules (independence justification); typed union **MUST NOT** change describedEntity.             |
 
 ### 6.1 · What counts as “proven‑equivalent” (editorial rule)
 
@@ -17917,7 +19247,7 @@ A Context may adopt a different surface phrasing **iff** the Context’s guard c
 
 | Anti‑pattern                                     | Why it’s wrong                         | Remedy                                                             |
 | ------------------------------------------------ | -------------------------------------- | ------------------------------------------------------------------ |
-| **Widening G** to “fit” a type mismatch          | Conflates aboutness with applicability | Introduce subkind, adapter, or KindBridge; keep G honest           |
+| **Widening G** to “fit” a type mismatch          | Conflates describedEntity with applicability | Introduce subkind, adapter, or KindBridge; keep G honest           |
 | **Using mask name as kind**                      | Hides constraints; breaks determinism  | Register mask; reference constraints; promote to subkind if stable |
 | **Ignoring `CL^k`** in Cross‑context classification | Under‑counts risk; silent drift        | Require KindBridge; apply **Ψ(`CL^k`)** to **R**                   |
 | **Inferring Scope from Extension size**          | Scope ≠ Extension                      | Keep Scope (where) distinct from Extension (which instances)       |
@@ -18472,7 +19802,7 @@ To admit a **capability** for a specific **Work** step at **JobSlice**, the guar
 
 | Anti‑pattern                                      | Why it’s wrong                                 | Remedy                                                                              |
 | ------------------------------------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Widening **G** to “make kinds match”              | Conflates **aboutness** with **applicability** | Introduce **subkind**, **RoleMask**, or **KindBridge**; keep G honest.              |
+| Widening **G** to “make kinds match”              | Conflates **describedEntity** with **applicability** | Introduce **subkind**, **RoleMask**, or **KindBridge**; keep G honest.              |
 | Using a **mask name** as a kind                   | Hides constraints; breaks determinism          | Register mask; ensure constraints are observable; promote to **subkind** if reused. |
 | Ignoring **`CL^k`** when classifying across Contexts | Under‑counts risk                              | Require **KindBridge**; apply **Ψ(`CL^k`)** to **R**; record loss notes.            |
 | Inferring **Scope** from the size of the **Extension** | Scope is not the same as Extension            | Keep **Scope** (where it applies) distinct from **Extension** (which items count in the slice). |
@@ -20180,7 +21510,7 @@ Export a **Discipline.ESG** with named states and guarded transitions (e.g., *Em
 
 | Slot | **System** (safety code in a factory) | **Episteme** (discipline canon across editions) |
 |---|---|---|
-| **Object** | Production line with hazardous operations | “Safety engineering” as *aboutness target* (accident models, tolerable risk) |
+| **Object** | Production line with hazardous operations | “Safety engineering” as *describedEntity target* (accident models, tolerable risk) |
 | **Concept** | Acceptance clauses & evaluation templates bound to rigs/windows | Canon texts: causality models, design rules, proofs/benchmarks (e.g., **formal knowledge bases**, **proof artefacts**, **concept schemas**) |
 | **Symbol** | Local SOP/notation sets for checklists | Notation packages (CLIF, RDF/TriG, proof scripts) |
 | **Γ_disc assembly** | Fold {line‑specific standard, plant procedures, certifying unit} into **`Discipline: Safety‑Plant‑A`** | Fold {canon papers, formal models, journals/committee} into **`Discipline: Safety‑Engineering`** with **Traditions** (e.g., system safety vs resilience engineering) |
@@ -20212,7 +21542,7 @@ Export a **Discipline.ESG** with named states and guarded transitions (e.g., *Em
 +**Trade‑offs.** Discipline authoring requires CG‑Spec literacy and Bridge hygiene; paid back by safe reuse and clearer governance.
 
 ### 9 · Rationale
-The calculus keeps **aboutness local**, **comparability lawful**, and **assurance explicit**. It aligns with KD‑CAL’s weak‑link folds and CL routing, with CG‑Spec’s gauge/Γ‑fold Standard, and with LEX twin‑label governance. It avoids “phlogiston disciplines” by tying fields to measurable CHRs (C.21) and evidence lanes.
+The calculus keeps **describedEntity local**, **comparability lawful**, and **assurance explicit**. It aligns with KD‑CAL’s weak‑link folds and CL routing, with CG‑Spec’s gauge/Γ‑fold Standard, and with LEX twin‑label governance. It avoids “phlogiston disciplines” by tying fields to measurable CHRs (C.21) and evidence lanes.
 
 ### 10 · Relations
 **Builds on.** KD‑CAL (C.2); CG‑Spec (A.19/G.0); Bridges (F.9); LEX (E.10).  
@@ -20476,11 +21806,11 @@ Each field is **CHR‑typed** (Characteristic/Scale/Unit/Polarity; MM‑CHR disc
 * **`Constraints`** — explicit hard/soft constraint classes (feasibility predicates; **ResourceEnvelope**/**RiskEnvelope**). **Thresholds live in Acceptance (G.4) only; never inside CHR or code paths.**
 * **`ShiftClass/Stationarity`** — CHR‑typed claims about regime stability (iid | covariate‑shift | concept‑drift | adversarial). Default=`unknown`. Acceptance/Flows MUST honor this in gating or abstain.
 * `EvidenceGraphRef (A.10)` — carriers & **lane tags (TA/VA/LA)** with **freshness windows**; **no self‑evidence**; default Γ‑fold = **weakest‑link** unless CAL proves an alternative.
-* `ScopeSlice(G)` — **USM** slice of **aboutness/scope** to bound claims (discipline governance in **CG‑Spec**; Domain is a catalog mark only).
+* `ScopeSlice(G)` — **USM** slice of **describedEntity/scope** to bound claims (discipline governance in **CG‑Spec**; Domain is a catalog mark only).
 * `Size/Scale` — size/condition proxies (**n, m, κ, sparsity**) with **declared units**; unit mismatch ⇒ {sandbox|refuse}.
 * **`Freshness`** — validity window for descriptors.
 * `Missingness` — **MCAR/MAR/MNAR** (or mapped equivalents) per **CHR.Missingness**; MUST be honoured by Acceptance/Flows.
-* `KindSet` — **`U.Kind[]`** of objects‑of‑talk addressed by the TaskKind; separates **aboutness (Kind)** from **Scope (USM)**.
+* `KindSet` — **`U.Kind[]`** of objects‑of‑talk addressed by the TaskKind; separates **describedEntity (Kind)** from **Scope (USM)**.
 
 **QD / Illumination extensions (normative; ties to C.18/C.19).**
 * **`CharacteristicSpaceRef`** — reference to **`U.CharacteristicSpace`**, with declared **d≥2**; **characteristics are CHR‑typed**; **ReferencePlane** per characteristic; pin edition via **`CharacteristicSpaceRef.edition`**.
@@ -20608,7 +21938,7 @@ If the problem requires **open‑ended generation** of tasks/environments, S2 **
 
 ### 13) Author’s quick checklist
 
-1. **Write the ProblemProfile.** Context, TaskKind, ObjectKinds, USM **ScopeSlice(G)**, Aboutness (GroundingHolon, ReferencePlane). 
+1. **Write the ProblemProfile.** Context, TaskKind, ObjectKinds, USM **ScopeSlice(G)**, describedEntity (GroundingHolon, ReferencePlane). 
 2. **Fill TaskSignature (S2).** Populate all fields; mark `unknown` explicitly; align **Missingness** with CHR semantics. 
 3. **Bind CG‑Spec ids.** For any numeric comparison/aggregation you expect downstream, cite **CG‑Spec.Characteristics** and prove **CSLC** legality. 
 4. **Attach Evidence Graph Ref.** Lanes (TA/VA/LA), carriers, freshness windows; set **Γ‑fold** default; no self‑evidence. 
@@ -22383,7 +23713,7 @@ constitution and Guard‑Rails, without prescribing tooling workflows.
 
 ---
 
-## 1 · Intent & Scope (what this bundle guarantees)
+## 1 · Problem context
 
 **Intent.** Provide one **normative** rule‑set that makes FPF language **unambiguous, composable across contexts, and teachable** by design. Authors, reviewers, and tooling can point to **LEX‑BUNDLE** as the single source of truth for:
 
@@ -22399,7 +23729,7 @@ constitution and Guard‑Rails, without prescribing tooling workflows.
 
 ---
 
-## 2 · Problem (recurring lexical failure‑modes)
+## 2 · Problem 
 
 1. **Polysemy drift.** *Process, function, service, agent, activity* slide between structure, recipe, execution, and promise.
 2. **Cross‑context collision.** A label (e.g., *Owner*) is assumed “global” though meanings differ per `U.BoundedContext`.
@@ -22743,7 +24073,7 @@ IDs/instances: **flat with delimiters** (context‑defined) but never collide wi
 * Other morphemes (not only suffixes) also **must** respect kinds. For example, **Space is a geometric concept** — **never** use it as a suffix (`…Space…`) or other morpheme in beginning or in the middle of a term to name non‑geometric entities (e.g. prefer **Set/Kid/Kit** instead of **Space** where membership is intended).
 
 **L‑SURF — disciplined use of *Surface* **
-* ***Definition.** *Surface* is reserved for **publication/interoperability surfaces** (UTS, shipping, interop) that present lawful, plane‑aware summaries for human/selector consumption. A **Surface is a bundle of views** (ISO 42010 sense) packaged for a stated **audience** and **purpose**, with declared **viewpoint**. Surfaces are **conceptual** (E.5.2); serialisations live in Annex/Interop. Surfaces package **D/S** projections produced via `Publ_ID` / `Formalize_DS` (A.7) and do **not** change object ontology.
+* ***Definition.** *Surface* is reserved for **publication/interoperability surfaces** (UTS, shipping, interop) that present lawful, plane‑aware summaries for human/selector consumption. A **Surface is a bundle of views** (ISO 42010 sense) packaged for a stated **audience** and **purpose**, with declared **viewpoint**. Surfaces are **conceptual** (E.5.2); serialisations live in Annex/Interop. Surfaces package **D/S** projections produced via `Describe_ID` / `Specify_DS` (A.7) and do **not** change object ontology.
 * ***Allowed:** `PublicationSurface`, `InteropSurface` (G.10/G.13).  
 * ***Forbidden:** `StructureSurface`, `MechanismSurface`, any `…Surface` that denotes a structural, mechanistic or measurement object.  
 * ***Preferred alternatives:** use `…Boundary` (structural border), `…View` (publication view), or `…Card` (UTS record).
@@ -23329,20 +24659,18 @@ The platform offers **Service** ‘Object Storage’ (access = `S3_API_Spec_vX`;
 * **RSCR‑DCTX‑E02.** Refactors of E.10.U1/U.2/U.7/U.9 do not re‑introduce “anchor”.
 * **RSCR‑DCTX‑E03.** Multilingual updates follow D‑CTX‑7 (split/merge rationale recorded informatively).
   
-  # E.10.D2 — Intension–Description–Specification Discipline (I/D/S) \[D]
+## E.10.D2 — Intension–Description–Specification Discipline (I/D/S) \[D]
 
 *Definitional pattern — normative, notation‑agnostic*
 
 > **One‑sentence summary.** For every intensional FPF object (e.g., `U.Role`, `U.Method`, `U.System`, `U.Work`, `U.Service`), clearly distinguish the **thing itself** (*Intension*), its **context‑bound Description** (KU), and its **formal Specification** (KU). Use **–Spec** only when strict, testable invariants and an acceptance harness exist; otherwise use **–Description**. This keeps semantics clean, didactic, and testable across all architheories.
 
-**Status.** Definitional \[D], architheory‑agnostic.
-**Builds on:** A.7 **Strict Distinction (Clarity Lattice)**; E.10.D1 **D.CTX (Context ≡ U.BoundedContext)**; C.2.3 **Unified Formality Characteristic (F)**.
+**Status.** Definitional [D], architheory‑agnostic.
+**Builds on:** A.7 **Strict Distinction (Clarity Lattice)**; E.10.D1 **D.CTX (Context ≡ U.BoundedContext)**; C.2.1 **U.EpistemeSlotGraph (DescriptionContext, IDS‑13)**; C.2.3 **Unified Formality Characteristic (F)**.
 **Coordinates with.** F.4 **Role Description**; F.5 **Naming Discipline**; F.10 **Evaluation**; F.15 **SCR/RSCR Harness**.
 **Non‑goals.** No editors, workflows, registries, or storage formats. No tooling commitments.
 
----
-
-## 1 · Intent & applicability
+### 1 · Problem frame
 
 **Intent.** Prevent perennial confusions such as “the role contains the checklist” or “the method is the document.” Establish a universal discipline so that:
 
@@ -23352,18 +24680,14 @@ The platform offers **Service** ‘Object Storage’ (access = `S3_API_Spec_vX`;
 
 **Applicability.** Whenever an FPF text introduces or uses an intensional `U.Type` (e.g., `U.Role`, `U.Method`, `U.Service`, `U.System`, `U.Work`, `U.RCS`, `U.RSG`, `U.RoleEnactment`) in any part (A–H).
 
----
+### 2 · Problem 
 
-## 2 · Problem frame
-
-1. **Plane mixing.** Intensions are routinely conflated with their documents and with runtime facts.
+1. **Plane/layer mixing.** Intensions are routinely conflated with their documents and with runtime facts.
 2. **Name drift.** “Spec” gets used for any write‑up; “status” drifts between states of a role and epistemic/deontic statuses over knowledge units.
 3. **Didactic friction.** Inconsistent naming raises cognitive load and impedes reuse across architheories.
 4. **Unverifiable claims.** Without a clear gate to **–Spec**, normative wording appears without testability.
 
----
-
-## 3 · Forces
+### 3 · Forces
 
 | Force                        | Tension to resolve                                                                |
 | ---------------------------- | --------------------------------------------------------------------------------- |
@@ -23371,11 +24695,9 @@ The platform offers **Service** ‘Object Storage’ (access = `S3_API_Spec_vX`;
 | **Universality vs locality** | Kernel intensions must be universal; language and criteria are **Context‑local**. |
 | **Stability vs evolution**   | Names should be stable; artefacts must mature via **ΔF** along the **F** ladder cleanly. |
 
----
+### 4 · Solution — the I/D/S layer + a formal Spec‑gate
 
-## 4 · Solution — the I/D/S layer + a formal Spec‑gate
-
-### 4.1 The triad (applies to **any** intensional `U.T`)
+#### 4.1 The triad (applies to **any** intensional `U.T`)
 
 **Terminology discipline (normative).** Say **I/D/S layers** when you mean the **stratified order with a Spec‑gate**; say **I/D/S triad** only to note **three‑ness without order or dependency**. **Do not call I/D/S a “plane”.** Reserve **plane** for uses explicitly defined elsewhere (e.g., **`CHR:ReferencePlane`** and status families).
 **Layer semantics (clarity).** **I‑layer** = **kernel/intensional type** (non‑epistemic; **not** a episteme) . **D‑layer** and **S‑layer** = **epistemic Knowledge Units** (KUs). The **Spec‑gate** upgrades a Description to a Specification only under declared checkability and harness conditions (unchanged).
@@ -23395,9 +24717,9 @@ For every intensional type `U.T`:
   *Normative, verifiable, suitable for SCR/RSCR (F.15).*
 
 > **Key phrasing discipline.** Intensions are **characterised by** (not “contain”) RCS/RSG/checklists, which **live in** the Description/Spec.
-> **Terminology guard.** To avoid collisions with **ReferencePlane** and other semantic planes, the I/D/S triad is referred to as **I/D/S Layers** (Intension Layer · Description Layer · Specification Layer). The word **plane** is reserved for **semantic planes** (Role/Status/Measurement/Type‑structure/Method/Work, etc.) and for the **ReferencePlane** field used in aboutness/assurance.
+> **Terminology guard.** To avoid collisions with **ReferencePlane** and other semantic planes, the I/D/S triad is referred to as **I/D/S Layers** (Intension Layer · Description Layer · Specification Layer). The word **plane** is reserved for **semantic planes** (Role/Status/Measurement/Type‑structure/Method/Work, etc.) and for the **ReferencePlane** field used in describedEntity/assurance.
 
-### 4.2 The Spec‑gate (when “–Spec” is allowed)
+#### 4.2 The Spec‑gate (when “–Spec” is allowed)
 
 Use the **–Spec** suffix **only if all** of the following hold:
 
@@ -23408,18 +24730,14 @@ Use the **–Spec** suffix **only if all** of the following hold:
 
 If any condition is missing, the artefact **must be** a `…Description`.
 
----
-
-### 4.3 Where RCS/RSG and evaluations sit
+#### 4.3 Where RCS/RSG and evaluations sit
 
 * **`U.RCS` (Role Characterisation Space)** and **`U.RSG` (Role State Graph)** are **intensional** types that structure the space of role characteristics and permissible state transitions.
 * Their **human presentation** (characteristics, dimensions, node labels, admissible transitions) lives in the **RoleDescription**, and becomes part of **RoleSpec** only when the transitions and state predicates are made **testable** and harness‑bound.
 * **`U.Evaluation`** operates on **evidence** against the conformance checklist (from the Description/Spec) to produce a **state attestation** (“X is in state S @Context within window W”).
-* **Epistemic/deontic statuses** (e.g., *Evidence*, *Requirement*, *Standard*) are **roles over KUs** (not states of the role). They are governed elsewhere (F‑R family) and must not be conflated with `U.RSG` state names.
+* **Epistemic/deontic statuses** (e.g., *Evidence*, *Requirement*, *Standard*) are **roles over Epistemes** (not states of the role). They are governed elsewhere (F‑R family) and must not be conflated with `U.RSG` state names.
 
----
-
-### 4.4 Plain‑language memory hook
+#### 4.4 Plain‑language memory hook
 
 > *Thing vs words vs rules.*
 > **The thing** (`U.Role`, `U.Method`) is clean and abstract.
@@ -23427,7 +24745,7 @@ If any condition is missing, the artefact **must be** a `…Description`.
 > **The rules** (testable “shall”s with harness) live in the **Specification**.
 > If you can’t test it, don’t call it **Spec**.
 
-## 5 · Minimal vocabulary & naming discipline (this pattern only)
+### 5 · Minimal vocabulary & naming discipline (this pattern only)
 
 **Core trio (per intensional `U.T`).**
 
@@ -23435,10 +24753,10 @@ If any condition is missing, the artefact **must be** a `…Description`.
   Kernel object (e.g., `U.Role`, `U.Method`, `U.Service`, `U.System`, `U.Work`, `U.RCS`, `U.RSG`).
   *Never* a document, *never* an event, *never* a file.
 
-* **`U.TDescription(@Context)` — the Description KU.**
+* **`U.TDescription(@Context)` — the Description Episteme.**
   Context‑local characterisation of `U.T`: Tech/Plain labels, gloss, notes; for roles, may **characterise** with an `U.RCS` (characteristics/traits), an `U.RSG` (states/transitions), and **state conformance checklists** (per state). *Readable; precise; not yet a set of testable “shall”s.*
 
-* **`U.TSpec(@Context)` — the Specification KU.**
+* **`U.TSpec(@Context)` — the Specification Episteme.**
   Context‑local, **testable** invariant set for `U.T`, explicitly **bound to an acceptance harness** (SCR/RSCR matrices per F.15). Use **–Spec** only through the Spec‑gate (Sec. 4.2).
 
 **Suffix rules.**
@@ -23451,20 +24769,18 @@ If any condition is missing, the artefact **must be** a `…Description`.
 
 * Two registers: **Tech** and **Plain** labels on every Description/Spec.
 * Roles use **count nouns** (e.g., *Operator*); states use **state nouns** (e.g., *Approved*).
-* Statuses over knowledge (e.g., Evidence/Requirement) are **not** role states; they name **roles over KUs** (F‑R family), not nodes in `U.RSG`.
+* Statuses over knowledge (e.g., Evidence/Requirement) are **not** role states; they name **roles over Epistemes** (F‑R family), not nodes in `U.RSG`.
 
 **Context anchoring.**
 Every Description/Spec is **local to** a `U.BoundedContext` (E.10.D1). Phrases in the episteme must read correctly once prefixed by the Context name (e.g., “(ITIL4) Acceptance criteria …”).
 
 **Carriers.**
-`U.Carrier` holds **encodings** of a Description/Spec; the KU’s identity is **not** the file. *Never* say “the role contains the checklist in the PDF”; say “the **RoleDescription** characterises the role with checklists; this **carrier** encodes them.”
+`U.Carrier` holds **encodings** of a Description/Spec; the Episteme’s identity is **not** the file. *Never* say “the role contains the checklist in the PDF”; say “the **RoleDescription** characterises the role with checklists; this **carrier** encodes them.”
 
 **Time stance.**
 Descriptions/Specs must declare DesignRunTag when inherent (e.g., RoleDescription is design‑time; state attestation via `U.Evaluation` is run‑time).
 
----
-
-## 6 · Invariants (normative)
+### 6 · Invariants (normative)
 
 **IDS‑1 (Plane purity).**
 An intensional `U.T` **MUST NOT** be conflated with its Description/Spec or with any `U.Carrier` or `U.Work`.
@@ -23503,39 +24819,38 @@ A Description may mature into a Spec by satisfying IDS‑3; the opposite move re
 **IDS‑12 (Didactic bound).**
 A RoleDescription **SHOULD** fit on one screen per state graph plus one screen of notes; sprawling documents belong to pedagogy, not to the core Description.
 
----
-
-## 7 · Reasoning primitives (judgement schemas, notation‑free)
+### 7 · Reasoning primitives (judgement schemas, notation‑free)
 
 > Judgements are **mental moves**—they assert what follows when premises hold. They do **not** imply queries, storage, or workflows.
 
-1. **Description link**
+1. **Description link (with DescriptionContext)**
 
    ```
-   U.T, C ⊢ isDescriptionOf(TDesc, U.T, C)
+   U.T, C, Vp ⊢ isDescriptionOf(TDesc, U.T, C, Vp)
    ```
 
-   *Reading:* `TDesc` is the Context‑local Description of `U.T` in Context `C`.
+   *Reading:* `TDesc` is the Context‑local Description of `U.T` in Context `C` under Viewpoint `Vp`. Its `subjectRef` decodes to `DescriptionContext = ⟨DescribedEntityRef(U.T), C, Vp⟩` (IDS‑13, C.2.1 §6.1).
 
-2. **Spec link (Spec‑gate)**
+2. **Spec link (Spec‑gate, viewpoint‑local)**
 
-```
-isDescriptionOf(TDesc, U.T, C) ∧ U.Formality(TSpec) ≥ F4
-   ∧ testableInvariants(TSpec) ∧ harnessBound(TSpec) 
-   ⊢ isSpecOf(TSpec, U.T, C) 
-```
+   ```
+   isDescriptionOf(TDesc, U.T, C, Vp) ∧ U.Formality(TSpec) ≥ F4
+      ∧ testableInvariants(TSpec) ∧ harnessBound(TSpec)
+      ∧ sameDescriptionContext(TSpec, TDesc)
+      ⊢ isSpecOf(TSpec, U.T, C, Vp)
+   ```
 
-   *Reading:* Only when F‑mode, testability, and harness are present may we judge `TSpec` a Specification of `U.T` in `C`.
+   *Reading:* Only when F‑mode, testability, harness, and a matching `DescriptionContext` are present may we judge `TSpec` a Specification of `U.T` in `C` under Viewpoint `Vp`.
 
 3. **Role characterisation**
 
   ```
-   isDescriptionOf(RoleDesc, U.Role, C)
+   isDescriptionOf(RoleDesc, U.Role, C, Vp)
    ∧ characterises(RoleDesc, U.RCS) ∧ characterises(RoleDesc, U.RSG)
    ⊢ characterisedBy(U.Role, {U.RCS, U.RSG}) @C
   ```
 
-   *Reading:* The role is *characterised by* the RCS/RSG as presented in the Description (not that it “contains” them).
+   *Reading:* The role is *characterised by* the RCS/RSG as presented in the Description (which is pinned to `(C, Vp)`), not that it “contains” them.
 
 4. **State conformance predicate**
 
@@ -23570,21 +24885,19 @@ isDescriptionOf(TDesc, U.T, C) ∧ U.Formality(TSpec) ≥ F4
 7. **No Cross‑context import**
 
    ```
-   isDescriptionOf(TDescA, U.T, CA) ∧ isDescriptionOf(TDescB, U.T, CB) ∧ CA≠CB
+   isDescriptionOf(TDescA, U.T, CA, VpA) ∧ isDescriptionOf(TDescB, U.T, CB, VpB) ∧ CA≠CB
    ⊢ ¬equateByLabel(TDescA, TDescB)  (bridges required in F.9)
    ```
 
-   *Reading:* Identical wording across Contexts does not grant equivalence; only Bridges may relate them.
+   *Reading:* Identical wording across Contexts (and Viewpoints) does not grant equivalence; only Bridges may relate them.
 
----
-
-## 8 · Anti‑patterns & remedies
+### 8 · Anti‑patterns & remedies
 
 | ID   | Anti‑pattern                | Symptom                                                              | Why it harms thinking                     | Remedy (concept move)                                                                          |
 | ---- | --------------------------- | -------------------------------------------------------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------- |
 | A‑1  | **Spec‑by‑name**            | Every write‑up is titled “Spec”.                                     | Inflates normativity; untestable claims.  | Apply **Spec‑gate** (IDS‑3). If any condition fails, rename to `…Description`.                 |
 | A‑2  | **Role contains RSG**       | “The role contains a state graph.”                                   | Plane mixing; mereological confusion.     | Use **characterised by** phrasing (IDS‑4); RSG presentation lives in RoleDescription/RoleSpec. |
-| A‑3  | **Status ≡ state**          | *Approved* (status over episteme)  appears as a node in the role graph.     | Cross‑plane conflation; logic errors.     | Keep **statuses** (over KUs) separate from **role states** (IDS‑7).                            |
+| A‑3  | **Status ≡ state**          | *Approved* (status over episteme)  appears as a node in the role graph.     | Cross‑plane conflation; logic errors.     | Keep **statuses** (over Epistemes) separate from **role states** (IDS‑7).                            |
 | A‑4  | **Stealth bridge**          | Copying state names across Contexts to imply sameness.                  | Hidden cross‑context import.              | Declare an **F.9 Bridge** or accept divergence (IDS‑9).                                        |
 | A‑5  | **Checklist = process**     | Treating conformance checklist as an execution workflow.             | Category error (design vs run).           | Checklists are **criteria** used by `U.Evaluation`; executions live under `U.Work`.            |
 | A‑6  | **Carrier identity**        | File path/version treated as “the spec itself.”                      | Identity drift; archival brittleness.     | Identity is the **KU**; `U.Carrier` is only an encoding (Sec. 5).                              |
@@ -23593,11 +24906,11 @@ isDescriptionOf(TDesc, U.T, C) ∧ U.Formality(TSpec) ≥ F4
 | A‑9  | **Spec without harness**    | “Shall” statements with no linked acceptance matrices.               | Unverifiable normativity.                 | Bind to **SCR/RSCR harness** (F.15) or downgrade to Description (IDS‑3).                       |
 | A‑10 | **Global language leakage** | Description reads as universal definition rather than Context‑local. | Breaks locality; fuels conflicts.         | Prefix mentally with the Context; rewrite locally (IDS‑2).                                        |
 
-## 9 · Worked examples (multi‑architheory, didactic)
+### 9 · Worked examples (multi‑architheory, didactic)
 
 > Each vignette shows **intension ↔ Description/Spec ↔ Evaluation** with **context‑local** wording. No workflows; only thinking moves.
 
-### 9.1 Enactment (Role Assignment & Enactment line) — *Change Authority* role (ITIL 4 Context)
+#### 9.1 Enactment (Role Assignment & Enactment line) — *Change Authority* role (ITIL 4 Context)
 
 **Contexts.** `ITIL4_2020` (services/deontics), `PROV_O_2013` (run‑time traces).
 **Intension.** `U.Role :: ChangeAuthority` — a behavioural mask that may be worn by a system (person/team/tool) to **authorise** a change.
@@ -23623,9 +24936,7 @@ isDescriptionOf(TDesc, U.T, C) ∧ U.Formality(TSpec) ≥ F4
 * The **role** is *characterised by* RCS/RSG in the **RoleDescription**; it **does not contain** them.
 * The **attestation** is a statement about state‑in‑window; it does **not** mutate the role.
 
----
-
-### 9.2 Method (Essence‑language Context) — *Backlog Refinement* method
+#### 9.2 Method (Essence‑language Context) — *Backlog Refinement* method
 
 **Contexts.** `OMG_Essence_Language_2023` (method language), `PROV_O_2013` (runtime).
 **Intension.** `U.Method :: BacklogRefinement`.
@@ -23644,9 +24955,7 @@ No acceptance harness yet → remains **MethodDescription**, **not** MethodSpec.
 **Run‑time echo.**
 `U.Work` instances (calendar sessions, chat threads) are traced in PROV; **Evaluation** can check whether an *Adopted* practice is being followed in window W without ever reifying the method as a workflow.
 
----
-
-### 9.3 Service (SLO/SLA) — *Calibration Service* (ITIL 4 + SOSA/SSN Contexts)
+#### 9.3 Service (SLO/SLA) — *Calibration Service* (ITIL 4 + SOSA/SSN Contexts)
 
 **Contexts.** `ITIL4_2020` (service), `SOSA_SSN_2017` (observation), `ISO_80000_1_2022` (units).
 **Intension.** `U.Service :: CalibrationService`.
@@ -23660,25 +24969,21 @@ No acceptance harness yet → remains **MethodDescription**, **not** MethodSpec.
 Observations (SOSA) from test runs compared with thresholds → **ServiceEvaluation** attests *Met/Not‑Met* in a stated window.
 No Cross‑context import: ISO units cited **as context‑local** references.
 
----
-
-### 9.4 Epistemic (KD‑line) — *Evidence status vs role state*
+#### 9.4 Epistemic (KD‑line) — *Evidence status vs role state*
 
 **Contexts.** `PROV_O_2013` (provenance), `FPF_Evidence_Status` (status family).
 **Intensions.** `U.KnowledgeUnit :: Report_42`; `U.EvidenceStatus :: SupportsClaim`.
 
 **Separation.**
 
-* `SupportsClaim@C` is a **status over a KU** (classifies the report).
+* `SupportsClaim@C` is a **status over a Episteme** (classifies the report).
 * It is **not** a node of any role’s `U.RSG`.
 * `U.Evaluation` produces `attestation(Report_42 has EvidenceStatus=SupportsClaim@C, W)`.
 
 **Didactic point.**
 State names in *role* graphs do not duplicate **statuses**; planes stay disjoint.
 
----
-
-### 9.5 Control (Sys‑CAL line) — *Control‑Operator* role (IEC 61131‑3 Context)
+#### 9.5 Control (Sys‑CAL line) — *Control‑Operator* role (IEC 61131‑3 Context)
 
 **Contexts.** `IEC_61131_3` (control languages), `ISA_95` (integration).
 **Intension.** `U.Role :: ControlOperator`.
@@ -23693,9 +24998,7 @@ State names in *role* graphs do not duplicate **statuses**; planes stay disjoint
 `subject=Operator‑A ∈ ConsoleActive@IEC at 2025‑09‑14T08:00Z` based on log evidence.
 No “workflow” required in the Description.
 
----
-
-## 10 · Relations (with other patterns)
+### 10 · Relations (with other patterns)
 
 **Builds on:**
 
@@ -23716,9 +25019,7 @@ No “workflow” required in the Description.
 * **Part C architheories.** Sys‑CAL, KD‑CAL, Kind-CAL, Method‑CAL cite `…Description/…Spec` epistemes explicitly and consume **state attestations** from `U.Evaluation`.
 * **Part B trust calculus.** Uses the presence/absence of harnessed Specs and the windowed nature of attestations in confidence roll‑ups.
 
----
-
-## 11 · Migration notes (conceptual refactor playbook)
+### 11 · Migration notes (conceptual refactor playbook)
 
 > Goal: remove conflations and normalise names without changing underlying models.
 
@@ -23731,21 +25032,19 @@ No “workflow” required in the Description.
 7. **Window‑ise verdicts.** Ensure every evaluation statement adds an explicit **window** (instant or interval).
 8. **Document maturity.** **Declare each Description’s F** (C.2.3) and track **ΔF** promotions/demotions as part of change notes (no governance implied).
 
----
+### 12 · Acceptance tests (SCR/RSCR — concept‑level)
 
-## 12 · Acceptance tests (SCR/RSCR — concept‑level)
-
-### 12.1 Static conformance checks (SCR)
+#### 12.1 Static conformance checks (SCR)
 
 * **SCR-D2-S01 (Suffix discipline).** Every episteme with suffix **–Spec** passes the **Spec-gate** (**F ≥ F4** ∧ testable invariants ∧ harness link ∧ Context named). Otherwise it bears **–Description**.
 * **SCR‑D2‑S02 (Characterisation verbs).** Texts never say an intension “contains” RCS/RSG; they say it is **characterised by** them via the Description/Spec.
 * **SCR‑D2‑S03 (Plane purity).** No episteme mixes role **states** and knowledge **statuses**; each appears only on its correct plane.
 * **SCR‑D2‑S04 (context‑locality).** Every Description/Spec names its `U.BoundedContext`; wording reads correctly when prefixed by the Context.
 * **SCR‑D2‑S05 (Two registers).** Tech **and** Plain labels present on all Descriptions/Specs.
-* **SCR‑D2‑S06 (Carrier separation).** Identity statements refer to KUs; files are referenced only as `U.Carrier` encodings.
+* **SCR‑D2‑S06 (Carrier separation).** Identity statements refer to Epistemes; files are referenced only as `U.Carrier` encodings.
 * **SCR‑D2‑S07 (Windowed evaluation).** All state attestations cite a window `W` (instant or interval).
 
-### 12.2 Regression checks (RSCR)
+#### 12.2 Regression checks (RSCR)
 
 * **RSCR‑D2‑E01 (Spec demotion guard).** If a **–Spec** loses its harness or testability, it is demoted to **–Description**; diffs show no lingering “shall” claims.
 * **RSCR‑D2‑E02 (Bridge drift).** If two Contexts begin to share identical labels, verify no Descriptions/Specs imply Cross‑context identity; add or revise **F.9 Bridges** instead.
@@ -23753,12 +25052,10 @@ No “workflow” required in the Description.
 * **RSCR‑D2‑E04 (Verb hygiene).** Automated grep over corpus finds “contains RSG/RCS” phrasing; none remain after refactor.
 * **RSCR‑D2‑E05 (Status bleed).** Spot‑audit a random sample of role graphs to ensure no epistemic/deontic statuses appear as role states.
 
----
-
 *Didactic takeaway.*
 Think in three layers: **Intension** (what the thing *is*), **Description/Spec** (how we *state* its character and, when mature, *test* it), and **Evaluation** (what we can *attest* about it in a **window**). Keep Contexts local, planes separate, and “contains” out of your vocabulary.
 
-## 13 · Author’s pocket guide (carry‑in‑mind rules)
+### 13 · Author’s pocket guide (carry‑in‑mind rules)
 
 > **Use these as thinking cues, not as paperwork.** Each cue is a one‑breath test you can apply while writing.
 
@@ -23773,9 +25070,7 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 9. **Carrier humility.** Files and records are **Carriers** of Descriptions/Specs; they don’t *equal* the thing you reason about.
 10. **Spec = test.** If you can’t point to a harness that would falsify it, it isn’t a **Spec** yet.
 
----
-
-## 14 · Phrasebook & pitfall table (say this, not that)
+### 14 · Phrasebook & pitfall table (say this, not that)
 
 | Mistaken phrasing (avoid)              | Didactically correct phrasing (use)                                                                                  | Why                                                                                        |
 | -------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
@@ -23789,17 +25084,15 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 | “RoleSpec is our template.”            | “**RoleDescription** is our template; promote to **RoleSpec** once the harness exists.”                              | Keeps the Spec word meaningful.                                                            |
 | “Spec says the same in all Contexts.”     | “Each **Spec/Description** is **context‑local**; Cross‑context reuse requires an **Alignment Bridge** with CL/loss notes.” | Locality guard.                                                                            |
 
----
+### 15 · Naming & alias policy (normative, notation‑free)
 
-## 15 · Naming & alias policy (normative, notation‑free)
-
-### 15.1 Suffix discipline (recap).**
+#### 15.1 Suffix discipline (recap).**
 
 * **Preferred default:** **`…Description`** for Role/Method/Service/Work.
 * **Reserved:** **`…Spec`** only if the item passed the **Spec‑gate** (F‑mode, testable invariants, harness id, Context named).
 * **Banned:** Using **–Spec** as a synonym for “detailed description”.
 
-### 15.2 Canonical/alias map (current edition).**
+#### 15.2 Canonical/alias map (current edition).**
 
 | Concept (intension) | Preferred episteme name      | Allowed alias (equal scope)   | Deprecated alias | Notes                                                                                 |
 | ------------------- | ---------------------- | ----------------------------- | ---------------- | ------------------------------------------------------------------------------------- |
@@ -23811,7 +25104,7 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 | Service             | **ServiceDescription** | ServiceCard *(Pedagogy only)* | —                | As above: Card is informal only.                                                      |
 | Service (F‑mode)    | **ServiceSpec**        | —                             | —                | Requires acceptance harness id (F.15).                                                |
 
-### 15.3 Verb & morphology rules.**
+#### 15.3 Verb & morphology rules.**
 
 * **Verbs.** Use *characterised by*, *recorded in*, *encoded by*; avoid *contains*, *is stored in*, *is implemented by* when speaking at the conceptual level.
 * **Morphology.**
@@ -23821,14 +25114,13 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
   * Status names are **classifiers over knowledge** (*SupportsClaim, NormativeStandard*).
   * Descriptions/Specs use neutral nouns (*RoleDescription, MethodSpec*).
 
-### 15.4 Deprecations (effective now).**
+#### 15.4 Deprecations (effective now).**
 
 * **MethodSpec** (as a general name) → **MethodDescription** unless Spec‑gate is met.
 * **WorkSpec** (alias for WorkPlan) → **WorkDescription** (allowed alias), or **U.WorkPlan** (preferred).
 * Texts must avoid “contains RSG/RCS” phrasing (see RSCR‑D2‑E04).
 
-
-## 16 · Quick templates (fill‑in‑mind, not forms)
+### 16 · Quick templates (fill‑in‑mind, not forms)
 
 > Copy these **lines** into your prose as thinking scaffolds. They are not schemas, fields, or checklists to fill; they are didactic prompts.
 
@@ -23842,27 +25134,27 @@ Think in three layers: **Intension** (what the thing *is*), **Description/Spec**
 * **State checklist (one node).** `<StateX : {criterion₁, …}>`.
 * *Evaluation attestation.* `subject=<Holder> ∈ <StateX>@<ContextId> in <Window> (evidence: <cue₁,…>)`. 
 
-### 16.2 Method (Essence‑language Context).
+#### 16.2 Method (Essence‑language Context).
 
 * *Intension.* `U.Method :: <TechName>`.
 * *MethodDescription\@context.* Inputs/Outputs (informative), **RCS/RSG** (if you track adoption).
 * *Spec upgrade (optional).* “Becomes **MethodSpec** when harness `<id>` exists.”
 
-### 16.3 Service (acceptance‑bearing).**
+#### 16.3 Service (acceptance‑bearing).**
 
 * *ServiceDescription\@context.* Tech/Plain; **Acceptance facet** (informative until harnessed).
 * *Evaluation.* `Service ∈ Met/Not‑Met@context in <Window>` based on observations and acceptance criteria.
 
-### 16.4 Alignment reminder.
+#### 16.4 Alignment reminder.
 
 * “No Cross‑context identity is implied; if needed, add **F.9 Bridge**: `<ContextA:TermA> ↔ <ContextB:TermB>` with CL/loss notes.”
 
-## 17 · Didactic distillation (90‑second script)
+### 17 · Didactic distillation (90‑second script)
 
 > **“Three layers; one context; no leakage.”**
 
 1. **Pick the Context.** Every word lives **inside** a `U.BoundedContext`.
-2. **Pick the I/D/S layer.** Speak about the **Intension (I)**, or about its **Description/Spec (D/S)**—but never mix layers. If your sentence also asserts aboutness or evidence, **name the `ReferencePlane`** (`world|concept|episteme`).
+2. **Pick the I/D/S layer.** Speak about the **Intension (I)**, or about its **Description/Spec (D/S)**—but never mix layers. If your sentence also asserts describedEntity or evidence, **name the `ReferencePlane`** (`world|concept|episteme`).
 3. **Describe, then test.** Start with **Role/Method/ServiceDescription**. Only when you can **falsify** it with a harness do you call it a **Spec**.
 4. **State is attested.** Role **states** are attested by **Evaluations** as *“X ∈ State\@context **in** W”*. Evidence/Requirement **statuses** classify **knowledge**, not roles.
 5. **Carriers carry.** PDFs and repos are **Carriers** of the Description/Spec; they aren’t the thing itself.
@@ -23981,7 +25273,7 @@ Materialisation: **SCR/RSCR** carry lane‑split; **UTS rows** cite policy‑ids
 ### 6) Interfaces to **C.20 §D.DISC** and **D.CTX / UTS**
 
 * **Discipline usage.** When referencing a field (e.g., “Transdiscipline”), name it as **`U.Discipline` (Holon)**. Put comparability/aggregation in its **CG‑Spec**; do **not** attach norms to a **Domain** label.
-* **Domain as catalog mark.** If “Domain” appears, **stitch** it to an **enumerated set of `U.BoundedContext` ids** (per **D.CTX**) and publish **UTS twins**. **Domain carries zero governance.** **Do not attach TaskSignature governance to Domain**; attach comparability/aggregation norms to the **CG‑Spec of U.Discipline**. C.22 **KindSet** supplies aboutness; **USM** supplies Scope.
+* **Domain as catalog mark.** If “Domain” appears, **stitch** it to an **enumerated set of `U.BoundedContext` ids** (per **D.CTX**) and publish **UTS twins**. **Domain carries zero governance.** **Do not attach TaskSignature governance to Domain**; attach comparability/aggregation norms to the **CG‑Spec of U.Discipline**. C.22 **KindSet** supplies describedEntity; **USM** supplies Scope.
 * **Traditions vs “Traditions.”** Sub‑disciplinary “Traditions” appear as **`Tradition`** tokens (Tech). Keep “Tradition” only as a **Plain twin** with a twin‑label.
 
 ### 7) Roles, Holders, and Carriers (holonic separation)
@@ -24984,7 +26276,7 @@ Provide a **disciplined, compositional way to publish morphisms** (arrows) acros
 * **View** (`U.View`): a **concrete publication** produced *under* a viewpoint.    
 * **View** (`U.View`): a **concrete publication face** produced *under* a viewpoint; a **conceptual projection** (not a symbol carrier).  
   Every `U.View` **SHALL** declare:  
-  `SurfaceKind ∈ {PublicationSurface, InteropSurface}`, `ViewpointId`, `AboutId`, and a `U.PublicationScope` (USM §6.5).  
+  `SurfaceKind ∈ {PublicationSurface, InteropSurface}`, `ViewpointId`, `describeId`, and a `U.PublicationScope` (USM §6.5).  
   Any materialization/rendering is separate **Work on SCR/RSCR carriers** and is not part of `U.View`.
  **Publication vs presentation vs rendering vs representation (guard):**    
     * **Publication** = typed projection along **I→D→S** onto a **PublicationSurface** (A.7 §5.8–5.9).        
@@ -25316,13 +26608,13 @@ with:
   — `Work` **≡** **A.15** `U.WorkEnactment` (bind‑in‑world; `FinalizeBinding` only here).  
   — `Check` **≡** `OperationalGate(profile)` (universal **gate**; A.* patternisation pending; CC‑TGA catalog applies).  
   `OperationalGate ≔ U.Transduction(kind=Check)` with DecisionLog aggregation.  
-  `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and MAY rotate **aboutness** under **CC‑TGA‑06‑EX** with **KindBridge (`CL^k`)** and a **SquareLaw‑Rotation witness** present on UTS; the operation remains **PathSlice‑local** and performs **no plane/unit change**.  (See also CC‑TGA‑11 for crossings.)
+  `StructuralReinterpretation` is **projection‑preserving** (no mutation of `⟨L,P,E⃗,D⟩`) and MAY retarget **describedEntity** under **CC‑TGA‑06‑EX** with **KindBridge (`CL^k`)** and a **SquareLaw‑Retarget witness** present on UTS; the operation remains **PathSlice‑local** and performs **no plane/unit change**.  (See also CC‑TGA‑11 for crossings.)
 
 > **MVPK binding.** Every vertex with an external surface emits **MVPK** faces (`PlainView`, `TechCard`, `AssuranceLane`, `InteropCard`), governed by a declared **PublicationScope**; faces carry only **presence‑pins + anchors + EditionId**, never restate I/O; any comparison on faces **returns sets / lawful orders** with **ComparatorSet** citation. 
 
 **GateCrossing (normative)**
 **Definition.** A **GateCrossing** is the typed transition at a node that changes any of:
-  (i) `U.BoundedContext` (**Context**), (ii) **ReferencePlane**, (iii) any member of the **Edition vector** `E⃗` (e.g., `CG‑Spec`, `ComparatorSet`, `UNM.TransportRegistryΦ`, `DescriptorMapRef`, `DistanceDefRef`, `CharacteristicSpaceRef`), (iv) **DesignRunTag** (`T^D↔T^R`), or (v) **Kind/aboutness** (only under `StructuralReinterpretation` subject to **CC‑TGA‑06‑EX**).
+  (i) `U.BoundedContext` (**Context**), (ii) **ReferencePlane**, (iii) any member of the **Edition vector** `E⃗` (e.g., `CG‑Spec`, `ComparatorSet`, `UNM.TransportRegistryΦ`, `DescriptorMapRef`, `DistanceDefRef`, `CharacteristicSpaceRef`), (iv) **DesignRunTag** (`T^D↔T^R`), or (v) **Kind/describedEntity** (only under `StructuralReinterpretation` subject to **CC‑TGA‑06‑EX**).
 **Invariants.** Raw `U.Transfer` preserves `CtxState`; a GateCrossing occurs at exactly one `OperationalGate(profile)` (SquareLaw applies).
 **Required pins (minimum).** `BridgeCard + UTS row`; `CL` for scope bridges; `CL^plane` for plane crossings; `CL^k` with `bridgeChannel=Kind` for kind transitions; `PublicationScopeId`; `PathSliceId`; Γ‑pins on compare/launch faces.
 **Canonical reference.** `CrossingRef := ⟨GateId, channel, from, to, UTS.RowId, PathSliceId⟩`. Any DecisionLog entry whose rationale depends on a crossing **SHALL** cite `CrossingRef`.
@@ -25332,8 +26624,8 @@ with:
 * A **Flow** is a **valuation** `ν` over `U.Transfer` edges and cut‑sets, paired with an **admissible path** `p = v₀ → … → v_k`. The valuation assigns tokens/states under `CtxState` and records publication events under a declared `PublicationScopeId`. **The concrete pins and identifiers (`PathId`, `PathSliceId`, Γ_time on compare/launch faces) are specified in A.22 `FlowSpec` and A.25 `Sentinel & SubFlow`.** This reflects the “graph ≠ flow” norm (flow = valuation), with gates placed exactly on GateCrossings.  
 * **Admissible path (definition).** A path `p` is **admissible** iff:  
   (a) node/edge types match the declared `τ_V, τ_E`;  
-  (b) any change to `⟨L,P,E⃗,D⟩` (or kind‑rotation under `StructuralReinterpretation`) appears at **exactly one** `OperationalGate(profile)`;  
-  (c) each GateCrossing on `p` has a **SquareLaw witness** (CC‑TGA‑23) and, where applicable, a **SquareLaw‑Rotation witness** (CC‑TGA‑06‑EX);  
+  (b) any change to `⟨L,P,E⃗,D⟩` (or kind‑retargeting under `StructuralReinterpretation`) appears at **exactly one** `OperationalGate(profile)`;  
+  (c) each GateCrossing on `p` has a **SquareLaw witness** (CC‑TGA‑23) and, where applicable, a **SquareLaw‑retargeting witness** (CC‑TGA‑06‑EX);  
   (d) no hidden crossings occur across raw transfers;  
   (e) Γ‑pins are present on compare/launch faces;  
   (f) `T^D↔T^R` occurs **only** at `LaunchGate`.
@@ -25367,7 +26659,7 @@ E.TGA **imports E.17** wholesale **and binds MVPK to `PublicationScope` (USM)**:
 **Decision stability & idempotency (delegated).** Gate decisions are **idempotent** under a congruence relation over inputs; the **witness and equivalence criteria** are specified in **A.41 DecisionLog**. E.TGA **does not** prescribe storage formats, key shapes, or hashing schemes.
 
 **KindBridge admissibility (publication)**
-Treat a step as an **aboutness/kind** transition (including `StructuralReinterpretation` under CC‑TGA‑06‑EX) **iff** the **UTS row** contains at least:  
+Treat a step as an **describedEntity/kind** transition (including `StructuralReinterpretation` under CC‑TGA‑06‑EX) **iff** the **UTS row** contains at least:  
   — the **A.27** minimal fields (`Identity`, `ReferencePlane`, `CL/CL^plane`, `edition‑pins{CG‑Spec, ComparatorSet, TransportRegistryΦ}`, `ComparatorSetRef`, `BridgeId`, `Φ‑RuleIds`), and  
   — the **KindBridge contract fields** per C.3 (**mapping or signature‑translation**, **order‑preservation claims**, **`CL^k`**, **loss notes**, **definedness area**, **determinism**).  
 Otherwise this KindBridge explanation does not apply (the step falls back to a gated crossing). When the gate owns the crossing, `CrossingRef` is surfaced and linked from the `DecisionLog`.
@@ -25414,7 +26706,7 @@ If `PortfolioMode=Archive`, a **QD archive** may be returned; when generation is
 
 #### S9 · Transport & crossings
 * Cross‑Context or cross‑plane edges appear as **GateCrossings** that include a **Bridge** with **CL** policy; **Φ(CL)/Φ_plane** are published; penalties route **to R only**; **Scope membership** (USM) is unchanged by crossings. **SquareLaw is checked within a single `DesignRunTag`; a `T^D↔T^R` change is modelled as a pair of coordinated gates with `DesignRunTagFrom/To` and an external enactor (see A.29).** 
-* When *aboutness/kind* changes across a boundary, declare an explicit **KindBridge (`CL^k`)** in addition to plane/context CL; cross‑context reuse of UNM **must** go via `Transport`, with any `CL^plane` penalties routed to **R‑lane** only.
+* When *describedEntity/kind* changes across a boundary, declare an explicit **KindBridge (`CL^k`)** in addition to plane/context CL; cross‑context reuse of UNM **must** go via `Transport`, with any `CL^plane` penalties routed to **R‑lane** only.
 
 #### S10 · Non‑mechanism boundary
 
@@ -25469,11 +26761,11 @@ This keeps ISO‑style viewpoints/views usable while preserving FPF’s **local�
     * **Artifacts:** Module *interfaces* are `Signature` nodes; module realizations are `MechanismRealization` nodes; inter‑module dependencies traverse `U.Transfer`, with gates on crossings. 
     * **Publication:** MVPK faces are **typed projections**, not executable artifacts; faces add **no new numeric claims** (E.17). Constraints and compatibility appear as CV checks (A.20). 
     * **Holonic note:** Structural mereology (part/whole of the carrier) is modeled in Part A; E.TGA binds interface/exposure semantics to morphisms and gates.
-    * **Device‑View reading (Transduction↔Transductor).** The same capability‑flow MAY be read as a **device** that performs the transduction (**transductor**) without changing the graph: model with `Signature` + `Mechanism` only; do **not** introduce extra edge kinds. If aboutness rotates (function↔element), use `StructuralReinterpretation` with a **`KindBridge (CL^k)`** on **UTS** and a **SquareLaw‑Rotation witness**; preserve `⟨L,P,E⃗,D⟩` and treat it as a non‑crossing (**CC‑TGA‑06‑EX**; witness shape §4.7).  
+    * **Device‑View reading (Transduction↔Transductor).** The same capability‑flow MAY be read as a **device** that performs the transduction (**transductor**) without changing the graph: model with `Signature` + `Mechanism` only; do **not** introduce extra edge kinds. If describedEntity retargets (function↔element), use `StructuralReinterpretation` with a **`KindBridge (CL^k)`** on **UTS** and a **SquareLaw‑Retargeting witness**; preserve `⟨L,P,E⃗,D⟩` and treat it as a non‑crossing (**CC‑TGA‑06‑EX**; witness shape §4.7).  
     * **Role‑label guard.** `TypicalEnactorRoleName` is **pedagogical only** and MUST NOT be used as a GateFit role; GateFit uses `U.Role` (A.21).
 4) **Module‑Interface View (physical architecture)** — “what modules exist and how they contract across interfaces”
     * **Artifacts:** Module *interfaces* are `Signature` nodes; module realizations are `Mechanism` nodes; inter‑module dependencies traverse `U.Transfer`, with gates on crossings. 
-    * **Aboutness note:** Functional↔element reinterpretation follows the **Device‑View reading** rule above (Role‑Enactor family) and **CC‑TGA‑06‑EX**; see **§4.7** for the Rotation witness shape and CV witness binding.
+    * **describedEntity note:** Functional↔element reinterpretation follows the **Device‑View reading** rule above (Role‑Enactor family) and **CC‑TGA‑06‑EX**; see **§4.7** for the retargeting witness shape and CV witness binding.
     * **Holonic note:** The same module may appear as a holon in multiple views; supervisory loops (B.2.5) remain orthogonal to structural composition.
 This is an expandable list of viewpoint families; TGA is intentionally viewpoint‑neutral. 
 
@@ -25487,9 +26779,9 @@ Open set (aliases only; no new faces):
 * **Mission/Context** — emphasize local‑first naming (F.18) with explicit **Bridges** and **CL**; narrative remains in **Plain** with Tech anchors.
 
 **Traditional functional/logical vs physical views in systems engineering**
-* **Functional view (definition).** A publication bundle whose *aboutness* is the **capability** of a holon under a role (`Method`/`Mechanism`), expressed as a **flow of morphisms** with comparators and gates (E.TGA + A.20/A.21/A.28).  
-* **Physical view (definition).** A publication bundle whose *aboutness* is the **carrier** (holon as structure with interfaces/ports/constraints), surfaced as typed projections (E.17) and realized by `Signature`/`Mechanism` without altering `U.Transfer`.
-* **Switching rule (projection‑preserving).** To switch between the two views, the model MAY use **`StructuralReinterpretation`** (when only aboutness rotates) if and only if: CtxState `⟨L,P,E⃗,D⟩` is preserved; a **`KindBridge (CL^k)`** is published on the `UTS`; a **SquareLaw‑Rotation witness** exists; the operation is **PathSlice‑local**; **no plane/unit change** occurs; and `CV.ReinterpretationEquivalence` = `pass` (**CC‑TGA‑06‑EX**).  **Witness pointer.** The **Rotation witness (UTS)** and the **CV witness** shapes are normative in **§4.7** (UTS: iso/optic with Put‑Get/Get‑Put laws; CV: `ReinterpWitness`), leveraging post‑2017 **Profunctor Optics** as the constructive proof pattern.
+* **Functional view (definition).** A publication bundle whose *describedEntity* is the **capability** of a holon under a role (`Method`/`Mechanism`), expressed as a **flow of morphisms** with comparators and gates (E.TGA + A.20/A.21/A.28).  
+* **Physical view (definition).** A publication bundle whose *describedEntity* is the **carrier** (holon as structure with interfaces/ports/constraints), surfaced as typed projections (E.17) and realized by `Signature`/`Mechanism` without altering `U.Transfer`.
+* **Switching rule (projection‑preserving).** To switch between the two views, the model MAY use **`StructuralReinterpretation`** (when only describedEntity retargets) if and only if: CtxState `⟨L,P,E⃗,D⟩` is preserved; a **`KindBridge (CL^k)`** is published on the `UTS`; a **SquareLaw‑Retargeting witness** exists; the operation is **PathSlice‑local**; **no plane/unit change** occurs; and `CV.ReinterpretationEquivalence` = `pass` (**CC‑TGA‑06‑EX**).  **Witness pointer.** The **retargeting witness (UTS)** and the **CV witness** shapes are normative in **§4.7** (UTS: iso/optic with Put‑Get/Get‑Put laws; CV: `ReinterpWitness`), leveraging post‑2017 **Profunctor Optics** as the constructive proof pattern.
 
 **ViewFamily‑bound Aliases (LEX‑only).**
 *Scope.* Authors MAY declare **lexical aliases** for **transduction species** that align with widely used **viewpoint families** (ISO 42010‑style).
@@ -25523,7 +26815,7 @@ Open set (aliases only; no new faces):
 *No semantics change.* Aliases are **LEX‑level only**: **no arithmetic, no new claims, no checks, no `CtxState` or `DesignRunTag` change**.  
 *Role labels.* `TypicalEnactorRoleName` is pedagogical only and **SHALL NOT** be used as a GateFit role (this is name for Role Enactor, not for transduction).  
 *Field name.* Use `AliasInViewFamily` to avoid confusion with MVPK `U.View`.  
-*Projection/aboutness guard.* When an alias implies a **function↔element** reinterpretation, it is treated as **`StructuralReinterpretation`**: preserve `⟨L,P,E⃗,D⟩`, publish a **`KindBridge (CL^k)`** and a **SquareLaw‑Rotation witness** on UTS; the step is **PathSlice‑local** and introduces **no plane/unit change**.  
+*Projection/describedEntity guard.* When an alias implies a **function↔element** reinterpretation, it is treated as **`StructuralReinterpretation`**: preserve `⟨L,P,E⃗,D⟩`, publish a **`KindBridge (CL^k)`** and a **SquareLaw‑retargeting witness** on UTS; the step is **PathSlice‑local** and introduces **no plane/unit change**.  
 *Open set.* The core families are **Functional, Procedural, Device‑Structure, Module‑Interface**; additional readings (e.g., **Information‑, Assurance‑, Operational‑, Allocation‑, EngineeringProcess‑, Performance‑oriented**, etc.) are permitted **as aliases only** (no new faces).
 
 **Deliverable — `UTS.ViewpointMap` (normative).**  
@@ -25573,12 +26865,12 @@ Publish a **UTS block** named **`ViewpointMap`** with **≥ 4 rows** covering 
 | **CC‑TGA‑04 — Graph spec** | Spec declares `τ_V, τ_E`, `Γ_time`, Transport/Bridge registries. | Spec file shows typed registries and Γ policy. |
 | **CC‑TGA‑05 — CtxState pins** | `CtxState=⟨L,P,E⃗,D⟩` is pinned on ports/tokens; raw `U.Transfer` does **not** change it. | Along a raw transfer, ⟨L,P,E⃗,D⟩ is preserved. |
 | **CC‑TGA‑06 — Operational gates only** | Any change in ⟨L,P,E⃗,D⟩ or entry into `U.WorkEnactment` is mediated by `OperationalGate(profile)` with aggregated `DecisionLog`. | Diff CtxState across edges; if changed, exactly one gate exists with DecisionLog. |
-| **CC‑TGA‑06‑EX (strictly limited) — Projection rotation without gate** | A node of kind **`StructuralReinterpretation`** MAY rotate the **published projection** without invoking `OperationalGate` **only if all hold**: **(a)** `⟨L,P,E⃗,D⟩` is preserved; **(b)** any **aboutness** change has a **KindBridge** (`CL^k`) entry on MVPK/**UTS**; **(c)** a **SquareLaw‑Rotation witness** is present (on UTS); **(d)** the operation is **PathSlice‑local** (`PathSliceId` pinned); **(e)** **no plane/unit change** occurs (plane/unit changes remain gated); **(f)** **CV.ReinterpretationEquivalence** (A.20) is `pass`; **(g)** **NoHiddenScalarization** — if the step concerns a comparable return shape, set/partial‑order semantics are preserved and comparators remain ref‑only (cf. A.28). | UTS row includes `bridgeChannel=Kind` and `CL^k`; SquareLaw‑Rotation witness present; PathSliceId pinned; CV status recorded; no scalarization detected. |
+| **CC‑TGA‑06‑EX (strictly limited) — Projection retargeting without gate** | A node of kind **`StructuralReinterpretation`** MAY retarget the **published projection** without invoking `OperationalGate` **only if all hold**: **(a)** `⟨L,P,E⃗,D⟩` is preserved; **(b)** any **describedEntity** change has a **KindBridge** (`CL^k`) entry on MVPK/**UTS**; **(c)** a **SquareLaw‑retargeting witness** is present (on UTS); **(d)** the operation is **PathSlice‑local** (`PathSliceId` pinned); **(e)** **no plane/unit change** occurs (plane/unit changes remain gated); **(f)** **CV.ReinterpretationEquivalence** (A.20) is `pass`; **(g)** **NoHiddenScalarization** — if the step concerns a comparable return shape, set/partial‑order semantics are preserved and comparators remain ref‑only (cf. A.28). | UTS row includes `bridgeChannel=Kind` and `CL^k`; SquareLaw‑retargeting witness present; PathSliceId pinned; CV status recorded; no scalarization detected. |
 | **CC‑TGA‑07 — CV⇒GF activation predicate** | Until **aggregated `ConstraintValidity` = `pass`**, all **GateFit** checks return `abstain`. | Simulate CV failure ⇒ GateFit `abstain`. |
 | **CC‑TGA‑08 — LaunchGate discipline (incl. pre‑run barrier)** | Each `U.WorkEnactment` has exactly one `LaunchGate` owning `USM.LaunchGuard`; **mandatory** checks: `FreshnessUpToDate`, `DesignRunTagConsistency`. If preceding step’s CV ≠ `pass`, LaunchGate decision is `block` (cause logged). | Owner resolution `GuardOwnerGateId = LaunchGateId(U.WorkEnactment)`; CV≠pass ⇒ `block` with log. |
 | **CC‑TGA‑09 — MVPK publication discipline** | Every surfaced node uses MVPK; faces carry `PublicationScopeId`, presence‑pins, **edition ids**, Γ pins; **no I/O duplication** or arithmetic; faces add no new numeric claims. | Cards show `PublicationScopeId`; pins present; no “signature”/math on faces. |
 | **CC‑TGA‑10 — Normalize→Compare (CSLC)** | Any comparison cites **UNM/CG‑Spec** editions and **ComparatorSetRef**; ordinal claims are compare‑only; partial orders return sets; edition‑aware artifacts (QD/archives) pin `{DescriptorMapRef, DistanceDefRef, CharacteristicSpaceRef?}.edition`; **any face citing editions includes `BridgeCard + UTS row`**. **NoHiddenScalarization — detection criteria:** (1) return shape is **set/poset**, not scalar; (2) `ComparatorSetRef` is present and edition‑pinned; (3) MVPK faces add **no new numeric claims**; (4) any summarisation is **order‑preserving & set‑valued**; otherwise conformance fails. | Faces show comparator pins; archive pins present; linter rejects edition cites without UTS; scalarisation checks pass.
-| **CC‑TGA‑11 — Crossings gated** | Cross‑Context/plane crossings publish **BridgeId + UTS + CL/CL^plane** and are mediated by `OperationalGate(profile)`; **Φ/Φ_plane penalties → R‑lane only**; aboutness change publishes **KindBridge (CL^k)**. **Exception (StructuralReinterpretation):** a **projection‑only** aboutness rotation is surfaced **without** a gate **iff** **CC‑TGA‑06‑EX** holds; then the UTS row includes `bridgeChannel=Kind`, `CL^k`, and a **Rotation witness**; any plane/unit change falls back to a gated crossing; `PathSliceId` is pinned; UNM reuse cross‑context continues via `Transport`. | Crossing surfaces show Bridge/UTS/CL pins; penalties routing audited. |
+| **CC‑TGA‑11 — Crossings gated** | Cross‑Context/plane crossings publish **BridgeId + UTS + CL/CL^plane** and are mediated by `OperationalGate(profile)`; **Φ/Φ_plane penalties → R‑lane only**; describedEntity change publishes **KindBridge (CL^k)**. **Exception (StructuralReinterpretation):** a **projection‑only** describedEntity retargeting is surfaced **without** a gate **iff** **CC‑TGA‑06‑EX** holds; then the UTS row includes `bridgeChannel=Kind`, `CL^k`, and a **retargeting witness**; any plane/unit change falls back to a gated crossing; `PathSliceId` is pinned; UNM reuse cross‑context continues via `Transport`. | Crossing surfaces show Bridge/UTS/CL pins; penalties routing audited. |
 | **CC‑TGA‑12 — Set‑returning selection** | `U.SelectionAndBinding` returns sets/archives under declared comparators (`ParetoOnly` by default) — no covert scalarization. | Selector output is a set/archive; policy id present if escalated. |
 | **CC‑TGA‑13 — Budgeted Selection↔Planning loop** | The loop declares **budget / max_iter**; on expiry selector publishes partial‑optimal set + `MethodTuning`; next **PathSlice** scheduled. | Logs show budget stop and slice rollover. |
 | **CC‑TGA‑14 — UNM before loop & Freshness lifecycle** | UNM runs before selection; stale/missing inputs produce **FreshnessTicket/FreshnessRequest** planned in `WorkPlanning` and executed in `WorkEnactment`; calibrations appear as `CalibrateTo(map|standard)` with Φ pins. | Ticket state machine Issued→Planned→Executed→Closed; calibrations pinned. |
@@ -25606,7 +26898,7 @@ Publish a **UTS block** named **`ViewpointMap`** with **≥ 4 rows** covering 
 * *Architheory Signature (A.6)* — family‑specific **view** and discipline that **specialises** A.6.0 for architheories; the universal A.6.0 block remains the source of truth.  
 * *KindSignature (C.3.2)* — intensional definition of a `U.Kind` (intent/extent, F); **unrelated** to TGA kinds; never a `genus`.  
 * *Species (domain‑level)* — typed specialisations `speciesOf(kind=…)` that **MUST** declare `KindDefinition=A.*` id (e.g., `kind=Mechanism; KindDefinition=A.6.1`).  
-* *KindBridge (`CL^k`)* — a compatibility surface on UTS for aboutness/kind transitions; required by CC‑TGA‑06‑EX and crossings (CC‑TGA‑11).
+* *KindBridge (`CL^k`)* — a compatibility surface on UTS for describedEntity/kind transitions; required by CC‑TGA‑06‑EX and crossings (CC‑TGA‑11).
 * *Eulerian interpretation* — operational stance where a flow is treated as a valuation over `U.Transfer` and edges perform assurance‑only operations (no token‑passing semantics).
 * **GateCheckRef shape (publication lexeme, normative here).** Where GateChecks are surfaced, a **GateCheckRef** is a record
   `GateCheckRef := { aspect, kind, edition, scope }` with:
@@ -25741,7 +27033,7 @@ This arrangement guarantees **functorial publication** (commuting squares on cro
 1. **Model lint:** run static checks for CC‑TGA‑01…25 (edge kind, gates on crossings, CV⇒GF, guard ownership, single‑writer UNM, SquareLaw).
 2. **Publication audit:** sample a commuting square and a sentinel‑bounded subflow; verify pins and DecisionLog behavior on *block/degrade*.
 3. **Replay test:** freeze editions; re‑run selection on a PathSlice; observe identical return‑sets; apply a bump; see only affected `PathSlice`s refresh.
-4. **StructuralReinterpretation probe:** construct a minimal reinterpretation step; confirm `CL^k` with `bridgeChannel=Kind` on UTS, a SquareLaw‑Rotation witness on UTS, `PathSliceId` pinned, **CV.ReinterpretationEquivalence=pass**, and absence of hidden scalarization.
+4. **StructuralReinterpretation probe:** construct a minimal reinterpretation step; confirm `CL^k` with `bridgeChannel=Kind` on UTS, a SquareLaw‑retargeting witness on UTS, `PathSliceId` pinned, **CV.ReinterpretationEquivalence=pass**, and absence of hidden scalarization.
 
 [1]: https://webstore.ansi.org/preview-pages/ISO/preview_ISO%2B23247-1-2021.pdf?srsltid=AfmBOooAUXpg38IpkTlUFtcCpaMVOjivkewJWDIUd1VemIJO91abNEkG&utm_source=chatgpt.com "INTERNATIONAL STANDARD ISO 23247-1"
 
@@ -26104,7 +27396,7 @@ An artefact is **ready** with respect to F.0.1 when:
 **“Fix the context of meaning before you name anything.”**
 **Status.** Architectural pattern \[A], architheory‑agnostic.
 **Depends on.** E.10.D1 **Lexical Discipline for “Context” (D.CTX)**; **F.0.1 Contextual Lexicon Principles**; A.7 **Strict Distinction (Clarity Lattice)**; A.11 **Ontological Parsimony**.
-**Coordinates with.** F.2 **Term Harvesting & Normalisation**; F.3 **Intra‑Context Sense Clustering**; F.4 **Role Description**; F.9 **Alignment & Bridge Across Contexts**; **G.0–G.1** *(Scope/Aboutness handoff)*.  *(Bridges live only in F.9.)*
+**Coordinates with.** F.2 **Term Harvesting & Normalisation**; F.3 **Intra‑Context Sense Clustering**; F.4 **Role Description**; F.9 **Alignment & Bridge Across Contexts**; **G.0–G.1** *(Scope/describedEntity handoff)*.  *(Bridges live only in F.9.)*
 
 **Aliases (informative).** *Contexts‑first survey*; *Context cut*.
 
@@ -26219,7 +27511,7 @@ Declare **DomainDistance** policy (cosine or transport) and δ_family threshold;
 6. **Design/run honesty.** If a canon fixes a DesignRunTag, note it. Do not reinterpret.
 7. **Didactic primacy.** Each Context Card must be readable by a thoughtful engineer in **under two minutes**.
 8. **Domain‑family neutrality.** Domain families **carry no semantics**; they SHALL NOT be used for inheritance, inference, or bridge implication.
-9. **Scope naming separation.** `Scope gist` on Cards is **didactic only**; formal *Scope/Aboutness* (=`USM.ScopeSlice(G)` ⊕ `Aboutness(GroundingHolon, ReferencePlane)`) is declared **in G.0–G.1**, not in F.1.
+9. **Scope naming separation.** `Scope gist` on Cards is **didactic only**; formal *Scope/describedEntity* (=`USM.ScopeSlice(G)` ⊕ `describedEntity(GroundingHolon, ReferencePlane)`) is declared **in G.0–G.1**, not in F.1.
 10. **Diversity signature present.** Each Context Card PUBLISHES a `dSig` in the 5‑characteristics form.
 11. **Collision rule.** If any pair of Cards has `dSig` matching on ≥3 characteristics, mark **Near‑Duplicate** and either merge  into one slot or replace one by a Context from a different domain‑family. Record action in SCR.
 
@@ -30029,7 +31321,7 @@ Every verdict is **time‑bounded**. Changing the Window can change the result; 
 | **A8**  | **Retroactive renorm**          | A new clause or recalibrated monitor silently rewrites past verdicts.                        | Violates temporal honesty.                      | Enforce **Non‑retroactivity** (Inv‑6): past verdicts stand; new rules apply forward.                                                                     |
 | **A9**  | **Silent units**                | “Latency ≤ 120” with no unit or scale.                                                       | Ambiguous thresholds.                           | **KD‑CAL discipline**: state **Characteristic, Scale, Unit** on **MeasureCell**.                                                                         |
 | **A10** | **Hidden aggregation**          | “Global availability” but only a subset of regions/slices was covered.                       | Over‑claims evidence.                           | State the **aggregation scope** explicitly or confine the verdict to the observed subset; otherwise **Inconclusive**.                                    |
-| **A11** | **Status on the service**       | Tagging the abstract service as “Satisfied”.                                                 | Loses the aboutness of the judgement.           | Attach to **ClauseCell\@Window about WorkCell**; the service concept remains a promise vocabulary (A.2.3).                                               |
+| **A11** | **Status on the service**       | Tagging the abstract service as “Satisfied”.                                                 | Loses the describedEntity of the judgement.           | Attach to **ClauseCell\@Window about WorkCell**; the service concept remains a promise vocabulary (A.2.3).                                               |
 | **A12** | **Bridge‑by‑name**              | Equating *Activity* ≡ *Process* because both say “process”.                                  | Assumes global meaning.                         | Use **F.9 Bridge** with **kind/CL/Loss**; or keep them distinct.                                                                                         |
 
 ---
@@ -32557,7 +33849,7 @@ Recurring pains without a frame‑level spec:
 * **Illicit arithmetic.** Ordinals get averaged; units are mixed; polarity flips are implicit.
 * **Opaque evidence minima.** Numeric gates run on *whatever is at hand*, not on declared **KD‑CAL lanes** or carriers.
 * **Trust blur.** Cross‑Context reuse lacks **CL penalties** and Γ‑fold rules; selection **R_eff** is not auditable.
-* **Inconsistent scope.** Global claims leak; boundaries and *aboutness* are not attached to names.
+* **Inconsistent scope.** Global claims leak; boundaries and *describedEntity* are not attached to names.
 
 ### 4) Forces (informative)
 
@@ -32579,9 +33871,9 @@ For top‑level disciplines, CG‑Spec is restricted to comparability, tolerance
 CG‑Spec :=
 ⟨ UTS.id, Edition, Context, Purpose, Audience,
   Scope := USM.ScopeSlice(G) ⊕ Boundary{TaskKinds, ObjectKinds},
-  Aboutness := ⟨GroundingHolon, ReferencePlane ∈ {world|concept|episteme}⟩,
+  describedEntity := ⟨GroundingHolon, ReferencePlane ∈ {world|concept|episteme}⟩,
   WorldRegime? ∈ {prep|live}, // refines ReferencePlane=world; affects acceptance/telemetry; introduces no new planes
-  ReferenceMap := minimal map{term/id → UTS|CHR|G.2} (stabilizes naming & aboutness),
+  ReferenceMap := minimal map{term/id → UTS|CHR|G.2} (stabilizes naming & describedEntity),
 
   ComparatorSet := [ComparatorSpec…],                 // finite, explicit
     // MUST NOT encode illegal scalarisation of partial orders;
@@ -32706,8 +33998,8 @@ Default composition: weakest‑link; admissible overrides: {min‑k‑of‑n, ha
 
 #### 5.4 Authoring Steps (S1–S6)
 
-**S1 · Frame Charter (Scope & Aboutness)**
-Declare **Context**, **USM scope**, *aboutness* (`GroundingHolon`, `ReferencePlane`), TaskKinds/ObjectKinds; record boundary examples and non‑examples.
+**S1 · Frame Charter (Scope & describedEntity)**
+Declare **Context**, **USM scope**, *describedEntity* (`GroundingHolon`, `ReferencePlane`), TaskKinds/ObjectKinds; record boundary examples and non‑examples.
 
 **S2 · Comparator Set & Gauge Draft**
 List **which** comparisons/aggregations the Frame intends (e.g., dominance, lexicographic, Pareto, affine sums on interval/ratio with unit alignment). Bind each comparator to **G.3/AggregationSpecs** and attach **GuardMacros**. **Do not** scalarise partial orders; for ordinals, use medoid/median; **WeightedSum is forbidden** on mixed scale types.
@@ -32733,7 +34025,7 @@ Acceptance depends on (a) presence of SoTAPaletteDescription (G.2) with attached
 
 | Interface          | Consumes                                | Produces / Constrains                                                    |
 | ------------------ | --------------------------------------- | ------------------------------------------------------------------------ |
-| **G.0‑1 Charter**  | CG‑Frame brief, USM scope, SoTA signals | `CG‑Spec.Scope`, `Aboutness`, `ComparatorSet`                            |
+| **G.0‑1 Charter**  | CG‑Frame brief, USM scope, SoTA signals | `CG‑Spec.Scope`, `describedEntity`, `ComparatorSet`                            |
 | **G.0‑2 SCP**      | G.3 CHR Pack, AggregationSpecs          | `CG‑Spec.SCP` + guard bindings                                           |
 | **G.0‑3 Evidence** | SoTA carriers (G.2), KD‑CAL norms       | `CG‑Spec.MinimalEvidence`, `Γ‑fold`, `CL‑Routing`                        |
 | **G.0‑4 Publish**  | All above                               | Versioned `CG‑Spec@UTS` + Name Cards, RSCR ids, Lifecycle                |
@@ -32756,7 +34048,7 @@ Acceptance depends on (a) presence of SoTAPaletteDescription (G.2) with attached
 9. **UTS‑ready.** Name Cards minted/reused with twin labels; Bridges carry **CL** and loss notes.
 10. **RSCR wired.** Tests exist for refusal paths, unit/scale checks, threshold semantics, and CL→R_eff routing.
 11. **Lifecycle set.** Refresh cadence and decay policy declared; deprecations follow **F.13–F.14** with lexical continuity notes.
-12. **Aboutness present.** `GroundingHolon`, `ReferencePlane`, and a minimal `referenceMap` are recorded.
+12. **describedEntity present.** `GroundingHolon`, `ReferencePlane`, and a minimal `referenceMap` are recorded.
 13. **Pre‑flight numeric gates.** Any numeric comparison/aggregation **MUST** cite a `CG‑Spec` entry with lawful **SCP/Γ‑fold** and **MinimalEvidence** satisfied; cross‑Context reuse requires **Bridge + CL** with penalties routed to **R_eff only** (never F).
 14. **Partial‑order stance.** `ComparatorSet` SHALL NOT force total orders where only partial orders are lawful; **no scalarisation of partial orders**. Use Pareto/Lexicographic/medoid/median as lawful.
 15. **Illumination discipline.** If Illumination is used, publish `ArchiveRef`, `InsertionPolicy`, and `Edition`; **exclude from dominance by default**; any promotion into dominance **MUST** cite a named lens/policy‑id and be recorded in provenance.
@@ -32780,7 +34072,7 @@ Acceptance depends on (a) presence of SoTAPaletteDescription (G.2) with attached
 
 CG‑Frame: R&D Portfolio Decisions
 Scope: ObjectKinds={Project}, TaskKinds={SelectPortfolio}
-Aboutness: ⟨GroundingHolon=R&D, ReferencePlane=world⟩
+describedEntity: ⟨GroundingHolon=R&D, ReferencePlane=world⟩
 
 ComparatorSet = {
   ParetoDominance,
@@ -32828,7 +34120,7 @@ RSCR:
 
 ### 11) Author’s quick checklist
 
-1. Write the **Frame Charter** (Context, USM scope, Aboutness).
+1. Write the **Frame Charter** (Context, USM scope, describedEntity).
 2. Enumerate the **ComparatorSet**; bind **SCP** with guard macros and AggregationSpecs.
 3. Bind **Characteristics\[]** to **CHR** ids; ensure Scale/Unit/Polarity are declared (reuse or mint in UTS).
 4. Publish **MinimalEvidence** per characteristic (KD‑CAL lanes, carriers, freshness, Bridge/CL allowances, failure behavior).
@@ -32882,8 +34174,8 @@ Provide a **repeatable generator scaffold** that **targets goldilocks slots (fea
 
 **M1 · CG-Frame Card (scope anchor)**
 
- **Inputs:** CG-Frame name; purpose; audience; boundary; **USM scope claims (G) + SenseCells (F.3)**; **comparability/CL policy**;  **aboutness:** GroundingHolon(X); **ReferencePlane ∈ {world, concept, episteme}**;   **referenceMap:** observable cues → CHR candidates (instrument/protocol/uncertainty)
-**Outputs:**` CG-FrameContext := U.BoundedContext `+ **USM.ScopeSlice(G) + MDS** + **aboutness block** + **Bridge policy** (CL thresholds) + **Γ‑fold** hints (B.1) + **UTS row id** (⟨CG‑FrameDescription | CG‑Spec⟩)`
+ **Inputs:** CG-Frame name; purpose; audience; boundary; **USM scope claims (G) + SenseCells (F.3)**; **comparability/CL policy**;  **describedEntity:** GroundingHolon(X); **ReferencePlane ∈ {world, concept, episteme}**;   **referenceMap:** observable cues → CHR candidates (instrument/protocol/uncertainty)
+**Outputs:**` CG-FrameContext := U.BoundedContext `+ **USM.ScopeSlice(G) + MDS** + **describedEntity block** + **Bridge policy** (CL thresholds) + **Γ‑fold** hints (B.1) + **UTS row id** (⟨CG‑FrameDescription | CG‑Spec⟩)`
 
 **M2 · SoTA Harvester (scoped set)**
 
@@ -32912,7 +34204,7 @@ CharacteristicSpace includes a **domain‑family coordinate** (grid or CVT / Cen
 **M5 · F‑Binding (publication surface)**
 
 * **Inputs:** Shortlist; local senses
-* **Ops:** mint/ reuse (F.8), create RoleDesc (F.4), finalise Concept‑Set rows (F.7), write UTS entries (F.17), propose names (F.18), **register RSCR tests (F.15) and Worked‑Examples**; carry the **aboutness block** (GroundingHolon, ReferencePlane, referenceMap summary) into UTS Name Cards/rows; ensure **CharacteristicRef**s point to **CG‑Spec.characteristics\[] ids**.
+* **Ops:** mint/ reuse (F.8), create RoleDesc (F.4), finalise Concept‑Set rows (F.7), write UTS entries (F.17), propose names (F.18), **register RSCR tests (F.15) and Worked‑Examples**; carry the **describedEntity block** (GroundingHolon, ReferencePlane, referenceMap summary) into UTS Name Cards/rows; ensure **CharacteristicRef**s point to **CG‑Spec.characteristics\[] ids**.
 
 * **Outputs:** `CG-FrameLibrary` (CAL/LOG/CHR bundles) + **UTS entries with twin labels + loss/bridge notes** + Name Cards **+ RSCR ids**
 * **Guards:** **No tool lock‑in (E.5.1–E.5.3)**; lexical rules (E.10); measurement discipline (A.17–A.19/C.16).
@@ -32945,7 +34237,7 @@ CharacteristicSpace includes a **domain‑family coordinate** (grid or CVT / Cen
 ### 8) Conformance Checklist (normative, terse)
 
 1. **Context declared.** Every artifact is spoken **in** `CG-FrameContext` (U.BoundedContext); no global claims.
-2. **Aboutness present.** Every …Description published in G.1 carries `about: GroundingHolon`, `ReferencePlane`, and a minimal `referenceMap`.
+2. **describedEntity present.** Every …Description published in G.1 carries `describe: GroundingHolon`, `ReferencePlane`, and a minimal `referenceMap`.
 3. **CG‑Spec required for comparisons.** Any numeric comparison/aggregation cites a **CG‑Spec** (characteristics, gauge, Γ‑fold); cross‑Context/Tradition use via **Bridge + CL** with penalties to **R_eff** only (never to F).
 4. **Evidence anchored.** All SoTA imports and evaluations link to carriers (A.10); no self‑evidence.
 5. **Design/run split.** Generators & selections are **design‑time**; operational runs are **Work** (A.4/A.15).
@@ -33042,7 +34334,7 @@ Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” cla
 **SoS‑indicators.** Where the literature offers Science-of-Science disciplinary indicators (replication, standardisation, disruptive balance, alignment) treat each as a **MethodFamily** with variants (calculation windows/constraints), not as a single scalar; record Acceptance branches for each variant.
 
 #### 4.2 Claim distillation (per lineage/`Tradition`)
-* For each Tradition, extract a **Claim Sheet** (minimal, typed statements) with **F‑ratings**, **G‑scope cues**, and **R‑Evidence Graph Ref** **tagged with KD‑CAL lanes (TA/VA/LA)**, plus **Aboutness** (`GroundingHolon`) and **ReferencePlane ∈ {world, concept, episteme}**; **Domain mentions stitched to D.CTX + UTS** (catalog‑only); include a stub **referenceMap** (observable cues → prospective CHR). Record **freshness windows** and the **edition** of any metric/distance used.
+* For each Tradition, extract a **Claim Sheet** (minimal, typed statements) with **F‑ratings**, **G‑scope cues**, and **R‑Evidence Graph Ref** **tagged with KD‑CAL lanes (TA/VA/LA)**, plus **describedEntity** (`GroundingHolon`) and **ReferencePlane ∈ {world, concept, episteme}**; **Domain mentions stitched to D.CTX + UTS** (catalog‑only); include a stub **referenceMap** (observable cues → prospective CHR). Record **freshness windows** and the **edition** of any metric/distance used.
 
 #### 4.3 Operator & object inventory
 
@@ -33055,7 +34347,7 @@ Gate@M2‑exit: if FamilyCoverage < k (default k=3 for triad/“universal” cla
 
 * Build a **Bridge Matrix**: `Tradition`×`Tradition` with where alignment is possible, **CL** and explicit **loss**; **note that CL penalties route to R_eff only (F and G invariant)**. Publish the **`DistanceDefRef.edition`** used to compute inter‑family distances.
 
-#### 4.5 Didactic micro‑grounding & aboutness anchoring
+#### 4.5 Didactic micro‑grounding & describedEntity anchoring
 
 *For every load‑bearing claim, attach two micro‑examples …* **and link each micro‑example to carriers (A.10)** to serve as minimal anchors for future **CG‑Frame** characteristics and CHR cards.
 
@@ -33091,7 +34383,7 @@ Required artifact for top‑level disciplines: **SoTAPaletteDescription (D)**, a
 * **G.2d** *Bridge Matrix* with CL & loss notes.
 * **G.2e** *Micro‑examples* (1‑pagers).
 * **G.2f** *UTS Proposals* (Name Cards + proposed rows/aliases).
-* **G.2g** *Aboutness Map*: per Tradition, a table `{term → GroundingHolon, ReferencePlane, referenceMap stubs}`.
+* **G.2g** *describedEntity Map*: per Tradition, a table `{term → GroundingHolon, ReferencePlane, referenceMap stubs}`.
 * **G.2h** *PRISMA Flow Record* (identification→screening→eligibility→included).
 * **G.2i** *SoS‑Indicator Families* (variants, constraints, Acceptance branches).
 * **G.2j** *MethodFamily Cards* (signature, ValidityRegion, CostModel, Guarantees, KnownFailures, EvidenceRefs).
@@ -33115,7 +34407,7 @@ Required artifact for top‑level disciplines: **SoTAPaletteDescription (D)**, a
 * **Rival Traditions kept disjoint.** No fused claims without an explicit alignment proof or Bridge. 
 * **Measurement lawful.** All proposed characteristics/scales honour MM‑CHR guards (no illegal ordinal arithmetic; unit coherence; declared polarity). 
 * **Hand‑offs produced.** CHR/CAL/LOG manifests exist and reference the SoTA pack components. 
-* **Aboutness declared.** Each Claim Sheet states `GroundingHolon` and `ReferencePlane`; micro‑examples cite carriers (A.10).
+* **describedEntity declared.** Each Claim Sheet states `GroundingHolon` and `ReferencePlane`; micro‑examples cite carriers (A.10).
 * **Didactic grounding.** Each load‑bearing claim has **two worked micro‑examples** (heterogeneous substrates) and **A.10 anchors** with lane tags (**TA/VA/LA**).
 * **UTS‑ready.** Each candidate term has a **Name Card** draft **with twin labels** (F.17–F.18), Context, MDS, concept‑set linkage (or rationale for “not applicable”).
 * **DHC hooks present.** DHC‑SenseCells are emitted; **AlignmentDensity** units declared; **freshness windows + edition** stated (C.21).
@@ -33461,7 +34753,7 @@ Provide **typed templates** (lexicographic, Pareto with explicit **non‑dominat
 **Outputs:** `CAL.Flow[]` + legality proofs/links.
 **Guards:** Ordinal **MUST NOT** be averaged/subtracted; unit mismatches **fail fast**.
 
-**C5 · Evidence Wiring & Γ‑fold (R aggregation)** (declare **TA/LA/VA lanes + Aboutness‑E0 fields readable to SCR; Γ = weakest‑link unless proven otherwise; **Φ‑policies must be monotone and bounded**)
+**C5 · Evidence Wiring & Γ‑fold (R aggregation)** (declare **TA/LA/VA lanes + describedEntity‑E0 fields readable to SCR; Γ = weakest‑link unless proven otherwise; **Φ‑policies must be monotone and bounded**)
 For each Operator/Flow, define **EvidenceProfile**:
 
 ```
@@ -33895,7 +35187,7 @@ A **PathSliceId := PathId × Γ_time window × ReferencePlane**. It keys **relea
 
 * **Γ‑fold & penalties.** Unless justified otherwise in **CAL.ProofLedger**, **R** aggregates by **weakest‑link**, then applies **Φ(CL_min)**, any applicable **Ψ(`CL^k`)** (where a **KindBridge** is traversed), and **Φ_plane** (all **bounded, monotone**), and is **clipped**: `R_eff := max(0, …)`. **F = min**. **G** composes as **intersection along a path**; **SpanUnion** across **independent** lines only (see CC‑G6‑10/12). Penalties **never** modify F/G. **All numeric operations MUST be lawful per CG‑Spec (declared characteristic, unit/scale, Γ‑fold); illegal mixes trigger fail‑fast and RSCR.**
 * **Lane separation.** Evidence lanes remain **separable** through to the assurance surface and SCR; no averaging across lanes.
-* **Exposure to SCR.** Every path resolves to **SCR/RSCR** entries; the **Assurance SCR** displays node/edge values, aboutness and plane, **TA/VA/LA table**, **valid‑until/decay**, and **Epistemic‑Debt**. **Mandatory fields:** lane‑split, **Γ‑fold contributors** (with ids), **Φ(CL)**/**Φ\_plane policy‑ids**, **PathId/PathSliceId**, and, when QD/illumination is involved, `U.DescriptorMapRef.edition` and `DistanceDefRef.edition` ids.
+* **Exposure to SCR.** Every path resolves to **SCR/RSCR** entries; the **Assurance SCR** displays node/edge values, describedEntity and plane, **TA/VA/LA table**, **valid‑until/decay**, and **Epistemic‑Debt**. **Mandatory fields:** lane‑split, **Γ‑fold contributors** (with ids), **Φ(CL)**/**Φ\_plane policy‑ids**, **PathId/PathSliceId**, and, when QD/illumination is involved, `U.DescriptorMapRef.edition` and `DistanceDefRef.edition` ids.
 * **Reuse across Contexts.** Any cross‑Context/plane reuse must cite **Bridge ids + loss notes**; penalties route to **R\_eff only**; **policy‑ids** for Φ/Ψ are published in the SCR and CG‑Spec.
 
 **4.5 Conceptual API (notation‑independent surface).**
@@ -33934,7 +35226,7 @@ Scope: **Universal** within the Conceptual Core; numerical policies (Φ/Ψ table
 | **CC‑G6‑5 (Γ‑fold discipline)**        | **Declare Γ‑fold**; default is **weakest‑link**. Overrides **MUST** cite CAL.ProofLedger ids for monotonicity/boundary behaviour.                        | Legal aggregation without redefining B.3.                                                                                                   |
 | **CC‑G6‑6 (Time & decay)**             | Empirical legs **MUST** expose **freshness windows** and **valid‑until**; expiry incurs **Epistemic Debt** with managed resolution.                      | Stops “latest” drift.                                                                                                                        |
 | **CC‑G6‑7 (Design/run split)**         | EvidenceGraph **SHALL NOT** mix design‑time MethodDescription with run‑time Work traces in one node; use explicit instantiation bridges.                 | Avoids stance chimeras.                                                                                                                     |
-| **CC‑G6‑8 (SCR surface)**              | For any **PathId**, the **Assurance SCR** **SHALL** list node/edge F,G,R, CL, aboutness, plane, TA/VA/LA table, decay, and Epistemic‑Debt.               | Complete audit surface.                                                                                                                     |
+| **CC‑G6‑8 (SCR surface)**              | For any **PathId**, the **Assurance SCR** **SHALL** list node/edge F,G,R, CL, describedEntity, plane, TA/VA/LA table, decay, and Epistemic‑Debt.               | Complete audit surface.                                                                                                                     |
 | **CC‑G6‑9 (Citable PathIds)**          | **SoS‑LOG** decisions (admit/degrade/abstain) and **Maturity rung transitions** **MUST** cite **EvidenceGraph PathId(s)**. Absence forbids rung advance. | Stable justifications per C.23.                                                                                                              |
 | **CC‑G6‑10 (Independence note)**       | If a **SpanUnion** of evidence lines is claimed, publish the **independence justification**.                                                             | Lawful enlargement of G.                                                                                                                     |
 | **CC‑G6‑11 (UTS hooks)**               | Evidence artefacts and PathIds **MUST** be **UTS‑citable** with twin labels (Tech/Plain).                                                                | Publication discipline.                                                                                                                     |
@@ -34478,7 +35770,7 @@ A **SoTA‑Pack(Core)** is a **conceptual object** (published to **UTS** and sur
 ```
 SoTA‑Pack(Core) :=
 ⟨ PackId (UTS), Edition, HomeContext,
-  CG‑FrameRef, Aboutness := ⟨GroundingHolon, ReferencePlane⟩,
+  CG‑FrameRef, describedEntity := ⟨GroundingHolon, ReferencePlane⟩,
   ComparatorSetRef (CG‑Spec) + Γ‑fold notes,            // legality & folding
   ParityPins := { EditionPins, ΦPolicyIds },             // edition/policy anchors (ids only)
   Families := { MethodFamilyIds[], GeneratorFamilyIds?[] },
@@ -34886,7 +36178,7 @@ External indexes publish **claim‑adjacent signals** (citations, disruption, re
 #### 4.1 Objects (LEX heads; twin‑register discipline)
 
 * **`ExternalIndexCard@Context`** — conceptual registration of an external index/snapshot:
-  `⟨IndexId, ProviderName, Edition (date/commit), CoverageScope, Licence, Aboutness := ⟨GroundingHolon, ReferencePlane⟩, FreshnessWindow, Notes⟩`.
+  `⟨IndexId, ProviderName, Edition (date/commit), CoverageScope, Licence, describedEntity := ⟨GroundingHolon, ReferencePlane⟩, FreshnessWindow, Notes⟩`.
   *Edition lives on the **Card**, and is cited by downstream mappers and telemetry.*
 
 * **`ClaimMapperCard@Context`** — executable *conceptual* mapping (no file syntax) from index entities to FPF artefacts:
@@ -34906,7 +36198,7 @@ External indexes publish **claim‑adjacent signals** (citations, disruption, re
 
 #### 4.2 Generation‑first interop flow (notation‑independent)
 
-1. **Register sources.** Author **ExternalIndexCard**(s) with editions & freshness windows; declare AboutnessPlane. 
+1. **Register sources.** Author **ExternalIndexCard**(s) with editions & freshness windows; declare describedEntityPlane. 
 2. **Map claims.** Run **ClaimMapperCard** to produce **ClaimSheets** (e.g., problem/task taxonomies, method assertions, dataset links) and **BridgeHints** (candidate context crossings with loss notes). Plane crossings publish **Φ_plane** alongside **Φ(CL)**; penalties route to **R_eff** only. 
 3. **Type as SoS features.** Apply **SoSFeatureTransform** to bind mapped signals to **CG‑Spec** characteristics (scale legality via CSLC proofs), producing lawful SoS inputs for **C.21** DHC slots and **C.23** maturity rules.  
 4. **Feed generation.**
