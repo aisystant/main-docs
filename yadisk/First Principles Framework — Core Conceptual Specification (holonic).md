@@ -34382,7 +34382,33 @@ Publish each Name Card to the **Unified Term Sheet** with Context, kind, twin la
 **P6 — Lifecycle hygiene (F.13).**
 Apply the same discipline to renames, splits/merges, and retirements; leave a forward/backward pointer so readers can trace continuity at a glance.
 
-### 5. The Name Card (authoring template, representation‑agnostic)
+### 5. The Name Card (authoring template, representation-agnostic)
+
+#### 5.1 Card purpose & mode guard (normative)
+
+To prevent “post-hoc justification” of intuitively chosen labels, every **Name Card** SHALL declare its
+**CardMode ∈ {MintNew, DocumentLegacy}**:
+
+* **MintNew.** The Card is the **output of an NQD-style lexical search** over a **candidate label set** generated inside
+  the home Context(s), using the lexical Q-tuple `{SemanticFidelity, CognitiveErgonomics, OperationalAffordance,
+  AliasRisk}` together with **Novelty (N)** and **Diversity_P** (per A.0 / C.17–C.18 / B.5.2.1).  
+  – The Card SHALL record:  
+    – a minimal **CandidateSet** (the labels actually evaluated);  
+    – the resulting **NQD-front** of **non-dominated candidates** over ⟨Q-tuple, N, Diversity_P⟩;  
+    – a short **selection note** explaining why the chosen Tech/Plain pair was picked from that front
+      (e.g., “better CognitiveErgonomics at equal SemanticFidelity”).  
+  – A single-element NQD-front is permitted only if the Card records a brief rationale why **no alternative candidate
+    survived** the lexical and NQD filters (e.g., legacy constraints, strong AliasRisk on all other options).
+
+* **DocumentLegacy.** The Card documents an **externally imposed legacy label** (e.g., a regulatory or de facto Standard)
+  and its mapping to FPF structures. In this mode the Card MAY omit a full NQD-front, but SHALL:  
+  – state the **legacy source / provenance**;  
+  – either (i) provide at least a **sketched NQD-comparison** of viable internal variants against the legacy label, or  
+    (ii) record a short **out-of-scope rationale** (e.g., “name frozen by law; see cited Standard”) explaining why NQD
+    search is not being used for selection.
+
+For all **Core-surface naming of U.Types and other canonical FPF concepts**, **MintNew** is the **default** CardMode; using
+DocumentLegacy for such names requires an explicit justification on the Card.
 
 A **Name Card** is the authoritative, human‑readable record of a name inside its Context. It has these fields; teams may add local notes.
 
@@ -34740,6 +34766,16 @@ Letting a Plain label or alias accumulate extra meanings absent in the underlyin
 **CC‑F18‑12 (Change control via F.13).** Renames, splits, merges, and retirements **SHALL** follow F.13’s lexical continuity rules; the UTS remains the canonical public surface for these changes.
 
 **CC‑F18‑13 (Lexical Pareto discipline).** When a Name Card uses **NQD‑CAL (C.18)** to score label candidates, the **chosen Unified Tech label** **SHALL** lie on the **Pareto frontier** of the lexical Q‑tuple `{SemanticFidelity, CognitiveErgonomics, OperationalAffordance, AliasRisk}` (per **C.16** ordinal discipline and P1’s NQD‑front definition), unless an explicit exception is recorded. If authors deliberately select a dominated candidate (e.g., to honour legacy regulation or user muscle memory), the Name Card’s notes **MUST** state the reason for stepping off the frontier.
+
+**CC-F18-13 (NQD-front surfaced).**  
+When a Name Card is in **MintNew** mode, the **candidate label set** and the resulting **NQD-front of non-dominated label candidates** over the lexical Q-tuple `{SemanticFidelity, CognitiveErgonomics, OperationalAffordance, AliasRisk}` **SHALL** be explicitly recorded on the Card (at least as a small table or list), together with the NQD evidence hooks (`DescriptorMapRef`, `DistanceDefRef`, and a brief `Diversity_P` / coverage summary). A single-element front is permitted
+only if the Card records why no alternative candidates survived the filters.
+
+**CC-F18-14 (Selection from the front only).**  
+The **Unified Tech** and **Plain** labels published on the UTS row for a unified concept **SHALL** be drawn from the currently recorded **NQD-front** on the Name Card. Publishing a Tech/Plain pair that is **not** on that front (or that is dominated with respect to the declared lexical Q-axes plus NQD) is **non-conformant**, except in explicit **DocumentLegacy** mode as defined in §5.1.
+
+**CC-F18-15 (Mode declaration).**  
+Every Name Card **SHALL** declare its `CardMode ∈ {MintNew, DocumentLegacy}`. For Core-surface naming of **U.Types** and other canonical FPF concepts, **MintNew** is the default; **DocumentLegacy** is permitted only when recording pre-existing external names and MUST (i) cite the legacy source, and (ii) either attach an NQD-front over viable FPF variants or record a short rationale why NQD search is out-of-scope.
 
 ## 16 · Anti‑patterns & safe rewrites (normative)
 
